@@ -4,6 +4,73 @@ local CODE_CRAFTING = 108
 local fetchLimit = 10
 
 local categories = {"weaponsmith", "armorsmith", "alchemist", "enchanter", "jeweller"}
+local CRAFTING_RANGE = 1
+local CraftingSessions = {}
+local CONTAINER_POS = rawget(_G, "CONTAINER_POSITION") or 65535
+local SLOT_AMMO = rawget(_G, "CONST_SLOT_AMMO") or 10
+local MAX_CONTAINER_SCAN_ID = 15
+local MAX_CONTAINER_RECURSION = 8
+
+local function clonePos(pos)
+  if not pos then
+    return nil
+  end
+  return {x = pos.x, y = pos.y, z = pos.z}
+end
+
+local function inRange(pos, anchor, range)
+  if not pos or not anchor then
+    return false
+  end
+  if pos.z ~= anchor.z then
+    return false
+  end
+  return math.abs(pos.x - anchor.x) <= range and math.abs(pos.y - anchor.y) <= range
+end
+
+local function sendCraftingClose(player, message)
+  if message and message ~= "" then
+    player:sendCancelMessage(message)
+  end
+  player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "close"}))
+end
+
+local function clearCraftingSession(player, closeClient, message)
+  CraftingSessions[player:getId()] = nil
+  if closeClient then
+    sendCraftingClose(player, message)
+  end
+end
+
+local function setCraftingSession(player, anchorPos)
+  CraftingSessions[player:getId()] = {
+    anchor = clonePos(anchorPos),
+    range = CRAFTING_RANGE
+  }
+end
+
+local function getCraftingSession(player)
+  return CraftingSessions[player:getId()]
+end
+
+local function ensureCraftingInRange(player, closeOnFail)
+  local session = getCraftingSession(player)
+  if not session or not session.anchor then
+    if closeOnFail then
+      clearCraftingSession(player, true, "Open crafting at the crafting station.")
+    end
+    return nil
+  end
+
+  if not inRange(player:getPosition(), session.anchor, session.range or CRAFTING_RANGE) then
+    if closeOnFail then
+      clearCraftingSession(player, true, "You moved too far from the crafting station.")
+    end
+    return nil
+  end
+
+  return session
+end
 
 local function parseTargetItem(player, targetData)
   if type(targetData) ~= "table" then
@@ -19,31 +86,140 @@ local function parseTargetItem(player, targetData)
     return nil
   end
 
+  -- Enchanter target is selected from backpack/container.
+  if x ~= CONTAINER_POS then
+    return nil
+  end
+
+  local function isBackpackItem(it)
+    if not it then
+      return false
+    end
+    local p = it:getPosition()
+    if not p or p.x ~= CONTAINER_POS then
+      return false
+    end
+    -- Equipped items usually come as x=65535, y=slot(<=10), z=0.
+    if p.z == 0 and p.y <= SLOT_AMMO then
+      return false
+    end
+    return true
+  end
+
+  local function getContainerItemByIndex(container, index)
+    if not container then
+      return nil
+    end
+    index = tonumber(index)
+    if not index then
+      return nil
+    end
+    local it = container:getItem(index)
+    if it then
+      return it
+    end
+    -- Some builds expose 1-based indexing in Lua wrappers.
+    if index >= 0 then
+      return container:getItem(index + 1)
+    end
+    return nil
+  end
+
+  local function findByIdInContainer(container, wantedId, depth)
+    if not container or depth <= 0 then
+      return nil
+    end
+    local size = container:getSize() or 0
+    for i = 0, size - 1 do
+      local ci = container:getItem(i)
+      if ci then
+        if ci:getId() == wantedId then
+          return ci
+        end
+        if ci:isContainer() then
+          local nested = findByIdInContainer(ci, wantedId, depth - 1)
+          if nested then
+            return nested
+          end
+        end
+      end
+    end
+    return nil
+  end
+
+  local item
+  local fallbackId = tonumber(targetData.id) or 0
+
+  -- Protocol container addressing: x=65535, y=containerId+64, z=slotIndex.
+  if y >= 64 then
+    local containerId = y - 64
+    local container = player:getContainerById(containerId)
+    if container then
+      item = getContainerItemByIndex(container, z)
+      if item then
+        return item
+      end
+
+      if stackpos and stackpos ~= z and stackpos >= 0 then
+        item = getContainerItemByIndex(container, stackpos)
+        if item then
+          return item
+        end
+      end
+
+      if fallbackId > 0 then
+        item = findByIdInContainer(container, fallbackId, MAX_CONTAINER_RECURSION)
+        if item then
+          return item
+        end
+      end
+    end
+  end
+
+  -- Generic lookup fallback.
   local pos = Position(x, y, z, stackpos)
-  local item = player:getItem(pos)
-  if item then
+  item = player:getItem(pos)
+  if isBackpackItem(item) then
     return item
   end
 
-  -- Some clients may send stackpos=0 for container items, so try without stack index.
-  if stackpos == 0 then
-    item = player:getItem(Position(x, y, z))
-    if item then
+  -- Try without stack index as some builds ignore/expect different stackpos for container positions.
+  item = player:getItem(Position(x, y, z))
+  if isBackpackItem(item) then
+    return item
+  end
+
+  if stackpos ~= 0 then
+    item = player:getItem(Position(x, y, z, 0))
+    if isBackpackItem(item) then
       return item
     end
   end
 
-  -- Fallback: if client position changed while the panel was open, find by id in containers.
-  local fallbackId = tonumber(targetData.id) or 0
+  -- Fallback by id/subtype inside open containers.
   if fallbackId > 0 then
-    item = player:getItemById(fallbackId, true)
-    if item then
-      return item
+    -- Prefer searching all open containers before generic getItemById to avoid map collisions.
+    for containerId = 0, MAX_CONTAINER_SCAN_ID do
+      local container = player:getContainerById(containerId)
+      if container then
+        item = findByIdInContainer(container, fallbackId, MAX_CONTAINER_RECURSION)
+        if isBackpackItem(item) then
+          return item
+        end
+      end
     end
 
     local fallbackSubType = tonumber(targetData.subType)
     if fallbackSubType and fallbackSubType >= 0 then
-      return player:getItemById(fallbackId, true, fallbackSubType)
+      item = player:getItemById(fallbackId, true, fallbackSubType)
+      if isBackpackItem(item) then
+        return item
+      end
+    end
+
+    item = player:getItemById(fallbackId, true)
+    if isBackpackItem(item) then
+      return item
     end
   end
 
@@ -69,15 +245,14 @@ local function canApplyEnchanterCraft(target, craft, player, selectedSlot)
     return false, nil, "invalid_target_or_craft"
   end
 
-  local targetPosition = target:getPosition()
-  if targetPosition and targetPosition.x == CONTAINER_POSITION and targetPosition.y <= CONST_SLOT_AMMO then
-    return false, nil, "equipped_slot"
+  local session = getCraftingSession(player)
+  if not session or not session.anchor then
+    return false, nil, "session_missing"
   end
-  if targetPosition and targetPosition.x ~= CONTAINER_POSITION and player then
-    local dist = getDistanceBetween(player:getPosition(), targetPosition)
-    if dist > 1 then
-      return false, nil, "too_far_from_target"
-    end
+
+  local targetPosition = target:getPosition()
+  if targetPosition and targetPosition.x == CONTAINER_POS and targetPosition.z == 0 and targetPosition.y <= SLOT_AMMO then
+    return false, nil, "equipped_slot"
   end
 
   local itemType = target:getType()
@@ -269,7 +444,12 @@ end
 
 local ActionEvent = Action()
 
-function ActionEvent.onUse(player)
+function ActionEvent.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+  local anchor = player:getPosition()
+  if item and item:getPosition() then
+    anchor = item:getPosition()
+  end
+  setCraftingSession(player, anchor)
   player:showCrafting()
   return true
 end
@@ -305,8 +485,14 @@ function ExtendedEvent.onExtendedOpcode(player, opcode, buffer)
         Crafting:sendCrafts(player, category)
       end
     elseif action == "enchanter_target" then
+      if not ensureCraftingInRange(player, true) then
+        return true
+      end
       Crafting:sendEnchanterOptions(player, data and data.target or nil)
     elseif action == "craft" then
+      if not ensureCraftingInRange(player, true) then
+        return true
+      end
       Crafting:craft(player, data)
     end
   end
@@ -433,6 +619,10 @@ function Crafting:craft(player, data)
   local isEnchantService = category == "enchanter" and craft.enchantId ~= nil
 
   if isEnchantService then
+    if not ensureCraftingInRange(player, true) then
+      return
+    end
+
     if player:getLevel() < craft.level then
       return
     end
@@ -558,11 +748,72 @@ function Crafting:sendEnchanterOptions(player, targetData)
       end
     end
     debug[#debug + 1] = "allowed=" .. tostring(#allowed) .. "/" .. tostring(#Crafting.enchanter)
+    if #allowed > 0 then
+      local preview = {}
+      for i = 1, math.min(#allowed, 10) do
+        preview[#preview + 1] = tostring(allowed[i])
+      end
+      debug[#debug + 1] = "allowed_ids=" .. table.concat(preview, ",")
+    end
     for reason, count in pairs(reasonStats) do
       debug[#debug + 1] = reason .. ":" .. count
     end
   else
     debug[#debug + 1] = "target=nil"
+    if type(targetData) == "table" then
+      debug[#debug + 1] =
+        string.format(
+        "in=%s,%s,%s sp=%s id=%s st=%s cpos=%s",
+        tostring(targetData.x),
+        tostring(targetData.y),
+        tostring(targetData.z),
+        tostring(targetData.stackpos),
+        tostring(targetData.id),
+        tostring(targetData.subType),
+        tostring(CONTAINER_POS)
+      )
+
+      local probeId = tonumber(targetData.id) or 0
+      if probeId > 0 then
+        local containerId = tonumber(targetData.y)
+        if containerId and containerId >= 64 then
+          containerId = containerId - 64
+          local c = player:getContainerById(containerId)
+          if c then
+            local size = c:getSize() or 0
+            local zidx = tonumber(targetData.z) or 0
+            local i0 = c:getItem(zidx)
+            local i1 = c:getItem(zidx + 1)
+            debug[#debug + 1] =
+              string.format(
+              "cont=%d size=%d idx=%d item0=%s item1=%s",
+              containerId,
+              size,
+              zidx,
+              tostring(i0 and i0:getId() or "nil"),
+              tostring(i1 and i1:getId() or "nil")
+            )
+          else
+            debug[#debug + 1] = "cont=" .. tostring(containerId) .. " nil"
+          end
+        end
+
+        local probe = player:getItemById(probeId, true)
+        if probe then
+          local pp = probe:getPosition()
+          debug[#debug + 1] =
+            string.format(
+            "probe_id=%d pos=%s,%s,%s",
+            probeId,
+            tostring(pp and pp.x or -1),
+            tostring(pp and pp.y or -1),
+            tostring(pp and pp.z or -1)
+          )
+        else
+          debug[#debug + 1] = "probe_id=" .. probeId .. " not_found"
+        end
+      end
+    end
   end
 
   player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "enchanter_options", data = {ids = allowed, emptySlots = emptySlots, debug = table.concat(debug, " | ")}}))
@@ -618,12 +869,34 @@ function Crafting:sendMoney(player)
 end
 
 function Player:showCrafting()
+  if not ensureCraftingInRange(self, false) then
+    setCraftingSession(self, self:getPosition())
+  end
   Crafting:sendMoney(self)
   for _, category in ipairs(categories) do
     Crafting:sendMaterials(self, category)
   end
   self:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "show"}))
 end
+
+local CraftingSessionWatch = GlobalEvent("CraftingSessionWatch")
+
+function CraftingSessionWatch.onThink(interval)
+  for playerId, session in pairs(CraftingSessions) do
+    local player = Player(playerId)
+    if not player or not session or not session.anchor then
+      CraftingSessions[playerId] = nil
+    else
+      if not inRange(player:getPosition(), session.anchor, session.range or CRAFTING_RANGE) then
+        clearCraftingSession(player, true, "You moved too far from the crafting station.")
+      end
+    end
+  end
+  return true
+end
+
+CraftingSessionWatch:interval(500)
+CraftingSessionWatch:register()
 
 ActionEvent:aid(38820)
 ActionEvent:register()

@@ -283,7 +283,29 @@ function onMouseGrabberRelease(self, mousePosition, mouseButton)
     if clickedWidget then
       if selectedType == 'use' then
         if selectedUseWithCallback then
-          local targetThing = resolveUseWithTarget(clickedWidget, mousePosition)
+          local targetThing = nil
+
+          local probeWidget = clickedWidget
+          while probeWidget do
+            if probeWidget.getClassName and probeWidget:getClassName() == 'UIItem' and probeWidget.getItem then
+              local isVirtual = probeWidget.isVirtual and probeWidget:isVirtual()
+              if not isVirtual then
+              targetThing = probeWidget:getItem()
+              if targetThing then
+                break
+              end
+              end
+            end
+            if probeWidget.getParent then
+              probeWidget = probeWidget:getParent()
+            else
+              probeWidget = nil
+            end
+          end
+
+          if not targetThing then
+            targetThing = resolveUseWithTarget(clickedWidget, mousePosition)
+          end
           selectedUseWithCallback(clickedWidget, mousePosition, targetThing)
         else
           onUseWith(clickedWidget, mousePosition)

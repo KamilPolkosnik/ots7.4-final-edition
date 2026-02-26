@@ -368,7 +368,7 @@ MainWindow
     anchors.top: categorySeparator.bottom
     anchors.left: parent.left
     width: 210
-    height: 54
+    height: 76
     margin-top: 6
     visible: false
 
@@ -404,51 +404,65 @@ MainWindow
 
     Panel
       id: enchantTargetSlotsPanel
-      anchors.left: enchantTargetSelectButton.right
-      anchors.verticalCenter: enchantTargetSelectButton.verticalCenter
-      margin-left: 4
-      width: 90
-      height: 18
-      layout: horizontalBox
+      anchors.left: parent.left
+      anchors.top: enchantTargetLeft.bottom
+      margin-left: 2
+      margin-top: 2
+      width: 206
+      height: 36
+      layout: verticalBox
       spacing: 2
 
-      Button
-        id: enchantTargetSlot1
-        width: 14
-        text: "1"
-        visible: false
-      Button
-        id: enchantTargetSlot2
-        width: 14
-        text: "2"
-        visible: false
-      Button
-        id: enchantTargetSlot3
-        width: 14
-        text: "3"
-        visible: false
-      Button
-        id: enchantTargetSlot4
-        width: 14
-        text: "4"
-        visible: false
-      Button
-        id: enchantTargetSlot5
-        width: 14
-        text: "5"
-        visible: false
-      Button
-        id: enchantTargetSlot6
-        width: 14
-        text: "6"
-        visible: false
+      Panel
+        width: 206
+        height: 17
+        layout: horizontalBox
+        spacing: 2
+
+        Button
+          id: enchantTargetSlot1
+          width: 66
+          text: "Slot[1]"
+          visible: false
+        Button
+          id: enchantTargetSlot2
+          width: 66
+          text: "Slot[2]"
+          visible: false
+        Button
+          id: enchantTargetSlot3
+          width: 66
+          text: "Slot[3]"
+          visible: false
+
+      Panel
+        width: 206
+        height: 17
+        layout: horizontalBox
+        spacing: 2
+
+        Button
+          id: enchantTargetSlot4
+          width: 66
+          text: "Slot[4]"
+          visible: false
+        Button
+          id: enchantTargetSlot5
+          width: 66
+          text: "Slot[5]"
+          visible: false
+        Button
+          id: enchantTargetSlot6
+          width: 66
+          text: "Slot[6]"
+          visible: false
 
     Label
       id: enchantTargetHintLeft
       anchors.left: parent.left
-      anchors.top: enchantTargetLeft.bottom
+      anchors.top: enchantTargetSlotsPanel.bottom
       anchors.right: parent.right
-      margin-top: 2
+      margin-top: 1
       margin-right: 2
       text: choose item and empty slot
       text-align: left

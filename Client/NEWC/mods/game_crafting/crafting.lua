@@ -127,8 +127,8 @@ local function refreshEnchantTargetSlotButtons()
   for i = 1, #enchantTargetSlotButtons do
     local button = enchantTargetSlotButtons[i]
     if button and button.slotValue then
-      local selected = tonumber(button.slotValue) == tonumber(selectedEnchantTargetSlot)
-      button:setText(selected and ("[" .. button.slotValue .. "]") or tostring(button.slotValue))
+      local text = "Slot[" .. tostring(button.slotValue) .. "]"
+      button:setText(text)
     end
   end
 end
@@ -214,7 +214,7 @@ local function clearEnchantTargetSelection()
     enchantTargetWidget:setTooltip("")
   end
   if enchantTargetHint then
-    enchantTargetHint:setText("choose item and empty slot")
+    enchantTargetHint:setText("choose item from backpack and empty slot")
   end
   if selectedCategory == "enchanter" then
     refreshItemsList()
@@ -233,7 +233,12 @@ local function applyEnchantTargetThing(targetThing)
     return false
   end
 
-  if pos.x == 65535 and pos.y <= InventorySlotLast then
+  if pos.x ~= 65535 then
+    modules.game_textmessage.displayFailureMessage("Select item from backpack/container only.")
+    return false
+  end
+
+  if pos.y <= InventorySlotLast then
     modules.game_textmessage.displayFailureMessage("Select from backpack/container, not equipped slot.")
     return false
   end
@@ -255,7 +260,7 @@ local function applyEnchantTargetThing(targetThing)
     enchantTargetWidget:setTooltip("Selected item id: " .. itemId)
   end
   if enchantTargetHint then
-    enchantTargetHint:setText("item id: " .. itemId .. " | loading...")
+    enchantTargetHint:setText("item id: " .. itemId .. " pos: " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " | loading...")
   end
 
   selectedEnchantTargetSlot = nil
@@ -449,6 +454,9 @@ function onExtendedOpcode(protocol, code, buffer)
     if selectedCategory == "enchanter" and selectedEnchantTarget then
       requestEnchanterOptions()
     end
+  elseif action == "close" then
+    clearEnchantTargetSelection()
+    hide()
   elseif action == "enchanter_options" then
     local ids = data and data.ids or {}
     setAllowedEnchanterCraftIds(ids)
@@ -689,7 +697,7 @@ local function updateCategoryLayout()
 
   if enchantTargetPanel then
     enchantTargetPanel:setVisible(showEnchanter)
-    enchantTargetPanel:setHeight(showEnchanter and 54 or 0)
+    enchantTargetPanel:setHeight(showEnchanter and 76 or 0)
   end
   if enchantTargetWidget then
     enchantTargetWidget:setVisible(showEnchanter)
@@ -800,12 +808,22 @@ function selectEnchantTargetUseWith()
     return
   end
 
+  clearEnchantTargetSelection()
   if enchantTargetHint then
     enchantTargetHint:setText("click item in backpack")
   end
 
   local selectorItem = Item.create(3031, 1)
   modules.game_interface.startUseWith(selectorItem, 0, function(clickedWidget, mousePos, targetThing)
+    if clickedWidget and clickedWidget.getClassName and clickedWidget:getClassName() == "UIItem" and clickedWidget.isVirtual and clickedWidget:isVirtual() then
+      modules.game_textmessage.displayFailureMessage("Select real item from backpack/container.")
+      return
+    end
+
+    if not targetThing or not targetThing:isItem() then
+      modules.game_textmessage.displayFailureMessage("Select item from backpack/container.")
+      return
+    end
     applyEnchantTargetThing(targetThing)
   end)
 end
