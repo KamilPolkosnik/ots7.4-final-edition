@@ -1,0 +1,320 @@
+Armorsmith Helmets - drops + quest sources report
+Generated: 2026-02-25 10:41:24
+Helmets found (slotType=head): 44
+
+[amazon helmet] id=2499
+- drop: orc warlord: chance=800/100000 (0.8%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[beholder helmet] id=3972
+- drop: Elder Beholder: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[brass helmet] id=2460
+- drop: Ghoul: chance=20000/100000 (20.0%)
+- drop: Hunter: chance=5000/100000 (5.0%)
+- drop: Minotaur: chance=1000/100000 (1.0%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:364 | doPlayerAddItem(cid,2460,1)						--Brass helmet
+  - data/actions/scripts/quest/bear room brass helmet.lua:10 | item_uid = doPlayerAddItem(cid,2460,1)
+  - data/actions/scripts/quest/old-city-quest.lua:13 | item_uid = doPlayerAddItem(cid,2460,1)
+- status: DROP+QUEST
+
+[ceremonial mask] id=2501
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[chain helmet] id=2458
+- drop: Orc Berserker: chance=11000/100000 (11.0%)
+- drop: Orc Shaman: chance=9000/100000 (9.0%)
+- drop: Bandit: chance=5000/100000 (5.0%)
+- drop: Wild Warrior: chance=5000/100000 (5.0%)
+- drop: Sibang: chance=4000/100000 (4.0%)
+- drop: Valkyrie: chance=4000/100000 (4.0%)
+- drop: Minotaur: chance=1000/100000 (1.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[charmer tiara] id=3971
+- drop: Serpent Spawn: chance=2000/100000 (2.0%)
+- drop: Lizard Snakecharmer: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[crown helmet] id=2491
+- drop: Golden Knight: chance=5000/100000 (5.0%)
+- drop: Hero: chance=500/100000 (0.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/lizard box.lua:11 | item_uid = doPlayerAddItem(cid,2491,1)
+  - data/actions/scripts/main/Old Quest file.lua:1106 | doPlayerAddItem(cid, 2491, 1)				--Crown helmet
+  - data/actions/scripts/quest/noble armor.lua:11 | item_uid = doPlayerAddItem(cid,2491,1)
+- status: DROP+QUEST
+
+[crusader helmet] id=2497
+- drop: Golden Knight: chance=500/100000 (0.5%)
+- drop: Orc Warlord: chance=200/100000 (0.2%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/young warrior.lua:191 | doPlayerAddItem(cid,2497,1)
+  - data/actions/scripts/main/Old Quest file.lua:1136 | doPlayerAddItem(cid, 2497, 1)				--Crusader helmet
+  - data/actions/scripts/quest/crusader helmet.lua:12 | item_uid = doPlayerAddItem(cid,2497,1)
+  - data/actions/scripts/quest/crusader helmet.lua:4 | if item.uid == 2497 then
+  - data/actions/scripts/quest/crusader helmet.lua:5 | queststatus = getPlayerStorageValue(cid,2497)
+  - data/actions/scripts/quest/crusader helmet.lua:13 | setPlayerStorageValue(cid,2497,1)
+- status: DROP+QUEST
+
+[dark helmet] id=2490
+- drop: Black Knight: chance=2000/100000 (2.0%)
+- drop: Orc Warlord: chance=1500/100000 (1.5%)
+- drop: Tarantula: chance=250/100000 (0.2%)
+- drop: Cyclops: chance=200/100000 (0.2%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[demon helmet] id=2493
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/demon helmet.lua:10 | item_uid = doPlayerAddItem(cid,2493,1)
+  - data/actions/scripts/quests/tvp_chests.lua:844 | item = {id = 2493, count = 1}, -- a demon helmet
+  - data/scripts/actions/map/quests.lua:844 | item = {id = 2493, count = 1}, -- a demon helmet
+- status: QUEST_ONLY
+
+[devil helmet] id=2462
+- drop: Orshabaal: chance=11000/100000 (11.0%)
+- drop: Demon: chance=1200/100000 (1.2%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:922 | doPlayerAddItem(cid, 2462, 1)				--Devil helmet
+  - data/actions/scripts/quest/devil helmet.lua:11 | item_uid = doPlayerAddItem(cid,2462,1)
+- status: DROP+QUEST
+
+[dragon scale helmet] id=2506
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[dwarven helmet] id=2502
+- drop: The Horned Fox: chance=9000/100000 (9.0%)
+- drop: Krulak the Savage: chance=200/100000 (0.2%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[feather headdress] id=3970
+- drop: Terror Bird: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[ferumbras' hat] id=6480
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[glacier mask] id=5871
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[golden helmet] id=2471
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/hellfire.lua:202 | doPlayerAddItem(cid,2471,1)
+- status: QUEST_ONLY
+
+[hat of the mad] id=2323
+- drop: Rahemos: chance=2000/100000 (2.0%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/quest.lua:2952 | doPlayerAddItem(cid, 2323, 1)
+  - data/actions/scripts/main/Old Quest file.lua:449 | doAddContainerItem(container, 2323, 1)			--Hat of the mad
+  - data/actions/scripts/quest/mad-mage-room-quest.lua:12 | item_uid = doPlayerAddItem(cid,2323,1)
+- status: DROP+QUEST
+
+[helmet of the ancients] id=2342
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[helmet of the ancients] id=2343
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[hidden turbant] id=2660
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[horned helmet] id=2496
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[horseman helmet] id=3969
+- drop: Assassin: chance=200/100000 (0.2%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[iron helmet] id=2459
+- drop: Crypt Shambler: chance=2000/100000 (2.0%)
+- drop: Demon Skeleton: chance=2000/100000 (2.0%)
+- drop: Nomad: chance=660/100000 (0.7%)
+- drop: Bandit: chance=500/100000 (0.5%)
+- drop: Wild Warrior: chance=500/100000 (0.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:488 | doAddContainerItem(container, 2459, 1)			--Iron helmet
+  - data/actions/scripts/quest/iron-helmet-quest.lua:12 | item_uid = doPlayerAddItem(cid,2459,1)
+- status: DROP+QUEST
+
+[leather helmet] id=2461
+- drop: demon: chance=10000/100000 (10.0%)
+- drop: Goblin: chance=10000/100000 (10.0%)
+- drop: Hunter: chance=10000/100000 (10.0%)
+- drop: Minotaur Mage: chance=10000/100000 (10.0%)
+- drop: Smuggler: chance=10000/100000 (10.0%)
+- drop: Crocodile: chance=8000/100000 (8.0%)
+- drop: Minotaur Archer: chance=5000/100000 (5.0%)
+- drop: Troll: chance=3000/100000 (3.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[legion helmet] id=2480
+- drop: Rotworm: chance=1500/100000 (1.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/dragon corpse.lua:11 | doAddContainerItem(container, 2480, 1)
+- status: DROP+QUEST
+
+[lightning headband] id=5867
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[magician hat] id=2662
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[magma monocle] id=5866
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[mystic turban] id=2663
+- drop: necropharus: chance=1800/100000 (1.8%)
+- drop: Necromancer: chance=500/100000 (0.5%)
+- drop: Efreet: chance=200/100000 (0.2%)
+- drop: Marid: chance=200/100000 (0.2%)
+- drop: Blue Djinn: chance=100/100000 (0.1%)
+- drop: Green Djinn: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[post officers hat] id=2665
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[royal helmet] id=2498
+- drop: Demodras: chance=400/100000 (0.4%)
+- drop: Dragon Lord: chance=200/100000 (0.2%)
+- drop: Hydra: chance=200/100000 (0.2%)
+- drop: Serpent Spawn: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[royal helmet] id=5735
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[soldier helmet] id=2481
+- drop: Dwarf Soldier: chance=12000/100000 (12.0%)
+- drop: Dwarf Geomancer: chance=8000/100000 (8.0%)
+- drop: Minotaur Archer: chance=2000/100000 (2.0%)
+- drop: Amazon: chance=1000/100000 (1.0%)
+- drop: Wild Warrior: chance=1000/100000 (1.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[steel helmet] id=2457
+- drop: Black Knight: chance=10000/100000 (10.0%)
+- drop: The Old Widow: chance=10000/100000 (10.0%)
+- drop: Giant Spider: chance=5000/100000 (5.0%)
+- drop: Assassin: chance=3000/100000 (3.0%)
+- drop: Dragon: chance=3000/100000 (3.0%)
+- drop: Dwarf Guard: chance=2000/100000 (2.0%)
+- drop: Lizard Templar: chance=2000/100000 (2.0%)
+- drop: Tarantula: chance=1000/100000 (1.0%)
+- drop: Gargoyle: chance=200/100000 (0.2%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:112 | doPlayerAddItem(cid, 2457, 1)					--Steel Helmet
+  - data/actions/scripts/quest/amazon camp.lua:10 | item_uid = doPlayerAddItem(cid,2457,1)
+  - data/actions/scripts/quest/steel-helmet-quest.lua:12 | item_uid = doPlayerAddItem(cid,2457,1)
+- status: DROP+QUEST
+
+[strange helmet] id=2479
+- drop: Demodras: chance=800/100000 (0.8%)
+- drop: Serpent Spawn: chance=600/100000 (0.6%)
+- drop: Lich: chance=500/100000 (0.5%)
+- drop: Dragon Lord: chance=400/100000 (0.4%)
+- drop: Vampire: chance=400/100000 (0.4%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[studded helmet] id=2482
+- drop: Elf: chance=15000/100000 (15.0%)
+- drop: Orc Rider: chance=15000/100000 (15.0%)
+- drop: Orc: chance=9000/100000 (9.0%)
+- drop: Orc Spearman: chance=9000/100000 (9.0%)
+- drop: Elf Scout: chance=8000/100000 (8.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[terra hood] id=5882
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[tribal mask] id=3967
+- drop: Dworc Fleshhunter: chance=500/100000 (0.5%)
+- drop: Dworc Venomsniper: chance=500/100000 (0.5%)
+- drop: Dworc Voodoomaster: chance=500/100000 (0.5%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[viking helmet] id=2473
+- drop: Ghoul: chance=5000/100000 (5.0%)
+- drop: Skeleton: chance=1000/100000 (1.0%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/katana.lua:12 | doAddContainerItem(container, 2473, 1)
+- status: DROP+QUEST
+
+[warrior helmet] id=2475
+- drop: Black Knight: chance=5000/100000 (5.0%)
+- drop: Hydra: chance=1000/100000 (1.0%)
+- drop: Orc Rider: chance=300/100000 (0.3%)
+- drop: Orc Leader: chance=100/100000 (0.1%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:802 | doPlayerAddItem(cid, 2475, 1)				--Warrior helmet
+  - data/actions/scripts/quest/mintwallin quest.lua:10 | item_uid = doPlayerAddItem(cid,2475,1)
+  - data/actions/scripts/quest/war-orc.lua:12 | item_uid = doPlayerAddItem(cid,2475,1)
+  - data/actions/scripts/quest/warrior helmet.lua:10 | item_uid = doPlayerAddItem(cid,2475,1)
+  - data/actions/scripts/quest/warrior helmet.lua:2 | if item.uid == 2475 then
+  - data/actions/scripts/quest/warrior helmet.lua:3 | queststatus = getPlayerStorageValue(cid,2475)
+  - data/actions/scripts/quest/warrior helmet.lua:11 | setPlayerStorageValue(cid,2475,1)
+- status: DROP+QUEST
+
+[winged helmet] id=2474
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/pitsofinferno/poireward.lua:16 | doPlayerAddItem(cid,2474,1)
+- status: QUEST_ONLY
+
+[yalahari mask] id=5809
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[zaoan helmet] id=5827
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN

@@ -1,0 +1,6 @@
+/teleport 32005 32139 3
+/teleport 32172 32169 7
+/teleport 32174 32149 11
+/teleport 32175 32145 11
+/teleport 32176 32132 9
+/teleport 32179 32224 9

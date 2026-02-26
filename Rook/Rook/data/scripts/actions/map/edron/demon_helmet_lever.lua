@@ -1,0 +1,2 @@
+-- Override file is loaded directly by revscripts loader.
+-- Keep this wrapper empty to avoid duplicate AID registration.

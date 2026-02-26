@@ -1,0 +1,107 @@
+Armorsmith Boots - drops + quest sources report
+Generated: 2026-02-25 12:15:38
+Boots found (slotType=feet): 16
+
+[boots of haste] id=2195
+- drop: Orshabaal: chance=4000/100000 (4.0%)
+- drop: Golden Knight: chance=2000/100000 (2.0%)
+- drop: Krulak the Savage: chance=2000/100000 (2.0%)
+- drop: Black Knight: chance=500/100000 (0.5%)
+- drop: Necromancer: chance=200/100000 (0.2%)
+- drop: Hydra: chance=100/100000 (0.1%)
+- drop: Omruc: chance=100/100000 (0.1%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/banshee-queen-quest.lua:12 | item_uid = doPlayerAddItem(cid,2195,1)
+  - data/actions/scripts/quest/hydra legend-Quest.lua:157 | doPlayerAddItem(cid,2195,1)
+  - data/actions/scripts/quest/banshee quest.lua:10 | item_uid = doPlayerAddItem(cid,2195,1)
+  - data/actions/scripts/quest/secret boh reward.lua:10 | item_uid = doPlayerAddItem(cid,2195,1)
+  - data/actions/scripts/quest/warlock hell.lua:10 | item_uid = doPlayerAddItem(cid,2195,1)
+- status: DROP+QUEST
+
+[bunny slippers] id=2644
+- drop: Yeti: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[crocodile boots] id=3982
+- drop: Crocodile: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[glacier shoes] id=5874
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[golden boots] id=2646
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/golden boots.lua:10 | item_uid = doPlayerAddItem(cid,2646,1)
+- status: QUEST_ONLY
+
+[leather boots] id=2643
+- drop: Witch: chance=50000/100000 (50.0%)
+- drop: Dwarf Geomancer: chance=40000/100000 (40.0%)
+- drop: Dwarf Guard: chance=40000/100000 (40.0%)
+- drop: Elf: chance=11000/100000 (11.0%)
+- drop: Swamp Troll: chance=10000/100000 (10.0%)
+- drop: Troll: chance=3000/100000 (3.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[lightning boots] id=5870
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[magma boots] id=5864
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[Oriental Shoes] id=5798
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[pair of soft boots] id=2358
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/legend about speed boots-quest.lua:146 | doPlayerAddItem(cid,2358,1)
+  - data/actions/scripts/pitsofinferno/poireward.lua:25 | doPlayerAddItem(cid,2358,1)
+- status: QUEST_ONLY
+
+[pair of soft boots] id=2640
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/soft boots.lua:5 | item_uid = doPlayerAddItem(cid,2640,1)
+  - data/actions/scripts/quest/soft boots.lua:24 | item_uid = doPlayerAddItem(cid,2640,1)
+- status: QUEST_ONLY
+
+[steel boots] id=2645
+- drop: Grorlam: chance=500/100000 (0.5%)
+- drop: Behemoth: chance=400/100000 (0.4%)
+- drop: Morguthis: chance=100/100000 (0.1%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/demon helmet.lua:11 | item_uid = doPlayerAddItem(cid,2645,1)
+- status: DROP+QUEST
+
+[terra boots] id=5879
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[worn soft boots] id=2641
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[worn soft boots] id=5729
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[zaoan shoes] id=5838
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN

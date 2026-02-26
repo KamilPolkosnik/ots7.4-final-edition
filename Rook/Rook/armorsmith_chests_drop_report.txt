@@ -1,0 +1,353 @@
+Armorsmith Chests - drops + quest sources report
+Generated: 2026-02-25 11:37:18
+Chests found (slotType=body): 43
+
+[amazon armor] id=2500
+- drop: orc warlord: chance=600/100000 (0.6%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[archer armor] id=5828
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[ball gown] id=2659
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[blue robe] id=2656
+- drop: Warlock: chance=2000/100000 (2.0%)
+- drop: necropharus: chance=1000/100000 (1.0%)
+- drop: Vashresamun: chance=1000/100000 (1.0%)
+- drop: Banshee: chance=600/100000 (0.6%)
+- drop: Lich: chance=100/100000 (0.1%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:429 | doAddContainerItem(container, 2656, 1)			--Blue robe
+  - data/actions/scripts/quest/banshee quest.lua:15 | item_uid = doPlayerAddItem(cid,2656,1)
+  - data/actions/scripts/quest/banshee room.lua:10 | item_uid = doPlayerAddItem(cid,2656,1)
+  - data/actions/scripts/quest/blue-robe-quest.lua:12 | item_uid = doPlayerAddItem(cid,2656,1)
+- status: DROP+QUEST
+
+[brass armor] id=2465
+- drop: general murius: chance=28000/100000 (28.0%)
+- drop: The Horned Fox: chance=14000/100000 (14.0%)
+- drop: Hunter: chance=5000/100000 (5.0%)
+- drop: Minotaur Guard: chance=4000/100000 (4.0%)
+- drop: Minotaur Mage: chance=4000/100000 (4.0%)
+- drop: Bandit: chance=2500/100000 (2.5%)
+- drop: Wild Warrior: chance=2500/100000 (2.5%)
+- drop: Nomad: chance=2350/100000 (2.4%)
+- drop: Amazon: chance=1000/100000 (1.0%)
+- drop: Minotaur Archer: chance=1000/100000 (1.0%)
+- drop: Orc Warlord: chance=1000/100000 (1.0%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:363 | doPlayerAddItem(cid,2465,1)						--Brass armor
+  - data/actions/scripts/quest/old-city-quest.lua:12 | item_uid = doPlayerAddItem(cid,2465,1)
+- status: DROP+QUEST
+
+[cape] id=2654
+- drop: Blue Goblin: chance=100000/100000 (100.0%)
+- drop: Witch: chance=50000/100000 (50.0%)
+- drop: Ghost: chance=9000/100000 (9.0%)
+- drop: Lizard Snakecharmer: chance=9000/100000 (9.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[chain armor] id=2464
+- drop: Minotaur: chance=10000/100000 (10.0%)
+- drop: Orc Berserker: chance=10000/100000 (10.0%)
+- drop: Valkyrie: chance=10000/100000 (10.0%)
+- drop: Dwarf Soldier: chance=9000/100000 (9.0%)
+- drop: Lizard Sentinel: chance=9000/100000 (9.0%)
+- drop: Orc Shaman: chance=9000/100000 (9.0%)
+- drop: Orc Warrior: chance=7500/100000 (7.5%)
+- drop: Minotaur Guard: chance=3000/100000 (3.0%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/bear room chain armor.lua:10 | item_uid = doPlayerAddItem(cid,2464,1)
+- status: DROP+QUEST
+
+[coat] id=2651
+- drop: Witch: chance=20000/100000 (20.0%)
+- drop: Frost Troll: chance=12000/100000 (12.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[crown armor] id=2487
+- drop: Hero: chance=600/100000 (0.6%)
+- drop: Ashmunrah: chance=500/100000 (0.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:1200 | doPlayerAddItem(cid, 2487, 1)						--Crown Armor
+  - data/actions/scripts/quest/black knight villa1.lua:12 | item_uid = doPlayerAddItem(cid,2487,1)
+  - data/actions/scripts/quest/king.lua:10 | item_uid = doPlayerAddItem(cid,2487,1)
+- status: DROP+QUEST
+
+[dark armor] id=2489
+- drop: Behemoth: chance=3000/100000 (3.0%)
+- drop: Black Knight: chance=2000/100000 (2.0%)
+- drop: Gargoyle: chance=200/100000 (0.2%)
+- drop: Tarantula: chance=200/100000 (0.2%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:1121 | doPlayerAddItem(cid, 2489, 1)				--Dark armor
+  - data/actions/scripts/quest/edron dark armor.lua:10 | item_uid = doPlayerAddItem(cid,2489,1)
+  - data/actions/scripts/quest/edron dark armor.lua:2 | if item.uid == 2489 then
+  - data/actions/scripts/quest/edron dark armor.lua:3 | queststatus = getPlayerStorageValue(cid,2489)
+  - data/actions/scripts/quest/edron dark armor.lua:11 | setPlayerStorageValue(cid,2489,1)
+- status: DROP+QUEST
+
+[demon armor] id=2494
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/other/annihilator.lua:131 | doPlayerAddItem(cid,2494,1)
+  - data/actions/scripts/quest/desert_quest.lua:142 | doPlayerAddItem(cid,2494,1)
+  - data/actions/scripts/quest/young quest.lua:149 | doPlayerAddItem(cid,2494,1)
+  - data/scripts/annihilatorchest.lua:17 | rewardItemId = 2494 -- Demon Armor
+  - data/actions/scripts/quest/annihilator.lua:239 | doPlayerAddItem(cid,2494,1)
+  - data/actions/scripts/switch/thais war arena.lua:157 | doPlayerAddItem(cid,2494,1)
+  - data/actions/scripts/quest/annihilator.lua:63 | item = {id = 2494, count = 1}, -- demon armor
+  - data/scripts/actions/map/quests.lua:1135 | item = {id = 2494, count = 1}, -- a demon armor
+- status: QUEST_ONLY
+
+[doublet] id=2485
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/scripts/rookQuests.lua:49 | player:addItem(2485) -- Doublet item ID
+  - data/actions/scripts/quest/doublet quest.lua:10 | item_uid = doPlayerAddItem(cid,2485,2)
+  - data/actions/scripts/quest/doublet.lua:10 | item_uid = doPlayerAddItem(cid,2485,1)
+- status: QUEST_ONLY
+
+[dragon scale mail] id=2492
+- drop: Demodras: chance=300/100000 (0.3%)
+- drop: Serpent Spawn: chance=200/100000 (0.2%)
+- drop: Dragon Lord: chance=100/100000 (0.1%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/hydra legend-Quest.lua:177 | doPlayerAddItem(cid,2492,1)
+  - data/actions/scripts/quest/dl-island-quest.lua:13 | item_uid = doPlayerAddItem(cid,2492,1)
+- status: DROP+QUEST
+
+[dwarven armor] id=2503
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:1151 | doPlayerAddItem(cid, 2503, 1)				--Dwarven armor
+  - data/actions/scripts/quest/dwarven armor.lua:10 | item_uid = doPlayerAddItem(cid,2503,1)
+  - data/actions/scripts/quest/dwarven armor.lua:2 | if item.uid == 2503 then
+  - data/actions/scripts/quest/dwarven armor.lua:3 | queststatus = getPlayerStorageValue(cid,2503)
+  - data/actions/scripts/quest/dwarven armor.lua:11 | setPlayerStorageValue(cid,2503,1)
+- status: QUEST_ONLY
+
+[firemasters armor] id=2505
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[firemasters armor] id=2664
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[glacier robe] id=5872
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[golden armor] id=2466
+- drop: Warlock: chance=300/100000 (0.3%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/edron behemoth quest.lua:11 | item_uid = doPlayerAddItem(cid,2466,1)
+  - data/actions/scripts/main/Old Quest file.lua:720 | doPlayerAddItem(cid, 2466, 1)				--Golden armor
+  - data/actions/scripts/quest/behe quest2.lua:10 | item_uid = doPlayerAddItem(cid,2466,1)
+  - data/actions/scripts/quest/djinn tower.lua:14 | doAddContainerItem(container, 2466, 1)
+  - data/actions/scripts/quest/war-orc.lua:10 | item_uid = doPlayerAddItem(cid,2466,1)
+  - data/actions/scripts/quest/behe quest2.lua:2 | if item.uid == 2466 then
+  - data/actions/scripts/quest/behe quest2.lua:3 | queststatus = getPlayerStorageValue(cid,2466)
+  - data/actions/scripts/quest/behe quest2.lua:11 | setPlayerStorageValue(cid,2466,1)
+- status: DROP+QUEST
+
+[green tunic] id=2652
+- drop: Dharalion: chance=9000/100000 (9.0%)
+- drop: Fernfang: chance=9000/100000 (9.0%)
+- drop: Hero: chance=8000/100000 (8.0%)
+- drop: Elf Arcanist: chance=7000/100000 (7.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[jacket] id=2650
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[knight armor] id=2476
+- drop: Black Knight: chance=1000/100000 (1.0%)
+- drop: Hydra: chance=1000/100000 (1.0%)
+- drop: The Old Widow: chance=600/100000 (0.6%)
+- drop: Giant Spider: chance=300/100000 (0.3%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/young warrior.lua:181 | doPlayerAddItem(cid,2476,1)
+  - data/actions/scripts/main/Old Quest file.lua:318 | doPlayerAddItem(cid, 2476, 1)	--Knight Armor
+  - data/actions/scripts/quest/knight armor.lua:10 | item_uid = doPlayerAddItem(cid,2476,1)
+  - data/actions/scripts/quest/mintwallin quest.lua:11 | item_uid = doPlayerAddItem(cid,2476,1)
+  - data/actions/scripts/quest/knight armor.lua:2 | if item.uid == 2476 then
+  - data/actions/scripts/quest/knight armor.lua:3 | queststatus = getPlayerStorageValue(cid,2476)
+  - data/actions/scripts/quest/knight armor.lua:11 | setPlayerStorageValue(cid,2476,1)
+- status: DROP+QUEST
+
+[leather armor] id=2467
+- drop: Amazon: chance=50000/100000 (50.0%)
+- drop: Dworc Fleshhunter: chance=22000/100000 (22.0%)
+- drop: Dworc Venomsniper: chance=10000/100000 (10.0%)
+- drop: Dworc Voodoomaster: chance=10000/100000 (10.0%)
+- drop: demon: chance=7500/100000 (7.5%)
+- drop: Goblin: chance=7500/100000 (7.5%)
+- drop: Dark Monk: chance=5500/100000 (5.5%)
+- drop: Monk: chance=5500/100000 (5.5%)
+- drop: Trainer: chance=5500/100000 (5.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:490 | doAddContainerItem(container, 2467, 1)			--Leather armor
+  - data/actions/scripts/quest/iron-helmet-quest.lua:14 | item_uid = doPlayerAddItem(cid,2467,1)
+- status: DROP+QUEST
+
+[leopard armor] id=3968
+- drop: Assassin: chance=500/100000 (0.5%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[lightning robe] id=5868
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[magic plate armor] id=2472
+- drop: Orshabaal: chance=3000/100000 (3.0%)
+- drop: Demon: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[magic plate armor] id=5733
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[magma coat] id=5862
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[native armor] id=2508
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[noble armor] id=2486
+- drop: Dragon: chance=3000/100000 (3.0%)
+- drop: Golden Knight: chance=2500/100000 (2.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:1091 | doPlayerAddItem(cid, 2486, 1)				--Noble armor
+  - data/actions/scripts/quest/noble armor.lua:10 | item_uid = doPlayerAddItem(cid,2486,1)
+  - data/actions/scripts/quest/noble armor.lua:2 | if item.uid == 2486 then
+  - data/actions/scripts/quest/noble armor.lua:3 | queststatus = getPlayerStorageValue(cid,2486)
+  - data/actions/scripts/quest/noble armor.lua:12 | setPlayerStorageValue(cid,2486,1)
+- status: DROP+QUEST
+
+[paladin armor] id=5829
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[plate armor] id=2463
+- drop: The Old Widow: chance=20000/100000 (20.0%)
+- drop: Ancient Scarab: chance=10000/100000 (10.0%)
+- drop: Black Knight: chance=10000/100000 (10.0%)
+- drop: Giant Spider: chance=10000/100000 (10.0%)
+- drop: Bonebeast: chance=8000/100000 (8.0%)
+- drop: Orc Warlord: chance=6000/100000 (6.0%)
+- drop: Behemoth: chance=2000/100000 (2.0%)
+- drop: Orc Leader: chance=1500/100000 (1.5%)
+- drop: Kongra: chance=1000/100000 (1.0%)
+- drop: Lizard Templar: chance=1000/100000 (1.0%)
+- drop: Valkyrie: chance=800/100000 (0.8%)
+- drop: Assassin: chance=500/100000 (0.5%)
+- drop: Bandit: chance=500/100000 (0.5%)
+- drop: Tarantula: chance=100/100000 (0.1%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:277 | doPlayerAddItem(cid, 2463, 1)
+  - data/actions/scripts/quest/amazon camp.lua:11 | item_uid = doPlayerAddItem(cid,2463,1)
+  - data/actions/scripts/quest/edron plate armor.lua:10 | item_uid = doPlayerAddItem(cid,2463,1)
+  - data/actions/scripts/quest/plate-armor-quest.lua:12 | item_uid = doPlayerAddItem(cid,2463,1)
+  - data/actions/scripts/quest/edron plate armor.lua:2 | if item.uid == 2463 then
+  - data/actions/scripts/quest/edron plate armor.lua:3 | queststatus = getPlayerStorageValue(cid,2463)
+  - data/actions/scripts/quest/edron plate armor.lua:11 | setPlayerStorageValue(cid,2463,1)
+- status: DROP+QUEST
+
+[red robe] id=2655
+- drop: Banshee: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[red tunic] id=2653
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[scale armor] id=2483
+- drop: Dwarf Guard: chance=10000/100000 (10.0%)
+- drop: Necromancer: chance=10000/100000 (10.0%)
+- drop: necropharus: chance=8500/100000 (8.5%)
+- drop: Lizard Sentinel: chance=8000/100000 (8.0%)
+- drop: Grorlam: chance=5000/100000 (5.0%)
+- drop: Stone Golem: chance=5000/100000 (5.0%)
+- drop: Ghoul: chance=4000/100000 (4.0%)
+- drop: Minotaur Archer: chance=2000/100000 (2.0%)
+- drop: Orc Rider: chance=600/100000 (0.6%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:1230 | doPlayerAddItem(cid, 2483, 1)						--Scale armor
+  - data/actions/scripts/quest/scale armor.lua:12 | item_uid = doPlayerAddItem(cid,2483,1)
+- status: DROP+QUEST
+
+[simple dress] id=2657
+- drop: Banshee: chance=60000/100000 (60.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[simple dress] id=4847
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[skullcracker armor] id=5784
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[skullmaster armor] id=5816
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[studded armor] id=2484
+- drop: Elf Scout: chance=12000/100000 (12.0%)
+- drop: Orc: chance=12000/100000 (12.0%)
+- drop: Elf: chance=11000/100000 (11.0%)
+- drop: Dwarf: chance=8000/100000 (8.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[terra mantle] id=5881
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[white dress] id=2658
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[yalahari armor] id=5807
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[zaoan armor] id=5826
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN

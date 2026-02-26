@@ -1,0 +1,144 @@
+Armorsmith Legs - drops + quest sources report
+Generated: 2026-02-25 12:03:42
+Legs found (slotType=legs): 20
+
+[bast skirt] id=3983
+- drop: Dworc Venomsniper: chance=100/100000 (0.1%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[blue legs] id=5728
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[brass legs] id=2478
+- drop: The Old Widow: chance=16000/100000 (16.0%)
+- drop: Black Knight: chance=13000/100000 (13.0%)
+- drop: Orc Warlord: chance=10000/100000 (10.0%)
+- drop: Giant Spider: chance=8000/100000 (8.0%)
+- drop: Stalker: chance=7000/100000 (7.0%)
+- drop: Tarantula: chance=3000/100000 (3.0%)
+- drop: Orc Leader: chance=2500/100000 (2.5%)
+- drop: Amazon: chance=1000/100000 (1.0%)
+- drop: Assassin: chance=500/100000 (0.5%)
+- drop: Bandit: chance=500/100000 (0.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/main/Old Quest file.lua:1061 | doPlayerAddItem(cid, 2478, 1)				--Brass legs
+  - data/actions/scripts/quest/edron troll.lua:10 | item_uid = doPlayerAddItem(cid,2478,1)
+  - data/actions/scripts/quest/edron troll.lua:2 | if item.uid == 2478 then
+  - data/actions/scripts/quest/edron troll.lua:3 | queststatus = getPlayerStorageValue(cid,2478)
+  - data/actions/scripts/quest/edron troll.lua:12 | setPlayerStorageValue(cid,2478,1)
+- status: DROP+QUEST
+
+[chain legs] id=2648
+- drop: general murius: chance=35000/100000 (35.0%)
+- drop: The Horned Fox: chance=15000/100000 (15.0%)
+- drop: Minotaur Mage: chance=2000/100000 (2.0%)
+- drop: Minotaur Guard: chance=1000/100000 (1.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[crown legs] id=2488
+- drop: Hero: chance=500/100000 (0.5%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/warlock hell.lua:11 | item_uid = doPlayerAddItem(cid,2488,1)
+- status: DROP+QUEST
+
+[demon legs] id=2495
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[dragon scale legs] id=2469
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[dwarven legs] id=2504
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[glacier kilt] id=5873
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[golden legs] id=2470
+- drop: Orshabaal: chance=5000/100000 (5.0%)
+- drop: Demon: chance=400/100000 (0.4%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[green legs] id=2507
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[knight legs] id=2477
+- drop: Golden Knight: chance=15000/100000 (15.0%)
+- drop: Black Knight: chance=1000/100000 (1.0%)
+- drop: The Old Widow: chance=600/100000 (0.6%)
+- drop: Giant Spider: chance=300/100000 (0.3%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/mintwallin quest.lua:12 | item_uid = doPlayerAddItem(cid,2477,1)
+  - data/actions/scripts/quest/war-orc.lua:11 | item_uid = doPlayerAddItem(cid,2477,1)
+- status: DROP+QUEST
+
+[leather legs] id=2649
+- drop: Bandit: chance=15000/100000 (15.0%)
+- drop: Minotaur Guard: chance=15000/100000 (15.0%)
+- drop: Minotaur Mage: chance=15000/100000 (15.0%)
+- drop: Smuggler: chance=15000/100000 (15.0%)
+- drop: Wild Warrior: chance=15000/100000 (15.0%)
+- drop: Hunter: chance=14000/100000 (14.0%)
+- drop: Dwarf: chance=10000/100000 (10.0%)
+- drop: Stalker: chance=10000/100000 (10.0%)
+- drop: Crocodile: chance=8000/100000 (8.0%)
+- drop: Vampire: chance=8000/100000 (8.0%)
+- drop: Minotaur Archer: chance=5000/100000 (5.0%)
+- drop: Minotaur: chance=1000/100000 (1.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[lightning legs] id=5869
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[magma legs] id=5863
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[plate legs] id=2647
+- drop: Orc Warlord: chance=4000/100000 (4.0%)
+- drop: Dragon: chance=2000/100000 (2.0%)
+- drop: Orc Leader: chance=400/100000 (0.4%)
+- drop: Tarantula: chance=100/100000 (0.1%)
+- quest: YES (script references found)
+  - data/actions/scripts/quest/amazon camp.lua:12 | item_uid = doPlayerAddItem(cid,2647,1)
+- status: DROP+QUEST
+
+[studded legs] id=2468
+- drop: Dwarf Geomancer: chance=20000/100000 (20.0%)
+- drop: Orc Spearman: chance=10000/100000 (10.0%)
+- quest: NO direct quest reward reference found
+- status: DROP_ONLY
+
+[terra legs] id=5880
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/scripts/crafting/zz_armorsmith_autogen.lua:17 | chest = {5880, 5890, 2146},
+- status: QUEST_ONLY
+
+[yalahari leg piece] id=5808
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[zaoan legs] id=5839
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN

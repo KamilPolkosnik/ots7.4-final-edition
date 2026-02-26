@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mounts>
+	<mount id="1" clientid="388" name="Crystal Wolf" speed="10" premium="no" />
+	<mount id="2" clientid="397" name="Reindeer" speed="20" premium="no" />
+	<mount id="3" clientid="398" name="Panda" speed="20" premium="no" />
+	<mount id="4" clientid="401" name="Dromedary" speed="20" premium="no" />
+	<mount id="5" clientid="402" name="Scorpion" speed="20" premium="no" />
+	<mount id="6" clientid="415" name="Horse" speed="25" premium="no" />
+	<mount id="7" clientid="419" name="War Horse" speed="30" premium="no" />
+	<mount id="8" clientid="434" name="Ladybug" speed="25" premium="no" />
+	<mount id="9" clientid="497" name="Mantis" speed="20" premium="no" />
+	<mount id="10" clientid="468" name="Dragonling" speed="25" premium="no" />
+	<mount id="11" clientid="475" name="Gnarlhound" speed="25" premium="no" />
+	<mount id="12" clientid="476" name="Red Mantis" speed="25" premium="no" />
+	<mount id="13" clientid="479" name="Buffalo" speed="20" premium="no" />
+	
+</mounts>

@@ -1,0 +1,45 @@
+Quest scripts test teleports (pkt 5)
+Generated: 2026-02-17
+Server: otsfinal/Rook/Rook
+
+Status:
+- Load errors for these scripts are fixed (no Event::checkScript warnings for them on startup).
+
+[botanist_container.lua] item 4869
+Required storage: 305 (1 / 3 / 5)
+TVP reference spots:
+/teleport 32748 32608 7   # target 4149
+/teleport 32767 32611 7   # target 4142
+/teleport 32714 32705 7   # target 4138
+/teleport 32920 32508 7   # target 4149
+
+[butterfly_conservation_kit.lua] item 4865
+Required storage: 304 (1 / 3 / 5)
+No static TVP map positions found for target ids 4992/4993/4994/5014.
+(Test by spawning target items and using the kit.)
+
+[ectoplasm_container.lua] item 4863
+Required storage: none
+No static TVP map positions found for target id 2913.
+(Test by spawning target item 2913 and using container.)
+
+[ice_pick.lua] item 4874
+Required storage: 306 = 1 and 307 = -1
+TVP reference spot:
+/teleport 32133 31688 9   # target 4995
+
+[sheet_of_tracing_paper.lua] item 4853
+Required storage: 315 = 1
+Hardcoded script spot:
+/teleport 32754 32559 9   # target 1560 (script requires exact position)
+
+[snake_destroyer.lua] item 4846
+Required storage: 293 = 17
+TVP reference spot:
+/teleport 32858 32526 11  # target 4861
+
+[spectral_stone.lua] item 4851
+Required storage: 320 = 5
+Hardcoded script spots:
+/teleport 32665 32736 6   # target 474
+/teleport 32497 31622 6   # target 474

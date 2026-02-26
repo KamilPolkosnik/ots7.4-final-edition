@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<monsters>
+  <monster name="Krulak the savage" file="task/Krulak the Savage.xml"/>
+  <monster name="Amazon" file="amazon.xml"/>
+  <monster name="Ancient scarab" file="ancient scarab.xml"/>
+  <monster name="Assassin" file="assassin.xml"/>
+  <monster name="Badger" file="badger.xml"/>
+  <monster name="Bandit" file="bandit.xml"/>
+  <monster name="Banshee" file="banshee.xml"/>
+  <monster name="Bat" file="bat.xml"/>
+  <monster name="Bear" file="bear.xml"/>
+  <monster name="Behemoth" file="behemoth.xml"/>
+  <monster name="Beholder" file="beholder.xml"/>
+  <monster name="Black knight" file="black knight.xml"/>
+  <monster name="Black sheep" file="black sheep.xml"/>
+  <monster name="Blue djinn" file="blue djinn.xml"/>
+  <monster name="Bonebeast" file="bonebeast.xml"/>
+  <monster name="Bug" file="bug.xml"/>
+  <monster name="Butterfly" file="butterfly.xml"/>
+  <monster name="Butterfly purple" file="butterfly purple.xml"/>
+  <monster name="Butterfly yellow " file="butterfly yellow.xml"/>
+  <monster name="Butterfly red" file="butterfly red.xml"/>
+  <monster name="Butterfly blue" file="butterfly blue.xml"/>
+  <monster name="Carniphila" file="carniphila.xml"/>
+  <monster name="Cave rat" file="cave rat.xml"/>
+  <monster name="Centipede" file="centipede.xml"/>
+  <monster name="Chicken" file="chicken.xml"/>
+  <monster name="Cobra" file="cobra.xml"/>
+  <monster name="Crab" file="crab.xml"/>
+  <monster name="Crocodile" file="crocodile.xml"/>
+  <monster name="Crypt shambler" file="crypt shambler.xml"/>
+  <monster name="Cyclops" file="cyclops.xml"/>
+  <monster name="Dark monk" file="dark monk.xml"/>
+  <monster name="Deer" file="deer.xml"/>
+  <monster name="Demon skeleton" file="demon skeleton.xml"/>
+  <monster name="Demon" file="demon.xml"/>
+  <monster name="Dog" file="dog.xml"/>
+  <monster name="Dragon lord" file="dragon lord.xml"/>
+  <monster name="Dragon" file="dragon.xml"/>
+  <monster name="Dwarf geomancer" file="dwarf geomancer.xml"/>
+  <monster name="Dwarf guard" file="dwarf guard.xml"/>
+  <monster name="Dwarf soldier" file="dwarf soldier.xml"/>
+  <monster name="Dwarf" file="dwarf.xml"/>
+  <monster name="Dworc fleshhunter" file="dworc fleshhunter.xml"/>
+  <monster name="Dworc venomsniper" file="dworc venomsniper.xml"/>
+  <monster name="Dworc voodoomaster" file="dworc voodoomaster.xml"/>
+  <monster name="Efreet" file="efreet.xml"/>
+  <monster name="Elder beholder" file="elder beholder.xml"/>
+  <monster name="Elephant" file="elephant.xml"/>
+  <monster name="Elf arcanist" file="elf arcanist.xml"/>
+  <monster name="Elf scout" file="elf scout.xml"/>
+  <monster name="Elf" file="elf.xml"/>
+  <monster name="Fire devil" file="fire devil.xml"/>
+  <monster name="Fire elemental" file="fire elemental.xml"/>
+  <monster name="Flamingo" file="flamingo.xml"/>
+  <monster name="Frost troll" file="frost troll.xml"/>
+  <monster name="Gargoyle" file="gargoyle.xml"/>
+  <monster name="Gazer" file="gazer.xml"/>
+  <monster name="Ghost" file="ghost.xml"/>
+  <monster name="Ghoul" file="ghoul.xml"/>
+  <monster name="Giant spider" file="giant spider.xml"/>
+  <monster name="Goblin" file="goblin.xml"/>
+  <monster name="Green djinn" file="green djinn.xml"/>
+  <monster name="Hero" file="hero.xml"/>
+  <monster name="Hunter" file="hunter.xml"/>
+  <monster name="Hyaena" file="hyaena.xml"/>
+  <monster name="Hydra" file="hydra.xml"/>
+  <monster name="Kongra" file="kongra.xml"/>
+  <monster name="Larva" file="larva.xml"/>
+  <monster name="Lich" file="lich.xml"/>
+  <monster name="Lion" file="lion.xml"/>
+  <monster name="Lizard sentinel" file="lizard sentinel.xml"/>
+  <monster name="Lizard snakecharmer" file="lizard snakecharmer.xml"/>
+  <monster name="Lizard templar" file="lizard templar.xml"/>
+  <monster name="Marid" file="marid.xml"/>
+  <monster name="Merlkin" file="merlkin.xml"/>
+  <monster name="Minotaur archer" file="minotaur archer.xml"/>
+  <monster name="Minotaur guard" file="minotaur guard.xml"/>
+  <monster name="Minotaur mage" file="minotaur mage.xml"/>
+  <monster name="Minotaur" file="minotaur.xml"/>
+  <monster name="Monk" file="monk.xml"/>
+  <monster name="Mummy" file="mummy.xml"/>
+  <monster name="Necromancer" file="necromancer.xml"/>
+  <monster name="Orc berserker" file="orc berserker.xml"/>
+  <monster name="Orc leader" file="orc leader.xml"/>
+  <monster name="Orc rider" file="orc rider.xml"/>
+  <monster name="Orc shaman" file="orc shaman.xml"/>
+  <monster name="Orc spearman" file="orc spearman.xml"/>
+  <monster name="Orc warlord" file="orc warlord.xml"/>
+  <monster name="Orc warrior" file="orc warrior.xml"/>
+  <monster name="Orc" file="orc.xml"/>
+  <monster name="Panda" file="panda.xml"/>
+  <monster name="Parrot" file="parrot.xml"/>
+  <monster name="Pig" file="pig.xml"/>
+  <monster name="Poison spider" file="poison spider.xml"/>
+  <monster name="Polar bear" file="polar bear.xml"/>
+  <monster name="Priestess" file="priestess.xml"/>
+  <monster name="Rabbit" file="rabbit.xml"/>
+  <monster name="Rat" file="rat.xml"/>
+  <monster name="Rotworm" file="rotworm.xml"/>
+  <monster name="Scarab" file="scarab.xml"/>
+  <monster name="Scorpion" file="scorpion.xml"/>
+  <monster name="Serpent spawn" file="serpent spawn.xml"/>
+  <monster name="Sheep" file="sheep.xml"/>
+  <monster name="Sibang" file="sibang.xml"/>
+  <monster name="Skeleton" file="skeleton.xml"/>
+  <monster name="Skunk" file="skunk.xml"/>
+  <monster name="Slime2" file="slime2.xml"/>
+  <monster name="Slime" file="slime.xml"/>
+  <monster name="Smuggler" file="smuggler.xml"/>
+  <monster name="Snake" file="snake.xml"/>
+  <monster name="Spider" file="spider.xml"/>
+  <monster name="Spit nettle" file="spit nettle.xml"/>
+  <monster name="Stalker" file="stalker.xml"/>
+  <monster name="Stone golem" file="stone golem.xml"/>
+  <monster name="Swamp troll" file="swamp troll.xml"/>
+  <monster name="Tarantula" file="tarantula.xml"/>
+  <monster name="Terror bird" file="terror bird.xml"/>
+  <monster name="Tiger" file="tiger.xml"/>
+  <monster name="Troll" file="troll.xml"/>
+  <monster name="Valkyrie" file="valkyrie.xml"/>
+  <monster name="Vampire" file="vampire.xml"/>
+  <monster name="War wolf" file="war wolf.xml"/>
+  <monster name="Warlock" file="warlock.xml"/>
+  <monster name="Wasp" file="wasp.xml"/>
+  <monster name="Wild warrior" file="wild warrior.xml"/>
+  <monster name="Winter wolf" file="winter wolf.xml"/>
+  <monster name="Witch" file="witch.xml"/>
+  <monster name="Wolf" file="wolf.xml"/>
+  <monster name="Yeti" file="yeti.xml"/>
+  <monster name="Deathslicer" file="special/deathslicer.xml"/>
+  <monster name="Demongoblin" file="special/demongoblin.xml"/>
+  <monster name="Flamethrower" file="special/flamethrower.xml"/>
+  <monster name="Magicthrower" file="special/magicthrower.xml"/>
+  <monster name="Orcraid" file="special/orcraid.xml"/>
+  <monster name="Orcwarlordraid" file="special/orcwarlordraid.xml"/>
+  <monster name="Plaguethrower" file="special/plaguethrower.xml"/>
+  <monster name="Shredderthrower" file="special/shredderthrower.xml"/>
+  <monster name="Ashmunrah" file="bosses/ashmunrah.xml"/>
+  <monster name="Demodras" file="bosses/demodras.xml"/>
+  <monster name="Dharalion" file="bosses/dharalion.xml"/>
+  <monster name="Dipthrah" file="bosses/dipthrah.xml"/>
+  <monster name="Fernfang" file="bosses/fernfang.xml"/>
+  <monster name="General murius" file="bosses/general murius.xml"/>
+  <monster name="Grorlam" file="bosses/grorlam.xml"/>
+  <monster name="The halloween hare" file="bosses/the halloween hare.xml"/>
+  <monster name="Mahrdis" file="bosses/mahrdis.xml"/>
+  <monster name="Morguthis" file="bosses/morguthis.xml"/>
+  <monster name="Necropharus" file="bosses/necropharus.xml"/>
+  <monster name="Omruc" file="bosses/omruc.xml"/>
+  <monster name="Orshabaal" file="bosses/orshabaal.xml"/>
+  <monster name="Rahemos" file="bosses/rahemos.xml"/>
+  <monster name="Tiquandas revenge" file="bosses/tiquandas revenge.xml"/>
+  <monster name="Thalas" file="bosses/thalas.xml"/>
+  <monster name="The evil eye" file="bosses/the evil eye.xml"/>
+  <monster name="The horned fox" file="bosses/the horned fox.xml"/>
+  <monster name="The old widow" file="bosses/the old widow.xml"/>
+  <monster name="Vashresamun" file="bosses/vashresamun.xml"/>
+  <monsster name="Golden Knight" file="task/Golden Knight.xml"/>
+</monsters>

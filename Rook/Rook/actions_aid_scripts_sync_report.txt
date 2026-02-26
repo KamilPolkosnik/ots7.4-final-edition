@@ -1,0 +1,88 @@
+Copied 82 files from TVP containing action:aid
+COPY puzzle_switches.lua
+COPY map\quests.lua
+COPY map\ab'dendriel\draconia_lever_key.lua
+COPY map\ab'dendriel\draconia_stone_lever.lua
+COPY map\ab'dendriel\wasp_lever.lua
+COPY map\ankrahmun\drum_puzzle.lua
+COPY map\ankrahmun\flute_puzzle.lua
+COPY map\ankrahmun\gemmed_lamp.lua
+COPY map\ankrahmun\gemmed_lamp_2.lua
+COPY map\ankrahmun\horn_puzzle.lua
+COPY map\ankrahmun\horn_puzzle_2.lua
+COPY map\ankrahmun\lyre_puzzle.lua
+COPY map\ankrahmun\magician_hat_puzzle.lua
+COPY map\ankrahmun\mandolin_puzzle.lua
+COPY map\ankrahmun\panpipe_puzzle.lua
+COPY map\ankrahmun\scarab_monument.lua
+COPY map\ankrahmun\secret_switch_lever.lua
+COPY map\ankrahmun\serpentine_tower_fireelemental.lua
+COPY map\ankrahmun\trumpet_puzzle.lua
+COPY map\ankrahmun\water_basin.lua
+COPY map\carlin\banshee_lever_puzzle_1.lua
+COPY map\carlin\banshee_lever_puzzle_1_1.lua
+COPY map\carlin\banshee_lever_puzzle_1_2.lua
+COPY map\carlin\banshee_lever_puzzle_1_3.lua
+COPY map\carlin\banshee_lever_puzzle_1_4.lua
+COPY map\carlin\banshee_lever_puzzle_1_5.lua
+COPY map\carlin\banshee_lever_puzzle_2.lua
+COPY map\carlin\banshee_lever_puzzle_3.lua
+COPY map\carlin\banshee_lever_puzzle_4.lua
+COPY map\carlin\banshee_lever_puzzle_5.lua
+COPY map\carlin\banshee_lever_puzzle_6.lua
+COPY map\carlin\banshee_seal_secret_lever.lua
+COPY map\carlin\demona_energy_trap.lua
+COPY map\carlin\demona_lever_entrance.lua
+COPY map\carlin\ghostlands_beholder_lever.lua
+COPY map\carlin\ghostlands_lever.lua
+COPY map\edron\annihilator_lever.lua
+COPY map\edron\behemoth_quest_lever.lua
+COPY map\edron\demon_helmet_lever.lua
+COPY map\edron\goblin_cave.lua
+COPY map\gm island\torture.lua
+COPY map\kazordoon\elevator_lever_down.lua
+COPY map\kazordoon\elevator_lever_up.lua
+COPY map\kazordoon\ladder_lever.lua
+COPY map\kazordoon\paradox_tower_box_puzzle.lua
+COPY map\kazordoon\paradox_tower_chess_puzzle.lua
+COPY map\kazordoon\paradox_tower_food_puzzle.lua
+COPY map\kazordoon\paradox_tower_lever_puzzle.lua
+COPY map\kazordoon\stone_lever.lua
+COPY map\port hope\banuta_999_door_entrance.lua
+COPY map\port hope\banuta_999_door_exit.lua
+COPY map\port hope\dworc_hole_lever.lua
+COPY map\rookgaard\bear_room_lever.lua
+COPY map\rookgaard\bug_lever.lua
+COPY map\rookgaard\katana_door_lever.lua
+COPY map\rookgaard\library_wall_lever.lua
+COPY map\rookgaard\rat_bridge_lever_east.lua
+COPY map\rookgaard\rat_bridge_west.lua
+COPY map\rookgaard\spider_lever.lua
+COPY map\rookgaard\troll_lever.lua
+COPY map\rookgaard\wolf_lever.lua
+COPY map\senja\magicwalls_lever.lua
+COPY map\thais\beholder_bridge_lever_north.lua
+COPY map\thais\beholder_bridge_lever_south.lua
+COPY map\thais\cyclops_walls_lever.lua
+COPY map\thais\draw_well_down.lua
+COPY map\thais\fibula_draw_well_entrance.lua
+COPY map\thais\lighthouse_entrance_lever.lua
+COPY map\thais\lighthouse_teleport_entrance.lua
+COPY map\thais\mcronald_pig_lever_1.lua
+COPY map\thais\mcronald_pig_lever_2.lua
+COPY map\thais\mintwallin_bridge_lever.lua
+COPY map\thais\skeleton_draw_well.lua
+COPY map\venore\bright_sword_quest_barrel_lever.lua
+COPY map\venore\bright_sword_quest_oven_lever.lua
+COPY map\venore\bright_sword_quest_powerring_lever.lua
+COPY map\venore\desert_dungeon_quest.lua
+COPY map\venore\dog_race_lever.lua
+COPY map\venore\netlios_lever.lua
+COPY map\venore\poh_stone_lever.lua
+COPY map\venore\spike_sword_secret_lever.lua
+COPY map\venore\triangle_tower_lever_entrance.lua
+
+Backups created:
+BACKUP map\edron\demon_helmet_lever.lua
+
+Backup dir: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\backup_actions_from_ots_20260210_230812

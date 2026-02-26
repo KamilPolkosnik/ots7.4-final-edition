@@ -1,0 +1,125 @@
+local FIXES = {
+  {x=32039, y=31603, z=10, itemid=1209, aid=4501},
+  {x=32107, y=31568, z=9, itemid=1212, aid=4502},
+  {x=32108, y=31568, z=9, itemid=1212, aid=4502},
+  {x=32035, y=31642, z=8, itemid=1209, aid=4503},
+  {x=32693, y=31574, z=13, itemid=1212, aid=3015},
+  {x=32693, y=31577, z=13, itemid=1212, aid=3015},
+  {x=32658, y=31645, z=9, itemid=1212, aid=3033},
+  {x=32655, y=31655, z=9, itemid=1212, aid=3033},
+  {x=32675, y=31649, z=10, itemid=1212, aid=3012},
+  {x=32675, y=31671, z=10, itemid=1212, aid=3012},
+  {x=32315, y=31752, z=6, itemid=1212, aid=3516},
+  {x=32319, y=31752, z=6, itemid=1212, aid=3517},
+  {x=32400, y=31788, z=8, itemid=1209, aid=3520},
+  {x=32400, y=31789, z=8, itemid=1209, aid=3520},
+  {x=32398, y=31804, z=8, itemid=1209, aid=3520},
+  {x=32336, y=31811, z=6, itemid=1212, aid=3518},
+  {x=32479, y=31903, z=4, itemid=1212, aid=3899},
+  {x=32450, y=31967, z=10, itemid=1209, aid=3802},
+  {x=32457, y=31966, z=10, itemid=1209, aid=3802},
+  {x=32452, y=31972, z=10, itemid=1212, aid=3802},
+  {x=32456, y=31972, z=10, itemid=1212, aid=3802},
+  {x=32591, y=31901, z=8, itemid=1209, aid=3803},
+  {x=32600, y=31926, z=6, itemid=1209, aid=3801},
+  {x=32624, y=31929, z=3, itemid=1212, aid=3801},
+  {x=32645, y=31906, z=3, itemid=1212, aid=3800},
+  {x=32574, y=31936, z=9, itemid=1212, aid=3803},
+  {x=32576, y=31938, z=9, itemid=1209, aid=3803},
+  {x=32581, y=31938, z=9, itemid=1209, aid=3803},
+  {x=32584, y=31936, z=9, itemid=1212, aid=3803},
+  {x=32580, y=31948, z=6, itemid=1209, aid=3803},
+  {x=32602, y=31958, z=14, itemid=1212, aid=3802},
+  {x=32603, y=31958, z=14, itemid=1212, aid=3802},
+  {x=32602, y=31962, z=14, itemid=1212, aid=3802},
+  {x=32603, y=31962, z=14, itemid=1212, aid=3802},
+  {x=32602, y=31966, z=14, itemid=1212, aid=3802},
+  {x=32603, y=31966, z=14, itemid=1212, aid=3802},
+  {x=32602, y=31975, z=14, itemid=1212, aid=3802},
+  {x=32603, y=31975, z=14, itemid=1212, aid=3802},
+  {x=32726, y=31976, z=6, itemid=1209, aid=5000},
+  {x=32450, y=32044, z=8, itemid=1209, aid=3142},
+  {x=32397, y=32114, z=15, itemid=1212, aid=3620},
+  {x=32395, y=32117, z=15, itemid=1212, aid=3620},
+  {x=32446, y=32123, z=14, itemid=1212, aid=3650},
+  {x=32310, y=32179, z=8, itemid=1209, aid=26},
+  {x=32307, y=32183, z=5, itemid=1212, aid=28},
+  {x=32308, y=32183, z=6, itemid=1212, aid=27},
+  {x=32345, y=32182, z=4, itemid=1209, aid=30},
+  {x=32349, y=32183, z=5, itemid=1212, aid=31},
+  {x=32348, y=32181, z=6, itemid=1209, aid=30},
+  {x=32393, y=32136, z=14, itemid=1212, aid=3620},
+  {x=32444, y=32128, z=14, itemid=1212, aid=3650},
+  {x=32447, y=32151, z=14, itemid=1209, aid=3610},
+  {x=32426, y=32184, z=14, itemid=1212, aid=3650},
+  {x=32462, y=32151, z=15, itemid=1209, aid=3610},
+  {x=32462, y=32153, z=14, itemid=1212, aid=3610},
+  {x=32506, y=32175, z=14, itemid=1209, aid=3600},
+  {x=32357, y=32195, z=7, itemid=1212, aid=25},
+  {x=32396, y=32225, z=7, itemid=1212, aid=29},
+  {x=32495, y=32250, z=8, itemid=1212, aid=4903},
+  {x=32499, y=32245, z=8, itemid=1209, aid=4903},
+  {x=32592, y=32102, z=14, itemid=1209, aid=3667},
+  {x=32628, y=32098, z=11, itemid=1212, aid=4009},
+  {x=32679, y=32085, z=11, itemid=1209, aid=4022},
+  {x=32614, y=32175, z=9, itemid=1212, aid=3303},
+  {x=32643, y=32128, z=8, itemid=1212, aid=4055},
+  {x=32642, y=32141, z=11, itemid=1209, aid=4023},
+  {x=32665, y=32141, z=12, itemid=1209, aid=4037},
+  {x=32691, y=32131, z=10, itemid=1212, aid=4001},
+  {x=32578, y=32197, z=15, itemid=1212, aid=3666},
+  {x=32620, y=32199, z=10, itemid=1212, aid=3304},
+  {x=32619, y=32240, z=8, itemid=1212, aid=3302},
+  {x=32619, y=32241, z=8, itemid=1212, aid=3301},
+  {x=32190, y=32432, z=8, itemid=1212, aid=3940},
+  {x=32314, y=32275, z=8, itemid=1212, aid=20},
+  {x=32314, y=32278, z=8, itemid=1212, aid=20},
+  {x=32317, y=32278, z=8, itemid=1212, aid=20},
+  {x=32321, y=32258, z=6, itemid=1212, aid=32},
+  {x=32331, y=32259, z=8, itemid=1212, aid=23},
+  {x=32323, y=32275, z=8, itemid=1212, aid=20},
+  {x=32326, y=32275, z=8, itemid=1212, aid=20},
+  {x=32320, y=32277, z=6, itemid=1212, aid=22},
+  {x=32320, y=32278, z=8, itemid=1212, aid=20},
+  {x=32323, y=32278, z=8, itemid=1212, aid=20},
+  {x=32333, y=32277, z=8, itemid=1209, aid=21},
+  {x=32505, y=32270, z=8, itemid=1209, aid=4901},
+  {x=32508, y=32268, z=9, itemid=1212, aid=4904},
+  {x=32465, y=32275, z=8, itemid=1209, aid=4900},
+  {x=32277, y=32420, z=10, itemid=1212, aid=3980},
+  {x=32515, y=32298, z=9, itemid=1209, aid=4903},
+  {x=32794, y=31582, z=6, itemid=1212, aid=3005},
+  {x=32797, y=31592, z=4, itemid=1212, aid=3007},
+  {x=32796, y=31597, z=7, itemid=1212, aid=3002},
+  {x=32804, y=31585, z=1, itemid=1212, aid=3008},
+  {x=32809, y=31593, z=6, itemid=1212, aid=3004},
+  {x=32814, y=31595, z=6, itemid=1212, aid=3006},
+  {x=32811, y=31597, z=7, itemid=1212, aid=3003},
+  {x=32814, y=31597, z=7, itemid=1212, aid=3001},
+  {x=33211, y=31634, z=13, itemid=1212, aid=6010},
+  {x=32824, y=31969, z=8, itemid=1209, aid=5010},
+  {x=32786, y=32328, z=7, itemid=1209, aid=3701},
+  {x=32818, y=32340, z=8, itemid=1212, aid=3702},
+}
+
+function onStartup()
+  local applied = 0
+  local missing = 0
+  for i = 1, #FIXES do
+    local f = FIXES[i]
+    local tile = Tile(Position(f.x, f.y, f.z))
+    if tile then
+      local item = tile:getItemById(f.itemid)
+      if item then
+        item:setActionId(f.aid)
+        applied = applied + 1
+      else
+        missing = missing + 1
+      end
+    else
+      missing = missing + 1
+    end
+  end
+  print(string.format("[KeyholeDoorFixup] applied=%d missing=%d", applied, missing))
+  return true
+end

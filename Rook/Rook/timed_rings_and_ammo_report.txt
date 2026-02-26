@@ -1,0 +1,40 @@
+Timed rings and ammunition report
+Source: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\items\items.xml
+
+=== Timed rings ===
+count: 21
+id=2165 name=stealth ring duration=- equipTo=2202 deEquipTo=-
+id=2166 name=power ring duration=- equipTo=2203 deEquipTo=-
+id=2167 name=energy ring duration=- equipTo=2204 deEquipTo=-
+id=2168 name=life ring duration=- equipTo=2205 deEquipTo=-
+id=2169 name=time ring duration=- equipTo=2206 deEquipTo=-
+id=2202 name=stealth ring duration=600 equipTo=- deEquipTo=2165
+id=2203 name=power ring duration=300 equipTo=- deEquipTo=2166
+id=2204 name=energy ring duration=1200 equipTo=- deEquipTo=2167
+id=2205 name=life ring duration=1200 equipTo=- deEquipTo=2168
+id=2206 name=time ring duration=600 equipTo=- deEquipTo=2169
+id=2207 name=sword ring duration=- equipTo=2210 deEquipTo=-
+id=2208 name=axe ring duration=- equipTo=2211 deEquipTo=-
+id=2209 name=club ring duration=- equipTo=2212 deEquipTo=-
+id=2210 name=sword ring duration=1800 equipTo=- deEquipTo=2207
+id=2211 name=axe ring duration=1800 equipTo=- deEquipTo=2208
+id=2212 name=club ring duration=1800 equipTo=- deEquipTo=2209
+id=2213 name=dwarven ring duration=- equipTo=2215 deEquipTo=-
+id=2214 name=ring of healing duration=- equipTo=2216 deEquipTo=-
+id=2215 name=dwarven ring duration=3600 equipTo=- deEquipTo=2213
+id=2216 name=ring of healing duration=600 equipTo=- deEquipTo=2214
+id=2357 name=ring of the unforgiving master duration=3600 equipTo=- deEquipTo=-
+
+=== Non-timed regen rings/amulets ===
+count: 2
+id=7088 name=regeneration amulet slotType=necklace healthGain=5 healthTicks=4000 manaGain=5 manaTicks=4000
+id=7089 name=regeneration ring slotType=ring healthGain=5 healthTicks=4000 manaGain=5 manaTicks=4000
+
+=== Ammunition (weaponType=ammunition) ===
+count: 6
+id=2543 name=bolt ammoType=bolt shootType=bolt attack=30 hitChance=-
+id=2544 name=arrow ammoType=arrow shootType=arrow attack=25 hitChance=-
+id=2545 name=poison arrow ammoType=arrow shootType=poisonarrow attack=22 hitChance=-
+id=2546 name=burst arrow ammoType=arrow shootType=burstarrow attack=28 hitChance=100
+id=2547 name=power bolt ammoType=bolt shootType=powerbolt attack=40 hitChance=-
+id=5971 name=infernal bolt ammoType=bolt shootType=infernalbolt attack=57 hitChance=-

@@ -1,0 +1,27 @@
+﻿TVP quest item actions vs OTS
+Generated: 2026-02-12 16:27:49
+
+[botanist_container.lua]
+  itemid=4869 status=OK
+
+[butterfly_conservation_kit.lua]
+  itemid=4865 status=OK
+
+[ectoplasm_container.lua]
+  itemid=4863 status=OK
+
+[ice_pick.lua]
+  itemid=4874 status=OK
+
+[letter_bag.lua]
+  itemid=2330 status=OK
+
+[sheet_of_tracing_paper.lua]
+  itemid=4853 status=OK
+
+[snake_destroyer.lua]
+  itemid=4846 status=OK
+
+[spectral_stone.lua]
+  itemid=4851 status=OK
+

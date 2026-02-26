@@ -1,0 +1,141 @@
+Door AID collision report
+map_json=C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\map_items_otsfinal_current.json
+door_ids_count=358
+total_colliding_doors=42
+unique_colliding_aids=31
+
+[AID 2002] count=1
+  source: revs:data\scripts\actions\map\ankrahmun\scarab_monument.lua
+  /teleport 32643 32128 8  # door itemid=1212 aid=2002
+
+[AID 2004] count=1
+  source: revs:data\scripts\actions\map\ankrahmun\magician_hat_puzzle.lua
+  /teleport 32145 32100 11  # door itemid=1212 aid=2004
+
+[AID 2005] count=1
+  source: revs:data\scripts\actions\map\port hope\banuta_999_door_entrance.lua
+  /teleport 32824 31969 8  # door itemid=1209 aid=2005
+
+[AID 2006] count=1
+  source: revs:data\scripts\actions\map\port hope\banuta_999_door_exit.lua
+  /teleport 32109 32172 8  # door itemid=1209 aid=2006
+
+[AID 2007] count=1
+  source: revs:data\scripts\actions\map\ab'dendriel\draconia_stone_lever.lua
+  /teleport 32179 32149 10  # door itemid=1209 aid=2007
+
+[AID 2013] count=2
+  source: revs:data\scripts\actions\map\edron\behemoth_quest_lever.lua
+  /teleport 32655 31655 9  # door itemid=1212 aid=2013
+  /teleport 32658 31645 9  # door itemid=1212 aid=2013
+
+[AID 2015] count=1
+  source: revs:data\scripts\actions\map\edron\annihilator_lever.lua
+  /teleport 32450 32044 8  # door itemid=1209 aid=2015
+
+[AID 2018] count=1
+  source: revs:data\scripts\actions\map\carlin\ghostlands_lever.lua
+  /teleport 32035 31642 8  # door itemid=1209 aid=2018
+
+[AID 2019] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_1.lua
+  /teleport 32039 31603 10  # door itemid=1209 aid=2019
+
+[AID 2020] count=2
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_2.lua
+  /teleport 32107 31568 9  # door itemid=1212 aid=2020
+  /teleport 32108 31568 9  # door itemid=1212 aid=2020
+
+[AID 2021] count=2
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_3.lua
+  /teleport 32462 32151 15  # door itemid=1209 aid=2021
+  /teleport 32462 32153 14  # door itemid=1212 aid=2021
+
+[AID 2022] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_4.lua
+  /teleport 32814 31597 7  # door itemid=1212 aid=2022
+
+[AID 2023] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_5.lua
+  /teleport 32796 31597 7  # door itemid=1212 aid=2023
+
+[AID 2024] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_6.lua
+  /teleport 32811 31597 7  # door itemid=1212 aid=2024
+
+[AID 2025] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_seal_secret_lever.lua
+  /teleport 32809 31593 6  # door itemid=1212 aid=2025
+
+[AID 2026] count=1
+  source: revs:data\scripts\actions\map\carlin\ghostlands_beholder_lever.lua
+  /teleport 32794 31582 6  # door itemid=1212 aid=2026
+
+[AID 2027] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_1_1.lua
+  /teleport 32814 31595 6  # door itemid=1212 aid=2027
+
+[AID 2028] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_1_2.lua
+  /teleport 32797 31592 4  # door itemid=1212 aid=2028
+
+[AID 2029] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_1_3.lua
+  /teleport 32804 31585 1  # door itemid=1212 aid=2029
+
+[AID 2030] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_1_4.lua
+  /teleport 32645 31906 3  # door itemid=1212 aid=2030
+
+[AID 2031] count=1
+  source: revs:data\scripts\actions\map\carlin\banshee_lever_puzzle_1_5.lua
+  /teleport 32600 31926 6  # door itemid=1209 aid=2031
+
+[AID 2032] count=6
+  source: revs:data\scripts\actions\map\kazordoon\elevator_lever_down.lua
+  /teleport 32602 31962 14  # door itemid=1212 aid=2032
+  /teleport 32602 31966 14  # door itemid=1212 aid=2032
+  /teleport 32602 31975 14  # door itemid=1212 aid=2032
+  /teleport 32603 31962 14  # door itemid=1212 aid=2032
+  /teleport 32603 31966 14  # door itemid=1212 aid=2032
+  /teleport 32603 31975 14  # door itemid=1212 aid=2032
+
+[AID 2033] count=3
+  source: revs:data\scripts\actions\map\kazordoon\stone_lever.lua
+  /teleport 32398 31804 8  # door itemid=1209 aid=2033
+  /teleport 32400 31788 8  # door itemid=1209 aid=2033
+  /teleport 32400 31789 8  # door itemid=1209 aid=2033
+
+[AID 2034] count=1
+  source: revs:data\scripts\actions\map\kazordoon\ladder_lever.lua
+  /teleport 32506 32175 14  # door itemid=1209 aid=2034
+
+[AID 2035] count=1
+  source: revs:data\scripts\actions\map\kazordoon\elevator_lever_up.lua
+  /teleport 32393 32136 14  # door itemid=1212 aid=2035
+
+[AID 2037] count=1
+  source: revs:data\scripts\actions\map\thais\mintwallin_bridge_lever.lua
+  /teleport 32592 32102 14  # door itemid=1209 aid=2037
+
+[AID 2038] count=1
+  source: revs:data\scripts\actions\map\gm island\torture.lua
+  /teleport 33211 31634 13  # door itemid=1212 aid=2038
+
+[AID 2043] count=1
+  source: revs:data\scripts\actions\map\ankrahmun\secret_switch_lever.lua
+  /teleport 32113 32055 12  # door itemid=1212 aid=2043
+
+[AID 2044] count=1
+  source: revs:data\scripts\actions\map\venore\bright_sword_quest_barrel_lever.lua
+  /teleport 32479 31903 4  # door itemid=1212 aid=2044
+
+[AID 2045] count=1
+  source: revs:data\scripts\actions\map\venore\bright_sword_quest_oven_lever.lua
+  /teleport 32082 32203 6  # door itemid=1209 aid=2045
+
+[AID 2046] count=2
+  source: revs:data\scripts\actions\map\venore\bright_sword_quest_powerring_lever.lua
+  /teleport 31986 32230 11  # door itemid=1209 aid=2046
+  /teleport 31999 32230 11  # door itemid=1209 aid=2046
+

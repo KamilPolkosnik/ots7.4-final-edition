@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<monster name="Behemoth" nameDescription="a behemoth" race="blood" experience="2500" speed="340" manacost="0">
+  <health now="4000" max="4000"/>
+  <look type="55" corpse="2931"/>
+  <targetchange interval="1000" chance="5"/>
+  <targetstrategies nearest="70" health="0" damage="30" random="0"/>
+  <flags>
+    <flag attackable="1" canwalkonfire="0"/>
+    <flag hostile="1"/>
+    <flag summonable="0"/>
+    <flag convinceable="0"/>
+    <flag illusionable="0"/>
+    <flag pushable="0"/>
+    <flag canpushitems="1"/>
+    <flag canpushcreatures="1"/>
+    <flag targetdistance="1"/>
+    <flag staticattack="80"/>
+    <flag runonhealth="0"/>
+  </flags>
+  <attacks>
+    <attack name="melee" skill="110" attack="75"/>
+    <attack name="physical" checkshield="1" chance="15" range="7" min="-125" max="-185">
+      <attribute key="shootEffect" value="largerock"/>
+    </attack>
+  </attacks>
+  <defenses armor="50" defense="357">
+    <defense name="haste_behemoth" chance="7"/>
+  </defenses>
+  <elements>
+    <element firePercent="100"/>
+    <element earthPercent="100"/>
+    <element energyPercent="100"/>
+  </elements>
+  <immunities>
+    <immunity paralyze="1"/>
+    <immunity invisible="1"/>
+  </immunities>
+  <voices interval="1000" chance="5">
+    <voice sentence="You're so little!"/>
+    <voice sentence="Human flesh - delicious!"/>
+    <voice sentence="Crush the intruders!" yell="1"/>
+  </voices>
+  <loot>
+    <item id="2666" chance="40000" countmax="6"/>
+    <item id="2148" chance="70000" countmax="60"/>
+    <item id="2148" chance="50000" countmax="80"/>
+    <item id="2150" chance="4000" countmax="2"/>
+    <item id="2231" chance="7000"/>
+    <item id="2553" chance="6000"/>
+    <item id="2023" chance="11000"/>
+    <item id="2125" chance="300"/>
+    <item id="2489" chance="3000"/>
+    <item id="2463" chance="2000"/>
+    <item id="2645" chance="400"/>
+    <item id="2393" chance="1000"/>
+    <item id="2377" chance="4000"/>
+    <item id="2387" chance="10000"/>
+    <item id="2416" chance="15000"/>
+    <item id="2174" chance="800"/>
+    <item id="6512" chance="250"/>
+  </loot>
+</monster>

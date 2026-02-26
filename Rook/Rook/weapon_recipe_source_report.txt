@@ -1,0 +1,316 @@
+
+
+[crowbar] id=2416 type=club source=MONSTER_DROP
+koszt 500 gp
+
+[club] id=2382 type=club source=MONSTER_DROP
+crowbar
+koszt 100gp
+
+
+[studded club] id=2448 type=club source=MONSTER_DROP
+wooden shield
+50 gp
+
+[staff] id=2401 type=club source=MONSTER_DROP
+5 x apple
+wooden shield
+50 gp koszt
+
+[bone club] id=2449 type=club source=MONSTER_DROP
+studded club + 10 x bone
+500 gp
+
+[death star] id=5888 type=club source=UNKNOWN_OR_SHOP
+5 dragon hammer 
+koszt 5000
+
+[electric wand] id=5802 type=club source=QUEST_SCRIPT
+  - found in quest scripts as reward candidate
+
+
+[fire wand] id=5800 type=club source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[hadge hammer] id=5892 type=club source=UNKNOWN_OR_SHOP
+100x dwarven sheild 
+koszt 10 000
+
+[icy wand] id=5801 type=club source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[Quara Sceptre] id=5901 type=club source=UNKNOWN_OR_SHOP
+30 x battle Hammer
+koszt 30000
+
+
+[Spark Hammer] id=5889 type=club source=UNKNOWN_OR_SHOP
+to samo co w magic longsword
+
+[squarearth hammer] id=5897 type=club source=UNKNOWN_OR_SHOP
+to samo co w sword of furion
+
+
+
+[terra wand] id=5799 type=club source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[mace] id=2398 type=club source=MONSTER_DROP
+10 x bone
+koszt 10
+
+
+[iron hammer] id=2422 type=club source=QUEST_SCRIPT
+usun z crafta
+
+
+[iron hammer] id=4846 type=club source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[daramanian mace] id=2439 type=club source=MONSTER_DROP
+2 x mace + wooden shield + 10 x bone
+koszt 1000
+
+[battle hammer] id=2417 type=club source=MONSTER_DROP
+morning star 
+koszt 1000
+
+[giant smithhammer] id=2321 type=club source=QUEST_SCRIPT
+usun z crafta
+
+
+[banana staff] id=3966 type=club source=MONSTER_DROP
+100 x banana + morning star
+
+[morning star] id=2394 type=club source=MONSTER_DROP
+daramanian mace + 10 wooden shield + 10x bone
+koszt 1000
+
+[clerical mace] id=2423 type=club source=MONSTER_DROP
+2x battle hammer + daramanian mace 
+koszt 1000
+
+[dragon hammer] id=2434 type=club source=MONSTER_DROP
+clerical mace x4
+koszt 5000
+
+
+[Destroyer Club] id=5902 type=club source=UNKNOWN_OR_SHOP
+5 dragon hammer
+koszt 5000
+
+[skull staff] id=2436 type=club source=MONSTER_DROP
+20 x skull + 10 x bone + dragon hammer
+koszt 10 000
+
+[crystal mace] id=2445 type=club source=MONSTER_DROP
+skull staff + 2 blue gem 
+koszt 10 000
+
+[club of dorion] id=5536 type=club source=UNKNOWN_OR_SHOP
+5 x hadge hammer
+koszt 20000
+
+[ice flail] id=5885 type=club source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[Sapphire Ace] id=5894 type=club source=MONSTER_DROP
+usun z crafta
+
+[silver mace] id=2424 type=club source=UNKNOWN_OR_SHOP
+
+
+[enchanted staff] id=2433 type=club source=UNKNOWN_OR_SHOP
+10x staff + 10 battle hammer
+koszt 5000
+
+
+[golden mace] id=2437 type=club source=UNKNOWN_OR_SHOP
+
+
+[abyss club] id=5886 type=club source=UNKNOWN_OR_SHOP
+100 x talon + 5 x magic plate armor + 100 mace
+koszt 200 000
+
+[hammer of wrath] id=2444 type=club source=MONSTER_DROP
+abyss club + 100 talon
+koszt 100 000
+
+[thunder hammer] id=2421 type=club source=MONSTER_DROP
+to samo co w warlord sword
+
+[war hammer] id=2391 type=club source=MONSTER_DROP
+30 x skull + 1 dragon hammer
+koszt 5000
+
+[heavy mace] id=2452 type=club source=UNKNOWN_OR_SHOP
+hammer of wrath + 10 small emerald + 5 magic palte armor
+koszt 200 000
+
+[arcane staff] id=2453 type=club source=UNKNOWN_OR_SHOP
+usun z crafta
+
+[golden war hammer] id=7916 type=club source=MONSTER_DROP
+5 x war hammer + mind crystal
+koszt 100 000
+=== DIST (16) ===
+
+[arbalest] id=5754 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[bow] id=2456 type=distance source=MONSTER_DROP
+  - monster: Hunter chance=30000/100000 file=data/monster/hunter.xml
+    other_drops: arrow(2544,110000); orange(2675,20000); leather legs(2649,14000); roll(2690,11000); leather helmet(2461,10000); burst arrow(2546,5000); brass helmet(2460,5000); brass armor(2465,5000)
+  - monster: Hero chance=13000/100000 file=data/monster/hero.xml
+    other_drops: gold coin(2148,60000); scroll(1949,45000); arrow(2544,27000); grapes(2681,20000); red rose(2744,20000); rope(2120,20000); meat(2666,18000); lyre(2071,15000)
+  - monster: Elf Scout chance=4000/100000 file=data/monster/elf scout.xml
+    other_drops: gold coin(2148,30000); arrow(2544,30000); grapes(2681,18000); poison arrow(2545,15000); waterskin(2031,14000); studded armor(2484,12000); sandals(2642,10000); studded helmet(2482,8000)
+
+
+[composite hornbow] id=5915 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[crossbow] id=2455 type=distance source=MONSTER_DROP
+  - monster: Dragon chance=10000/100000 file=data/monster/dragon.xml
+    other_drops: gold coin(2148,130000); dragon ham(2672,45000); short sword(2406,25000); mace(2398,20000); burst arrow(2546,16000); steel shield(2509,15000); longsword(2397,4000); steel helmet(2457,3000)
+  - monster: Minotaur Archer chance=10000/100000 file=data/monster/minotaur archer.xml
+    other_drops: bolt(2543,130000); gold coin(2148,85000); meat(2666,10000); leather helmet(2461,5000); leather legs(2649,5000); soldier helmet(2481,2000); scale armor(2483,2000); brass armor(2465,1000)
+  - monster: Dwarf Soldier chance=4000/100000 file=data/monster/dwarf soldier.xml
+    other_drops: white mushroom(2787,40000); bolt(2543,40000); gold coin(2148,35000); soldier helmet(2481,12000); shovel(2554,10000); chain armor(2464,9000); dwarven shield(2525,5000); battle axe(2378,2500)
+
+
+[death crossbow] id=5914 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[earth bow] id=5916 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[ice bow] id=5917 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[royal crossbow] id=5913 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[small stone] id=1294 type=distance source=MONSTER_DROP
+  - monster: Blue Goblin chance=60000/100000 file=data/monster/blue goblin.xml
+    other_drops: cape(2654,100000); platinum coin(2152,50000); dagger(2379,18000); blue spell wand(2190,12000); short sword(2406,9000); bone club(2449,5000); gem bag(6512,250)
+  - monster: Goblin chance=30000/100000 file=data/monster/goblin.xml
+    other_drops: gold coin(2148,50000); dagger(2379,18000); fish(2667,13000); bone(2230,12000); small axe(2559,10000); leather helmet(2461,10000); short sword(2406,9000); leather armor(2467,7500)
+  - monster: demon chance=30000/100000 file=data/monster/special/demongoblin.xml
+    other_drops: gold coin(2148,50000); dagger(2379,18000); fish(2667,13000); bone(2230,12000); small axe(2559,10000); leather helmet(2461,10000); short sword(2406,9000); leather armor(2467,7500)
+
+
+[snowball] id=2111 type=distance source=MONSTER_DROP
+  - monster: Yeti chance=50000/100000 file=data/monster/yeti.xml
+    other_drops: gold coin(2148,90000); meat(2666,75000); ham(2671,35000); wolf tooth chain(2129,500); gem bag(6512,250); bunny slippers(2644,100)
+
+
+[modified crossbow] id=5912 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[royal crossbow] id=2350 type=distance source=MONSTER_DROP
+  - monster: Morguthis chance=100000/100000 file=data/monster/Bosses/morguthis.xml
+    other_drops: gold coin(2148,155000); black pearl(2144,10000); knight axe(2430,5000); stone skin amulet(2197,5000); gem bag(6512,250); demonbone amulet(2136,100); steel boots(2645,100); ravager's axe(2443,100)
+
+
+[spear] id=2389 type=distance source=MONSTER_DROP
+  - monster: Valkyrie chance=60000/100000 file=data/monster/valkyrie.xml
+    other_drops: skull(2229,80000); gold coin(2148,32000); meat(2666,30000); dagger(2379,25000); chain armor(2464,10000); red apple(2674,7500); chain helmet(2458,4000); protection amulet(2200,1100)
+  - monster: Black Knight chance=30000/100000 file=data/monster/black knight.xml
+    other_drops: gold coin(2148,55500); brown bread(2691,20000); rope(2120,15000); brass legs(2478,13000); halberd(2381,13000); steel helmet(2457,10000); plate armor(2463,10000); two handed sword(2377,10000)
+  - monster: Orc Spearman chance=23000/100000 file=data/monster/orc spearman.xml
+    other_drops: meat(2666,30000); gold coin(2148,22000); studded legs(2468,10000); machete(2420,10000); studded helmet(2482,9000); dirty fur(2220,7700); gem bag(6512,250)
+
+
+[throwing knife] id=2410 type=distance source=MONSTER_DROP
+  - monster: Stalker chance=11000/100000 file=data/monster/stalker.xml
+    other_drops: gold coin(2148,13000); leather legs(2649,10000); blank rune(2260,9000); brass legs(2478,7000); katana(2412,6000); brass shield(2511,5500); green backpack(1998,4500); obsidian lance(2425,1200)
+  - monster: Orc Leader chance=10000/100000 file=data/monster/orc leader.xml
+    other_drops: fish(2667,30000); gold coin(2148,28000); dagger(2379,23000); backpack(1988,20000); meat(2666,15000); scimitar(2419,12000); plate shield(2510,10000); longsword(2397,8000)
+  - monster: Dworc Venomsniper chance=8000/100000 file=data/monster/dworc venomsniper.xml
+    other_drops: gold coin(2148,80000); leather armor(2467,10000); torch(2050,5500); poison arrow(2545,5000); poison dagger(2411,1500); skull(2229,1000); tribal mask(3967,500); gem bag(6512,250)
+
+
+[throwing star] id=2399 type=distance source=MONSTER_DROP
+  - monster: Orc Warlord chance=30000/100000 file=data/monster/orc warlord.xml
+    other_drops: meat(2666,20000); gold coin(2148,19000); orcish axe(2428,15000); scimitar(2419,12000); fish(2667,10000); brass legs(2478,10000); plate armor(2463,6000); plate legs(2647,4000)
+  - monster: orc warlord chance=30000/100000 file=data/monster/special/orcwarlordraid.xml
+    other_drops: meat(2666,20000); gold coin(2148,19000); orcish axe(2428,15000); scimitar(2419,12000); fish(2667,10000); brass legs(2478,10000); plate armor(2463,6000); plate legs(2647,4000)
+  - monster: Demon Skeleton chance=10000/100000 file=data/monster/demon skeleton.xml
+    other_drops: gold coin(2148,70000); torch(2050,50000); battle hammer(2417,3000); iron helmet(2459,2000); guardian shield(2515,1000); mysterious fetish(2194,300); gem bag(6512,250); mind stone(2178,200)
+
+
+[assassin star] id=5836 type=distance source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+=== OTHERS (12) ===
+
+[hailstorm rod] id=7092 type=wand source=MONSTER_DROP
+  - monster: necropharus chance=3000/100000 file=data/monster/Bosses/necropharus.xml
+    other_drops: soul orb(6437,100000); gold coin(2148,67300); bone(2230,30000); green mushroom(2796,22500); bone club(2449,19900); skull(2229,16000); scale armor(2483,8500); big bone(2231,6000)
+
+
+[lich staff] id=3961 type=wand source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[moonlight rod] id=7095 type=wand source=MONSTER_DROP
+  - monster: Beholder chance=500/100000 file=data/monster/beholder.xml
+    other_drops: gold coin(2148,240000); longsword(2397,9000); morning star(2394,7000); spellbook(2175,5000); two handed sword(2377,4000); steel shield(2509,4000); wooden shield(2512,3000); wand of dragonbreath(7100,500)
+
+
+[necrotic rod] id=7094 type=wand source=MONSTER_DROP
+  - monster: Witch chance=1000/100000 file=data/monster/witch.xml
+    other_drops: leather boots(2643,50000); cape(2654,50000); cheese(2696,40000); sickle(2405,40000); cookie(2687,30000); broom(2551,20000); coat(2651,20000); gold coin(2148,10000)
+
+
+[snakebite rod] id=7091 type=wand source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[spellbook of lost souls] id=5919 type=wand source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found
+
+
+[terra rod] id=7090 type=wand source=MONSTER_DROP
+  - monster: Beholder chance=100/100000 file=data/monster/beholder.xml
+    other_drops: gold coin(2148,240000); longsword(2397,9000); morning star(2394,7000); spellbook(2175,5000); two handed sword(2377,4000); steel shield(2509,4000); wooden shield(2512,3000); wand of dragonbreath(7100,500)
+
+
+[wand of cosmic energy] id=7098 type=wand source=MONSTER_DROP
+  - monster: Minotaur Mage chance=500/100000 file=data/monster/minotaur mage.xml
+    other_drops: gold coin(2148,80000); dead snake(2817,70000); torch(2050,60000); leather legs(2649,15000); carrot(2684,10000); leather helmet(2461,10000); knife(2403,10000); brass armor(2465,4000)
+
+
+[wand of decay] id=7097 type=wand source=MONSTER_DROP
+  - monster: Orc Shaman chance=1000/100000 file=data/monster/orc shaman.xml
+    other_drops: gold coin(2148,90000); corncob(2686,11000); spear(2389,10000); chain helmet(2458,9000); chain armor(2464,9000); staff(2401,7000); book(1973,4500); green spell wand(2188,1000)
+  - monster: Necromancer chance=500/100000 file=data/monster/necromancer.xml
+    other_drops: gold coin(2148,30000); short sword(2406,15000); scale armor(2483,10000); green mushroom(2796,1500); clerical mace(2423,1000); mystic turban(2663,500); gem bag(6512,250); boots of haste(2195,200)
+
+
+[wand of dragonbreath] id=7100 type=wand source=MONSTER_DROP
+  - monster: Beholder chance=500/100000 file=data/monster/beholder.xml
+    other_drops: gold coin(2148,240000); longsword(2397,9000); morning star(2394,7000); spellbook(2175,5000); two handed sword(2377,4000); steel shield(2509,4000); wooden shield(2512,3000); moonlight rod(7095,500)
+
+
+[wand of inferno] id=7096 type=wand source=MONSTER_DROP
+  - monster: Dragon chance=300/100000 file=data/monster/dragon.xml
+    other_drops: gold coin(2148,130000); dragon ham(2672,45000); short sword(2406,25000); mace(2398,20000); burst arrow(2546,16000); steel shield(2509,15000); crossbow(2455,10000); longsword(2397,4000)
+
+
+[wand of vortex] id=7099 type=wand source=UNKNOWN_OR_SHOP
+  - no direct monster drop and no quest reward match found

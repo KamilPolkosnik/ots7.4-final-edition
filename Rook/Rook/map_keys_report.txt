@@ -1,0 +1,8 @@
+Map: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\world\world.otbm
+Total key items found: 0
+
+=== Keys on map with actionid > 0 ===
+count: 0
+
+=== Keys on map with actionid = 0 ===
+count: 0

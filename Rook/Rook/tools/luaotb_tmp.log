@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "ascii_art.py", line 55, in show_luaotb_banner
+  File "ascii_art.py", line 30, in display_logo
+  File "colorama\ansitowin32.py", line 47, in write
+  File "colorama\ansitowin32.py", line 177, in write
+  File "colorama\ansitowin32.py", line 202, in write_and_convert
+  File "colorama\ansitowin32.py", line 210, in write_plain_text
+  File "encodings\cp1250.py", line 19, in encode
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 6-8: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "luaotb.py", line 96, in <module>
+  File "ascii_art.py", line 58, in show_luaotb_banner
+  File "ascii_art.py", line 50, in display_simple_logo
+  File "colorama\ansitowin32.py", line 47, in write
+  File "colorama\ansitowin32.py", line 177, in write
+  File "colorama\ansitowin32.py", line 202, in write_and_convert
+  File "colorama\ansitowin32.py", line 210, in write_plain_text
+  File "encodings\cp1250.py", line 19, in encode
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 6-46: character maps to <undefined>
+[PYI-35152:ERROR] Failed to execute script 'luaotb' due to unhandled exception!

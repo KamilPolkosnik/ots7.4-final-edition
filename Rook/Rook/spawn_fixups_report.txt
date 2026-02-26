@@ -1,0 +1,17 @@
+Spawn fixups (startup warnings)
+Generated: 2026-02-16
+
+1) Dragon Lord
+- old: /teleport 33088 32589 4
+- new: /teleport 33087 32590 4
+- file: data/world/Tibia74-spawns.xml
+
+2) Ghoul
+- old: /teleport 32481 31900 5
+- new: /teleport 32482 31900 5
+- file: data/world/Tibia74-spawns.xml
+
+3) Demon Skeleton
+- old: /teleport 32252 31905 14
+- new: /teleport 32250 31905 14
+- file: data/world/Tibia74-spawns.xml

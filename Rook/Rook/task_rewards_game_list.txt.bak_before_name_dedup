@@ -1,0 +1,81 @@
+Task Rewards -> GAME list
+
+=== Backpacks ===
+itemid=1988 name=backpack
+itemid=1998 name=green backpack
+itemid=1999 name=yellow backpack
+itemid=2000 name=red backpack
+itemid=2001 name=purple backpack
+itemid=2002 name=blue backpack
+itemid=2003 name=grey backpack
+itemid=2004 name=golden backpack
+itemid=2365 name=backpack of holding
+itemid=3940 name=camouflage backpack
+itemid=3960 name=old and used backpack
+itemid=5776 name=explo backpack
+itemid=5777 name=gfb backpack
+itemid=5778 name=hmm backpack
+itemid=5779 name=ih backpack
+itemid=5780 name=lmm backpack
+itemid=5781 name=mw backpack
+itemid=5782 name=sd backpack
+itemid=5783 name=uh backpack
+itemid=5797 name=werewolf backpack
+itemid=5813 name=demon backpack
+itemid=5817 name=heart backpack
+itemid=5818 name=crown backpack
+itemid=5842 name=frosty backpack
+itemid=5843 name=energy backpack
+itemid=5859 name=goldenruby backpack
+itemid=5954 name=War backpack
+itemid=6338 name=Backpack of Holding
+
+=== Light items (portable) ===
+itemid=2044 name=lamp
+itemid=2045 name=lamp
+itemid=2046 name=lamp
+itemid=2047 name=candlestick
+itemid=2048 name=candlestick
+itemid=2049 name=candlestick
+itemid=2050 name=torch
+itemid=2051 name=torch
+itemid=2052 name=torch
+itemid=2053 name=torch
+itemid=2054 name=torch
+itemid=2055 name=torch
+itemid=2056 name=torch
+itemid=2062 name=small oil lamp
+itemid=2063 name=small oil lamp
+itemid=2162 name=magic lightwand
+itemid=2163 name=magic lightwand
+itemid=2344 name=oil lamp
+itemid=2356 name=small oil lamp
+itemid=2359 name=small oil lamp
+itemid=2375 name=gemmed lamp
+itemid=3743 name=lantern
+itemid=3744 name=lantern
+itemid=5750 name=gemmed lamp
+itemid=7479 name=lit torch
+itemid=7480 name=lit torch
+itemid=7481 name=lit torch
+
+=== Tools ===
+itemid=1728 name=pendulum clock source=tools/watch.lua
+itemid=1729 name=pendulum clock source=tools/watch.lua
+itemid=1730 name=pendulum clock source=tools/watch.lua
+itemid=1731 name=pendulum clock source=tools/watch.lua
+itemid=1877 name=cuckoo clock source=tools/watch.lua
+itemid=1881 name=cuckoo clock source=tools/watch.lua
+itemid=2036 name=watch source=tools/watch.lua
+itemid=2120 name=rope source=tools/rope.lua
+itemid=2405 name=sickle source=revscripts:sickle.lua
+itemid=2418 name=golden sickle source=revscripts:sickle.lua
+itemid=2420 name=machete source=tools/machete.lua
+itemid=2550 name=scythe source=tools/scythe.lua
+itemid=2553 name=pick source=tools/pick.lua
+itemid=2554 name=shovel source=tools/shovel.lua
+itemid=2558 name=saw source=revscripts:saw.lua
+itemid=2580 name=fishing rod source=tools/fishing.lua
+itemid=4842 name=parchment source=tools/lottery ticket.lua
+itemid=5710 name=<unknown> source=tools/shovel.lua
+itemid=26378 name=<unknown> source=revscripts:gold_converter.lua

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<houses>
+	<house name="Royal Lane 04, Flat 2" houseid="8" entryx="3149" entryy="1057" entryz="6" rent="600" townid="0" size="14" />
+	<house name="Royal Lane 01, Flat 3" houseid="9" entryx="3149" entryy="1069" entryz="5" rent="500" townid="0" size="10" />
+	<house name="Royal Lane 02, Flat 3" houseid="10" entryx="3149" entryy="1065" entryz="5" rent="500" townid="0" size="10" />
+	<house name="Royal Lane 03" houseid="14" entryx="3162" entryy="1061" entryz="7" rent="2000" townid="0" size="44" />
+	<house name="Temple Street 01" houseid="27" entryx="3166" entryy="1086" entryz="7" rent="1000" townid="0" size="38" />
+	<house name="Temple Street 02" houseid="28" entryx="3143" entryy="1088" entryz="7" rent="100" townid="0" size="15" />
+	<house name="Golden Street" houseid="29" entryx="3146" entryy="1069" entryz="7" rent="1200" townid="0" size="19" />
+	<house name="Royal Lane 01" houseid="30" entryx="3151" entryy="1062" entryz="7" rent="2200" townid="0" size="60" />
+	<house name="Royal Lane 01, Flat 2" houseid="31" entryx="3149" entryy="1069" entryz="6" rent="500" townid="0" size="10" />
+	<house name="Royal Lane 02, Flat 2" houseid="32" entryx="3149" entryy="1065" entryz="6" rent="500" townid="0" size="10" />
+	<house name="Royal Lane 03, Flat 2" houseid="33" entryx="3149" entryy="1061" entryz="6" rent="500" townid="0" size="10" />
+	<house name="Royal Lane 03, Flat 3" houseid="34" entryx="3149" entryy="1061" entryz="5" rent="500" townid="0" size="10" />
+	<house name="Royal Lane 04, Flat 3" houseid="35" entryx="3149" entryy="1057" entryz="5" rent="600" townid="0" size="14" />
+	<house name="Royal Lane 02 (Shop)" houseid="36" entryx="3163" entryy="1063" entryz="7" rent="1500" townid="0" size="47" />
+	<house name="Royal Lane 04" houseid="37" entryx="3170" entryy="1061" entryz="7" rent="2000" townid="0" size="44" />
+	<house name="Royal Lane 05" houseid="38" entryx="3178" entryy="1061" entryz="7" rent="2000" townid="0" size="44" />
+	<house name="Royal Lane 01, Flat 1" houseid="39" entryx="3175" entryy="1063" entryz="7" rent="1700" townid="0" size="25" />
+	<house name="Royal Lane 02, Flat 1" houseid="40" entryx="3180" entryy="1063" entryz="7" rent="1700" townid="0" size="26" />
+	<house name="Royal Lane 03, Flat 1" houseid="41" entryx="3185" entryy="1063" entryz="7" rent="1000" townid="0" size="12" />
+	<house name="Royal Lane 04, Flat 1" houseid="42" entryx="3190" entryy="1063" entryz="7" rent="1000" townid="0" size="12" />
+	<house name="Night Lane 01, Flat 1" houseid="43" entryx="3169" entryy="1080" entryz="7" rent="1000" townid="0" size="9" />
+	<house name="Night Lane 02, Flat 1" houseid="44" entryx="3169" entryy="1076" entryz="7" rent="1200" townid="0" size="18" />
+	<house name="Night Lane 03, Flat 1" houseid="45" entryx="3169" entryy="1072" entryz="7" rent="12000" townid="0" size="13" />
+	<house name="Night Lane 01, Flat 2" houseid="46" entryx="3171" entryy="1078" entryz="6" rent="500" townid="0" size="4" />
+	<house name="Night Lane 02, Flat 2" houseid="47" entryx="3171" entryy="1075" entryz="6" rent="400" townid="0" size="4" />
+	<house name="Night Lane 03, Flat 2" houseid="48" entryx="3171" entryy="1071" entryz="6" rent="500" townid="0" size="4" />
+	<house name="Temple Street 03" houseid="49" entryx="3185" entryy="1087" entryz="7" rent="2000" townid="0" size="78" />
+	<house name="Knightwall Guildhall" houseid="50" entryx="3198" entryy="1093" entryz="7" rent="5000" townid="0" size="316" />
+	<house name="Smallville 01" houseid="51" entryx="3184" entryy="1124" entryz="7" rent="500" townid="3" size="15" />
+	<house name="Smallville 02" houseid="52" entryx="3183" entryy="1127" entryz="7" rent="500" townid="3" size="15" />
+	<house name="Smallville 03" houseid="53" entryx="3193" entryy="1124" entryz="7" rent="500" townid="3" size="12" />
+	<house name="Smallville 04" houseid="54" entryx="3193" entryy="1132" entryz="7" rent="500" townid="3" size="15" />
+	<house name="Smallville 05" houseid="55" entryx="3210" entryy="1134" entryz="7" rent="500" townid="0" size="18" />
+	<house name="Smallville 06" houseid="56" entryx="3207" entryy="1136" entryz="7" rent="2000" townid="3" size="140" />
+	<house name="Mormac Street 01" houseid="57" entryx="3199" entryy="1324" entryz="7" rent="1000" townid="0" size="14" />
+	<house name="Mormac Street 02" houseid="58" entryx="3193" entryy="1313" entryz="7" rent="1000" townid="0" size="66" />
+	<house name="Mormac Street 03" houseid="59" entryx="3186" entryy="1315" entryz="7" rent="1200" townid="0" size="62" />
+	<house name="Star Street 01" houseid="60" entryx="3170" entryy="1322" entryz="7" rent="1000" townid="0" size="16" />
+	<house name="Star Street 02" houseid="61" entryx="3170" entryy="1322" entryz="6" rent="1000" townid="0" size="16" />
+	<house name="Star Street 03" houseid="62" entryx="3170" entryy="1319" entryz="6" rent="1000" townid="0" size="4" />
+	<house name="Star Street 04" houseid="63" entryx="3172" entryy="1310" entryz="7" rent="1500" townid="0" size="28" />
+	<house name="Star Street 05" houseid="64" entryx="3172" entryy="1304" entryz="7" rent="1500" townid="0" size="28" />
+	<house name="Star Street 06" houseid="65" entryx="3167" entryy="1306" entryz="7" rent="1000" townid="0" size="26" />
+	<house name="Star Street 07" houseid="66" entryx="3167" entryy="1307" entryz="7" rent="1000" townid="0" size="30" />
+	<house name="Star Street 08" houseid="67" entryx="3159" entryy="1305" entryz="7" rent="2000" townid="0" size="37" />
+	<house name="Star Street 01, Flat 1" houseid="68" entryx="3174" entryy="1309" entryz="6" rent="700" townid="3" size="20" />
+	<house name="Star Street 02, Flat 1" houseid="69" entryx="3174" entryy="1304" entryz="6" rent="1000" townid="0" size="16" />
+	<house name="Baker Street 01, Flat 1" houseid="70" entryx="3187" entryy="1341" entryz="7" rent="700" townid="0" size="14" />
+	<house name="Baker Street 02, Flat 1" houseid="71" entryx="3191" entryy="1341" entryz="7" rent="700" townid="0" size="12" />
+	<house name="Baker Street 03, Flat 1" houseid="72" entryx="3197" entryy="1341" entryz="7" rent="1000" townid="0" size="18" />
+	<house name="Baker Street 04, Flat 1" houseid="73" entryx="3203" entryy="1339" entryz="7" rent="2000" townid="0" size="30" />
+	<house name="Baker Street 01, Flat 2" houseid="74" entryx="3203" entryy="1339" entryz="6" rent="2000" townid="0" size="28" />
+	<house name="Baker Street 02, Flat 2" houseid="75" entryx="3197" entryy="1341" entryz="6" rent="1000" townid="0" size="18" />
+	<house name="Baker Street 03, Flat 2" houseid="76" entryx="3191" entryy="1341" entryz="6" rent="700" townid="0" size="12" />
+	<house name="Baker Street 04, Flat 2" houseid="77" entryx="3187" entryy="1341" entryz="6" rent="1000" townid="0" size="14" />
+	<house name="Baker Street 01, Flat 3" houseid="78" entryx="3203" entryy="1340" entryz="5" rent="2000" townid="0" size="24" />
+	<house name="Baker Street 02, Flat 3" houseid="79" entryx="3195" entryy="1341" entryz="5" rent="1000" townid="0" size="23" />
+	<house name="Baker Street 03, Flat 3" houseid="80" entryx="3188" entryy="1341" entryz="5" rent="1300" townid="0" size="20" />
+	<house name="King's Garden" houseid="81" entryx="3176" entryy="1354" entryz="7" rent="6000" townid="0" size="453" />
+	<house name="Gods Mansion" houseid="82" entryx="3225" entryy="1291" entryz="7" rent="4000" townid="0" size="140" />
+</houses>

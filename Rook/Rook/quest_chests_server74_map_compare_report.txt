@@ -1,0 +1,1364 @@
+Server74 -> Rook chest quest mapping report
+
+Rook map: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\world\world.otbm
+Server74 scripts: C:\Users\stelm\OneDrive\Pulpit\server74\data\actions\scripts\main\quest.lua, C:\Users\stelm\OneDrive\Pulpit\server74\data\actions\scripts\rook\quest.lua
+Rook scripts: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\actions\scripts\main\quest.lua, C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\actions\scripts\rook\quest.lua
+
+Container quest objects on Rook map (movementid as uid): 175
+Mapped to Server74 quest scripts: 159
+No matching uid in Server74 main/rook quest.lua: 16
+
+=== UIDs on Rook map with no definition in Server74 main/rook quest.lua ===
+uid=7001 /teleport 32122 32063 12 (count=1)
+uid=8224 /teleport 32771 32294 9 (count=1)
+uid=9971 /teleport 32620 32198 10 (count=1)
+uid=10272 /teleport 32799 32471 15 (count=1)
+uid=10282 /teleport 32832 32277 10 (count=1)
+uid=10544 /teleport 32775 32248 12 (count=1)
+uid=10545 /teleport 32777 32248 12 (count=1)
+uid=10546 /teleport 32779 32248 12 (count=1)
+uid=10547 /teleport 32783 32251 12 (count=1)
+uid=10548 /teleport 32785 32251 12 (count=1)
+uid=10549 /teleport 32790 32251 12 (count=1)
+uid=10550 /teleport 32795 32251 12 (count=1)
+uid=10551 /teleport 32797 32251 12 (count=1)
+uid=10552 /teleport 32828 32340 7 (count=1)
+uid=16331 /teleport 33188 31682 14 (count=1)
+uid=43431 /teleport 32814 32281 8 (count=1)
+
+=== Mapped chests (Server74 rewards vs Rook rewards) ===
+uid=7006 status=MATCH map_count=1
+  /teleport 32171 32197 7  # itemid=1740 aid=7000 uid=7006
+  server74_rewards:
+    - id=1955 token=1955 count=1 (quest.lua:31)
+  rook_rewards:
+    - id=1955 token=1955 count=1 (quest.lua:47)
+
+uid=7008 status=MATCH map_count=1
+  /teleport 32039 32121 13  # itemid=1740 aid=7000 uid=7008
+  server74_rewards:
+    - id=2597 token=Cfletter count=1 (quest.lua:49)
+    - id=2668 token=Cfsalmon count=2 (quest.lua:50)
+  rook_rewards:
+    - id=2597 token=Cfletter count=1 (quest.lua:65)
+    - id=2668 token=Cfsalmon count=2 (quest.lua:66)
+
+uid=7009 status=MATCH map_count=1
+  /teleport 32150 32111 12  # itemid=1738 aid=7000 uid=7009
+  server74_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:68)
+  rook_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:84)
+
+uid=7010 status=MATCH map_count=1
+  /teleport 32141 32098 11  # itemid=1739 aid=7000 uid=7010
+  server74_rewards:
+    - id=2464 token=Cfchainarmor count=1 (quest.lua:88)
+  rook_rewards:
+    - id=2464 token=Cfchainarmor count=1 (quest.lua:104)
+
+uid=7011 status=MATCH map_count=1
+  /teleport 32143 32096 11  # itemid=1740 aid=7000 uid=7011
+  server74_rewards:
+    - id=2460 token=Cfbrasshelmet count=1 (quest.lua:106)
+  rook_rewards:
+    - id=2460 token=Cfbrasshelmet count=1 (quest.lua:122)
+
+uid=7012 status=MATCH + INVALID_ID map_count=1
+  /teleport 32146 32097 11  # itemid=1749 aid=7000 uid=7012
+  server74_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:123)
+    - id=2544 token=Cfarrow count=12 (quest.lua:124)
+    - id=None token=cfcoppercoin count=40 (quest.lua:125)
+  rook_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:139)
+    - id=2544 token=Cfarrow count=12 (quest.lua:140)
+    - id=None token=cfcoppercoin count=40 (quest.lua:141)
+  invalid_in_rook_items_from_server74:
+    - token=cfcoppercoin resolved=None count=40 (quest.lua:125)
+  invalid_in_rook_items_from_rook_script:
+    - token=cfcoppercoin resolved=None count=40 (quest.lua:141)
+
+uid=7013 status=MATCH map_count=1
+  /teleport 32102 32235 8  # itemid=1747 aid=7000 uid=7013
+  server74_rewards:
+    - id=2404 token=Cfcombatknife count=1 (quest.lua:142)
+  rook_rewards:
+    - id=2404 token=Cfcombatknife count=1 (quest.lua:158)
+
+uid=7015 status=MATCH map_count=1
+  /teleport 32179 32224 9  # itemid=2844 aid=7000 uid=7015
+  server74_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:175)
+    - id=2480 token=Cflegionhelmet count=1 (quest.lua:176)
+    - id=2530 token=Cfcoppershield count=1 (quest.lua:177)
+  rook_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:191)
+    - id=2480 token=Cflegionhelmet count=1 (quest.lua:192)
+    - id=2530 token=Cfcoppershield count=1 (quest.lua:193)
+
+uid=7016 status=MATCH + INVALID_ID map_count=1
+  /teleport 31973 32209 12  # itemid=1740 aid=7000 uid=7016
+  server74_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:194)
+    - id=2563 token=Cfpan count=1 (quest.lua:195)
+    - id=1294 token=Cfsmallstone count=5 (quest.lua:196)
+    - id=None token=cfcoppercoin count=50 (quest.lua:197)
+  rook_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:210)
+    - id=2563 token=Cfpan count=1 (quest.lua:211)
+    - id=1294 token=Cfsmallstone count=5 (quest.lua:212)
+    - id=None token=cfcoppercoin count=50 (quest.lua:213)
+  invalid_in_rook_items_from_server74:
+    - token=cfcoppercoin resolved=None count=50 (quest.lua:197)
+  invalid_in_rook_items_from_rook_script:
+    - token=cfcoppercoin resolved=None count=50 (quest.lua:213)
+
+uid=7017 status=MATCH map_count=1
+  /teleport 31977 32209 12  # itemid=1740 aid=7000 uid=7017
+  server74_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:214)
+    - id=2006 token=2006 count=6 (quest.lua:215)
+    - id=2111 token=Cfsnowball count=4 (quest.lua:216)
+    - id=2642 token=Cfsandals count=1 (quest.lua:217)
+  rook_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:230)
+    - id=2006 token=2006 count=6 (quest.lua:231)
+    - id=2111 token=Cfsnowball count=4 (quest.lua:232)
+    - id=2642 token=Cfsandals count=1 (quest.lua:233)
+
+uid=7019 status=MATCH map_count=1
+  /teleport 32174 32149 11  # itemid=3128 aid=7000 uid=7019
+  server74_rewards:
+    - id=2412 token=Cfkatana count=1 (quest.lua:253)
+  rook_rewards:
+    - id=2412 token=Cfkatana count=1 (quest.lua:269)
+
+uid=7020 status=MATCH map_count=1
+  /teleport 32124 32064 12  # itemid=1741 aid=7000 uid=7020
+  server74_rewards:
+    - id=2395 token=Cfcarlinsword count=1 (quest.lua:270)
+  rook_rewards:
+    - id=2395 token=Cfcarlinsword count=1 (quest.lua:286)
+
+uid=7021 status=MATCH map_count=1
+  /teleport 32130 32066 12  # itemid=1741 aid=7000 uid=7021
+  server74_rewards:
+    - id=2580 token=Cffishingrod count=1 (quest.lua:287)
+  rook_rewards:
+    - id=2580 token=Cffishingrod count=1 (quest.lua:303)
+
+uid=7022 status=MATCH map_count=1
+  /teleport 32127 32065 12  # itemid=1741 aid=7000 uid=7022
+  server74_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:304)
+    - id=2545 token=Cfpoisonarrow count=4 (quest.lua:305)
+    - id=2544 token=Cfarrow count=10 (quest.lua:306)
+  rook_rewards:
+    - id=1987 token=1987 count=1 (quest.lua:320)
+    - id=2545 token=Cfpoisonarrow count=4 (quest.lua:321)
+    - id=2544 token=Cfarrow count=10 (quest.lua:322)
+
+uid=7023 status=MATCH map_count=1
+  /teleport 32099 32198 9  # itemid=1740 aid=7000 uid=7023
+  server74_rewards:
+    - id=2384 token=Cfrapier count=1 (quest.lua:323)
+  rook_rewards:
+    - id=2384 token=Cfrapier count=1 (quest.lua:339)
+
+uid=7024 status=MATCH map_count=1
+  /teleport 32092 32162 8  # itemid=1740 aid=7000 uid=7024
+  server74_rewards:
+    - id=2050 token=Cftorch count=1 (quest.lua:340)
+  rook_rewards:
+    - id=2050 token=Cftorch count=1 (quest.lua:356)
+
+uid=7025 status=MATCH map_count=1
+  /teleport 32149 32105 11  # itemid=1740 aid=7000 uid=7025
+  server74_rewards:
+    - id=1988 token=Cfbackpack count=1 (quest.lua:358)
+    - id=2013 token=Cfcup count=1 (quest.lua:359)
+    - id=2035 token=Cfplate count=1 (quest.lua:360)
+    - id=2014 token=Cfjug count=1 (quest.lua:361)
+    - id=1990 token=1990 count=1 (quest.lua:362)
+  rook_rewards:
+    - id=1988 token=Cfbackpack count=1 (quest.lua:374)
+    - id=2013 token=Cfcup count=1 (quest.lua:375)
+    - id=2035 token=Cfplate count=1 (quest.lua:376)
+    - id=2014 token=Cfjug count=1 (quest.lua:377)
+    - id=1990 token=1990 count=1 (quest.lua:378)
+
+uid=7040 status=MATCH map_count=1
+  /teleport 32130 32052 13  # itemid=1740 aid=7000 uid=7040
+  server74_rewards:
+    - id=2089 token=Cfcopperkey count=1 (quest.lua:463)
+  rook_rewards:
+    - id=2089 token=Cfcopperkey count=1 (quest.lua:479)
+
+uid=8001 status=MATCH map_count=1
+  /teleport 32690 32129 10  # itemid=1740 aid=8000 uid=8001
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:55)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:71)
+
+uid=8002 status=MATCH map_count=1
+  /teleport 33136 31601 15  # itemid=1748 aid=8000 uid=8002
+  server74_rewards:
+    - id=2273 token=Cfultimatehealingrune count=3 (quest.lua:73)
+  rook_rewards:
+    - id=2273 token=Cfultimatehealingrune count=3 (quest.lua:89)
+
+uid=8003 status=MATCH map_count=1
+  /teleport 32031 31686 8  # itemid=1740 aid=8000 uid=8003
+  server74_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:89)
+  rook_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:105)
+
+uid=8004 status=MATCH map_count=1
+  /teleport 32172 31602 10  # itemid=1738 aid=8000 uid=8004
+  server74_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:107)
+  rook_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:123)
+
+uid=8005 status=MATCH map_count=1
+  /teleport 32201 31571 10  # itemid=1748 aid=8000 uid=8005
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:125)
+    - id=2089 token=2089 count=1 (quest.lua:126)
+    - id=2490 token=Cfdarkhelmet count=1 (quest.lua:129)
+    - id=2410 token=Cfthrowingknife count=4 (quest.lua:130)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:131)
+    - id=2148 token=2148 count=33 (quest.lua:132)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:141)
+    - id=2089 token=2089 count=1 (quest.lua:142)
+    - id=2490 token=Cfdarkhelmet count=1 (quest.lua:145)
+    - id=2410 token=Cfthrowingknife count=4 (quest.lua:146)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:147)
+    - id=2148 token=2148 count=33 (quest.lua:148)
+
+uid=8006 status=MATCH map_count=1
+  /teleport 32105 31567 9  # itemid=1748 aid=8000 uid=8006
+  server74_rewards:
+    - id=2143 token=Cfwhitepearl count=3 (quest.lua:148)
+  rook_rewards:
+    - id=2143 token=Cfwhitepearl count=3 (quest.lua:164)
+
+uid=8007 status=MATCH map_count=1
+  /teleport 32109 31567 9  # itemid=1749 aid=8000 uid=8007
+  server74_rewards:
+    - id=2413 token=Cfbroadsword count=1 (quest.lua:164)
+  rook_rewards:
+    - id=2413 token=Cfbroadsword count=1 (quest.lua:180)
+
+uid=8008 status=MATCH map_count=1
+  /teleport 33185 31945 11  # itemid=1738 aid=8000 uid=8008
+  server74_rewards:
+    - id=2429 token=Cfbarbarianaxe count=1 (quest.lua:179)
+  rook_rewards:
+    - id=2429 token=Cfbarbarianaxe count=1 (quest.lua:195)
+
+uid=8010 status=MATCH map_count=1
+  /teleport 32305 32254 9  # itemid=2843 aid=8000 uid=8010
+  server74_rewards:
+    - id=2378 token=Cfbattleaxe count=1 (quest.lua:210)
+  rook_rewards:
+    - id=2378 token=Cfbattleaxe count=1 (quest.lua:226)
+
+uid=8011 status=MATCH map_count=1
+  /teleport 33294 31658 13  # itemid=1740 aid=8000 uid=8011
+  server74_rewards:
+    - id=2520 token=Cfdemonshield count=1 (quest.lua:226)
+  rook_rewards:
+    - id=2520 token=Cfdemonshield count=1 (quest.lua:242)
+
+uid=8012 status=MATCH map_count=1
+  /teleport 33295 31658 13  # itemid=1740 aid=8000 uid=8012
+  server74_rewards:
+    - id=2466 token=Cfgoldenarmor count=1 (quest.lua:239)
+  rook_rewards:
+    - id=2466 token=Cfgoldenarmor count=1 (quest.lua:255)
+
+uid=8013 status=MATCH map_count=1
+  /teleport 33297 31658 13  # itemid=1740 aid=8000 uid=8013
+  server74_rewards:
+    - id=2427 token=Cfguardianhalberd count=1 (quest.lua:251)
+  rook_rewards:
+    - id=2427 token=Cfguardianhalberd count=1 (quest.lua:267)
+
+uid=8014 status=MATCH map_count=1
+  /teleport 33298 31658 13  # itemid=1740 aid=8000 uid=8014
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:263)
+    - id=2168 token=Cflifering count=1 (quest.lua:264)
+    - id=2171 token=Cfplatinumamulet count=1 (quest.lua:265)
+    - id=2145 token=Cfsmalldiamond count=3 (quest.lua:266)
+    - id=2124 token=Cfcrystalring count=1 (quest.lua:267)
+    - id=2146 token=Cfsmallsapphire count=4 (quest.lua:268)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:279)
+    - id=2168 token=Cflifering count=1 (quest.lua:280)
+    - id=2171 token=Cfplatinumamulet count=1 (quest.lua:281)
+    - id=2145 token=Cfsmalldiamond count=3 (quest.lua:282)
+    - id=2124 token=Cfcrystalring count=1 (quest.lua:283)
+    - id=2146 token=Cfsmallsapphire count=4 (quest.lua:284)
+
+uid=8015 status=MATCH map_count=1
+  /teleport 33199 31923 11  # itemid=1738 aid=8000 uid=8015
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:283)
+    - id=2148 token=2148 count=100 (quest.lua:284)
+    - id=2148 token=2148 count=75 (quest.lua:285)
+    - id=2143 token=Cfwhitepearl count=3 (quest.lua:286)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:299)
+    - id=2148 token=2148 count=100 (quest.lua:300)
+    - id=2148 token=2148 count=75 (quest.lua:301)
+    - id=2143 token=Cfwhitepearl count=3 (quest.lua:302)
+
+uid=8020 status=MATCH map_count=1
+  /teleport 32512 31944 14  # itemid=1738 aid=8000 uid=8020
+  server74_rewards:
+    - id=2435 token=Cfdwarvenaxe count=1 (quest.lua:365)
+  rook_rewards:
+    - id=2435 token=Cfdwarvenaxe count=1 (quest.lua:381)
+
+uid=8021 status=MATCH map_count=1
+  /teleport 32514 31944 14  # itemid=1738 aid=8000 uid=8021
+  server74_rewards:
+    - id=2391 token=Cfwarhammer count=1 (quest.lua:378)
+  rook_rewards:
+    - id=2391 token=Cfwarhammer count=1 (quest.lua:394)
+
+uid=8022 status=MATCH map_count=1
+  /teleport 32427 31943 14  # itemid=3103 aid=8000 uid=8022
+  server74_rewards:
+    - id=2497 token=Cfcrusaderhelmet count=1 (quest.lua:393)
+  rook_rewards:
+    - id=2497 token=Cfcrusaderhelmet count=1 (quest.lua:409)
+
+uid=8023 status=MATCH map_count=1
+  /teleport 32479 31611 15  # itemid=1740 aid=8000 uid=8023
+  server74_rewards:
+    - id=2184 token=Cfcrystalwand count=1 (quest.lua:409)
+  rook_rewards:
+    - id=2184 token=Cfcrystalwand count=1 (quest.lua:425)
+
+uid=8024 status=MATCH map_count=1
+  /teleport 32481 31611 15  # itemid=1740 aid=8000 uid=8024
+  server74_rewards:
+    - id=2268 token=Cfsuddendeathrune count=3 (quest.lua:422)
+  rook_rewards:
+    - id=2268 token=Cfsuddendeathrune count=3 (quest.lua:438)
+
+uid=8025 status=MATCH map_count=1
+  /teleport 33176 31871 12  # itemid=3103 aid=8000 uid=8025
+  server74_rewards:
+    - id=2489 token=Cfdarkarmor count=1 (quest.lua:437)
+  rook_rewards:
+    - id=2489 token=Cfdarkarmor count=1 (quest.lua:453)
+
+uid=8026 status=MATCH map_count=1
+  /teleport 32513 32302 10  # itemid=3129 aid=8000 uid=8026
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:453)
+    - id=2006 token=2006 count=10 (quest.lua:454)
+    - id=2006 token=2006 count=7 (quest.lua:455)
+    - id=2545 token=Cfpoisonarrow count=5 (quest.lua:456)
+    - id=2456 token=Cfbow count=1 (quest.lua:457)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:469)
+    - id=2006 token=2006 count=10 (quest.lua:470)
+    - id=2006 token=2006 count=7 (quest.lua:471)
+    - id=2545 token=Cfpoisonarrow count=5 (quest.lua:472)
+    - id=2456 token=Cfbow count=1 (quest.lua:473)
+
+uid=8027 status=MATCH map_count=1
+  /teleport 32219 32401 10  # itemid=1738 aid=8000 uid=8027
+  server74_rewards:
+    - id=2091 token=2091 count=1 (quest.lua:473)
+  rook_rewards:
+    - id=2091 token=2091 count=1 (quest.lua:489)
+
+uid=8028 status=MATCH map_count=1
+  /teleport 32239 32471 10  # itemid=3103 aid=8000 uid=8028
+  server74_rewards:
+    - id=2528 token=Cftowershield count=1 (quest.lua:490)
+  rook_rewards:
+    - id=2528 token=Cftowershield count=1 (quest.lua:506)
+
+uid=8029 status=MATCH map_count=1
+  /teleport 32239 32478 10  # itemid=3103 aid=8000 uid=8029
+  server74_rewards:
+    - id=2475 token=Cfwarriorhelmet count=1 (quest.lua:503)
+  rook_rewards:
+    - id=2475 token=Cfwarriorhelmet count=1 (quest.lua:519)
+
+uid=8030 status=MATCH map_count=1
+  /teleport 32233 32493 10  # itemid=3103 aid=8000 uid=8030
+  server74_rewards:
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:515)
+  rook_rewards:
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:531)
+
+uid=8031 status=MATCH map_count=1
+  /teleport 32245 32492 10  # itemid=3104 aid=8000 uid=8031
+  server74_rewards:
+    - id=2198 token=Cfelvenamulet count=50 (quest.lua:527)
+  rook_rewards:
+    - id=2198 token=Cfelvenamulet count=50 (quest.lua:543)
+
+uid=8032 status=MATCH map_count=1
+  /teleport 32256 32500 10  # itemid=3128 aid=8000 uid=8032
+  server74_rewards:
+    - id=2430 token=Cfknightaxe count=1 (quest.lua:539)
+  rook_rewards:
+    - id=2430 token=Cfknightaxe count=1 (quest.lua:555)
+
+uid=8035 status=MATCH map_count=1
+  /teleport 33313 31592 15  # itemid=1748 aid=8000 uid=8035
+  server74_rewards:
+    - id=2493 token=Cfdemonhelmet count=1 (quest.lua:590)
+  rook_rewards:
+    - id=2493 token=Cfdemonhelmet count=1 (quest.lua:606)
+
+uid=8036 status=MATCH map_count=1
+  /teleport 33313 31593 15  # itemid=1748 aid=8000 uid=8036
+  server74_rewards:
+    - id=2520 token=Cfdemonshield count=1 (quest.lua:603)
+  rook_rewards:
+    - id=2520 token=Cfdemonshield count=1 (quest.lua:619)
+
+uid=8037 status=MATCH map_count=1
+  /teleport 33313 31591 15  # itemid=1748 aid=8000 uid=8037
+  server74_rewards:
+    - id=2645 token=Cfsteelboots count=1 (quest.lua:615)
+  rook_rewards:
+    - id=2645 token=Cfsteelboots count=1 (quest.lua:631)
+
+uid=8039 status=MATCH map_count=1
+  /teleport 32459 32144 15  # itemid=1738 aid=8000 uid=8039
+  server74_rewards:
+    - id=2462 token=Cfdevilhelmet count=1 (quest.lua:648)
+  rook_rewards:
+    - id=2462 token=Cfdevilhelmet count=1 (quest.lua:664)
+
+uid=8040 status=MATCH map_count=1
+  /teleport 32465 32148 15  # itemid=1739 aid=8000 uid=8040
+  server74_rewards:
+    - id=2381 token=Cfhalberd count=1 (quest.lua:661)
+  rook_rewards:
+    - id=2381 token=Cfhalberd count=1 (quest.lua:677)
+
+uid=8041 status=MATCH map_count=1
+  /teleport 32466 32148 15  # itemid=1739 aid=8000 uid=8041
+  server74_rewards:
+    - id=2146 token=Cfsmallsapphire count=4 (quest.lua:673)
+  rook_rewards:
+    - id=2146 token=Cfsmallsapphire count=4 (quest.lua:689)
+
+uid=8042 status=MATCH map_count=1
+  /teleport 33109 31679 13  # itemid=1747 aid=8000 uid=8042
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:687)
+    - id=2209 token=Cfclubring count=1 (quest.lua:688)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:703)
+    - id=2209 token=Cfclubring count=1 (quest.lua:704)
+
+uid=8043 status=MATCH map_count=1
+  /teleport 33110 31679 13  # itemid=1747 aid=8000 uid=8043
+  server74_rewards:
+    - id=2156 token=Cfredgem count=1 (quest.lua:702)
+  rook_rewards:
+    - id=2156 token=Cfredgem count=1 (quest.lua:718)
+
+uid=8044 status=MATCH map_count=1
+  /teleport 32794 31572 7  # itemid=3103 aid=8000 uid=8044
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:717)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:733)
+
+uid=8046 status=MATCH map_count=1
+  /teleport 32790 31593 7  # itemid=1741 aid=8000 uid=8046
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:753)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:769)
+
+uid=8047 status=MATCH map_count=1
+  /teleport 32807 31576 6  # itemid=1741 aid=8000 uid=8047
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:771)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:787)
+
+uid=8048 status=MATCH map_count=1
+  /teleport 32792 31591 6  # itemid=1748 aid=8000 uid=8048
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:789)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:805)
+
+uid=8049 status=MATCH map_count=1
+  /teleport 32801 31579 6  # itemid=1738 aid=8000 uid=8049
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:807)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:823)
+
+uid=8050 status=MATCH map_count=1
+  /teleport 32813 31576 5  # itemid=1741 aid=8000 uid=8050
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:825)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:841)
+
+uid=8051 status=MATCH map_count=1
+  /teleport 32803 31582 2  # itemid=1738 aid=8000 uid=8051
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:843)
+    - id=2167 token=Cfenergyring count=1 (quest.lua:844)
+    - id=2197 token=Cfstoneskinamulet count=5 (quest.lua:845)
+    - id=2409 token=Cfserpentsword count=1 (quest.lua:846)
+    - id=2396 token=Cficerapier count=1 (quest.lua:847)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:859)
+    - id=2167 token=Cfenergyring count=1 (quest.lua:860)
+    - id=2197 token=Cfstoneskinamulet count=5 (quest.lua:861)
+    - id=2409 token=Cfserpentsword count=1 (quest.lua:862)
+    - id=2396 token=Cficerapier count=1 (quest.lua:863)
+
+uid=8052 status=MATCH map_count=1
+  /teleport 32800 31582 2  # itemid=1718 aid=8000 uid=8052
+  server74_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:863)
+  rook_rewards:
+    - id=2088 token=2088 count=1 (quest.lua:879)
+
+uid=8053 status=MATCH map_count=1
+  /teleport 33076 32170 1  # itemid=1738 aid=8000 uid=8053
+  server74_rewards:
+    - id=2146 token=Cfsmallsapphire count=2 (quest.lua:881)
+  rook_rewards:
+    - id=2146 token=Cfsmallsapphire count=2 (quest.lua:897)
+
+uid=8054 status=MATCH map_count=1
+  /teleport 33076 32171 1  # itemid=1738 aid=8000 uid=8054
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:894)
+    - id=2546 token=Cfburstarrow count=30 (quest.lua:895)
+    - id=2545 token=Cfpoisonarrow count=60 (quest.lua:896)
+    - id=2456 token=Cfbow count=1 (quest.lua:897)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:910)
+    - id=2546 token=Cfburstarrow count=30 (quest.lua:911)
+    - id=2545 token=Cfpoisonarrow count=60 (quest.lua:912)
+    - id=2456 token=Cfbow count=1 (quest.lua:913)
+
+uid=8055 status=MATCH map_count=1
+  /teleport 33095 31800 10  # itemid=1738 aid=8000 uid=8055
+  server74_rewards:
+    - id=2509 token=Cfsteelshield count=1 (quest.lua:912)
+  rook_rewards:
+    - id=2509 token=Cfsteelshield count=1 (quest.lua:928)
+
+uid=8056 status=MATCH map_count=1
+  /teleport 33095 31801 10  # itemid=1738 aid=8000 uid=8056
+  server74_rewards:
+    - id=2170 token=Cfsilveramulet count=200 (quest.lua:925)
+  rook_rewards:
+    - id=2170 token=Cfsilveramulet count=200 (quest.lua:941)
+
+uid=8058 status=MATCH map_count=1
+  /teleport 32588 31644 3  # itemid=1717 aid=8000 uid=8058
+  server74_rewards:
+    - id=2394 token=Cfmorningstar count=1 (quest.lua:956)
+  rook_rewards:
+    - id=2394 token=Cfmorningstar count=1 (quest.lua:972)
+
+uid=8059 status=MATCH map_count=1
+  /teleport 32588 31645 3  # itemid=1717 aid=8000 uid=8059
+  server74_rewards:
+    - id=2525 token=Cfdwarvenshield count=1 (quest.lua:969)
+  rook_rewards:
+    - id=2525 token=Cfdwarvenshield count=1 (quest.lua:985)
+
+uid=8060 status=MATCH map_count=1
+  /teleport 32590 31647 3  # itemid=1747 aid=8000 uid=8060
+  server74_rewards:
+    - id=2006 token=2006 count=7 (quest.lua:981)
+  rook_rewards:
+    - id=2006 token=2006 count=7 (quest.lua:997)
+
+uid=8061 status=MATCH map_count=1
+  /teleport 32591 31647 3  # itemid=1747 aid=8000 uid=8061
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:993)
+    - id=2148 token=2148 count=100 (quest.lua:994)
+    - id=2145 token=Cfsmalldiamond count=2 (quest.lua:995)
+    - id=2175 token=Cfspellbook count=1 (quest.lua:996)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:997)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1009)
+    - id=2148 token=2148 count=100 (quest.lua:1010)
+    - id=2145 token=Cfsmalldiamond count=2 (quest.lua:1011)
+    - id=2175 token=Cfspellbook count=1 (quest.lua:1012)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1013)
+
+uid=8062 status=MATCH map_count=1
+  /teleport 32605 31908 3  # itemid=1747 aid=8000 uid=8062
+  server74_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:1012)
+  rook_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:1028)
+
+uid=8063 status=MATCH map_count=1
+  /teleport 32648 31905 3  # itemid=1738 aid=8000 uid=8063
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1030)
+    - id=2687 token=Cfcookie count=20 (quest.lua:1031)
+    - id=2687 token=Cfcookie count=7 (quest.lua:1032)
+    - id=2089 token=2089 count=1 (quest.lua:1033)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1046)
+    - id=2687 token=Cfcookie count=20 (quest.lua:1047)
+    - id=2687 token=Cfcookie count=7 (quest.lua:1048)
+    - id=2089 token=2089 count=1 (quest.lua:1049)
+
+uid=8064 status=MATCH map_count=1
+  /teleport 32599 31923 6  # itemid=1738 aid=8000 uid=8064
+  server74_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:1051)
+  rook_rewards:
+    - id=2089 token=2089 count=1 (quest.lua:1067)
+
+uid=8066 status=MATCH map_count=1
+  /teleport 32376 31802 7  # itemid=1741 aid=8000 uid=8066
+  server74_rewards:
+    - id=2092 token=Cfbonekey count=1 (quest.lua:1085)
+  rook_rewards:
+    - id=2092 token=Cfbonekey count=1 (quest.lua:1101)
+
+uid=8067 status=MATCH map_count=1
+  /teleport 32390 31769 9  # itemid=1740 aid=8000 uid=8067
+  server74_rewards:
+    - id=2076 token=Cffanfare count=1 (quest.lua:1103)
+  rook_rewards:
+    - id=2076 token=Cffanfare count=1 (quest.lua:1119)
+
+uid=8068 status=MATCH map_count=1
+  /teleport 33078 31656 11  # itemid=1747 aid=8000 uid=8068
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1119)
+    - id=2145 token=Cfsmalldiamond count=7 (quest.lua:1120)
+    - id=2201 token=Cfdragonnecklace count=200 (quest.lua:1121)
+    - id=2214 token=2214 count=1 (quest.lua:1122)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1135)
+    - id=2145 token=Cfsmalldiamond count=7 (quest.lua:1136)
+    - id=2201 token=Cfdragonnecklace count=200 (quest.lua:1137)
+    - id=2214 token=2214 count=1 (quest.lua:1138)
+
+uid=8069 status=MATCH map_count=1
+  /teleport 33084 31650 12  # itemid=3103 aid=8000 uid=8069
+  server74_rewards:
+    - id=2432 token=Cffireaxe count=1 (quest.lua:1135)
+  rook_rewards:
+    - id=2432 token=Cffireaxe count=1 (quest.lua:1151)
+
+uid=8070 status=MATCH map_count=1
+  /teleport 32455 32009 13  # itemid=1738 aid=8000 uid=8070
+  server74_rewards:
+    - id=2146 token=Cfsmallsapphire count=1 (quest.lua:1150)
+  rook_rewards:
+    - id=2146 token=Cfsmallsapphire count=1 (quest.lua:1166)
+
+uid=8071 status=MATCH map_count=1
+  /teleport 32456 32008 13  # itemid=1738 aid=8000 uid=8071
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1163)
+    - id=2145 token=Cfsmalldiamond count=1 (quest.lua:1164)
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:1165)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1179)
+    - id=2145 token=Cfsmalldiamond count=1 (quest.lua:1180)
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:1181)
+
+uid=8072 status=MATCH map_count=1
+  /teleport 32500 32175 14  # itemid=1740 aid=8000 uid=8072
+  server74_rewards:
+    - id=2209 token=Cfclubring count=1 (quest.lua:1180)
+  rook_rewards:
+    - id=2209 token=Cfclubring count=1 (quest.lua:1196)
+
+uid=8073 status=MATCH map_count=1
+  /teleport 32500 32177 14  # itemid=1740 aid=8000 uid=8073
+  server74_rewards:
+    - id=2199 token=Cfgarlicnecklace count=150 (quest.lua:1193)
+  rook_rewards:
+    - id=2199 token=Cfgarlicnecklace count=150 (quest.lua:1209)
+
+uid=8076 status=MATCH map_count=1
+  /teleport 32498 31721 15  # itemid=2843 aid=8000 uid=8076
+  server74_rewards:
+    - id=2533 token=Cfgriffinshield count=1 (quest.lua:1238)
+  rook_rewards:
+    - id=2533 token=Cfgriffinshield count=1 (quest.lua:1254)
+
+uid=8078 status=MATCH map_count=1
+  /teleport 32503 31724 15  # itemid=2843 aid=8000 uid=8078
+  server74_rewards:
+    - id=2425 token=Cfobsidianlance count=1 (quest.lua:1263)
+  rook_rewards:
+    - id=2425 token=Cfobsidianlance count=1 (quest.lua:1279)
+
+uid=8080 status=MATCH map_count=1
+  /teleport 32434 31938 8  # itemid=1738 aid=8000 uid=8080
+  server74_rewards:
+    - id=2422 token=Cfironhammer count=1 (quest.lua:1294)
+  rook_rewards:
+    - id=2422 token=Cfironhammer count=1 (quest.lua:1310)
+
+uid=8083 status=MATCH map_count=1
+  /teleport 32443 32238 11  # itemid=1738 aid=8000 uid=8083
+  server74_rewards:
+    - id=1987 token=Cfbag count=2 (quest.lua:1348)
+    - id=2201 token=Cfdragonnecklace count=200 (quest.lua:1349)
+    - id=2168 token=Cflifering count=1 (quest.lua:1350)
+  rook_rewards:
+    - id=1987 token=Cfbag count=2 (quest.lua:1364)
+    - id=2201 token=Cfdragonnecklace count=200 (quest.lua:1365)
+    - id=2168 token=Cflifering count=1 (quest.lua:1366)
+
+uid=8084 status=MATCH map_count=1
+  /teleport 32650 31969 9  # itemid=1738 aid=8000 uid=8084
+  server74_rewards:
+    - id=1987 token=Cfbag count=2 (quest.lua:1366)
+    - id=2148 token=2148 count=76 (quest.lua:1367)
+    - id=2121 token=Cfweddingring count=1 (quest.lua:1368)
+    - id=2108 token=Cfwoodendoll count=1 (quest.lua:1369)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1370)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1371)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1372)
+    - id=2560 token=Cfmirror count=1 (quest.lua:1373)
+    - id=2397 token=Cflongsword count=1 (quest.lua:1374)
+  rook_rewards:
+    - id=1987 token=Cfbag count=2 (quest.lua:1382)
+    - id=2148 token=2148 count=76 (quest.lua:1383)
+    - id=2121 token=Cfweddingring count=1 (quest.lua:1384)
+    - id=2108 token=Cfwoodendoll count=1 (quest.lua:1385)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1386)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1387)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1388)
+    - id=2560 token=Cfmirror count=1 (quest.lua:1389)
+    - id=2397 token=Cflongsword count=1 (quest.lua:1390)
+
+uid=8085 status=MATCH map_count=1
+  /teleport 32411 32155 15  # itemid=1717 aid=8000 uid=8085
+  server74_rewards:
+    - id=2088 token=Cfsilverkey count=1 (quest.lua:1390)
+  rook_rewards:
+    - id=2088 token=Cfsilverkey count=1 (quest.lua:1406)
+
+uid=8088 status=MATCH map_count=1
+  /teleport 33049 32399 10  # itemid=1410 aid=8000 uid=8088
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1427)
+    - id=2656 token=Cfbluerobe count=1 (quest.lua:1428)
+    - id=2436 token=Cfskullstaff count=1 (quest.lua:1429)
+    - id=2536 token=Cfmedusashield count=1 (quest.lua:1430)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1443)
+    - id=2656 token=Cfbluerobe count=1 (quest.lua:1444)
+    - id=2436 token=Cfskullstaff count=1 (quest.lua:1445)
+    - id=2536 token=Cfmedusashield count=1 (quest.lua:1446)
+
+uid=8090 status=MATCH map_count=1
+  /teleport 32591 32097 14  # itemid=1740 aid=8000 uid=8090
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1464)
+    - id=2145 token=Cfsmalldiamond count=1 (quest.lua:1465)
+    - id=2006 token=2006 count=7 (quest.lua:1466)
+    - id=2006 token=2006 count=7 (quest.lua:1467)
+    - id=2388 token=Cfhatchet count=1 (quest.lua:1468)
+    - id=2458 token=Cfchainhelmet count=1 (quest.lua:1469)
+    - id=2464 token=Cfchainarmor count=1 (quest.lua:1470)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1480)
+    - id=2145 token=Cfsmalldiamond count=1 (quest.lua:1481)
+    - id=2006 token=2006 count=7 (quest.lua:1482)
+    - id=2006 token=2006 count=7 (quest.lua:1483)
+    - id=2388 token=Cfhatchet count=1 (quest.lua:1484)
+    - id=2458 token=Cfchainhelmet count=1 (quest.lua:1485)
+    - id=2464 token=Cfchainarmor count=1 (quest.lua:1486)
+
+uid=8091 status=MATCH map_count=1
+  /teleport 32346 32063 12  # itemid=2844 aid=8000 uid=8091
+  server74_rewards:
+    - id=2426 token=Cfnaginata count=1 (quest.lua:1486)
+  rook_rewards:
+    - id=2426 token=Cfnaginata count=1 (quest.lua:1502)
+
+uid=8092 status=MATCH map_count=1
+  /teleport 32451 32048 8  # itemid=1738 aid=8000 uid=8092
+  server74_rewards:
+    - id=2486 token=Cfnoblearmor count=1 (quest.lua:1502)
+  rook_rewards:
+    - id=2486 token=Cfnoblearmor count=1 (quest.lua:1518)
+
+uid=8093 status=MATCH map_count=1
+  /teleport 32455 32048 8  # itemid=1738 aid=8000 uid=8093
+  server74_rewards:
+    - id=2491 token=Cfcrownhelmet count=1 (quest.lua:1515)
+  rook_rewards:
+    - id=2491 token=Cfcrownhelmet count=1 (quest.lua:1531)
+
+uid=8094 status=MATCH map_count=1
+  /teleport 32980 31727 9  # itemid=1740 aid=8000 uid=8094
+  server74_rewards:
+    - id=2476 token=Cfknightarmor count=1 (quest.lua:1530)
+  rook_rewards:
+    - id=2476 token=Cfknightarmor count=1 (quest.lua:1546)
+
+uid=8095 status=MATCH map_count=1
+  /teleport 32981 31727 9  # itemid=1740 aid=8000 uid=8095
+  server74_rewards:
+    - id=2430 token=Cfknightaxe count=1 (quest.lua:1543)
+  rook_rewards:
+    - id=2430 token=Cfknightaxe count=1 (quest.lua:1559)
+
+uid=8096 status=MATCH map_count=1
+  /teleport 32985 31727 9  # itemid=1740 aid=8000 uid=8096
+  server74_rewards:
+    - id=2392 token=Cffiresword count=1 (quest.lua:1555)
+  rook_rewards:
+    - id=2392 token=Cffiresword count=1 (quest.lua:1571)
+
+uid=8097 status=MATCH map_count=1
+  /teleport 33089 32030 9  # itemid=1738 aid=8000 uid=8097
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1570)
+    - id=2162 token=Cfmagiclightwand count=1 (quest.lua:1571)
+    - id=2208 token=Cfaxering count=1 (quest.lua:1572)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1573)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1586)
+    - id=2162 token=Cfmagiclightwand count=1 (quest.lua:1587)
+    - id=2208 token=Cfaxering count=1 (quest.lua:1588)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1589)
+
+uid=8102 status=MATCH map_count=1
+  /teleport 33155 31880 11  # itemid=1748 aid=8000 uid=8102
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1691)
+    - id=2545 token=Cfpoisonarrow count=30 (quest.lua:1692)
+    - id=2411 token=Cfpoisondagger count=1 (quest.lua:1693)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1707)
+    - id=2545 token=Cfpoisonarrow count=30 (quest.lua:1708)
+    - id=2411 token=Cfpoisondagger count=1 (quest.lua:1709)
+
+uid=8104 status=MATCH map_count=1
+  /teleport 32599 31776 9  # itemid=1741 aid=8000 uid=8104
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1728)
+    - id=2166 token=Cfpowerring count=1 (quest.lua:1729)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1744)
+    - id=2166 token=Cfpowerring count=1 (quest.lua:1745)
+
+uid=8105 status=MATCH map_count=1
+  /teleport 32601 31776 9  # itemid=1741 aid=8000 uid=8105
+  server74_rewards:
+    - id=2172 token=Cfbronzeamulet count=200 (quest.lua:1743)
+  rook_rewards:
+    - id=2172 token=Cfbronzeamulet count=200 (quest.lua:1759)
+
+uid=8106 status=MATCH map_count=1
+  /teleport 32421 31594 15  # itemid=1722 aid=8000 uid=8106
+  server74_rewards:
+    - id=1982 token=Cfpurpletome count=1 (quest.lua:1758)
+  rook_rewards:
+    - id=1982 token=Cfpurpletome count=1 (quest.lua:1774)
+
+uid=8107 status=MATCH map_count=1
+  /teleport 32423 31591 15  # itemid=1718 aid=8000 uid=8107
+  server74_rewards:
+    - id=1956 token=1956 count=1 (quest.lua:1771)
+  rook_rewards:
+    - id=1956 token=1956 count=1 (quest.lua:1787)
+
+uid=8108 status=MATCH map_count=1
+  /teleport 32428 31591 15  # itemid=1720 aid=8000 uid=8108
+  server74_rewards:
+    - id=1957 token=1957 count=1 (quest.lua:1783)
+  rook_rewards:
+    - id=1957 token=1957 count=1 (quest.lua:1799)
+
+uid=8109 status=MATCH map_count=1
+  /teleport 33131 31624 15  # itemid=1740 aid=8000 uid=8109
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1797)
+    - id=2169 token=Cftimering count=1 (quest.lua:1798)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1813)
+    - id=2169 token=Cftimering count=1 (quest.lua:1814)
+
+uid=8110 status=MATCH map_count=1
+  /teleport 33134 31624 15  # itemid=1740 aid=8000 uid=8110
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1811)
+    - id=2207 token=Cfswordring count=1 (quest.lua:1812)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1827)
+    - id=2207 token=Cfswordring count=1 (quest.lua:1828)
+
+uid=8113 status=MATCH map_count=1
+  /teleport 32455 31968 14  # itemid=1747 aid=8000 uid=8113
+  server74_rewards:
+    - id=2503 token=Cfdwarvenarmor count=1 (quest.lua:1828)
+  rook_rewards:
+    - id=2503 token=Cfdwarvenarmor count=1 (quest.lua:1844)
+
+uid=8114 status=MATCH map_count=1
+  /teleport 32357 32130 9  # itemid=1740 aid=8000 uid=8114
+  server74_rewards:
+    - id=2483 token=Cfscalearmor count=1 (quest.lua:1844)
+  rook_rewards:
+    - id=2483 token=Cfscalearmor count=1 (quest.lua:1860)
+
+uid=8115 status=MATCH map_count=1
+  /teleport 33127 31885 9  # itemid=1740 aid=8000 uid=8115
+  server74_rewards:
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1860)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1861)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1862)
+  rook_rewards:
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1876)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1877)
+    - id=2260 token=Cfblankrune count=1 (quest.lua:1878)
+
+uid=8117 status=MATCH map_count=1
+  /teleport 32867 31909 8  # itemid=1738 aid=8000 uid=8117
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1894)
+    - id=2143 token=Cfwhitepearl count=1 (quest.lua:1895)
+    - id=2144 token=Cfblackpearl count=2 (quest.lua:1896)
+    - id=2229 token=Cfskull count=1 (quest.lua:1897)
+    - id=2129 token=Cfwolftoothchain count=1 (quest.lua:1898)
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:1899)
+    - id=2148 token=Cfgoldcoin count=100 (quest.lua:1900)
+    - id=2125 token=Cfcrystalnecklace count=1 (quest.lua:1901)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1910)
+    - id=2143 token=Cfwhitepearl count=1 (quest.lua:1911)
+    - id=2144 token=Cfblackpearl count=2 (quest.lua:1912)
+    - id=2229 token=Cfskull count=1 (quest.lua:1913)
+    - id=2129 token=Cfwolftoothchain count=1 (quest.lua:1914)
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:1915)
+    - id=2148 token=Cfgoldcoin count=100 (quest.lua:1916)
+    - id=2125 token=Cfcrystalnecklace count=1 (quest.lua:1917)
+
+uid=8118 status=MATCH map_count=1
+  /teleport 32568 32085 12  # itemid=3128 aid=8000 uid=8118
+  server74_rewards:
+    - id=2383 token=Cfspikesword count=1 (quest.lua:1917)
+  rook_rewards:
+    - id=2383 token=Cfspikesword count=1 (quest.lua:1933)
+
+uid=8119 status=MATCH map_count=1
+  /teleport 33315 32282 11  # itemid=1410 aid=8000 uid=8119
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1933)
+    - id=2165 token=Cfstealthring count=1 (quest.lua:1934)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:1949)
+    - id=2165 token=Cfstealthring count=1 (quest.lua:1950)
+
+uid=8120 status=MATCH map_count=1
+  /teleport 33315 32277 11  # itemid=1410 aid=8000 uid=8120
+  server74_rewards:
+    - id=2200 token=Cfprotectionamulet count=250 (quest.lua:1947)
+  rook_rewards:
+    - id=2200 token=Cfprotectionamulet count=250 (quest.lua:1963)
+
+uid=8121 status=MATCH map_count=1
+  /teleport 32462 31947 4  # itemid=1740 aid=8000 uid=8121
+  server74_rewards:
+    - id=2457 token=Cfsteelhelmet count=1 (quest.lua:1962)
+  rook_rewards:
+    - id=2457 token=Cfsteelhelmet count=1 (quest.lua:1978)
+
+uid=8122 status=MATCH map_count=1
+  /teleport 32460 31951 5  # itemid=1717 aid=8000 uid=8122
+  server74_rewards:
+    - id=2148 token=Cfgoldcoin count=56 (quest.lua:1975)
+  rook_rewards:
+    - id=2148 token=Cfgoldcoin count=56 (quest.lua:1991)
+
+uid=8123 status=MATCH map_count=1
+  /teleport 32464 31957 5  # itemid=1738 aid=8000 uid=8123
+  server74_rewards:
+    - id=2148 token=Cfgoldcoin count=47 (quest.lua:1987)
+  rook_rewards:
+    - id=2148 token=Cfgoldcoin count=47 (quest.lua:2003)
+
+uid=8124 status=MATCH map_count=1
+  /teleport 32225 32265 10  # itemid=1741 aid=8000 uid=8124
+  server74_rewards:
+    - id=2417 token=Cfbattlehammer count=1 (quest.lua:2002)
+  rook_rewards:
+    - id=2417 token=Cfbattlehammer count=1 (quest.lua:2018)
+
+uid=8125 status=MATCH map_count=1
+  /teleport 32226 32265 10  # itemid=1741 aid=8000 uid=8125
+  server74_rewards:
+    - id=2521 token=Cfdarkshield count=1 (quest.lua:2015)
+  rook_rewards:
+    - id=2521 token=Cfdarkshield count=1 (quest.lua:2031)
+
+uid=8126 status=MATCH map_count=1
+  /teleport 32668 32069 8  # itemid=1748 aid=8000 uid=8126
+  server74_rewards:
+    - id=2152 token=Cfplatinumcoin count=100 (quest.lua:2030)
+  rook_rewards:
+    - id=2152 token=Cfplatinumcoin count=100 (quest.lua:2046)
+
+uid=8127 status=MATCH map_count=1
+  /teleport 32675 32069 8  # itemid=1749 aid=8000 uid=8127
+  server74_rewards:
+    - id=1991 token=Cfgreenbag count=1 (quest.lua:2043)
+    - id=2193 token=Cfankh count=1 (quest.lua:2044)
+    - id=2162 token=Cfmagiclightwand count=1 (quest.lua:2045)
+    - id=2214 token=Cfringofhealing count=1 (quest.lua:2046)
+    - id=2200 token=Cfprotectionamulet count=250 (quest.lua:2047)
+  rook_rewards:
+    - id=1991 token=Cfgreenbag count=1 (quest.lua:2059)
+    - id=2193 token=Cfankh count=1 (quest.lua:2060)
+    - id=2162 token=Cfmagiclightwand count=1 (quest.lua:2061)
+    - id=2214 token=Cfringofhealing count=1 (quest.lua:2062)
+    - id=2200 token=Cfprotectionamulet count=250 (quest.lua:2063)
+
+uid=8139 status=MATCH map_count=1
+  /teleport 32212 31896 15  # itemid=1740 aid=8000 uid=8139
+  server74_rewards:
+    - id=2197 token=Cfstoneskinamulet count=1 (quest.lua:2159)
+  rook_rewards:
+    - id=2197 token=Cfstoneskinamulet count=1 (quest.lua:2175)
+
+uid=8140 status=MATCH map_count=1
+  /teleport 32226 31896 15  # itemid=1740 aid=8000 uid=8140
+  server74_rewards:
+    - id=2165 token=Cfstealthring count=1 (quest.lua:2172)
+  rook_rewards:
+    - id=2165 token=Cfstealthring count=1 (quest.lua:2188)
+
+uid=8141 status=MATCH map_count=1
+  /teleport 32212 31910 15  # itemid=1747 aid=8000 uid=8141
+  server74_rewards:
+    - id=2528 token=Cftowershield count=1 (quest.lua:2184)
+  rook_rewards:
+    - id=2528 token=Cftowershield count=1 (quest.lua:2200)
+
+uid=8142 status=MATCH map_count=1
+  /teleport 32226 31910 15  # itemid=1747 aid=8000 uid=8142
+  server74_rewards:
+    - id=2393 token=Cfgiantsword count=1 (quest.lua:2196)
+  rook_rewards:
+    - id=2393 token=Cfgiantsword count=1 (quest.lua:2212)
+
+uid=8143 status=MATCH map_count=1
+  /teleport 32522 32111 15  # itemid=1738 aid=8000 uid=8143
+  server74_rewards:
+    - id=2399 token=Cfthrowingstar count=10 (quest.lua:2235)
+  rook_rewards:
+    - id=2399 token=Cfthrowingstar count=10 (quest.lua:2251)
+
+uid=8144 status=MATCH map_count=1
+  /teleport 33038 32171 9  # itemid=1741 aid=8000 uid=8144
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:2251)
+    - id=2169 token=Cftimering count=1 (quest.lua:2252)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:2267)
+    - id=2169 token=Cftimering count=1 (quest.lua:2268)
+
+uid=8145 status=MATCH map_count=1
+  /teleport 33039 32171 9  # itemid=1741 aid=8000 uid=8145
+  server74_rewards:
+    - id=2198 token=Cfelvenamulet count=50 (quest.lua:2265)
+  rook_rewards:
+    - id=2198 token=Cfelvenamulet count=50 (quest.lua:2281)
+
+uid=8146 status=MATCH map_count=1
+  /teleport 33040 32171 9  # itemid=1741 aid=8000 uid=8146
+  server74_rewards:
+    - id=2192 token=Cfcrystallball count=1 (quest.lua:2277)
+  rook_rewards:
+    - id=2192 token=Cfcrystallball count=1 (quest.lua:2293)
+
+uid=8147 status=MATCH map_count=1
+  /teleport 32563 32122 3  # itemid=1738 aid=8000 uid=8147
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:2292)
+    - id=2199 token=Cfgarlicnecklace count=150 (quest.lua:2293)
+    - id=2146 token=Cfsmallsapphire count=2 (quest.lua:2294)
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:2295)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:2308)
+    - id=2199 token=Cfgarlicnecklace count=150 (quest.lua:2309)
+    - id=2146 token=Cfsmallsapphire count=2 (quest.lua:2310)
+    - id=2213 token=Cfdwarvenring count=1 (quest.lua:2311)
+
+uid=8148 status=MATCH map_count=1
+  /teleport 33143 31719 10  # itemid=1738 aid=8000 uid=8148
+  server74_rewards:
+    - id=2478 token=Cfbrasslegs count=1 (quest.lua:2311)
+  rook_rewards:
+    - id=2478 token=Cfbrasslegs count=1 (quest.lua:2327)
+
+uid=8149 status=MATCH map_count=1
+  /teleport 33143 31721 10  # itemid=1738 aid=8000 uid=8149
+  server74_rewards:
+    - id=2199 token=Cfgarlicnecklace count=150 (quest.lua:2324)
+  rook_rewards:
+    - id=2199 token=Cfgarlicnecklace count=150 (quest.lua:2340)
+
+uid=8150 status=MATCH map_count=1
+  /teleport 33189 31688 14  # itemid=1738 aid=8000 uid=8150
+  server74_rewards:
+    - id=2414 token=Cfdragonlance count=1 (quest.lua:2339)
+  rook_rewards:
+    - id=2414 token=Cfdragonlance count=1 (quest.lua:2355)
+
+uid=8151 status=MATCH map_count=1
+  /teleport 33195 31688 14  # itemid=1738 aid=8000 uid=8151
+  server74_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:2352)
+    - id=2194 token=Cfmysteriousfetish count=1 (quest.lua:2353)
+    - id=2144 token=Cfblackpearl count=1 (quest.lua:2354)
+    - id=2174 token=Cfstrangesymbol count=1 (quest.lua:2355)
+    - id=2534 token=Cfvampireshield count=1 (quest.lua:2356)
+  rook_rewards:
+    - id=1987 token=Cfbag count=1 (quest.lua:2368)
+    - id=2194 token=Cfmysteriousfetish count=1 (quest.lua:2369)
+    - id=2144 token=Cfblackpearl count=1 (quest.lua:2370)
+    - id=2174 token=Cfstrangesymbol count=1 (quest.lua:2371)
+    - id=2534 token=Cfvampireshield count=1 (quest.lua:2372)
+
+uid=8152 status=MATCH map_count=1
+  /teleport 32757 31957 9  # itemid=1738 aid=8000 uid=8152
+  server74_rewards:
+    - id=3955 token=Cfvoodoodoll count=1 (quest.lua:2371)
+  rook_rewards:
+    - id=3955 token=Cfvoodoodoll count=1 (quest.lua:2387)
+
+uid=8153 status=MATCH map_count=1
+  /teleport 32758 31952 9  # itemid=1738 aid=8000 uid=8153
+  server74_rewards:
+    - id=2162 token=Cfmagiclightwand count=1 (quest.lua:2384)
+  rook_rewards:
+    - id=2162 token=Cfmagiclightwand count=1 (quest.lua:2400)
+
+uid=8154 status=MATCH map_count=1
+  /teleport 33158 31621 15  # itemid=1749 aid=8000 uid=8154
+  server74_rewards:
+    - id=2121 token=Cfweddingring count=1 (quest.lua:2399)
+  rook_rewards:
+    - id=2121 token=Cfweddingring count=1 (quest.lua:2415)
+
+uid=8155 status=MATCH map_count=1
+  /teleport 33158 31622 15  # itemid=1749 aid=8000 uid=8155
+  server74_rewards:
+    - id=2201 token=Cfdragonnecklace count=200 (quest.lua:2412)
+  rook_rewards:
+    - id=2201 token=Cfdragonnecklace count=200 (quest.lua:2428)
+
+uid=8156 status=MATCH map_count=1
+  /teleport 33150 32862 7  # itemid=1740 aid=8000 uid=8156
+  server74_rewards:
+    - id=2143 token=Cfwhitepearl count=1 (quest.lua:2427)
+  rook_rewards:
+    - id=2143 token=Cfwhitepearl count=1 (quest.lua:2443)
+
+uid=8160 status=MATCH map_count=1
+  /teleport 33227 31656 13  # itemid=1740 aid=8000 uid=8160
+  server74_rewards:
+    - id=2494 token=Cfdemonarmor count=1 (quest.lua:2460)
+  rook_rewards:
+    - id=2494 token=Cfdemonarmor count=1 (quest.lua:2476)
+
+uid=8161 status=MATCH map_count=1
+  /teleport 33229 31656 13  # itemid=1740 aid=8000 uid=8161
+  server74_rewards:
+    - id=2400 token=Cfmagicsword count=1 (quest.lua:2473)
+  rook_rewards:
+    - id=2400 token=Cfmagicsword count=1 (quest.lua:2489)
+
+uid=8162 status=MATCH map_count=1
+  /teleport 33231 31656 13  # itemid=1740 aid=8000 uid=8162
+  server74_rewards:
+    - id=2431 token=Cfstonecutteraxe count=1 (quest.lua:2485)
+  rook_rewards:
+    - id=2431 token=Cfstonecutteraxe count=1 (quest.lua:2501)
+
+uid=8163 status=MATCH map_count=1
+  /teleport 33233 31656 13  # itemid=1740 aid=8000 uid=8163
+  server74_rewards:
+    - id=1990 token=Cfpresent count=1 (quest.lua:2497)
+    - id=2326 token=2326 count=1 (quest.lua:2498)
+  rook_rewards:
+    - id=1990 token=Cfpresent count=1 (quest.lua:2513)
+    - id=2326 token=2326 count=1 (quest.lua:2514)
+
+uid=8181 status=MATCH map_count=1
+  /teleport 32509 32181 13  # itemid=2843 aid=8000 uid=8181
+  server74_rewards:
+    - id=2088 token=Cfsilverkey count=1 (quest.lua:2561)
+  rook_rewards:
+    - id=2088 token=Cfsilverkey count=1 (quest.lua:2577)
+
+uid=8200 status=MATCH map_count=1
+  /teleport 32478 31900 1  # itemid=1740 aid=8000 uid=8200
+  server74_rewards:
+    - id=2152 token=Cfplatinumcoin count=100 (quest.lua:2725)
+  rook_rewards:
+    - id=2152 token=Cfplatinumcoin count=100 (quest.lua:2741)
+
+uid=8201 status=MATCH + INVALID_ID map_count=1
+  /teleport 32480 31900 1  # itemid=1740 aid=8000 uid=8201
+  server74_rewards:
+    - id=None token=Cfwandofcosmicenergy count=1 (quest.lua:2739)
+  rook_rewards:
+    - id=None token=Cfwandofcosmicenergy count=1 (quest.lua:2755)
+  invalid_in_rook_items_from_server74:
+    - token=Cfwandofcosmicenergy resolved=None count=1 (quest.lua:2739)
+  invalid_in_rook_items_from_rook_script:
+    - token=Cfwandofcosmicenergy resolved=None count=1 (quest.lua:2755)
+
+uid=8202 status=MATCH map_count=1
+  /teleport 32479 31900 1  # itemid=1740 aid=8000 uid=8202
+  server74_rewards:
+    - id=2151 token=Cftalon count=32 (quest.lua:2753)
+  rook_rewards:
+    - id=2151 token=Cftalon count=32 (quest.lua:2769)
+
+uid=8203 status=MATCH map_count=1
+  /teleport 32477 31900 1  # itemid=1740 aid=8000 uid=8203
+  server74_rewards:
+    - id=2328 token=Cfphoenixegg count=1 (quest.lua:2767)
+  rook_rewards:
+    - id=2328 token=Cfphoenixegg count=1 (quest.lua:2783)
+
+uid=8206 status=MATCH map_count=1
+  /teleport 33178 33013 14  # itemid=1419 aid=8000 uid=8206
+  server74_rewards:
+    - id=2341 token=2341 count=1 (quest.lua:2784)
+  rook_rewards:
+    - id=2341 token=2341 count=1 (quest.lua:2800)
+
+uid=8207 status=MATCH map_count=1
+  /teleport 33349 32825 14  # itemid=1419 aid=8000 uid=8207
+  server74_rewards:
+    - id=2336 token=2336 count=1 (quest.lua:2798)
+  rook_rewards:
+    - id=2336 token=2336 count=1 (quest.lua:2814)
+
+uid=8208 status=MATCH map_count=1
+  /teleport 33126 32589 15  # itemid=1419 aid=8000 uid=8208
+  server74_rewards:
+    - id=2339 token=2339 count=1 (quest.lua:2812)
+  rook_rewards:
+    - id=2339 token=2339 count=1 (quest.lua:2828)
+
+uid=8209 status=MATCH map_count=1
+  /teleport 33174 32932 15  # itemid=1419 aid=8000 uid=8209
+  server74_rewards:
+    - id=2335 token=2335 count=1 (quest.lua:2826)
+  rook_rewards:
+    - id=2335 token=2335 count=1 (quest.lua:2842)
+
+uid=8210 status=MATCH map_count=1
+  /teleport 33145 32663 15  # itemid=1419 aid=8000 uid=8210
+  server74_rewards:
+    - id=2338 token=2338 count=1 (quest.lua:2840)
+  rook_rewards:
+    - id=2338 token=2338 count=1 (quest.lua:2856)
+
+uid=8211 status=MATCH map_count=1
+  /teleport 33182 32712 14  # itemid=1419 aid=8000 uid=8211
+  server74_rewards:
+    - id=2337 token=2337 count=1 (quest.lua:2854)
+  rook_rewards:
+    - id=2337 token=2337 count=1 (quest.lua:2870)
+
+uid=8212 status=MATCH map_count=1
+  /teleport 33051 32774 14  # itemid=1419 aid=8000 uid=8212
+  server74_rewards:
+    - id=2340 token=2340 count=1 (quest.lua:2867)
+  rook_rewards:
+    - id=2340 token=2340 count=1 (quest.lua:2883)
+
+uid=8223 status=MATCH map_count=1
+  /teleport 32623 32187 9  # itemid=1740 aid=8000 uid=8223
+  server74_rewards:
+    - id=2091 token=2091 count=1 (quest.lua:2922)
+  rook_rewards:
+    - id=2091 token=2091 count=1 (quest.lua:2938)
+
+uid=8226 status=MATCH map_count=1
+  /teleport 31846 32813 4  # itemid=1740 aid=8000 uid=8226
+  server74_rewards:
+    - id=5739 token=5739 count=1 (quest.lua:2998)
+  rook_rewards:
+    - id=5739 token=5739 count=1 (quest.lua:3014)
+
+uid=8230 status=MATCH map_count=1
+  /teleport 31820 32740 9  # itemid=1740 aid=8000 uid=8230
+  server74_rewards:
+    - id=5739 token=5739 count=1 (quest.lua:3050)
+  rook_rewards:
+    - id=5739 token=5739 count=1 (quest.lua:3066)
+
+uid=10058 status=MATCH map_count=1
+  /teleport 32572 32195 14  # itemid=1740 aid=8000 uid=10058
+  server74_rewards:
+    - id=2167 token=2167 count=1 (quest.lua:2949)
+  rook_rewards:
+    - id=2167 token=2167 count=1 (quest.lua:2965)
+
+uid=10059 status=MATCH map_count=1
+  /teleport 32575 32195 14  # itemid=1740 aid=8000 uid=10059
+  server74_rewards:
+    - id=2323 token=2323 count=1 (quest.lua:2936)
+  rook_rewards:
+    - id=2323 token=2323 count=1 (quest.lua:2952)
+
+uid=10060 status=MATCH map_count=1
+  /teleport 32578 32195 14  # itemid=1740 aid=8000 uid=10060
+  server74_rewards:
+    - id=2402 token=2402 count=1 (quest.lua:2962)
+  rook_rewards:
+    - id=2402 token=2402 count=1 (quest.lua:2978)
+
+uid=25302 status=MATCH map_count=1
+  /teleport 32220 31912 15  # itemid=1747 aid=0 uid=25302
+  server74_rewards:
+    - id=2152 token=Cfplatinumcoin count=100 (quest.lua:2208)
+  rook_rewards:
+    - id=2152 token=Cfplatinumcoin count=100 (quest.lua:2224)
+
+uid=25303 status=MATCH map_count=1
+  /teleport 32218 31912 15  # itemid=1747 aid=0 uid=25303
+  server74_rewards:
+    - id=2195 token=Cfbootsofhaste count=1 (quest.lua:2220)
+  rook_rewards:
+    - id=2195 token=Cfbootsofhaste count=1 (quest.lua:2236)
+
+=== Summary ===
+UIDs with reward mismatch (Server74 vs Rook scripts): 0

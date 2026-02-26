@@ -1,0 +1,11 @@
+Actions duplicates report
+Source: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\actions\actions.xml
+
+== Duplicate explicit itemid entries ==
+(none)
+
+== Itemid entries that overlap a range ==
+(none)
+
+== Overlapping ranges (range-range) ==
+(none)

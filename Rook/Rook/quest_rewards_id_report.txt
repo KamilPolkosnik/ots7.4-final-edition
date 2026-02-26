@@ -1,0 +1,92 @@
+OTS quests.lua: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\scripts\actions\map\quests.lua
+TVP quests.lua: C:\Users\stelm\OneDrive\Pulpit\soe\TVP-772-STABLE-7.72-Stable\gameserver\data\scripts\actions\map\quests.lua
+
+Total id entries: 370
+Changes applied: 21
+Unknown name mappings: 19
+
+=== Changes ===
+line 25: 1955 -> 1950  (book)
+  old: item = {id = 1955, count = 1, text = "Hardek *\nBozo *\nSam ****\nOswald \nPartos ***\nQuentin *\nTark ***\nHarsky ***\nStutch *\nFerumbras * \nFrodo ** \nNoodles **** \n"}, -- a book
+  new: item = {id = 1950, count = 1, text = "Hardek *\nBozo *\nSam ****\nOswald \nPartos ***\nQuentin *\nTark ***\nHarsky ***\nStutch *\nFerumbras * \nFrodo ** \nNoodles **** \n"}, -- a book
+line 151: 2189 -> 7098  (wand of cosmic energy)
+  old: item = {id = 2189, count = 1}, -- a wand of cosmic energy
+  new: item = {id = 7098, count = 1}, -- a wand of cosmic energy
+line 167: 1955 -> 1950  (book)
+  old: item = {id = 1955, count = 1, text = "<you recognize a torn diary of some sort>\n... Now I have the information I needed so much. It cost me a fortune, but my love is with it. The evil Minz hid my beloved Caramellia in a tower in the femur hills, I will travel ...\n... almost killed me but i made it to the tower. Sadly the druid enchanted the area with some nature-magic and the grass is almost impassable ... \n... met a wandering elf and bought a machete. Now I will be able ... \n... not possible! I am not trained enough to cut the fast growing grass away quick enough to clear a path to the tower ... \n... will hide for the night in a nearby cave I have spotted this morning while passing by and will tomorrow travel to the town to improve my grass-cutting-skill. I am sure if I am more familiar with that I will make it!"}, -- a book
+  new: item = {id = 1950, count = 1, text = "<you recognize a torn diary of some sort>\n... Now I have the information I needed so much. It cost me a fortune, but my love is with it. The evil Minz hid my beloved Caramellia in a tower in the femur hills, I will travel ...\n... almost killed me but i made it to the tower. Sadly the druid enchanted the area with some nature-magic and the grass is almost impassable ... \n... met a wandering elf and bought a machete. Now I will be able ... \n... not possible! I am not trained enough to cut the fast growing grass away quick enough to clear a path to the tower ... \n... will hide for the night in a nearby cave I have spotted this morning while passing by and will tomorrow travel to the town to improve my grass-cutting-skill. I am sure if I am more familiar with that I will make it!"}, -- a book
+line 394: 2560 -> 1816  (mirror)
+  old: {id = 2560, count = 1}, -- a mirror
+  new: {id = 1816, count = 1}, -- a mirror
+line 515: 1955 -> 1950  (book)
+  old: item = {id = 1955, count = 1, text = "Diary of Hengis Wulfson\n...\nI can only hope I can escape the \ncyclops someday. For now I have \noccupied their chief with an attempt \nto learn to read and write, but for \nhow long?\nI'm so desperate. \nWhat a foolish idea to travel here to \nsearch the famous treasures of this \nancient, knightly order. \nI wish I had never heard about it. \nI wish I had never sung that song. \nNo clue how many unfortunate souls I have lured to death with it.\n"}, -- a book
+  new: item = {id = 1950, count = 1, text = "Diary of Hengis Wulfson\n...\nI can only hope I can escape the \ncyclops someday. For now I have \noccupied their chief with an attempt \nto learn to read and write, but for \nhow long?\nI'm so desperate. \nWhat a foolish idea to travel here to \nsearch the famous treasures of this \nancient, knightly order. \nI wish I had never heard about it. \nI wish I had never sung that song. \nNo clue how many unfortunate souls I have lured to death with it.\n"}, -- a book
+line 525: 2598 -> 2333  (stamped letter)
+  old: {id = 2598, count = 1, text = "Dear Muriel!\nMy apprentice behaves strange lately. \nI fear he has something evil in mind. \nHe must have stolen the books about \nnecromancy you were missing after \nour last visit but I have no proof yet. \nThank the gods he knows not about \nthe fountain of life and the caves of \ninferno yet. I will send Laira to town in \nsome days, since i think she's in danger \nif I'm right about Porgol. \n\nYour Friend, \nArcian"}, -- a stamped letter
+  new: {id = 2333, count = 1, text = "Dear Muriel!\nMy apprentice behaves strange lately. \nI fear he has something evil in mind. \nHe must have stolen the books about \nnecromancy you were missing after \nour last visit but I have no proof yet. \nThank the gods he knows not about \nthe fountain of life and the caves of \ninferno yet. I will send Laira to town in \nsome days, since i think she's in danger \nif I'm right about Porgol. \n\nYour Friend, \nArcian"}, -- a stamped letter
+line 529: 2268 -> 2263  (spell rune)
+  old: {id = 2268, charges = 1}, -- a spell rune
+  new: {id = 2263, charges = 1}, -- a spell rune
+line 550: 1955 -> 1950  (book)
+  old: {id = 1955, count = 1, text = "This is the Journal of Krendorak, \nthe last of the Nightmare Knights:\n\nI tried to discover the secret of \nmy ancestors, but I failed. \nThe damned dragons tricked me! \nI escaped but I know I'm mortaly \nwounded. Even if I could get out off here, \nI will never make it to Knightwatch Tower \nto use its secret to resupply. Since \nnow that Camdrek is dead I will never be \nable to open it...\nIt is so hot, my sight is fading...\nMay the gods forgive my failing...\n"}, -- a book
+  new: {id = 1950, count = 1, text = "This is the Journal of Krendorak, \nthe last of the Nightmare Knights:\n\nI tried to discover the secret of \nmy ancestors, but I failed. \nThe damned dragons tricked me! \nI escaped but I know I'm mortaly \nwounded. Even if I could get out off here, \nI will never make it to Knightwatch Tower \nto use its secret to resupply. Since \nnow that Camdrek is dead I will never be \nable to open it...\nIt is so hot, my sight is fading...\nMay the gods forgive my failing...\n"}, -- a book
+line 713: 1957 -> 1956  (map)
+  old: item = {id = 1957, count = 1, text = "*You see a map of the surface of the Fields of Glory. There are many red lines and two golden points on it. You wonder what their meaning is.*"}, -- a map
+  new: item = {id = 1956, count = 1, text = "*You see a map of the surface of the Fields of Glory. There are many red lines and two golden points on it. You wonder what their meaning is.*"}, -- a map
+line 723: 2268 -> 2263  (spell rune)
+  old: {id = 2268, charges = 2}, -- a spell rune
+  new: {id = 2263, charges = 2}, -- a spell rune
+line 724: 1953 -> 1948  (parchment)
+  old: {id = 1953, count = 1, text = "Dear Gelunidas,\nI request that you send me the twinkiller-rune I ordered some months ago immediately. If I am convinced that they work as promised I will order them in greater numbers. They might be handy in my next schemes. As this letter should show you, the tales of my death are wildly exagerated. I hope you and your warlock brethren did not think you get off the hook that easy? If you don't work on the stuff I ordered and I do not receive the stuff I ordered in time, be prepared for a visit. You won't like my new friends that I would introduce to you.\n\nFerumbras"}, -- a parchment
+  new: {id = 1948, count = 1, text = "Dear Gelunidas,\nI request that you send me the twinkiller-rune I ordered some months ago immediately. If I am convinced that they work as promised I will order them in greater numbers. They might be handy in my next schemes. As this letter should show you, the tales of my death are wildly exagerated. I hope you and your warlock brethren did not think you get off the hook that easy? If you don't work on the stuff I ordered and I do not receive the stuff I ordered in time, be prepared for a visit. You won't like my new friends that I would introduce to you.\n\nFerumbras"}, -- a parchment
+line 813: 2273 -> 2263  (spell rune)
+  old: item = {id = 2273, charges = 3}, -- a spell rune
+  new: item = {id = 2263, charges = 3}, -- a spell rune
+line 817: 1991 -> 1987  (bag)
+  old: item = {id = 1991, count = 1}, -- a bag
+  new: item = {id = 1987, count = 1}, -- a bag
+line 860: 1991 -> 1987  (bag)
+  old: item = {id = 1991, count = 1}, -- a bag
+  new: item = {id = 1987, count = 1}, -- a bag
+line 940: 1955 -> 1950  (book)
+  old: item = {id = 1955, count = 1, text = "The riddle\n\nOnce upon a time, there have been a knight, a druid, a paladin and a sorcerer that survived the great battle upon the fields of glory. Some of them were wounded, some not. All were deadly tired. They had to escape from a hord of orcs, a whole tribe with more then 35 fighters. Late in the night, they came to a huge bridge, or at least the rest of a once mighty bridge. It was small and seemed to be not very save. The sorcerer screamed some loud and mighty words and for a second the bridge glew in a blue light.\n \"I see\"  the sorcerer said, \"that this bridge will break down and fall into the water within 60 minutes. So we have to hurry up. It will only hold two of us at the same time and it is a long bridge. The wounded knight will need 25 minutes to go over the bridge, and it will take me 20. The paladin can go faster, so he will be on the other side within 10 minutes.\" \nPointing at the druid he said: \"And you can use your spell to move faster. You will need only 5 minutes.\"\n \"Ok then, lets go! Dont waste time\" shouted the knight and started to go. But then he stopped. \"I cant see anything. The bridge is dangerous. We will need your magic light wand to cross it. Without light we will fall down in the cold and deep water. So always someone has to return to bring back the wand of light to the others.\"\n \"What shall we do now?\" asked the paladin \"How can we all reach the other side before the evil orcs will get us? I have no arrow left and we cant fight them! In which order we have to pass the bridge? Who should go first?\"\nThe druid started to grumbel: \"Let me say k for knight, d for druid, s for sorcerer, p for paladin. hmmm.... and now let me thing: \n\ndk-d-dp- \n\nand hmmmm nonono.\n\n\nHmmmmmmmmmmmmmmmmmmm.\"\n\"Got it!\" the sorcerer screamed. \"Lets run!\"\n\n"}, -- a book
+  new: item = {id = 1950, count = 1, text = "The riddle\n\nOnce upon a time, there have been a knight, a druid, a paladin and a sorcerer that survived the great battle upon the fields of glory. Some of them were wounded, some not. All were deadly tired. They had to escape from a hord of orcs, a whole tribe with more then 35 fighters. Late in the night, they came to a huge bridge, or at least the rest of a once mighty bridge. It was small and seemed to be not very save. The sorcerer screamed some loud and mighty words and for a second the bridge glew in a blue light.\n \"I see\"  the sorcerer said, \"that this bridge will break down and fall into the water within 60 minutes. So we have to hurry up. It will only hold two of us at the same time and it is a long bridge. The wounded knight will need 25 minutes to go over the bridge, and it will take me 20. The paladin can go faster, so he will be on the other side within 10 minutes.\" \nPointing at the druid he said: \"And you can use your spell to move faster. You will need only 5 minutes.\"\n \"Ok then, lets go! Dont waste time\" shouted the knight and started to go. But then he stopped. \"I cant see anything. The bridge is dangerous. We will need your magic light wand to cross it. Without light we will fall down in the cold and deep water. So always someone has to return to bring back the wand of light to the others.\"\n \"What shall we do now?\" asked the paladin \"How can we all reach the other side before the evil orcs will get us? I have no arrow left and we cant fight them! In which order we have to pass the bridge? Who should go first?\"\nThe druid started to grumbel: \"Let me say k for knight, d for druid, s for sorcerer, p for paladin. hmmm.... and now let me thing: \n\ndk-d-dp- \n\nand hmmmm nonono.\n\n\nHmmmmmmmmmmmmmmmmmmm.\"\n\"Got it!\" the sorcerer screamed. \"Lets run!\"\n\n"}, -- a book
+line 956: 1955 -> 1950  (book)
+  old: item = {id = 1955, count = 1, text = "... the dreammaster retreated to the world behind the curtains of awareness, I cant reach him, now that the last hall of dreams is lost to the forces of evil. I sealed Goshnar's grave so noone can enter the pits without knowledge of our secret. I will try to retreat to knightwatch tower and wait for a dreamer in possession of the key, so we can travel one of the dreampaths to a safer place to regroup and plan a counterattack. I fear we have to recruit new members and there is only little time left to train them. I hope Taciror will not waste our last forces in a futile attack on the ruthless seven. Our order has never truly recovered from the losses in our war against Goshnar and his undead hordes. Now with the death of our leaders and best warriors in the attack of the demonic forces we don't stand a chance against our enemies. Our only hope is to gather new forces and retake the chamber of dreams. Of couse I know the right method to distract hugo long enough to get past him. The dreammaster is important to teach our recruits in the old ways and the art of dreamwalking. We need a leader for our cause and we need him bad. Headless we will fail and fall. It's already uncertain who took the nightmare chronicles out of the pits and I have no idea where they hid them. They are fighting about power and influence but unity is the key to success. Our whole order is centred about unity. All our rituals and procedures rooted on unity and sharing, they can't neglect it."}, -- a book
+  new: item = {id = 1950, count = 1, text = "... the dreammaster retreated to the world behind the curtains of awareness, I cant reach him, now that the last hall of dreams is lost to the forces of evil. I sealed Goshnar's grave so noone can enter the pits without knowledge of our secret. I will try to retreat to knightwatch tower and wait for a dreamer in possession of the key, so we can travel one of the dreampaths to a safer place to regroup and plan a counterattack. I fear we have to recruit new members and there is only little time left to train them. I hope Taciror will not waste our last forces in a futile attack on the ruthless seven. Our order has never truly recovered from the losses in our war against Goshnar and his undead hordes. Now with the death of our leaders and best warriors in the attack of the demonic forces we don't stand a chance against our enemies. Our only hope is to gather new forces and retake the chamber of dreams. Of couse I know the right method to distract hugo long enough to get past him. The dreammaster is important to teach our recruits in the old ways and the art of dreamwalking. We need a leader for our cause and we need him bad. Headless we will fail and fall. It's already uncertain who took the nightmare chronicles out of the pits and I have no idea where they hid them. They are fighting about power and influence but unity is the key to success. Our whole order is centred about unity. All our rituals and procedures rooted on unity and sharing, they can't neglect it."}, -- a book
+line 964: 1993 -> 1987  (bag)
+  old: item = {id = 1993, count = 1}, -- a bag
+  new: item = {id = 1987, count = 1}, -- a bag
+line 991: 2318 -> 4845  (family brooch)
+  old: item = {id = 2318, count = 1}, -- a family brooch
+  new: item = {id = 4845, count = 1}, -- a family brooch
+line 999: 2331 -> 1990  (present)
+  old: item = {id = 2331, count = 1}, -- a present
+  new: item = {id = 1990, count = 1}, -- a present
+line 1024: 1955 -> 1950  (book)
+  old: item = {id = 1955, count = 1, text = "If you found this in a corpse behind a questdoor, its a bug. Please report it."}, -- a book
+  new: item = {id = 1950, count = 1, text = "If you found this in a corpse behind a questdoor, its a bug. Please report it."}, -- a book
+line 1128: 4873 -> 2318  (explorer brooch)
+  old: item = {id = 4873, count = 1}, -- an explorer brooch
+  new: item = {id = 2318, count = 1}, -- an explorer brooch
+
+=== Unknown mappings (tvp id/name not found in items.xml) ===
+index 141: tvp_id=2320 name=the skull of Ratha
+index 151: tvp_id=2162 name=magic light wand
+index 166: tvp_id=2413 name=broadsword
+index 215: tvp_id=2162 name=magic light wand
+index 216: tvp_id=2322 name=voodoodoll
+index 234: tvp_id=2533 name=griffin shield
+index 287: tvp_id=2162 name=magic light wand
+index 307: tvp_id=2325 name=monks diary
+index 331: tvp_id=2332 name=Waldos Posthorn
+index 332: tvp_id=2330 name=letterbag
+index 346: tvp_id=2341 name=helmet adornement
+index 352: tvp_id=4838 name=whisper moss
+index 353: tvp_id=4842 name=old parchment
+index 355: tvp_id=4855 name=elven poetry book
+index 356: tvp_id=4852 name=memory stone
+index 357: tvp_id=4847 name=spectral dress
+index 361: tvp_id=4857 name=wrinkled parchment
+index 362: tvp_id=4849 name=strange powder
+index 363: tvp_id=4840 name=witches cap mushroom

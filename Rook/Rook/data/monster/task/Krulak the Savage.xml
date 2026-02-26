@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<monster name="Krulak the Savage" nameDescription="a Krulak the Savage" race="blood" experience="3200" speed="270">
+  <health now="750" max="750"/>
+  <look type="621" head="0" body="0" legs="0" feet="0" corpse="3069"/>
+  <targetchange interval="1000" chance="5"/>
+  <targetstrategies nearest="70" health="0" damage="60" random="0"/>
+  <flags>
+    <flag attackable="1"/>
+    <flag hostile="1"/>
+    <flag illusionable="1"/>
+    <flag pushable="0"/>
+    <flag canpushitems="1"/>
+    <flag canpushcreatures="1"/>
+    <flag targetdistance="1"/>
+  </flags>
+  <attacks>
+    <attack name="melee" skill="80" attack="44"/>
+    <attack name="physical" checkshield="1" chance="15" range="4" min="-65" max="-125">
+      <attribute key="shootEffect" value="largerock"/>
+    </attack>
+    <attack name="physical" checkshield="1" chance="35" range="3" min="-35" max="-65">
+      <attribute key="shootEffect" value="axe"/>
+    </attack>
+  </attacks>
+  <defenses armor="40" defense="82"/>
+  <elements>
+	</elements>
+  <immunities>
+    <immunity invisible="1"/>
+  </immunities>
+  <voices interval="1000" chance="5">
+    <voice sentence="Let trak! Youh mashing lorstok da utat."/>
+    <voice sentence="Il toks begin!"/>
+    <voice sentence="Toks whil human!"/>
+    <voice sentence="Uh dyh!"/>
+    <voice sentence="Human, ah!"/>
+  </voices>
+  <loot>
+    <item id="2672" chance="80000"/>
+    <item id="2152" chance="70000" countmax="10"/>
+    <item id="2152" chance="40000" countmax="20"/>
+    <item id="2502" chance="200"/>
+    <item id="2129" chance="200"/>
+    <item id="5894" chance="1400"/>
+    <item id="5894" chance="1400"/>
+    <item id="2208" chance="1500"/>
+    <item id="2208" chance="1500"/>
+    <item id="2208" chance="1500"/>
+    <item id="2208" chance="1500"/>
+    <item id="2164" chance="4000"/>
+    <item id="2195" chance="2000"/>
+    <item id="6512" chance="250"/>
+  </loot>
+</monster>

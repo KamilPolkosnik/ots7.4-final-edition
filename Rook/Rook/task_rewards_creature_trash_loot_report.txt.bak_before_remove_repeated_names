@@ -1,0 +1,128 @@
+Task Rewards - Creature/Trash Loot Candidates
+Source: data/monster/*.xml
+Monsters scanned: 164
+Unique loot item ids: 341
+Items with known names: 340
+Parse errors: 0
+
+=== Summary by guessed category ===
+creature_candidate: 22
+review: 121
+trash_or_general: 198
+
+=== Full item list (sorted by how many monsters can drop it) ===
+id=6512  name=gem bag | category=trash_or_general | monsters=136 | refs=136 | chance=250..250
+id=2229  name=skull | category=creature_candidate | monsters=9 | refs=9 | chance=1000..80000
+id=2129  name=wolf tooth chain | category=creature_candidate | monsters=7 | refs=7 | chance=200..10000
+id=2230  name=bone | category=creature_candidate | monsters=7 | refs=7 | chance=10000..50000
+id=2747  name=grave flower | category=review | monsters=7 | refs=7 | chance=500..36000
+id=2802  name=sling herb | category=review | monsters=6 | refs=8 | chance=500..14000
+id=2033  name=golden mug | category=review | monsters=4 | refs=4 | chance=3000..7500
+id=2151  name=talon | category=review | monsters=4 | refs=4 | chance=700..14000
+id=2193  name=ankh | category=review | monsters=4 | refs=4 | chance=100..500
+id=2231  name=big bone | category=creature_candidate | monsters=4 | refs=4 | chance=6000..10000
+id=1976  name=gemmed book | category=trash_or_general | monsters=3 | refs=3 | chance=9000..10000
+id=2134  name=silver brooch | category=review | monsters=3 | refs=3 | chance=1500..4000
+id=2174  name=strange symbol | category=review | monsters=3 | refs=3 | chance=500..2500
+id=2176  name=orb | category=review | monsters=3 | refs=3 | chance=500..12000
+id=2237  name=dirty cape | category=review | monsters=3 | refs=3 | chance=19900..20000
+id=2359  name=small oil lamp | category=review | monsters=3 | refs=3 | chance=7500..20000
+id=2804  name=shadow herb | category=review | monsters=3 | refs=3 | chance=1000..15000
+id=3967  name=tribal mask | category=creature_candidate | monsters=3 | refs=3 | chance=500..500
+id=1977  name=book | category=trash_or_general | monsters=2 | refs=2 | chance=1500..7000
+id=1982  name=purple tome | category=review | monsters=2 | refs=2 | chance=1300..2600
+id=2070  name=flute | category=review | monsters=2 | refs=2 | chance=300..1400
+id=2159  name=scarab coin | category=review | monsters=2 | refs=4 | chance=100..5000
+id=2220  name=dirty fur | category=creature_candidate | monsters=2 | refs=2 | chance=7700..7700
+id=2817  name=dead snake | category=review | monsters=2 | refs=2 | chance=70000..70000
+id=3955  name=voodoo doll | category=review | monsters=2 | refs=2 | chance=100..100
+id=3971  name=charmer tiara | category=review | monsters=2 | refs=2 | chance=100..2000
+id=1860  name=green tapestry | category=review | monsters=1 | refs=1 | chance=2500..2500
+id=1872  name=blue tapestry | category=review | monsters=1 | refs=1 | chance=2500..2500
+id=1967  name=parchment | category=review | monsters=1 | refs=1 | chance=500..500
+id=1978  name=book | category=trash_or_general | monsters=1 | refs=1 | chance=2500..2500
+id=1980  name=book | category=trash_or_general | monsters=1 | refs=1 | chance=2500..2500
+id=1986  name=red tome | category=review | monsters=1 | refs=1 | chance=400..400
+id=2063  name=small oil lamp | category=review | monsters=1 | refs=1 | chance=7500..7500
+id=2074  name=panpipes | category=review | monsters=1 | refs=1 | chance=200..200
+id=2110  name=doll | category=review | monsters=1 | refs=1 | chance=500..500
+id=2127  name=emerald bangle | category=review | monsters=1 | refs=1 | chance=200..200
+id=2140  name=holy scarab | category=review | monsters=1 | refs=1 | chance=100..100
+id=2141  name=holy falcon | category=review | monsters=1 | refs=1 | chance=100..100
+id=2194  name=mysterious fetish | category=review | monsters=1 | refs=1 | chance=300..300
+id=2245  name=twigs | category=review | monsters=1 | refs=1 | chance=8000..8000
+id=2348  name=ancient rune | category=trash_or_general | monsters=1 | refs=1 | chance=100000..100000
+id=2349  name=blue note | category=review | monsters=1 | refs=1 | chance=100000..100000
+id=2353  name=burning heart | category=creature_candidate | monsters=1 | refs=1 | chance=100000..100000
+id=2354  name=soul ankh | category=review | monsters=1 | refs=1 | chance=100000..100000
+id=2560  name=mirror | category=review | monsters=1 | refs=1 | chance=7000..7000
+id=2644  name=bunny slippers | category=review | monsters=1 | refs=1 | chance=100..100
+id=2655  name=red robe | category=review | monsters=1 | refs=1 | chance=100..100
+id=2657  name=simple dress | category=review | monsters=1 | refs=1 | chance=60000..60000
+id=2678  name=coconut | category=review | monsters=1 | refs=1 | chance=20000..20000
+id=2745  name=blue rose | category=review | monsters=1 | refs=1 | chance=500..500
+id=2760  name=goat grass | category=review | monsters=1 | refs=1 | chance=12000..12000
+id=2803  name=powder herb | category=review | monsters=1 | refs=1 | chance=6000..6000
+id=3956  name=elephant tusk | category=review | monsters=1 | refs=1 | chance=1000..1000
+id=3970  name=feather headdress | category=creature_candidate | monsters=1 | refs=1 | chance=100..100
+id=3983  name=bast skirt | category=review | monsters=1 | refs=1 | chance=100..100
+id=6437  name=soul orb | category=review | monsters=1 | refs=1 | chance=100000..100000
+
+=== Creature candidates only ===
+id=2229  name=skull | monsters=9
+id=2230  name=bone | monsters=7
+id=2231  name=big bone | monsters=4
+id=2492  name=dragon scale mail | monsters=3
+id=3967  name=tribal mask | monsters=3
+id=2220  name=dirty fur | monsters=2
+id=2353  name=burning heart | monsters=1
+id=3970  name=feather headdress | monsters=1
+
+=== Review candidates (uncertain, manual check) ===
+id=2747  name=grave flower | monsters=7
+id=2802  name=sling herb | monsters=6
+id=2033  name=golden mug | monsters=4
+id=2151  name=talon | monsters=4
+id=2193  name=ankh | monsters=4
+id=2134  name=silver brooch | monsters=3
+id=2174  name=strange symbol | monsters=3
+id=2176  name=orb | monsters=3
+id=2237  name=dirty cape | monsters=3
+id=2359  name=small oil lamp | monsters=3
+id=2804  name=shadow herb | monsters=3
+id=1982  name=purple tome | monsters=2
+id=2070  name=flute | monsters=2
+id=2159  name=scarab coin | monsters=2
+id=2817  name=dead snake | monsters=2
+id=3955  name=voodoo doll | monsters=2
+id=3971  name=charmer tiara | monsters=2
+id=1860  name=green tapestry | monsters=1
+id=1872  name=blue tapestry | monsters=1
+id=1967  name=parchment | monsters=1
+id=1986  name=red tome | monsters=1
+id=2063  name=small oil lamp | monsters=1
+id=2074  name=panpipes | monsters=1
+id=2110  name=doll | monsters=1
+id=2140  name=holy scarab | monsters=1
+id=2141  name=holy falcon | monsters=1
+id=2194  name=mysterious fetish | monsters=1
+id=2245  name=twigs | monsters=1
+id=2323  name=hat of the mad | monsters=1
+id=2349  name=blue note | monsters=1
+id=2354  name=soul ankh | monsters=1
+id=2560  name=mirror | monsters=1
+id=2644  name=bunny slippers | monsters=1
+id=2655  name=red robe | monsters=1
+id=2657  name=simple dress | monsters=1
+id=2678  name=coconut | monsters=1
+id=2745  name=blue rose | monsters=1
+id=2760  name=goat grass | monsters=1
+id=2803  name=powder herb | monsters=1
+id=3956  name=elephant tusk | monsters=1
+id=3983  name=bast skirt | monsters=1
+id=6437  name=soul orb | monsters=1
+
+=== Top 40 most common loot ids (monster coverage) ===
+id=2229  name=skull | monsters=9 | sample=[Amazon, Bonebeast, Dworc Fleshhunter, Dworc Venomsniper, Dworc Voodoomaster, Ghoul, Valkyrie, Vampire, ...]
+id=2230  name=bone | monsters=7 | sample=[Bonebeast, Crypt Shambler, Dworc Voodoomaster, Goblin, Skeleton, demon, necropharus]
+

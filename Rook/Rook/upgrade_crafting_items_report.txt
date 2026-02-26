@@ -1,0 +1,57 @@
+Upgrade/Crafting items report
+Base: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook
+
+=== Crafting station ===
+itemid=2555 name=anvil aid=38820
+
+=== Upgrade system core items ===
+itemid=7870 name=upgrade crystal source=UpgradeSystem:ITEM_UPGRADE_CRYSTAL
+itemid=7871 name=enchant crystal source=UpgradeSystem:ITEM_ENCHANT_CRYSTAL
+itemid=7872 name=alter crystal source=UpgradeSystem:ITEM_ALTER_CRYSTAL
+itemid=7873 name=cleanse crystal source=UpgradeSystem:ITEM_CLEAN_CRYSTAL
+itemid=7874 name=fortune crystal source=UpgradeSystem:ITEM_FORTUNE_CRYSTAL
+itemid=7875 name=faith crystal source=UpgradeSystem:ITEM_FAITH_CRYSTAL
+itemid=7876 name=mind crystal source=UpgradeSystem:ITEM_MIND_CRYSTAL
+itemid=7877 name=limitless crystal source=UpgradeSystem:ITEM_LIMITLESS_CRYSTAL
+itemid=7878 name=mirrored crystal source=UpgradeSystem:ITEM_MIRRORED_CRYSTAL
+itemid=7879 name=void crystal source=UpgradeSystem:ITEM_VOID_CRYSTAL
+itemid=7881 name=upgrade catalyst source=UpgradeSystem:ITEM_UPGRADE_CATALYST
+itemid=7882 name=crystal extractor source=UpgradeSystem:CRYSTAL_EXTRACTOR
+itemid=7883 name=crystal fossil source=UpgradeSystem:CRYSTAL_FOSSIL
+itemid=7953 name=identification scroll source=UpgradeSystem:ITEM_SCROLL_IDENTIFY
+
+=== Crafting output items ===
+itemid=2383 name=spike sword source=CraftingOutput:alchemist.lua
+itemid=2640 name=pair of soft boots source=CraftingOutput:alchemist.lua, CraftingOutput:armorsmith.lua, CraftingOutput:enchanter.lua, CraftingOutput:jeweller.lua, CraftingOutput:weaponsmith.lua
+
+=== Crafting material items ===
+itemid=2121 name=wedding ring source=CraftingMaterial:alchemist.lua, CraftingMaterial:armorsmith.lua, CraftingMaterial:enchanter.lua, CraftingMaterial:jeweller.lua, CraftingMaterial:weaponsmith.lua
+itemid=2122 name=elven brooch source=CraftingMaterial:alchemist.lua, CraftingMaterial:armorsmith.lua, CraftingMaterial:enchanter.lua, CraftingMaterial:jeweller.lua, CraftingMaterial:weaponsmith.lua
+itemid=2123 name=ring of the sky source=CraftingMaterial:alchemist.lua, CraftingMaterial:armorsmith.lua, CraftingMaterial:enchanter.lua, CraftingMaterial:jeweller.lua, CraftingMaterial:weaponsmith.lua
+itemid=2256 name=metal trash source=CraftingMaterial:alchemist.lua
+itemid=6437 name=soul orb source=CraftingMaterial:alchemist.lua
+
+=== Combined unique items (all upgrade/crafting references) ===
+count=22
+itemid=2121 name=wedding ring
+itemid=2122 name=elven brooch
+itemid=2123 name=ring of the sky
+itemid=2256 name=metal trash
+itemid=2383 name=spike sword
+itemid=2555 name=anvil
+itemid=2640 name=pair of soft boots
+itemid=6437 name=soul orb
+itemid=7870 name=upgrade crystal
+itemid=7871 name=enchant crystal
+itemid=7872 name=alter crystal
+itemid=7873 name=cleanse crystal
+itemid=7874 name=fortune crystal
+itemid=7875 name=faith crystal
+itemid=7876 name=mind crystal
+itemid=7877 name=limitless crystal
+itemid=7878 name=mirrored crystal
+itemid=7879 name=void crystal
+itemid=7881 name=upgrade catalyst
+itemid=7882 name=crystal extractor
+itemid=7883 name=crystal fossil
+itemid=7953 name=identification scroll

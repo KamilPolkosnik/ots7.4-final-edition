@@ -1,0 +1,257 @@
+Armorsmith Shields - drops + quest sources report
+Generated: 2026-02-25 12:26:50
+Shields found (weaponType=shield): 46
+
+[amazon shield] id=2537
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[ancient shield] id=2532
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[battle shield] id=2513
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[beholder shield] id=2518
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[black shield] id=2529
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[blessed shield] id=2523
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[bone shield] id=2541
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[brass shield] id=2511
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[castle shield] id=2535
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[copper shield] id=2530
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[crown shield] id=2519
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quests/tvp_chests.lua:175 | item = {id = 2519, count = 1}, -- a crown shield
+  - data/scripts/actions/map/quests.lua:175 | item = {id = 2519, count = 1}, -- a crown shield
+- status: QUEST_ONLY
+
+[dark shield] id=2521
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quests/tvp_chests.lua:454 | item = {id = 2521, count = 1}, -- a dark shield
+  - data/scripts/actions/map/quests.lua:454 | item = {id = 2521, count = 1}, -- a dark shield
+- status: QUEST_ONLY
+
+[demon shield] id=2520
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/behe quest3.lua:3 | queststatus = getPlayerStorageValue(cid,2520)
+  - data/actions/scripts/quests/tvp_chests.lua:756 | item = {id = 2520, count = 1}, -- a demon shield
+  - data/actions/scripts/quests/tvp_chests.lua:848 | item = {id = 2520, count = 1}, -- a demon shield
+  - data/scripts/actions/map/quests.lua:756 | item = {id = 2520, count = 1}, -- a demon shield
+  - data/scripts/actions/map/quests.lua:848 | item = {id = 2520, count = 1}, -- a demon shield
+- status: QUEST_ONLY
+
+[dragon shield] id=2516
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[dwarven shield] id=2525
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quests/tvp_chests.lua:264 | item = {id = 2525, count = 1}, -- a dwarven shield
+  - data/scripts/actions/map/quests.lua:264 | item = {id = 2525, count = 1}, -- a dwarven shield
+- status: QUEST_ONLY
+
+[eagle shield] id=2538
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[great shield] id=2522
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[guardian shield] id=2515
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[lizard knowledge spellbook] id=5812
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[magma shield] id=5865
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[mastermind shield] id=2514
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[medusa shield] id=2536
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[mercenary shield] id=2533
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quests/tvp_chests.lua:701 | item = {id = 2533, count = 1}, -- a griffin shield
+  - data/scripts/actions/map/quests.lua:701 | item = {id = 2533, count = 1}, -- a griffin shield
+- status: QUEST_ONLY
+
+[necromantic spellbook] id=5789
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[ornamented shield] id=2524
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[phoenix shield] id=2539
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[plate shield] id=2510
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[rose shield] id=2527
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[salamander shield] id=3975
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[scarab shield] id=2540
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[sentinel shield] id=3974
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[shield of dorion] id=5539
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[shield of honour] id=2517
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[spellbook] id=2175
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[spellbook of mind control] id=5920
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[spellscroll of prophecies] id=5918
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[steel shield] id=2509
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/edron goblin.lua:3 | queststatus = getPlayerStorageValue(cid,2509)
+  - data/actions/scripts/quests/tvp_chests.lua:348 | item = {id = 2509, count = 1}, -- a steel shield
+  - data/scripts/actions/map/quests.lua:348 | item = {id = 2509, count = 1}, -- a steel shield
+- status: QUEST_ONLY
+
+[studded shield] id=2526
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[tempest shield] id=2542
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[tower shield] id=2528
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quest/tower shield.lua:3 | queststatus = getPlayerStorageValue(cid,2528)
+  - data/actions/scripts/quests/tvp_chests.lua:764 | item = {id = 2528, count = 1}, -- a tower shield
+  - data/actions/scripts/quests/tvp_chests.lua:882 | item = {id = 2528, count = 1}, -- a tower shield
+  - data/scripts/actions/map/quests.lua:764 | item = {id = 2528, count = 1}, -- a tower shield
+  - data/scripts/actions/map/quests.lua:882 | item = {id = 2528, count = 1}, -- a tower shield
+- status: QUEST_ONLY
+
+[tusk shield] id=3973
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[vampire shield] id=2534
+- drops: none found in monster loot xml
+- quest: YES (script references found)
+  - data/actions/scripts/quests/tvp_chests.lua:792 | item = {id = 2534, count = 1}, -- a vampire shield
+  - data/scripts/actions/map/quests.lua:792 | item = {id = 2534, count = 1}, -- a vampire shield
+- status: QUEST_ONLY
+
+[vampire shield] id=5732
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[viking shield] id=2531
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[warlocks spellbook] id=5791
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+
+[wooden shield] id=2512
+- drops: none found in monster loot xml
+- quest: NO direct quest reward reference found
+- status: UNKNOWN
+

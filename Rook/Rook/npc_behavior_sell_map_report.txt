@@ -1,0 +1,1592 @@
+NPC sell map from behavior files
+
+NPCs with sell entries: 49
+
+[a prisoner] sell_entries=1
+  line=73 itemid=2260 price=10 trigger=rune You want to sell me blank runes! I will give you 50000 gold for each rune! Interested?
+
+[ahmet] sell_entries=2
+  line=112 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=113 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[al dee] sell_entries=48
+  line=100 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=101 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=102 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=103 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=104 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=105 itemid=2388 price=25 trigger=hatchet Do you want to sell a hatchet for %P gold?
+  line=106 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=107 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=108 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=109 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=110 itemid=2485 price=3 trigger=doublet Do you want to sell a doublet for %P gold?
+  line=111 itemid=2467 price=5 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=112 itemid=2464 price=40 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=113 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=114 itemid=2461 price=3 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=115 itemid=2458 price=12 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=116 itemid=2482 price=20 trigger=studded helmet Do you want to sell a studded helmet for %P gold?
+  line=117 itemid=2512 price=3 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=118 itemid=2526 price=16 trigger=studded shield Do you want to sell a studded shield for %P gold?
+  line=119 itemid=2511 price=25 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=120 itemid=2510 price=40 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=121 itemid=2530 price=50 trigger=copper shield Do you want to sell a copper shield for %P gold?
+  line=122 itemid=2643 price=2 trigger=leather boots Do you want to sell a pair of leather boots for %P gold?
+  line=123 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=126 itemid=2379 price=2*%1 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=127 itemid=2389 price=3*%1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=128 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=129 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=130 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=131 itemid=2388 price=25*%1 trigger=hatchet Do you want to sell %A hatchets for %P gold?
+  line=132 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=133 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=134 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=135 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=136 itemid=2485 price=3*%1 trigger=doublet Do you want to sell %A doublets for %P gold?
+  line=137 itemid=2467 price=5*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=138 itemid=2464 price=40*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=139 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=140 itemid=2461 price=3*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=141 itemid=2458 price=12*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=142 itemid=2482 price=20*%1 trigger=studded helmet Do you want to sell %A studded helmets for %P gold?
+  line=143 itemid=2512 price=3*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=144 itemid=2526 price=16*%1 trigger=studded shield Do you want to sell %A studded shields for %P gold?
+  line=145 itemid=2511 price=25*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=146 itemid=2510 price=40*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=147 itemid=2530 price=50*%1 trigger=copper shield Do you want to sell %A copper shields for %P gold?
+  line=148 itemid=2643 price=2*%1 trigger=leather boots Do you want to sell %A pairs of leather boots for %P gold?
+  line=149 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[alesar] sell_entries=36
+  line=112 itemid=2409 price=900 trigger=serpent sword Do you want to sell a serpent sword for %P gold?
+  line=113 itemid=2434 price=2000 trigger=dragon hammer Do you want to sell a dragon hammer for %P gold?
+  line=114 itemid=2393 price=17000 trigger=giant sword Do you want to sell a giant sword for %P gold?
+  line=115 itemid=2411 price=50 trigger=poison dagger Do you want to sell a poison dagger for %P gold?
+  line=116 itemid=2419 price=150 trigger=scimitar Do you want to sell a scimitar for %P gold?
+  line=117 itemid=2436 price=6000 trigger=skull staff Do you want to sell a skull staff for %P gold?
+  line=118 itemid=2430 price=2000 trigger=knight axe Do you want to sell a knight axe for %P gold?
+  line=120 itemid=2528 price=8000 trigger=tower shield Do you want to sell a tower shield for %P gold?
+  line=121 itemid=2529 price=800 trigger=black shield Do you want to sell a black shield for %P gold?
+  line=122 itemid=2532 price=900 trigger=ancient shield Do you want to sell an ancient shield for %P gold?
+  line=123 itemid=2534 price=15000 trigger=vampire shield Do you want to sell a vampire shield for %P gold?
+  line=125 itemid=2475 price=5000 trigger=warrior helmet Do you want to sell a warrior helmet for %P gold?
+  line=126 itemid=2476 price=5000 trigger=knight armor Do you want to sell a knight armor for %P gold?
+  line=127 itemid=2477 price=5000 trigger=knight legs Do you want to sell a pair of knight legs for %P gold?
+  line=128 itemid=2479 price=500 trigger=strange helmet Do you want to sell a strange helmet for %P gold?
+  line=129 itemid=2489 price=400 trigger=dark armor Do you want to sell a dark armor for %P gold?
+  line=130 itemid=2490 price=250 trigger=dark helmet Do you want to sell a dark helmet for %P gold?
+  line=131 itemid=2663 price=150 trigger=mystic turban Do you want to sell a mystic turban for %P gold?
+  line=133 itemid=2409 price=900*%1 trigger=serpent sword Do you want to sell %A serpent swords for %P gold?
+  line=134 itemid=2434 price=2000*%1 trigger=dragon hammer Do you want to sell %A dragon hammers for %P gold?
+  line=135 itemid=2393 price=17000*%1 trigger=giant sword Do you want to sell %A giant swords for %P gold?
+  line=136 itemid=2411 price=50*%1 trigger=poison dagger Do you want to sell %A poison daggers for %P gold?
+  line=137 itemid=2419 price=150*%1 trigger=scimitar Do you want to sell %A scimitars for %P gold?
+  line=138 itemid=2436 price=6000*%1 trigger=skull staff Do you want to sell %A skull staffs for %P gold?
+  line=139 itemid=2430 price=2000*%1 trigger=knight axe Do you want to sell %A knight axes for %P gold?
+  line=141 itemid=2528 price=8000*%1 trigger=tower shield Do you want to sell %A tower shields for %P gold?
+  line=142 itemid=2529 price=800*%1 trigger=black shield Do you want to sell %A black shields for %P gold?
+  line=143 itemid=2532 price=900*%1 trigger=ancient shield Do you want to sell %A ancient shields for %P gold?
+  line=144 itemid=2534 price=15000*%1 trigger=vampire shield Do you want to sell %A vampire shields for %P gold?
+  line=146 itemid=2479 price=500*%1 trigger=strange helmet Do you want to sell %A strange helmets for %P gold?
+  line=147 itemid=2489 price=400*%1 trigger=dark armor Do you want to sell %A dark armors for %P gold?
+  line=148 itemid=2490 price=250*%1 trigger=dark helmet Do you want to sell %A dark helmets for %P gold?
+  line=149 itemid=2475 price=5000*%1 trigger=warrior helmet Do you want to sell %A warrior helmets for %P gold?
+  line=150 itemid=2476 price=5000*%1 trigger=knight armor Do you want to sell %A knight armors for %P gold?
+  line=151 itemid=2477 price=5000*%1 trigger=knight legs Do you want to sell %A pairs of knight legs for %P gold?
+  line=152 itemid=2663 price=150*%1 trigger=mystic turban Do you want to sell %A mystic turbans for %P gold?
+
+[alexander] sell_entries=6
+  line=42 itemid=2177 price=85 trigger=life crystal Do you want to sell a life crystal for %P gold?
+  line=43 itemid=2178 price=170 trigger=mind stone Do you want to sell a mind stone for %P gold?
+  line=44 itemid=2192 price=190 trigger=crystal ball Do you want to sell a crystal ball for %P gold?
+  line=46 itemid=2177 price=85*%1 trigger=life crystal Do you want to sell %A life crystals for %P gold?
+  line=47 itemid=2178 price=170*%1 trigger=mind stone Do you want to sell %A mind stones for %P gold?
+  line=48 itemid=2192 price=190*%1 trigger=crystal ball Do you want to sell %A crystal balls for %P gold?
+
+[azil] sell_entries=30
+  line=57 itemid=2467 price=5 trigger=leather armor Do you want to sell leather armor for %P gold?
+  line=58 itemid=2464 price=40 trigger=chain armor Do you want to sell chain armor for %P gold?
+  line=59 itemid=2465 price=112 trigger=brass armor Do you want to sell brass armor for %P gold?
+  line=60 itemid=2463 price=240 trigger=plate armor Do you want to sell plate armor for %P gold?
+  line=61 itemid=2457 price=293 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=62 itemid=2458 price=12 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=63 itemid=2460 price=30 trigger=brass helmet Do you want to sell a brass helmet for %P gold?
+  line=64 itemid=2461 price=3 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=65 itemid=2473 price=66 trigger=viking helmet Do you want to sell a viking helmet for %P gold?
+  line=66 itemid=2510 price=45 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=67 itemid=2511 price=16 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=68 itemid=2512 price=3 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=69 itemid=2513 price=60 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=70 itemid=2478 price=49 trigger=brass legs Do you want to sell brass legs for %P gold?
+  line=71 itemid=2648 price=20 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=73 itemid=2467 price=5*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=74 itemid=2464 price=40*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=75 itemid=2465 price=112*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=76 itemid=2463 price=240*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=77 itemid=2457 price=293*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=78 itemid=2458 price=12*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=79 itemid=2460 price=30*%1 trigger=brass helmet Do you want to sell %A brass helmets for %P gold?
+  line=80 itemid=2461 price=3*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=81 itemid=2473 price=66*%1 trigger=viking helmet Do you want to sell %A viking helmets for %P gold?
+  line=82 itemid=2510 price=45*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=83 itemid=2511 price=16*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=84 itemid=2512 price=3*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=85 itemid=2513 price=60*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=86 itemid=2478 price=49*%1 trigger=brass legs Do you want to sell %A brass legs for %P gold?
+  line=87 itemid=2648 price=20*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+
+[bashira] sell_entries=2
+  line=90 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=91 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[beatrice] sell_entries=22
+  line=69 itemid=2036 price=6 trigger=watch Do you want to sell a watch for %P gold?
+  line=70 itemid=2120 price=15 trigger=rope Do you want to sell a rope for %P gold?
+  line=71 itemid=2550 price=12 trigger=scythe Do you want to sell a scythe for %P gold?
+  line=72 itemid=2553 price=15 trigger=pick Do you want to sell a pick for %P gold?
+  line=73 itemid=2554 price=8 trigger=shovel Do you want to sell a shovel for %P gold?
+  line=74 itemid=2560 price=10 trigger=mirror Do you want to sell a mirror for %P gold?
+  line=75 itemid=2580 price=40 trigger=rod Do you want to sell a fishing rod for %P gold?
+  line=76 itemid=2600 price=8 trigger=inkwell Do you want to sell an inkwell for %P gold?
+  line=77 itemid=2405 price=3 trigger=sickle Do you want to sell a sickle for %P gold?
+  line=78 itemid=2416 price=50 trigger=crowbar Do you want to sell a crowbar for %P gold?
+  line=79 itemid=2578 price=75 trigger=trap Do you want to sell a trap for %P gold?
+  line=81 itemid=2036 price=6*%1 trigger=watch Do you want to sell %A watches for %P gold?
+  line=82 itemid=2120 price=15*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+  line=83 itemid=2550 price=12*%1 trigger=scythe Do you want to sell %A scythes for %P gold?
+  line=84 itemid=2553 price=15*%1 trigger=pick Do you want to sell %A picks for %P gold?
+  line=85 itemid=2554 price=8*%1 trigger=shovel Do you want to sell %A shovels for %P gold?
+  line=86 itemid=2560 price=10*%1 trigger=mirror Do you want to sell %A mirrors for %P gold?
+  line=87 itemid=2580 price=40*%1 trigger=rod Do you want to sell %A fishing rods for %P gold?
+  line=88 itemid=2600 price=8*%1 trigger=inkwell Do you want to sell %A inkwells for %P gold?
+  line=89 itemid=2405 price=3*%1 trigger=sickle Do you want to sell %A sickles for %P gold?
+  line=90 itemid=2416 price=50*%1 trigger=crowbar Do you want to sell %A crowbars for %P gold?
+  line=91 itemid=2578 price=75*%1 trigger=trap Do you want to sell %A traps for %P gold?
+
+[billy] sell_entries=13
+  line=53 itemid=2689 price=1 trigger=bread So, you want to sell a bread? Hmm, I give you %P gold, ok?
+  line=54 itemid=2696 price=2 trigger=cheese So, you want to sell a cheese? Hmm, I give you %P gold, ok?
+  line=55 itemid=2666 price=2 trigger=meat So, you want to sell meat? Hmm, I give you %P gold, ok?
+  line=56 itemid=2671 price=4 trigger=ham So, you want to sell a ham? Hmm, I give you %P gold, ok?
+  line=57 itemid=2668 price=2 trigger=salmon So, you want to sell a salmon? Hmm, I give you %P gold, ok?
+  line=59 itemid=2679 price=1 trigger=cherry So, you want to sell a cherry? Hmm, I give you %P gold, ok?
+  line=61 itemid=2689 price=1*%1 trigger=bread So, you want to sell %A breads? Hmm, I give you %P gold, ok?
+  line=62 itemid=2696 price=2*%1 trigger=cheese So, you want to sell %A cheese? Hmm, I give you %P gold, ok?
+  line=63 itemid=2666 price=2*%1 trigger=meat So, you want to sell %A meat? Hmm, I give you %P gold, ok?
+  line=64 itemid=2671 price=4*%1 trigger=ham So, you want to sell %A hams? Hmm, I give you %P gold, ok?
+  line=65 itemid=2668 price=2*%1 trigger=salmon So, you want to sell %A salmon? Hmm, I give you %P gold, ok?
+  line=67 itemid=2679 price=1*%1 trigger=cherr So, you want to sell %A cherries? Hmm, I give you %P gold, ok?
+  line=70 itemid=2813 price=2 trigger=rat So you bring me a fresh rat for my famous stew?
+
+[brengus] sell_entries=80
+  line=95 itemid=2377 price=450 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=96 itemid=2378 price=80 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=97 itemid=2379 price=2 trigger=dagger Do you want to sell a dagger for %P gold?
+  line=98 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=99 itemid=2381 price=400 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=100 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=101 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=102 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=103 itemid=2389 price=3 trigger=spear Do you want to sell a spear for %P gold?
+  line=104 itemid=2394 price=90 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=105 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=106 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=107 itemid=2417 price=120 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=108 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=109 itemid=3963 price=200 trigger=templar scytheblade Do you want to sell a templar scytheblade for %P gold?
+  line=110 itemid=3964 price=500 trigger=ripper lance Do you want to sell a ripper lance for %P gold?
+  line=111 itemid=3965 price=250 trigger=hunting spear Do you want to sell a hunting spear for %P gold?
+  line=112 itemid=3966 price=1000 trigger=banana staff Do you want to sell a banana staff for %P gold?
+  line=115 itemid=2467 price=12 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=116 itemid=2464 price=70 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=117 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=118 itemid=2463 price=400 trigger=plate armor Do you want to sell a plate armor for %P gold?
+  line=119 itemid=2648 price=25 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=120 itemid=2461 price=4 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=121 itemid=2458 price=17 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=122 itemid=2457 price=190 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=123 itemid=2512 price=5 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=124 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=125 itemid=2509 price=80 trigger=steel shield Do you want to sell a steel shield for %P gold?
+  line=126 itemid=3973 price=850 trigger=tusk shield Do you want to sell a tusk shield for %P gold?
+  line=127 itemid=3974 price=120 trigger=sentinel shield Do you want to sell a sentinel shield for %P gold?
+  line=128 itemid=3975 price=280 trigger=salamander shield Do you want to sell a salamander shield for %P gold?
+  line=129 itemid=3967 price=250 trigger=tribal mask Do you want to sell a tribal mask for %P gold?
+  line=130 itemid=3968 price=300 trigger=leopard armor Do you want to sell a leopard armor for %P gold?
+  line=131 itemid=3969 price=280 trigger=horseman helmet Do you want to sell a horseman helmet for %P gold?
+  line=132 itemid=3970 price=850 trigger=feather headdress Do you want to sell a feather headdress for %P gold?
+  line=133 itemid=3982 price=100 trigger=crocodile boots Do you want to sell crocodile boots for %P gold?
+  line=134 itemid=3983 price=750 trigger=bast skirt Do you want to sell a bast skirt for %P gold?
+  line=135 itemid=3971 price=900 trigger=charmer tiara Do you want to sell a charmer's tiara for %P gold?
+  line=136 itemid=3972 price=2200 trigger=beholder helmet Do you want to sell a beholder helmet for %P gold?
+  line=142 itemid=2377 price=450*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=143 itemid=2378 price=80*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=144 itemid=2379 price=2*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=145 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=146 itemid=2381 price=400*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=147 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=148 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=149 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=150 itemid=2389 price=3*%1 trigger=spear Do you want to sell %A spears for %P gold?
+  line=151 itemid=2394 price=90*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=152 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=153 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=154 itemid=2417 price=120*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=155 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=156 itemid=3963 price=200*%1 trigger=templar scytheblade Do you want to sell %A templar scytheblades for %P gold?
+  line=157 itemid=3964 price=500*%1 trigger=ripper lance Do you want to sell %A ripper lances for %P gold?
+  line=158 itemid=3965 price=250*%1 trigger=hunting spear Do you want to sell %A hunting spears for %P gold?
+  line=159 itemid=3966 price=1000*%1 trigger=banana staff Do you want to sell %A banana staves for %P gold?
+  line=161 itemid=2467 price=12*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=162 itemid=2464 price=70*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=163 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=164 itemid=2463 price=400*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=165 itemid=2648 price=25*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+  line=166 itemid=2461 price=4*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=167 itemid=2458 price=17*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=168 itemid=2457 price=190*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=169 itemid=2512 price=5*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=170 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=171 itemid=2509 price=80*%1 trigger=steel shield Do you want to sell %A steel shields for %P gold?
+  line=172 itemid=3973 price=850*%1 trigger=tusk shield Do you want to sell %A tusk shields for %P gold?
+  line=173 itemid=3974 price=120*%1 trigger=sentinel shield Do you want to sell %A sentinel shields for %P gold?
+  line=174 itemid=3975 price=280*%1 trigger=salamander shield Do you want to sell %A salamander shields for %P gold?
+  line=175 itemid=3967 price=250*%1 trigger=tribal mask Do you want to sell %A tribal masks for %P gold?
+  line=176 itemid=3968 price=300*%1 trigger=leopard armor Do you want to sell %A leopard armors for %P gold?
+  line=177 itemid=3969 price=280*%1 trigger=horseman helmet Do you want to sell %A horseman helmets for %P gold?
+  line=178 itemid=3970 price=850*%1 trigger=feather headdress Do you want to sell %A feather headdresses for %P gold?
+  line=179 itemid=3982 price=100*%1 trigger=crocodile boots Do you want to sell %A pairs of crocodile boots for %P gold?
+  line=180 itemid=3983 price=750*%1 trigger=bast skirt Do you want to sell %A bast skirts for %P gold?
+  line=181 itemid=3971 price=900*%1 trigger=charmer tiara Do you want to sell %A charmer's tiaras for %P gold?
+  line=182 itemid=3972 price=2200*%1 trigger=beholder helmet Do you want to sell %A beholder helmets for %P gold?
+
+[briasol] sell_entries=14
+  line=71 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=72 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=73 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=74 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=75 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=76 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=77 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=79 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=80 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=81 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=82 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=83 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=84 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=85 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[cornelia] sell_entries=30
+  line=63 itemid=2467 price=5 trigger=leather armor Do you want to sell leather armor for %P gold?
+  line=64 itemid=2464 price=40 trigger=chain armor Do you want to sell chain armor for %P gold?
+  line=65 itemid=2465 price=112 trigger=brass armor Do you want to sell brass armor for %P gold?
+  line=66 itemid=2463 price=240 trigger=plate armor Do you want to sell plate armor for %P gold?
+  line=67 itemid=2457 price=293 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=68 itemid=2458 price=12 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=69 itemid=2460 price=30 trigger=brass helmet Do you want to sell a brass helmet for %P gold?
+  line=70 itemid=2461 price=3 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=71 itemid=2473 price=66 trigger=viking helmet Do you want to sell a viking helmet for %P gold?
+  line=72 itemid=2510 price=45 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=73 itemid=2511 price=16 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=74 itemid=2512 price=3 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=75 itemid=2513 price=60 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=76 itemid=2478 price=49 trigger=brass legs Do you want to sell brass legs for %P gold?
+  line=77 itemid=2648 price=20 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=79 itemid=2467 price=5*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=80 itemid=2464 price=40*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=81 itemid=2465 price=112*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=82 itemid=2463 price=240*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=83 itemid=2457 price=293*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=84 itemid=2458 price=12*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=85 itemid=2460 price=30*%1 trigger=brass helmet Do you want to sell %A brass helmets for %P gold?
+  line=86 itemid=2461 price=3*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=87 itemid=2473 price=66*%1 trigger=viking helmet Do you want to sell %A viking helmets for %P gold?
+  line=88 itemid=2510 price=45*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=89 itemid=2511 price=16*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=90 itemid=2512 price=3*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=91 itemid=2513 price=60*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=92 itemid=2478 price=49*%1 trigger=brass legs Do you want to sell %A brass legs for %P gold?
+  line=93 itemid=2648 price=20*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+
+[dixi] sell_entries=48
+  line=90 itemid=2379 price=2 trigger=dagger I can give you %P gold for this, ok?
+  line=91 itemid=2389 price=3 trigger=spear I can give you %P gold for this, ok?
+  line=92 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=93 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=94 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=95 itemid=2388 price=25 trigger=hatchet Do you want to sell a hatchet for %P gold?
+  line=96 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=97 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=98 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=99 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=100 itemid=2485 price=3 trigger=doublet Do you want to sell a doublet for %P gold?
+  line=101 itemid=2467 price=5 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=102 itemid=2464 price=40 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=103 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=104 itemid=2461 price=3 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=105 itemid=2458 price=12 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=106 itemid=2482 price=20 trigger=studded helmet Do you want to sell a studded helmet for %P gold?
+  line=107 itemid=2512 price=3 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=108 itemid=2526 price=16 trigger=studded shield Do you want to sell a studded shield for %P gold?
+  line=109 itemid=2511 price=25 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=110 itemid=2510 price=40 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=111 itemid=2530 price=50 trigger=copper shield Do you want to sell a copper shield for %P gold?
+  line=112 itemid=2643 price=2 trigger=leather boots Do you want to sell a pair of leather boots for %P gold?
+  line=113 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=115 itemid=2379 price=2*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=116 itemid=2389 price=3*%1 trigger=spear Do you want to sell %A spears for %P gold?
+  line=117 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=118 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=119 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=120 itemid=2388 price=25*%1 trigger=hatchet Do you want to sell %A hatchets for %P gold?
+  line=121 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=122 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=123 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=124 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=125 itemid=2485 price=3*%1 trigger=doublet Do you want to sell %A doublets for %P gold?
+  line=126 itemid=2467 price=5*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=127 itemid=2464 price=40*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=128 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=129 itemid=2461 price=3*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=130 itemid=2458 price=12*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=131 itemid=2482 price=20*%1 trigger=studded helmet Do you want to sell %A studded helmets for %P gold?
+  line=132 itemid=2512 price=3*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=133 itemid=2526 price=16*%1 trigger=studded shield Do you want to sell %A studded shields for %P gold?
+  line=134 itemid=2511 price=25*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=135 itemid=2510 price=40*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=136 itemid=2530 price=50*%1 trigger=copper shield Do you want to sell %A copper shields for %P gold?
+  line=137 itemid=2643 price=2*%1 trigger=leather boots Do you want to sell %A pairs of leather boots for %P gold?
+  line=138 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[eremo] sell_entries=1
+  line=36 itemid=2196 price=50000 trigger=broken amulet Do you want to sell a broken amulet for %P gold?
+
+[gail] sell_entries=14
+  line=73 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=74 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=75 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=76 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=77 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=78 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=79 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=81 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=82 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=83 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=84 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=85 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=86 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=87 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[habdel] sell_entries=30
+  line=61 itemid=2398 price=23 trigger=mace Do you want to sell a mace for %P gold?
+  line=62 itemid=2379 price=1 trigger=dagger Do you want to sell a dagger for %P gold?
+  line=63 itemid=2395 price=118 trigger=carlin sword Do you want to sell a carlin sword for %P gold?
+  line=64 itemid=2382 price=1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=65 itemid=2389 price=1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=66 itemid=2384 price=3 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=67 itemid=2385 price=5 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=68 itemid=2376 price=15 trigger=sword Do you want to sell a sword for %P gold?
+  line=69 itemid=2378 price=75 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=70 itemid=2417 price=50 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=71 itemid=2394 price=100 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=72 itemid=2377 price=190 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=73 itemid=2381 price=310 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=74 itemid=2387 price=260 trigger=double axe Do you want to sell a double axe for %P gold?
+  line=75 itemid=2391 price=470 trigger=war hammer Do you want to sell a war hammer for %P gold?
+  line=77 itemid=2398 price=23*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=78 itemid=2379 price=1*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=79 itemid=2395 price=118*%1 trigger=carlin sword Do you want to sell %A carlin swords for %P gold?
+  line=80 itemid=2382 price=1*%1 trigger=club Do you want to sell %A clubs for %P gold?
+  line=81 itemid=2389 price=1*%1 trigger=spear Do you want to sell %A spears for %P gold
+  line=82 itemid=2384 price=3*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=83 itemid=2385 price=5*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=84 itemid=2376 price=15*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=85 itemid=2378 price=75*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=86 itemid=2417 price=50*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=87 itemid=2394 price=100*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=88 itemid=2377 price=190*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=89 itemid=2381 price=310*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=90 itemid=2387 price=260*%1 trigger=double axe Do you want to sell %A double axes for %P gold?
+  line=91 itemid=2391 price=470*%1 trigger=war hammer Do you want to sell %A war hammers for %P gold?
+
+[halif] sell_entries=2
+  line=75 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=77 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[hanna] sell_entries=14
+  line=47 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=48 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=49 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=50 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=51 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=52 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=53 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=55 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=56 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=57 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=58 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=59 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=60 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=61 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[hardek] sell_entries=50
+  line=20 itemid=2511 price=16 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=21 itemid=2510 price=31 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=22 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=23 itemid=2515 price=180 trigger=guardian shield Do you want to sell a guardian shield for %P gold?
+  line=24 itemid=2516 price=360 trigger=dragon shield Do you want to sell a dragon shield for %P gold?
+  line=26 itemid=2651 price=1 trigger=coat Do you want to sell a coat for %P gold?
+  line=27 itemid=2650 price=1 trigger=jacket Do you want to sell a jacket for %P gold?
+  line=28 itemid=2465 price=112 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=29 itemid=2476 price=875 trigger=knight armor Do you want to sell a knight armor for %P gold?
+  line=30 itemid=2466 price=1500 trigger=golden armor Do you want to sell a golden armor for %P gold?
+  line=32 itemid=2460 price=30 trigger=brass helmet Do you want to sell a brass helmet for %P gold?
+  line=33 itemid=2473 price=66 trigger=viking helmet Do you want to sell a viking helmet for %P gold?
+  line=34 itemid=2459 price=145 trigger=iron helmet Do you want to sell an iron helmet for %P gold?
+  line=35 itemid=2462 price=450 trigger=devil helmet Do you want to sell a devil helmet for %P gold?
+  line=36 itemid=2475 price=696 trigger=warrior helmet Do you want to sell a warrior helmet for %P gold?
+  line=38 itemid=2649 price=1 trigger=leather legs Do you want to sell leather legs for %P gold?
+  line=39 itemid=2648 price=20 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=40 itemid=2478 price=49 trigger=brass legs Do you want to sell brass legs for %P gold?
+  line=41 itemid=2647 price=115 trigger=plate legs Do you want to sell plate legs for %P gold?
+  line=42 itemid=2477 price=375 trigger=knight legs Do you want to sell knight legs for %P gold?
+  line=44 itemid=2379 price=1 trigger=dagger Do you want to sell a dagger for %P gold?
+  line=45 itemid=2397 price=51 trigger=longsword Do you want to sell a longsword for %P gold?
+  line=46 itemid=2383 price=225 trigger=spike sword Do you want to sell a spike sword for %P gold?
+  line=47 itemid=2392 price=1000 trigger=fire sword Do you want to sell a fire sword for %P gold?
+  line=48 itemid=2398 price=23 trigger=mace Do you want to sell a mace for %P gold?
+  line=50 itemid=2511 price=16*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=51 itemid=2510 price=31*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=52 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=53 itemid=2515 price=180*%1 trigger=guardians shield Do you want to sell %A guardians shields for %P gold?
+  line=54 itemid=2516 price=360*%1 trigger=dragon shield Do you want to sell %A dragon shields for %P gold?
+  line=56 itemid=2651 price=1*%1 trigger=coat Do you want to sell %A coats for %P gold?
+  line=57 itemid=2650 price=1*%1 trigger=jacket Do you want to sell %A jackets for %P gold?
+  line=58 itemid=2465 price=112*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=59 itemid=2476 price=875*%1 trigger=knight armor Do you want to sell %A knight armors for %P gold?
+  line=60 itemid=2466 price=1500*%1 trigger=golden armor Do you want to sell %A golden armors for %P gold?
+  line=62 itemid=2460 price=30*%1 trigger=brass helmet Do you want to sell %A brass helmets for %P gold?
+  line=63 itemid=2473 price=66*%1 trigger=viking helmet Do you want to sell %A viking helmets for %P gold?
+  line=64 itemid=2459 price=145*%1 trigger=iron helmet Do you want to sell %A iron helmets for %P gold?
+  line=65 itemid=2462 price=450*%1 trigger=devil helmet Do you want to sell %A devil helmets for %P gold?
+  line=66 itemid=2475 price=696*%1 trigger=warrior helmet Do you want to sell %A warrior helmets for %P gold?
+  line=68 itemid=2649 price=1*%1 trigger=leather legs Do you want to sell %A leather legs for %P gold?
+  line=69 itemid=2648 price=20*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+  line=70 itemid=2478 price=49*%1 trigger=brass legs Do you want to sell %A brass legs for %P gold?
+  line=71 itemid=2647 price=115*%1 trigger=plate legs Do you want to sell %A plate legs for %P gold?
+  line=72 itemid=2477 price=375*%1 trigger=knight legs Do you want to sell %A knight legs for %P gold?
+  line=74 itemid=2379 price=1*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=75 itemid=2397 price=51*%1 trigger=longsword Do you want to sell %A longswords for %P gold?
+  line=76 itemid=2383 price=225*%1 trigger=spike sword Do you want to sell %A spike swords for %P gold?
+  line=77 itemid=2392 price=1000*%1 trigger=fire sword Do you want to sell %A fireswords for %P gold?
+  line=78 itemid=2398 price=23*%1 trigger=mace Do you want to sell %A maces for %P gold?
+
+[haroun] sell_entries=26
+  line=115 itemid=2162 price=35 trigger=light Do you want to sell a magic light wand for %P gold?
+  line=116 itemid=2207 price=100 trigger=sword ring Do you want to sell a sword ring for %P gold?
+  line=117 itemid=2208 price=100 trigger=axe ring Do you want to sell an axe ring for %P gold?
+  line=118 itemid=2209 price=100 trigger=club ring Do you want to sell a club ring for %P gold?
+  line=119 itemid=2197 price=500 trigger=stone skin amulet Do you want to sell a stone skin amulet for %P gold?
+  line=120 itemid=2198 price=100 trigger=elven amulet Do you want to sell an elven amulet for %P gold?
+  line=121 itemid=2199 price=50 trigger=garlic necklace Do you want to sell a garlic necklace for %P gold?
+  line=122 itemid=2172 price=50 trigger=bronze amulet Do you want to sell a bronze amulet for %P gold?
+  line=123 itemid=2165 price=200 trigger=stealth ring Do you want to sell a stealth ring for %P gold?
+  line=124 itemid=2166 price=50 trigger=power ring Do you want to sell a power ring for %P gold?
+  line=125 itemid=2178 price=100 trigger=mind stone Do you want to sell a mind stone for %P gold?
+  line=126 itemid=2177 price=50 trigger=life crystal Do you want to sell a life crystal for %P gold?
+  line=127 itemid=2176 price=750 trigger=orb Do you want to sell an orb for %P gold?
+  line=129 itemid=2162 price=35*%1 trigger=light Do you want to sell %A magic light wands for %P gold?
+  line=130 itemid=2166 price=50*%1 trigger=power ring Do you want to sell %A power rings for %P gold?
+  line=131 itemid=2172 price=50*%1 trigger=bronze amulet Do you want to sell %A bronze amulets for %P gold?
+  line=132 itemid=2207 price=100*%1 trigger=sword ring Do you want to sell %A sword rings for %P gold?
+  line=133 itemid=2208 price=100*%1 trigger=axe ring Do you want to sell %A axe rings for %P gold?
+  line=134 itemid=2209 price=100*%1 trigger=club ring Do you want to sell %A club rings for %P gold?
+  line=135 itemid=2198 price=100*%1 trigger=elven amulet Do you want to sell %A elven amulets for %P gold?
+  line=136 itemid=2199 price=50*%1 trigger=garlic necklace Do you want to sell %A garlic necklaces for %P gold?
+  line=137 itemid=2197 price=500*%1 trigger=stone skin amulet Do you want to sell %A stone skin amulets for %P gold?
+  line=138 itemid=2165 price=200*%1 trigger=stealth ring Do you want to sell %A stealth rings for %P gold?
+  line=139 itemid=2178 price=100*%1 trigger=mind stone Do you want to sell %A mind stones for %P gold?
+  line=140 itemid=2177 price=50*%1 trigger=life crystal Do you want to sell %A life crystals for %P gold?
+  line=141 itemid=2176 price=750*%1 trigger=orb Do you want to sell %A orbs for %P gold?
+
+[hl] sell_entries=253
+  line=75 itemid=2376 price=7 trigger=sword I buy this for %P gold. Is that ok?
+  line=76 itemid=2377 price=60 trigger=two handed sword I buy this for %P gold. Is that ok?
+  line=77 itemid=2378 price=40 trigger=battle axe I buy this for %P gold. Is that ok?
+  line=78 itemid=2379 price=1 trigger=dagger I give you %P gold for this garbage. Ok?
+  line=79 itemid=2380 price=5 trigger=hand axe I buy this for %P gold. Is that ok?
+  line=80 itemid=2381 price=50 trigger=halberd I buy this for %P gold. Is that ok?
+  line=81 itemid=2382 price=1 trigger=club I give you %P gold for this garbage. Ok?
+  line=82 itemid=2383 price=25 trigger=spike sword I buy this for %P gold. Is that ok?
+  line=83 itemid=2384 price=5 trigger=rapier I buy this for %P gold. Is that ok?
+  line=84 itemid=2385 price=6 trigger=sabre I buy this for %P gold. Is that ok?
+  line=85 itemid=2386 price=6 trigger=axe I buy this for %P gold. Is that ok?
+  line=86 itemid=2387 price=70 trigger=double axe I buy this for %P gold. Is that ok?
+  line=87 itemid=2388 price=7 trigger=hatchet I buy this for %P gold. Is that ok?
+  line=88 itemid=2389 price=2 trigger=spear I buy this for %P gold. Is that ok?
+  line=89 itemid=2390 price=460 trigger=magic longsword A rare item. But I can give you only %P gold. Ok?
+  line=90 itemid=2391 price=90 trigger=war hammer I buy this for %P gold. Is that ok?
+  line=91 itemid=2392 price=335 trigger=fire sword A rare item. But I can give you only %P gold. Ok?
+  line=92 itemid=2393 price=100 trigger=giant sword I buy this for %P gold. Is that ok?
+  line=93 itemid=2394 price=50 trigger=morning star I buy this for %P gold. Is that ok?
+  line=94 itemid=2395 price=5 trigger=carlin sword I buy this for %P gold. Is that ok?
+  line=95 itemid=2396 price=250 trigger=ice rapier A rare item. But I can give you only %P gold. Ok?
+  line=96 itemid=2397 price=8 trigger=longsword I buy this for %P gold. Is that ok?
+  line=97 itemid=2398 price=8 trigger=mace I buy this for %P gold. Is that ok?
+  line=98 itemid=2399 price=2 trigger=throwing star I buy this for %P gold. Is that ok?
+  line=99 itemid=2400 price=350 trigger=magic sword A rare item. But I can give you only %P gold. Ok?
+  line=100 itemid=2401 price=1 trigger=staff I give you %P gold for this garbage. Ok?
+  line=101 itemid=2402 price=1 trigger=silver dagger I give you %P gold for this garbage. Ok?
+  line=102 itemid=2403 price=1 trigger=knife I give you %P gold for this garbage. Ok?
+  line=103 itemid=2404 price=1 trigger=combat knife I give you %P gold for this garbage. Ok?
+  line=104 itemid=2405 price=1 trigger=sickle I give you %P gold for this garbage. Ok?
+  line=105 itemid=2406 price=3 trigger=short sword I buy this for %P gold. Is that ok?
+  line=106 itemid=2407 price=280 trigger=bright sword A rare item. But I can give you only %P gold. Ok?
+  line=107 itemid=2408 price=360 trigger=warlord sword A rare item. But I can give you only %P gold. Ok?
+  line=108 itemid=2409 price=15 trigger=serpent sword I buy this for %P gold. Is that ok?
+  line=109 itemid=2410 price=2 trigger=throwing knife I give you %P gold for this garbage. Ok?
+  line=110 itemid=2411 price=5 trigger=poison dagger I buy this for %P gold. Is that ok?
+  line=111 itemid=2412 price=8 trigger=katana I buy this for %P gold. Is that ok?
+  line=112 itemid=2413 price=10 trigger=broadsword I buy this for %P gold. Is that ok?
+  line=113 itemid=2414 price=90 trigger=dragon lance I buy this for %P gold. Is that ok?
+  line=114 itemid=2415 price=300 trigger=great axe A rare item. But I can give you only %P gold. Ok?
+  line=115 itemid=2416 price=1 trigger=crowbar I give you %P gold for this garbage. Ok?
+  line=116 itemid=2417 price=40 trigger=battle hammer I buy this for %P gold. Is that ok?
+  line=117 itemid=2418 price=10 trigger=golden sickle I buy this for %P gold. Is that ok?
+  line=118 itemid=2419 price=10 trigger=scimitar I buy this for %P gold. Is that ok?
+  line=119 itemid=2420 price=6 trigger=machete I buy this for %P gold. Is that ok?
+  line=120 itemid=2421 price=450 trigger=thunder hammer A rare item. But I can give you only %P gold. Ok?
+  line=121 itemid=2422 price=9 trigger=iron hammer I buy this for %P gold. Is that ok?
+  line=122 itemid=2423 price=30 trigger=clerical mace I buy this for %P gold. Is that ok?
+  line=123 itemid=2424 price=270 trigger=silver mace A rare item. But I can give you only %P gold. Ok?
+  line=124 itemid=2425 price=50 trigger=obsidian lance I buy this for %P gold. Is that ok?
+  line=125 itemid=2426 price=80 trigger=naginata I buy this for %P gold. Is that ok?
+  line=126 itemid=2427 price=120 trigger=guardian halberd I buy this for %P gold. Is that ok?
+  line=127 itemid=2428 price=12 trigger=orcish axe I buy this for %P gold. Is that ok?
+  line=128 itemid=2429 price=30 trigger=barbarian axe I buy this for %P gold. Is that ok?
+  line=129 itemid=2430 price=50 trigger=knight axe I buy this for %P gold. Is that ok?
+  line=130 itemid=2431 price=320 trigger=stonecutter axe A rare item. But I can give you only %P gold. Ok?
+  line=131 itemid=2432 price=280 trigger=fire axe A rare item. But I can give you only %P gold. Ok?
+  line=133 itemid=2376 price=7*%1 trigger=sword I buy this for %P gold. Is that ok?
+  line=134 itemid=2377 price=60*%1 trigger=two handed sword I buy this for %P gold. Is that ok?
+  line=135 itemid=2378 price=40*%1 trigger=battle axe I buy this for %P gold. Is that ok?
+  line=136 itemid=2379 price=1*%1 trigger=dagger I give you %P gold for this garbage. Ok?
+  line=137 itemid=2380 price=5*%1 trigger=hand axe I buy this for %P gold. Is that ok?
+  line=138 itemid=2381 price=50*%1 trigger=halberd I buy this for %P gold. Is that ok?
+  line=139 itemid=2382 price=1*%1 trigger=club I give you %P gold for this garbage. Ok?
+  line=140 itemid=2383 price=25*%1 trigger=spike sword I buy this for %P gold. Is that ok?
+  line=141 itemid=2384 price=5*%1 trigger=rapier I buy this for %P gold. Is that ok?
+  line=142 itemid=2385 price=6*%1 trigger=sabre I buy this for %P gold. Is that ok?
+  line=143 itemid=2386 price=6*%1 trigger=axe I buy this for %P gold. Is that ok?
+  line=144 itemid=2387 price=70*%1 trigger=double axe I buy this for %P gold. Is that ok?
+  line=145 itemid=2388 price=7*%1 trigger=hatchet I buy this for %P gold. Is that ok?
+  line=146 itemid=2389 price=2*%1 trigger=spear I buy this for %P gold. Is that ok?
+  line=147 itemid=2390 price=460*%1 trigger=magic longsword A rare item. But I can give you only %P gold. Ok?
+  line=148 itemid=2391 price=90*%1 trigger=war hammer I buy this for %P gold. Is that ok?
+  line=149 itemid=2392 price=335*%1 trigger=fire sword A rare item. But I can give you only %P gold. Ok?
+  line=150 itemid=2393 price=100*%1 trigger=giant sword I buy this for %P gold. Is that ok?
+  line=151 itemid=2394 price=50*%1 trigger=morning star I buy this for %P gold. Is that ok?
+  line=152 itemid=2395 price=5*%1 trigger=carlin sword I buy this for %P gold. Is that ok?
+  line=153 itemid=2396 price=250*%1 trigger=ice rapier A rare item. But I can give you only %P gold. Ok?
+  line=154 itemid=2397 price=8*%1 trigger=longsword I buy this for %P gold. Is that ok?
+  line=155 itemid=2398 price=8*%1 trigger=mace I buy this for %P gold. Is that ok?
+  line=156 itemid=2399 price=2*%1 trigger=throwing star I buy this for %P gold. Is that ok?
+  line=157 itemid=2400 price=350*%1 trigger=magic sword A rare item. But I can give you only %P gold. Ok?
+  line=158 itemid=2401 price=1*%1 trigger=staff I give you %P gold for this garbage. Ok?
+  line=159 itemid=2402 price=1*%1 trigger=silver dagger I give you %P gold for this garbage. Ok?
+  line=160 itemid=2403 price=1*%1 trigger=knife I give you %P gold for this garbage. Ok?
+  line=161 itemid=2404 price=1*%1 trigger=combat knife I give you %P gold for this garbage. Ok?
+  line=162 itemid=2403 price=1*%1 trigger=knives I give you %P gold for this garbage. Ok?
+  line=163 itemid=2404 price=1*%1 trigger=combat knives I give you %P gold for this garbage. Ok?
+  line=164 itemid=2405 price=1*%1 trigger=sickle I give you %P gold for this garbage. Ok?
+  line=165 itemid=2406 price=3*%1 trigger=short sword I buy this for %P gold. Is that ok?
+  line=166 itemid=2407 price=280*%1 trigger=bright sword A rare item. But I can give you only %P gold. Ok?
+  line=167 itemid=2408 price=360*%1 trigger=warlord sword A rare item. But I can give you only %P gold. Ok?
+  line=168 itemid=2409 price=15*%1 trigger=serpent sword I buy this for %P gold. Is that ok?
+  line=169 itemid=2410 price=2*%1 trigger=throwing knife I give you %P gold for this garbage. Ok?
+  line=170 itemid=2410 price=2*%1 trigger=throwing knives I give you %P gold for this garbage. Ok?
+  line=171 itemid=2411 price=5*%1 trigger=poison dagger I buy this for %P gold. Is that ok?
+  line=172 itemid=2412 price=8*%1 trigger=katana I buy this for %P gold. Is that ok?
+  line=173 itemid=2413 price=10*%1 trigger=broadsword I buy this for %P gold. Is that ok?
+  line=174 itemid=2414 price=90*%1 trigger=dragon lance I buy this for %P gold. Is that ok?
+  line=175 itemid=2415 price=300*%1 trigger=great axe A rare item. But I can give you only %P gold. Ok?
+  line=176 itemid=2416 price=1*%1 trigger=crowbar I give you %P gold for this garbage. Ok?
+  line=177 itemid=2417 price=40*%1 trigger=battle hammer I buy this for %P gold. Is that ok?
+  line=178 itemid=2418 price=10*%1 trigger=golden sickle I buy this for %P gold. Is that ok?
+  line=179 itemid=2419 price=10*%1 trigger=scimitar I buy this for %P gold. Is that ok?
+  line=180 itemid=2420 price=6*%1 trigger=machete I buy this for %P gold. Is that ok?
+  line=181 itemid=2421 price=450*%1 trigger=thunder hammer A rare item. But I can give you only %P gold. Ok?
+  line=182 itemid=2422 price=9*%1 trigger=iron hammer I buy this for %P gold. Is that ok?
+  line=183 itemid=2423 price=30*%1 trigger=clerical mace I buy this for %P gold. Is that ok?
+  line=184 itemid=2424 price=270*%1 trigger=silver mace A rare item. But I can give you only %P gold. Ok?
+  line=185 itemid=2425 price=50*%1 trigger=obsidian lance I buy this for %P gold. Is that ok?
+  line=186 itemid=2426 price=80*%1 trigger=naginata I buy this for %P gold. Is that ok?
+  line=187 itemid=2427 price=120*%1 trigger=guardian halberd I buy this for %P gold. Is that ok?
+  line=188 itemid=2428 price=12*%1 trigger=orcish axe I buy this for %P gold. Is that ok?
+  line=189 itemid=2429 price=30*%1 trigger=barbarian axe I buy this for %P gold. Is that ok?
+  line=190 itemid=2430 price=50*%1 trigger=knight axe I buy this for %P gold. Is that ok?
+  line=191 itemid=2431 price=320*%1 trigger=stonecutter axe A rare item. But I can give you only %P gold. Ok?
+  line=192 itemid=2432 price=280*%1 trigger=fire axe A rare item. But I can give you only %P gold. Ok?
+  line=195 itemid=2455 price=20 trigger=crossbow I buy this for %P gold. Is that ok?
+  line=196 itemid=2456 price=15 trigger=bow I buy this for %P gold. Is that ok?
+  line=198 itemid=2455 price=20*%1 trigger=crossbow I buy this for %P gold. Is that ok?
+  line=199 itemid=2456 price=15*%1 trigger=bow I buy this for %P gold. Is that ok?
+  line=202 itemid=2457 price=60 trigger=steel helmet I buy this for %P gold. Is that ok?
+  line=203 itemid=2458 price=4 trigger=chain helmet I buy this for %P gold. Is that ok?
+  line=204 itemid=2459 price=30 trigger=iron helmet I buy this for %P gold. Is that ok?
+  line=205 itemid=2460 price=8 trigger=brass helmet I buy this for %P gold. Is that ok?
+  line=206 itemid=2461 price=1 trigger=leather helmet I give you %P gold for this garbage. Ok?
+  line=207 itemid=2462 price=80 trigger=devil helmet I buy this for %P gold. Is that ok?
+  line=208 itemid=2463 price=110 trigger=plate armor I buy this for %P gold. Is that ok?
+  line=209 itemid=2464 price=30 trigger=chain armor I buy this for %P gold. Is that ok?
+  line=210 itemid=2465 price=50 trigger=brass armor I buy this for %P gold. Is that ok?
+  line=211 itemid=2466 price=580 trigger=golden armor A rare item. But I can give you only %P gold. Ok?
+  line=212 itemid=2467 price=2 trigger=leather armor I give you %P gold for this garbage. Ok?
+  line=213 itemid=2468 price=15 trigger=studded legs I buy this for %P gold. Is that ok?
+  line=214 itemid=2469 price=180 trigger=dragon scale legs I buy this for %P gold. Is that ok?
+  line=215 itemid=2470 price=120 trigger=golden legs I buy this for %P gold. Is that ok?
+  line=216 itemid=2471 price=420 trigger=golden helmet A rare item. But I can give you only %P gold. Ok?
+  line=217 itemid=2472 price=720 trigger=magic plate armor A rare item. But I can give you only %P gold. Ok?
+  line=218 itemid=2473 price=12 trigger=viking helmet I buy this for %P gold. Is that ok?
+  line=219 itemid=2474 price=320 trigger=winged helmet A rare item. But I can give you only %P gold. Ok?
+  line=220 itemid=2475 price=75 trigger=warrior helmet I buy this for %P gold. Is that ok?
+  line=221 itemid=2476 price=140 trigger=knight armor I buy this for %P gold. Is that ok?
+  line=222 itemid=2477 price=130 trigger=knight legs I buy this for %P gold. Is that ok?
+  line=223 itemid=2478 price=15 trigger=brass legs I buy this for %P gold. Is that ok?
+  line=224 itemid=2479 price=55 trigger=strange helmet I buy this for %P gold. Is that ok?
+  line=225 itemid=2480 price=8 trigger=legion helmet I buy this for %P gold. Is that ok?
+  line=226 itemid=2481 price=16 trigger=soldier helmet I buy this for %P gold. Is that ok?
+  line=227 itemid=2482 price=2 trigger=studded helmet I buy this for %P gold. Is that ok?
+  line=228 itemid=2483 price=75 trigger=scale armor I buy this for %P gold. Is that ok?
+  line=229 itemid=2484 price=18 trigger=studded armor I buy this for %P gold. Is that ok?
+  line=230 itemid=2485 price=1 trigger=doublet I give you %P gold for this garbage. Ok?
+  line=231 itemid=2486 price=140 trigger=rose armor I buy this for %P gold. Is that ok?
+  line=232 itemid=2487 price=210 trigger=crown armor I buy this for %P gold. Is that ok?
+  line=233 itemid=2488 price=60 trigger=crown legs I buy this for %P gold. Is that ok?
+  line=234 itemid=2489 price=130 trigger=dark armor I buy this for %P gold. Is that ok?
+  line=235 itemid=2490 price=40 trigger=dark helmet I buy this for %P gold. Is that ok?
+  line=236 itemid=2491 price=70 trigger=crown helmet I buy this for %P gold. Is that ok?
+  line=237 itemid=2492 price=280 trigger=dragon scale mail I buy this for %P gold. Is that ok?
+  line=238 itemid=2493 price=95 trigger=demon helmet Not bad. A rare item. But I can give you only %P gold. Ok?
+  line=239 itemid=2494 price=195 trigger=demon armor Not bad. A rare item. But I can give you only %P gold. Ok?
+  line=240 itemid=2495 price=84 trigger=demon legs Not bad. A rare item. But I can give you only %P gold. Ok?
+  line=241 itemid=2496 price=155 trigger=horned helmet I buy this for %P gold. Is that ok?
+  line=243 itemid=2457 price=60*%1 trigger=steel helmet I buy this for %P gold. Is that ok?
+  line=244 itemid=2458 price=4*%1 trigger=chain helmet I buy this for %P gold. Is that ok?
+  line=245 itemid=2459 price=30*%1 trigger=iron helmet I buy this for %P gold. Is that ok?
+  line=246 itemid=2460 price=8*%1 trigger=brass helmet I buy this for %P gold. Is that ok?
+  line=247 itemid=2461 price=1*%1 trigger=leather helmet I give you %P gold for this garbage. Ok?
+  line=248 itemid=2462 price=80*%1 trigger=devil helmet I buy this for %P gold. Is that ok?
+  line=249 itemid=2463 price=110*%1 trigger=plate armor I buy this for %P gold. Is that ok?
+  line=250 itemid=2464 price=30*%1 trigger=chain armor I buy this for %P gold. Is that ok?
+  line=251 itemid=2465 price=50*%1 trigger=brass armor I buy this for %P gold. Is that ok?
+  line=252 itemid=2466 price=580*%1 trigger=golden armor A rare item. But I can give you only %P gold. Ok?
+  line=253 itemid=2467 price=2*%1 trigger=leather armor I give you %P gold for this garbage. Ok?
+  line=254 itemid=2468 price=15*%1 trigger=studded legs I buy this for %P gold. Is that ok?
+  line=255 itemid=2469 price=180*%1 trigger=dragon scale legs I buy this for %P gold. Is that ok?
+  line=256 itemid=2470 price=120*%1 trigger=golden legs I buy this for %P gold. Is that ok?
+  line=257 itemid=2471 price=420*%1 trigger=golden helmet A rare item. But I can give you only %P gold. Ok?
+  line=258 itemid=2472 price=720*%1 trigger=magic plate armor A rare item. But I can give you only %P gold. Ok?
+  line=259 itemid=2473 price=12*%1 trigger=viking helmet I buy this for %P gold. Is that ok?
+  line=260 itemid=2474 price=320*%1 trigger=winged helmet A rare item. But I can give you only %P gold. Ok?
+  line=261 itemid=2475 price=75*%1 trigger=warrior helmet I buy this for %P gold. Is that ok?
+  line=262 itemid=2476 price=140*%1 trigger=knight armor I buy this for %P gold. Is that ok?
+  line=263 itemid=2477 price=130*%1 trigger=knight legs I buy this for %P gold. Is that ok?
+  line=264 itemid=2478 price=15*%1 trigger=brass legs I buy this for %P gold. Is that ok?
+  line=265 itemid=2479 price=55*%1 trigger=strange helmet I buy this for %P gold. Is that ok?
+  line=266 itemid=2480 price=8*%1 trigger=legion helmet I buy this for %P gold. Is that ok?
+  line=267 itemid=2481 price=16*%1 trigger=soldier helmet I buy this for %P gold. Is that ok?
+  line=268 itemid=2482 price=2*%1 trigger=studded helmet I buy this for %P gold. Is that ok?
+  line=269 itemid=2483 price=75*%1 trigger=scale armor I buy this for %P gold. Is that ok?
+  line=270 itemid=2484 price=18*%1 trigger=studded armor I buy this for %P gold. Is that ok?
+  line=271 itemid=2485 price=1*%1 trigger=doublet I give you %P gold for this garbage. Ok?
+  line=272 itemid=2486 price=140*%1 trigger=rose armor I buy this for %P gold. Is that ok?
+  line=273 itemid=2487 price=210*%1 trigger=crown armor I buy this for %P gold. Is that ok?
+  line=274 itemid=2488 price=60*%1 trigger=crown legs I buy this for %P gold. Is that ok?
+  line=275 itemid=2489 price=130*%1 trigger=dark armor I buy this for %P gold. Is that ok?
+  line=276 itemid=2490 price=40*%1 trigger=dark helmet I buy this for %P gold. Is that ok?
+  line=277 itemid=2491 price=70*%1 trigger=crown helmet I buy this for %P gold. Is that ok?
+  line=278 itemid=2492 price=280*%1 trigger=dragon scale mail I buy this for %P gold. Is that ok?
+  line=279 itemid=2493 price=95*%1 trigger=demon helmet Not bad. A rare item. But I can give you only %P gold. Ok?
+  line=280 itemid=2494 price=195*%1 trigger=demon armor Not bad. A rare item. But I can give you only %P gold. Ok?
+  line=281 itemid=2495 price=84*%1 trigger=demon legs Not bad. A rare item. But I can give you only %P gold. Ok?
+  line=282 itemid=2496 price=155*%1 trigger=horned helmet I buy this for %P gold. Is that ok?
+  line=285 itemid=2509 price=30 trigger=steel shield I buy this for %P gold. Is that ok?
+  line=286 itemid=2510 price=25 trigger=plate shield I buy this for %P gold. Is that ok?
+  line=287 itemid=2511 price=15 trigger=brass shield I buy this for %P gold. Is that ok?
+  line=288 itemid=2512 price=1 trigger=wooden shield I give you %P gold for this garbage. Ok?
+  line=289 itemid=2513 price=50 trigger=battle shield I buy this for %P gold. Is that ok?
+  line=290 itemid=2514 price=550 trigger=mastermind shield A rare item. But I can give you only %P gold. Ok?
+  line=291 itemid=2515 price=150 trigger=guardian shield I buy this for %P gold. Is that ok?
+  line=292 itemid=2516 price=115 trigger=dragon shield I buy this for %P gold. Is that ok?
+  line=293 itemid=2517 price=520 trigger=unholy shield A rare item. But I can give you only %P gold. Ok?
+  line=294 itemid=2518 price=79 trigger=beholder shield I buy this for %P gold. Is that ok?
+  line=295 itemid=2519 price=109 trigger=crown shield I buy this for %P gold. Is that ok?
+  line=296 itemid=2520 price=130 trigger=demon shield I buy this for %P gold. Is that ok?
+  line=297 itemid=2521 price=60 trigger=dark shield I buy this for %P gold. Is that ok?
+  line=298 itemid=2522 price=480 trigger=great shield A rare item. But I can give you only %P gold. Ok?
+  line=299 itemid=2523 price=650 trigger=blessed shield A rare item. But I can give you only %P gold. Ok?
+  line=300 itemid=2524 price=45 trigger=ornamented shield I buy this for %P gold. Is that ok?
+  line=301 itemid=2525 price=55 trigger=dwarven shield I buy this for %P gold. Is that ok?
+  line=302 itemid=2526 price=2 trigger=studded shield I give you %P gold for this garbage. Ok?
+  line=303 itemid=2527 price=49 trigger=rose shield I buy this for %P gold. Is that ok?
+  line=304 itemid=2528 price=90 trigger=tower shield I buy this for %P gold. Is that ok?
+  line=305 itemid=2529 price=5 trigger=black shield Bah. That's disgusting. But I take it for %P gold. Ok?
+  line=306 itemid=2530 price=10 trigger=copper shield I buy this for %P gold. Is that ok?
+  line=307 itemid=2531 price=35 trigger=viking shield I buy this for %P gold. Is that ok?
+  line=308 itemid=2532 price=49 trigger=ancient shield I buy this for %P gold. Is that ok?
+  line=309 itemid=2533 price=59 trigger=griffin shield I buy this for %P gold. Is that ok?
+  line=310 itemid=2534 price=119 trigger=vampire shield A rare item. But I can give you only %P gold. Ok?
+  line=312 itemid=2509 price=30*%1 trigger=steel shield I buy this for %P gold. Is that ok?
+  line=313 itemid=2510 price=25*%1 trigger=plate shield I buy this for %P gold. Is that ok?
+  line=314 itemid=2511 price=15*%1 trigger=brass shield I buy this for %P gold. Is that ok?
+  line=315 itemid=2512 price=1*%1 trigger=wooden shield I give you %P gold for this garbage. Ok?
+  line=316 itemid=2513 price=50*%1 trigger=battle shield I buy this for %P gold. Is that ok?
+  line=317 itemid=2514 price=550*%1 trigger=mastermind shield A rare item. But I can give you only %P gold. Ok?
+  line=318 itemid=2515 price=150*%1 trigger=guardian shield I buy this for %P gold. Is that ok?
+  line=319 itemid=2516 price=115*%1 trigger=dragon shield I buy this for %P gold. Is that ok?
+  line=320 itemid=2517 price=520*%1 trigger=unholy shield A rare item. But I can give you only %P gold. Ok?
+  line=321 itemid=2518 price=79*%1 trigger=beholder shield I buy this for %P gold. Is that ok?
+  line=322 itemid=2519 price=109*%1 trigger=crown shield I buy this for %P gold. Is that ok?
+  line=323 itemid=2520 price=130*%1 trigger=demon shield I buy this for %P gold. Is that ok?
+  line=324 itemid=2521 price=60*%1 trigger=dark shield I buy this for %P gold. Is that ok?
+  line=325 itemid=2522 price=480*%1 trigger=great shield A rare item. But I can give you only %P gold. Ok?
+  line=326 itemid=2523 price=650*%1 trigger=blessed shield A rare item. But I can give you only %P gold. Ok?
+  line=327 itemid=2524 price=45*%1 trigger=ornamented shield I buy this for %P gold. Is that ok?
+  line=328 itemid=2525 price=55*%1 trigger=dwarven shield I buy this for %P gold. Is that ok?
+  line=329 itemid=2526 price=2*%1 trigger=studded shield I give you %P gold for this garbage. Ok?
+  line=330 itemid=2527 price=49*%1 trigger=rose shield I buy this for %P gold. Is that ok?
+  line=331 itemid=2528 price=90*%1 trigger=tower shield I buy this for %P gold. Is that ok?
+  line=332 itemid=2529 price=5*%1 trigger=black shield Bah. That's disgusting. But I take it for %P gold. Ok?
+  line=333 itemid=2530 price=10*%1 trigger=copper shield I buy this for %P gold. Is that ok?
+  line=334 itemid=2531 price=35*%1 trigger=viking shield I buy this for %P gold. Is that ok?
+  line=335 itemid=2532 price=49*%1 trigger=ancient shield I buy this for %P gold. Is that ok?
+  line=336 itemid=2533 price=59*%1 trigger=griffin shield I buy this for %P gold. Is that ok?
+  line=337 itemid=2534 price=119*%1 trigger=vampire shield A rare item. But I can give you only %P gold. Ok?
+
+[humgolf] sell_entries=6
+  line=70 itemid=2666 price=2 trigger=meat So, you want to sell meat? Hmm, I give you %P gold, ok?
+  line=71 itemid=2671 price=4 trigger=ham So, you want to sell a ham? Hmm, I give you %P gold, ok?
+  line=73 itemid=2813 price=2 trigger=rat Do you have a fresh rat for sale?
+  line=76 itemid=2666 price=2*%1 trigger=meat So, you want to sell %A pieces of meat? Hmm, I give you %P gold, ok?
+  line=77 itemid=2671 price=4*%1 trigger=ham So, you want to sell %A pieces of ham? Hmm, I give you %P gold, ok?
+  line=78 itemid=2813 price=2*%1 trigger=rat Do you have %A fresh rats for sale?
+
+[ishina] sell_entries=14
+  line=50 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=51 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=52 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=53 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=54 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=55 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=56 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=58 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=59 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=60 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=61 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=62 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=63 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=64 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[iwan] sell_entries=14
+  line=56 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=57 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=58 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=59 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=60 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=61 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=62 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=64 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=65 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=66 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=67 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=68 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=69 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=70 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[kroox] sell_entries=38
+  line=71 itemid=2464 price=40 trigger=chain armor You want sell a chain armor for %P gold?
+  line=72 itemid=2465 price=112 trigger=brass armor You want sell a brass armor for %P gold?
+  line=73 itemid=2463 price=240 trigger=plate armor You want sell a plate armor for %P gold?
+  line=74 itemid=2457 price=293 trigger=steel helmet You want sell a steel helmet for %P gold?
+  line=75 itemid=2458 price=12 trigger=chain helmet You want sell a chain helmet for %P gold?
+  line=76 itemid=2460 price=30 trigger=brass helmet You want sell a brass helmet for %P gold?
+  line=77 itemid=2473 price=66 trigger=viking helmet You want sell a viking helmet for %P gold?
+  line=78 itemid=2459 price=145 trigger=iron helmet You want sell a iron helmet for %P gold?
+  line=79 itemid=2462 price=450 trigger=devil helmet You want sell a devil's helmet for %P gold?
+  line=80 itemid=2475 price=696 trigger=warrior helmet You want sell a warrior helmet for %P gold?
+  line=81 itemid=2525 price=100 trigger=dwarven shield You want sell a dwarven shield for %P gold?
+  line=82 itemid=2510 price=45 trigger=plate shield You want sell a plate shield for %P gold?
+  line=83 itemid=2511 price=16 trigger=brass shield You want sell a brass shield for %P gold?
+  line=84 itemid=2512 price=3 trigger=wooden shield You want sell a wooden shield for %P gold?
+  line=85 itemid=2513 price=60 trigger=battle shield You want sell a battle shield for %P gold?
+  line=86 itemid=2478 price=49 trigger=brass legs You want sell brass legs for %P gold?
+  line=87 itemid=2648 price=20 trigger=chain legs You want sell chain legs for %P gold?
+  line=88 itemid=2647 price=115 trigger=plate legs You want sell plate legs for %P gold?
+  line=89 itemid=2477 price=375 trigger=knight legs You want sell knight legs for %P gold?
+  line=91 itemid=2464 price=40*%1 trigger=chain armor You want sell %A chain armors for %P gold?
+  line=92 itemid=2465 price=112*%1 trigger=brass armor You want sell %A brass armors for %P gold?
+  line=93 itemid=2463 price=240*%1 trigger=plate armor You want sell %A plate armors for %P gold?
+  line=94 itemid=2457 price=293*%1 trigger=steel helmet You want sell %A steel helmets for %P gold?
+  line=95 itemid=2458 price=12*%1 trigger=chain helmet You want sell %A chain helmets for %P gold?
+  line=96 itemid=2460 price=30*%1 trigger=brass helmet You want sell %A brass helmets for %P gold?
+  line=97 itemid=2473 price=66*%1 trigger=viking helmet You want sell %A viking helmets for %P gold?
+  line=98 itemid=2459 price=145*%1 trigger=iron helmet You want sell %A iron helmets for %P gold?
+  line=99 itemid=2462 price=450*%1 trigger=devil helmet You want sell %A devil's helmets for %P gold?
+  line=100 itemid=2475 price=696*%1 trigger=warrior helmet You want sell %A warrior helmets for %P gold?
+  line=101 itemid=2525 price=100*%1 trigger=dwarven shield You want sell %A dwarven shields for %P gold?
+  line=102 itemid=2510 price=45*%1 trigger=plate shield You want sell %A plate shields for %P gold?
+  line=103 itemid=2511 price=16*%1 trigger=brass shield You want sell %A brass shields for %P gold?
+  line=104 itemid=2512 price=3*%1 trigger=wooden shield You want sell %A wooden shields for %P gold?
+  line=105 itemid=2513 price=60*%1 trigger=battle shield You want sell %A battle shields for %P gold?
+  line=106 itemid=2478 price=49*%1 trigger=brass legs You want sell %A brass legs for %P gold?
+  line=107 itemid=2648 price=20*%1 trigger=chain legs You want sell %A chain legs for %P gold?
+  line=108 itemid=2647 price=115*%1 trigger=plate legs You want sell %A plate legs for %P gold?
+  line=109 itemid=2477 price=375*%1 trigger=knight legs You want sell %A knight legs for %P gold?
+
+[lee'delle] sell_entries=48
+  line=110 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=111 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=112 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=113 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=114 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=115 itemid=2388 price=25 trigger=hatchet Do you want to sell a hatchet for %P gold?
+  line=116 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=117 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=118 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=119 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=120 itemid=2485 price=3 trigger=doublet Do you want to sell a doublet for %P gold?
+  line=121 itemid=2467 price=5 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=122 itemid=2464 price=40 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=123 itemid=2484 price=25 trigger=studded armor Do you want to sell a studded armor for %P gold?
+  line=124 itemid=2461 price=3 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=125 itemid=2458 price=12 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=126 itemid=2482 price=20 trigger=studded helmet Do you want to sell a studded helmet for %P gold?
+  line=127 itemid=2512 price=3 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=128 itemid=2526 price=16 trigger=studded shield Do you want to sell a studded shield for %P gold?
+  line=129 itemid=2511 price=25 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=130 itemid=2510 price=40 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=131 itemid=2530 price=50 trigger=copper shield Do you want to sell a copper shield for %P gold?
+  line=132 itemid=2643 price=2 trigger=leather boots Do you want to sell a pair of leather boots for %P gold?
+  line=133 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=135 itemid=2379 price=2*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=136 itemid=2389 price=3*%1 trigger=spear Do you want to sell %A spears for %P gold?
+  line=137 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=138 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=139 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=140 itemid=2388 price=25*%1 trigger=hatchet Do you want to sell %A hatchets for %P gold?
+  line=141 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=142 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=143 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=144 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=145 itemid=2485 price=3*%1 trigger=doublet Do you want to sell %A doublets for %P gold?
+  line=146 itemid=2467 price=5*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=147 itemid=2464 price=40*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=148 itemid=2484 price=25*%1 trigger=studded armor Do you want to sell %A studded armors for %P gold?
+  line=149 itemid=2461 price=3*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=150 itemid=2458 price=12*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=151 itemid=2482 price=20*%1 trigger=studded helmet Do you want to sell %A studded helmets for %P gold?
+  line=152 itemid=2512 price=3*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=153 itemid=2526 price=16*%1 trigger=studded shield Do you want to sell %A studded shields for %P gold?
+  line=154 itemid=2511 price=25*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=155 itemid=2510 price=40*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=156 itemid=2530 price=50*%1 trigger=copper shield Do you want to sell %A copper shields for %P gold?
+  line=157 itemid=2643 price=2*%1 trigger=leather boots Do you want to sell %A pairs of leather boots for %P gold?
+  line=158 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[lily] sell_entries=1
+  line=35 itemid=2677 price=1 trigger=blueberry Do you want to sell 5 blueberries for %P gold?
+
+[memech] sell_entries=52
+  line=100 itemid=2377 price=450 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=101 itemid=2378 price=80 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=102 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=103 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=104 itemid=2381 price=400 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=105 itemid=2382 price=1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=106 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=107 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=108 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=109 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=110 itemid=2394 price=90 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=111 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=112 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=113 itemid=2417 price=120 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=114 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=116 itemid=2467 price=12 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=117 itemid=2464 price=70 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=118 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=119 itemid=2463 price=400 trigger=plate armor Do you want to sell a plate armor for %P gold?
+  line=120 itemid=2648 price=25 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=121 itemid=2461 price=4 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=122 itemid=2458 price=17 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=123 itemid=2457 price=190 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=124 itemid=2512 price=5 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=125 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=126 itemid=2509 price=80 trigger=steel shield Do you want to sell a steel shield for %P gold?
+  line=128 itemid=2377 price=450*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=129 itemid=2378 price=80*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=130 itemid=2379 price=2*%1 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=131 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=132 itemid=2381 price=400*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=133 itemid=2382 price=1*%1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=134 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=135 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=136 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=137 itemid=2389 price=3*%1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=138 itemid=2394 price=90*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=139 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=140 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=141 itemid=2417 price=120*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=142 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=144 itemid=2467 price=12*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=145 itemid=2464 price=70*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=146 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=147 itemid=2463 price=400*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=148 itemid=2648 price=25*%1 trigger=chain legs Do you want to sell %A chain legss for %P gold?
+  line=149 itemid=2461 price=4*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=150 itemid=2458 price=17*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=151 itemid=2457 price=190*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=152 itemid=2512 price=5*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=153 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=154 itemid=2509 price=80*%1 trigger=steel shield Do you want to sell %A steel shields for %P gold?
+
+[nah'bob] sell_entries=42
+  line=106 itemid=2383 price=1000 trigger=spike sword Do you want to sell a spike sword for %P gold?
+  line=107 itemid=2392 price=4000 trigger=fire sword Do you want to sell a fire sword for %P gold?
+  line=108 itemid=2391 price=1200 trigger=war hammer Do you want to sell a war hammer for %P gold?
+  line=109 itemid=2396 price=1000 trigger=ice rapier Do you want to sell an ice rapier for %P gold?
+  line=110 itemid=2413 price=500 trigger=broad sword Do you want to sell a broad sword for %P gold?
+  line=111 itemid=2414 price=9000 trigger=dragon lance Do you want to sell a dragon lance for %P gold?
+  line=112 itemid=2425 price=500 trigger=obsidian lance Do you want to sell an obsidian lance for %P gold?
+  line=113 itemid=2432 price=8000 trigger=fire axe Do you want to sell a fire axe for %P gold?
+  line=115 itemid=2515 price=2000 trigger=guardian shield Do you want to sell a guardian shield for %P gold?
+  line=116 itemid=2516 price=4000 trigger=dragon shield Do you want to sell a dragon shield for %P gold?
+  line=117 itemid=2518 price=1200 trigger=beholder shield Do you want to sell a beholder shield for %P gold?
+  line=118 itemid=2519 price=8000 trigger=crown shield Do you want to sell a crown shield for %P gold?
+  line=119 itemid=2539 price=16000 trigger=phoenix shield Do you want to sell a phoenix shield for %P gold?
+  line=121 itemid=2486 price=900 trigger=noble armor Do you want to sell a noble armor for %P gold?
+  line=122 itemid=2487 price=12000 trigger=crown armor Do you want to sell a crown armor for %P gold?
+  line=123 itemid=2488 price=12000 trigger=crown legs Do you want to sell a pair of crown legs for %P gold?
+  line=124 itemid=2491 price=2500 trigger=crown helmet Do you want to sell a crown helmet for %P gold?
+  line=125 itemid=2497 price=6000 trigger=crusader helmet Do you want to sell a crusader helmet for %P gold?
+  line=126 itemid=2498 price=30000 trigger=royal helmet Do you want to sell a royal helmet for %P gold?
+  line=127 itemid=2656 price=10000 trigger=blue robe Do you want to sell a blue robe for %P gold?
+  line=128 itemid=2195 price=30000 trigger=boots of haste Do you want to sell a boots of haste for %P gold?
+  line=130 itemid=2383 price=1000*%1 trigger=spike sword Do you want to sell %A spike swords for %P gold?
+  line=131 itemid=2392 price=4000*%1 trigger=fire sword Do you want to sell %A fire swords for %P gold?
+  line=132 itemid=2391 price=1200*%1 trigger=war hammer Do you want to sell %A war hammers for %P gold?
+  line=133 itemid=2396 price=1000*%1 trigger=ice rapier Do you want to sell %A ice rapiers for %P gold?
+  line=134 itemid=2413 price=500*%1 trigger=broad sword Do you want to sell %A broad swords for %P gold?
+  line=135 itemid=2414 price=9000*%1 trigger=dragon lance Do you want to sell %A dragon lances for %P gold?
+  line=136 itemid=2425 price=500*%1 trigger=obsidian lance Do you want to sell %A obsidian lances for %P gold?
+  line=137 itemid=2432 price=8000*%1 trigger=fire axe Do you want to sell %A fire axes for %P gold?
+  line=139 itemid=2515 price=2000*%1 trigger=guardian shield Do you want to sell %A guardian shields for %P gold?
+  line=140 itemid=2516 price=4000*%1 trigger=dragon shield Do you want to sell %A dragon shields for %P gold?
+  line=141 itemid=2518 price=1200*%1 trigger=beholder shield Do you want to sell %A beholder shields for %P gold?
+  line=142 itemid=2519 price=8000*%1 trigger=crown shield Do you want to sell %A crown shields for %P gold?
+  line=143 itemid=2539 price=16000*%1 trigger=phoenix shield Do you want to sell %A phoenix shields for %P gold?
+  line=145 itemid=2486 price=900*%1 trigger=noble armor Do you want to sell %A noble armors for %P gold?
+  line=146 itemid=2487 price=12000*%1 trigger=crown armor Do you want to sell %A crown armors for %P gold?
+  line=147 itemid=2488 price=12000*%1 trigger=crown legs Do you want to sell %A pairs of crown legs for %P gold?
+  line=148 itemid=2491 price=2500*%1 trigger=crown helmet Do you want to sell %A crown helmets for %P gold?
+  line=149 itemid=2497 price=6000*%1 trigger=crusader helmet Do you want to sell %A crusader helmets for %P gold?
+  line=150 itemid=2498 price=30000*%1 trigger=royal helmet Do you want to sell %A royal helmets for %P gold?
+  line=151 itemid=2656 price=10000*%1 trigger=blue robe Do you want to sell %A blue robes for %P gold?
+  line=152 itemid=2195 price=30000*%1 trigger=boots of haste Do you want to sell %A boots of haste for %P gold?
+
+[norma] sell_entries=48
+  line=103 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=104 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=105 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=106 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=107 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=108 itemid=2388 price=25 trigger=hatchet Do you want to sell a hatchet for %P gold?
+  line=109 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=110 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=111 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=112 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=113 itemid=2485 price=3 trigger=doublet Do you want to sell a doublet for %P gold?
+  line=114 itemid=2467 price=5 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=115 itemid=2464 price=40 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=116 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=117 itemid=2461 price=3 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=118 itemid=2458 price=12 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=119 itemid=2482 price=20 trigger=studded helmet Do you want to sell a studded helmet for %P gold?
+  line=120 itemid=2512 price=3 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=121 itemid=2526 price=16 trigger=studded shield Do you want to sell a studded shield for %P gold?
+  line=122 itemid=2511 price=25 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=123 itemid=2510 price=40 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=124 itemid=2530 price=50 trigger=copper shield Do you want to sell a copper shield for %P gold?
+  line=125 itemid=2643 price=2 trigger=leather boots Do you want to sell a pair of leather boots for %P gold?
+  line=126 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=128 itemid=2379 price=2*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=129 itemid=2389 price=3*%1 trigger=spear Do you want to sell %A spears for %P gold?
+  line=130 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=131 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=132 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=133 itemid=2388 price=25*%1 trigger=hatchet Do you want to sell %A hatchets for %P gold?
+  line=134 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=135 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=136 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=137 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=138 itemid=2485 price=3*%1 trigger=doublet Do you want to sell %A doublets for %P gold?
+  line=139 itemid=2467 price=5*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=140 itemid=2464 price=40*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=141 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=142 itemid=2461 price=3*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=143 itemid=2458 price=12*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=144 itemid=2482 price=20*%1 trigger=studded helmet Do you want to sell %A studded helmets for %P gold?
+  line=145 itemid=2512 price=3*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=146 itemid=2526 price=16*%1 trigger=studded shield Do you want to sell %A studded shields for %P gold?
+  line=147 itemid=2511 price=25*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=148 itemid=2510 price=40*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=149 itemid=2530 price=50*%1 trigger=copper shield Do you want to sell %A copper shields for %P gold?
+  line=150 itemid=2643 price=2*%1 trigger=leather boots Do you want to sell %A pairs of leather boots for %P gold?
+  line=151 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[obi] sell_entries=48
+  line=106 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=107 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=108 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=109 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=110 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=111 itemid=2388 price=25 trigger=hatchet Do you want to sell a hatchet for %P gold?
+  line=112 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=113 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=114 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=115 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=116 itemid=2485 price=3 trigger=doublet Do you want to sell a doublet for %P gold?
+  line=117 itemid=2467 price=5 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=118 itemid=2464 price=40 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=119 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=120 itemid=2461 price=3 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=121 itemid=2458 price=12 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=122 itemid=2482 price=20 trigger=studded helmet Do you want to sell a studded helmet for %P gold?
+  line=123 itemid=2512 price=3 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=124 itemid=2526 price=16 trigger=studded shield Do you want to sell a studded shield for %P gold?
+  line=125 itemid=2511 price=25 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=126 itemid=2510 price=40 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=127 itemid=2530 price=50 trigger=copper shield Do you want to sell a copper shield for %P gold?
+  line=128 itemid=2643 price=2 trigger=leather boots Do you want to sell a pair of leather boots for %P gold?
+  line=129 itemid=2120 price=8 trigger=rope Do you want to sell a rope for %P gold?
+  line=131 itemid=2379 price=2*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=132 itemid=2389 price=3*%1 trigger=spear Do you want to sell %A spears for %P gold?
+  line=133 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=134 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=135 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=136 itemid=2388 price=25*%1 trigger=hatchet Do you want to sell %A hatchets for %P gold?
+  line=137 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=138 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=139 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=140 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=141 itemid=2485 price=3*%1 trigger=doublet Do you want to sell %A doublets for %P gold?
+  line=142 itemid=2467 price=5*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=143 itemid=2464 price=40*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=144 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=145 itemid=2461 price=3*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=146 itemid=2458 price=12*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=147 itemid=2482 price=20*%1 trigger=studded helmet Do you want to sell %A studded helmets for %P gold?
+  line=148 itemid=2512 price=3*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=149 itemid=2526 price=16*%1 trigger=studded shield Do you want to sell %A studded shields for %P gold?
+  line=150 itemid=2511 price=25*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=151 itemid=2510 price=40*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=152 itemid=2530 price=50*%1 trigger=copper shield Do you want to sell %A copper shields for %P gold?
+  line=153 itemid=2643 price=2*%1 trigger=leather boots Do you want to sell %A pairs of leather boots for %P gold?
+  line=154 itemid=2120 price=8*%1 trigger=rope Do you want to sell %A ropes for %P gold?
+
+[odemara] sell_entries=14
+  line=38 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=39 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=40 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=41 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=42 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=43 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=44 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=46 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=47 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=48 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=49 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=50 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=51 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=52 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[rachel] sell_entries=2
+  line=40 itemid=2151 price=320 trigger=talon Do you want to sell one of the magic gems called talon for %P gold?
+  line=41 itemid=2151 price=320*%1 trigger=talon Do you want to sell %A magic gems called talon for %P gold?
+
+[romella] sell_entries=28
+  line=59 itemid=2377 price=450 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=60 itemid=2378 price=80 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=61 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=62 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=63 itemid=2381 price=400 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=64 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=65 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=66 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=67 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=68 itemid=2394 price=90 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=69 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=70 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=71 itemid=2417 price=120 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=72 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=74 itemid=2377 price=450*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=75 itemid=2378 price=80*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=76 itemid=2379 price=2*%1 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=77 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=78 itemid=2381 price=400*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=79 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=80 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=81 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=82 itemid=2389 price=3*%1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=83 itemid=2394 price=90*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=84 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=85 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=86 itemid=2417 price=120*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=87 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+
+[rowenna] sell_entries=32
+  line=69 itemid=2398 price=23 trigger=mace Do you want to sell a mace for %P gold?
+  line=70 itemid=2406 price=8 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=71 itemid=2379 price=1 trigger=dagger Do you want to sell a dagger for %P gold?
+  line=72 itemid=2395 price=118 trigger=carlin sword Do you want to sell a carlin sword for %P gold?
+  line=73 itemid=2382 price=1 trigger=club Do you want to sell a club? Hmm, I give you %P gold for this garbage, ok?
+  line=74 itemid=2389 price=1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=75 itemid=2384 price=3 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=76 itemid=2385 price=5 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=77 itemid=2376 price=15 trigger=sword Do you want to sell a sword for %P gold?
+  line=78 itemid=2378 price=75 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=79 itemid=2417 price=50 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=80 itemid=2394 price=100 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=81 itemid=2377 price=190 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=82 itemid=2381 price=310 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=83 itemid=2387 price=260 trigger=double axe Do you want to sell a double axe for %P gold?
+  line=84 itemid=2391 price=470 trigger=war hammer Do you want to sell a war hammer for %P gold?
+  line=86 itemid=2398 price=23*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=87 itemid=2406 price=8*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=88 itemid=2379 price=1*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=89 itemid=2395 price=118*%1 trigger=carlin sword Do you want to sell %A carlin swords for %P gold?
+  line=90 itemid=2382 price=1*%1 trigger=club Do you want to sell %A clubs? Hmm, I give you %P gold for this garbage, ok?
+  line=91 itemid=2389 price=1*%1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=92 itemid=2384 price=3*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=93 itemid=2385 price=5*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=94 itemid=2376 price=15*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=95 itemid=2378 price=75*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=96 itemid=2417 price=50*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=97 itemid=2394 price=100*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=98 itemid=2377 price=190*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=99 itemid=2381 price=310*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=100 itemid=2387 price=260*%1 trigger=double axe Do you want to sell %A double axes for %P gold?
+  line=101 itemid=2391 price=470*%1 trigger=war hammer Do you want to sell %A war hammers for %P gold?
+
+[sam] sell_entries=50
+  line=100 itemid=2377 price=450 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=101 itemid=2378 price=80 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=102 itemid=2379 price=2 trigger=dagger Do you want to sell a dagger for %P gold?
+  line=103 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=104 itemid=2381 price=400 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=105 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=106 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=107 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=108 itemid=2389 price=3 trigger=spear Do you want to sell a spear for %P gold?
+  line=109 itemid=2394 price=90 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=110 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=111 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=112 itemid=2417 price=120 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=113 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=115 itemid=2467 price=12 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=116 itemid=2464 price=70 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=117 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=118 itemid=2463 price=400 trigger=plate armor Do you want to sell a plate armor for %P gold?
+  line=119 itemid=2648 price=25 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=120 itemid=2461 price=4 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=121 itemid=2458 price=17 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=122 itemid=2457 price=190 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=123 itemid=2512 price=5 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=124 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=125 itemid=2509 price=80 trigger=steel shield Do you want to sell a steel shield for %P gold?
+  line=127 itemid=2377 price=450*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=128 itemid=2378 price=80*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=129 itemid=2379 price=2*%1 trigger=dagger Do you want to sell %A daggers for %P gold?
+  line=130 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=131 itemid=2381 price=400*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=132 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=133 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=134 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=135 itemid=2389 price=3*%1 trigger=spear Do you want to sell %A spears for %P gold?
+  line=136 itemid=2394 price=90*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=137 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=138 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=139 itemid=2417 price=120*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=140 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=142 itemid=2467 price=12*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=143 itemid=2464 price=70*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=144 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=145 itemid=2463 price=400*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=146 itemid=2648 price=25*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+  line=147 itemid=2461 price=4*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=148 itemid=2458 price=17*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=149 itemid=2457 price=190*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=150 itemid=2512 price=5*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=151 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=152 itemid=2509 price=80*%1 trigger=steel shield Do you want to sell %A steel shields for %P gold?
+
+[shanar] sell_entries=80
+  line=42 itemid=2651 price=1 trigger=coat Do you want to sell a coat for %P gold?
+  line=43 itemid=2650 price=1 trigger=jacket Do you want to sell a jacket for %P gold?
+  line=44 itemid=2476 price=875 trigger=knight armor Do you want to sell a knight's armor for %P gold?
+  line=45 itemid=2466 price=1500 trigger=golden armor Do you want to sell a golden armor for %P gold?
+  line=46 itemid=2467 price=12 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=47 itemid=2464 price=70 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=48 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=49 itemid=2463 price=400 trigger=plate armor Do you want to sell a plate armor for %P gold?
+  line=50 itemid=2461 price=4 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=51 itemid=2458 price=17 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=52 itemid=2457 price=190 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=53 itemid=2460 price=30 trigger=brass helmet Do you want to sell a brass helmet for %P gold?
+  line=54 itemid=2473 price=66 trigger=viking helmet Do you want to sell a viking helmet for %P gold?
+  line=55 itemid=2459 price=145 trigger=iron helmet Do you want to sell an iron helmet for %P gold?
+  line=56 itemid=2462 price=450 trigger=devil helmet Do you want to sell a devil's helmet for %P gold?
+  line=57 itemid=2475 price=696 trigger=warrior helmet Do you want to sell a warrior's helmet for %P gold?
+  line=58 itemid=2649 price=1 trigger=leather legs Do you want to sell leather legs for %P gold?
+  line=59 itemid=2648 price=20 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=60 itemid=2478 price=49 trigger=brass legs Do you want to sell brass legs for %P gold?
+  line=61 itemid=2647 price=115 trigger=plate legs Do you want to sell plate legs for %P gold?
+  line=62 itemid=2477 price=375 trigger=knight legs Do you want to sell knight's legs for %P gold?
+  line=64 itemid=2651 price=1*%1 trigger=coat Do you want to sell %A coats for %P gold?
+  line=65 itemid=2650 price=1*%1 trigger=jacket Do you want to sell %A jackets for %P gold?
+  line=66 itemid=2476 price=875*%1 trigger=knight armor Do you want to sell %A knight's armors for %P gold?
+  line=67 itemid=2466 price=1500*%1 trigger=golden armor Do you want to sell %A golden armors for %P gold?
+  line=68 itemid=2467 price=12*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=69 itemid=2464 price=70*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=70 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=71 itemid=2463 price=400*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=72 itemid=2461 price=4*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=73 itemid=2458 price=17*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=74 itemid=2457 price=190*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=75 itemid=2460 price=30*%1 trigger=brass helmet Do you want to sell %A brass helmets for %P gold?
+  line=76 itemid=2473 price=66*%1 trigger=viking helmet Do you want to sell %A viking helmets for %P gold?
+  line=77 itemid=2459 price=145*%1 trigger=iron helmet Do you want to sell %A iron helmets for %P gold?
+  line=78 itemid=2462 price=450*%1 trigger=devil helmet Do you want to sell %A devil's helmets for %P gold?
+  line=79 itemid=2475 price=696*%1 trigger=warrior helmet Do you want to sell %A warrior's helmets for %P gold?
+  line=80 itemid=2649 price=1*%1 trigger=leather legs Do you want to sell %A leather legs for %P gold?
+  line=81 itemid=2648 price=20*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+  line=82 itemid=2478 price=49*%1 trigger=brass legs Do you want to sell %A brass legs for %P gold?
+  line=83 itemid=2647 price=115*%1 trigger=plate legs Do you want to sell %A plate legs for %P gold?
+  line=84 itemid=2477 price=375*%1 trigger=knight legs Do you want to sell %A knight's legs for %P gold?
+  line=86 itemid=2512 price=5 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=87 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=88 itemid=2509 price=80 trigger=steel shield Do you want to sell a steel shield for %P gold?
+  line=89 itemid=2511 price=16 trigger=brass shield Do you want to sell a brass shield for %P gold?
+  line=90 itemid=2510 price=31 trigger=plate shield Do you want to sell a plate shield for %P gold?
+  line=91 itemid=2515 price=180 trigger=guardians shield Do you want to sell a guardian's shield for %P gold?
+  line=92 itemid=2516 price=360 trigger=dragon shield Do you want to sell a dragon shield for %P gold?
+  line=94 itemid=2512 price=5*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=95 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=96 itemid=2509 price=80*%1 trigger=steel shield Do you want to sell %A steel shields for %P gold?
+  line=97 itemid=2511 price=16*%1 trigger=brass shield Do you want to sell %A brass shields for %P gold?
+  line=98 itemid=2510 price=31*%1 trigger=plate shield Do you want to sell %A plate shields for %P gold?
+  line=99 itemid=2515 price=180*%1 trigger=guardians shield Do you want to sell %A guardian's shields for %P gold?
+  line=100 itemid=2516 price=360*%1 trigger=dragon shield Do you want to sell %A dragon shields for %P gold?
+  line=102 itemid=2377 price=450 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=103 itemid=2397 price=51 trigger=longsword Do you want to sell a longsword for %P gold?
+  line=104 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=105 itemid=2382 price=1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=106 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=107 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=108 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=109 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=110 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=111 itemid=2383 price=225 trigger=spike sword Do you want to sell a spike sword for %P gold?
+  line=112 itemid=2392 price=1000 trigger=fire sword Do you want to sell a fire sword for %P gold?
+  line=113 itemid=2398 price=23 trigger=mace Do you want to sell a mace for %P gold?
+  line=115 itemid=2377 price=450*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=116 itemid=2397 price=51*%1 trigger=longsword Do you want to sell %A longswords for %P gold?
+  line=117 itemid=2379 price=2*%1 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=118 itemid=2382 price=1*%1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=119 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=120 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=121 itemid=2389 price=3*%1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=122 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=123 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=124 itemid=2383 price=225*%1 trigger=spike sword Do you want to sell %A spike swords for %P gold?
+  line=125 itemid=2392 price=1000*%1 trigger=fire sword Do you want to sell %A fire swords for %P gold?
+  line=126 itemid=2398 price=23*%1 trigger=mace Do you want to sell %A maces for %P gold?
+
+[shirith] sell_entries=1
+  line=40 itemid=2088 price=50 trigger=key I would sell you a key for 50 gold, ok?
+
+[tesha] sell_entries=14
+  line=87 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=88 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=89 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=90 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=91 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=92 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=93 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=95 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=96 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=97 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=98 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=99 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=100 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=101 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[tezila] sell_entries=14
+  line=47 itemid=2143 price=160 trigger=white pearl Do you want to sell a white pearl for %P gold?
+  line=48 itemid=2144 price=280 trigger=black pearl Do you want to sell a black pearl for %P gold?
+  line=49 itemid=2145 price=300 trigger=small diamond Do you want to sell a small diamond for %P gold?
+  line=50 itemid=2146 price=250 trigger=small sapphire Do you want to sell a small sapphire for %P gold?
+  line=51 itemid=2147 price=250 trigger=small ruby Do you want to sell a small ruby for %P gold?
+  line=52 itemid=2149 price=250 trigger=small emerald Do you want to sell a small emerald for %P gold?
+  line=53 itemid=2150 price=200 trigger=small amethyst Do you want to sell a small amethyst for %P gold?
+  line=55 itemid=2143 price=160*%1 trigger=white pearl Do you want to sell %A white pearls for %P gold?
+  line=56 itemid=2144 price=280*%1 trigger=black pearl Do you want to sell %A black pearls for %P gold?
+  line=57 itemid=2145 price=300*%1 trigger=small diamond Do you want to sell %A small diamonds for %P gold?
+  line=58 itemid=2146 price=250*%1 trigger=small sapphire Do you want to sell %A small sapphires for %P gold?
+  line=59 itemid=2147 price=250*%1 trigger=small rub Do you want to sell %A small rubies for %P gold?
+  line=60 itemid=2149 price=250*%1 trigger=small emerald Do you want to sell %A small emeralds for %P gold?
+  line=61 itemid=2150 price=200*%1 trigger=small amethyst Do you want to sell %A small amethysts for %P gold?
+
+[timur] sell_entries=10
+  line=63 itemid=2456 price=130 trigger=bow Do you want to sell a bow for %P gold?
+  line=64 itemid=2455 price=160 trigger=crossbow Do you want to sell a crossbow for %P gold?
+  line=65 itemid=2473 price=66 trigger=viking helmet Do you want to sell a viking helmet for %P gold?
+  line=66 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=67 itemid=2388 price=25 trigger=hatchet Do you want to sell a hatchet for %P gold?
+  line=69 itemid=2456 price=130*%1 trigger=bow Do you want to sell %A bows for %P gold?
+  line=70 itemid=2455 price=160*%1 trigger=crossbow Do you want to sell %A crossbows for %P gold?
+  line=71 itemid=2473 price=66*%1 trigger=viking helmet Do you want to sell %A viking helmets for %P gold?
+  line=72 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=73 itemid=2388 price=25*%1 trigger=hatchet Do you want to sell %A hatchets for %P gold?
+
+[tom] sell_entries=3
+  line=37 itemid=2826 price=5 trigger=wolf Do you want to sell a dead wolf for %P gold?
+  line=43 itemid=2826 price=5*%1 trigger=wolf Do you want to sell %A dead wolves for %P gold?
+  line=44 itemid=2826 price=5*%1 trigger=wolves Do you want to sell %A dead wolves for %P gold?
+
+[turvy] sell_entries=52
+  line=104 itemid=2377 price=450 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=105 itemid=2378 price=80 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=106 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=107 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=108 itemid=2381 price=400 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=109 itemid=2382 price=1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=110 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=111 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=112 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=113 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=114 itemid=2394 price=90 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=115 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=116 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=117 itemid=2417 price=120 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=118 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=120 itemid=2467 price=12 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=121 itemid=2464 price=70 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=122 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=123 itemid=2463 price=400 trigger=plate armor Do you want to sell a plate armor for %P gold?
+  line=124 itemid=2648 price=25 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=125 itemid=2461 price=4 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=126 itemid=2458 price=17 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=127 itemid=2457 price=190 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=128 itemid=2512 price=5 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=129 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=130 itemid=2509 price=80 trigger=steel shield Do you want to sell a steel shield for %P gold?
+  line=132 itemid=2377 price=450*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=133 itemid=2378 price=80*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=134 itemid=2379 price=2*%1 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=135 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=136 itemid=2381 price=400*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=137 itemid=2382 price=1*%1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=138 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=139 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=140 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=141 itemid=2389 price=3*%1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=142 itemid=2394 price=90*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=143 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=144 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=145 itemid=2417 price=120*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=146 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=148 itemid=2467 price=12*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=149 itemid=2464 price=70*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=150 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=151 itemid=2463 price=400*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=152 itemid=2648 price=25*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+  line=153 itemid=2461 price=4*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=154 itemid=2458 price=17*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=155 itemid=2457 price=190*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=156 itemid=2512 price=5*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=157 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=158 itemid=2509 price=80*%1 trigger=steel shield Do you want to sell %A steel shields for %P gold?
+
+[uzgod] sell_entries=36
+  line=55 itemid=2398 price=23 trigger=mace You want sell me a mace for %P gold?
+  line=56 itemid=2379 price=1 trigger=dagger You want sell me a dagger for %P gold?
+  line=57 itemid=2395 price=118 trigger=carlin sword You want sell me a carlin sword for %P gold?
+  line=58 itemid=2382 price=1 trigger=club Hoho, you me given wood for fireplace? Giving you %P gold, ok?
+  line=59 itemid=2389 price=1 trigger=spear Hoho, you me given wood for fireplace? Giving you %P gold, ok?
+  line=60 itemid=2384 price=3 trigger=rapier You want sell me a rapier for %P gold?
+  line=61 itemid=2385 price=5 trigger=sabre You want sell me a sabre for %P gold?
+  line=62 itemid=2376 price=15 trigger=sword You want sell me a sword for %P gold?
+  line=63 itemid=2378 price=75 trigger=battle axe You want sell me a battle axe for %P gold?
+  line=64 itemid=2417 price=50 trigger=battle hammer You want sell me a battle hammer for %P gold?
+  line=65 itemid=2394 price=100 trigger=morning star You want sell me a morning star for %P gold?
+  line=66 itemid=2377 price=190 trigger=two handed sword You want sell me a two handed sword for %P gold?
+  line=67 itemid=2381 price=310 trigger=halberd You want sell me a halberd for %P gold?
+  line=68 itemid=2387 price=260 trigger=double axe You want sell me a double axe for %P gold?
+  line=69 itemid=2391 price=470 trigger=war hammer You want sell me a war hammer for %P gold?
+  line=70 itemid=2397 price=51 trigger=longsword You want sell me a longsword for %P gold?
+  line=71 itemid=2383 price=225 trigger=spike sword You want sell me a spike sword for %P gold?
+  line=72 itemid=2392 price=1000 trigger=fire sword You want sell me a fire sword for %P gold?
+  line=74 itemid=2398 price=23*%1 trigger=mace You want sell me %A maces for %P gold?
+  line=75 itemid=2379 price=1*%1 trigger=dagger You want sell me %A daggers for %P gold?
+  line=76 itemid=2395 price=118*%1 trigger=carlin sword You want sell me %A carlin swords for %P gold?
+  line=77 itemid=2382 price=1*%1 trigger=club Hoho, you me given wood for fireplace? Giving you %P gold, ok?
+  line=78 itemid=2389 price=1*%1 trigger=spear Hoho, you me given wood for fireplace? Giving you %P gold, ok?
+  line=79 itemid=2384 price=3*%1 trigger=rapier You want sell me %A rapiers for %P gold?
+  line=80 itemid=2385 price=5*%1 trigger=sabre You want sell me %A sabres for %P gold?
+  line=81 itemid=2376 price=15*%1 trigger=sword You want sell me %A swords for %P gold?
+  line=82 itemid=2378 price=75*%1 trigger=battle axe You want sell me %A battle axes for %P gold?
+  line=83 itemid=2417 price=50*%1 trigger=battle hammer You want sell me %A battle hammers for %P gold?
+  line=84 itemid=2394 price=100*%1 trigger=morning star You want sell me %A morning stars for %P gold?
+  line=85 itemid=2377 price=190*%1 trigger=two handed sword You want sell me %A two handed swords for %P gold?
+  line=86 itemid=2381 price=310*%1 trigger=halberd You want sell me %A halberds for %P gold?
+  line=87 itemid=2387 price=260*%1 trigger=double axe You want sell me %A double axes for %P gold?
+  line=88 itemid=2391 price=470*%1 trigger=war hammer You want sell me %A war hammers for %P gold?
+  line=89 itemid=2397 price=51*%1 trigger=longsword You want sell me %A longswords for %P gold?
+  line=90 itemid=2383 price=225*%1 trigger=spike sword You want sell me %A spike swords for %P gold?
+  line=91 itemid=2392 price=1000*%1 trigger=fire sword You want sell me %A fire swords for %P gold?
+
+[willard] sell_entries=62
+  line=93 itemid=2377 price=450 trigger=two handed sword Do you want to sell a two handed sword for %P gold?
+  line=94 itemid=2378 price=80 trigger=battle axe Do you want to sell a battle axe for %P gold?
+  line=95 itemid=2379 price=2 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=96 itemid=2380 price=4 trigger=hand axe Do you want to sell a hand axe for %P gold?
+  line=97 itemid=2381 price=400 trigger=halberd Do you want to sell a halberd for %P gold?
+  line=98 itemid=2382 price=1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=99 itemid=2383 price=240 trigger=spike sword Do you want to sell a spike sword for %P gold?
+  line=100 itemid=2384 price=5 trigger=rapier Do you want to sell a rapier for %P gold?
+  line=101 itemid=2385 price=12 trigger=sabre Do you want to sell a sabre for %P gold?
+  line=102 itemid=2386 price=7 trigger=axe Do you want to sell an axe for %P gold?
+  line=103 itemid=2389 price=3 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=104 itemid=2394 price=90 trigger=morning star Do you want to sell a morning star for %P gold?
+  line=105 itemid=2398 price=30 trigger=mace Do you want to sell a mace for %P gold?
+  line=106 itemid=2406 price=10 trigger=short sword Do you want to sell a short sword for %P gold?
+  line=107 itemid=2417 price=120 trigger=battle hammer Do you want to sell a battle hammer for %P gold?
+  line=108 itemid=2423 price=170 trigger=cleric mace Do you want to sell a clerical mace for %P gold?
+  line=109 itemid=2429 price=185 trigger=barbar axe Do you want to sell a barbarian axe for %P gold?
+  line=110 itemid=2376 price=25 trigger=sword Do you want to sell a sword for %P gold?
+  line=112 itemid=2377 price=450*%1 trigger=two handed sword Do you want to sell %A two handed swords for %P gold?
+  line=113 itemid=2378 price=80*%1 trigger=battle axe Do you want to sell %A battle axes for %P gold?
+  line=114 itemid=2379 price=2*%1 trigger=dagger Do you want to sell this garbage? I give you %P gold, ok?
+  line=115 itemid=2380 price=4*%1 trigger=hand axe Do you want to sell %A hand axes for %P gold?
+  line=116 itemid=2381 price=400*%1 trigger=halberd Do you want to sell %A halberds for %P gold?
+  line=117 itemid=2382 price=1*%1 trigger=club Are you sure, you want to sell this garbage? Hmm, I give you %P gold, ok?
+  line=118 itemid=2383 price=240*%1 trigger=spike sword Do you want to sell %A spike swords for %P gold?
+  line=119 itemid=2384 price=5*%1 trigger=rapier Do you want to sell %A rapiers for %P gold?
+  line=120 itemid=2385 price=12*%1 trigger=sabre Do you want to sell %A sabres for %P gold?
+  line=121 itemid=2386 price=7*%1 trigger=axe Do you want to sell %A axes for %P gold?
+  line=122 itemid=2389 price=3*%1 trigger=spear Do you want to sell this garbage? I give you %P gold, ok?
+  line=123 itemid=2394 price=90*%1 trigger=morning star Do you want to sell %A morning stars for %P gold?
+  line=124 itemid=2398 price=30*%1 trigger=mace Do you want to sell %A maces for %P gold?
+  line=125 itemid=2406 price=10*%1 trigger=short sword Do you want to sell %A short swords for %P gold?
+  line=126 itemid=2417 price=120*%1 trigger=battle hammer Do you want to sell %A battle hammers for %P gold?
+  line=127 itemid=2423 price=170*%1 trigger=cleric mace Do you want to sell %A clerical maces for %P gold?
+  line=128 itemid=2429 price=185*%1 trigger=barbar axe Do you want to sell %A barbarian axes for %P gold?
+  line=129 itemid=2376 price=25*%1 trigger=sword Do you want to sell %A swords for %P gold?
+  line=131 itemid=2467 price=12 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=132 itemid=2464 price=70 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=133 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=134 itemid=2463 price=400 trigger=plate armor Do you want to sell a plate armor for %P gold?
+  line=135 itemid=2648 price=25 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=136 itemid=2461 price=4 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=137 itemid=2459 price=150 trigger=iron helmet Do you want to sell an iron helmet for %P gold?
+  line=138 itemid=2458 price=17 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=139 itemid=2457 price=190 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=140 itemid=2512 price=5 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=141 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=142 itemid=2509 price=80 trigger=steel shield Do you want to sell a steel shield for %P gold?
+  line=143 itemid=2531 price=85 trigger=viking shield Do you want to sell a viking shield for %P gold?
+  line=145 itemid=2467 price=12*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=146 itemid=2464 price=70*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=147 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=148 itemid=2463 price=400*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=149 itemid=2648 price=25*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+  line=150 itemid=2461 price=4*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=151 itemid=2459 price=150*%1 trigger=iron helmet Do you want to sell %A iron helmets for %P gold?
+  line=152 itemid=2458 price=17*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=153 itemid=2457 price=190*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=154 itemid=2512 price=5*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=155 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=156 itemid=2509 price=80*%1 trigger=steel shield Do you want to sell %A steel shields for %P gold?
+  line=157 itemid=2531 price=85*%1 trigger=viking shield Do you want to sell %A viking shields for %P gold?
+
+[willie] sell_entries=12
+  line=51 itemid=2689 price=1 trigger=bread So, you want to sell a bread? Hmm, I give you %P gold, ok?
+  line=52 itemid=2696 price=2 trigger=cheese So, you want to sell a cheese? Hmm, I give you %P gold, ok?
+  line=53 itemid=2666 price=2 trigger=meat So, you want to sell meat? Hmm, I give you %P gold, ok?
+  line=54 itemid=2671 price=4 trigger=ham So, you want to sell a ham? Hmm, I give you %P gold, ok?
+  line=55 itemid=2668 price=2 trigger=salmon So, you want to sell a salmon? Hmm, I give you %P gold, ok?
+  line=57 itemid=2679 price=1 trigger=cherry So, you want to sell a cherry? Hmm, I give you %P gold, ok?
+  line=59 itemid=2689 price=1*%1 trigger=bread So, you want to sell %A breads? Hmm, I give you %P gold, ok?
+  line=60 itemid=2696 price=2*%1 trigger=cheese So, you want to sell %A cheese? Hmm, I give you %P gold, ok?
+  line=61 itemid=2666 price=2*%1 trigger=meat So, you want to sell %A meat? Hmm, I give you %P gold, ok?
+  line=62 itemid=2671 price=4*%1 trigger=ham So, you want to sell %A hams? Hmm, I give you %P gold, ok?
+  line=63 itemid=2668 price=2*%1 trigger=salmon So, you want to sell %A salmon? Hmm, I give you %P gold, ok?
+  line=65 itemid=2679 price=1*%1 trigger=cherr So, you want to sell %A cherries? Hmm, I give you %P gold, ok?
+
+[yaman] sell_entries=24
+  line=111 itemid=2164 price=250 trigger=might ring Do you want to sell a might ring for %P gold?
+  line=112 itemid=2167 price=100 trigger=energy ring Do you want to sell an energy ring for %P gold?
+  line=113 itemid=2168 price=50 trigger=life ring Do you want to sell a life ring for %P gold?
+  line=114 itemid=2169 price=100 trigger=time ring Do you want to sell a time ring for %P gold?
+  line=115 itemid=2170 price=50 trigger=silver amulet Do you want to sell a silver amulet for %P gold?
+  line=116 itemid=2161 price=30 trigger=strange talisman Do you want to sell a strange talisman for %P gold?
+  line=117 itemid=2213 price=100 trigger=dwarven ring Do you want to sell a dwarven ring for %P gold?
+  line=118 itemid=2214 price=100 trigger=ring of healing Do you want to sell a ring of healing for %P gold?
+  line=119 itemid=2200 price=100 trigger=protection amulet Do you want to sell a protection amulet for %P gold?
+  line=120 itemid=2201 price=100 trigger=dragon necklace Do you want to sell a dragon necklace for %P gold?
+  line=121 itemid=2194 price=50 trigger=mysterious fetish Do you want to sell a mysterious fetish for %P gold?
+  line=122 itemid=2193 price=100 trigger=ankh Do you want to sell an ankh for %P gold?
+  line=124 itemid=2161 price=30*%1 trigger=strange talisman Do you want to sell %A strange talismans for %P gold?
+  line=125 itemid=2164 price=250*%1 trigger=might ring Do you want to sell %A might rings for %P gold?
+  line=126 itemid=2167 price=100*%1 trigger=energy ring Do you want to sell %A energy rings for %P gold?
+  line=127 itemid=2168 price=50*%1 trigger=life ring Do you want to sell %A life rings for %P gold?
+  line=128 itemid=2169 price=100*%1 trigger=time ring Do you want to sell %A time rings for %P gold?
+  line=129 itemid=2170 price=50*%1 trigger=silver amulet Do you want to sell %A silver amulets for %P gold?
+  line=130 itemid=2213 price=100*%1 trigger=dwarven ring Do you want to sell %A dwarven rings for %P gold?
+  line=131 itemid=2214 price=100*%1 trigger=ring of healing Do you want to sell %A rings of healing for %P gold?
+  line=132 itemid=2200 price=100*%1 trigger=protection amulet Do you want to sell %A protection amulets for %P gold?
+  line=133 itemid=2201 price=100*%1 trigger=dragon necklace Do you want to sell %A dragon necklaces for %P gold?
+  line=134 itemid=2194 price=50*%1 trigger=mysterious fetish Do you want to sell %A mysterious fetishes for %P gold?
+  line=135 itemid=2193 price=100*%1 trigger=ankh Do you want to sell %A ankhs for %P gold?
+
+[yanni] sell_entries=22
+  line=52 itemid=2467 price=12 trigger=leather armor Do you want to sell a leather armor for %P gold?
+  line=53 itemid=2464 price=70 trigger=chain armor Do you want to sell a chain armor for %P gold?
+  line=54 itemid=2465 price=150 trigger=brass armor Do you want to sell a brass armor for %P gold?
+  line=55 itemid=2463 price=400 trigger=plate armor Do you want to sell a plate armor for %P gold?
+  line=56 itemid=2648 price=25 trigger=chain legs Do you want to sell chain legs for %P gold?
+  line=57 itemid=2461 price=4 trigger=leather helmet Do you want to sell a leather helmet for %P gold?
+  line=58 itemid=2458 price=17 trigger=chain helmet Do you want to sell a chain helmet for %P gold?
+  line=59 itemid=2457 price=190 trigger=steel helmet Do you want to sell a steel helmet for %P gold?
+  line=60 itemid=2512 price=5 trigger=wooden shield Do you want to sell a wooden shield for %P gold?
+  line=61 itemid=2513 price=95 trigger=battle shield Do you want to sell a battle shield for %P gold?
+  line=62 itemid=2509 price=80 trigger=steel shield Do you want to sell a steel shield for %P gold?
+  line=64 itemid=2467 price=12*%1 trigger=leather armor Do you want to sell %A leather armors for %P gold?
+  line=65 itemid=2464 price=70*%1 trigger=chain armor Do you want to sell %A chain armors for %P gold?
+  line=66 itemid=2465 price=150*%1 trigger=brass armor Do you want to sell %A brass armors for %P gold?
+  line=67 itemid=2463 price=400*%1 trigger=plate armor Do you want to sell %A plate armors for %P gold?
+  line=68 itemid=2648 price=25*%1 trigger=chain legs Do you want to sell %A chain legs for %P gold?
+  line=69 itemid=2461 price=4*%1 trigger=leather helmet Do you want to sell %A leather helmets for %P gold?
+  line=70 itemid=2458 price=17*%1 trigger=chain helmet Do you want to sell %A chain helmets for %P gold?
+  line=71 itemid=2457 price=190*%1 trigger=steel helmet Do you want to sell %A steel helmets for %P gold?
+  line=72 itemid=2512 price=5*%1 trigger=wooden shield Do you want to sell %A wooden shields for %P gold?
+  line=73 itemid=2513 price=95*%1 trigger=battle shield Do you want to sell %A battle shields for %P gold?
+  line=74 itemid=2509 price=80*%1 trigger=steel shield Do you want to sell %A steel shields for %P gold?
+
+[zaidal] sell_entries=2
+  line=50 itemid=3956 price=100 trigger=tusk Do you want to sell a tusk for %P gold?
+  line=51 itemid=3956 price=100*%1 trigger=tusk Do you want to sell %A tusks for %P gold?

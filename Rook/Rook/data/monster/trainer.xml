@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<monster name="Trainer" nameDescription="a trainer" race="blood" experience="0" speed="0" manacost="1000">
+  <health now="400" max="400"/>
+  <look type="57" corpse="3128"/>
+  <targetchange interval="1000" chance="5"/>
+  <targetstrategies nearest="70" health="1" damage="1" random="0"/>
+  <flags>
+    <flag attackable="1"/>
+    <flag hostile="1"/>
+    <flag summonable="1"/>
+    <flag convinceable="0"/>
+    <flag illusionable="1"/>
+    <flag pushable="0"/>
+    <flag canpushitems="1"/>
+    <flag canpushcreatures="1"/>
+    <flag targetdistance="1"/>
+    <flag staticattack="80"/>
+    <flag runonhealth="0"/>
+    <flag canwalkonenergy="0"/>
+    <flag canwalkonfire="0"/>
+    <flag canwalkonpoison="0"/>
+  </flags>
+  <attacks>
+    <attack name="melee" skill="15" attack="7"/>
+  </attacks>
+  <defenses armor="25" defense="52">
+    <defense name="healing" chance="17" min="90" max="120">
+      <attribute key="areaEffect" value="blueshimmer"/>
+    </defense>
+    <defense name="haste_monk" chance="10"/>
+  </defenses>
+  <elements/>
+  <immunities>
+    <immunity invisible="1"/>
+  </immunities>
+  <voices interval="1000" chance="5">
+    <voice sentence="I will punish the sinners!"/>
+    <voice sentence="A prayer to the almighty one."/>
+    <voice sentence="Repent Heretic!" yell="1"/>
+  </voices>
+  <loot>
+    <item id="2689" chance="20000"/>
+    <item id="2148" chance="15000" countmax="18"/>
+    <item id="2193" chance="100"/>
+    <item id="2177" chance="1000"/>
+    <item id="1949" chance="20000"/>
+    <item id="2015" chance="9000"/>
+    <item id="2467" chance="5500"/>
+    <item id="2642" chance="8000"/>
+    <item id="2044" chance="10000"/>
+    <item id="2401" chance="11000"/>
+    <item id="2166" chance="100"/>
+    <item id="6512" chance="250"/>
+  </loot>
+</monster>

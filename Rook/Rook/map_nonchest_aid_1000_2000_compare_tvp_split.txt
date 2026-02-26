@@ -1,0 +1,26 @@
+
+=== BOTH (6) ===
+/teleport 32005 32139 3
+  tvp: itemid=2103 name=honey flower aid=1027
+  ots: itemid=2103 name=honey flower aid=2000
+
+/teleport 32172 32169 7
+  tvp: itemid=2725 name=palm aid=1017
+  ots: itemid=2725 name=palm aid=2000
+
+/teleport 32174 32149 11
+  tvp: itemid=3058 name=dead human aid=1030
+  ots: itemid=3058 name=dead human aid=2000
+
+/teleport 32175 32145 11
+  tvp: itemid=3058 name=dead human aid=1029
+  ots: itemid=3058 name=dead human aid=2000
+
+/teleport 32176 32132 9
+  tvp: itemid=3058 name=dead human aid=1028
+  ots: itemid=3058 name=dead human aid=2000
+
+/teleport 32179 32224 9
+  tvp: itemid=2844 name=dead dragon aid=1024
+  ots: itemid=3104 name=dead dragon aid=2000
+

@@ -1,0 +1,72 @@
+Bonus Items Registration Report
+Generated: 2026-02-25 16:12:03
+Total bonus items: 66 | OK: 66 | Missing: 0
+
+id | name | slotType(xml) | slot(event) | equip | deequip | status | bonus keys
+------------------------------------------------------------------------------------------------------------------------------------------------------
+2500 | amazon armor | body | armor | 1 | 1 | OK | skillDist
+2654 | cape | body | armor | 1 | 1 | OK | magiclevelpoints
+2664 | firemasters armor | body | armor | 1 | 1 | OK | absorbPercentFire
+5784 | skullcracker armor | body | armor | 1 | 1 | OK | magiclevelpoints
+5807 | yalahari armor | body | armor | 1 | 1 | OK | skillShield
+5816 | skullmaster armor | body | armor | 1 | 1 | OK | magiclevelpoints
+5828 | archer armor | body | armor | 1 | 1 | OK | skillDist
+5829 | paladin armor | body | armor | 1 | 1 | OK | skillDist
+5862 | magma coat | body | armor | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+5868 | lightning robe | body | armor | 1 | 1 | OK | absorbPercentEnergy,absorbPercentPoison
+5872 | glacier robe | body | armor | 1 | 1 | OK | absorbPercentEnergy,absorbPercentIce
+5881 | terra mantle | body | armor | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+2195 | boots of haste | feet | feet | 1 | 1 | OK | speed
+2640 | pair of soft boots | feet | feet | 1 | 1 | OK | healthGain,healthTicks,manaGain,manaTicks
+5798 | Oriental Shoes | feet | feet | 1 | 1 | OK | healthGain,healthTicks,manaGain,manaTicks
+5838 | zaoan shoes | feet | feet | 1 | 1 | OK | speed
+5864 | magma boots | feet | feet | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+5870 | lightning boots | feet | feet | 1 | 1 | OK | absorbPercentEnergy,absorbPercentPoison
+5874 | glacier shoes | feet | feet | 1 | 1 | OK | absorbPercentEnergy,absorbPercentIce
+5879 | terra boots | feet | feet | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+2474 | winged helmet | head | head | 1 | 1 | OK | speed
+5809 | yalahari mask | head | head | 1 | 1 | OK | magiclevelpoints
+5866 | magma monocle | head | head | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+5867 | lightning headband | head | head | 1 | 1 | OK | absorbPercentEnergy,absorbPercentPoison
+5871 | glacier mask | head | head | 1 | 1 | OK | absorbPercentEnergy,absorbPercentIce
+5882 | terra hood | head | head | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+5728 | blue legs | legs | legs | 1 | 1 | OK | magicPoints
+5808 | yalahari leg piece | legs | legs | 1 | 1 | OK | skillDist
+5839 | zaoan legs | legs | legs | 1 | 1 | OK | absorbPercentPhysical
+5863 | magma legs | legs | legs | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+5869 | lightning legs | legs | legs | 1 | 1 | OK | absorbPercentEnergy,absorbPercentPoison
+5873 | glacier kilt | legs | legs | 1 | 1 | OK | absorbPercentEnergy,absorbPercentIce
+5880 | terra legs | legs | legs | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+2161 | strange talisman | necklace | necklace | 1 | 1 | OK | absorbPercentEnergy
+2170 | silver amulet | necklace | necklace | 1 | 1 | OK | absorbPercentPoison
+2172 | bronze amulet | necklace | necklace | 1 | 1 | OK | absorbPercentManaDrain
+2197 | stone skin amulet | necklace | necklace | 1 | 1 | OK | absorbPercentPhysical
+2198 | elven amulet | necklace | necklace | 1 | 1 | OK | absorbPercentEnergy,absorbPercentFire,absorbPercentPhysical,absorbPercentPoison
+2199 | garlic necklace | necklace | necklace | 1 | 1 | OK | absorbPercentLifeDrain
+2200 | protection amulet | necklace | necklace | 1 | 1 | OK | absorbPercentPhysical
+2201 | dragon necklace | necklace | necklace | 1 | 1 | OK | absorbPercentFire
+5875 | magma amulet | necklace | necklace | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+5876 | lightning pendant | necklace | necklace | 1 | 1 | OK | absorbPercentEnergy,absorbPercentPoison
+5877 | glacier amulet | necklace | necklace | 1 | 1 | OK | absorbPercentEnergy,absorbPercentIce
+5878 | terra amulet | necklace | necklace | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison
+7088 | regeneration amulet | necklace | necklace | 1 | 1 | OK | healthGain,healthTicks,manaGain,manaTicks
+2123 | ring of the sky | ring | ring | 1 | 1 | OK | skillShield
+2164 | might ring | ring | ring | 1 | 1 | OK | absorbPercentAll
+2202 | stealth ring | ring | ring | 1 | 1 | OK | invisible
+2203 | power ring | ring | ring | 1 | 1 | OK | skillFist
+2204 | energy ring | ring | ring | 1 | 1 | OK | manashield
+2205 | life ring | ring | ring | 1 | 1 | OK | healthGain,healthTicks,manaGain,manaTicks
+2206 | time ring | ring | ring | 1 | 1 | OK | speed
+2210 | sword ring | ring | ring | 1 | 1 | OK | skillSword
+2211 | axe ring | ring | ring | 1 | 1 | OK | skillAxe
+2212 | club ring | ring | ring | 1 | 1 | OK | skillClub
+2215 | dwarven ring | ring | ring | 1 | 1 | OK | suppressDrunk
+2357 | ring of the unforgiving master | ring | ring | 1 | 1 | OK | skillAxe,skillClub,skillDist,skillFist,skillSword
+7089 | regeneration ring | ring | ring | 1 | 1 | OK | healthGain,healthTicks,manaGain,manaTicks
+7955 | distance ring | ring | ring | 1 | 1 | OK | skillDist
+5789 | necromantic spellbook | - | shield | 1 | 1 | OK | magicPoints
+5791 | warlocks spellbook | - | shield | 1 | 1 | OK | magicPoints
+5812 | lizard knowledge spellbook | - | shield | 1 | 1 | OK | magicPoints
+5865 | magma shield | - | shield | 1 | 1 | OK | absorbPercentFire,absorbPercentPoison,magiclevelpoints
+5918 | spellscroll of prophecies | - | shield | 1 | 1 | OK | magicPoints
+5920 | spellbook of mind control | - | shield | 1 | 1 | OK | magicPoints

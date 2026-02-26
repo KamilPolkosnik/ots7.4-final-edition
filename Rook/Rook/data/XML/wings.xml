@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wings>
+<!--	<wing id="1" clientid="368" name="Widow Queen" speed="20" />
+	<wing id="2" clientid="369" name="Racing Bird" speed="20" />
+	<wing id="3" clientid="370" name="War Bear" speed="20" /> -->
+	<wing id ="1" clientid="611" name="Golden Butterfly" speed="20" />
+	<wing id ="2" clientid="597" name="Magical Butterfly" speed="20" />
+	<wing id ="3" clientid="608" name="Cave" speed="20" />
+	<wing id ="4" clientid="585" name="Rainbow" speed="20" />
+	<wing id ="5" clientid="601" name="Skeleton" speed="20" />
+	<wing id ="6" clientid="602" name="Frozen" speed="20" />
+	<wing id ="7" clientid="603" name="Pink Power" speed="20" />
+	<wing id ="8" clientid="607" name="Night" speed="20" />
+	<wing id ="9" clientid="609" name="Royal" speed="20" />
+	<wing id ="10" clientid="610" name="Anubis" speed="20" />
+	
+</wings>

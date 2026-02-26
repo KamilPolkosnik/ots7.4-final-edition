@@ -1,0 +1,78 @@
+Keynumbers -> doors (from map)
+keys found: 22
+door AIDs: 4
+
+keynumber/actionid = 0
+  key at 32592,31838,7 itemid=2088 actionid=0 keynumber=0 chain=[]
+  key at 32801,31579,6 itemid=2088 actionid=0 keynumber=0 chain=[]
+  key at 32807,31576,6 itemid=2088 actionid=0 keynumber=0 chain=[]
+  key at 32813,31576,5 itemid=2088 actionid=0 keynumber=0 chain=[]
+  key at 32792,31590,6 itemid=2088 actionid=0 keynumber=0 chain=[]
+  key at 32790,31593,7 itemid=2088 actionid=0 keynumber=0 chain=[]
+  door: NOT FOUND
+
+keynumber/actionid = 3008
+  key at 32800,31582,2 itemid=2088 actionid=3008 keynumber=0 chain=[1718]
+  door: NOT FOUND
+
+keynumber/actionid = 3304
+  key at 32623,32187,9 itemid=2091 actionid=3304 keynumber=0 chain=[1738]
+  door: NOT FOUND
+
+keynumber/actionid = 3350
+  key at 32180,31934,7 itemid=2088 actionid=3350 keynumber=0 chain=[1718, 1987]
+  door at 32178,31928,6 itemid=1212
+
+keynumber/actionid = 3610
+  key at 32589,32097,14 itemid=2088 actionid=3610 keynumber=0 chain=[1740]
+  door: NOT FOUND
+
+keynumber/actionid = 3620
+
+  key at 32411,32155,15 itemid=2088 actionid=3620 keynumber=0 chain=[1717]
+  door: NOT FOUND
+
+keynumber/actionid = 3650
+  key at 32414,32146,15 itemid=2088 actionid=3650 keynumber=0 chain=[1717]
+  door: NOT FOUND
+
+keynumber/actionid = 3667
+  key at 32576,32216,15 itemid=2088 actionid=3667 keynumber=0 chain=[3058]
+  door: NOT FOUND
+
+keynumber/actionid = 3700
+  key at 32818,32230,9 itemid=2087 actionid=3700 keynumber=0 chain=[]
+  door: NOT FOUND
+
+keynumber/actionid = 3701
+  key at 32781,32334,6 itemid=2088 actionid=3701 keynumber=0 chain=[1740]
+  door: NOT FOUND
+
+keynumber/actionid = 3801
+  key at 32648,31905,3 itemid=2089 actionid=3801 keynumber=0 chain=[1740]
+  door: NOT FOUND
+
+keynumber/actionid = 4001
+  key at 32661,32141,10 itemid=2088 actionid=4001 keynumber=0 chain=[1740]
+  door: NOT FOUND
+
+keynumber/actionid = 4009
+  key at 32677,32084,11 itemid=2088 actionid=4009 keynumber=0 chain=[1740]
+  door: NOT FOUND
+
+keynumber/actionid = 4501
+  key at 32172,31602,10 itemid=2089 actionid=4501 keynumber=0 chain=[]
+  door: NOT FOUND
+
+keynumber/actionid = 4502
+  key at 32201,31571,10 itemid=2089 actionid=4502 keynumber=0 chain=[]
+  door: NOT FOUND
+
+keynumber/actionid = 4503
+  key at 32031,31686,8 itemid=2089 actionid=4503 keynumber=0 chain=[]
+  door: NOT FOUND
+
+keynumber/actionid = 5000
+  key at 32726,31980,7 itemid=2088 actionid=5000 keynumber=0 chain=[1410]
+  door: NOT FOUND
+

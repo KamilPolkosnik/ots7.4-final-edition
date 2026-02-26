@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weapons>
+	<!-- Rods -->
+	<wand id="7091" mana="1" min="1" max="8" type="earth"> <!-- Snakebit Rod -->
+		<vocation name="Druid" />
+	</wand>
+	<wand id="7095" mana="2" min="3" max="18" type="energy"> <!-- Moonlight Rod -->
+		<vocation name="Druid" />
+	</wand>
+	<wand id="7094" mana="3" min="5" max="25" type="death"> <!-- Necrotic Rod -->
+		<vocation name="Druid" />
+	</wand>
+	<wand id="7090" mana="5" min="7" max="38" type="earth"> <!-- Terra Rod -->
+		<vocation name="Druid" />
+	</wand>
+	<wand id="7092"  mana="8" min="10" max="50" type="energy"> <!-- Hailstorm Rod -->
+		<vocation name="Druid" />
+	</wand>
+<melee id="2396" action="removecharge" />
+	<!-- Wands -->
+	<wand id="7099" mana="1" min="1" max="8" type="energy"> <!-- Wand of Vortex -->
+		<vocation name="Sorcerer" />
+	</wand>
+	<wand id="7100" mana="2" min="3" max="18" type="fire"> <!-- Wand of Dragonbreath -->
+		<vocation name="Sorcerer" />
+	</wand>
+	<wand id="7097" mana="3" min="5" max="25" type="death"> <!-- Wand of Decay -->
+		<vocation name="Sorcerer" />
+	</wand>
+	<wand id="7098" mana="5" min="7" max="38" type="energy"> <!-- Wand of Cosmic Energy -->
+		<vocation name="Sorcerer" />
+	</wand>
+	<wand id="7096" mana="8" min="10" max="50" type="fire"> <!-- Wand of Inferno -->
+		<vocation name="Sorcerer" />
+	</wand>
+
+
+
+	<!-- Ammunition -->
+	<distance id="1294" breakchance="7" action="move"/> <!-- small stone -->
+	<distance id="2111" action="removecount" /> <!-- snowball -->
+	<distance id="2389" action="move"/> <!-- spear -->
+	<distance id="2399" breakchance="4" action="move" /> <!-- throwing star -->
+	<distance id="2410" breakchance="3" action="move" /> <!-- throwing knife -->
+	<distance id="2543" action="removecount" /> <!-- bolt -->
+		<distance id="5836" breakchance="15" action="move" /> <!-- assassin star-->
+	<distance id="2544" action="removecount" /> <!-- arrow -->
+	<distance id="2545" action="removecount" script="poison_arrow.lua" />
+	<distance id="2546" action="removecount" script="burst_arrow.lua" />
+	<distance id="2547" action="removecount" unproperly="1" level="55" /> <!-- Power Bolt -->
+</weapons>

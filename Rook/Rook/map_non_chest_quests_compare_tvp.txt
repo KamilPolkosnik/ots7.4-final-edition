@@ -1,0 +1,241 @@
+TVP map: C:\Users\stelm\OneDrive\Pulpit\soe\TVP-7.4-DEVELOP-main\gameserver\data\world\map.otbm
+OTS map: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\world\world.otbm
+
+=== Non-chest quest objects (AID 1000-2000) present in TVP ===
+/teleport 31983 32193 5  # tvp itemid=2725 name=palm aid=1017 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 31984 32246 10  # tvp itemid=1742 name=wooden coffin aid=1031 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32005 32139 3  # tvp itemid=2103 name=honey flower aid=1027 uid=0
+  ots: itemid=2103 name=honey flower aid=2000 uid=2103
+  status=DIFF
+/teleport 32084 32181 8  # tvp itemid=405 name=wooden floor aid=1224 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32172 32169 7  # tvp itemid=2725 name=palm aid=1017 uid=0
+  ots: itemid=2725 name=palm aid=2000 uid=2676
+  status=DIFF
+/teleport 32174 32149 11  # tvp itemid=3058 name=dead human aid=1030 uid=0
+  ots: itemid=3058 name=dead human aid=2000 uid=2412
+  status=DIFF
+/teleport 32175 32145 11  # tvp itemid=3058 name=dead human aid=1029 uid=0
+  ots: itemid=3058 name=dead human aid=2000 uid=2473
+  status=DIFF
+/teleport 32176 32132 9  # tvp itemid=3058 name=dead human aid=1028 uid=0
+  ots: itemid=3058 name=dead human aid=2000 uid=20002
+  status=DIFF
+/teleport 32179 32224 9  # tvp itemid=2844 name=dead dragon aid=1024 uid=0
+  ots: itemid=3104 name=dead dragon aid=2000 uid=54322
+  status=DIFF
+/teleport 32180 31934 7  # tvp itemid=1718 name=bookcase aid=1221 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32181 32468 10  # tvp itemid=4183 name=glimmer cap mushrooms aid=1331 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32219 32401 10  # tvp itemid=385 name=small hole aid=1175 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32233 32491 10  # tvp itemid=3058 name=dead human aid=1174 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32239 32471 10  # tvp itemid=3103 name=pile of bones aid=1170 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32239 32478 10  # tvp itemid=3103 name=pile of bones aid=1171 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32245 32492 10  # tvp itemid=2844 name=dead dragon aid=1173 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32248 31866 8  # tvp itemid=1744 name=wooden coffin aid=1225 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32256 32500 10  # tvp itemid=3058 name=dead human aid=1172 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32262 31861 11  # tvp itemid=3058 name=dead human aid=1207 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32305 32254 9  # tvp itemid=3103 name=pile of bones aid=1128 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32370 32265 12  # tvp itemid=385 name=small hole aid=1142 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32411 32155 15  # tvp itemid=1717 name=drawers aid=1056 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32414 32147 15  # tvp itemid=1717 name=drawers aid=1038 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32421 31594 15  # tvp itemid=1721 name=bookcase aid=1161 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32423 31591 15  # tvp itemid=1718 name=bookcase aid=1159 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32427 31943 14  # tvp itemid=3103 name=pile of bones aid=1137 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32428 31591 15  # tvp itemid=1718 name=bookcase aid=1160 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32460 31951 5  # tvp itemid=1717 name=drawers aid=1070 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32497 31887 7  # tvp itemid=2720 name=dead tree aid=1036 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32498 31721 15  # tvp itemid=3058 name=dead human aid=1156 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32500 31721 15  # tvp itemid=3103 name=pile of bones aid=1157 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32503 31724 15  # tvp itemid=3103 name=pile of bones aid=1158 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32509 32181 13  # tvp itemid=3103 name=pile of bones aid=1055 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32514 32248 8  # tvp itemid=4367 name=dead human aid=1243 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32514 32303 10  # tvp itemid=3058 name=dead human aid=1037 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32568 32085 12  # tvp itemid=3103 name=pile of bones aid=1254 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32576 32216 15  # tvp itemid=3058 name=dead human aid=1057 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32578 32177 15  # tvp itemid=1718 name=bookcase aid=1209 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32588 31644 3  # tvp itemid=1717 name=drawers aid=1075 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32588 31645 3  # tvp itemid=1717 name=drawers aid=1074 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32589 31794 5  # tvp itemid=3058 name=dead human aid=1046 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32589 32097 14  # tvp itemid=385 name=small hole aid=1039 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32636 31873 10  # tvp itemid=3058 name=dead human aid=1332 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32644 31614 6  # tvp itemid=3058 name=dead human aid=1255 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32652 32107 7  # tvp itemid=1290 name=stone aid=1192 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32680 31603 15  # tvp itemid=385 name=small hole aid=1065 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32726 31980 7  # tvp itemid=1410 name=stone coffin aid=1226 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32769 31968 7  # tvp itemid=2720 name=dead tree aid=1153 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32775 32006 11  # tvp itemid=1744 name=wooden coffin aid=1115 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32778 32282 11  # tvp itemid=3058 name=dead human aid=1124 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32781 32334 6  # tvp itemid=405 name=wooden floor aid=1040 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32786 32254 8  # tvp itemid=1774 name=barrel aid=1119 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32800 31582 2  # tvp itemid=1718 name=bookcase aid=1076 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32800 31959 7  # tvp itemid=2720 name=dead tree aid=1208 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32813 31964 7  # tvp itemid=2720 name=dead tree aid=1208 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32814 32281 8  # tvp itemid=3058 name=dead human aid=1214 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32816 32279 8  # tvp itemid=3058 name=dead human aid=1213 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32817 32283 8  # tvp itemid=3103 name=pile of bones aid=1215 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32868 31955 11  # tvp itemid=2720 name=dead tree aid=1050 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32880 31955 11  # tvp itemid=2720 name=dead tree aid=1154 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32933 32495 7  # tvp itemid=3882 name=giant footprint aid=1298 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 32954 32695 8  # tvp itemid=4875 name=hydra's nest aid=1324 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33049 32399 10  # tvp itemid=1410 name=stone coffin aid=1127 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33051 32774 14  # tvp itemid=1419 name=sarcophagus aid=1266 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33063 31624 15  # tvp itemid=1742 name=wooden coffin aid=1051 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33084 31650 12  # tvp itemid=3103 name=pile of bones aid=1122 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33126 32589 15  # tvp itemid=1419 name=sarcophagus aid=1265 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33127 31885 9  # tvp itemid=3103 name=pile of bones aid=1083 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33145 32663 15  # tvp itemid=1419 name=sarcophagus aid=1264 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33155 32840 6  # tvp itemid=1721 name=bookcase aid=1269 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33174 32932 15  # tvp itemid=1419 name=sarcophagus aid=1261 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33178 33013 14  # tvp itemid=1419 name=sarcophagus aid=1267 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33182 31869 12  # tvp itemid=3058 name=dead human aid=1108 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33182 32712 14  # tvp itemid=1419 name=sarcophagus aid=1263 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33186 32903 11  # tvp itemid=1718 name=bookcase aid=1268 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33315 32277 11  # tvp itemid=1410 name=stone coffin aid=1111 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33315 32282 11  # tvp itemid=1410 name=stone coffin aid=1112 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33327 32180 8  # tvp itemid=1742 name=wooden coffin aid=1110 uid=0
+  ots: missing
+  status=MISSING_IN_OTS
+/teleport 33349 32825 14  # tvp itemid=1419 name=sarcophagus aid=1262 uid=0
+  ots: missing
+  status=MISSING_IN_OTS

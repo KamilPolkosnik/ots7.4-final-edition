@@ -1,0 +1,4 @@
+RegisterLuaEvent duplicate warnings - report (current)
+Root: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook
+
+No current duplicates between actions.xml and Lua registrations.

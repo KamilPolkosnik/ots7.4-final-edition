@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<globalevents>
+	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
+	<globalevent type="startup" name="TeleportFixups" script="teleport_fixups.lua" />
+	<globalevent type="startup" name="CraftAnvilFixup" script="craft_anvil_fixup.lua" />
+	<globalevent type="startup" name="Key4601DoorFixup" script="key_4601_door_fixup.lua" />
+	<!-- <globalevent type="startup" name="QuestChestFixups" script="quest_chest_fixups.lua" /> -->
+	<!-- <globalevent type="startup" name="BlackKnightQuestFixups" script="black_knight_quest_fixups.lua" /> -->
+	<globalevent type="startup" name="QuestKeynumberFixups" script="quest_keynumber_fixups.lua" />
+	<globalevent type="record" name="PlayerRecord" script="record.lua" />
+	<globalevent name="Server Save" time="09:55:00" script="serversave.lua" />
+	<globalevent name="test" interval="300000" script="save.lua"/>
+	<!--
+	<globalevent name="timer_example" time="12:00:00" script="my_script.lua" />
+	-->
+
+    <!-- <globalevent type="startup" name="TvpAidSyncNonchest1000_2000" script="tvp_aid_sync_nonchest_1000_2000.lua" /> -->
+
+    <globalevent type="startup" name="Key3012DoorFixup" script="tvp_key_3012_doors_fixup.lua" />
+	<globalevent type="startup" name="KeyholeDoorFixup" script="tvp_keyhole_doors_fixup.lua" />
+</globalevents>

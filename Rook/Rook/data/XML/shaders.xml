@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shaders>
+    <shader id="1" name="Colorizing Dots" premium="no" />
+	<shader id="2" name="Holographic" premium="no" />
+	<shader id="3" name="Rainbow Wave" premium="no" />
+	<shader id="4" name="Shine" premium="no" />
+	<shader id="5" name="Darken Starslink" premium="no" />
+	<shader id="6" name="Matrix Fall" premium="no" />
+	<shader id="7" name="outlinegreen" premium="no" />
+	<shader id="8" name="RedGlow" premium="no" />
+	<shader id="9" name="outlinerainbow" premium="no" />
+</shaders>
+

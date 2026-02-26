@@ -1,0 +1,3728 @@
+Duplicate action itemids - map positions (teleport commands)
+Map: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\world\world.otbm
+Total duplicate ids: 226
+
+itemid=1209 count=145
+/teleport 31943 31709 5  # itemid=1209
+/teleport 31943 31709 6  # itemid=1209
+/teleport 31947 31712 6  # itemid=1209
+/teleport 32039 31603 10  # itemid=1209
+/teleport 32100 31569 9  # itemid=1209
+/teleport 32100 31570 9  # itemid=1209
+/teleport 32114 31569 9  # itemid=1209
+/teleport 32114 31570 9  # itemid=1209
+/teleport 32035 31642 8  # itemid=1209
+/teleport 32132 31658 7  # itemid=1209
+/teleport 32408 31590 8  # itemid=1209
+/teleport 32499 31682 9  # itemid=1209
+/teleport 32672 31610 7  # itemid=1209
+/teleport 32689 31666 10  # itemid=1209
+/teleport 32689 31669 10  # itemid=1209
+/teleport 32689 31672 10  # itemid=1209
+/teleport 32689 31675 10  # itemid=1209
+/teleport 32689 31678 10  # itemid=1209
+/teleport 32400 31788 8  # itemid=1209
+/teleport 32400 31789 8  # itemid=1209
+/teleport 32398 31804 8  # itemid=1209
+/teleport 32424 31943 9  # itemid=1209
+/teleport 32385 31999 8  # itemid=1209
+/teleport 32450 31967 10  # itemid=1209
+/teleport 32457 31966 10  # itemid=1209
+/teleport 32591 31901 8  # itemid=1209
+/teleport 32636 31911 3  # itemid=1209
+/teleport 32600 31926 6  # itemid=1209
+/teleport 32658 31921 9  # itemid=1209
+/teleport 32527 31966 7  # itemid=1209
+/teleport 32551 31988 13  # itemid=1209
+/teleport 32576 31938 9  # itemid=1209
+/teleport 32581 31938 9  # itemid=1209
+/teleport 32580 31948 6  # itemid=1209
+/teleport 32593 31939 2  # itemid=1209
+/teleport 32726 31976 6  # itemid=1209
+/teleport 32728 31980 6  # itemid=1209
+/teleport 31986 32230 11  # itemid=1209
+/teleport 31999 32230 11  # itemid=1209
+/teleport 32118 32059 12  # itemid=1209
+/teleport 32109 32172 8  # itemid=1209
+/teleport 32099 32179 6  # itemid=1209
+/teleport 32179 32149 10  # itemid=1209
+/teleport 32177 32148 11  # itemid=1209
+/teleport 32042 32205 6  # itemid=1209
+/teleport 32082 32203 6  # itemid=1209
+/teleport 32065 32225 7  # itemid=1209
+/teleport 32385 32002 8  # itemid=1209
+/teleport 32385 32005 8  # itemid=1209
+/teleport 32450 32044 8  # itemid=1209
+/teleport 32310 32179 8  # itemid=1209
+/teleport 32345 32182 4  # itemid=1209
+/teleport 32348 32181 6  # itemid=1209
+/teleport 32447 32151 14  # itemid=1209
+/teleport 32409 32176 6  # itemid=1209
+/teleport 32462 32151 15  # itemid=1209
+/teleport 32506 32175 14  # itemid=1209
+/teleport 32494 32247 8  # itemid=1209
+/teleport 32499 32245 8  # itemid=1209
+/teleport 32566 32019 6  # itemid=1209
+/teleport 32565 32018 7  # itemid=1209
+/teleport 32566 32022 6  # itemid=1209
+/teleport 32566 32023 7  # itemid=1209
+/teleport 32620 32004 7  # itemid=1209
+/teleport 32592 32102 14  # itemid=1209
+/teleport 32680 32083 9  # itemid=1209
+/teleport 32679 32085 11  # itemid=1209
+/teleport 32761 32065 8  # itemid=1209
+/teleport 32642 32141 11  # itemid=1209
+/teleport 32665 32141 12  # itemid=1209
+/teleport 32333 32277 8  # itemid=1209
+/teleport 32505 32270 8  # itemid=1209
+/teleport 32465 32275 8  # itemid=1209
+/teleport 32515 32298 9  # itemid=1209
+/teleport 32945 31758 7  # itemid=1209
+/teleport 32850 31915 8  # itemid=1209
+/teleport 32824 31969 8  # itemid=1209
+/teleport 33169 31789 6  # itemid=1209
+/teleport 33186 31782 7  # itemid=1209
+/teleport 33196 31782 7  # itemid=1209
+/teleport 33210 31792 4  # itemid=1209
+/teleport 33210 31795 4  # itemid=1209
+/teleport 33212 31792 4  # itemid=1209
+/teleport 33212 31795 4  # itemid=1209
+/teleport 33210 31798 4  # itemid=1209
+/teleport 33212 31798 4  # itemid=1209
+/teleport 33210 31801 4  # itemid=1209
+/teleport 33212 31801 4  # itemid=1209
+/teleport 33210 31804 4  # itemid=1209
+/teleport 33210 31807 4  # itemid=1209
+/teleport 33212 31804 4  # itemid=1209
+/teleport 33212 31807 4  # itemid=1209
+/teleport 33211 31813 4  # itemid=1209
+/teleport 33185 31827 7  # itemid=1209
+/teleport 33197 31827 7  # itemid=1209
+/teleport 33220 31832 7  # itemid=1209
+/teleport 32905 32013 7  # itemid=1209
+/teleport 32974 32037 5  # itemid=1209
+/teleport 32981 32037 7  # itemid=1209
+/teleport 32978 32042 5  # itemid=1209
+/teleport 33005 32034 6  # itemid=1209
+/teleport 32991 32062 5  # itemid=1209
+/teleport 33019 32053 8  # itemid=1209
+/teleport 33019 32056 8  # itemid=1209
+/teleport 32887 32076 5  # itemid=1209
+/teleport 32885 32082 7  # itemid=1209
+/teleport 32889 32081 7  # itemid=1209
+/teleport 32911 32081 9  # itemid=1209
+/teleport 32948 32104 7  # itemid=1209
+/teleport 32950 32109 5  # itemid=1209
+/teleport 32948 32110 7  # itemid=1209
+/teleport 32904 32113 5  # itemid=1209
+/teleport 32908 32112 7  # itemid=1209
+/teleport 32913 32119 5  # itemid=1209
+/teleport 32991 32065 5  # itemid=1209
+/teleport 32991 32068 5  # itemid=1209
+/teleport 32992 32067 7  # itemid=1209
+/teleport 33009 32072 6  # itemid=1209
+/teleport 32971 32088 7  # itemid=1209
+/teleport 32978 32083 5  # itemid=1209
+/teleport 32978 32080 7  # itemid=1209
+/teleport 32979 32087 5  # itemid=1209
+/teleport 32999 32096 6  # itemid=1209
+/teleport 32967 32119 6  # itemid=1209
+/teleport 32895 32141 7  # itemid=1209
+/teleport 32895 32144 7  # itemid=1209
+/teleport 32895 32147 7  # itemid=1209
+/teleport 32900 32141 7  # itemid=1209
+/teleport 32934 32139 6  # itemid=1209
+/teleport 32937 32139 6  # itemid=1209
+/teleport 32900 32144 7  # itemid=1209
+/teleport 32900 32147 7  # itemid=1209
+/teleport 32934 32152 6  # itemid=1209
+/teleport 32937 32152 6  # itemid=1209
+/teleport 33065 32184 8  # itemid=1209
+/teleport 32786 32328 6  # itemid=1209
+/teleport 32786 32328 7  # itemid=1209
+/teleport 32786 32336 7  # itemid=1209
+/teleport 32777 32355 11  # itemid=1209
+/teleport 32777 32359 11  # itemid=1209
+/teleport 32777 32363 11  # itemid=1209
+/teleport 33275 32446 8  # itemid=1209
+/teleport 33256 32470 6  # itemid=1209
+/teleport 33287 32446 8  # itemid=1209
+/teleport 33289 32455 8  # itemid=1209
+
+itemid=1210 count=159
+/teleport 31941 31714 6  # itemid=1210
+/teleport 32080 31571 10  # itemid=1210
+/teleport 32491 31611 7  # itemid=1210
+/teleport 32486 31620 7  # itemid=1210
+/teleport 32686 31672 9  # itemid=1210
+/teleport 32712 31625 8  # itemid=1210
+/teleport 32670 31699 6  # itemid=1210
+/teleport 32670 31700 6  # itemid=1210
+/teleport 32674 31697 6  # itemid=1210
+/teleport 32219 31755 7  # itemid=1210
+/teleport 32213 31756 7  # itemid=1210
+/teleport 32174 31929 4  # itemid=1210
+/teleport 32176 31936 7  # itemid=1210
+/teleport 32315 31748 2  # itemid=1210
+/teleport 32310 31783 6  # itemid=1210
+/teleport 32299 31805 7  # itemid=1210
+/teleport 32323 31754 7  # itemid=1210
+/teleport 32330 31754 7  # itemid=1210
+/teleport 32323 31782 7  # itemid=1210
+/teleport 32323 31783 7  # itemid=1210
+/teleport 32364 31782 6  # itemid=1210
+/teleport 32322 31804 7  # itemid=1210
+/teleport 32338 31798 7  # itemid=1210
+/teleport 32338 31803 7  # itemid=1210
+/teleport 32365 31797 7  # itemid=1210
+/teleport 32371 31805 7  # itemid=1210
+/teleport 32371 31806 7  # itemid=1210
+/teleport 32305 31817 7  # itemid=1210
+/teleport 32338 31812 7  # itemid=1210
+/teleport 32590 31787 4  # itemid=1210
+/teleport 32601 31787 7  # itemid=1210
+/teleport 32636 31884 7  # itemid=1210
+/teleport 32636 31907 3  # itemid=1210
+/teleport 32593 31928 3  # itemid=1210
+/teleport 32628 31924 5  # itemid=1210
+/teleport 32622 31986 8  # itemid=1210
+/teleport 32027 32195 6  # itemid=1210
+/teleport 32027 32198 6  # itemid=1210
+/teleport 32104 32207 6  # itemid=1210
+/teleport 32266 32042 7  # itemid=1210
+/teleport 32267 32051 7  # itemid=1210
+/teleport 32279 32055 7  # itemid=1210
+/teleport 32283 32057 7  # itemid=1210
+/teleport 32394 32000 7  # itemid=1210
+/teleport 32437 32115 15  # itemid=1210
+/teleport 32437 32116 15  # itemid=1210
+/teleport 32309 32171 7  # itemid=1210
+/teleport 32314 32175 7  # itemid=1210
+/teleport 32310 32187 7  # itemid=1210
+/teleport 32310 32188 7  # itemid=1210
+/teleport 32358 32172 7  # itemid=1210
+/teleport 32347 32185 5  # itemid=1210
+/teleport 32345 32184 6  # itemid=1210
+/teleport 32346 32185 7  # itemid=1210
+/teleport 32433 32137 14  # itemid=1210
+/teleport 32424 32146 14  # itemid=1210
+/teleport 32333 32206 8  # itemid=1210
+/teleport 32333 32207 8  # itemid=1210
+/teleport 32358 32199 7  # itemid=1210
+/teleport 32357 32206 7  # itemid=1210
+/teleport 32360 32206 6  # itemid=1210
+/teleport 32379 32198 7  # itemid=1210
+/teleport 32330 32208 7  # itemid=1210
+/teleport 32357 32210 7  # itemid=1210
+/teleport 32360 32210 6  # itemid=1210
+/teleport 32365 32208 7  # itemid=1210
+/teleport 32334 32234 7  # itemid=1210
+/teleport 32328 32240 7  # itemid=1210
+/teleport 32335 32245 7  # itemid=1210
+/teleport 32393 32195 8  # itemid=1210
+/teleport 32397 32194 8  # itemid=1210
+/teleport 32397 32197 8  # itemid=1210
+/teleport 32403 32203 7  # itemid=1210
+/teleport 32403 32204 7  # itemid=1210
+/teleport 32424 32195 14  # itemid=1210
+/teleport 32395 32230 7  # itemid=1210
+/teleport 32395 32232 7  # itemid=1210
+/teleport 32388 32238 6  # itemid=1210
+/teleport 32388 32238 7  # itemid=1210
+/teleport 32509 32242 8  # itemid=1210
+/teleport 32535 32143 6  # itemid=1210
+/teleport 32663 32149 12  # itemid=1210
+/teleport 32663 32151 12  # itemid=1210
+/teleport 32663 32153 12  # itemid=1210
+/teleport 32663 32155 12  # itemid=1210
+/teleport 32604 32213 10  # itemid=1210
+/teleport 32618 32227 8  # itemid=1210
+/teleport 32650 32212 6  # itemid=1210
+/teleport 32147 32387 7  # itemid=1210
+/teleport 32172 32400 7  # itemid=1210
+/teleport 32164 32431 7  # itemid=1210
+/teleport 32184 32428 9  # itemid=1210
+/teleport 32162 32437 6  # itemid=1210
+/teleport 32195 32428 9  # itemid=1210
+/teleport 32307 32262 7  # itemid=1210
+/teleport 32319 32263 6  # itemid=1210
+/teleport 32301 32272 7  # itemid=1210
+/teleport 32331 32259 7  # itemid=1210
+/teleport 32343 32266 6  # itemid=1210
+/teleport 32367 32257 7  # itemid=1210
+/teleport 32372 32256 7  # itemid=1210
+/teleport 32375 32268 7  # itemid=1210
+/teleport 32322 32276 6  # itemid=1210
+/teleport 32323 32277 7  # itemid=1210
+/teleport 32387 32256 7  # itemid=1210
+/teleport 32501 32295 7  # itemid=1210
+/teleport 32510 32292 7  # itemid=1210
+/teleport 33225 31659 13  # itemid=1210
+/teleport 33216 31671 13  # itemid=1210
+/teleport 32799 31863 6  # itemid=1210
+/teleport 32819 31958 8  # itemid=1210
+/teleport 33214 31789 7  # itemid=1210
+/teleport 33183 31806 7  # itemid=1210
+/teleport 33195 31796 7  # itemid=1210
+/teleport 33187 31800 7  # itemid=1210
+/teleport 33195 31800 7  # itemid=1210
+/teleport 33194 31804 5  # itemid=1210
+/teleport 33214 31806 5  # itemid=1210
+/teleport 33214 31807 5  # itemid=1210
+/teleport 33214 31813 5  # itemid=1210
+/teleport 33214 31814 5  # itemid=1210
+/teleport 33214 31820 7  # itemid=1210
+/teleport 33185 31827 5  # itemid=1210
+/teleport 33197 31827 5  # itemid=1210
+/teleport 33191 31845 7  # itemid=1210
+/teleport 33284 31771 7  # itemid=1210
+/teleport 33316 31761 7  # itemid=1210
+/teleport 33325 31884 7  # itemid=1210
+/teleport 33308 31966 7  # itemid=1210
+/teleport 33301 31976 7  # itemid=1210
+/teleport 33327 31994 7  # itemid=1210
+/teleport 32892 32026 7  # itemid=1210
+/teleport 32974 32041 5  # itemid=1210
+/teleport 32978 32037 5  # itemid=1210
+/teleport 32998 32062 5  # itemid=1210
+/teleport 33017 32053 5  # itemid=1210
+/teleport 33017 32056 5  # itemid=1210
+/teleport 32887 32084 5  # itemid=1210
+/teleport 32926 32072 11  # itemid=1210
+/teleport 32917 32078 11  # itemid=1210
+/teleport 32925 32079 11  # itemid=1210
+/teleport 32954 32108 5  # itemid=1210
+/teleport 32953 32109 7  # itemid=1210
+/teleport 32904 32113 7  # itemid=1210
+/teleport 32909 32115 5  # itemid=1210
+/teleport 32909 32119 5  # itemid=1210
+/teleport 32998 32065 5  # itemid=1210
+/teleport 32998 32068 7  # itemid=1210
+/teleport 32895 32142 5  # itemid=1210
+/teleport 32896 32143 6  # itemid=1210
+/teleport 32939 32248 8  # itemid=1210
+/teleport 32949 32252 8  # itemid=1210
+/teleport 32779 32328 7  # itemid=1210
+/teleport 32779 32336 7  # itemid=1210
+/teleport 33260 32463 6  # itemid=1210
+/teleport 33276 32452 8  # itemid=1210
+/teleport 33256 32466 7  # itemid=1210
+/teleport 33260 32466 7  # itemid=1210
+/teleport 33260 32470 6  # itemid=1210
+
+itemid=1211 count=0
+
+itemid=1212 count=165
+/teleport 32107 31568 9  # itemid=1212
+/teleport 32108 31568 9  # itemid=1212
+/teleport 32484 31603 7  # itemid=1212
+/teleport 32501 31676 9  # itemid=1212
+/teleport 32693 31574 13  # itemid=1212
+/teleport 32693 31577 13  # itemid=1212
+/teleport 32582 31641 10  # itemid=1212
+/teleport 32585 31641 10  # itemid=1212
+/teleport 32588 31641 10  # itemid=1212
+/teleport 32591 31641 10  # itemid=1212
+/teleport 32582 31644 10  # itemid=1212
+/teleport 32585 31644 10  # itemid=1212
+/teleport 32588 31644 10  # itemid=1212
+/teleport 32591 31644 10  # itemid=1212
+/teleport 32658 31645 9  # itemid=1212
+/teleport 32655 31655 9  # itemid=1212
+/teleport 32675 31649 10  # itemid=1212
+/teleport 32675 31671 10  # itemid=1212
+/teleport 32677 31699 8  # itemid=1212
+/teleport 32218 31753 7  # itemid=1212
+/teleport 32173 31927 4  # itemid=1212
+/teleport 32178 31928 6  # itemid=1212
+/teleport 32315 31752 6  # itemid=1212
+/teleport 32319 31752 6  # itemid=1212
+/teleport 32336 31811 6  # itemid=1212
+/teleport 32479 31903 4  # itemid=1212
+/teleport 32452 31972 10  # itemid=1212
+/teleport 32456 31972 10  # itemid=1212
+/teleport 32632 31766 7  # itemid=1212
+/teleport 32597 31875 9  # itemid=1212
+/teleport 32624 31883 9  # itemid=1212
+/teleport 32639 31906 3  # itemid=1212
+/teleport 32625 31917 3  # itemid=1212
+/teleport 32587 31931 2  # itemid=1212
+/teleport 32603 31921 6  # itemid=1212
+/teleport 32611 31921 6  # itemid=1212
+/teleport 32634 31920 5  # itemid=1212
+/teleport 32624 31929 3  # itemid=1212
+/teleport 32639 31929 3  # itemid=1212
+/teleport 32645 31906 3  # itemid=1212
+/teleport 32513 31947 14  # itemid=1212
+/teleport 32574 31936 9  # itemid=1212
+/teleport 32584 31936 9  # itemid=1212
+/teleport 32602 31958 14  # itemid=1212
+/teleport 32603 31958 14  # itemid=1212
+/teleport 32602 31962 14  # itemid=1212
+/teleport 32603 31962 14  # itemid=1212
+/teleport 32602 31966 14  # itemid=1212
+/teleport 32603 31966 14  # itemid=1212
+/teleport 32602 31975 14  # itemid=1212
+/teleport 32603 31975 14  # itemid=1212
+/teleport 31992 32231 12  # itemid=1212
+/teleport 32114 32047 12  # itemid=1212
+/teleport 32113 32055 12  # itemid=1212
+/teleport 32145 32100 11  # itemid=1212
+/teleport 32015 32230 12  # itemid=1212
+/teleport 32397 32114 15  # itemid=1212
+/teleport 32395 32117 15  # itemid=1212
+/teleport 32446 32123 14  # itemid=1212
+/teleport 32488 32117 7  # itemid=1212
+/teleport 32307 32183 5  # itemid=1212
+/teleport 32308 32183 6  # itemid=1212
+/teleport 32349 32183 5  # itemid=1212
+/teleport 32393 32136 14  # itemid=1212
+/teleport 32444 32128 14  # itemid=1212
+/teleport 32426 32184 14  # itemid=1212
+/teleport 32462 32153 14  # itemid=1212
+/teleport 32357 32195 7  # itemid=1212
+/teleport 32412 32201 6  # itemid=1212
+/teleport 32396 32225 7  # itemid=1212
+/teleport 32495 32250 8  # itemid=1212
+/teleport 32624 32007 7  # itemid=1212
+/teleport 32628 32098 11  # itemid=1212
+/teleport 32614 32175 9  # itemid=1212
+/teleport 32643 32128 8  # itemid=1212
+/teleport 32691 32131 10  # itemid=1212
+/teleport 32578 32197 15  # itemid=1212
+/teleport 32620 32199 10  # itemid=1212
+/teleport 32619 32240 8  # itemid=1212
+/teleport 32619 32241 8  # itemid=1212
+/teleport 32190 32432 8  # itemid=1212
+/teleport 32314 32275 8  # itemid=1212
+/teleport 32314 32278 8  # itemid=1212
+/teleport 32317 32278 8  # itemid=1212
+/teleport 32321 32258 6  # itemid=1212
+/teleport 32331 32259 8  # itemid=1212
+/teleport 32323 32275 8  # itemid=1212
+/teleport 32326 32275 8  # itemid=1212
+/teleport 32320 32277 6  # itemid=1212
+/teleport 32320 32278 8  # itemid=1212
+/teleport 32323 32278 8  # itemid=1212
+/teleport 32326 32278 8  # itemid=1212
+/teleport 32508 32268 9  # itemid=1212
+/teleport 32277 32420 10  # itemid=1212
+/teleport 32794 31582 6  # itemid=1212
+/teleport 32797 31592 4  # itemid=1212
+/teleport 32796 31597 7  # itemid=1212
+/teleport 32804 31585 1  # itemid=1212
+/teleport 32809 31593 6  # itemid=1212
+/teleport 32814 31595 6  # itemid=1212
+/teleport 32811 31597 7  # itemid=1212
+/teleport 32814 31597 7  # itemid=1212
+/teleport 33211 31634 13  # itemid=1212
+/teleport 32960 31756 9  # itemid=1212
+/teleport 32960 31758 9  # itemid=1212
+/teleport 32961 31756 9  # itemid=1212
+/teleport 32961 31758 9  # itemid=1212
+/teleport 32960 31760 9  # itemid=1212
+/teleport 32961 31760 9  # itemid=1212
+/teleport 32850 31923 8  # itemid=1212
+/teleport 33167 31787 5  # itemid=1212
+/teleport 33168 31787 5  # itemid=1212
+/teleport 33167 31805 6  # itemid=1212
+/teleport 33168 31794 6  # itemid=1212
+/teleport 33192 31807 5  # itemid=1212
+/teleport 33189 31808 6  # itemid=1212
+/teleport 33193 31808 6  # itemid=1212
+/teleport 33197 31808 6  # itemid=1212
+/teleport 33197 31808 7  # itemid=1212
+/teleport 32874 32030 6  # itemid=1212
+/teleport 32887 32030 6  # itemid=1212
+/teleport 32874 32033 6  # itemid=1212
+/teleport 32887 32033 6  # itemid=1212
+/teleport 32901 32030 7  # itemid=1212
+/teleport 32975 32035 7  # itemid=1212
+/teleport 32972 32037 7  # itemid=1212
+/teleport 32980 32035 7  # itemid=1212
+/teleport 32980 32038 7  # itemid=1212
+/teleport 33022 32050 8  # itemid=1212
+/teleport 33015 32057 5  # itemid=1212
+/teleport 32884 32079 5  # itemid=1212
+/teleport 32887 32079 7  # itemid=1212
+/teleport 32887 32084 7  # itemid=1212
+/teleport 32890 32086 5  # itemid=1212
+/teleport 32869 32124 6  # itemid=1212
+/teleport 32869 32127 6  # itemid=1212
+/teleport 32891 32124 6  # itemid=1212
+/teleport 32891 32127 6  # itemid=1212
+/teleport 32957 32090 5  # itemid=1212
+/teleport 32945 32107 7  # itemid=1212
+/teleport 32954 32105 7  # itemid=1212
+/teleport 32906 32115 7  # itemid=1212
+/teleport 32914 32116 7  # itemid=1212
+/teleport 32989 32065 7  # itemid=1212
+/teleport 32993 32064 7  # itemid=1212
+/teleport 32970 32084 5  # itemid=1212
+/teleport 32972 32086 7  # itemid=1212
+/teleport 32961 32090 5  # itemid=1212
+/teleport 32980 32084 5  # itemid=1212
+/teleport 32981 32086 7  # itemid=1212
+/teleport 32894 32144 6  # itemid=1212
+/teleport 32898 32140 7  # itemid=1212
+/teleport 32921 32138 6  # itemid=1212
+/teleport 32899 32145 5  # itemid=1212
+/teleport 32898 32145 8  # itemid=1212
+/teleport 32898 32149 7  # itemid=1212
+/teleport 33069 32179 8  # itemid=1212
+/teleport 32817 32329 8  # itemid=1212
+/teleport 32817 32333 8  # itemid=1212
+/teleport 32818 32340 8  # itemid=1212
+/teleport 32789 32354 11  # itemid=1212
+/teleport 32794 32354 11  # itemid=1212
+/teleport 33201 32469 6  # itemid=1212
+/teleport 33281 32441 8  # itemid=1212
+/teleport 33280 32456 8  # itemid=1212
+
+itemid=1213 count=198
+/teleport 31944 31621 9  # itemid=1213
+/teleport 31952 31621 9  # itemid=1213
+/teleport 32003 31616 9  # itemid=1213
+/teleport 32004 31616 9  # itemid=1213
+/teleport 32001 31667 8  # itemid=1213
+/teleport 32002 31667 8  # itemid=1213
+/teleport 32187 31625 8  # itemid=1213
+/teleport 32188 31625 8  # itemid=1213
+/teleport 32187 31628 7  # itemid=1213
+/teleport 32187 31628 8  # itemid=1213
+/teleport 32188 31628 6  # itemid=1213
+/teleport 32188 31628 7  # itemid=1213
+/teleport 32188 31628 8  # itemid=1213
+/teleport 32188 31635 6  # itemid=1213
+/teleport 32188 31639 7  # itemid=1213
+/teleport 32142 31658 6  # itemid=1213
+/teleport 32133 31662 7  # itemid=1213
+/teleport 32141 31661 7  # itemid=1213
+/teleport 32142 31661 7  # itemid=1213
+/teleport 32141 31670 6  # itemid=1213
+/teleport 32140 31674 7  # itemid=1213
+/teleport 32710 31627 8  # itemid=1213
+/teleport 32717 31628 8  # itemid=1213
+/teleport 32676 31699 6  # itemid=1213
+/teleport 32169 31927 4  # itemid=1213
+/teleport 32179 31933 7  # itemid=1213
+/teleport 32170 31938 6  # itemid=1213
+/teleport 32174 31938 6  # itemid=1213
+/teleport 32178 31938 6  # itemid=1213
+/teleport 32316 31752 5  # itemid=1213
+/teleport 32309 31787 7  # itemid=1213
+/teleport 32310 31787 7  # itemid=1213
+/teleport 32320 31752 5  # itemid=1213
+/teleport 32330 31773 7  # itemid=1213
+/teleport 32358 31771 7  # itemid=1213
+/teleport 32359 31771 7  # itemid=1213
+/teleport 32368 31771 7  # itemid=1213
+/teleport 32369 31771 7  # itemid=1213
+/teleport 32328 31791 7  # itemid=1213
+/teleport 32353 31791 7  # itemid=1213
+/teleport 32372 31787 7  # itemid=1213
+/teleport 32373 31787 7  # itemid=1213
+/teleport 32354 31797 7  # itemid=1213
+/teleport 32408 31785 7  # itemid=1213
+/teleport 32405 31798 8  # itemid=1213
+/teleport 32319 31836 7  # itemid=1213
+/teleport 32375 31810 7  # itemid=1213
+/teleport 32318 31933 7  # itemid=1213
+/teleport 32478 31907 7  # itemid=1213
+/teleport 32479 31907 7  # itemid=1213
+/teleport 32638 31883 2  # itemid=1213
+/teleport 32630 31926 5  # itemid=1213
+/teleport 32598 31939 3  # itemid=1213
+/teleport 32599 31939 3  # itemid=1213
+/teleport 32627 31947 8  # itemid=1213
+/teleport 32657 31965 8  # itemid=1213
+/teleport 32254 32054 7  # itemid=1213
+/teleport 32095 32164 8  # itemid=1213
+/teleport 32095 32169 8  # itemid=1213
+/teleport 32095 32180 8  # itemid=1213
+/teleport 32095 32186 8  # itemid=1213
+/teleport 32040 32204 6  # itemid=1213
+/teleport 32046 32205 6  # itemid=1213
+/teleport 32108 32204 6  # itemid=1213
+/teleport 32261 32058 7  # itemid=1213
+/teleport 32427 32106 15  # itemid=1213
+/teleport 32428 32106 15  # itemid=1213
+/teleport 32400 32117 15  # itemid=1213
+/teleport 32427 32123 15  # itemid=1213
+/teleport 32428 32123 15  # itemid=1213
+/teleport 32454 32112 4  # itemid=1213
+/teleport 32454 32115 7  # itemid=1213
+/teleport 32488 32122 7  # itemid=1213
+/teleport 32316 32173 7  # itemid=1213
+/teleport 32307 32179 5  # itemid=1213
+/teleport 32307 32183 7  # itemid=1213
+/teleport 32308 32180 6  # itemid=1213
+/teleport 32308 32180 7  # itemid=1213
+/teleport 32308 32183 7  # itemid=1213
+/teleport 32313 32180 7  # itemid=1213
+/teleport 32314 32180 7  # itemid=1213
+/teleport 32304 32191 7  # itemid=1213
+/teleport 32355 32142 9  # itemid=1213
+/teleport 32348 32187 7  # itemid=1213
+/teleport 32349 32187 7  # itemid=1213
+/teleport 32346 32191 9  # itemid=1213
+/teleport 32356 32182 9  # itemid=1213
+/teleport 32288 32255 7  # itemid=1213
+/teleport 32319 32253 7  # itemid=1213
+/teleport 32338 32196 7  # itemid=1213
+/teleport 32339 32196 7  # itemid=1213
+/teleport 32335 32212 7  # itemid=1213
+/teleport 32336 32212 7  # itemid=1213
+/teleport 32359 32218 7  # itemid=1213
+/teleport 32360 32218 7  # itemid=1213
+/teleport 32359 32220 6  # itemid=1213
+/teleport 32359 32228 6  # itemid=1213
+/teleport 32359 32228 7  # itemid=1213
+/teleport 32359 32233 6  # itemid=1213
+/teleport 32370 32254 7  # itemid=1213
+/teleport 32395 32192 8  # itemid=1213
+/teleport 32395 32200 8  # itemid=1213
+/teleport 32399 32201 7  # itemid=1213
+/teleport 32400 32201 7  # itemid=1213
+/teleport 32401 32201 7  # itemid=1213
+/teleport 32390 32217 7  # itemid=1213
+/teleport 32400 32217 7  # itemid=1213
+/teleport 32405 32217 7  # itemid=1213
+/teleport 32629 32093 10  # itemid=1213
+/teleport 32630 32093 10  # itemid=1213
+/teleport 32661 32116 8  # itemid=1213
+/teleport 32647 32210 7  # itemid=1213
+/teleport 32649 32210 8  # itemid=1213
+/teleport 32190 32431 7  # itemid=1213
+/teleport 32160 32432 6  # itemid=1213
+/teleport 32161 32434 7  # itemid=1213
+/teleport 32162 32440 7  # itemid=1213
+/teleport 32186 32432 9  # itemid=1213
+/teleport 32190 32432 9  # itemid=1213
+/teleport 32191 32439 7  # itemid=1213
+/teleport 32194 32423 9  # itemid=1213
+/teleport 32194 32426 7  # itemid=1213
+/teleport 32194 32432 9  # itemid=1213
+/teleport 32208 32435 10  # itemid=1213
+/teleport 32165 32461 10  # itemid=1213
+/teleport 32299 32266 7  # itemid=1213
+/teleport 32317 32258 6  # itemid=1213
+/teleport 32317 32260 7  # itemid=1213
+/teleport 32304 32270 7  # itemid=1213
+/teleport 32319 32271 8  # itemid=1213
+/teleport 32333 32262 7  # itemid=1213
+/teleport 32333 32270 7  # itemid=1213
+/teleport 32328 32274 7  # itemid=1213
+/teleport 32386 32262 7  # itemid=1213
+/teleport 32507 32298 7  # itemid=1213
+/teleport 32830 31776 7  # itemid=1213
+/teleport 33166 31787 4  # itemid=1213
+/teleport 33166 31787 7  # itemid=1213
+/teleport 33197 31798 7  # itemid=1213
+/teleport 33191 31801 5  # itemid=1213
+/teleport 33191 31803 7  # itemid=1213
+/teleport 33192 31803 7  # itemid=1213
+/teleport 33197 31801 5  # itemid=1213
+/teleport 33189 31805 6  # itemid=1213
+/teleport 33217 31790 4  # itemid=1213
+/teleport 33216 31790 5  # itemid=1213
+/teleport 33217 31790 5  # itemid=1213
+/teleport 33166 31819 4  # itemid=1213
+/teleport 33166 31817 6  # itemid=1213
+/teleport 33166 31817 7  # itemid=1213
+/teleport 33166 31822 5  # itemid=1213
+/teleport 33166 31822 6  # itemid=1213
+/teleport 33170 31822 7  # itemid=1213
+/teleport 33185 31808 7  # itemid=1213
+/teleport 33198 31810 5  # itemid=1213
+/teleport 33177 31842 8  # itemid=1213
+/teleport 33216 31817 4  # itemid=1213
+/teleport 33216 31817 5  # itemid=1213
+/teleport 33217 31817 5  # itemid=1213
+/teleport 33218 31837 7  # itemid=1213
+/teleport 33296 31776 7  # itemid=1213
+/teleport 32955 32038 5  # itemid=1213
+/teleport 32952 32038 7  # itemid=1213
+/teleport 32971 32040 7  # itemid=1213
+/teleport 32974 32040 7  # itemid=1213
+/teleport 32977 32035 5  # itemid=1213
+/teleport 32976 32043 5  # itemid=1213
+/teleport 32995 32059 5  # itemid=1213
+/teleport 33000 32063 5  # itemid=1213
+/teleport 33015 32051 5  # itemid=1213
+/teleport 33018 32050 5  # itemid=1213
+/teleport 33022 32050 5  # itemid=1213
+/teleport 33021 32057 8  # itemid=1213
+/teleport 32891 32077 5  # itemid=1213
+/teleport 32889 32080 5  # itemid=1213
+/teleport 32915 32075 11  # itemid=1213
+/teleport 32916 32075 11  # itemid=1213
+/teleport 32944 32106 5  # itemid=1213
+/teleport 32952 32106 5  # itemid=1213
+/teleport 32955 32109 5  # itemid=1213
+/teleport 32903 32114 5  # itemid=1213
+/teleport 32903 32112 7  # itemid=1213
+/teleport 32908 32120 5  # itemid=1213
+/teleport 32996 32066 5  # itemid=1213
+/teleport 32975 32084 5  # itemid=1213
+/teleport 32894 32146 5  # itemid=1213
+/teleport 32898 32140 6  # itemid=1213
+/teleport 32900 32144 6  # itemid=1213
+/teleport 32936 32217 7  # itemid=1213
+/teleport 32937 32221 7  # itemid=1213
+/teleport 32945 32244 8  # itemid=1213
+/teleport 33287 32010 7  # itemid=1213
+/teleport 32779 32333 6  # itemid=1213
+/teleport 33204 32469 7  # itemid=1213
+/teleport 33255 32466 6  # itemid=1213
+/teleport 33255 32467 7  # itemid=1213
+/teleport 33262 32467 7  # itemid=1213
+/teleport 33258 32468 7  # itemid=1213
+
+itemid=1214 count=0
+
+itemid=1219 count=792
+/teleport 32131 31659 6  # itemid=1219
+/teleport 32152 31655 7  # itemid=1219
+/teleport 32157 31654 6  # itemid=1219
+/teleport 32149 31658 7  # itemid=1219
+/teleport 32157 31661 6  # itemid=1219
+/teleport 32173 31659 6  # itemid=1219
+/teleport 32162 31660 6  # itemid=1219
+/teleport 32172 31660 7  # itemid=1219
+/teleport 32172 31660 8  # itemid=1219
+/teleport 32176 31662 6  # itemid=1219
+/teleport 32176 31662 8  # itemid=1219
+/teleport 32133 31676 8  # itemid=1219
+/teleport 32145 31674 7  # itemid=1219
+/teleport 32169 31664 7  # itemid=1219
+/teleport 32172 31664 7  # itemid=1219
+/teleport 32176 31665 6  # itemid=1219
+/teleport 32177 31665 8  # itemid=1219
+/teleport 32138 31680 7  # itemid=1219
+/teleport 32466 31608 7  # itemid=1219
+/teleport 32466 31611 8  # itemid=1219
+/teleport 32468 31611 6  # itemid=1219
+/teleport 32471 31611 8  # itemid=1219
+/teleport 32466 31612 7  # itemid=1219
+/teleport 32491 31602 7  # itemid=1219
+/teleport 32481 31611 6  # itemid=1219
+/teleport 32481 31609 7  # itemid=1219
+/teleport 32481 31614 7  # itemid=1219
+/teleport 32291 31664 6  # itemid=1219
+/teleport 32293 31665 5  # itemid=1219
+/teleport 32293 31664 6  # itemid=1219
+/teleport 32300 31665 5  # itemid=1219
+/teleport 32300 31664 6  # itemid=1219
+/teleport 32291 31668 6  # itemid=1219
+/teleport 32293 31669 7  # itemid=1219
+/teleport 32297 31668 8  # itemid=1219
+/teleport 32300 31669 7  # itemid=1219
+/teleport 32291 31672 6  # itemid=1219
+/teleport 32293 31673 6  # itemid=1219
+/teleport 32293 31673 7  # itemid=1219
+/teleport 32297 31672 8  # itemid=1219
+/teleport 32304 31667 8  # itemid=1219
+/teleport 32325 31724 7  # itemid=1219
+/teleport 32526 31591 5  # itemid=1219
+/teleport 32526 31596 5  # itemid=1219
+/teleport 32529 31591 5  # itemid=1219
+/teleport 32529 31596 5  # itemid=1219
+/teleport 32521 31601 7  # itemid=1219
+/teleport 32526 31601 5  # itemid=1219
+/teleport 32526 31601 6  # itemid=1219
+/teleport 32526 31601 7  # itemid=1219
+/teleport 32529 31601 5  # itemid=1219
+/teleport 32649 31575 8  # itemid=1219
+/teleport 32653 31573 5  # itemid=1219
+/teleport 32651 31577 8  # itemid=1219
+/teleport 32652 31576 6  # itemid=1219
+/teleport 32649 31580 8  # itemid=1219
+/teleport 32653 31580 5  # itemid=1219
+/teleport 32655 31580 6  # itemid=1219
+/teleport 32654 31581 7  # itemid=1219
+/teleport 32655 31581 8  # itemid=1219
+/teleport 32657 31573 6  # itemid=1219
+/teleport 32660 31573 5  # itemid=1219
+/teleport 32657 31576 6  # itemid=1219
+/teleport 32660 31580 5  # itemid=1219
+/teleport 32660 31580 6  # itemid=1219
+/teleport 32646 31599 6  # itemid=1219
+/teleport 32680 31592 7  # itemid=1219
+/teleport 32689 31587 6  # itemid=1219
+/teleport 32646 31603 6  # itemid=1219
+/teleport 32647 31602 7  # itemid=1219
+/teleport 32691 31600 6  # itemid=1219
+/teleport 32548 31655 7  # itemid=1219
+/teleport 32546 31658 6  # itemid=1219
+/teleport 32547 31657 8  # itemid=1219
+/teleport 32548 31656 5  # itemid=1219
+/teleport 32548 31658 7  # itemid=1219
+/teleport 32546 31663 6  # itemid=1219
+/teleport 32548 31662 7  # itemid=1219
+/teleport 32663 31635 5  # itemid=1219
+/teleport 32663 31635 6  # itemid=1219
+/teleport 32663 31638 5  # itemid=1219
+/teleport 32663 31638 6  # itemid=1219
+/teleport 32663 31636 7  # itemid=1219
+/teleport 32659 31641 4  # itemid=1219
+/teleport 32658 31641 5  # itemid=1219
+/teleport 32658 31641 6  # itemid=1219
+/teleport 32659 31641 7  # itemid=1219
+/teleport 32663 31642 5  # itemid=1219
+/teleport 32663 31642 6  # itemid=1219
+/teleport 32664 31641 7  # itemid=1219
+/teleport 32689 31642 6  # itemid=1219
+/teleport 32652 31650 6  # itemid=1219
+/teleport 32641 31657 6  # itemid=1219
+/teleport 32642 31657 7  # itemid=1219
+/teleport 32641 31661 6  # itemid=1219
+/teleport 32653 31664 9  # itemid=1219
+/teleport 32653 31664 10  # itemid=1219
+/teleport 32653 31668 9  # itemid=1219
+/teleport 32653 31668 10  # itemid=1219
+/teleport 32643 31672 6  # itemid=1219
+/teleport 32653 31672 8  # itemid=1219
+/teleport 32653 31672 9  # itemid=1219
+/teleport 32653 31672 10  # itemid=1219
+/teleport 32643 31676 6  # itemid=1219
+/teleport 32645 31676 7  # itemid=1219
+/teleport 32653 31676 8  # itemid=1219
+/teleport 32653 31676 9  # itemid=1219
+/teleport 32653 31676 10  # itemid=1219
+/teleport 32657 31664 9  # itemid=1219
+/teleport 32657 31664 10  # itemid=1219
+/teleport 32657 31668 9  # itemid=1219
+/teleport 32657 31668 10  # itemid=1219
+/teleport 32657 31672 8  # itemid=1219
+/teleport 32657 31672 9  # itemid=1219
+/teleport 32657 31672 10  # itemid=1219
+/teleport 32657 31676 8  # itemid=1219
+/teleport 32657 31676 9  # itemid=1219
+/teleport 32657 31676 10  # itemid=1219
+/teleport 32680 31675 6  # itemid=1219
+/teleport 32712 31646 6  # itemid=1219
+/teleport 32713 31646 7  # itemid=1219
+/teleport 32712 31649 6  # itemid=1219
+/teleport 32712 31653 6  # itemid=1219
+/teleport 32715 31655 8  # itemid=1219
+/teleport 32718 31655 8  # itemid=1219
+/teleport 32642 31691 7  # itemid=1219
+/teleport 32283 31766 7  # itemid=1219
+/teleport 32315 31781 5  # itemid=1219
+/teleport 32297 31799 7  # itemid=1219
+/teleport 32310 31795 6  # itemid=1219
+/teleport 32312 31795 6  # itemid=1219
+/teleport 32310 31798 6  # itemid=1219
+/teleport 32312 31798 6  # itemid=1219
+/teleport 32330 31763 6  # itemid=1219
+/teleport 32328 31764 6  # itemid=1219
+/teleport 32329 31772 7  # itemid=1219
+/teleport 32331 31772 7  # itemid=1219
+/teleport 32336 31763 6  # itemid=1219
+/teleport 32355 31767 6  # itemid=1219
+/teleport 32355 31767 7  # itemid=1219
+/teleport 32371 31769 6  # itemid=1219
+/teleport 32346 31783 6  # itemid=1219
+/teleport 32346 31783 7  # itemid=1219
+/teleport 32351 31783 6  # itemid=1219
+/teleport 32351 31783 7  # itemid=1219
+/teleport 32347 31786 7  # itemid=1219
+/teleport 32350 31786 7  # itemid=1219
+/teleport 32323 31802 6  # itemid=1219
+/teleport 32323 31807 6  # itemid=1219
+/teleport 32356 31792 5  # itemid=1219
+/teleport 32356 31795 6  # itemid=1219
+/teleport 32365 31799 6  # itemid=1219
+/teleport 32374 31794 6  # itemid=1219
+/teleport 32374 31794 7  # itemid=1219
+/teleport 32377 31794 6  # itemid=1219
+/teleport 32377 31794 7  # itemid=1219
+/teleport 32423 31760 6  # itemid=1219
+/teleport 32423 31763 6  # itemid=1219
+/teleport 32425 31761 7  # itemid=1219
+/teleport 32431 31761 7  # itemid=1219
+/teleport 32431 31762 7  # itemid=1219
+/teleport 32425 31766 6  # itemid=1219
+/teleport 32427 31764 8  # itemid=1219
+/teleport 32425 31768 7  # itemid=1219
+/teleport 32427 31770 8  # itemid=1219
+/teleport 32395 31801 6  # itemid=1219
+/teleport 32400 31798 7  # itemid=1219
+/teleport 32406 31801 7  # itemid=1219
+/teleport 32298 31821 6  # itemid=1219
+/teleport 32298 31822 7  # itemid=1219
+/teleport 32296 31821 8  # itemid=1219
+/teleport 32303 31821 6  # itemid=1219
+/teleport 32303 31821 7  # itemid=1219
+/teleport 32278 31824 6  # itemid=1219
+/teleport 32278 31826 7  # itemid=1219
+/teleport 32280 31826 5  # itemid=1219
+/teleport 32281 31826 7  # itemid=1219
+/teleport 32279 31830 6  # itemid=1219
+/teleport 32278 31831 7  # itemid=1219
+/teleport 32278 31829 8  # itemid=1219
+/teleport 32281 31829 8  # itemid=1219
+/teleport 32298 31825 7  # itemid=1219
+/teleport 32303 31824 6  # itemid=1219
+/teleport 32303 31827 6  # itemid=1219
+/teleport 32313 31839 7  # itemid=1219
+/teleport 32317 31837 6  # itemid=1219
+/teleport 32317 31839 6  # itemid=1219
+/teleport 32313 31843 7  # itemid=1219
+/teleport 32317 31841 6  # itemid=1219
+/teleport 32317 31843 6  # itemid=1219
+/teleport 32317 31845 6  # itemid=1219
+/teleport 32338 31845 8  # itemid=1219
+/teleport 32338 31849 8  # itemid=1219
+/teleport 32343 31850 6  # itemid=1219
+/teleport 32342 31850 7  # itemid=1219
+/teleport 32338 31853 8  # itemid=1219
+/teleport 32340 31854 5  # itemid=1219
+/teleport 32343 31854 6  # itemid=1219
+/teleport 32342 31854 7  # itemid=1219
+/teleport 32386 31843 5  # itemid=1219
+/teleport 32699 31766 6  # itemid=1219
+/teleport 32696 31765 7  # itemid=1219
+/teleport 32699 31766 7  # itemid=1219
+/teleport 32703 31766 6  # itemid=1219
+/teleport 32701 31770 7  # itemid=1219
+/teleport 32706 31764 3  # itemid=1219
+/teleport 32705 31766 7  # itemid=1219
+/teleport 32578 31823 10  # itemid=1219
+/teleport 32584 31826 9  # itemid=1219
+/teleport 32592 31826 9  # itemid=1219
+/teleport 32597 31889 9  # itemid=1219
+/teleport 32593 31893 10  # itemid=1219
+/teleport 32597 31893 9  # itemid=1219
+/teleport 32606 31893 9  # itemid=1219
+/teleport 32630 31888 7  # itemid=1219
+/teleport 32593 31905 11  # itemid=1219
+/teleport 32593 31907 12  # itemid=1219
+/teleport 32593 31910 11  # itemid=1219
+/teleport 32593 31911 12  # itemid=1219
+/teleport 32601 31912 4  # itemid=1219
+/teleport 32604 31914 5  # itemid=1219
+/teleport 32606 31914 5  # itemid=1219
+/teleport 32601 31919 4  # itemid=1219
+/teleport 32604 31917 5  # itemid=1219
+/teleport 32606 31917 5  # itemid=1219
+/teleport 32623 31906 9  # itemid=1219
+/teleport 32623 31911 9  # itemid=1219
+/teleport 32614 31914 5  # itemid=1219
+/teleport 32616 31914 5  # itemid=1219
+/teleport 32614 31917 5  # itemid=1219
+/teleport 32623 31916 9  # itemid=1219
+/teleport 32626 31906 9  # itemid=1219
+/teleport 32635 31906 9  # itemid=1219
+/teleport 32638 31906 9  # itemid=1219
+/teleport 32626 31911 9  # itemid=1219
+/teleport 32635 31911 9  # itemid=1219
+/teleport 32638 31911 9  # itemid=1219
+/teleport 32626 31916 9  # itemid=1219
+/teleport 32635 31916 9  # itemid=1219
+/teleport 32638 31916 9  # itemid=1219
+/teleport 32604 31920 5  # itemid=1219
+/teleport 32604 31923 5  # itemid=1219
+/teleport 32606 31920 5  # itemid=1219
+/teleport 32594 31924 4  # itemid=1219
+/teleport 32614 31920 5  # itemid=1219
+/teleport 32614 31923 5  # itemid=1219
+/teleport 32616 31923 5  # itemid=1219
+/teleport 32623 31921 9  # itemid=1219
+/teleport 32623 31926 9  # itemid=1219
+/teleport 32623 31931 9  # itemid=1219
+/teleport 32626 31921 9  # itemid=1219
+/teleport 32635 31921 9  # itemid=1219
+/teleport 32638 31921 9  # itemid=1219
+/teleport 32624 31925 2  # itemid=1219
+/teleport 32626 31926 9  # itemid=1219
+/teleport 32635 31926 9  # itemid=1219
+/teleport 32636 31926 8  # itemid=1219
+/teleport 32638 31926 9  # itemid=1219
+/teleport 32626 31931 9  # itemid=1219
+/teleport 32633 31930 8  # itemid=1219
+/teleport 32635 31931 9  # itemid=1219
+/teleport 32638 31931 9  # itemid=1219
+/teleport 32636 31933 8  # itemid=1219
+/teleport 32651 31890 2  # itemid=1219
+/teleport 32649 31899 2  # itemid=1219
+/teleport 32646 31908 2  # itemid=1219
+/teleport 32642 31918 2  # itemid=1219
+/teleport 32600 31951 4  # itemid=1219
+/teleport 32588 31955 5  # itemid=1219
+/teleport 32591 31954 6  # itemid=1219
+/teleport 32588 31958 5  # itemid=1219
+/teleport 32591 31957 6  # itemid=1219
+/teleport 32592 31958 5  # itemid=1219
+/teleport 32614 31959 10  # itemid=1219
+/teleport 32616 31956 8  # itemid=1219
+/teleport 32623 31956 8  # itemid=1219
+/teleport 32611 31960 9  # itemid=1219
+/teleport 32611 31963 9  # itemid=1219
+/teleport 32615 31963 9  # itemid=1219
+/teleport 32614 31962 10  # itemid=1219
+/teleport 32261 32013 6  # itemid=1219
+/teleport 32261 32015 6  # itemid=1219
+/teleport 32263 32014 8  # itemid=1219
+/teleport 32263 32014 9  # itemid=1219
+/teleport 32265 32032 7  # itemid=1219
+/teleport 32259 32041 6  # itemid=1219
+/teleport 32259 32045 6  # itemid=1219
+/teleport 32280 32039 7  # itemid=1219
+/teleport 32278 32042 6  # itemid=1219
+/teleport 32277 32043 7  # itemid=1219
+/teleport 32280 32043 7  # itemid=1219
+/teleport 32283 32050 7  # itemid=1219
+/teleport 32279 32052 7  # itemid=1219
+/teleport 32283 32052 7  # itemid=1219
+/teleport 32273 32062 7  # itemid=1219
+/teleport 32287 32063 5  # itemid=1219
+/teleport 32394 32033 6  # itemid=1219
+/teleport 32397 32035 8  # itemid=1219
+/teleport 32394 32039 6  # itemid=1219
+/teleport 32397 32036 6  # itemid=1219
+/teleport 32397 32039 8  # itemid=1219
+/teleport 32394 32041 6  # itemid=1219
+/teleport 32395 32042 8  # itemid=1219
+/teleport 32271 32073 7  # itemid=1219
+/teleport 32287 32066 6  # itemid=1219
+/teleport 32287 32067 7  # itemid=1219
+/teleport 32287 32065 8  # itemid=1219
+/teleport 32274 32069 6  # itemid=1219
+/teleport 32274 32068 8  # itemid=1219
+/teleport 32277 32069 7  # itemid=1219
+/teleport 32287 32069 6  # itemid=1219
+/teleport 32290 32064 8  # itemid=1219
+/teleport 32398 32148 8  # itemid=1219
+/teleport 32398 32155 8  # itemid=1219
+/teleport 32400 32154 6  # itemid=1219
+/teleport 32419 32175 7  # itemid=1219
+/teleport 32395 32177 7  # itemid=1219
+/teleport 32412 32189 6  # itemid=1219
+/teleport 32421 32189 6  # itemid=1219
+/teleport 32421 32189 7  # itemid=1219
+/teleport 32467 32173 7  # itemid=1219
+/teleport 32469 32173 6  # itemid=1219
+/teleport 32470 32173 7  # itemid=1219
+/teleport 32470 32173 8  # itemid=1219
+/teleport 32467 32178 7  # itemid=1219
+/teleport 32315 32238 6  # itemid=1219
+/teleport 32283 32252 7  # itemid=1219
+/teleport 32299 32249 6  # itemid=1219
+/teleport 32299 32251 6  # itemid=1219
+/teleport 32299 32254 7  # itemid=1219
+/teleport 32308 32243 7  # itemid=1219
+/teleport 32315 32243 6  # itemid=1219
+/teleport 32315 32240 7  # itemid=1219
+/teleport 32304 32244 6  # itemid=1219
+/teleport 32315 32245 7  # itemid=1219
+/teleport 32347 32196 8  # itemid=1219
+/teleport 32347 32199 8  # itemid=1219
+/teleport 32350 32196 8  # itemid=1219
+/teleport 32350 32199 8  # itemid=1219
+/teleport 32346 32201 6  # itemid=1219
+/teleport 32347 32207 8  # itemid=1219
+/teleport 32349 32205 6  # itemid=1219
+/teleport 32335 32222 7  # itemid=1219
+/teleport 32337 32210 7  # itemid=1219
+/teleport 32349 32208 6  # itemid=1219
+/teleport 32378 32222 6  # itemid=1219
+/teleport 32331 32224 7  # itemid=1219
+/teleport 32332 32232 5  # itemid=1219
+/teleport 32332 32232 6  # itemid=1219
+/teleport 32332 32232 7  # itemid=1219
+/teleport 32332 32237 5  # itemid=1219
+/teleport 32332 32237 6  # itemid=1219
+/teleport 32332 32237 7  # itemid=1219
+/teleport 32378 32224 6  # itemid=1219
+/teleport 32378 32224 7  # itemid=1219
+/teleport 32378 32228 6  # itemid=1219
+/teleport 32378 32228 7  # itemid=1219
+/teleport 32381 32231 8  # itemid=1219
+/teleport 32381 32233 6  # itemid=1219
+/teleport 32381 32232 7  # itemid=1219
+/teleport 32333 32244 5  # itemid=1219
+/teleport 32333 32244 6  # itemid=1219
+/teleport 32333 32244 7  # itemid=1219
+/teleport 32333 32249 5  # itemid=1219
+/teleport 32333 32249 6  # itemid=1219
+/teleport 32332 32255 6  # itemid=1219
+/teleport 32346 32255 6  # itemid=1219
+/teleport 32346 32255 7  # itemid=1219
+/teleport 32349 32255 7  # itemid=1219
+/teleport 32358 32255 6  # itemid=1219
+/teleport 32358 32255 7  # itemid=1219
+/teleport 32361 32255 7  # itemid=1219
+/teleport 32422 32198 6  # itemid=1219
+/teleport 32422 32198 7  # itemid=1219
+/teleport 32422 32203 6  # itemid=1219
+/teleport 32422 32203 7  # itemid=1219
+/teleport 32415 32220 6  # itemid=1219
+/teleport 32415 32223 6  # itemid=1219
+/teleport 32415 32220 7  # itemid=1219
+/teleport 32415 32223 7  # itemid=1219
+/teleport 32422 32208 6  # itemid=1219
+/teleport 32422 32208 7  # itemid=1219
+/teleport 32415 32226 6  # itemid=1219
+/teleport 32415 32226 7  # itemid=1219
+/teleport 32399 32251 7  # itemid=1219
+/teleport 32403 32251 7  # itemid=1219
+/teleport 32401 32248 8  # itemid=1219
+/teleport 32403 32248 8  # itemid=1219
+/teleport 32402 32249 9  # itemid=1219
+/teleport 32405 32249 6  # itemid=1219
+/teleport 32406 32251 7  # itemid=1219
+/teleport 32402 32253 9  # itemid=1219
+/teleport 32646 32027 8  # itemid=1219
+/teleport 32646 32028 4  # itemid=1219
+/teleport 32646 32028 5  # itemid=1219
+/teleport 32647 32029 6  # itemid=1219
+/teleport 32646 32028 7  # itemid=1219
+/teleport 32646 32031 7  # itemid=1219
+/teleport 32755 32131 8  # itemid=1219
+/teleport 32760 32131 7  # itemid=1219
+/teleport 32763 32131 7  # itemid=1219
+/teleport 32759 32132 4  # itemid=1219
+/teleport 32763 32132 4  # itemid=1219
+/teleport 32763 32135 4  # itemid=1219
+/teleport 32761 32132 5  # itemid=1219
+/teleport 32760 32132 6  # itemid=1219
+/teleport 32644 32204 7  # itemid=1219
+/teleport 32647 32212 8  # itemid=1219
+/teleport 32648 32212 6  # itemid=1219
+/teleport 32650 32212 7  # itemid=1219
+/teleport 32650 32212 8  # itemid=1219
+/teleport 32656 32239 5  # itemid=1219
+/teleport 32659 32239 5  # itemid=1219
+/teleport 32659 32242 8  # itemid=1219
+/teleport 32660 32242 9  # itemid=1219
+/teleport 32135 32370 7  # itemid=1219
+/teleport 32136 32370 5  # itemid=1219
+/teleport 32133 32373 5  # itemid=1219
+/teleport 32135 32374 7  # itemid=1219
+/teleport 32136 32373 6  # itemid=1219
+/teleport 32139 32374 7  # itemid=1219
+/teleport 32173 32371 6  # itemid=1219
+/teleport 32172 32370 8  # itemid=1219
+/teleport 32173 32375 6  # itemid=1219
+/teleport 32174 32373 7  # itemid=1219
+/teleport 32177 32373 7  # itemid=1219
+/teleport 32147 32397 7  # itemid=1219
+/teleport 32186 32412 8  # itemid=1219
+/teleport 32179 32423 6  # itemid=1219
+/teleport 32186 32420 8  # itemid=1219
+/teleport 32206 32431 4  # itemid=1219
+/teleport 32205 32432 7  # itemid=1219
+/teleport 32209 32432 6  # itemid=1219
+/teleport 32210 32432 7  # itemid=1219
+/teleport 32283 32256 7  # itemid=1219
+/teleport 32319 32268 6  # itemid=1219
+/teleport 32263 32310 8  # itemid=1219
+/teleport 32262 32309 9  # itemid=1219
+/teleport 32266 32309 9  # itemid=1219
+/teleport 32262 32313 7  # itemid=1219
+/teleport 32263 32315 8  # itemid=1219
+/teleport 32262 32313 9  # itemid=1219
+/teleport 32267 32313 7  # itemid=1219
+/teleport 32266 32314 9  # itemid=1219
+/teleport 32262 32317 9  # itemid=1219
+/teleport 32331 32257 7  # itemid=1219
+/teleport 32320 32268 4  # itemid=1219
+/teleport 32321 32268 5  # itemid=1219
+/teleport 32322 32270 7  # itemid=1219
+/teleport 32325 32268 8  # itemid=1219
+/teleport 32344 32259 6  # itemid=1219
+/teleport 32346 32258 7  # itemid=1219
+/teleport 32356 32259 6  # itemid=1219
+/teleport 32358 32258 7  # itemid=1219
+/teleport 32354 32265 6  # itemid=1219
+/teleport 32354 32265 7  # itemid=1219
+/teleport 32357 32265 7  # itemid=1219
+/teleport 32366 32265 6  # itemid=1219
+/teleport 32366 32265 7  # itemid=1219
+/teleport 32352 32269 6  # itemid=1219
+/teleport 32354 32268 7  # itemid=1219
+/teleport 32364 32269 6  # itemid=1219
+/teleport 32366 32268 7  # itemid=1219
+/teleport 32369 32265 7  # itemid=1219
+/teleport 32375 32264 7  # itemid=1219
+/teleport 32325 32272 7  # itemid=1219
+/teleport 32387 32261 5  # itemid=1219
+/teleport 32387 32261 6  # itemid=1219
+/teleport 32387 32261 7  # itemid=1219
+/teleport 32392 32260 5  # itemid=1219
+/teleport 32392 32260 6  # itemid=1219
+/teleport 32396 32260 7  # itemid=1219
+/teleport 32392 32265 5  # itemid=1219
+/teleport 32392 32265 6  # itemid=1219
+/teleport 32387 32268 5  # itemid=1219
+/teleport 32387 32268 6  # itemid=1219
+/teleport 32387 32268 7  # itemid=1219
+/teleport 32400 32259 6  # itemid=1219
+/teleport 32400 32260 7  # itemid=1219
+/teleport 32418 32262 7  # itemid=1219
+/teleport 32260 32320 6  # itemid=1219
+/teleport 32269 32320 6  # itemid=1219
+/teleport 32428 32365 9  # itemid=1219
+/teleport 32436 32362 4  # itemid=1219
+/teleport 32439 32363 4  # itemid=1219
+/teleport 32436 32363 5  # itemid=1219
+/teleport 32436 32363 6  # itemid=1219
+/teleport 32434 32365 9  # itemid=1219
+/teleport 32436 32365 4  # itemid=1219
+/teleport 32436 32364 6  # itemid=1219
+/teleport 32438 32365 7  # itemid=1219
+/teleport 32428 32368 9  # itemid=1219
+/teleport 32436 32368 4  # itemid=1219
+/teleport 32439 32368 4  # itemid=1219
+/teleport 33149 31797 7  # itemid=1219
+/teleport 33167 31789 4  # itemid=1219
+/teleport 33167 31794 4  # itemid=1219
+/teleport 33155 31798 7  # itemid=1219
+/teleport 33168 31802 4  # itemid=1219
+/teleport 33171 31802 4  # itemid=1219
+/teleport 33168 31802 5  # itemid=1219
+/teleport 33171 31802 5  # itemid=1219
+/teleport 33168 31807 4  # itemid=1219
+/teleport 33171 31807 4  # itemid=1219
+/teleport 33168 31807 5  # itemid=1219
+/teleport 33171 31807 5  # itemid=1219
+/teleport 33206 31794 7  # itemid=1219
+/teleport 33212 31795 7  # itemid=1219
+/teleport 33215 31795 7  # itemid=1219
+/teleport 33206 31801 7  # itemid=1219
+/teleport 33212 31802 7  # itemid=1219
+/teleport 33215 31802 7  # itemid=1219
+/teleport 33168 31812 4  # itemid=1219
+/teleport 33171 31812 4  # itemid=1219
+/teleport 33168 31812 5  # itemid=1219
+/teleport 33171 31812 5  # itemid=1219
+/teleport 33171 31817 4  # itemid=1219
+/teleport 33171 31817 5  # itemid=1219
+/teleport 33206 31808 7  # itemid=1219
+/teleport 33212 31809 7  # itemid=1219
+/teleport 33215 31809 7  # itemid=1219
+/teleport 33166 31835 7  # itemid=1219
+/teleport 33204 31835 7  # itemid=1219
+/teleport 33211 31835 7  # itemid=1219
+/teleport 33204 31838 7  # itemid=1219
+/teleport 33211 31838 7  # itemid=1219
+/teleport 33198 31851 6  # itemid=1219
+/teleport 33197 31851 8  # itemid=1219
+/teleport 33197 31854 8  # itemid=1219
+/teleport 33205 31851 6  # itemid=1219
+/teleport 33204 31851 8  # itemid=1219
+/teleport 33211 31851 8  # itemid=1219
+/teleport 33212 31851 6  # itemid=1219
+/teleport 33204 31854 8  # itemid=1219
+/teleport 33211 31854 8  # itemid=1219
+/teleport 33198 31858 7  # itemid=1219
+/teleport 33198 31862 7  # itemid=1219
+/teleport 33190 31864 6  # itemid=1219
+/teleport 33190 31864 7  # itemid=1219
+/teleport 33205 31858 7  # itemid=1219
+/teleport 33212 31858 7  # itemid=1219
+/teleport 33205 31862 7  # itemid=1219
+/teleport 33212 31862 7  # itemid=1219
+/teleport 33214 31869 7  # itemid=1219
+/teleport 33214 31869 8  # itemid=1219
+/teleport 33229 31810 7  # itemid=1219
+/teleport 33226 31817 7  # itemid=1219
+/teleport 33232 31817 6  # itemid=1219
+/teleport 33234 31817 6  # itemid=1219
+/teleport 33239 31831 7  # itemid=1219
+/teleport 33272 31825 6  # itemid=1219
+/teleport 33227 31843 6  # itemid=1219
+/teleport 33223 31847 6  # itemid=1219
+/teleport 33223 31847 7  # itemid=1219
+/teleport 33224 31844 6  # itemid=1219
+/teleport 33224 31844 7  # itemid=1219
+/teleport 33227 31850 6  # itemid=1219
+/teleport 33227 31854 7  # itemid=1219
+/teleport 33232 31847 7  # itemid=1219
+/teleport 33236 31846 6  # itemid=1219
+/teleport 33239 31847 7  # itemid=1219
+/teleport 33232 31854 7  # itemid=1219
+/teleport 33236 31853 6  # itemid=1219
+/teleport 33239 31854 7  # itemid=1219
+/teleport 33224 31858 6  # itemid=1219
+/teleport 33227 31857 6  # itemid=1219
+/teleport 33227 31859 7  # itemid=1219
+/teleport 33216 31869 7  # itemid=1219
+/teleport 33232 31861 7  # itemid=1219
+/teleport 33237 31862 6  # itemid=1219
+/teleport 33237 31863 7  # itemid=1219
+/teleport 33236 31867 7  # itemid=1219
+/teleport 33211 31873 5  # itemid=1219
+/teleport 33214 31872 7  # itemid=1219
+/teleport 33214 31876 7  # itemid=1219
+/teleport 33220 31874 7  # itemid=1219
+/teleport 33227 31876 7  # itemid=1219
+/teleport 33231 31877 6  # itemid=1219
+/teleport 33231 31877 8  # itemid=1219
+/teleport 33231 31882 6  # itemid=1219
+/teleport 33231 31882 7  # itemid=1219
+/teleport 33234 31879 7  # itemid=1219
+/teleport 33234 31882 7  # itemid=1219
+/teleport 33244 31884 5  # itemid=1219
+/teleport 33228 31893 7  # itemid=1219
+/teleport 33228 31896 7  # itemid=1219
+/teleport 33232 31892 5  # itemid=1219
+/teleport 33271 31978 7  # itemid=1219
+/teleport 33277 31980 7  # itemid=1219
+/teleport 33301 31759 6  # itemid=1219
+/teleport 33312 31753 7  # itemid=1219
+/teleport 33288 31765 7  # itemid=1219
+/teleport 33294 31765 7  # itemid=1219
+/teleport 33304 31767 6  # itemid=1219
+/teleport 33334 31763 6  # itemid=1219
+/teleport 33334 31763 7  # itemid=1219
+/teleport 33337 31763 7  # itemid=1219
+/teleport 33334 31766 6  # itemid=1219
+/teleport 33334 31766 7  # itemid=1219
+/teleport 33334 31764 8  # itemid=1219
+/teleport 33334 31766 8  # itemid=1219
+/teleport 33337 31764 6  # itemid=1219
+/teleport 33337 31767 6  # itemid=1219
+/teleport 33334 31769 7  # itemid=1219
+/teleport 33281 31835 8  # itemid=1219
+/teleport 33292 31966 6  # itemid=1219
+/teleport 33296 31968 7  # itemid=1219
+/teleport 33305 31978 7  # itemid=1219
+/teleport 33286 31988 7  # itemid=1219
+/teleport 33286 31994 7  # itemid=1219
+/teleport 33295 31998 5  # itemid=1219
+/teleport 33299 31990 7  # itemid=1219
+/teleport 33301 31989 5  # itemid=1219
+/teleport 33299 31994 6  # itemid=1219
+/teleport 33303 31994 6  # itemid=1219
+/teleport 33300 31994 8  # itemid=1219
+/teleport 33299 31998 5  # itemid=1219
+/teleport 33299 31999 6  # itemid=1219
+/teleport 32894 32051 7  # itemid=1219
+/teleport 32899 32042 6  # itemid=1219
+/teleport 32903 32040 5  # itemid=1219
+/teleport 32903 32043 5  # itemid=1219
+/teleport 32900 32040 7  # itemid=1219
+/teleport 32900 32043 7  # itemid=1219
+/teleport 32917 32041 7  # itemid=1219
+/teleport 32927 32046 7  # itemid=1219
+/teleport 32931 32047 5  # itemid=1219
+/teleport 32929 32047 7  # itemid=1219
+/teleport 32949 32047 7  # itemid=1219
+/teleport 32915 32049 5  # itemid=1219
+/teleport 32915 32049 7  # itemid=1219
+/teleport 32915 32053 7  # itemid=1219
+/teleport 32917 32052 6  # itemid=1219
+/teleport 32946 32057 5  # itemid=1219
+/teleport 32946 32060 5  # itemid=1219
+/teleport 32961 32046 5  # itemid=1219
+/teleport 32962 32047 7  # itemid=1219
+/teleport 32992 32047 5  # itemid=1219
+/teleport 32992 32047 7  # itemid=1219
+/teleport 32962 32050 6  # itemid=1219
+/teleport 32963 32056 5  # itemid=1219
+/teleport 32962 32056 6  # itemid=1219
+/teleport 32962 32059 6  # itemid=1219
+/teleport 32979 32053 7  # itemid=1219
+/teleport 32978 32057 5  # itemid=1219
+/teleport 32979 32056 7  # itemid=1219
+/teleport 32979 32059 7  # itemid=1219
+/teleport 32980 32059 6  # itemid=1219
+/teleport 33005 32049 7  # itemid=1219
+/teleport 33005 32053 7  # itemid=1219
+/teleport 32894 32068 7  # itemid=1219
+/teleport 32894 32104 5  # itemid=1219
+/teleport 32894 32104 7  # itemid=1219
+/teleport 32896 32069 6  # itemid=1219
+/teleport 32899 32073 7  # itemid=1219
+/teleport 32899 32077 6  # itemid=1219
+/teleport 32899 32077 7  # itemid=1219
+/teleport 32901 32077 5  # itemid=1219
+/teleport 32905 32095 4  # itemid=1219
+/teleport 32905 32092 7  # itemid=1219
+/teleport 32908 32092 4  # itemid=1219
+/teleport 32939 32086 7  # itemid=1219
+/teleport 32939 32088 5  # itemid=1219
+/teleport 32937 32090 6  # itemid=1219
+/teleport 32905 32096 7  # itemid=1219
+/teleport 32905 32099 7  # itemid=1219
+/teleport 32911 32100 4  # itemid=1219
+/teleport 32896 32107 6  # itemid=1219
+/teleport 32932 32103 7  # itemid=1219
+/teleport 32927 32119 6  # itemid=1219
+/teleport 32927 32119 7  # itemid=1219
+/teleport 32927 32123 6  # itemid=1219
+/teleport 32927 32125 7  # itemid=1219
+/teleport 32930 32119 6  # itemid=1219
+/teleport 32930 32123 6  # itemid=1219
+/teleport 32995 32073 7  # itemid=1219
+/teleport 32994 32077 5  # itemid=1219
+/teleport 32995 32077 7  # itemid=1219
+/teleport 32996 32077 6  # itemid=1219
+/teleport 32983 32095 7  # itemid=1219
+/teleport 32984 32095 5  # itemid=1219
+/teleport 32988 32095 5  # itemid=1219
+/teleport 32988 32095 7  # itemid=1219
+/teleport 32999 32084 6  # itemid=1219
+/teleport 33002 32084 7  # itemid=1219
+/teleport 32999 32088 6  # itemid=1219
+/teleport 33002 32088 7  # itemid=1219
+/teleport 32980 32096 6  # itemid=1219
+/teleport 32983 32098 7  # itemid=1219
+/teleport 32984 32098 5  # itemid=1219
+/teleport 32986 32096 6  # itemid=1219
+/teleport 32988 32098 5  # itemid=1219
+/teleport 32988 32101 5  # itemid=1219
+/teleport 32988 32104 5  # itemid=1219
+/teleport 32984 32110 7  # itemid=1219
+/teleport 32999 32109 6  # itemid=1219
+/teleport 32961 32123 3  # itemid=1219
+/teleport 32961 32123 4  # itemid=1219
+/teleport 32961 32123 5  # itemid=1219
+/teleport 32960 32122 6  # itemid=1219
+/teleport 32961 32126 4  # itemid=1219
+/teleport 32961 32126 5  # itemid=1219
+/teleport 32960 32125 6  # itemid=1219
+/teleport 32982 32112 6  # itemid=1219
+/teleport 32985 32112 6  # itemid=1219
+/teleport 32982 32116 6  # itemid=1219
+/teleport 32985 32116 6  # itemid=1219
+/teleport 32984 32117 7  # itemid=1219
+/teleport 32906 32129 6  # itemid=1219
+/teleport 32909 32129 6  # itemid=1219
+/teleport 32906 32132 7  # itemid=1219
+/teleport 32910 32132 7  # itemid=1219
+/teleport 32922 32134 6  # itemid=1219
+/teleport 32922 32132 7  # itemid=1219
+/teleport 33280 32003 6  # itemid=1219
+/teleport 33286 32000 7  # itemid=1219
+/teleport 33285 32012 6  # itemid=1219
+/teleport 33285 32012 7  # itemid=1219
+/teleport 33200 32412 6  # itemid=1219
+/teleport 33200 32414 7  # itemid=1219
+/teleport 33207 32416 6  # itemid=1219
+/teleport 33200 32420 6  # itemid=1219
+/teleport 33203 32435 6  # itemid=1219
+/teleport 33203 32435 7  # itemid=1219
+/teleport 33210 32434 6  # itemid=1219
+/teleport 33203 32439 6  # itemid=1219
+/teleport 33203 32438 7  # itemid=1219
+/teleport 33210 32439 6  # itemid=1219
+/teleport 33253 32398 6  # itemid=1219
+/teleport 33253 32402 6  # itemid=1219
+/teleport 33253 32403 7  # itemid=1219
+/teleport 33260 32403 7  # itemid=1219
+/teleport 33260 32405 6  # itemid=1219
+/teleport 33255 32409 7  # itemid=1219
+/teleport 33258 32409 7  # itemid=1219
+/teleport 33260 32409 6  # itemid=1219
+/teleport 33275 32403 6  # itemid=1219
+/teleport 33277 32405 7  # itemid=1219
+/teleport 33275 32408 6  # itemid=1219
+/teleport 33240 32419 7  # itemid=1219
+/teleport 33240 32423 6  # itemid=1219
+/teleport 33240 32425 7  # itemid=1219
+/teleport 33247 32427 6  # itemid=1219
+/teleport 33240 32431 7  # itemid=1219
+/teleport 33247 32431 6  # itemid=1219
+/teleport 33261 32423 6  # itemid=1219
+/teleport 33268 32427 6  # itemid=1219
+/teleport 33268 32425 7  # itemid=1219
+/teleport 33228 32442 7  # itemid=1219
+/teleport 33231 32442 7  # itemid=1219
+/teleport 33226 32446 6  # itemid=1219
+/teleport 33226 32447 7  # itemid=1219
+/teleport 33233 32447 7  # itemid=1219
+/teleport 33248 32442 6  # itemid=1219
+/teleport 33250 32442 7  # itemid=1219
+/teleport 33253 32442 7  # itemid=1219
+/teleport 33248 32446 6  # itemid=1219
+/teleport 33248 32447 7  # itemid=1219
+/teleport 33255 32447 7  # itemid=1219
+/teleport 33233 32449 6  # itemid=1219
+/teleport 33255 32449 6  # itemid=1219
+/teleport 33255 32453 6  # itemid=1219
+/teleport 33255 32453 7  # itemid=1219
+/teleport 33253 32452 8  # itemid=1219
+/teleport 33255 32452 8  # itemid=1219
+/teleport 33274 32450 7  # itemid=1219
+/teleport 33267 32453 7  # itemid=1219
+/teleport 33270 32453 7  # itemid=1219
+/teleport 33274 32453 7  # itemid=1219
+/teleport 33270 32456 6  # itemid=1219
+/teleport 33270 32457 7  # itemid=1219
+/teleport 33274 32457 7  # itemid=1219
+/teleport 33218 32465 6  # itemid=1219
+/teleport 33223 32465 6  # itemid=1219
+/teleport 33218 32468 7  # itemid=1219
+/teleport 33223 32470 7  # itemid=1219
+/teleport 33227 32470 7  # itemid=1219
+/teleport 33218 32474 6  # itemid=1219
+/teleport 33218 32474 7  # itemid=1219
+/teleport 33223 32474 7  # itemid=1219
+/teleport 33237 32465 6  # itemid=1219
+/teleport 33237 32465 7  # itemid=1219
+/teleport 33233 32470 7  # itemid=1219
+/teleport 33237 32470 7  # itemid=1219
+/teleport 33236 32470 8  # itemid=1219
+/teleport 33242 32470 7  # itemid=1219
+/teleport 33242 32474 7  # itemid=1219
+/teleport 33102 32837 6  # itemid=1219
+/teleport 33102 32843 6  # itemid=1219
+/teleport 33105 32837 6  # itemid=1219
+/teleport 33106 32840 5  # itemid=1219
+/teleport 33105 32843 6  # itemid=1219
+
+itemid=1220 count=0
+
+itemid=1221 count=827
+/teleport 32155 31662 7  # itemid=1221
+/teleport 32160 31662 7  # itemid=1221
+/teleport 32171 31662 7  # itemid=1221
+/teleport 32171 31663 8  # itemid=1221
+/teleport 32172 31660 6  # itemid=1221
+/teleport 32174 31661 7  # itemid=1221
+/teleport 32175 31663 8  # itemid=1221
+/teleport 32178 31661 7  # itemid=1221
+/teleport 32136 31665 7  # itemid=1221
+/teleport 32132 31671 7  # itemid=1221
+/teleport 32136 31674 8  # itemid=1221
+/teleport 32141 31676 7  # itemid=1221
+/teleport 32156 31665 7  # itemid=1221
+/teleport 32161 31665 7  # itemid=1221
+/teleport 32470 31609 6  # itemid=1221
+/teleport 32468 31610 7  # itemid=1221
+/teleport 32468 31609 8  # itemid=1221
+/teleport 32473 31609 8  # itemid=1221
+/teleport 32478 31609 6  # itemid=1221
+/teleport 32468 31613 7  # itemid=1221
+/teleport 32502 31607 7  # itemid=1221
+/teleport 32503 31604 7  # itemid=1221
+/teleport 32297 31666 7  # itemid=1221
+/teleport 32299 31666 8  # itemid=1221
+/teleport 32302 31666 5  # itemid=1221
+/teleport 32302 31671 6  # itemid=1221
+/teleport 32302 31671 7  # itemid=1221
+/teleport 32302 31668 8  # itemid=1221
+/teleport 32297 31674 7  # itemid=1221
+/teleport 32277 31728 7  # itemid=1221
+/teleport 32527 31595 8  # itemid=1221
+/teleport 32524 31598 7  # itemid=1221
+/teleport 32527 31598 8  # itemid=1221
+/teleport 32532 31595 8  # itemid=1221
+/teleport 32531 31598 8  # itemid=1221
+/teleport 32654 31574 6  # itemid=1221
+/teleport 32654 31578 6  # itemid=1221
+/teleport 32652 31579 7  # itemid=1221
+/teleport 32657 31578 7  # itemid=1221
+/teleport 32662 31578 7  # itemid=1221
+/teleport 32657 31582 7  # itemid=1221
+/teleport 32658 31582 7  # itemid=1221
+/teleport 32676 31591 6  # itemid=1221
+/teleport 32688 31591 6  # itemid=1221
+/teleport 32691 31591 6  # itemid=1221
+/teleport 32695 31591 6  # itemid=1221
+/teleport 32668 31611 6  # itemid=1221
+/teleport 32671 31611 6  # itemid=1221
+/teleport 32693 31604 7  # itemid=1221
+/teleport 32688 31613 6  # itemid=1221
+/teleport 32543 31662 7  # itemid=1221
+/teleport 32544 31653 5  # itemid=1221
+/teleport 32545 31658 8  # itemid=1221
+/teleport 32550 31658 8  # itemid=1221
+/teleport 32544 31660 6  # itemid=1221
+/teleport 32546 31665 7  # itemid=1221
+/teleport 32547 31665 7  # itemid=1221
+/teleport 32624 31653 6  # itemid=1221
+/teleport 32626 31655 7  # itemid=1221
+/teleport 32628 31653 6  # itemid=1221
+/teleport 32626 31657 6  # itemid=1221
+/teleport 32626 31658 7  # itemid=1221
+/teleport 32662 31638 4  # itemid=1221
+/teleport 32664 31638 4  # itemid=1221
+/teleport 32664 31640 4  # itemid=1221
+/teleport 32690 31646 7  # itemid=1221
+/teleport 32651 31653 6  # itemid=1221
+/teleport 32652 31655 7  # itemid=1221
+/teleport 32656 31653 6  # itemid=1221
+/teleport 32652 31667 7  # itemid=1221
+/teleport 32676 31673 6  # itemid=1221
+/teleport 32678 31673 6  # itemid=1221
+/teleport 32677 31677 7  # itemid=1221
+/teleport 32717 31620 6  # itemid=1221
+/teleport 32717 31620 7  # itemid=1221
+/teleport 32715 31647 6  # itemid=1221
+/teleport 32714 31644 7  # itemid=1221
+/teleport 32715 31648 7  # itemid=1221
+/teleport 32714 31656 8  # itemid=1221
+/teleport 32717 31656 8  # itemid=1221
+/teleport 32713 31664 6  # itemid=1221
+/teleport 32712 31664 7  # itemid=1221
+/teleport 32636 31690 6  # itemid=1221
+/teleport 32640 31690 6  # itemid=1221
+/teleport 32272 31766 7  # itemid=1221
+/teleport 32310 31782 5  # itemid=1221
+/teleport 32314 31782 5  # itemid=1221
+/teleport 32301 31792 7  # itemid=1221
+/teleport 32302 31800 7  # itemid=1221
+/teleport 32310 31792 7  # itemid=1221
+/teleport 32314 31792 7  # itemid=1221
+/teleport 32307 31800 7  # itemid=1221
+/teleport 32326 31766 7  # itemid=1221
+/teleport 32335 31766 7  # itemid=1221
+/teleport 32327 31769 7  # itemid=1221
+/teleport 32335 31769 7  # itemid=1221
+/teleport 32357 31766 6  # itemid=1221
+/teleport 32368 31766 6  # itemid=1221
+/teleport 32380 31771 7  # itemid=1221
+/teleport 32348 31779 6  # itemid=1221
+/teleport 32350 31779 6  # itemid=1221
+/teleport 32348 31779 7  # itemid=1221
+/teleport 32350 31779 7  # itemid=1221
+/teleport 32347 31784 6  # itemid=1221
+/teleport 32350 31784 6  # itemid=1221
+/teleport 32359 31781 6  # itemid=1221
+/teleport 32359 31783 6  # itemid=1221
+/teleport 32361 31781 6  # itemid=1221
+/teleport 32361 31783 6  # itemid=1221
+/teleport 32324 31803 7  # itemid=1221
+/teleport 32327 31803 7  # itemid=1221
+/teleport 32324 31805 7  # itemid=1221
+/teleport 32327 31805 7  # itemid=1221
+/teleport 32364 31795 6  # itemid=1221
+/teleport 32376 31795 6  # itemid=1221
+/teleport 32376 31795 7  # itemid=1221
+/teleport 32379 31803 7  # itemid=1221
+/teleport 32383 31803 7  # itemid=1221
+/teleport 32389 31773 7  # itemid=1221
+/teleport 32423 31767 6  # itemid=1221
+/teleport 32423 31765 7  # itemid=1221
+/teleport 32428 31764 7  # itemid=1221
+/teleport 32424 31768 8  # itemid=1221
+/teleport 32393 31797 7  # itemid=1221
+/teleport 32298 31822 8  # itemid=1221
+/teleport 32301 31822 6  # itemid=1221
+/teleport 32301 31823 7  # itemid=1221
+/teleport 32307 31819 7  # itemid=1221
+/teleport 32306 31822 7  # itemid=1221
+/teleport 32317 31821 7  # itemid=1221
+/teleport 32281 31826 6  # itemid=1221
+/teleport 32280 31824 7  # itemid=1221
+/teleport 32284 31826 6  # itemid=1221
+/teleport 32277 31828 5  # itemid=1221
+/teleport 32283 31828 5  # itemid=1221
+/teleport 32280 31828 7  # itemid=1221
+/teleport 32280 31830 8  # itemid=1221
+/teleport 32314 31840 6  # itemid=1221
+/teleport 32315 31841 7  # itemid=1221
+/teleport 32319 31840 7  # itemid=1221
+/teleport 32312 31844 6  # itemid=1221
+/teleport 32331 31820 7  # itemid=1221
+/teleport 32380 31808 7  # itemid=1221
+/teleport 32383 31808 7  # itemid=1221
+/teleport 32362 31824 7  # itemid=1221
+/teleport 32378 31835 6  # itemid=1221
+/teleport 32381 31834 5  # itemid=1221
+/teleport 32382 31835 6  # itemid=1221
+/teleport 32341 31851 5  # itemid=1221
+/teleport 32340 31851 6  # itemid=1221
+/teleport 32341 31848 7  # itemid=1221
+/teleport 32346 31851 7  # itemid=1221
+/teleport 32341 31852 7  # itemid=1221
+/teleport 32344 31852 8  # itemid=1221
+/teleport 32376 31841 6  # itemid=1221
+/teleport 32380 31841 6  # itemid=1221
+/teleport 32385 31834 5  # itemid=1221
+/teleport 32386 31835 6  # itemid=1221
+/teleport 32389 31835 6  # itemid=1221
+/teleport 32384 31841 6  # itemid=1221
+/teleport 32388 31841 6  # itemid=1221
+/teleport 32697 31763 5  # itemid=1221
+/teleport 32698 31763 7  # itemid=1221
+/teleport 32701 31763 6  # itemid=1221
+/teleport 32698 31768 7  # itemid=1221
+/teleport 32703 31768 7  # itemid=1221
+/teleport 32698 31772 7  # itemid=1221
+/teleport 32705 31762 5  # itemid=1221
+/teleport 32705 31764 5  # itemid=1221
+/teleport 32708 31765 3  # itemid=1221
+/teleport 32582 31821 10  # itemid=1221
+/teleport 32586 31821 9  # itemid=1221
+/teleport 32579 31824 10  # itemid=1221
+/teleport 32582 31824 10  # itemid=1221
+/teleport 32586 31824 10  # itemid=1221
+/teleport 32594 31891 10  # itemid=1221
+/teleport 32597 31891 10  # itemid=1221
+/teleport 32600 31891 9  # itemid=1221
+/teleport 32601 31891 10  # itemid=1221
+/teleport 32604 31891 9  # itemid=1221
+/teleport 32605 31891 10  # itemid=1221
+/teleport 32594 31894 10  # itemid=1221
+/teleport 32597 31894 10  # itemid=1221
+/teleport 32600 31894 9  # itemid=1221
+/teleport 32601 31894 10  # itemid=1221
+/teleport 32605 31894 10  # itemid=1221
+/teleport 32603 31907 11  # itemid=1221
+/teleport 32606 31907 11  # itemid=1221
+/teleport 32602 31910 11  # itemid=1221
+/teleport 32606 31910 11  # itemid=1221
+/teleport 32607 31913 4  # itemid=1221
+/teleport 32607 31915 4  # itemid=1221
+/teleport 32612 31913 4  # itemid=1221
+/teleport 32607 31922 4  # itemid=1221
+/teleport 32606 31923 11  # itemid=1221
+/teleport 32607 31923 12  # itemid=1221
+/teleport 32603 31925 12  # itemid=1221
+/teleport 32605 31925 11  # itemid=1221
+/teleport 32612 31920 4  # itemid=1221
+/teleport 32612 31922 4  # itemid=1221
+/teleport 32627 31922 2  # itemid=1221
+/teleport 32631 31923 8  # itemid=1221
+/teleport 32599 31949 4  # itemid=1221
+/teleport 32599 31950 5  # itemid=1221
+/teleport 32590 31953 5  # itemid=1221
+/teleport 32590 31956 5  # itemid=1221
+/teleport 32593 31953 4  # itemid=1221
+/teleport 32595 31953 5  # itemid=1221
+/teleport 32594 31953 6  # itemid=1221
+/teleport 32594 31955 6  # itemid=1221
+/teleport 32596 31953 4  # itemid=1221
+/teleport 32598 31953 6  # itemid=1221
+/teleport 32599 31956 5  # itemid=1221
+/teleport 32599 31956 6  # itemid=1221
+/teleport 32622 31955 9  # itemid=1221
+/teleport 32613 31958 9  # itemid=1221
+/teleport 32617 31958 8  # itemid=1221
+/teleport 32618 31958 9  # itemid=1221
+/teleport 32617 31958 10  # itemid=1221
+/teleport 32620 31958 8  # itemid=1221
+/teleport 32621 31958 10  # itemid=1221
+/teleport 32613 31961 9  # itemid=1221
+/teleport 32617 31960 10  # itemid=1221
+/teleport 32622 31961 9  # itemid=1221
+/teleport 32622 31961 10  # itemid=1221
+/teleport 32266 32015 8  # itemid=1221
+/teleport 32267 32012 8  # itemid=1221
+/teleport 32272 32015 8  # itemid=1221
+/teleport 32273 32012 8  # itemid=1221
+/teleport 32263 32039 6  # itemid=1221
+/teleport 32259 32040 7  # itemid=1221
+/teleport 32259 32043 7  # itemid=1221
+/teleport 32264 32040 7  # itemid=1221
+/teleport 32264 32043 7  # itemid=1221
+/teleport 32278 32037 7  # itemid=1221
+/teleport 32277 32040 6  # itemid=1221
+/teleport 32276 32041 7  # itemid=1221
+/teleport 32276 32044 7  # itemid=1221
+/teleport 32280 32048 7  # itemid=1221
+/teleport 32284 32048 7  # itemid=1221
+/teleport 32393 32041 7  # itemid=1221
+/teleport 32393 32041 8  # itemid=1221
+/teleport 32396 32040 6  # itemid=1221
+/teleport 32396 32041 7  # itemid=1221
+/teleport 32397 32041 7  # itemid=1221
+/teleport 32400 32041 7  # itemid=1221
+/teleport 32401 32041 8  # itemid=1221
+/teleport 32269 32071 6  # itemid=1221
+/teleport 32269 32070 7  # itemid=1221
+/teleport 32286 32067 5  # itemid=1221
+/teleport 32284 32064 7  # itemid=1221
+/teleport 32272 32071 6  # itemid=1221
+/teleport 32273 32070 7  # itemid=1221
+/teleport 32276 32071 6  # itemid=1221
+/teleport 32276 32070 7  # itemid=1221
+/teleport 32276 32069 8  # itemid=1221
+/teleport 32289 32064 6  # itemid=1221
+/teleport 32288 32064 7  # itemid=1221
+/teleport 32291 32064 7  # itemid=1221
+/teleport 32288 32066 8  # itemid=1221
+/teleport 32293 32064 6  # itemid=1221
+/teleport 32290 32069 7  # itemid=1221
+/teleport 32393 32151 6  # itemid=1221
+/teleport 32397 32151 6  # itemid=1221
+/teleport 32392 32153 6  # itemid=1221
+/teleport 32393 32154 7  # itemid=1221
+/teleport 32394 32154 8  # itemid=1221
+/teleport 32392 32153 9  # itemid=1221
+/teleport 32397 32154 7  # itemid=1221
+/teleport 32402 32151 6  # itemid=1221
+/teleport 32402 32153 6  # itemid=1221
+/teleport 32401 32154 7  # itemid=1221
+/teleport 32404 32175 6  # itemid=1221
+/teleport 32404 32175 7  # itemid=1221
+/teleport 32422 32173 6  # itemid=1221
+/teleport 32422 32173 7  # itemid=1221
+/teleport 32398 32180 7  # itemid=1221
+/teleport 32404 32180 7  # itemid=1221
+/teleport 32410 32185 7  # itemid=1221
+/teleport 32422 32177 7  # itemid=1221
+/teleport 32469 32171 7  # itemid=1221
+/teleport 32467 32175 5  # itemid=1221
+/teleport 32467 32174 6  # itemid=1221
+/teleport 32469 32174 4  # itemid=1221
+/teleport 32471 32174 6  # itemid=1221
+/teleport 32472 32174 7  # itemid=1221
+/teleport 32472 32174 8  # itemid=1221
+/teleport 32466 32177 5  # itemid=1221
+/teleport 32469 32177 5  # itemid=1221
+/teleport 32472 32177 5  # itemid=1221
+/teleport 32309 32233 6  # itemid=1221
+/teleport 32309 32234 7  # itemid=1221
+/teleport 32312 32233 6  # itemid=1221
+/teleport 32314 32233 6  # itemid=1221
+/teleport 32313 32234 7  # itemid=1221
+/teleport 32317 32234 7  # itemid=1221
+/teleport 32347 32197 6  # itemid=1221
+/teleport 32347 32197 7  # itemid=1221
+/teleport 32345 32203 7  # itemid=1221
+/teleport 32350 32201 6  # itemid=1221
+/teleport 32348 32203 7  # itemid=1221
+/teleport 32349 32201 8  # itemid=1221
+/teleport 32338 32208 7  # itemid=1221
+/teleport 32350 32210 6  # itemid=1221
+/teleport 32348 32212 7  # itemid=1221
+/teleport 32349 32212 7  # itemid=1221
+/teleport 32348 32253 7  # itemid=1221
+/teleport 32360 32253 7  # itemid=1221
+/teleport 32413 32236 6  # itemid=1221
+/teleport 32413 32239 6  # itemid=1221
+/teleport 32413 32236 7  # itemid=1221
+/teleport 32413 32239 7  # itemid=1221
+/teleport 32419 32236 6  # itemid=1221
+/teleport 32419 32239 6  # itemid=1221
+/teleport 32419 32236 7  # itemid=1221
+/teleport 32419 32239 7  # itemid=1221
+/teleport 32395 32248 6  # itemid=1221
+/teleport 32395 32250 6  # itemid=1221
+/teleport 32393 32249 9  # itemid=1221
+/teleport 32393 32251 9  # itemid=1221
+/teleport 32398 32248 6  # itemid=1221
+/teleport 32399 32250 6  # itemid=1221
+/teleport 32397 32249 9  # itemid=1221
+/teleport 32403 32250 6  # itemid=1221
+/teleport 32401 32248 7  # itemid=1221
+/teleport 32404 32248 6  # itemid=1221
+/teleport 32405 32248 7  # itemid=1221
+/teleport 32401 32253 7  # itemid=1221
+/teleport 32419 32248 7  # itemid=1221
+/teleport 32643 32026 7  # itemid=1221
+/teleport 32644 32026 7  # itemid=1221
+/teleport 32648 32025 8  # itemid=1221
+/teleport 32646 32029 3  # itemid=1221
+/teleport 32644 32030 5  # itemid=1221
+/teleport 32644 32029 7  # itemid=1221
+/teleport 32649 32030 5  # itemid=1221
+/teleport 32649 32030 6  # itemid=1221
+/teleport 32649 32029 7  # itemid=1221
+/teleport 32644 32032 4  # itemid=1221
+/teleport 32644 32033 7  # itemid=1221
+/teleport 32648 32032 4  # itemid=1221
+/teleport 32649 32033 7  # itemid=1221
+/teleport 32761 32129 7  # itemid=1221
+/teleport 32762 32129 7  # itemid=1221
+/teleport 32758 32134 4  # itemid=1221
+/teleport 32759 32134 5  # itemid=1221
+/teleport 32758 32133 6  # itemid=1221
+/teleport 32759 32133 7  # itemid=1221
+/teleport 32759 32135 7  # itemid=1221
+/teleport 32757 32132 8  # itemid=1221
+/teleport 32762 32132 7  # itemid=1221
+/teleport 32762 32135 7  # itemid=1221
+/teleport 32765 32133 6  # itemid=1221
+/teleport 32765 32133 7  # itemid=1221
+/teleport 32765 32135 7  # itemid=1221
+/teleport 32758 32136 4  # itemid=1221
+/teleport 32762 32136 4  # itemid=1221
+/teleport 32657 32210 7  # itemid=1221
+/teleport 32657 32210 8  # itemid=1221
+/teleport 32660 32210 7  # itemid=1221
+/teleport 32663 32210 7  # itemid=1221
+/teleport 32660 32210 8  # itemid=1221
+/teleport 32663 32210 8  # itemid=1221
+/teleport 32655 32234 5  # itemid=1221
+/teleport 32660 32234 5  # itemid=1221
+/teleport 32660 32235 7  # itemid=1221
+/teleport 32656 32236 6  # itemid=1221
+/teleport 32659 32236 6  # itemid=1221
+/teleport 32661 32238 8  # itemid=1221
+/teleport 32661 32240 9  # itemid=1221
+/teleport 32132 32371 6  # itemid=1221
+/teleport 32135 32371 6  # itemid=1221
+/teleport 32133 32368 7  # itemid=1221
+/teleport 32137 32371 5  # itemid=1221
+/teleport 32134 32372 8  # itemid=1221
+/teleport 32137 32372 7  # itemid=1221
+/teleport 32137 32372 8  # itemid=1221
+/teleport 32174 32371 8  # itemid=1221
+/teleport 32171 32372 6  # itemid=1221
+/teleport 32169 32374 7  # itemid=1221
+/teleport 32175 32372 6  # itemid=1221
+/teleport 32172 32374 7  # itemid=1221
+/teleport 32176 32371 7  # itemid=1221
+/teleport 32176 32374 7  # itemid=1221
+/teleport 32144 32394 7  # itemid=1221
+/teleport 32151 32398 7  # itemid=1221
+/teleport 32178 32410 8  # itemid=1221
+/teleport 32183 32410 8  # itemid=1221
+/teleport 32181 32426 6  # itemid=1221
+/teleport 32180 32426 7  # itemid=1221
+/teleport 32159 32440 7  # itemid=1221
+/teleport 32171 32441 7  # itemid=1221
+/teleport 32175 32441 7  # itemid=1221
+/teleport 32176 32432 7  # itemid=1221
+/teleport 32184 32432 7  # itemid=1221
+/teleport 32204 32425 8  # itemid=1221
+/teleport 32206 32431 5  # itemid=1221
+/teleport 32208 32427 5  # itemid=1221
+/teleport 32211 32425 8  # itemid=1221
+/teleport 32211 32427 8  # itemid=1221
+/teleport 32218 32425 8  # itemid=1221
+/teleport 32218 32427 8  # itemid=1221
+/teleport 32208 32430 4  # itemid=1221
+/teleport 32210 32430 5  # itemid=1221
+/teleport 32208 32429 7  # itemid=1221
+/teleport 32196 32439 7  # itemid=1221
+/teleport 32207 32436 6  # itemid=1221
+/teleport 32208 32432 4  # itemid=1221
+/teleport 32208 32434 7  # itemid=1221
+/teleport 32208 32436 7  # itemid=1221
+/teleport 32318 32269 4  # itemid=1221
+/teleport 32317 32269 7  # itemid=1221
+/teleport 32293 32272 8  # itemid=1221
+/teleport 32293 32275 8  # itemid=1221
+/teleport 32297 32272 8  # itemid=1221
+/teleport 32297 32275 8  # itemid=1221
+/teleport 32301 32275 8  # itemid=1221
+/teleport 32305 32275 8  # itemid=1221
+/teleport 32268 32311 7  # itemid=1221
+/teleport 32269 32310 8  # itemid=1221
+/teleport 32259 32315 6  # itemid=1221
+/teleport 32259 32315 7  # itemid=1221
+/teleport 32265 32315 7  # itemid=1221
+/teleport 32270 32315 6  # itemid=1221
+/teleport 32270 32315 7  # itemid=1221
+/teleport 32328 32256 6  # itemid=1221
+/teleport 32331 32256 6  # itemid=1221
+/teleport 32322 32269 4  # itemid=1221
+/teleport 32323 32269 5  # itemid=1221
+/teleport 32320 32269 6  # itemid=1221
+/teleport 32323 32269 6  # itemid=1221
+/teleport 32343 32257 6  # itemid=1221
+/teleport 32351 32267 6  # itemid=1221
+/teleport 32355 32257 6  # itemid=1221
+/teleport 32356 32263 7  # itemid=1221
+/teleport 32363 32267 6  # itemid=1221
+/teleport 32377 32257 5  # itemid=1221
+/teleport 32377 32257 6  # itemid=1221
+/teleport 32377 32257 7  # itemid=1221
+/teleport 32382 32257 5  # itemid=1221
+/teleport 32382 32257 6  # itemid=1221
+/teleport 32382 32257 7  # itemid=1221
+/teleport 32368 32263 7  # itemid=1221
+/teleport 32377 32267 5  # itemid=1221
+/teleport 32377 32267 6  # itemid=1221
+/teleport 32377 32269 5  # itemid=1221
+/teleport 32377 32269 6  # itemid=1221
+/teleport 32377 32269 7  # itemid=1221
+/teleport 32382 32269 5  # itemid=1221
+/teleport 32382 32269 6  # itemid=1221
+/teleport 32382 32269 7  # itemid=1221
+/teleport 32378 32274 5  # itemid=1221
+/teleport 32378 32274 6  # itemid=1221
+/teleport 32383 32274 5  # itemid=1221
+/teleport 32383 32274 6  # itemid=1221
+/teleport 32398 32257 7  # itemid=1221
+/teleport 32386 32269 5  # itemid=1221
+/teleport 32386 32269 6  # itemid=1221
+/teleport 32386 32269 7  # itemid=1221
+/teleport 32412 32257 7  # itemid=1221
+/teleport 32419 32257 7  # itemid=1221
+/teleport 32417 32260 6  # itemid=1221
+/teleport 32419 32260 6  # itemid=1221
+/teleport 32420 32263 7  # itemid=1221
+/teleport 32389 32274 5  # itemid=1221
+/teleport 32389 32274 6  # itemid=1221
+/teleport 32430 32362 9  # itemid=1221
+/teleport 32435 32360 7  # itemid=1221
+/teleport 32435 32363 7  # itemid=1221
+/teleport 32433 32362 9  # itemid=1221
+/teleport 32436 32360 7  # itemid=1221
+/teleport 32436 32363 7  # itemid=1221
+/teleport 32439 32362 9  # itemid=1221
+/teleport 32434 32366 5  # itemid=1221
+/teleport 32434 32366 7  # itemid=1221
+/teleport 32434 32364 8  # itemid=1221
+/teleport 32437 32366 7  # itemid=1221
+/teleport 32437 32364 8  # itemid=1221
+/teleport 32438 32366 8  # itemid=1221
+/teleport 32440 32364 8  # itemid=1221
+/teleport 32442 32366 8  # itemid=1221
+/teleport 32443 32364 8  # itemid=1221
+/teleport 33148 31783 7  # itemid=1221
+/teleport 33155 31790 7  # itemid=1221
+/teleport 33204 31789 8  # itemid=1221
+/teleport 33212 31789 8  # itemid=1221
+/teleport 33204 31792 8  # itemid=1221
+/teleport 33208 31792 8  # itemid=1221
+/teleport 33212 31792 8  # itemid=1221
+/teleport 33216 31789 8  # itemid=1221
+/teleport 33220 31789 8  # itemid=1221
+/teleport 33216 31792 8  # itemid=1221
+/teleport 33220 31792 8  # itemid=1221
+/teleport 33230 31800 7  # itemid=1221
+/teleport 33175 31843 5  # itemid=1221
+/teleport 33175 31843 6  # itemid=1221
+/teleport 33175 31843 7  # itemid=1221
+/teleport 33179 31843 5  # itemid=1221
+/teleport 33179 31843 6  # itemid=1221
+/teleport 33179 31843 7  # itemid=1221
+/teleport 33183 31843 5  # itemid=1221
+/teleport 33183 31843 6  # itemid=1221
+/teleport 33183 31843 7  # itemid=1221
+/teleport 33183 31842 8  # itemid=1221
+/teleport 33175 31846 5  # itemid=1221
+/teleport 33175 31846 6  # itemid=1221
+/teleport 33175 31846 7  # itemid=1221
+/teleport 33179 31846 5  # itemid=1221
+/teleport 33179 31846 6  # itemid=1221
+/teleport 33179 31846 7  # itemid=1221
+/teleport 33183 31846 5  # itemid=1221
+/teleport 33183 31846 6  # itemid=1221
+/teleport 33183 31846 7  # itemid=1221
+/teleport 33187 31842 8  # itemid=1221
+/teleport 33189 31843 5  # itemid=1221
+/teleport 33189 31843 6  # itemid=1221
+/teleport 33189 31843 7  # itemid=1221
+/teleport 33189 31846 5  # itemid=1221
+/teleport 33189 31846 6  # itemid=1221
+/teleport 33189 31846 7  # itemid=1221
+/teleport 33197 31852 6  # itemid=1221
+/teleport 33203 31840 7  # itemid=1221
+/teleport 33210 31840 7  # itemid=1221
+/teleport 33201 31849 7  # itemid=1221
+/teleport 33208 31849 7  # itemid=1221
+/teleport 33215 31849 7  # itemid=1221
+/teleport 33204 31852 6  # itemid=1221
+/teleport 33211 31852 6  # itemid=1221
+/teleport 33198 31859 6  # itemid=1221
+/teleport 33197 31859 7  # itemid=1221
+/teleport 33201 31859 6  # itemid=1221
+/teleport 33205 31859 6  # itemid=1221
+/teleport 33204 31859 7  # itemid=1221
+/teleport 33208 31859 6  # itemid=1221
+/teleport 33211 31859 7  # itemid=1221
+/teleport 33212 31859 6  # itemid=1221
+/teleport 33215 31859 6  # itemid=1221
+/teleport 33200 31863 7  # itemid=1221
+/teleport 33207 31863 7  # itemid=1221
+/teleport 33214 31863 7  # itemid=1221
+/teleport 33212 31871 5  # itemid=1221
+/teleport 33215 31871 5  # itemid=1221
+/teleport 33233 31813 6  # itemid=1221
+/teleport 33237 31820 7  # itemid=1221
+/teleport 33275 31823 4  # itemid=1221
+/teleport 33275 31823 5  # itemid=1221
+/teleport 33275 31823 8  # itemid=1221
+/teleport 33277 31823 4  # itemid=1221
+/teleport 33277 31823 5  # itemid=1221
+/teleport 33277 31823 8  # itemid=1221
+/teleport 33225 31842 7  # itemid=1221
+/teleport 33225 31852 6  # itemid=1221
+/teleport 33225 31852 7  # itemid=1221
+/teleport 33235 31847 6  # itemid=1221
+/teleport 33237 31847 8  # itemid=1221
+/teleport 33235 31854 6  # itemid=1221
+/teleport 33237 31854 8  # itemid=1221
+/teleport 33226 31860 6  # itemid=1221
+/teleport 33225 31860 7  # itemid=1221
+/teleport 33235 31864 6  # itemid=1221
+/teleport 33240 31864 6  # itemid=1221
+/teleport 33240 31864 7  # itemid=1221
+/teleport 33213 31874 5  # itemid=1221
+/teleport 33218 31874 5  # itemid=1221
+/teleport 33229 31878 5  # itemid=1221
+/teleport 33230 31879 8  # itemid=1221
+/teleport 33234 31876 5  # itemid=1221
+/teleport 33234 31878 5  # itemid=1221
+/teleport 33233 31876 7  # itemid=1221
+/teleport 33245 31886 6  # itemid=1221
+/teleport 33230 31890 7  # itemid=1221
+/teleport 33226 31895 6  # itemid=1221
+/teleport 33230 31895 6  # itemid=1221
+/teleport 33226 31897 6  # itemid=1221
+/teleport 33230 31897 6  # itemid=1221
+/teleport 33230 31897 7  # itemid=1221
+/teleport 33245 31889 7  # itemid=1221
+/teleport 33234 31897 6  # itemid=1221
+/teleport 33318 31752 7  # itemid=1221
+/teleport 33324 31754 7  # itemid=1221
+/teleport 33311 31773 6  # itemid=1221
+/teleport 33326 31765 6  # itemid=1221
+/teleport 33326 31772 6  # itemid=1221
+/teleport 33333 31761 7  # itemid=1221
+/teleport 33333 31767 6  # itemid=1221
+/teleport 33332 31767 8  # itemid=1221
+/teleport 33336 31764 7  # itemid=1221
+/teleport 33336 31768 6  # itemid=1221
+/teleport 33290 31780 6  # itemid=1221
+/teleport 33290 31783 6  # itemid=1221
+/teleport 33290 31780 7  # itemid=1221
+/teleport 33290 31783 7  # itemid=1221
+/teleport 33294 31780 6  # itemid=1221
+/teleport 33294 31783 6  # itemid=1221
+/teleport 33294 31780 7  # itemid=1221
+/teleport 33294 31783 7  # itemid=1221
+/teleport 33297 31780 6  # itemid=1221
+/teleport 33297 31783 6  # itemid=1221
+/teleport 33299 31780 7  # itemid=1221
+/teleport 33299 31783 7  # itemid=1221
+/teleport 33282 31833 3  # itemid=1221
+/teleport 33282 31833 4  # itemid=1221
+/teleport 33282 31833 5  # itemid=1221
+/teleport 33282 31833 7  # itemid=1221
+/teleport 33282 31833 8  # itemid=1221
+/teleport 33294 31967 6  # itemid=1221
+/teleport 33302 31962 7  # itemid=1221
+/teleport 33311 31964 6  # itemid=1221
+/teleport 33311 31967 6  # itemid=1221
+/teleport 33311 31964 7  # itemid=1221
+/teleport 33311 31967 7  # itemid=1221
+/teleport 33315 31964 6  # itemid=1221
+/teleport 33315 31967 6  # itemid=1221
+/teleport 33315 31964 7  # itemid=1221
+/teleport 33315 31967 7  # itemid=1221
+/teleport 33318 31964 6  # itemid=1221
+/teleport 33318 31967 6  # itemid=1221
+/teleport 33320 31964 7  # itemid=1221
+/teleport 33320 31967 7  # itemid=1221
+/teleport 33292 31981 7  # itemid=1221
+/teleport 33294 31992 5  # itemid=1221
+/teleport 33293 31992 6  # itemid=1221
+/teleport 33293 31992 7  # itemid=1221
+/teleport 33297 31987 7  # itemid=1221
+/teleport 33297 31992 7  # itemid=1221
+/teleport 33301 31992 5  # itemid=1221
+/teleport 33301 31992 6  # itemid=1221
+/teleport 33301 31992 7  # itemid=1221
+/teleport 32894 32054 6  # itemid=1221
+/teleport 32894 32057 6  # itemid=1221
+/teleport 32894 32057 7  # itemid=1221
+/teleport 32915 32038 6  # itemid=1221
+/teleport 32914 32039 7  # itemid=1221
+/teleport 32916 32039 7  # itemid=1221
+/teleport 32926 32036 6  # itemid=1221
+/teleport 32902 32054 6  # itemid=1221
+/teleport 32901 32053 7  # itemid=1221
+/teleport 32902 32057 6  # itemid=1221
+/teleport 32913 32050 5  # itemid=1221
+/teleport 32913 32051 7  # itemid=1221
+/teleport 32928 32048 7  # itemid=1221
+/teleport 32932 32050 6  # itemid=1221
+/teleport 32950 32051 6  # itemid=1221
+/teleport 32951 32048 7  # itemid=1221
+/teleport 32944 32054 6  # itemid=1221
+/teleport 32946 32057 7  # itemid=1221
+/teleport 32948 32057 6  # itemid=1221
+/teleport 32960 32047 5  # itemid=1221
+/teleport 32964 32047 6  # itemid=1221
+/teleport 32960 32051 6  # itemid=1221
+/teleport 32964 32049 7  # itemid=1221
+/teleport 32964 32054 6  # itemid=1221
+/teleport 32961 32058 5  # itemid=1221
+/teleport 32991 32048 5  # itemid=1221
+/teleport 32991 32049 7  # itemid=1221
+/teleport 32976 32057 6  # itemid=1221
+/teleport 32978 32057 6  # itemid=1221
+/teleport 32993 32051 6  # itemid=1221
+/teleport 33004 32051 6  # itemid=1221
+/teleport 32892 32105 6  # itemid=1221
+/teleport 32894 32105 6  # itemid=1221
+/teleport 32892 32105 7  # itemid=1221
+/teleport 32903 32094 5  # itemid=1221
+/teleport 32903 32094 6  # itemid=1221
+/teleport 32907 32094 5  # itemid=1221
+/teleport 32907 32094 6  # itemid=1221
+/teleport 32911 32094 4  # itemid=1221
+/teleport 32911 32094 5  # itemid=1221
+/teleport 32911 32094 6  # itemid=1221
+/teleport 32910 32092 7  # itemid=1221
+/teleport 32915 32094 5  # itemid=1221
+/teleport 32915 32094 6  # itemid=1221
+/teleport 32914 32095 7  # itemid=1221
+/teleport 32918 32094 4  # itemid=1221
+/teleport 32918 32094 5  # itemid=1221
+/teleport 32918 32094 6  # itemid=1221
+/teleport 32918 32093 7  # itemid=1221
+/teleport 32942 32087 7  # itemid=1221
+/teleport 32939 32088 6  # itemid=1221
+/teleport 32942 32088 6  # itemid=1221
+/teleport 32903 32097 4  # itemid=1221
+/teleport 32904 32097 5  # itemid=1221
+/teleport 32904 32097 6  # itemid=1221
+/teleport 32909 32097 5  # itemid=1221
+/teleport 32909 32097 6  # itemid=1221
+/teleport 32911 32099 7  # itemid=1221
+/teleport 32914 32097 4  # itemid=1221
+/teleport 32914 32097 5  # itemid=1221
+/teleport 32914 32097 6  # itemid=1221
+/teleport 32929 32097 6  # itemid=1221
+/teleport 32929 32101 5  # itemid=1221
+/teleport 32929 32101 6  # itemid=1221
+/teleport 32930 32101 7  # itemid=1221
+/teleport 32932 32101 5  # itemid=1221
+/teleport 32933 32101 6  # itemid=1221
+/teleport 32908 32127 6  # itemid=1221
+/teleport 32924 32121 5  # itemid=1221
+/teleport 32928 32121 5  # itemid=1221
+/teleport 32932 32121 5  # itemid=1221
+/teleport 32929 32124 6  # itemid=1221
+/teleport 32942 32127 6  # itemid=1221
+/teleport 32955 32120 7  # itemid=1221
+/teleport 32958 32120 6  # itemid=1221
+/teleport 32959 32120 7  # itemid=1221
+/teleport 32948 32127 6  # itemid=1221
+/teleport 32974 32067 5  # itemid=1221
+/teleport 32975 32071 6  # itemid=1221
+/teleport 32975 32069 7  # itemid=1221
+/teleport 32976 32067 6  # itemid=1221
+/teleport 32979 32071 6  # itemid=1221
+/teleport 32981 32069 7  # itemid=1221
+/teleport 32967 32097 6  # itemid=1221
+/teleport 32967 32098 7  # itemid=1221
+/teleport 32972 32097 6  # itemid=1221
+/teleport 32972 32098 7  # itemid=1221
+/teleport 32983 32099 6  # itemid=1221
+/teleport 32982 32099 7  # itemid=1221
+/teleport 32986 32099 5  # itemid=1221
+/teleport 32989 32099 6  # itemid=1221
+/teleport 32987 32110 6  # itemid=1221
+/teleport 33001 32110 5  # itemid=1221
+/teleport 32962 32120 7  # itemid=1221
+/teleport 32963 32124 3  # itemid=1221
+/teleport 32980 32113 5  # itemid=1221
+/teleport 32980 32115 5  # itemid=1221
+/teleport 32983 32113 5  # itemid=1221
+/teleport 32983 32115 5  # itemid=1221
+/teleport 32987 32115 7  # itemid=1221
+/teleport 32907 32129 7  # itemid=1221
+/teleport 32908 32130 6  # itemid=1221
+/teleport 32909 32129 7  # itemid=1221
+/teleport 32943 32129 7  # itemid=1221
+/teleport 32948 32129 7  # itemid=1221
+/teleport 33294 32006 7  # itemid=1221
+/teleport 33281 32015 6  # itemid=1221
+/teleport 33281 32015 7  # itemid=1221
+/teleport 33288 32014 6  # itemid=1221
+/teleport 33288 32014 7  # itemid=1221
+/teleport 33294 32012 7  # itemid=1221
+/teleport 33305 32006 7  # itemid=1221
+/teleport 33198 32410 6  # itemid=1221
+/teleport 33198 32410 7  # itemid=1221
+/teleport 33202 32410 6  # itemid=1221
+/teleport 33202 32410 7  # itemid=1221
+/teleport 33210 32410 6  # itemid=1221
+/teleport 33210 32412 7  # itemid=1221
+/teleport 33210 32415 7  # itemid=1221
+/teleport 33198 32417 7  # itemid=1221
+/teleport 33202 32417 7  # itemid=1221
+/teleport 33206 32417 6  # itemid=1221
+/teleport 33210 32417 6  # itemid=1221
+/teleport 33205 32433 6  # itemid=1221
+/teleport 33207 32433 7  # itemid=1221
+/teleport 33208 32433 6  # itemid=1221
+/teleport 33212 32435 7  # itemid=1221
+/teleport 33212 32438 7  # itemid=1221
+/teleport 33205 32440 6  # itemid=1221
+/teleport 33205 32440 7  # itemid=1221
+/teleport 33209 32440 6  # itemid=1221
+/teleport 33208 32440 7  # itemid=1221
+/teleport 33251 32400 7  # itemid=1221
+/teleport 33255 32400 6  # itemid=1221
+/teleport 33256 32400 7  # itemid=1221
+/teleport 33263 32400 6  # itemid=1221
+/teleport 33262 32400 7  # itemid=1221
+/teleport 33251 32406 6  # itemid=1221
+/teleport 33259 32406 6  # itemid=1221
+/teleport 33273 32404 7  # itemid=1221
+/teleport 33273 32407 7  # itemid=1221
+/teleport 33238 32421 6  # itemid=1221
+/teleport 33242 32421 6  # itemid=1221
+/teleport 33244 32421 7  # itemid=1221
+/teleport 33238 32428 6  # itemid=1221
+/teleport 33246 32428 6  # itemid=1221
+/teleport 33244 32428 7  # itemid=1221
+/teleport 33250 32421 6  # itemid=1221
+/teleport 33250 32423 7  # itemid=1221
+/teleport 33259 32421 6  # itemid=1221
+/teleport 33259 32423 7  # itemid=1221
+/teleport 33263 32421 6  # itemid=1221
+/teleport 33250 32426 7  # itemid=1221
+/teleport 33259 32426 7  # itemid=1221
+/teleport 33259 32428 6  # itemid=1221
+/teleport 33265 32421 7  # itemid=1221
+/teleport 33271 32421 6  # itemid=1221
+/teleport 33271 32421 7  # itemid=1221
+/teleport 33267 32428 6  # itemid=1221
+/teleport 33265 32428 7  # itemid=1221
+/teleport 33271 32428 6  # itemid=1221
+/teleport 33271 32428 7  # itemid=1221
+/teleport 33224 32444 6  # itemid=1221
+/teleport 33228 32444 6  # itemid=1221
+/teleport 33236 32444 6  # itemid=1221
+/teleport 33250 32444 6  # itemid=1221
+/teleport 33258 32444 6  # itemid=1221
+/teleport 33205 32471 6  # itemid=1221
+/teleport 33224 32450 6  # itemid=1221
+/teleport 33224 32450 7  # itemid=1221
+/teleport 33230 32450 7  # itemid=1221
+/teleport 33232 32450 6  # itemid=1221
+/teleport 33236 32450 6  # itemid=1221
+/teleport 33236 32450 7  # itemid=1221
+/teleport 33246 32450 6  # itemid=1221
+/teleport 33246 32450 7  # itemid=1221
+/teleport 33254 32450 6  # itemid=1221
+/teleport 33252 32450 7  # itemid=1221
+/teleport 33254 32453 8  # itemid=1221
+/teleport 33269 32454 6  # itemid=1221
+/teleport 33269 32452 7  # itemid=1221
+/teleport 33269 32454 7  # itemid=1221
+/teleport 33276 32454 6  # itemid=1221
+/teleport 33221 32467 7  # itemid=1221
+/teleport 33216 32469 7  # itemid=1221
+/teleport 33225 32468 6  # itemid=1221
+/teleport 33225 32468 7  # itemid=1221
+/teleport 33225 32471 7  # itemid=1221
+/teleport 33216 32472 6  # itemid=1221
+/teleport 33221 32472 7  # itemid=1221
+/teleport 33225 32472 6  # itemid=1221
+/teleport 33244 32467 6  # itemid=1221
+/teleport 33235 32468 6  # itemid=1221
+/teleport 33235 32471 6  # itemid=1221
+/teleport 33235 32468 7  # itemid=1221
+/teleport 33235 32471 7  # itemid=1221
+/teleport 33235 32471 8  # itemid=1221
+/teleport 33244 32469 7  # itemid=1221
+/teleport 33244 32472 6  # itemid=1221
+
+itemid=1222 count=0
+
+itemid=1223 count=12
+/teleport 32703 31605 14  # itemid=1223
+/teleport 32246 31861 14  # itemid=1223
+/teleport 32246 31862 14  # itemid=1223
+/teleport 32171 31936 7  # itemid=1223
+/teleport 32453 31975 10  # itemid=1223
+/teleport 32455 31975 10  # itemid=1223
+/teleport 32411 32170 6  # itemid=1223
+/teleport 32542 32143 7  # itemid=1223
+/teleport 32515 32248 8  # itemid=1223
+/teleport 32182 32468 10  # itemid=1223
+/teleport 33151 31640 11  # itemid=1223
+/teleport 32971 31778 7  # itemid=1223
+
+itemid=1225 count=23
+/teleport 32644 31615 6  # itemid=1225
+/teleport 32169 31933 7  # itemid=1225
+/teleport 32223 31872 14  # itemid=1225
+/teleport 32223 31875 14  # itemid=1225
+/teleport 32223 31878 14  # itemid=1225
+/teleport 32223 31881 14  # itemid=1225
+/teleport 32223 31884 14  # itemid=1225
+/teleport 32223 31887 14  # itemid=1225
+/teleport 32223 31890 14  # itemid=1225
+/teleport 32259 31948 14  # itemid=1225
+/teleport 32448 31965 10  # itemid=1225
+/teleport 32455 31967 14  # itemid=1225
+/teleport 32459 31965 10  # itemid=1225
+/teleport 32535 31970 7  # itemid=1225
+/teleport 32423 32096 15  # itemid=1225
+/teleport 32408 32172 6  # itemid=1225
+/teleport 32567 32023 6  # itemid=1225
+/teleport 32569 32023 6  # itemid=1225
+/teleport 33271 31657 8  # itemid=1225
+/teleport 33083 32185 8  # itemid=1225
+/teleport 32995 32447 7  # itemid=1225
+/teleport 33308 32280 12  # itemid=1225
+/teleport 33307 32291 7  # itemid=1225
+
+itemid=1227 count=13
+/teleport 32479 31634 10  # itemid=1227
+/teleport 32486 31633 10  # itemid=1227
+/teleport 32483 31722 15  # itemid=1227
+/teleport 32567 31969 3  # itemid=1227
+/teleport 32353 32073 11  # itemid=1227
+/teleport 32424 32145 15  # itemid=1227
+/teleport 32479 32174 15  # itemid=1227
+/teleport 33085 31650 10  # itemid=1227
+/teleport 33214 31671 13  # itemid=1227
+/teleport 33302 31691 11  # itemid=1227
+/teleport 33302 31692 11  # itemid=1227
+/teleport 33032 32398 11  # itemid=1227
+/teleport 33037 32398 11  # itemid=1227
+
+itemid=1229 count=19
+/teleport 32483 31630 10  # itemid=1229
+/teleport 32483 31635 10  # itemid=1229
+/teleport 32223 31869 14  # itemid=1229
+/teleport 32475 31946 13  # itemid=1229
+/teleport 32510 31956 13  # itemid=1229
+/teleport 32448 32042 8  # itemid=1229
+/teleport 32673 32100 8  # itemid=1229
+/teleport 32544 32179 14  # itemid=1229
+/teleport 32602 32207 10  # itemid=1229
+/teleport 32212 32435 10  # itemid=1229
+/teleport 32325 32389 9  # itemid=1229
+/teleport 32804 31583 2  # itemid=1229
+/teleport 33211 31638 13  # itemid=1229
+/teleport 33190 31684 14  # itemid=1229
+/teleport 33195 31684 14  # itemid=1229
+/teleport 33297 31670 14  # itemid=1229
+/teleport 32981 31760 9  # itemid=1229
+/teleport 32874 31974 12  # itemid=1229
+/teleport 32875 31974 12  # itemid=1229
+
+itemid=1231 count=9
+/teleport 33209 32386 7  # itemid=1231
+/teleport 33209 32387 7  # itemid=1231
+/teleport 33224 32391 7  # itemid=1231
+/teleport 33233 32391 7  # itemid=1231
+/teleport 33226 32409 6  # itemid=1231
+/teleport 33224 32409 7  # itemid=1231
+/teleport 33236 32409 5  # itemid=1231
+/teleport 33236 32409 7  # itemid=1231
+/teleport 33145 32863 8  # itemid=1231
+
+itemid=1232 count=24
+/teleport 33224 32391 5  # itemid=1232
+/teleport 33224 32398 7  # itemid=1232
+/teleport 33236 32393 5  # itemid=1232
+/teleport 33236 32398 7  # itemid=1232
+/teleport 33204 32453 7  # itemid=1232
+/teleport 33204 32459 7  # itemid=1232
+/teleport 33206 32456 7  # itemid=1232
+/teleport 33184 32665 15  # itemid=1232
+/teleport 33081 32789 7  # itemid=1232
+/teleport 33066 32805 7  # itemid=1232
+/teleport 33077 32802 7  # itemid=1232
+/teleport 33108 32771 7  # itemid=1232
+/teleport 33096 32785 7  # itemid=1232
+/teleport 33060 32836 7  # itemid=1232
+/teleport 33072 32886 7  # itemid=1232
+/teleport 33144 32838 7  # itemid=1232
+/teleport 33148 32836 6  # itemid=1232
+/teleport 33147 32848 7  # itemid=1232
+/teleport 33148 32848 6  # itemid=1232
+/teleport 33153 32836 6  # itemid=1232
+/teleport 33156 32838 7  # itemid=1232
+/teleport 33153 32848 6  # itemid=1232
+/teleport 33153 32848 7  # itemid=1232
+/teleport 33245 32835 7  # itemid=1232
+
+itemid=1233 count=0
+
+itemid=1234 count=10
+/teleport 33214 32382 7  # itemid=1234
+/teleport 33239 32391 5  # itemid=1234
+/teleport 33221 32404 5  # itemid=1234
+/teleport 33221 32407 5  # itemid=1234
+/teleport 33221 32406 6  # itemid=1234
+/teleport 33239 32406 6  # itemid=1234
+/teleport 33250 32479 7  # itemid=1234
+/teleport 33148 32842 5  # itemid=1234
+/teleport 33144 32868 8  # itemid=1234
+/teleport 33153 32842 5  # itemid=1234
+
+itemid=1235 count=63
+/teleport 33221 32394 5  # itemid=1235
+/teleport 33221 32394 7  # itemid=1235
+/teleport 33239 32394 7  # itemid=1235
+/teleport 33239 32396 5  # itemid=1235
+/teleport 33239 32398 6  # itemid=1235
+/teleport 33239 32399 7  # itemid=1235
+/teleport 33221 32400 7  # itemid=1235
+/teleport 33222 32406 7  # itemid=1235
+/teleport 33230 32406 7  # itemid=1235
+/teleport 33231 32406 7  # itemid=1235
+/teleport 33230 32412 7  # itemid=1235
+/teleport 33231 32412 7  # itemid=1235
+/teleport 33239 32406 7  # itemid=1235
+/teleport 33268 32437 7  # itemid=1235
+/teleport 33205 32455 7  # itemid=1235
+/teleport 33205 32457 7  # itemid=1235
+/teleport 33070 32609 15  # itemid=1235
+/teleport 33070 32613 15  # itemid=1235
+/teleport 33070 32617 15  # itemid=1235
+/teleport 33070 32621 15  # itemid=1235
+/teleport 33073 32609 15  # itemid=1235
+/teleport 33076 32609 15  # itemid=1235
+/teleport 33073 32613 15  # itemid=1235
+/teleport 33076 32613 15  # itemid=1235
+/teleport 33073 32617 15  # itemid=1235
+/teleport 33076 32617 15  # itemid=1235
+/teleport 33073 32621 15  # itemid=1235
+/teleport 33076 32621 15  # itemid=1235
+/teleport 33070 32625 15  # itemid=1235
+/teleport 33070 32629 15  # itemid=1235
+/teleport 33070 32633 15  # itemid=1235
+/teleport 33070 32637 15  # itemid=1235
+/teleport 33073 32625 15  # itemid=1235
+/teleport 33076 32625 15  # itemid=1235
+/teleport 33073 32629 15  # itemid=1235
+/teleport 33076 32629 15  # itemid=1235
+/teleport 33073 32633 15  # itemid=1235
+/teleport 33076 32633 15  # itemid=1235
+/teleport 33073 32637 15  # itemid=1235
+/teleport 33076 32637 15  # itemid=1235
+/teleport 33147 32766 7  # itemid=1235
+/teleport 33159 32766 7  # itemid=1235
+/teleport 33075 32804 7  # itemid=1235
+/teleport 33129 32770 7  # itemid=1235
+/teleport 33172 32770 7  # itemid=1235
+/teleport 33187 32773 7  # itemid=1235
+/teleport 33204 32782 7  # itemid=1235
+/teleport 33228 32785 7  # itemid=1235
+/teleport 33234 32803 7  # itemid=1235
+/teleport 33245 32803 7  # itemid=1235
+/teleport 33143 32837 7  # itemid=1235
+/teleport 33146 32839 6  # itemid=1235
+/teleport 33147 32837 7  # itemid=1235
+/teleport 33146 32844 6  # itemid=1235
+/teleport 33151 32844 6  # itemid=1235
+/teleport 33149 32844 7  # itemid=1235
+/teleport 33145 32868 7  # itemid=1235
+/teleport 33148 32869 8  # itemid=1235
+/teleport 33153 32837 7  # itemid=1235
+/teleport 33156 32839 6  # itemid=1235
+/teleport 33158 32837 7  # itemid=1235
+/teleport 33152 32844 7  # itemid=1235
+/teleport 33156 32844 6  # itemid=1235
+
+itemid=1236 count=0
+
+itemid=1237 count=93
+/teleport 33087 32805 7  # itemid=1237
+/teleport 33071 32830 7  # itemid=1237
+/teleport 33075 32816 6  # itemid=1237
+/teleport 33115 32781 7  # itemid=1237
+/teleport 33136 32777 7  # itemid=1237
+/teleport 33102 32794 7  # itemid=1237
+/teleport 33088 32799 7  # itemid=1237
+/teleport 33094 32799 7  # itemid=1237
+/teleport 33114 32794 7  # itemid=1237
+/teleport 33110 32797 5  # itemid=1237
+/teleport 33122 32790 7  # itemid=1237
+/teleport 33124 32794 6  # itemid=1237
+/teleport 33130 32793 5  # itemid=1237
+/teleport 33142 32787 7  # itemid=1237
+/teleport 33147 32789 6  # itemid=1237
+/teleport 33144 32794 6  # itemid=1237
+/teleport 33150 32793 6  # itemid=1237
+/teleport 33090 32805 7  # itemid=1237
+/teleport 33110 32814 7  # itemid=1237
+/teleport 33089 32820 7  # itemid=1237
+/teleport 33089 32823 7  # itemid=1237
+/teleport 33107 32823 7  # itemid=1237
+/teleport 33110 32823 7  # itemid=1237
+/teleport 33113 32821 6  # itemid=1237
+/teleport 33176 32778 7  # itemid=1237
+/teleport 33156 32788 7  # itemid=1237
+/teleport 33165 32791 7  # itemid=1237
+/teleport 33152 32792 5  # itemid=1237
+/teleport 33182 32787 7  # itemid=1237
+/teleport 33175 32791 7  # itemid=1237
+/teleport 33192 32787 7  # itemid=1237
+/teleport 33201 32790 7  # itemid=1237
+/teleport 33211 32790 7  # itemid=1237
+/teleport 33204 32795 7  # itemid=1237
+/teleport 33209 32793 6  # itemid=1237
+/teleport 33182 32806 7  # itemid=1237
+/teleport 33194 32806 7  # itemid=1237
+/teleport 33184 32811 6  # itemid=1237
+/teleport 33187 32810 7  # itemid=1237
+/teleport 33192 32811 6  # itemid=1237
+/teleport 33187 32813 7  # itemid=1237
+/teleport 33190 32813 7  # itemid=1237
+/teleport 33206 32813 7  # itemid=1237
+/teleport 33209 32813 7  # itemid=1237
+/teleport 33191 32825 7  # itemid=1237
+/teleport 33188 32830 7  # itemid=1237
+/teleport 33198 32831 5  # itemid=1237
+/teleport 33220 32800 7  # itemid=1237
+/teleport 33226 32813 6  # itemid=1237
+/teleport 33234 32819 7  # itemid=1237
+/teleport 33240 32820 6  # itemid=1237
+/teleport 33071 32843 7  # itemid=1237
+/teleport 33082 32841 7  # itemid=1237
+/teleport 33085 32841 7  # itemid=1237
+/teleport 33071 32858 6  # itemid=1237
+/teleport 33071 32863 6  # itemid=1237
+/teleport 33075 32855 7  # itemid=1237
+/teleport 33079 32855 7  # itemid=1237
+/teleport 33082 32858 6  # itemid=1237
+/teleport 33075 32860 7  # itemid=1237
+/teleport 33079 32860 7  # itemid=1237
+/teleport 33082 32863 6  # itemid=1237
+/teleport 33075 32865 7  # itemid=1237
+/teleport 33079 32865 7  # itemid=1237
+/teleport 33103 32836 7  # itemid=1237
+/teleport 33103 32841 7  # itemid=1237
+/teleport 33106 32836 7  # itemid=1237
+/teleport 33106 32841 7  # itemid=1237
+/teleport 33106 32843 7  # itemid=1237
+/teleport 33098 32857 7  # itemid=1237
+/teleport 33120 32861 7  # itemid=1237
+/teleport 33172 32838 7  # itemid=1237
+/teleport 33175 32838 7  # itemid=1237
+/teleport 33176 32837 5  # itemid=1237
+/teleport 33170 32855 6  # itemid=1237
+/teleport 33180 32855 6  # itemid=1237
+/teleport 33168 32861 7  # itemid=1237
+/teleport 33178 32861 7  # itemid=1237
+/teleport 33180 32860 6  # itemid=1237
+/teleport 33210 32849 7  # itemid=1237
+/teleport 33214 32853 5  # itemid=1237
+/teleport 33190 32867 7  # itemid=1237
+/teleport 33194 32871 5  # itemid=1237
+/teleport 33190 32875 7  # itemid=1237
+/teleport 33199 32873 7  # itemid=1237
+/teleport 33199 32876 7  # itemid=1237
+/teleport 33202 32869 6  # itemid=1237
+/teleport 33230 32832 7  # itemid=1237
+/teleport 33238 32832 7  # itemid=1237
+/teleport 33234 32836 7  # itemid=1237
+/teleport 33216 32850 6  # itemid=1237
+/teleport 33221 32851 6  # itemid=1237
+/teleport 33218 32855 6  # itemid=1237
+
+itemid=1238 count=0
+
+itemid=1239 count=83
+/teleport 33073 32819 7  # itemid=1239
+/teleport 33087 32820 6  # itemid=1239
+/teleport 33087 32822 7  # itemid=1239
+/teleport 33146 32777 7  # itemid=1239
+/teleport 33088 32798 6  # itemid=1239
+/teleport 33106 32796 6  # itemid=1239
+/teleport 33109 32796 6  # itemid=1239
+/teleport 33131 32787 7  # itemid=1239
+/teleport 33126 32792 6  # itemid=1239
+/teleport 33130 32792 6  # itemid=1239
+/teleport 33126 32798 7  # itemid=1239
+/teleport 33131 32798 7  # itemid=1239
+/teleport 33150 32786 6  # itemid=1239
+/teleport 33146 32798 7  # itemid=1239
+/teleport 33088 32802 6  # itemid=1239
+/teleport 33089 32804 5  # itemid=1239
+/teleport 33089 32807 7  # itemid=1239
+/teleport 33105 32803 7  # itemid=1239
+/teleport 33108 32801 6  # itemid=1239
+/teleport 33111 32803 7  # itemid=1239
+/teleport 33109 32812 7  # itemid=1239
+/teleport 33090 32820 6  # itemid=1239
+/teleport 33088 32826 7  # itemid=1239
+/teleport 33106 32818 6  # itemid=1239
+/teleport 33105 32816 7  # itemid=1239
+/teleport 33110 32818 6  # itemid=1239
+/teleport 33109 32816 7  # itemid=1239
+/teleport 33109 32821 5  # itemid=1239
+/teleport 33109 32822 7  # itemid=1239
+/teleport 33109 32825 7  # itemid=1239
+/teleport 33159 32777 7  # itemid=1239
+/teleport 33153 32798 7  # itemid=1239
+/teleport 33170 32790 6  # itemid=1239
+/teleport 33170 32798 7  # itemid=1239
+/teleport 33187 32786 6  # itemid=1239
+/teleport 33185 32794 7  # itemid=1239
+/teleport 33190 32794 7  # itemid=1239
+/teleport 33207 32797 7  # itemid=1239
+/teleport 33186 32808 6  # itemid=1239
+/teleport 33188 32811 5  # itemid=1239
+/teleport 33190 32808 6  # itemid=1239
+/teleport 33189 32815 7  # itemid=1239
+/teleport 33208 32815 7  # itemid=1239
+/teleport 33192 32830 6  # itemid=1239
+/teleport 33196 32830 6  # itemid=1239
+/teleport 33198 32829 7  # itemid=1239
+/teleport 33214 32827 7  # itemid=1239
+/teleport 33214 32831 6  # itemid=1239
+/teleport 33224 32812 7  # itemid=1239
+/teleport 33223 32816 7  # itemid=1239
+/teleport 33220 32827 7  # itemid=1239
+/teleport 33219 32831 6  # itemid=1239
+/teleport 33236 32820 7  # itemid=1239
+/teleport 33239 32820 7  # itemid=1239
+/teleport 33084 32839 7  # itemid=1239
+/teleport 33084 32842 7  # itemid=1239
+/teleport 33077 32857 7  # itemid=1239
+/teleport 33077 32864 5  # itemid=1239
+/teleport 33105 32839 7  # itemid=1239
+/teleport 33174 32835 7  # itemid=1239
+/teleport 33174 32842 7  # itemid=1239
+/teleport 33195 32835 6  # itemid=1239
+/teleport 33192 32837 7  # itemid=1239
+/teleport 33199 32837 7  # itemid=1239
+/teleport 33172 32850 7  # itemid=1239
+/teleport 33179 32850 7  # itemid=1239
+/teleport 33175 32854 5  # itemid=1239
+/teleport 33172 32854 7  # itemid=1239
+/teleport 33177 32854 7  # itemid=1239
+/teleport 33180 32854 7  # itemid=1239
+/teleport 33173 32862 6  # itemid=1239
+/teleport 33213 32859 7  # itemid=1239
+/teleport 33180 32864 7  # itemid=1239
+/teleport 33195 32866 6  # itemid=1239
+/teleport 33195 32876 6  # itemid=1239
+/teleport 33201 32864 7  # itemid=1239
+/teleport 33200 32876 6  # itemid=1239
+/teleport 33217 32835 6  # itemid=1239
+/teleport 33220 32846 7  # itemid=1239
+/teleport 33234 32832 6  # itemid=1239
+/teleport 33236 32838 7  # itemid=1239
+/teleport 33217 32857 6  # itemid=1239
+/teleport 33220 32859 7  # itemid=1239
+
+itemid=1240 count=0
+
+itemid=1241 count=0
+
+itemid=1243 count=0
+
+itemid=1245 count=2
+/teleport 33192 32665 15  # itemid=1245
+/teleport 33123 32762 14  # itemid=1245
+
+itemid=1247 count=8
+/teleport 33083 32620 14  # itemid=1247
+/teleport 33084 32620 14  # itemid=1247
+/teleport 33257 32706 13  # itemid=1247
+/teleport 33262 32706 13  # itemid=1247
+/teleport 33168 32776 15  # itemid=1247
+/teleport 33149 32871 11  # itemid=1247
+/teleport 33206 32958 14  # itemid=1247
+/teleport 33368 32807 14  # itemid=1247
+
+itemid=1249 count=17
+/teleport 33096 32523 1  # itemid=1249
+/teleport 33098 32523 8  # itemid=1249
+/teleport 33102 32520 2  # itemid=1249
+/teleport 33106 32524 4  # itemid=1249
+/teleport 33100 32531 5  # itemid=1249
+/teleport 33103 32531 5  # itemid=1249
+/teleport 33097 32532 6  # itemid=1249
+/teleport 33106 32529 4  # itemid=1249
+/teleport 33106 32530 4  # itemid=1249
+/teleport 33038 32621 1  # itemid=1249
+/teleport 33039 32620 4  # itemid=1249
+/teleport 33042 32620 5  # itemid=1249
+/teleport 33043 32622 6  # itemid=1249
+/teleport 33043 32631 6  # itemid=1249
+/teleport 33046 32633 3  # itemid=1249
+/teleport 33045 32632 4  # itemid=1249
+/teleport 33045 32632 5  # itemid=1249
+
+itemid=1250 count=1
+/teleport 33046 32632 1  # itemid=1250
+
+itemid=1251 count=0
+
+itemid=1252 count=16
+/teleport 33098 32523 5  # itemid=1252
+/teleport 33100 32522 2  # itemid=1252
+/teleport 33101 32523 5  # itemid=1252
+/teleport 33100 32526 3  # itemid=1252
+/teleport 33101 32526 3  # itemid=1252
+/teleport 33103 32526 3  # itemid=1252
+/teleport 33102 32527 5  # itemid=1252
+/teleport 33108 32523 4  # itemid=1252
+/teleport 33104 32526 3  # itemid=1252
+/teleport 33102 32529 1  # itemid=1252
+/teleport 33101 32537 5  # itemid=1252
+/teleport 33037 32622 4  # itemid=1252
+/teleport 33038 32622 5  # itemid=1252
+/teleport 33049 32627 3  # itemid=1252
+/teleport 33044 32629 1  # itemid=1252
+/teleport 33047 32628 7  # itemid=1252
+
+itemid=1253 count=1
+/teleport 33037 32622 6  # itemid=1253
+
+itemid=1254 count=0
+
+itemid=1255 count=3
+/teleport 33106 32532 6  # itemid=1255
+/teleport 33034 32620 6  # itemid=1255
+/teleport 33038 32632 1  # itemid=1255
+
+itemid=1257 count=3
+/teleport 33100 32518 7  # itemid=1257
+/teleport 33097 32531 1  # itemid=1257
+/teleport 33047 32626 6  # itemid=1257
+
+itemid=1259 count=2
+/teleport 33050 32622 6  # itemid=1259
+/teleport 33050 32623 6  # itemid=1259
+
+itemid=1261 count=2
+/teleport 33102 32537 6  # itemid=1261
+/teleport 33103 32537 6  # itemid=1261
+
+itemid=1479 count=0
+
+itemid=1539 count=6
+/teleport 32486 31625 7  # itemid=1539
+/teleport 32689 31696 7  # itemid=1539
+/teleport 32078 32216 7  # itemid=1539
+/teleport 32402 32235 7  # itemid=1539
+/teleport 33284 31765 7  # itemid=1539
+/teleport 33322 31992 7  # itemid=1539
+
+itemid=1540 count=1
+/teleport 33014 32375 10  # itemid=1540
+
+itemid=1541 count=9
+/teleport 32601 31788 9  # itemid=1541
+/teleport 32255 32058 7  # itemid=1541
+/teleport 32067 32206 7  # itemid=1541
+/teleport 32074 32220 7  # itemid=1541
+/teleport 32406 32239 7  # itemid=1541
+/teleport 32962 31767 7  # itemid=1541
+/teleport 33258 31823 4  # itemid=1541
+/teleport 33261 31823 4  # itemid=1541
+/teleport 33260 31823 5  # itemid=1541
+
+itemid=1542 count=0
+
+itemid=1634 count=8
+/teleport 32674 31700 7  # itemid=1634
+/teleport 32334 31786 7  # itemid=1634
+/teleport 32628 31917 5  # itemid=1634
+/teleport 32265 32011 7  # itemid=1634
+/teleport 32348 32219 7  # itemid=1634
+/teleport 32379 32232 8  # itemid=1634
+/teleport 32182 32415 8  # itemid=1634
+/teleport 32297 32263 7  # itemid=1634
+
+itemid=1636 count=6
+/teleport 32327 31829 7  # itemid=1636
+/teleport 32648 31906 8  # itemid=1636
+/teleport 32624 32005 7  # itemid=1636
+/teleport 32657 32190 8  # itemid=1636
+/teleport 32928 32077 6  # itemid=1636
+/teleport 32928 32079 6  # itemid=1636
+
+itemid=1638 count=21
+/teleport 32641 31673 6  # itemid=1638
+/teleport 32641 31677 6  # itemid=1638
+/teleport 32346 31800 7  # itemid=1638
+/teleport 32346 31806 7  # itemid=1638
+/teleport 32346 31812 7  # itemid=1638
+/teleport 32639 31926 8  # itemid=1638
+/teleport 32639 31933 8  # itemid=1638
+/teleport 32346 32206 7  # itemid=1638
+/teleport 32333 32223 7  # itemid=1638
+/teleport 32339 32210 7  # itemid=1638
+/teleport 32379 32232 6  # itemid=1638
+/teleport 32379 32232 7  # itemid=1638
+/teleport 32269 32313 7  # itemid=1638
+/teleport 33209 31794 7  # itemid=1638
+/teleport 33209 31801 7  # itemid=1638
+/teleport 33209 31808 7  # itemid=1638
+/teleport 33255 31840 8  # itemid=1638
+/teleport 33127 32811 7  # itemid=1638
+/teleport 33133 32811 7  # itemid=1638
+/teleport 33127 32819 7  # itemid=1638
+/teleport 33133 32819 7  # itemid=1638
+
+itemid=1640 count=14
+/teleport 32363 31798 6  # itemid=1640
+/teleport 32379 31806 7  # itemid=1640
+/teleport 32383 31806 7  # itemid=1640
+/teleport 32631 31925 8  # itemid=1640
+/teleport 32631 31931 8  # itemid=1640
+/teleport 32398 32178 7  # itemid=1640
+/teleport 32404 32178 7  # itemid=1640
+/teleport 32381 32221 6  # itemid=1640
+/teleport 32381 32225 6  # itemid=1640
+/teleport 32381 32225 7  # itemid=1640
+/teleport 32665 32198 8  # itemid=1640
+/teleport 32661 32201 8  # itemid=1640
+/teleport 32666 32201 8  # itemid=1640
+/teleport 32441 32363 7  # itemid=1640
+
+itemid=1786 count=177
+/teleport 32170 31595 10  # itemid=1786
+/teleport 32127 31658 7  # itemid=1786
+/teleport 32186 31623 5  # itemid=1786
+/teleport 32188 31623 5  # itemid=1786
+/teleport 32354 31642 2  # itemid=1786
+/teleport 32397 31625 15  # itemid=1786
+/teleport 32398 31625 15  # itemid=1786
+/teleport 32686 31588 7  # itemid=1786
+/teleport 32544 31651 6  # itemid=1786
+/teleport 32642 31649 8  # itemid=1786
+/teleport 32643 31649 8  # itemid=1786
+/teleport 32644 31649 8  # itemid=1786
+/teleport 32645 31649 8  # itemid=1786
+/teleport 32718 31623 8  # itemid=1786
+/teleport 32711 31628 8  # itemid=1786
+/teleport 32716 31629 8  # itemid=1786
+/teleport 32673 31696 6  # itemid=1786
+/teleport 32214 31754 7  # itemid=1786
+/teleport 32174 31932 9  # itemid=1786
+/teleport 32176 31932 9  # itemid=1786
+/teleport 32317 31753 6  # itemid=1786
+/teleport 32320 31749 5  # itemid=1786
+/teleport 32333 31806 6  # itemid=1786
+/teleport 32337 31793 6  # itemid=1786
+/teleport 32351 31792 7  # itemid=1786
+/teleport 32337 31800 6  # itemid=1786
+/teleport 32419 31937 8  # itemid=1786
+/teleport 32423 31937 8  # itemid=1786
+/teleport 32391 31998 7  # itemid=1786
+/teleport 32392 31998 7  # itemid=1786
+/teleport 32587 31784 3  # itemid=1786
+/teleport 32588 31784 3  # itemid=1786
+/teleport 32581 31817 9  # itemid=1786
+/teleport 32582 31817 9  # itemid=1786
+/teleport 32619 31886 9  # itemid=1786
+/teleport 32620 31886 9  # itemid=1786
+/teleport 32621 31886 9  # itemid=1786
+/teleport 32629 31889 8  # itemid=1786
+/teleport 32630 31889 8  # itemid=1786
+/teleport 32634 31889 8  # itemid=1786
+/teleport 32635 31889 8  # itemid=1786
+/teleport 32122 32051 12  # itemid=1786
+/teleport 32074 32103 4  # itemid=1786
+/teleport 32132 32099 11  # itemid=1786
+/teleport 32061 32180 6  # itemid=1786
+/teleport 32097 32176 6  # itemid=1786
+/teleport 32138 32170 4  # itemid=1786
+/teleport 32039 32202 7  # itemid=1786
+/teleport 32040 32202 7  # itemid=1786
+/teleport 32044 32202 6  # itemid=1786
+/teleport 32045 32202 6  # itemid=1786
+/teleport 32046 32202 6  # itemid=1786
+/teleport 32085 32197 7  # itemid=1786
+/teleport 32085 32201 6  # itemid=1786
+/teleport 32108 32200 6  # itemid=1786
+/teleport 32107 32207 7  # itemid=1786
+/teleport 32068 32224 7  # itemid=1786
+/teleport 32259 32059 7  # itemid=1786
+/teleport 32284 32054 7  # itemid=1786
+/teleport 32365 32038 10  # itemid=1786
+/teleport 32449 32005 13  # itemid=1786
+/teleport 32433 32088 15  # itemid=1786
+/teleport 32456 32113 4  # itemid=1786
+/teleport 32489 32114 7  # itemid=1786
+/teleport 32312 32170 7  # itemid=1786
+/teleport 32313 32170 7  # itemid=1786
+/teleport 32314 32170 7  # itemid=1786
+/teleport 32306 32172 8  # itemid=1786
+/teleport 32306 32184 6  # itemid=1786
+/teleport 32374 32189 7  # itemid=1786
+/teleport 32375 32189 7  # itemid=1786
+/teleport 32376 32189 7  # itemid=1786
+/teleport 32377 32189 7  # itemid=1786
+/teleport 32399 32143 15  # itemid=1786
+/teleport 32400 32143 15  # itemid=1786
+/teleport 32460 32144 15  # itemid=1786
+/teleport 32467 32172 6  # itemid=1786
+/teleport 32289 32250 6  # itemid=1786
+/teleport 32381 32198 7  # itemid=1786
+/teleport 32355 32208 7  # itemid=1786
+/teleport 32404 32197 7  # itemid=1786
+/teleport 32412 32197 6  # itemid=1786
+/teleport 32390 32218 6  # itemid=1786
+/teleport 32493 32249 8  # itemid=1786
+/teleport 32509 32244 9  # itemid=1786
+/teleport 32510 32244 9  # itemid=1786
+/teleport 32622 32003 7  # itemid=1786
+/teleport 32623 32003 7  # itemid=1786
+/teleport 32624 32003 7  # itemid=1786
+/teleport 32625 32003 7  # itemid=1786
+/teleport 32560 32116 3  # itemid=1786
+/teleport 32584 32069 15  # itemid=1786
+/teleport 32585 32069 15  # itemid=1786
+/teleport 32539 32141 6  # itemid=1786
+/teleport 32325 32275 6  # itemid=1786
+/teleport 32497 32266 8  # itemid=1786
+/teleport 32498 32266 8  # itemid=1786
+/teleport 32459 32273 8  # itemid=1786
+/teleport 32505 32292 7  # itemid=1786
+/teleport 32278 32395 10  # itemid=1786
+/teleport 32917 31698 7  # itemid=1786
+/teleport 32921 31736 7  # itemid=1786
+/teleport 33111 31671 2  # itemid=1786
+/teleport 33112 31671 2  # itemid=1786
+/teleport 33113 31671 2  # itemid=1786
+/teleport 33114 31671 2  # itemid=1786
+/teleport 33115 31671 2  # itemid=1786
+/teleport 33260 31631 10  # itemid=1786
+/teleport 33261 31630 10  # itemid=1786
+/teleport 33262 31630 10  # itemid=1786
+/teleport 33263 31631 10  # itemid=1786
+/teleport 33259 31632 10  # itemid=1786
+/teleport 33264 31632 10  # itemid=1786
+/teleport 32936 31761 9  # itemid=1786
+/teleport 32937 31761 9  # itemid=1786
+/teleport 32938 31761 9  # itemid=1786
+/teleport 32939 31761 9  # itemid=1786
+/teleport 32940 31761 9  # itemid=1786
+/teleport 32940 31777 8  # itemid=1786
+/teleport 32932 31789 7  # itemid=1786
+/teleport 32935 31789 7  # itemid=1786
+/teleport 32916 31794 7  # itemid=1786
+/teleport 32922 31794 7  # itemid=1786
+/teleport 32929 31794 7  # itemid=1786
+/teleport 32800 31861 6  # itemid=1786
+/teleport 33173 31800 6  # itemid=1786
+/teleport 33174 31800 6  # itemid=1786
+/teleport 33184 31806 6  # itemid=1786
+/teleport 33185 31806 6  # itemid=1786
+/teleport 33186 31806 6  # itemid=1786
+/teleport 33217 31831 8  # itemid=1786
+/teleport 33265 31831 2  # itemid=1786
+/teleport 33271 31831 2  # itemid=1786
+/teleport 32970 32040 5  # itemid=1786
+/teleport 32971 32040 5  # itemid=1786
+/teleport 33020 32051 5  # itemid=1786
+/teleport 32890 32081 5  # itemid=1786
+/teleport 32891 32081 5  # itemid=1786
+/teleport 32911 32117 5  # itemid=1786
+/teleport 32970 32079 7  # itemid=1786
+/teleport 32971 32079 7  # itemid=1786
+/teleport 32972 32079 7  # itemid=1786
+/teleport 32973 32079 7  # itemid=1786
+/teleport 32987 32065 5  # itemid=1786
+/teleport 32988 32065 5  # itemid=1786
+/teleport 32896 32141 5  # itemid=1786
+/teleport 32938 32151 6  # itemid=1786
+/teleport 32769 32232 8  # itemid=1786
+/teleport 32771 32244 8  # itemid=1786
+/teleport 33061 32181 7  # itemid=1786
+/teleport 33097 32142 9  # itemid=1786
+/teleport 33098 32142 9  # itemid=1786
+/teleport 33099 32142 9  # itemid=1786
+/teleport 32776 32330 6  # itemid=1786
+/teleport 32776 32333 7  # itemid=1786
+/teleport 32781 32338 10  # itemid=1786
+/teleport 32782 32338 10  # itemid=1786
+/teleport 32783 32338 10  # itemid=1786
+/teleport 32784 32338 10  # itemid=1786
+/teleport 32785 32338 10  # itemid=1786
+/teleport 33225 32389 7  # itemid=1786
+/teleport 33223 32407 7  # itemid=1786
+/teleport 33237 32407 6  # itemid=1786
+/teleport 33259 32462 6  # itemid=1786
+/teleport 33260 32469 7  # itemid=1786
+/teleport 33099 32519 4  # itemid=1786
+/teleport 33099 32519 5  # itemid=1786
+/teleport 33100 32519 4  # itemid=1786
+/teleport 33101 32519 4  # itemid=1786
+/teleport 33102 32519 4  # itemid=1786
+/teleport 33103 32519 4  # itemid=1786
+/teleport 33100 32519 5  # itemid=1786
+/teleport 33101 32519 5  # itemid=1786
+/teleport 33101 32523 4  # itemid=1786
+/teleport 33102 32523 4  # itemid=1786
+/teleport 33103 32523 4  # itemid=1786
+/teleport 33104 32519 4  # itemid=1786
+
+itemid=1788 count=42
+/teleport 31946 31713 5  # itemid=1788
+/teleport 32098 31649 8  # itemid=1788
+/teleport 32190 31624 5  # itemid=1788
+/teleport 32143 31657 6  # itemid=1788
+/teleport 32362 31683 7  # itemid=1788
+/teleport 32180 31926 4  # itemid=1788
+/teleport 32180 31927 4  # itemid=1788
+/teleport 32180 31928 4  # itemid=1788
+/teleport 32180 31929 4  # itemid=1788
+/teleport 32730 31977 6  # itemid=1788
+/teleport 32302 32186 8  # itemid=1788
+/teleport 33140 31628 15  # itemid=1788
+/teleport 33115 31672 2  # itemid=1788
+/teleport 33115 31673 2  # itemid=1788
+/teleport 33115 31674 2  # itemid=1788
+/teleport 33115 31675 2  # itemid=1788
+/teleport 33115 31676 2  # itemid=1788
+/teleport 33158 31620 15  # itemid=1788
+/teleport 33240 31682 8  # itemid=1788
+/teleport 33240 31687 8  # itemid=1788
+/teleport 33186 31811 5  # itemid=1788
+/teleport 33193 31811 5  # itemid=1788
+/teleport 33194 31811 6  # itemid=1788
+/teleport 33284 31844 7  # itemid=1788
+/teleport 33284 31845 7  # itemid=1788
+/teleport 33284 31846 7  # itemid=1788
+/teleport 33329 31885 7  # itemid=1788
+/teleport 33004 32034 7  # itemid=1788
+/teleport 32916 32110 7  # itemid=1788
+/teleport 32916 32111 7  # itemid=1788
+/teleport 32916 32114 7  # itemid=1788
+/teleport 32916 32115 7  # itemid=1788
+/teleport 32974 32081 7  # itemid=1788
+/teleport 32974 32082 7  # itemid=1788
+/teleport 32974 32083 7  # itemid=1788
+/teleport 32974 32084 7  # itemid=1788
+/teleport 33107 32161 8  # itemid=1788
+/teleport 33107 32162 8  # itemid=1788
+/teleport 33107 32163 8  # itemid=1788
+/teleport 33223 32403 5  # itemid=1788
+/teleport 33241 32405 6  # itemid=1788
+/teleport 33235 32411 7  # itemid=1788
+
+itemid=1790 count=44
+/teleport 32495 31614 7  # itemid=1790
+/teleport 32328 31797 6  # itemid=1790
+/teleport 32302 31817 7  # itemid=1790
+/teleport 32322 31932 7  # itemid=1790
+/teleport 32597 31926 6  # itemid=1790
+/teleport 32624 31995 9  # itemid=1790
+/teleport 32366 32043 10  # itemid=1790
+/teleport 32344 32204 8  # itemid=1790
+/teleport 32152 32397 7  # itemid=1790
+/teleport 32153 32397 7  # itemid=1790
+/teleport 32938 31737 7  # itemid=1790
+/teleport 33154 31603 15  # itemid=1790
+/teleport 33110 31676 2  # itemid=1790
+/teleport 33111 31676 2  # itemid=1790
+/teleport 33112 31676 2  # itemid=1790
+/teleport 33113 31676 2  # itemid=1790
+/teleport 33114 31676 2  # itemid=1790
+/teleport 33259 31639 10  # itemid=1790
+/teleport 33260 31640 10  # itemid=1790
+/teleport 33263 31640 10  # itemid=1790
+/teleport 33264 31639 10  # itemid=1790
+/teleport 32936 31774 9  # itemid=1790
+/teleport 32937 31774 9  # itemid=1790
+/teleport 32938 31774 9  # itemid=1790
+/teleport 32939 31774 9  # itemid=1790
+/teleport 32908 31788 7  # itemid=1790
+/teleport 32915 31788 7  # itemid=1790
+/teleport 33278 31773 7  # itemid=1790
+/teleport 33198 31814 5  # itemid=1790
+/teleport 33258 31827 7  # itemid=1790
+/teleport 33259 31827 7  # itemid=1790
+/teleport 33260 31827 7  # itemid=1790
+/teleport 33232 31900 5  # itemid=1790
+/teleport 33280 31848 7  # itemid=1790
+/teleport 33281 31848 7  # itemid=1790
+/teleport 33282 31848 7  # itemid=1790
+/teleport 33094 32151 9  # itemid=1790
+/teleport 33095 32151 9  # itemid=1790
+/teleport 33099 32151 9  # itemid=1790
+/teleport 33100 32151 9  # itemid=1790
+/teleport 33235 32411 5  # itemid=1790
+/teleport 33101 32522 4  # itemid=1790
+/teleport 33102 32522 4  # itemid=1790
+/teleport 33103 32522 4  # itemid=1790
+
+itemid=1792 count=79
+/teleport 32185 31627 7  # itemid=1792
+/teleport 32316 31797 8  # itemid=1792
+/teleport 32346 31829 6  # itemid=1792
+/teleport 32418 31939 8  # itemid=1792
+/teleport 32418 31940 8  # itemid=1792
+/teleport 32418 31941 8  # itemid=1792
+/teleport 32459 31950 6  # itemid=1792
+/teleport 32459 31951 6  # itemid=1792
+/teleport 32534 31774 4  # itemid=1792
+/teleport 32630 31768 7  # itemid=1792
+/teleport 32618 31888 9  # itemid=1792
+/teleport 32618 31889 9  # itemid=1792
+/teleport 32618 31890 9  # itemid=1792
+/teleport 32618 31891 9  # itemid=1792
+/teleport 32655 31955 15  # itemid=1792
+/teleport 32655 31956 15  # itemid=1792
+/teleport 32655 31957 15  # itemid=1792
+/teleport 32655 31958 15  # itemid=1792
+/teleport 32655 31959 15  # itemid=1792
+/teleport 32024 32197 6  # itemid=1792
+/teleport 32262 32052 7  # itemid=1792
+/teleport 32386 32202 8  # itemid=1792
+/teleport 32622 32000 9  # itemid=1792
+/teleport 32650 32195 8  # itemid=1792
+/teleport 33110 31671 2  # itemid=1792
+/teleport 33110 31672 2  # itemid=1792
+/teleport 33110 31673 2  # itemid=1792
+/teleport 33110 31674 2  # itemid=1792
+/teleport 33110 31675 2  # itemid=1792
+/teleport 33110 31672 4  # itemid=1792
+/teleport 33110 31673 4  # itemid=1792
+/teleport 33256 31635 10  # itemid=1792
+/teleport 33257 31634 10  # itemid=1792
+/teleport 33258 31633 10  # itemid=1792
+/teleport 33256 31636 10  # itemid=1792
+/teleport 33257 31637 10  # itemid=1792
+/teleport 33258 31638 10  # itemid=1792
+/teleport 33236 31682 8  # itemid=1792
+/teleport 33236 31687 8  # itemid=1792
+/teleport 32929 31765 9  # itemid=1792
+/teleport 32929 31766 9  # itemid=1792
+/teleport 32929 31767 9  # itemid=1792
+/teleport 32929 31768 9  # itemid=1792
+/teleport 32929 31769 9  # itemid=1792
+/teleport 32929 31770 9  # itemid=1792
+/teleport 32943 31796 6  # itemid=1792
+/teleport 32825 31971 8  # itemid=1792
+/teleport 33195 31807 7  # itemid=1792
+/teleport 33207 31796 5  # itemid=1792
+/teleport 33207 31797 5  # itemid=1792
+/teleport 33207 31798 5  # itemid=1792
+/teleport 33207 31799 5  # itemid=1792
+/teleport 33278 31844 7  # itemid=1792
+/teleport 33278 31845 7  # itemid=1792
+/teleport 33278 31846 7  # itemid=1792
+/teleport 33306 31987 15  # itemid=1792
+/teleport 33306 31988 15  # itemid=1792
+/teleport 33306 31989 15  # itemid=1792
+/teleport 33306 31990 15  # itemid=1792
+/teleport 33306 31991 15  # itemid=1792
+/teleport 32884 32029 5  # itemid=1792
+/teleport 32911 32083 9  # itemid=1792
+/teleport 32951 32110 5  # itemid=1792
+/teleport 32969 32081 7  # itemid=1792
+/teleport 32969 32082 7  # itemid=1792
+/teleport 32969 32083 7  # itemid=1792
+/teleport 32969 32084 7  # itemid=1792
+/teleport 32920 32140 6  # itemid=1792
+/teleport 33057 32160 5  # itemid=1792
+/teleport 33057 32162 5  # itemid=1792
+/teleport 33094 32146 9  # itemid=1792
+/teleport 33094 32147 9  # itemid=1792
+/teleport 33291 32000 6  # itemid=1792
+/teleport 33219 32407 6  # itemid=1792
+/teleport 33219 32408 6  # itemid=1792
+/teleport 33219 32409 6  # itemid=1792
+/teleport 33219 32410 6  # itemid=1792
+/teleport 33219 32411 6  # itemid=1792
+/teleport 33204 32466 6  # itemid=1792
+
+itemid=1945 count=122
+/teleport 32180 31633 8  # itemid=1945
+/teleport 32488 31628 13  # itemid=1945
+/teleport 32528 31724 10  # itemid=1945
+/teleport 32212 31888 12  # itemid=1945
+/teleport 32266 31861 11  # itemid=1945
+/teleport 32315 31910 12  # itemid=1945
+/teleport 32313 31928 8  # itemid=1945
+/teleport 32476 31900 6  # itemid=1945
+/teleport 32477 31900 6  # itemid=1945
+/teleport 32478 31900 6  # itemid=1945
+/teleport 32479 31900 6  # itemid=1945
+/teleport 32480 31900 6  # itemid=1945
+/teleport 32481 31900 6  # itemid=1945
+/teleport 32478 31904 3  # itemid=1945
+/teleport 32479 31905 4  # itemid=1945
+/teleport 32479 31905 6  # itemid=1945
+/teleport 32481 31904 5  # itemid=1945
+/teleport 32310 31975 13  # itemid=1945
+/teleport 32312 31975 13  # itemid=1945
+/teleport 32314 31975 13  # itemid=1945
+/teleport 32310 31976 13  # itemid=1945
+/teleport 32312 31976 13  # itemid=1945
+/teleport 32314 31976 13  # itemid=1945
+/teleport 32560 31891 12  # itemid=1945
+/teleport 32561 31891 12  # itemid=1945
+/teleport 32562 31891 12  # itemid=1945
+/teleport 32563 31891 12  # itemid=1945
+/teleport 32564 31891 12  # itemid=1945
+/teleport 32565 31891 12  # itemid=1945
+/teleport 32566 31891 12  # itemid=1945
+/teleport 32567 31891 12  # itemid=1945
+/teleport 32560 31892 12  # itemid=1945
+/teleport 32560 31893 12  # itemid=1945
+/teleport 32560 31894 12  # itemid=1945
+/teleport 32560 31895 12  # itemid=1945
+/teleport 32567 31892 12  # itemid=1945
+/teleport 32567 31893 12  # itemid=1945
+/teleport 32567 31894 12  # itemid=1945
+/teleport 32567 31895 12  # itemid=1945
+/teleport 32560 31896 12  # itemid=1945
+/teleport 32560 31896 12  # itemid=1945
+/teleport 32560 31897 12  # itemid=1945
+/teleport 32567 31896 12  # itemid=1945
+/teleport 32567 31897 12  # itemid=1945
+/teleport 32573 31902 9  # itemid=1945
+/teleport 32584 31902 9  # itemid=1945
+/teleport 32579 31933 8  # itemid=1945
+/teleport 32577 31949 9  # itemid=1945
+/teleport 32596 31940 2  # itemid=1945
+/teleport 32577 31952 9  # itemid=1945
+/teleport 32598 31964 14  # itemid=1945
+/teleport 32606 31964 14  # itemid=1945
+/teleport 31987 32229 11  # itemid=1945
+/teleport 31998 32231 11  # itemid=1945
+/teleport 32148 32105 11  # itemid=1945
+/teleport 32088 32148 9  # itemid=1945
+/teleport 32090 32148 9  # itemid=1945
+/teleport 32092 32148 9  # itemid=1945
+/teleport 32094 32148 9  # itemid=1945
+/teleport 32093 32174 8  # itemid=1945
+/teleport 32086 32204 6  # itemid=1945
+/teleport 32098 32204 8  # itemid=1945
+/teleport 32104 32204 8  # itemid=1945
+/teleport 32413 32230 10  # itemid=1945
+/teleport 32417 32254 10  # itemid=1945
+/teleport 32497 32249 8  # itemid=1945
+/teleport 32580 32091 12  # itemid=1945
+/teleport 32602 32094 11  # itemid=1945
+/teleport 32617 32102 12  # itemid=1945
+/teleport 32673 32086 8  # itemid=1945
+/teleport 32614 32173 9  # itemid=1945
+/teleport 32227 32278 8  # itemid=1945
+/teleport 32225 32285 10  # itemid=1945
+/teleport 32792 31579 7  # itemid=1945
+/teleport 32792 31595 7  # itemid=1945
+/teleport 32802 31584 1  # itemid=1945
+/teleport 32803 31584 1  # itemid=1945
+/teleport 32801 31587 5  # itemid=1945
+/teleport 32802 31587 5  # itemid=1945
+/teleport 32803 31587 5  # itemid=1945
+/teleport 32804 31584 1  # itemid=1945
+/teleport 32805 31584 1  # itemid=1945
+/teleport 32813 31595 5  # itemid=1945
+/teleport 33330 31591 15  # itemid=1945
+/teleport 33290 31715 12  # itemid=1945
+/teleport 32959 31761 9  # itemid=1945
+/teleport 33188 31786 7  # itemid=1945
+/teleport 33194 31786 7  # itemid=1945
+/teleport 33252 31761 9  # itemid=1945
+/teleport 33187 31823 7  # itemid=1945
+/teleport 33195 31823 7  # itemid=1945
+/teleport 33207 31810 4  # itemid=1945
+/teleport 33172 31896 8  # itemid=1945
+/teleport 32886 32027 6  # itemid=1945
+/teleport 32886 32036 6  # itemid=1945
+/teleport 32891 32121 6  # itemid=1945
+/teleport 32914 32078 5  # itemid=1945
+/teleport 33003 32085 10  # itemid=1945
+/teleport 32891 32130 6  # itemid=1945
+/teleport 32931 32140 6  # itemid=1945
+/teleport 32940 32140 6  # itemid=1945
+/teleport 32778 32232 8  # itemid=1945
+/teleport 32798 32337 11  # itemid=1945
+/teleport 32792 32342 11  # itemid=1945
+/teleport 32792 32346 11  # itemid=1945
+/teleport 33080 32582 3  # itemid=1945
+/teleport 33118 32761 14  # itemid=1945
+/teleport 33118 32762 14  # itemid=1945
+/teleport 33118 32763 14  # itemid=1945
+/teleport 33150 32813 7  # itemid=1945
+/teleport 33150 32815 7  # itemid=1945
+/teleport 33150 32817 7  # itemid=1945
+/teleport 33152 32813 7  # itemid=1945
+/teleport 33154 32813 7  # itemid=1945
+/teleport 33161 32813 7  # itemid=1945
+/teleport 33161 32815 7  # itemid=1945
+/teleport 33163 32813 7  # itemid=1945
+/teleport 33165 32813 7  # itemid=1945
+/teleport 33161 32817 7  # itemid=1945
+/teleport 33145 32865 9  # itemid=1945
+/teleport 33152 32866 8  # itemid=1945
+/teleport 33152 32868 8  # itemid=1945
+
+itemid=2037 count=0
+
+itemid=2039 count=0
+
+itemid=2058 count=0
+
+itemid=2060 count=0
+
+itemid=2064 count=0
+
+itemid=2066 count=0
+
+itemid=2068 count=0
+
+itemid=2086 count=0
+
+itemid=2087 count=1
+/teleport 32818 32230 9  # itemid=2087
+
+itemid=2088 count=16
+/teleport 32180 31934 7  # itemid=2088
+/teleport 32592 31838 7  # itemid=2088
+/teleport 32726 31980 7  # itemid=2088
+/teleport 32414 32146 15  # itemid=2088
+/teleport 32411 32155 15  # itemid=2088
+/teleport 32589 32097 14  # itemid=2088
+/teleport 32677 32084 11  # itemid=2088
+/teleport 32661 32141 10  # itemid=2088
+/teleport 32576 32216 15  # itemid=2088
+/teleport 32801 31579 6  # itemid=2088
+/teleport 32807 31576 6  # itemid=2088
+/teleport 32813 31576 5  # itemid=2088
+/teleport 32800 31582 2  # itemid=2088
+/teleport 32792 31590 6  # itemid=2088
+/teleport 32790 31593 7  # itemid=2088
+/teleport 32781 32334 6  # itemid=2088
+
+itemid=2089 count=4
+/teleport 32172 31602 10  # itemid=2089
+/teleport 32201 31571 10  # itemid=2089
+/teleport 32031 31686 8  # itemid=2089
+/teleport 32648 31905 3  # itemid=2089
+
+itemid=2090 count=0
+
+itemid=2091 count=1
+/teleport 32623 32187 9  # itemid=2091
+
+itemid=2092 count=0
+
+itemid=2096 count=0
+
+itemid=2148 count=17
+/teleport 32097 31568 9  # itemid=2148
+/teleport 32098 31571 9  # itemid=2148
+/teleport 32099 31570 9  # itemid=2148
+/teleport 32497 31641 13  # itemid=2148
+/teleport 32497 31641 13  # itemid=2148
+/teleport 32142 32098 11  # itemid=2148
+/teleport 32143 32097 11  # itemid=2148
+/teleport 32144 32099 11  # itemid=2148
+/teleport 32145 32097 11  # itemid=2148
+/teleport 32146 32098 11  # itemid=2148
+/teleport 32436 32036 7  # itemid=2148
+/teleport 32348 32137 9  # itemid=2148
+/teleport 32383 32153 8  # itemid=2148
+/teleport 32384 32156 8  # itemid=2148
+/teleport 33017 32054 8  # itemid=2148
+/teleport 33220 32411 5  # itemid=2148
+/teleport 33222 32408 5  # itemid=2148
+
+itemid=2152 count=13
+/teleport 32097 31570 9  # itemid=2152
+/teleport 32099 31569 9  # itemid=2152
+/teleport 32634 31926 3  # itemid=2152
+/teleport 32636 31927 3  # itemid=2152
+/teleport 32638 31924 3  # itemid=2152
+/teleport 32639 31926 3  # itemid=2152
+/teleport 32640 31925 3  # itemid=2152
+/teleport 32640 31926 3  # itemid=2152
+/teleport 33083 31650 12  # itemid=2152
+/teleport 33297 31795 7  # itemid=2152
+/teleport 33016 32054 8  # itemid=2152
+/teleport 33022 32054 6  # itemid=2152
+/teleport 33044 32619 7  # itemid=2152
+
+itemid=2160 count=0
+
+itemid=2578 count=1
+/teleport 33211 31802 6  # itemid=2578
+
+itemid=3535 count=0
+
+itemid=3536 count=0
+
+itemid=3537 count=0
+
+itemid=3538 count=0
+
+itemid=3539 count=0
+
+itemid=3540 count=0
+
+itemid=3542 count=0
+
+itemid=3544 count=0
+
+itemid=3545 count=0
+
+itemid=3546 count=0
+
+itemid=3547 count=0
+
+itemid=3548 count=0
+
+itemid=3549 count=0
+
+itemid=3551 count=0
+
+itemid=3697 count=0
+
+itemid=3699 count=0
+
+itemid=3947 count=0
+
+itemid=4913 count=0
+
+itemid=4914 count=0
+
+itemid=4915 count=0
+
+itemid=4916 count=0
+
+itemid=4917 count=0
+
+itemid=4918 count=0
+
+itemid=5082 count=0
+
+itemid=5083 count=0
+
+itemid=5084 count=0
+
+itemid=5085 count=0
+
+itemid=5098 count=0
+
+itemid=5099 count=0
+
+itemid=5100 count=0
+
+itemid=5101 count=0
+
+itemid=5102 count=0
+
+itemid=5103 count=0
+
+itemid=5105 count=0
+
+itemid=5107 count=0
+
+itemid=5108 count=0
+
+itemid=5109 count=0
+
+itemid=5110 count=0
+
+itemid=5111 count=0
+
+itemid=5112 count=0
+
+itemid=5114 count=0
+
+itemid=5116 count=0
+
+itemid=5117 count=0
+
+itemid=5118 count=0
+
+itemid=5119 count=0
+
+itemid=5120 count=0
+
+itemid=5121 count=0
+
+itemid=5123 count=0
+
+itemid=5125 count=0
+
+itemid=5126 count=0
+
+itemid=5127 count=0
+
+itemid=5128 count=0
+
+itemid=5129 count=0
+
+itemid=5130 count=0
+
+itemid=5132 count=0
+
+itemid=5134 count=0
+
+itemid=5135 count=0
+
+itemid=5136 count=0
+
+itemid=5137 count=0
+
+itemid=5138 count=0
+
+itemid=5139 count=0
+
+itemid=5140 count=0
+
+itemid=5141 count=0
+
+itemid=5142 count=0
+
+itemid=5143 count=0
+
+itemid=5144 count=0
+
+itemid=5145 count=0
+
+itemid=5278 count=0
+
+itemid=5279 count=0
+
+itemid=5280 count=0
+
+itemid=5281 count=0
+
+itemid=5282 count=0
+
+itemid=5283 count=0
+
+itemid=5284 count=0
+
+itemid=5285 count=0
+
+itemid=5286 count=0
+
+itemid=5287 count=0
+
+itemid=5288 count=0
+
+itemid=5290 count=0
+
+itemid=5292 count=0
+
+itemid=5294 count=0
+
+itemid=5515 count=0
+
+itemid=5516 count=0
+
+itemid=5517 count=0
+
+itemid=5518 count=0
+
+itemid=5745 count=0
+
+itemid=5748 count=0
+
+itemid=6192 count=0
+
+itemid=6193 count=0
+
+itemid=6194 count=0
+
+itemid=6195 count=0
+
+itemid=6196 count=0
+
+itemid=6197 count=0
+
+itemid=6198 count=0
+
+itemid=6199 count=0
+
+itemid=6200 count=0
+
+itemid=6201 count=0
+
+itemid=6202 count=0
+
+itemid=6204 count=0
+
+itemid=6206 count=0
+
+itemid=6208 count=0
+
+itemid=6249 count=0
+
+itemid=6250 count=0
+
+itemid=6251 count=0
+
+itemid=6252 count=0
+
+itemid=6253 count=0
+
+itemid=6254 count=0
+
+itemid=6255 count=0
+
+itemid=6256 count=0
+
+itemid=6257 count=0
+
+itemid=6258 count=0
+
+itemid=6259 count=0
+
+itemid=6261 count=0
+
+itemid=6263 count=0
+
+itemid=6265 count=0
+
+itemid=6795 count=0
+
+itemid=6796 count=0
+
+itemid=6797 count=0
+
+itemid=6798 count=0
+
+itemid=6799 count=0
+
+itemid=6800 count=0
+
+itemid=6801 count=0
+
+itemid=6802 count=0
+
+itemid=6891 count=0
+
+itemid=6892 count=0
+
+itemid=6893 count=0
+
+itemid=6894 count=0
+
+itemid=6895 count=0
+
+itemid=6896 count=0
+
+itemid=6898 count=0
+
+itemid=6900 count=0
+
+itemid=6901 count=0
+
+itemid=6902 count=0
+
+itemid=6903 count=0
+
+itemid=6904 count=0
+
+itemid=6905 count=0
+
+itemid=6907 count=0
+
+itemid=7033 count=0
+
+itemid=7034 count=0
+
+itemid=7035 count=0
+
+itemid=7036 count=0
+
+itemid=7037 count=0
+
+itemid=7038 count=0
+
+itemid=7040 count=0
+
+itemid=7042 count=0
+
+itemid=7043 count=0
+
+itemid=7044 count=0
+
+itemid=7045 count=0
+
+itemid=7046 count=0
+
+itemid=7047 count=0
+
+itemid=7049 count=0
+
+itemid=7054 count=0
+
+itemid=7055 count=0
+
+itemid=7056 count=0
+
+itemid=7057 count=0
+

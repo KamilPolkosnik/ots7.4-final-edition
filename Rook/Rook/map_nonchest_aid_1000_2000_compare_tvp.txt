@@ -1,0 +1,485 @@
+TVP vs OTS (AID 1000-2000, non-chest items)
+TVP map: C:\Users\stelm\OneDrive\Pulpit\soe\TVP-7.4-DEVELOP-main\gameserver\data\world\map.otbm
+OTS map: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\world\world.otbm
+Filter: item name does NOT contain chest/box/crate
+
+/teleport 31983 32193 5  # TVP_ONLY
+  tvp: itemid=2725 name=palm aid=1017
+  ots: NONE
+
+/teleport 31984 32246 10  # TVP_ONLY
+  tvp: itemid=1742 name=wooden coffin aid=1031
+  ots: NONE
+
+/teleport 32005 32139 3  # BOTH
+  tvp: itemid=2103 name=honey flower aid=1027
+  ots: itemid=2103 name=honey flower aid=2000
+
+/teleport 32084 32181 8  # TVP_ONLY
+  tvp: itemid=405 name=wooden floor aid=1224
+  ots: NONE
+
+/teleport 32172 32169 7  # BOTH
+  tvp: itemid=2725 name=palm aid=1017
+  ots: itemid=2725 name=palm aid=2000
+
+/teleport 32174 32149 11  # BOTH
+  tvp: itemid=3058 name=dead human aid=1030
+  ots: itemid=3058 name=dead human aid=2000
+
+/teleport 32175 32145 11  # BOTH
+  tvp: itemid=3058 name=dead human aid=1029
+  ots: itemid=3058 name=dead human aid=2000
+
+/teleport 32176 32132 9  # BOTH
+  tvp: itemid=3058 name=dead human aid=1028
+  ots: itemid=3058 name=dead human aid=2000
+
+/teleport 32179 32224 9  # BOTH
+  tvp: itemid=2844 name=dead dragon aid=1024
+  ots: itemid=3104 name=dead dragon aid=2000
+
+/teleport 32180 31934 7  # TVP_ONLY
+  tvp: itemid=1718 name=bookcase aid=1221
+  ots: NONE
+
+/teleport 32181 32468 10  # TVP_ONLY
+  tvp: itemid=4183 name=glimmer cap mushrooms aid=1331
+  ots: NONE
+
+/teleport 32212 32435 10  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1050
+
+/teleport 32219 32401 10  # TVP_ONLY
+  tvp: itemid=385 name=small hole aid=1175
+  ots: NONE
+
+/teleport 32223 31869 14  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1060
+
+/teleport 32233 32491 10  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1174
+  ots: NONE
+
+/teleport 32239 32471 10  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1170
+  ots: NONE
+
+/teleport 32239 32478 10  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1171
+  ots: NONE
+
+/teleport 32245 32492 10  # TVP_ONLY
+  tvp: itemid=2844 name=dead dragon aid=1173
+  ots: NONE
+
+/teleport 32248 31866 8  # TVP_ONLY
+  tvp: itemid=1744 name=wooden coffin aid=1225
+  ots: NONE
+
+/teleport 32256 32500 10  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1172
+  ots: NONE
+
+/teleport 32262 31861 11  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1207
+  ots: NONE
+
+/teleport 32305 32254 9  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1128
+  ots: NONE
+
+/teleport 32325 32389 9  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1025
+
+/teleport 32353 32073 11  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1040
+
+/teleport 32360 31784 8  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1002
+
+/teleport 32369 32246 6  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1001
+
+/teleport 32370 32265 12  # TVP_ONLY
+  tvp: itemid=385 name=small hole aid=1142
+  ots: NONE
+
+/teleport 32411 32155 15  # TVP_ONLY
+  tvp: itemid=1717 name=drawers aid=1056
+  ots: NONE
+
+/teleport 32414 32147 15  # TVP_ONLY
+  tvp: itemid=1717 name=drawers aid=1038
+  ots: NONE
+
+/teleport 32421 31594 15  # TVP_ONLY
+  tvp: itemid=1721 name=bookcase aid=1161
+  ots: NONE
+
+/teleport 32423 31591 15  # TVP_ONLY
+  tvp: itemid=1718 name=bookcase aid=1159
+  ots: NONE
+
+/teleport 32424 32145 15  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1030
+
+/teleport 32427 31943 14  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1137
+  ots: NONE
+
+/teleport 32428 31591 15  # TVP_ONLY
+  tvp: itemid=1718 name=bookcase aid=1160
+  ots: NONE
+
+/teleport 32448 32042 8  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1035
+
+/teleport 32460 31951 5  # TVP_ONLY
+  tvp: itemid=1717 name=drawers aid=1070
+  ots: NONE
+
+/teleport 32475 31946 13  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1035
+
+/teleport 32479 31634 10  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1030
+
+/teleport 32479 32174 15  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1030
+
+/teleport 32483 31630 10  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1030
+
+/teleport 32483 31635 10  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1030
+
+/teleport 32483 31722 15  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1060
+
+/teleport 32486 31633 10  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1030
+
+/teleport 32497 31887 7  # TVP_ONLY
+  tvp: itemid=2720 name=dead tree aid=1036
+  ots: NONE
+
+/teleport 32498 31721 15  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1156
+  ots: NONE
+
+/teleport 32500 31721 15  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1157
+  ots: NONE
+
+/teleport 32503 31724 15  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1158
+  ots: NONE
+
+/teleport 32509 32181 13  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1055
+  ots: NONE
+
+/teleport 32510 31956 13  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1032
+
+/teleport 32514 32248 8  # TVP_ONLY
+  tvp: itemid=4367 name=dead human aid=1243
+  ots: NONE
+
+/teleport 32514 32303 10  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1037
+  ots: NONE
+
+/teleport 32544 32179 14  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1040
+
+/teleport 32567 31969 3  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1030
+
+/teleport 32568 32085 12  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1254
+  ots: NONE
+
+/teleport 32576 32216 15  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1057
+  ots: NONE
+
+/teleport 32578 32177 15  # TVP_ONLY
+  tvp: itemid=1718 name=bookcase aid=1209
+  ots: NONE
+
+/teleport 32588 31644 3  # TVP_ONLY
+  tvp: itemid=1717 name=drawers aid=1075
+  ots: NONE
+
+/teleport 32588 31645 3  # TVP_ONLY
+  tvp: itemid=1717 name=drawers aid=1074
+  ots: NONE
+
+/teleport 32589 31794 5  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1046
+  ots: NONE
+
+/teleport 32589 32097 14  # TVP_ONLY
+  tvp: itemid=385 name=small hole aid=1039
+  ots: NONE
+
+/teleport 32602 32207 10  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1045
+
+/teleport 32607 31682 7  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1004
+
+/teleport 32636 31873 10  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1332
+  ots: NONE
+
+/teleport 32642 31925 12  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1003
+
+/teleport 32644 31614 6  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1255
+  ots: NONE
+
+/teleport 32652 32107 7  # TVP_ONLY
+  tvp: itemid=1290 name=stone aid=1192
+  ots: NONE
+
+/teleport 32673 32100 8  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1020
+
+/teleport 32680 31603 15  # TVP_ONLY
+  tvp: itemid=385 name=small hole aid=1065
+  ots: NONE
+
+/teleport 32726 31980 7  # TVP_ONLY
+  tvp: itemid=1410 name=stone coffin aid=1226
+  ots: NONE
+
+/teleport 32769 31968 7  # TVP_ONLY
+  tvp: itemid=2720 name=dead tree aid=1153
+  ots: NONE
+
+/teleport 32775 32006 11  # TVP_ONLY
+  tvp: itemid=1744 name=wooden coffin aid=1115
+  ots: NONE
+
+/teleport 32778 32282 11  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1124
+  ots: NONE
+
+/teleport 32781 32334 6  # TVP_ONLY
+  tvp: itemid=405 name=wooden floor aid=1040
+  ots: NONE
+
+/teleport 32786 32254 8  # TVP_ONLY
+  tvp: itemid=1774 name=barrel aid=1119
+  ots: NONE
+
+/teleport 32800 31582 2  # TVP_ONLY
+  tvp: itemid=1718 name=bookcase aid=1076
+  ots: NONE
+
+/teleport 32800 31959 7  # TVP_ONLY
+  tvp: itemid=2720 name=dead tree aid=1208
+  ots: NONE
+
+/teleport 32804 31583 2  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1025
+
+/teleport 32813 31964 7  # TVP_ONLY
+  tvp: itemid=2720 name=dead tree aid=1208
+  ots: NONE
+
+/teleport 32814 32281 8  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1214
+  ots: NONE
+
+/teleport 32816 32279 8  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1213
+  ots: NONE
+
+/teleport 32817 32283 8  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1215
+  ots: NONE
+
+/teleport 32868 31955 11  # TVP_ONLY
+  tvp: itemid=2720 name=dead tree aid=1050
+  ots: NONE
+
+/teleport 32874 31974 12  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1050
+
+/teleport 32875 31974 12  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1050
+
+/teleport 32880 31955 11  # TVP_ONLY
+  tvp: itemid=2720 name=dead tree aid=1154
+  ots: NONE
+
+/teleport 32933 32495 7  # TVP_ONLY
+  tvp: itemid=3882 name=giant footprint aid=1298
+  ots: NONE
+
+/teleport 32951 32035 7  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1007
+
+/teleport 32954 32695 8  # TVP_ONLY
+  tvp: itemid=4875 name=hydra's nest aid=1324
+  ots: NONE
+
+/teleport 32981 31760 9  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1040
+
+/teleport 33032 32398 11  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1060
+
+/teleport 33037 32398 11  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1060
+
+/teleport 33049 32399 10  # TVP_ONLY
+  tvp: itemid=1410 name=stone coffin aid=1127
+  ots: NONE
+
+/teleport 33051 32774 14  # TVP_ONLY
+  tvp: itemid=1419 name=sarcophagus aid=1266
+  ots: NONE
+
+/teleport 33063 31624 15  # TVP_ONLY
+  tvp: itemid=1742 name=wooden coffin aid=1051
+  ots: NONE
+
+/teleport 33084 31650 12  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1122
+  ots: NONE
+
+/teleport 33085 31650 10  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1060
+
+/teleport 33126 32589 15  # TVP_ONLY
+  tvp: itemid=1419 name=sarcophagus aid=1265
+  ots: NONE
+
+/teleport 33127 31885 9  # TVP_ONLY
+  tvp: itemid=3103 name=pile of bones aid=1083
+  ots: NONE
+
+/teleport 33145 32663 15  # TVP_ONLY
+  tvp: itemid=1419 name=sarcophagus aid=1264
+  ots: NONE
+
+/teleport 33155 32840 6  # TVP_ONLY
+  tvp: itemid=1721 name=bookcase aid=1269
+  ots: NONE
+
+/teleport 33174 32932 15  # TVP_ONLY
+  tvp: itemid=1419 name=sarcophagus aid=1261
+  ots: NONE
+
+/teleport 33178 33013 14  # TVP_ONLY
+  tvp: itemid=1419 name=sarcophagus aid=1267
+  ots: NONE
+
+/teleport 33182 31869 12  # TVP_ONLY
+  tvp: itemid=3058 name=dead human aid=1108
+  ots: NONE
+
+/teleport 33182 32712 14  # TVP_ONLY
+  tvp: itemid=1419 name=sarcophagus aid=1263
+  ots: NONE
+
+/teleport 33186 32903 11  # TVP_ONLY
+  tvp: itemid=1718 name=bookcase aid=1268
+  ots: NONE
+
+/teleport 33190 31684 14  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1070
+
+/teleport 33195 31684 14  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1070
+
+/teleport 33195 32849 6  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1008
+
+/teleport 33210 31804 8  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1005
+
+/teleport 33211 31638 13  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1100
+
+/teleport 33214 31671 13  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1100
+
+/teleport 33216 32455 2  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1387 name=magic forcefield aid=1006
+
+/teleport 33297 31670 14  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1229 name=gate of expertise aid=1080
+
+/teleport 33302 31691 11  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1030
+
+/teleport 33302 31692 11  # OTS_ONLY
+  tvp: NONE
+  ots: itemid=1227 name=gate of expertise aid=1030
+
+/teleport 33315 32277 11  # TVP_ONLY
+  tvp: itemid=1410 name=stone coffin aid=1111
+  ots: NONE
+
+/teleport 33315 32282 11  # TVP_ONLY
+  tvp: itemid=1410 name=stone coffin aid=1112
+  ots: NONE
+
+/teleport 33327 32180 8  # TVP_ONLY
+  tvp: itemid=1742 name=wooden coffin aid=1110
+  ots: NONE
+
+/teleport 33349 32825 14  # TVP_ONLY
+  tvp: itemid=1419 name=sarcophagus aid=1262
+  ots: NONE
+
+=== SUMMARY ===
+positions_both=6
+positions_tvp_only=73
+positions_ots_only=40

@@ -1,0 +1,544 @@
+Task Rewards - Creature/Trash Loot Candidates
+Source: data/monster/*.xml
+Monsters scanned: 164
+Unique loot item ids: 341
+Items with known names: 340
+Parse errors: 0
+
+=== Summary by guessed category ===
+creature_candidate: 22
+review: 121
+trash_or_general: 198
+
+=== Full item list (sorted by how many monsters can drop it) ===
+id=6512  name=gem bag | category=trash_or_general | monsters=136 | refs=136 | chance=250..250
+id=2148  name=gold coin | category=trash_or_general | monsters=110 | refs=179 | chance=100..100000
+id=2666  name=meat | category=trash_or_general | monsters=49 | refs=49 | chance=1000..90000
+id=2671  name=ham | category=trash_or_general | monsters=18 | refs=18 | chance=10000..60000
+id=2050  name=torch | category=trash_or_general | monsters=15 | refs=18 | chance=5000..60000
+id=2463  name=plate armor | category=trash_or_general | monsters=15 | refs=15 | chance=100..20000
+id=2177  name=life crystal | category=review | monsters=14 | refs=14 | chance=100..2000
+id=3976  name=worm | category=review | monsters=13 | refs=13 | chance=5000..90000
+id=2465  name=brass armor | category=trash_or_general | monsters=12 | refs=12 | chance=1000..28000
+id=2649  name=leather legs | category=creature_candidate | monsters=12 | refs=12 | chance=1000..15000
+id=2146  name=small sapphire | category=review | monsters=11 | refs=12 | chance=100..13500
+id=2150  name=small amethyst | category=review | monsters=11 | refs=12 | chance=100..13500
+id=2377  name=two handed sword | category=trash_or_general | monsters=11 | refs=11 | chance=500..20000
+id=2478  name=brass legs | category=trash_or_general | monsters=11 | refs=11 | chance=500..16000
+id=2149  name=small emerald | category=review | monsters=10 | refs=11 | chance=100..15500
+id=2387  name=double axe | category=trash_or_general | monsters=10 | refs=10 | chance=400..20000
+id=2406  name=short sword | category=trash_or_general | monsters=10 | refs=10 | chance=200..25000
+id=2509  name=steel shield | category=trash_or_general | monsters=10 | refs=10 | chance=100..15000
+id=2145  name=small diamond | category=review | monsters=9 | refs=10 | chance=100..10000
+id=2229  name=skull | category=creature_candidate | monsters=9 | refs=9 | chance=1000..80000
+id=2398  name=mace | category=trash_or_general | monsters=9 | refs=9 | chance=800..20000
+id=2457  name=steel helmet | category=trash_or_general | monsters=9 | refs=10 | chance=100..10000
+id=2467  name=leather armor | category=creature_candidate | monsters=9 | refs=9 | chance=5500..50000
+id=2483  name=scale armor | category=creature_candidate | monsters=9 | refs=9 | chance=600..10000
+id=2513  name=battle shield | category=trash_or_general | monsters=9 | refs=9 | chance=100..18000
+id=2379  name=dagger | category=trash_or_general | monsters=8 | refs=8 | chance=18000..80000
+id=2386  name=axe | category=trash_or_general | monsters=8 | refs=8 | chance=1000..30000
+id=2401  name=staff | category=review | monsters=8 | refs=9 | chance=7000..60000
+id=2411  name=poison dagger | category=trash_or_general | monsters=8 | refs=8 | chance=100..20000
+id=2461  name=leather helmet | category=creature_candidate | monsters=8 | refs=8 | chance=3000..10000
+id=2464  name=chain armor | category=trash_or_general | monsters=8 | refs=8 | chance=3000..10000
+id=2642  name=sandals | category=review | monsters=8 | refs=8 | chance=8000..26000
+id=2667  name=fish | category=trash_or_general | monsters=8 | refs=8 | chance=10000..60000
+id=1294  name=small stone | category=review | monsters=7 | refs=7 | chance=10000..60000
+id=2124  name=crystal ring | category=trash_or_general | monsters=7 | refs=7 | chance=100..5500
+id=2129  name=wolf tooth chain | category=creature_candidate | monsters=7 | refs=7 | chance=200..10000
+id=2166  name=power ring | category=trash_or_general | monsters=7 | refs=7 | chance=100..5500
+id=2175  name=spellbook | category=trash_or_general | monsters=7 | refs=7 | chance=400..10000
+id=2195  name=boots of haste | category=trash_or_general | monsters=7 | refs=7 | chance=100..4000
+id=2230  name=bone | category=creature_candidate | monsters=7 | refs=7 | chance=10000..50000
+id=2389  name=spear | category=trash_or_general | monsters=7 | refs=7 | chance=3000..60000
+id=2397  name=longsword | category=trash_or_general | monsters=7 | refs=7 | chance=4000..12000
+id=2458  name=chain helmet | category=trash_or_general | monsters=7 | refs=7 | chance=1000..11000
+id=2544  name=arrow | category=trash_or_general | monsters=7 | refs=8 | chance=5000..70000
+id=2689  name=bread | category=trash_or_general | monsters=7 | refs=7 | chance=11000..20000
+id=2747  name=grave flower | category=review | monsters=7 | refs=7 | chance=500..36000
+id=1949  name=scroll | category=trash_or_general | monsters=6 | refs=6 | chance=20000..45000
+id=2144  name=black pearl | category=trash_or_general | monsters=6 | refs=6 | chance=1000..15000
+id=2165  name=stealth ring | category=trash_or_general | monsters=6 | refs=6 | chance=100..9500
+id=2167  name=energy ring | category=trash_or_general | monsters=6 | refs=6 | chance=3000..13500
+id=2214  name=ring of healing | category=trash_or_general | monsters=6 | refs=6 | chance=500..13000
+id=2260  name=blank rune | category=trash_or_general | monsters=6 | refs=6 | chance=9000..18000
+id=2376  name=sword | category=trash_or_general | monsters=6 | refs=6 | chance=1000..5000
+id=2394  name=morning star | category=review | monsters=6 | refs=6 | chance=700..11000
+id=2436  name=skull staff | category=creature_candidate | monsters=6 | refs=6 | chance=100..7000
+id=2482  name=studded helmet | category=trash_or_general | monsters=6 | refs=6 | chance=6000..15000
+id=2512  name=wooden shield | category=trash_or_general | monsters=6 | refs=6 | chance=1500..18000
+id=2643  name=leather boots | category=creature_candidate | monsters=6 | refs=6 | chance=3000..50000
+id=2663  name=mystic turban | category=review | monsters=6 | refs=6 | chance=100..1800
+id=2796  name=green mushroom | category=review | monsters=6 | refs=6 | chance=1500..24000
+id=2802  name=sling herb | category=review | monsters=6 | refs=8 | chance=500..14000
+id=2032  name=bowl | category=trash_or_general | monsters=5 | refs=5 | chance=5500..20000
+id=2044  name=lamp | category=review | monsters=5 | refs=5 | chance=8000..10000
+id=2147  name=small ruby | category=review | monsters=5 | refs=5 | chance=100..10000
+id=2154  name=yellow gem | category=trash_or_general | monsters=5 | refs=5 | chance=200..1000
+id=2162  name=magic lightwand | category=trash_or_general | monsters=5 | refs=5 | chance=5000..16000
+id=2164  name=might ring | category=trash_or_general | monsters=5 | refs=5 | chance=200..5000
+id=2171  name=platinum amulet | category=trash_or_general | monsters=5 | refs=5 | chance=100..4500
+id=2178  name=mind stone | category=review | monsters=5 | refs=5 | chance=200..4000
+id=2197  name=stone skin amulet | category=trash_or_general | monsters=5 | refs=5 | chance=500..5000
+id=2200  name=protection amulet | category=trash_or_general | monsters=5 | refs=5 | chance=1000..4500
+id=2392  name=fire sword | category=trash_or_general | monsters=5 | refs=5 | chance=100..600
+id=2423  name=clerical mace | category=trash_or_general | monsters=5 | refs=5 | chance=200..5700
+id=2449  name=bone club | category=creature_candidate | monsters=5 | refs=5 | chance=5000..19900
+id=2459  name=iron helmet | category=trash_or_general | monsters=5 | refs=5 | chance=500..2000
+id=2479  name=strange helmet | category=trash_or_general | monsters=5 | refs=5 | chance=400..800
+id=2481  name=soldier helmet | category=trash_or_general | monsters=5 | refs=5 | chance=1000..12000
+id=2484  name=studded armor | category=trash_or_general | monsters=5 | refs=5 | chance=8000..12000
+id=2490  name=dark helmet | category=trash_or_general | monsters=5 | refs=5 | chance=200..2000
+id=2510  name=plate shield | category=trash_or_general | monsters=5 | refs=5 | chance=1000..10000
+id=2511  name=brass shield | category=trash_or_general | monsters=5 | refs=5 | chance=2000..17000
+id=2647  name=plate legs | category=trash_or_general | monsters=5 | refs=5 | chance=100..4000
+id=2656  name=blue robe | category=review | monsters=5 | refs=5 | chance=100..2000
+id=2672  name=dragon ham | category=trash_or_general | monsters=5 | refs=5 | chance=40000..80000
+id=2015  name=brown flask | category=trash_or_general | monsters=4 | refs=4 | chance=9000..9000
+id=2033  name=golden mug | category=review | monsters=4 | refs=4 | chance=3000..7500
+id=2047  name=candlestick | category=review | monsters=4 | refs=4 | chance=9000..70000
+id=2125  name=crystal necklace | category=review | monsters=4 | refs=4 | chance=200..1500
+id=2143  name=white pearl | category=trash_or_general | monsters=4 | refs=4 | chance=1000..12500
+id=2151  name=talon | category=review | monsters=4 | refs=4 | chance=700..14000
+id=2168  name=life ring | category=trash_or_general | monsters=4 | refs=4 | chance=200..5000
+id=2169  name=time ring | category=trash_or_general | monsters=4 | refs=4 | chance=100..5000
+id=2170  name=silver amulet | category=trash_or_general | monsters=4 | refs=4 | chance=100..13000
+id=2193  name=ankh | category=review | monsters=4 | refs=4 | chance=100..500
+id=2231  name=big bone | category=creature_candidate | monsters=4 | refs=4 | chance=6000..10000
+id=2381  name=halberd | category=review | monsters=4 | refs=4 | chance=500..13000
+id=2385  name=sabre | category=review | monsters=4 | refs=4 | chance=2000..50000
+id=2388  name=hatchet | category=review | monsters=4 | refs=4 | chance=1200..25000
+id=2391  name=war hammer | category=trash_or_general | monsters=4 | refs=4 | chance=100..2500
+id=2399  name=throwing star | category=creature_candidate | monsters=4 | refs=4 | chance=1000..30000
+id=2403  name=knife | category=review | monsters=4 | refs=4 | chance=10000..15000
+id=2404  name=combat knife | category=review | monsters=4 | refs=4 | chance=4000..7000
+id=2419  name=scimitar | category=review | monsters=4 | refs=4 | chance=6000..12000
+id=2434  name=dragon hammer | category=trash_or_general | monsters=4 | refs=4 | chance=200..4500
+id=2475  name=warrior helmet | category=trash_or_general | monsters=4 | refs=4 | chance=100..5000
+id=2476  name=knight armor | category=trash_or_general | monsters=4 | refs=4 | chance=300..1000
+id=2477  name=knight legs | category=trash_or_general | monsters=4 | refs=4 | chance=300..15000
+id=2489  name=dark armor | category=trash_or_general | monsters=4 | refs=4 | chance=200..3000
+id=2498  name=royal helmet | category=trash_or_general | monsters=4 | refs=4 | chance=100..400
+id=2541  name=bone shield | category=creature_candidate | monsters=4 | refs=4 | chance=300..2000
+id=2547  name=power bolt | category=trash_or_general | monsters=4 | refs=4 | chance=6000..16000
+id=2580  name=fishing rod | category=trash_or_general | monsters=4 | refs=4 | chance=100..5000
+id=2648  name=chain legs | category=trash_or_general | monsters=4 | refs=4 | chance=1000..35000
+id=2652  name=green tunic | category=review | monsters=4 | refs=4 | chance=7000..9000
+id=2654  name=cape | category=review | monsters=4 | refs=4 | chance=9000..100000
+id=2674  name=red apple | category=trash_or_general | monsters=4 | refs=4 | chance=7500..80000
+id=2696  name=cheese | category=trash_or_general | monsters=4 | refs=4 | chance=25000..40000
+id=2787  name=white mushroom | category=review | monsters=4 | refs=4 | chance=40000..60000
+id=1976  name=gemmed book | category=trash_or_general | monsters=3 | refs=3 | chance=9000..10000
+id=2120  name=rope | category=trash_or_general | monsters=3 | refs=3 | chance=4000..20000
+id=2134  name=silver brooch | category=review | monsters=3 | refs=3 | chance=1500..4000
+id=2152  name=platinum coin | category=trash_or_general | monsters=3 | refs=5 | chance=15000..70000
+id=2155  name=green gem | category=trash_or_general | monsters=3 | refs=3 | chance=100..1500
+id=2156  name=red gem | category=trash_or_general | monsters=3 | refs=3 | chance=100..1000
+id=2158  name=blue gem | category=trash_or_general | monsters=3 | refs=3 | chance=100..1500
+id=2172  name=bronze amulet | category=trash_or_general | monsters=3 | refs=3 | chance=100..200
+id=2174  name=strange symbol | category=review | monsters=3 | refs=3 | chance=500..2500
+id=2176  name=orb | category=review | monsters=3 | refs=3 | chance=500..12000
+id=2188  name=green spell wand | category=trash_or_general | monsters=3 | refs=3 | chance=1000..2500
+id=2208  name=axe ring | category=trash_or_general | monsters=3 | refs=6 | chance=100..1500
+id=2209  name=club ring | category=trash_or_general | monsters=3 | refs=3 | chance=100..200
+id=2237  name=dirty cape | category=review | monsters=3 | refs=3 | chance=19900..20000
+id=2359  name=small oil lamp | category=review | monsters=3 | refs=3 | chance=7500..20000
+id=2393  name=giant sword | category=trash_or_general | monsters=3 | refs=3 | chance=1000..12500
+id=2396  name=ice rapier | category=review | monsters=3 | refs=3 | chance=300..7500
+id=2410  name=throwing knife | category=creature_candidate | monsters=3 | refs=3 | chance=8000..11000
+id=2412  name=katana | category=review | monsters=3 | refs=3 | chance=300..15000
+id=2417  name=battle hammer | category=trash_or_general | monsters=3 | refs=3 | chance=3000..7000
+id=2425  name=obsidian lance | category=review | monsters=3 | refs=3 | chance=1000..1200
+id=2428  name=orcish axe | category=trash_or_general | monsters=3 | refs=3 | chance=15000..15000
+id=2432  name=fire axe | category=trash_or_general | monsters=3 | refs=3 | chance=200..17000
+id=2442  name=heavy machete | category=review | monsters=3 | refs=3 | chance=500..20000
+id=2455  name=crossbow | category=trash_or_general | monsters=3 | refs=3 | chance=4000..10000
+id=2456  name=bow | category=trash_or_general | monsters=3 | refs=3 | chance=4000..30000
+id=2460  name=brass helmet | category=trash_or_general | monsters=3 | refs=3 | chance=1000..20000
+id=2492  name=dragon scale mail | category=creature_candidate | monsters=3 | refs=3 | chance=100..300
+id=2497  name=crusader helmet | category=trash_or_general | monsters=3 | refs=3 | chance=200..500
+id=2515  name=guardian shield | category=trash_or_general | monsters=3 | refs=3 | chance=200..17000
+id=2518  name=beholder shield | category=trash_or_general | monsters=3 | refs=3 | chance=100..200
+id=2526  name=studded shield | category=trash_or_general | monsters=3 | refs=3 | chance=5000..10000
+id=2528  name=tower shield | category=trash_or_general | monsters=3 | refs=3 | chance=300..600
+id=2530  name=copper shield | category=trash_or_general | monsters=3 | refs=3 | chance=500..10000
+id=2545  name=poison arrow | category=trash_or_general | monsters=3 | refs=3 | chance=5000..60000
+id=2546  name=burst arrow | category=trash_or_general | monsters=3 | refs=3 | chance=5000..40000
+id=2553  name=pick | category=trash_or_general | monsters=3 | refs=3 | chance=6000..10000
+id=2600  name=inkwell | category=review | monsters=3 | refs=3 | chance=9000..13000
+id=2645  name=steel boots | category=trash_or_general | monsters=3 | refs=3 | chance=100..500
+id=2675  name=orange | category=review | monsters=3 | refs=3 | chance=1000..20000
+id=2676  name=banana | category=trash_or_general | monsters=3 | refs=6 | chance=5000..30000
+id=2682  name=melon | category=review | monsters=3 | refs=3 | chance=10000..22000
+id=2684  name=carrot | category=review | monsters=3 | refs=3 | chance=10000..25000
+id=2792  name=dark mushroom | category=review | monsters=3 | refs=3 | chance=3000..25000
+id=2804  name=shadow herb | category=review | monsters=3 | refs=3 | chance=1000..15000
+id=3967  name=tribal mask | category=creature_candidate | monsters=3 | refs=3 | chance=500..500
+id=1977  name=book | category=trash_or_general | monsters=2 | refs=2 | chance=1500..7000
+id=1982  name=purple tome | category=review | monsters=2 | refs=2 | chance=1300..2600
+id=1988  name=backpack | category=trash_or_general | monsters=2 | refs=2 | chance=20000..30000
+id=2070  name=flute | category=review | monsters=2 | refs=2 | chance=300..1400
+id=2071  name=lyre | category=review | monsters=2 | refs=2 | chance=1000..15000
+id=2121  name=wedding ring | category=trash_or_general | monsters=2 | refs=2 | chance=500..5000
+id=2123  name=ring of the sky | category=trash_or_general | monsters=2 | refs=2 | chance=200..3500
+id=2142  name=ancient amulet | category=trash_or_general | monsters=2 | refs=2 | chance=1000..3500
+id=2159  name=scarab coin | category=review | monsters=2 | refs=4 | chance=100..5000
+id=2179  name=golden ring | category=trash_or_general | monsters=2 | refs=2 | chance=1100..8000
+id=2189  name=yellow spell wand | category=trash_or_general | monsters=2 | refs=2 | chance=500..1000
+id=2192  name=crystal ball | category=review | monsters=2 | refs=2 | chance=1200..2500
+id=2198  name=elven amulet | category=trash_or_general | monsters=2 | refs=2 | chance=2000..2000
+id=2213  name=dwarven ring | category=trash_or_general | monsters=2 | refs=2 | chance=100..300
+id=2220  name=dirty fur | category=creature_candidate | monsters=2 | refs=2 | chance=7700..7700
+id=2235  name=moldy cheese | category=trash_or_general | monsters=2 | refs=2 | chance=7000..7000
+id=2378  name=battle axe | category=trash_or_general | monsters=2 | refs=2 | chance=2500..6000
+id=2402  name=silver dagger | category=trash_or_general | monsters=2 | refs=2 | chance=500..15500
+id=2409  name=serpent sword | category=trash_or_general | monsters=2 | refs=2 | chance=500..2000
+id=2413  name=broad sword | category=trash_or_general | monsters=2 | refs=2 | chance=800..2000
+id=2418  name=golden sickle | category=review | monsters=2 | refs=2 | chance=1500..4500
+id=2430  name=knight axe | category=trash_or_general | monsters=2 | refs=2 | chance=2500..5000
+id=2448  name=studded club | category=trash_or_general | monsters=2 | refs=2 | chance=2000..8000
+id=2462  name=devil helmet | category=trash_or_general | monsters=2 | refs=2 | chance=1200..11000
+id=2468  name=studded legs | category=trash_or_general | monsters=2 | refs=2 | chance=10000..20000
+id=2470  name=golden legs | category=trash_or_general | monsters=2 | refs=2 | chance=400..5000
+id=2472  name=magic plate armor | category=trash_or_general | monsters=2 | refs=2 | chance=100..3000
+id=2473  name=viking helmet | category=trash_or_general | monsters=2 | refs=2 | chance=1000..5000
+id=2486  name=noble armor | category=trash_or_general | monsters=2 | refs=2 | chance=2500..3000
+id=2487  name=crown armor | category=trash_or_general | monsters=2 | refs=2 | chance=500..600
+id=2491  name=crown helmet | category=trash_or_general | monsters=2 | refs=2 | chance=500..5000
+id=2502  name=dwarven helmet | category=trash_or_general | monsters=2 | refs=2 | chance=200..9000
+id=2514  name=mastermind shield | category=trash_or_general | monsters=2 | refs=2 | chance=500..7500
+id=2520  name=demon shield | category=trash_or_general | monsters=2 | refs=2 | chance=700..15500
+id=2529  name=black shield | category=trash_or_general | monsters=2 | refs=2 | chance=200..200
+id=2543  name=bolt | category=trash_or_general | monsters=2 | refs=3 | chance=40000..80000
+id=2554  name=shovel | category=trash_or_general | monsters=2 | refs=2 | chance=1000..10000
+id=2559  name=small axe | category=trash_or_general | monsters=2 | refs=2 | chance=10000..10000
+id=2568  name=cleaver | category=review | monsters=2 | refs=2 | chance=9000..9000
+id=2651  name=coat | category=review | monsters=2 | refs=2 | chance=12000..20000
+id=2673  name=pear | category=trash_or_general | monsters=2 | refs=2 | chance=18000..25000
+id=2679  name=cherry | category=review | monsters=2 | refs=2 | chance=3000..20000
+id=2681  name=grapes | category=review | monsters=2 | refs=2 | chance=18000..20000
+id=2687  name=cookie | category=trash_or_general | monsters=2 | refs=2 | chance=1000..30000
+id=2800  name=star herb | category=review | monsters=2 | refs=2 | chance=9000..9000
+id=2817  name=dead snake | category=review | monsters=2 | refs=2 | chance=70000..70000
+id=3955  name=voodoo doll | category=review | monsters=2 | refs=2 | chance=100..100
+id=3971  name=charmer tiara | category=review | monsters=2 | refs=2 | chance=100..2000
+id=7097  name=wand of decay | category=trash_or_general | monsters=2 | refs=2 | chance=500..1000
+id=1860  name=green tapestry | category=review | monsters=1 | refs=1 | chance=2500..2500
+id=1872  name=blue tapestry | category=review | monsters=1 | refs=1 | chance=2500..2500
+id=1967  name=parchment | category=review | monsters=1 | refs=1 | chance=500..500
+id=1973  name=book | category=trash_or_general | monsters=1 | refs=1 | chance=4500..4500
+id=1978  name=book | category=trash_or_general | monsters=1 | refs=1 | chance=2500..2500
+id=1980  name=book | category=trash_or_general | monsters=1 | refs=1 | chance=2500..2500
+id=1986  name=red tome | category=review | monsters=1 | refs=1 | chance=400..400
+id=1998  name=green backpack | category=trash_or_general | monsters=1 | refs=1 | chance=4500..4500
+id=2007  name=bottle | category=review | monsters=1 | refs=1 | chance=7000..7000
+id=2023  name=amphora | category=review | monsters=1 | refs=1 | chance=11000..11000
+id=2031  name=waterskin | category=review | monsters=1 | refs=1 | chance=14000..14000
+id=2063  name=small oil lamp | category=review | monsters=1 | refs=1 | chance=7500..7500
+id=2072  name=lute | category=review | monsters=1 | refs=1 | chance=10000..10000
+id=2074  name=panpipes | category=review | monsters=1 | refs=1 | chance=200..200
+id=2110  name=doll | category=review | monsters=1 | refs=1 | chance=500..500
+id=2111  name=snowball | category=review | monsters=1 | refs=1 | chance=50000..50000
+id=2112  name=teddy bear | category=review | monsters=1 | refs=1 | chance=14500..14500
+id=2127  name=emerald bangle | category=review | monsters=1 | refs=1 | chance=200..200
+id=2133  name=ruby necklace | category=review | monsters=1 | refs=1 | chance=800..800
+id=2135  name=scarab amulet | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=2136  name=demonbone amulet | category=creature_candidate | monsters=1 | refs=1 | chance=100..100
+id=2140  name=holy scarab | category=review | monsters=1 | refs=1 | chance=100..100
+id=2141  name=holy falcon | category=review | monsters=1 | refs=1 | chance=100..100
+id=2153  name=violet gem | category=trash_or_general | monsters=1 | refs=1 | chance=1000..1000
+id=2161  name=strange talisman | category=review | monsters=1 | refs=1 | chance=5000..5000
+id=2184  name=crystal wand | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2186  name=a | category=review | monsters=1 | refs=1 | chance=3500..3500
+id=2190  name=blue spell wand | category=trash_or_general | monsters=1 | refs=1 | chance=12000..12000
+id=2194  name=mysterious fetish | category=review | monsters=1 | refs=1 | chance=300..300
+id=2199  name=garlic necklace | category=review | monsters=1 | refs=1 | chance=2500..2500
+id=2201  name=dragon necklace | category=review | monsters=1 | refs=1 | chance=3000..3000
+id=2207  name=sword ring | category=trash_or_general | monsters=1 | refs=1 | chance=4000..4000
+id=2227  name=rotten meat | category=trash_or_general | monsters=1 | refs=1 | chance=20000..20000
+id=2245  name=twigs | category=review | monsters=1 | refs=1 | chance=8000..8000
+id=2323  name=hat of the mad | category=review | monsters=1 | refs=1 | chance=2000..2000
+id=2348  name=ancient rune | category=trash_or_general | monsters=1 | refs=1 | chance=100000..100000
+id=2349  name=blue note | category=review | monsters=1 | refs=1 | chance=100000..100000
+id=2350  name=royal crossbow | category=trash_or_general | monsters=1 | refs=1 | chance=100000..100000
+id=2351  name=cobrafang dagger | category=creature_candidate | monsters=1 | refs=1 | chance=100000..100000
+id=2352  name=crystal arrow | category=trash_or_general | monsters=1 | refs=1 | chance=100000..100000
+id=2353  name=burning heart | category=creature_candidate | monsters=1 | refs=1 | chance=100000..100000
+id=2354  name=soul ankh | category=review | monsters=1 | refs=1 | chance=100000..100000
+id=2380  name=hand axe | category=trash_or_general | monsters=1 | refs=1 | chance=36000..36000
+id=2382  name=club | category=trash_or_general | monsters=1 | refs=1 | chance=9000..9000
+id=2383  name=spike sword | category=trash_or_general | monsters=1 | refs=1 | chance=1000..1000
+id=2384  name=rapier | category=review | monsters=1 | refs=1 | chance=15000..15000
+id=2395  name=carlin sword | category=trash_or_general | monsters=1 | refs=1 | chance=1500..1500
+id=2405  name=sickle | category=review | monsters=1 | refs=1 | chance=40000..40000
+id=2414  name=dragon lance | category=review | monsters=1 | refs=1 | chance=300..300
+id=2416  name=crowbar | category=review | monsters=1 | refs=1 | chance=15000..15000
+id=2420  name=machete | category=review | monsters=1 | refs=1 | chance=10000..10000
+id=2421  name=thunder hammer | category=trash_or_general | monsters=1 | refs=1 | chance=13500..13500
+id=2426  name=naginata | category=review | monsters=1 | refs=1 | chance=100..100
+id=2429  name=barbarian axe | category=trash_or_general | monsters=1 | refs=1 | chance=300..300
+id=2439  name=daramanian mace | category=trash_or_general | monsters=1 | refs=1 | chance=300..300
+id=2440  name=daramanian waraxe | category=trash_or_general | monsters=1 | refs=1 | chance=300..300
+id=2443  name=ravager's axe | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2444  name=hammer of wrath | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2445  name=crystal mace | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2446  name=pharaoh sword | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2447  name=twin axe | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2450  name=bone sword | category=creature_candidate | monsters=1 | refs=1 | chance=1000..1000
+id=2451  name=djinn blade | category=review | monsters=1 | refs=1 | chance=1500..1500
+id=2466  name=golden armor | category=trash_or_general | monsters=1 | refs=1 | chance=300..300
+id=2480  name=legion helmet | category=trash_or_general | monsters=1 | refs=1 | chance=1500..1500
+id=2488  name=crown legs | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=2499  name=amazon helmet | category=trash_or_general | monsters=1 | refs=1 | chance=800..800
+id=2500  name=amazon armor | category=trash_or_general | monsters=1 | refs=1 | chance=600..600
+id=2516  name=dragon shield | category=trash_or_general | monsters=1 | refs=1 | chance=300..300
+id=2517  name=shield of honour | category=trash_or_general | monsters=1 | refs=1 | chance=1000..1000
+id=2519  name=crown shield | category=trash_or_general | monsters=1 | refs=1 | chance=400..400
+id=2525  name=dwarven shield | category=trash_or_general | monsters=1 | refs=1 | chance=5000..5000
+id=2532  name=ancient shield | category=trash_or_general | monsters=1 | refs=1 | chance=800..800
+id=2534  name=vampire shield | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2535  name=castle shield | category=trash_or_general | monsters=1 | refs=1 | chance=200..200
+id=2536  name=medusa shield | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2537  name=amazon shield | category=trash_or_general | monsters=1 | refs=1 | chance=400..400
+id=2539  name=phoenix shield | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=2540  name=scarab shield | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=2548  name=pitch fork | category=review | monsters=1 | refs=1 | chance=50000..50000
+id=2551  name=broom | category=review | monsters=1 | refs=1 | chance=20000..20000
+id=2560  name=mirror | category=review | monsters=1 | refs=1 | chance=7000..7000
+id=2597  name=letter | category=review | monsters=1 | refs=1 | chance=8000..8000
+id=2644  name=bunny slippers | category=review | monsters=1 | refs=1 | chance=100..100
+id=2655  name=red robe | category=review | monsters=1 | refs=1 | chance=100..100
+id=2657  name=simple dress | category=review | monsters=1 | refs=1 | chance=60000..60000
+id=2661  name=scarf | category=review | monsters=1 | refs=1 | chance=12000..12000
+id=2677  name=blueberry | category=review | monsters=1 | refs=1 | chance=25000..25000
+id=2678  name=coconut | category=review | monsters=1 | refs=1 | chance=20000..20000
+id=2686  name=corncob | category=review | monsters=1 | refs=1 | chance=11000..11000
+id=2690  name=roll | category=review | monsters=1 | refs=1 | chance=11000..11000
+id=2691  name=brown bread | category=trash_or_general | monsters=1 | refs=1 | chance=20000..20000
+id=2695  name=egg | category=review | monsters=1 | refs=1 | chance=1000..1000
+id=2744  name=red rose | category=review | monsters=1 | refs=1 | chance=20000..20000
+id=2745  name=blue rose | category=review | monsters=1 | refs=1 | chance=500..500
+id=2760  name=goat grass | category=review | monsters=1 | refs=1 | chance=12000..12000
+id=2791  name=wood mushroom | category=review | monsters=1 | refs=1 | chance=3500..3500
+id=2795  name=fire mushroom | category=review | monsters=1 | refs=1 | chance=20000..20000
+id=2803  name=powder herb | category=review | monsters=1 | refs=1 | chance=6000..6000
+id=3956  name=elephant tusk | category=review | monsters=1 | refs=1 | chance=1000..1000
+id=3960  name=old and used backpack | category=trash_or_general | monsters=1 | refs=1 | chance=100000..100000
+id=3963  name=templar scytheblade | category=review | monsters=1 | refs=1 | chance=500..500
+id=3964  name=ripper lance | category=review | monsters=1 | refs=1 | chance=100..100
+id=3965  name=hunting spear | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=3966  name=banana staff | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=3968  name=leopard armor | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=3969  name=horseman helmet | category=trash_or_general | monsters=1 | refs=1 | chance=200..200
+id=3970  name=feather headdress | category=creature_candidate | monsters=1 | refs=1 | chance=100..100
+id=3972  name=beholder helmet | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=3973  name=tusk shield | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=3974  name=sentinel shield | category=trash_or_general | monsters=1 | refs=1 | chance=300..300
+id=3975  name=salamander shield | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=3982  name=crocodile boots | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=3983  name=bast skirt | category=review | monsters=1 | refs=1 | chance=100..100
+id=4850  name=hydra egg | category=review | monsters=1 | refs=1 | chance=900..900
+id=5789  name=necromantic spellbook | category=trash_or_general | monsters=1 | refs=2 | chance=600..4000
+id=5818  name=crown backpack | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=5894  name=Sapphire Ace | category=review | monsters=1 | refs=2 | chance=1400..1400
+id=6437  name=soul orb | category=review | monsters=1 | refs=1 | chance=100000..100000
+id=7090  name=terra rod | category=trash_or_general | monsters=1 | refs=1 | chance=100..100
+id=7092  name=hailstorm rod | category=trash_or_general | monsters=1 | refs=1 | chance=3000..3000
+id=7094  name=necrotic rod | category=trash_or_general | monsters=1 | refs=1 | chance=1000..1000
+id=7095  name=moonlight rod | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=7096  name=wand of inferno | category=trash_or_general | monsters=1 | refs=1 | chance=300..300
+id=7098  name=wand of cosmic energy | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=7100  name=wand of dragonbreath | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=7916  name=golden war hammer | category=trash_or_general | monsters=1 | refs=1 | chance=500..500
+id=12448 name=<unknown> | category=review | monsters=1 | refs=1 | chance=6420..6420
+
+=== Creature candidates only ===
+id=2649  name=leather legs | monsters=12
+id=2229  name=skull | monsters=9
+id=2467  name=leather armor | monsters=9
+id=2483  name=scale armor | monsters=9
+id=2461  name=leather helmet | monsters=8
+id=2129  name=wolf tooth chain | monsters=7
+id=2230  name=bone | monsters=7
+id=2436  name=skull staff | monsters=6
+id=2643  name=leather boots | monsters=6
+id=2449  name=bone club | monsters=5
+id=2231  name=big bone | monsters=4
+id=2399  name=throwing star | monsters=4
+id=2541  name=bone shield | monsters=4
+id=2410  name=throwing knife | monsters=3
+id=2492  name=dragon scale mail | monsters=3
+id=3967  name=tribal mask | monsters=3
+id=2220  name=dirty fur | monsters=2
+id=2136  name=demonbone amulet | monsters=1
+id=2351  name=cobrafang dagger | monsters=1
+id=2353  name=burning heart | monsters=1
+id=2450  name=bone sword | monsters=1
+id=3970  name=feather headdress | monsters=1
+
+=== Review candidates (uncertain, manual check) ===
+id=2177  name=life crystal | monsters=14
+id=3976  name=worm | monsters=13
+id=2146  name=small sapphire | monsters=11
+id=2150  name=small amethyst | monsters=11
+id=2149  name=small emerald | monsters=10
+id=2145  name=small diamond | monsters=9
+id=2401  name=staff | monsters=8
+id=2642  name=sandals | monsters=8
+id=1294  name=small stone | monsters=7
+id=2747  name=grave flower | monsters=7
+id=2394  name=morning star | monsters=6
+id=2663  name=mystic turban | monsters=6
+id=2796  name=green mushroom | monsters=6
+id=2802  name=sling herb | monsters=6
+id=2044  name=lamp | monsters=5
+id=2147  name=small ruby | monsters=5
+id=2178  name=mind stone | monsters=5
+id=2656  name=blue robe | monsters=5
+id=2033  name=golden mug | monsters=4
+id=2047  name=candlestick | monsters=4
+id=2125  name=crystal necklace | monsters=4
+id=2151  name=talon | monsters=4
+id=2193  name=ankh | monsters=4
+id=2381  name=halberd | monsters=4
+id=2385  name=sabre | monsters=4
+id=2388  name=hatchet | monsters=4
+id=2403  name=knife | monsters=4
+id=2404  name=combat knife | monsters=4
+id=2419  name=scimitar | monsters=4
+id=2652  name=green tunic | monsters=4
+id=2654  name=cape | monsters=4
+id=2787  name=white mushroom | monsters=4
+id=2134  name=silver brooch | monsters=3
+id=2174  name=strange symbol | monsters=3
+id=2176  name=orb | monsters=3
+id=2237  name=dirty cape | monsters=3
+id=2359  name=small oil lamp | monsters=3
+id=2396  name=ice rapier | monsters=3
+id=2412  name=katana | monsters=3
+id=2425  name=obsidian lance | monsters=3
+id=2442  name=heavy machete | monsters=3
+id=2600  name=inkwell | monsters=3
+id=2675  name=orange | monsters=3
+id=2682  name=melon | monsters=3
+id=2684  name=carrot | monsters=3
+id=2792  name=dark mushroom | monsters=3
+id=2804  name=shadow herb | monsters=3
+id=1982  name=purple tome | monsters=2
+id=2070  name=flute | monsters=2
+id=2071  name=lyre | monsters=2
+id=2159  name=scarab coin | monsters=2
+id=2192  name=crystal ball | monsters=2
+id=2418  name=golden sickle | monsters=2
+id=2568  name=cleaver | monsters=2
+id=2651  name=coat | monsters=2
+id=2679  name=cherry | monsters=2
+id=2681  name=grapes | monsters=2
+id=2800  name=star herb | monsters=2
+id=2817  name=dead snake | monsters=2
+id=3955  name=voodoo doll | monsters=2
+id=3971  name=charmer tiara | monsters=2
+id=1860  name=green tapestry | monsters=1
+id=1872  name=blue tapestry | monsters=1
+id=1967  name=parchment | monsters=1
+id=1986  name=red tome | monsters=1
+id=2007  name=bottle | monsters=1
+id=2023  name=amphora | monsters=1
+id=2031  name=waterskin | monsters=1
+id=2063  name=small oil lamp | monsters=1
+id=2072  name=lute | monsters=1
+id=2074  name=panpipes | monsters=1
+id=2110  name=doll | monsters=1
+id=2111  name=snowball | monsters=1
+id=2112  name=teddy bear | monsters=1
+id=2127  name=emerald bangle | monsters=1
+id=2133  name=ruby necklace | monsters=1
+id=2140  name=holy scarab | monsters=1
+id=2141  name=holy falcon | monsters=1
+id=2161  name=strange talisman | monsters=1
+id=2186  name=a | monsters=1
+id=2194  name=mysterious fetish | monsters=1
+id=2199  name=garlic necklace | monsters=1
+id=2201  name=dragon necklace | monsters=1
+id=2245  name=twigs | monsters=1
+id=2323  name=hat of the mad | monsters=1
+id=2349  name=blue note | monsters=1
+id=2354  name=soul ankh | monsters=1
+id=2384  name=rapier | monsters=1
+id=2405  name=sickle | monsters=1
+id=2414  name=dragon lance | monsters=1
+id=2416  name=crowbar | monsters=1
+id=2420  name=machete | monsters=1
+id=2426  name=naginata | monsters=1
+id=2451  name=djinn blade | monsters=1
+id=2548  name=pitch fork | monsters=1
+id=2551  name=broom | monsters=1
+id=2560  name=mirror | monsters=1
+id=2597  name=letter | monsters=1
+id=2644  name=bunny slippers | monsters=1
+id=2655  name=red robe | monsters=1
+id=2657  name=simple dress | monsters=1
+id=2661  name=scarf | monsters=1
+id=2677  name=blueberry | monsters=1
+id=2678  name=coconut | monsters=1
+id=2686  name=corncob | monsters=1
+id=2690  name=roll | monsters=1
+id=2695  name=egg | monsters=1
+id=2744  name=red rose | monsters=1
+id=2745  name=blue rose | monsters=1
+id=2760  name=goat grass | monsters=1
+id=2791  name=wood mushroom | monsters=1
+id=2795  name=fire mushroom | monsters=1
+id=2803  name=powder herb | monsters=1
+id=3956  name=elephant tusk | monsters=1
+id=3963  name=templar scytheblade | monsters=1
+id=3964  name=ripper lance | monsters=1
+id=3983  name=bast skirt | monsters=1
+id=4850  name=hydra egg | monsters=1
+id=5894  name=Sapphire Ace | monsters=1
+id=6437  name=soul orb | monsters=1
+id=12448 name=<unknown> | monsters=1
+
+=== Top 40 most common loot ids (monster coverage) ===
+id=6512  name=gem bag | monsters=136 | sample=[Amazon, Ancient Scarab, Ashmunrah, Assassin, Badger, Bandit, Banshee, Bear, ...]
+id=2148  name=gold coin | monsters=110 | sample=[Amazon, Ancient Scarab, Ashmunrah, Assassin, Bandit, Banshee, Behemoth, Beholder, ...]
+id=2666  name=meat | monsters=49 | sample=[Badger, Bandit, Bear, Behemoth, Black Sheep, Carniphila, Chicken, Crocodile, ...]
+id=2671  name=ham | monsters=18 | sample=[Bear, Carniphila, Crocodile, Cyclops, Deer, Elephant, Gargoyle, Hydra, ...]
+id=2050  name=torch | monsters=15 | sample=[Amazon, Assassin, Demon Skeleton, Dworc Fleshhunter, Dworc Venomsniper, Dworc Voodoomaster, Fire Devil, Ghoul, ...]
+id=2463  name=plate armor | monsters=15 | sample=[Ancient Scarab, Assassin, Bandit, Behemoth, Black Knight, Bonebeast, Giant Spider, Kongra, ...]
+id=2177  name=life crystal | monsters=14 | sample=[Banshee, Dark Monk, Demodras, Dharalion, Dragon, Dragon Lord, Elf Arcanist, Fernfang, ...]
+id=3976  name=worm | monsters=13 | sample=[Badger, Bear, Cave Rat, Chicken, Crypt Shambler, Ghoul, Hyaena, Mummy, ...]
+id=2465  name=brass armor | monsters=12 | sample=[Amazon, Bandit, Hunter, Minotaur Archer, Minotaur Guard, Minotaur Mage, Nomad, Orc Warlord, ...]
+id=2649  name=leather legs | monsters=12 | sample=[Bandit, Crocodile, Dwarf, Hunter, Minotaur, Minotaur Archer, Minotaur Guard, Minotaur Mage, ...]
+id=2146  name=small sapphire | monsters=11 | sample=[Blue Djinn, Demodras, Dipthrah, Dragon Lord, Dwarf Geomancer, Hydra, Marid, Orshabaal, ...]
+id=2150  name=small amethyst | monsters=11 | sample=[Ancient Scarab, Behemoth, Dwarf Guard, Fire Devil, Grorlam, Lizard Snakecharmer, Merlkin, Orshabaal, ...]
+id=2377  name=two handed sword | monsters=11 | sample=[Behemoth, Beholder, Black Knight, Crypt Shambler, Elder Beholder, Hero, Orc Rider, Orc Warlord, ...]
+id=2478  name=brass legs | monsters=11 | sample=[Amazon, Assassin, Bandit, Black Knight, Giant Spider, Orc Leader, Orc Warlord, Stalker, ...]
+id=2149  name=small emerald | monsters=10 | sample=[Ancient Scarab, Demon, Efreet, Green Djinn, Lizard Snakecharmer, Lizard Templar, Orshabaal, Scarab, ...]
+id=2387  name=double axe | monsters=10 | sample=[Behemoth, Demon, Dragon, Dwarf Guard, Fire Devil, Minotaur Guard, Orshabaal, The Horned Fox, ...]
+id=2406  name=short sword | monsters=10 | sample=[Blue Goblin, Cyclops, Dragon, Goblin, Lizard Templar, Mummy, Necromancer, Smuggler, ...]
+id=2509  name=steel shield | monsters=10 | sample=[Assassin, Beholder, Dragon, Elder Beholder, Grorlam, Nomad, Stone Golem, Tarantula, ...]
+id=2145  name=small diamond | monsters=9 | sample=[Assassin, Crypt Shambler, Dragon, Fire Devil, Lizard Sentinel, Omruc, Orshabaal, Valkyrie, ...]
+id=2229  name=skull | monsters=9 | sample=[Amazon, Bonebeast, Dworc Fleshhunter, Dworc Venomsniper, Dworc Voodoomaster, Ghoul, Valkyrie, Vampire, ...]
+id=2398  name=mace | monsters=9 | sample=[Bandit, Centipede, Dragon, Golden Knight, Minotaur, Nomad, Rotworm, Skeleton, ...]
+id=2457  name=steel helmet | monsters=9 | sample=[Assassin, Black Knight, Dragon, Dwarf Guard, Gargoyle, Giant Spider, Lizard Templar, Tarantula, ...]
+id=2467  name=leather armor | monsters=9 | sample=[Amazon, Dark Monk, Dworc Fleshhunter, Dworc Venomsniper, Dworc Voodoomaster, Goblin, Monk, Trainer, ...]
+id=2483  name=scale armor | monsters=9 | sample=[Dwarf Guard, Ghoul, Grorlam, Lizard Sentinel, Minotaur Archer, Necromancer, Orc Rider, Stone Golem, ...]
+id=2513  name=battle shield | monsters=9 | sample=[Assassin, Cyclops, Demon Skeleton, Dwarf Guard, Gargoyle, Minotaur Guard, Orc Rider, The Horned Fox, ...]
+id=2379  name=dagger | monsters=8 | sample=[Amazon, Blue Goblin, Goblin, Orc Leader, Priestess, Swamp Troll, Valkyrie, demon]
+id=2386  name=axe | monsters=8 | sample=[Bandit, Dwarf, Golden Knight, Minotaur, Nomad, Orc, Wild Warrior, orc]
+id=2401  name=staff | monsters=8 | sample=[Dark Monk, Dharalion, Elf Arcanist, Fernfang, Lich, Monk, Orc Shaman, Trainer]
+id=2411  name=poison dagger | monsters=8 | sample=[Banshee, Dworc Fleshhunter, Dworc Venomsniper, Dworc Voodoomaster, Mummy, Orc Warrior, Thalas, Warlock]
+id=2461  name=leather helmet | monsters=8 | sample=[Crocodile, Goblin, Hunter, Minotaur Archer, Minotaur Mage, Smuggler, Troll, demon]
+id=2464  name=chain armor | monsters=8 | sample=[Dwarf Soldier, Lizard Sentinel, Minotaur, Minotaur Guard, Orc Berserker, Orc Shaman, Orc Warrior, Valkyrie]
+id=2642  name=sandals | monsters=8 | sample=[Dark Monk, Dharalion, Elf Arcanist, Elf Scout, Fernfang, Ghost, Monk, Trainer]
+id=2667  name=fish | monsters=8 | sample=[Crab, Frost Troll, Goblin, Orc Leader, Orc Warlord, Swamp Troll, demon, orc warlord]
+id=1294  name=small stone | monsters=7 | sample=[Blue Goblin, Gargoyle, Goblin, Grorlam, Sibang, Stone Golem, demon]
+id=2124  name=crystal ring | monsters=7 | sample=[Banshee, Grorlam, Mummy, Orshabaal, Stone Golem, Vashresamun, Warlock]
+id=2129  name=wolf tooth chain | monsters=7 | sample=[Cyclops, Fernfang, Gargoyle, Krulak the Savage, Orc Rider, Witch, Yeti]
+id=2166  name=power ring | monsters=7 | sample=[Dark Monk, Fernfang, Grorlam, Kongra, Monk, Stone Golem, Trainer]
+id=2175  name=spellbook | monsters=7 | sample=[Banshee, Beholder, Dwarf Geomancer, Elder Beholder, Lich, The Evil Eye, necropharus]
+id=2195  name=boots of haste | monsters=7 | sample=[Black Knight, Golden Knight, Hydra, Krulak the Savage, Necromancer, Omruc, Orshabaal]
+id=2230  name=bone | monsters=7 | sample=[Bonebeast, Crypt Shambler, Dworc Voodoomaster, Goblin, Skeleton, demon, necropharus]
+

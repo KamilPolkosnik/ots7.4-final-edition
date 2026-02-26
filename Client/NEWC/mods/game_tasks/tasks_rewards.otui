@@ -1,0 +1,310 @@
+ShopCategory < Panel
+  height: 20
+  focusable: true
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #50545c
+  margin-bottom: 1
+
+  $focus:
+    image-color: #767c88
+
+  Label
+    id: name
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-left: 3
+    margin-top: 2
+    color: #dcdcdc
+
+MiniPanel < Panel
+  text-offset: 0 2
+  text-align: top
+  image-source: /images/ui/miniwindow
+  image-border: 4
+  image-border-top: 20
+  image-border-bottom: 4
+  padding-left: 3
+  padding-bottom: 3
+  padding-top: 22
+  padding-right: 1
+
+RewardOfferWidget < MiniPanel
+  focusable: true
+  border-width: 1
+  border-color: #3f454e
+  margin-left: 5
+  margin-top: 5
+  phantom: false
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #454d58
+  @onDoubleClick: modules.game_tasks.purchaseReward()
+
+  $hover:
+    image-color: #55606e
+
+  $focus:
+    border-color: #f2c96d
+
+  Label
+    id: offerName
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 20
+    text-align: center
+    color: #f0f0f0
+    font: terminus-11px-rounded
+
+  Panel
+    id: offerIconPanel
+    anchors.top: prev.bottom
+    anchors.bottom: offerPrice.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 4
+    margin-bottom: 3
+
+  Label
+    id: offerPrice
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 20
+    image-source: /images/ui/item
+    image-border: 2
+    &baseText: '%s points'
+    color: #28db00
+    text-align: center
+    margin-left: 0
+    margin-right: 2
+    font: terminus-11px-rounded
+
+  Item
+    id: offerIcon
+    size: 34 34
+    padding: 1
+    anchors.centerIn: offerIconPanel
+    phantom: true
+
+RewardOfferLine < Panel
+  height: 42
+  focusable: true
+  border-width: 1
+  border-color: #3f454e
+  margin-left: 2
+  margin-right: 2
+  margin-top: 1
+  phantom: false
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #454d58
+  @onDoubleClick: modules.game_tasks.purchaseReward()
+
+  $hover:
+    image-color: #55606e
+
+  $focus:
+    border-color: #f2c96d
+
+  Item
+    id: offerIcon
+    size: 34 34
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 4
+    phantom: true
+
+  Label
+    id: offerName
+    anchors.left: offerIcon.right
+    anchors.right: offerPrice.left
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    margin-left: 8
+    color: #f0f0f0
+    text-align: left
+    text-vertical-auto-resize: true
+    font: terminus-11px-rounded
+
+  Label
+    id: offerPrice
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    width: 110
+    margin-right: 8
+    color: #28db00
+    text-align: right
+    font: terminus-11px-rounded
+
+MainWindow
+  id: taskRewardsWindow
+  !text: 'Task Rewards'
+  size: 840 500
+  @onEscape: modules.game_tasks.toggleRewards()
+
+  FlatPanel
+    id: infoPanel
+    anchors.top: parent.top
+    anchors.left: parent.left
+    width: 180
+    height: 60
+    margin-top: 5
+    padding: 5
+
+    Label
+      id: points
+      anchors.top: parent.top
+      &baseText: 'Task Points: %s'
+      text-auto-resize: true
+      font: terminus-14px-bold
+      anchors.horizontalCenter: parent.horizontalCenter
+
+  Panel
+    id: categories
+    layout:
+      type: verticalBox
+      spacing: 1
+    anchors.top: infoPanel.bottom
+    anchors.left: infoPanel.left
+    anchors.right: infoPanel.right
+    anchors.bottom: parent.bottom
+    margin-top: 10
+    margin-bottom: 10
+    padding: 1
+
+  FlatPanel
+    id: topPanel
+    anchors.left: infoPanel.right
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: infoPanel.bottom
+    margin-top: 5
+    margin-left: 10
+    padding: 5
+
+    Label
+      id: selectedCategory
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-left: 5
+      height: 18
+      !text: 'Rewards'
+      font: terminus-14px-bold
+      text-offset: 1 -2
+
+    Label
+      id: categoryDescription
+      anchors.top: prev.bottom
+      anchors.left: prev.left
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      text-auto-resize: true
+      text-wrap: true
+      color: #ffffff
+
+  VerticalScrollBar
+    id: offersScrollBar
+    anchors.top: offers.top
+    anchors.bottom: offers.bottom
+    anchors.right: offers.right
+    step: 50
+    pixels-scroll: true
+
+  Panel
+    id: gameSubcategories
+    anchors.top: topPanel.bottom
+    anchors.left: topPanel.left
+    anchors.right: topPanel.right
+    height: 0
+    margin-top: 2
+    layout:
+      type: horizontalBox
+      spacing: 2
+    visible: false
+
+  ScrollablePanel
+    id: offers
+    layout:
+      type: verticalBox
+      spacing: 1
+    vertical-scrollbar: offersScrollBar
+    anchors.top: gameSubcategories.bottom
+    anchors.left: topPanel.left
+    anchors.right: topPanel.right
+    anchors.bottom: parent.bottom
+    margin-top: 2
+    margin-bottom: 34
+    margin-right: 2
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    padding: 1
+
+  Label
+    id: searchLabel
+    text: Search
+    anchors.left: offers.left
+    anchors.verticalCenter: buttonCancel.verticalCenter
+    text-align: left
+    text-auto-resize: true
+
+  TextEdit
+    id: search
+    anchors.left: searchLabel.right
+    anchors.verticalCenter: searchLabel.verticalCenter
+    width: 120
+    margin-left: 8
+    @onKeyPress: modules.game_tasks.onRewardsSearch()
+
+  Label
+    id: amountLabel
+    !text: 'Amount:'
+    anchors.verticalCenter: buttonCancel.verticalCenter
+    anchors.right: purchaseAmount.left
+    margin-right: 6
+    text-align: right
+    text-auto-resize: true
+
+  SpinBox
+    id: purchaseAmount
+    anchors.verticalCenter: buttonCancel.verticalCenter
+    anchors.right: purchaseButton.left
+    margin-right: 10
+    width: 64
+    minimum: 1
+    maximum: 100
+    value: 1
+    step: 1
+    focusable: true
+    @onValueChange: modules.game_tasks.onRewardAmountChange()
+
+  Label
+    id: purchaseCost
+    !text: 'Cost: 0'
+    anchors.verticalCenter: buttonCancel.verticalCenter
+    anchors.right: amountLabel.left
+    margin-right: 8
+    text-align: right
+    text-auto-resize: true
+
+  Button
+    id: buttonCancel
+    !text: 'Close'
+    width: 64
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    @onClick: modules.game_tasks.toggleRewards()
+
+  Button
+    id: purchaseButton
+    !text: 'Buy'
+    width: 84
+    margin-right: 10
+    anchors.right: buttonCancel.left
+    anchors.bottom: parent.bottom
+    enabled: false
+    @onClick: modules.game_tasks.purchaseReward()

@@ -1,0 +1,58 @@
+Lushland Oasis - Version 1.0)
+
+Compiled with Microsoft Visual C++ version 1943
+Compiled on Feb 17 2026 14:38:55 for platform x64
+Linked with LuaJIT 2.1.0-beta3 for Lua support
+
+A server developed by Volearen
+A server downgraded by Nekiro
+Visit our forum for updates, support, and resources: https://otland.net/.
+
+>> Loading config
+>> Establishing database connection... MySQL 3.4.1
+>> Running database manager
+>> Loading vocations
+>> Loading items... OTB v1.3.112
+>> Loading script systems
+>> Using LuaJIT 2.1.0-beta3
+>> Loading lua libs
+[RopeDebug] rope.lua loaded
+[RopeDebug] rope.lua loaded
+>> Loading lua scripts
+>> Loaded Upgrade System v3.0.3
+[Warning - Actions::registerLuaEvent] Duplicate registered item with aid: 2012 in range from aid: 2012, to aid: 2012
+[Warning - Actions::registerLuaEvent] Duplicate registered item with aid: 2053 in range from aid: 2053, to aid: 2053
+[Warning - Actions::registerLuaEvent] Duplicate registered item with aid: 2054 in range from aid: 2054, to aid: 2054
+[Warning - Actions::registerLuaEvent] Duplicate registered item with id: 2420 in range from id: 2420, to id: 2420
+[Warning - Actions::registerLuaEvent] Duplicate registered item with id: 2553 in range from id: 2553, to id: 2553
+[Warning - Actions::registerLuaEvent] Duplicate registered item with id: 2120 in range from id: 2120, to id: 2120
+[Warning - Actions::registerLuaEvent] Duplicate registered item with id: 2550 in range from id: 2550, to id: 2550
+[Warning - Actions::registerLuaEvent] Duplicate registered item with id: 2554 in range from id: 2554, to id: 5710
+[Warning - Actions::registerLuaEvent] Duplicate registered item with id: 5710 in range from id: 2554, to id: 5710
+>> Using LuaJIT 2.1.0-beta3
+>> Loading monsters
+>> Loading lua monsters
+>> Loading outfits
+>> Checking world type... PVP
+>> Loading map
+> Map size: 65000x65000.
+> Map loading time: 4.05 seconds.
+Error: [Houses::loadHousesXML] Unknown house, id = 1
+[Warning - Map::loadMap] Failed to load house data.
+> Loaded house items in: 0.008 s
+>> Initializing gamestate
+[Warning - Spawns::startup] Couldn't spawn monster "Ghost" on position: ( 32248 / 31922 / 014 ).
+[Warning - Spawns::startup] Couldn't spawn monster "Ghost" on position: ( 32248 / 31922 / 014 ).
+[BlackKnightQuestFixups] applied=6 missing=0
+[Key3012DoorFixup] applied=2 missing=0
+[KeyholeDoorFixup] applied=89 missing=12
+[QuestChestFixups] applied=118 missing=6
+[QuestKeynumberFixups] applied=0 missing=12
+Saving server...
+> Saved house items in: 0.066 s
+[TeleportFixups] applied=76 missing=0
+[TvpAidSyncNonchest1000_2000] applied=76 missing=3 fallback=35
+>> Loaded all modules, server starting up...
+>> Forgotten Server Online!
+
+Ramz has logged in.

@@ -1,0 +1,27 @@
+TVP positions with AID 1000-2000 (non-chest) where OTS has NO items at that tile
+TVP map: C:\Users\stelm\OneDrive\Pulpit\soe\TVP-7.4-DEVELOP-main\gameserver\data\world\map.otbm
+OTS map: C:\Users\stelm\OneDrive\Pulpit\otsfinal\ots-final-edition\Rook\Rook\data\world\world.otbm
+
+/teleport 32498 31721 15  # itemid=3058 aid=1156 name=dead human
+/teleport 32500 31721 15  # itemid=3103 aid=1157 name=pile of bones
+/teleport 32503 31724 15  # itemid=3103 aid=1158 name=pile of bones
+/teleport 32680 31603 15  # itemid=385 aid=1065 name=small hole
+/teleport 32588 31644 3  # itemid=1717 aid=1075 name=drawers
+/teleport 32588 31645 3  # itemid=1717 aid=1074 name=drawers
+/teleport 32589 31794 5  # itemid=3058 aid=1046 name=dead human
+/teleport 32636 31873 10  # itemid=3058 aid=1332 name=dead human
+/teleport 32414 32147 15  # itemid=1717 aid=1038 name=drawers
+/teleport 32509 32181 13  # itemid=3103 aid=1055 name=pile of bones
+/teleport 32305 32254 9  # itemid=3103 aid=1128 name=pile of bones
+/teleport 32239 32478 10  # itemid=3103 aid=1171 name=pile of bones
+/teleport 32233 32491 10  # itemid=3058 aid=1174 name=dead human
+/teleport 32245 32492 10  # itemid=2844 aid=1173 name=dead dragon
+/teleport 33084 31650 12  # itemid=3103 aid=1122 name=pile of bones
+/teleport 33182 31869 12  # itemid=3058 aid=1108 name=dead human
+/teleport 33127 31885 9  # itemid=3103 aid=1083 name=pile of bones
+/teleport 32778 32282 11  # itemid=3058 aid=1124 name=dead human
+/teleport 32816 32279 8  # itemid=3058 aid=1213 name=dead human
+/teleport 32817 32283 8  # itemid=3103 aid=1215 name=pile of bones
+/teleport 32933 32495 7  # itemid=3882 aid=1298 name=giant footprint
+/teleport 33049 32399 10  # itemid=1410 aid=1127 name=stone coffin
+/teleport 32954 32695 8  # itemid=4875 aid=1324 name=hydra's nest
