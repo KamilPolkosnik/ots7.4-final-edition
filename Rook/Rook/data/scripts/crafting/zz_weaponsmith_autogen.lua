@@ -15,138 +15,80 @@ end
 -- Manual axe recipes from weapon_recipe_source_report.txt (lines 1-118).
 -- Only these axe ids are overridden; all other weapons keep auto-generated data.
 local axeOverrides = {
-    [2405] = {cost = 500, materials = {}}, -- sickle
-    [2550] = {cost = 100, materials = {{id = 2405, count = 1}}}, -- scythe
-    [2380] = {cost = 50, materials = {{id = 2666, count = 5}, {id = 2512, count = 1}}}, -- hand axe
-    [2386] = {cost = 100, materials = {{id = 2511, count = 1}}}, -- axe
-    [2418] = {materials = {{id = 2405, count = 1}, {id = 2033, count = 100}}}, -- golden sickle
-    [2388] = {materials = {{id = 2386, count = 1}, {id = 2230, count = 10}}}, -- hatchet
-    [2441] = {cost = 1000, materials = {{id = 2388, count = 1}, {id = 2512, count = 1}, {id = 2230, count = 10}}}, -- daramanian axe
-    [2428] = {cost = 1000, materials = {{id = 2441, count = 1}}}, -- orcish axe
-    [2378] = {cost = 1000, materials = {{id = 2428, count = 1}}}, -- battle axe
-    [2429] = {cost = 1000, materials = {{id = 2378, count = 3}, {id = 2482, count = 5}}}, -- barbarian axe (studded helmet)
-    [3964] = {cost = 1000, materials = {{id = 3965, count = 10}}}, -- ripper lance
-    [2435] = {cost = 10000, materials = {{id = 2525, count = 100}}}, -- dwarven axe
-    [3965] = {cost = 200, materials = {{id = 2389, count = 1}, {id = 2411, count = 1}}}, -- hunting spear
-    [2430] = {cost = 5000, materials = {{id = 2144, count = 10}, {id = 2463, count = 2}, {id = 2429, count = 5}}}, -- knight axe
-    [2432] = {cost = 10000, materials = {{id = 2147, count = 50}, {id = 2430, count = 1}}}, -- fire axe
-    [2425] = {cost = 3000, materials = {{id = 2429, count = 1}}}, -- obsidian lance
-    [2387] = {materials = {{id = 2378, count = 5}, {id = 2513, count = 1}}}, -- double axe
-    [2381] = {materials = {{id = 2387, count = 5}, {id = 2513, count = 2}}}, -- halberd
-    [2440] = {cost = 3000, materials = {{id = 2381, count = 5}}}, -- daramanian waraxe
-    [2426] = {cost = 3000, materials = {{id = 2425, count = 5}}}, -- naginata
-    [2427] = {cost = 20000, materials = {{id = 2381, count = 20}, {id = 2426, count = 20}}}, -- guardian halberd
-    [2431] = {materials = {{id = 2400, count = 1}}}, -- stonecutter axe
-    [2414] = {materials = {{id = 2427, count = 5}, {id = 2426, count = 5}}}, -- dragon lance
-    [5923] = {cost = 10000, materials = {{id = 2151, count = 20}}}, -- Thornfang Axe
-    [3962] = {materials = {{id = 2378, count = 30}}}, -- beastslayer axe
-    [5537] = {cost = 20000, materials = {{id = 2435, count = 5}}}, -- axe of donarion
-    [5904] = {cost = 50000, materials = {{id = 5537, count = 10}}}, -- royal axe
-    [2443] = {cost = 55000, materials = {{id = 5904, count = 5}}}, -- ravager's axe
-    [2447] = {cost = 10000, materials = {{id = 2427, count = 2}}}, -- twin axe
-    [5893] = { -- Vampiric Axe
-        cost = 1000000,
-        materials = {
-            {id = 2443, count = 5},
-            {id = 2431, count = 1},
-            {id = 2144, count = 100},
-            {id = 2147, count = 100},
-            {id = 2149, count = 100},
-            {id = 2466, count = 20}
-        }
-    },
-    [2454] = { -- war axe
-        cost = 200000,
-        materials = {
-            {id = 2441, count = 100},
-            {id = 2472, count = 5},
-            {id = 2151, count = 100}
-        }
-    },
-    [2415] = { -- great axe
-        cost = 2000000,
-        materials = {
-            {id = 2431, count = 5}, -- stonecutter axe
-            {id = 5893, count = 1}, -- vampiric axe
-            {id = 7879, count = 5}, -- void crystal
-            {id = 7872, count = 5}, -- alter crystal
-            {id = 2348, count = 5}, -- ancient rune
-            {id = 2158, count = 100} -- blue gem
-        }
-    },
-    [5890] = { -- Phonic Axe
-        cost = 2000000,
-        materials = {
-            {id = 2431, count = 5}, -- stonecutter axe
-            {id = 5893, count = 1}, -- vampiric axe
-            {id = 7879, count = 5}, -- void crystal
-            {id = 7872, count = 5}, -- alter crystal
-            {id = 2348, count = 5}, -- ancient rune
-            {id = 2158, count = 100} -- blue gem
-        }
-    }
+    [2405] = {cost = 5, materials = {}}, -- sickle
+    [2550] = {cost = 5, materials = {{id = 2405, count = 1}}}, -- scythe
+    [2380] = {cost = 5, materials = {{id = 2696, count = 10}}}, -- hand axe
+    [2386] = {cost = 15, materials = {{id = 2696, count = 15}}}, -- axe
+    [2418] = {cost = 900, materials = {{id = 2405, count = 1}, {id = 2033, count = 1}}}, -- golden sickle
+    [2388] = {cost = 70, materials = {{id = 2386, count = 1}, {id = 2230, count = 10}}}, -- hatchet
+    [2441] = {cost = 100, materials = {{id = 2388, count = 1}, {id = 2230, count = 25}}}, -- daramanian axe
+    [2428] = {cost = 250, materials = {{id = 2441, count = 1}, {id = 2468, count = 1}}}, -- orcish axe
+    [3964] = {cost = 200, materials = {{id = 2237, count = 1}}}, -- ripper lance
+    [2378] = {cost = 200, materials = {{id = 2428, count = 1}}}, -- battle axe
+    [3962] = {cost = 5000, materials = {{id = 2231, count = 1}, {id = 2430, count = 1}}}, -- beastslayer axe
+    [2435] = {cost = 2000, materials = {{id = 2429, count = 1}, {id = 3956, count = 3}}}, -- dwarven axe
+    [2425] = {cost = 400, materials = {{id = 3964, count = 1}}}, -- obsidian lance
+    [2387] = {cost = 200, materials = {{id = 2378, count = 1}, {id = 2513, count = 1}}}, -- double axe
+    [2430] = {cost = 3000, materials = {{id = 2429, count = 1}, {id = 2144, count = 5}}}, -- knight axe
+    [2381] = {cost = 300, materials = {{id = 2387, count = 1}}}, -- halberd
+    [2432] = {cost = 5000, materials = {{id = 2430, count = 1}, {id = 2147, count = 10}}}, -- fire axe
+    [5537] = {cost = 6000, materials = {{id = 2432, count = 1}, {id = 2145, count = 10}}}, -- axe of donarion
+    [2440] = {cost = 1000, materials = {{id = 2381, count = 10}}}, -- daramanian waraxe
+    [2427] = {cost = 7000, materials = {{id = 2440, count = 5}, {id = 2381, count = 5}}}, -- guardian halberd
+    [2426] = {cost = 1800, materials = {{id = 2425, count = 6}}}, -- naginata
+    [2414] = {cost = 8000, materials = {{id = 2426, count = 1}, {id = 2427, count = 1}, {id = 2381, count = 4}}}, -- dragon lance
+    [2443] = {cost = 100000, materials = {{id = 2432, count = 10}, {id = 2231, count = 10}, {id = 2466, count = 1}}}, -- ravager's axe
+    [2454] = {cost = 25000, materials = {{id = 2414, count = 1}, {id = 2150, count = 50}}}, -- war axe
+    [2431] = {cost = 250000, materials = {{id = 2443, count = 1}, {id = 2645, count = 1}, {id = 2348, count = 15}}}, -- stonecutter axe
+    [5890] = {cost = 2000000, materials = {{id = 2431, count = 3}, {id = 2158, count = 10}, {id = 7872, count = 5}, {id = 2745, count = 20}, {id = 2349, count = 20}, {id = 6437, count = 1}}}, -- phonic axe
+    [2415] = {cost = 5000000, materials = {{id = 2431, count = 2}, {id = 2193, count = 50}, {id = 3955, count = 50}, {id = 2472, count = 5}, {id = 2470, count = 10}, {id = 2514, count = 10}}}, -- great axe
+    [5903] = {disabled = true}, -- thornfang axe
+    [5923] = {disabled = true}, -- thornfang axe (variant)
+    [2447] = {disabled = true}, -- twin axe
+    [5904] = {disabled = true}, -- royal axe
+    [5893] = {disabled = true} -- vampiric axe
 }
 
 -- Manual sword recipes from weapon_recipe_source_report.txt (up to line 148).
 local swordOverrides = {
-    [2403] = {cost = 500, materials = {}}, -- knife
-    [2404] = {cost = 100, materials = {{id = 2403, count = 1}}}, -- combat knife
-    [2379] = {cost = 50, materials = {{id = 2512, count = 1}}}, -- dagger
-    [2402] = {cost = 6400, materials = {{id = 2379, count = 1}, {id = 2033, count = 100}}}, -- silver dagger
-    [2384] = {cost = 50, materials = {{id = 2671, count = 5}, {id = 2512, count = 1}}}, -- rapier
-    [2406] = {cost = 100, materials = {{id = 2511, count = 1}}}, -- short sword
+    [2403] = {cost = 5, materials = {}}, -- knife
+    [2404] = {cost = 5, materials = {{id = 2403, count = 1}}}, -- combat knife
+    [2379] = {cost = 5, materials = {{id = 2696, count = 10}}}, -- dagger
+    [2402] = {cost = 900, materials = {{id = 2379, count = 1}, {id = 2033, count = 1}}}, -- silver dagger
+    [2384] = {cost = 10, materials = {{id = 2666, count = 3}, {id = 2671, count = 3}}}, -- rapier
+    [2406] = {cost = 10, materials = {{id = 2512, count = 1}}}, -- short sword
     [2420] = {disabled = true}, -- machete
-    [2385] = {cost = 100, materials = {{id = 2406, count = 1}}}, -- sabre
-    [2450] = {cost = 500, materials = {{id = 2385, count = 3}, {id = 2230, count = 10}}}, -- bone sword
-    [2376] = {cost = 10, materials = {{id = 2230, count = 10}}}, -- sword
+    [2385] = {cost = 30, materials = {{id = 2406, count = 1}}}, -- sabre
+    [2450] = {cost = 40, materials = {{id = 2385, count = 1}, {id = 2230, count = 10}}}, -- bone sword
+    [2376] = {cost = 70, materials = {{id = 2385, count = 1}, {id = 2230, count = 15}}}, -- sword
     [2395] = {disabled = true}, -- carlin sword
-    [2442] = {cost = 500, materials = {{id = 2420, count = 1}, {id = 2230, count = 10}}}, -- heavy machete
-    [2412] = {cost = 500}, -- katana
-    [2397] = {cost = 1000, materials = {{id = 2412, count = 1}, {id = 2512, count = 1}, {id = 2230, count = 10}}}, -- longsword
-    [2411] = {materials = {{id = 2379, count = 1}, {id = 2149, count = 5}}}, -- poison dagger
-    [2419] = {cost = 1000, materials = {{id = 2397, count = 1}}}, -- scimitar
-    [3963] = {cost = 1000, materials = {{id = 2419, count = 1}}}, -- templar scytheblade
-    [2383] = {cost = 1000, materials = {{id = 2412, count = 1}, {id = 2419, count = 2}}}, -- spike sword
-    [2409] = {cost = 1000, materials = {{id = 2412, count = 1}, {id = 2419, count = 2}}}, -- serpent sword
-    [2413] = {cost = 500}, -- broad sword
-    [5905] = {cost = 10000, materials = {{id = 2525, count = 100}}}, -- wyvern fang
-    [2377] = {cost = 1000, materials = {{id = 2385, count = 10}}}, -- two handed sword
-    [2392] = {cost = 10000, materials = {{id = 2409, count = 2}, {id = 2383, count = 2}, {id = 2147, count = 45}}}, -- fire sword
+    [2442] = {cost = 50, materials = {{id = 2420, count = 1}, {id = 2376, count = 1}}}, -- heavy machete
+    [2411] = {cost = 40, materials = {{id = 2379, count = 1}, {id = 2149, count = 3}}}, -- poison dagger
+    [2412] = {cost = 40, materials = {{id = 3976, count = 100}, {id = 2376, count = 1}}}, -- katana
+    [2397] = {cost = 120, materials = {{id = 2412, count = 1}, {id = 2674, count = 5}}}, -- longsword
+    [2419] = {cost = 100, materials = {{id = 2482, count = 3}, {id = 2397, count = 1}}}, -- scimitar
+    [3963] = {cost = 250, materials = {{id = 2406, count = 10}, {id = 2419, count = 1}}}, -- templar scytheblade
+    [2383] = {cost = 600, materials = {{id = 2419, count = 2}, {id = 2412, count = 5}}}, -- spike sword
+    [2409] = {cost = 800, materials = {{id = 2174, count = 1}, {id = 2383, count = 1}}}, -- serpent sword
+    [2413] = {cost = 200, materials = {{id = 2672, count = 5}}}, -- broad sword
+    [5905] = {cost = 2000, materials = {{id = 3955, count = 1}, {id = 2409, count = 1}}}, -- wyvern fang
+    [2392] = {cost = 2800, materials = {{id = 2409, count = 1}, {id = 2383, count = 1}, {id = 2147, count = 5}}}, -- fire sword
+    [2377] = {cost = 800, materials = {{id = 2413, count = 1}}}, -- two handed sword
     [5739] = {disabled = true}, -- ice sword (quest)
-    [2407] = {cost = 20000, materials = {{id = 5905, count = 5}}}, -- bright sword
-    [2438] = {cost = 30000, materials = {{id = 2392, count = 1}, {id = 2144, count = 10}}}, -- epee
-    [2451] = {cost = 30000, materials = {{id = 2392, count = 1}, {id = 2144, count = 10}, {id = 2147, count = 5}, {id = 2149, count = 5}, {id = 2146, count = 5}}}, -- djinn blade
-    [2446] = {cost = 3000, materials = {{id = 2451, count = 1}, {id = 2229, count = 50}, {id = 2147, count = 10}, {id = 2149, count = 10}, {id = 2146, count = 10}}}, -- pharaoh sword
-    [5899] = {cost = 20000, materials = {{id = 2407, count = 10}}}, -- rune sword
-    [2400] = {cost = 51000, materials = {{id = 2431, count = 1}}}, -- magic sword
-    [2393] = {cost = 200000, materials = {{id = 2151, count = 100}, {id = 2472, count = 5}, {id = 2420, count = 100}}}, -- giant sword
-    [5535] = {cost = 50000, materials = {{id = 5899, count = 10}}}, -- sword of furion
-    [5755] = {disabled = true}, -- avenger
-    [2396] = {cost = 5000, materials = {{id = 2384, count = 1}}}, -- ice rapier
-    [5898] = {cost = 5000, materials = {{id = 2396, count = 10}}}, -- Ice Blade
-    [5906] = {cost = 20000, materials = {{id = 5898, count = 5}, {id = 2396, count = 10}}}, -- Blacksteel sword
-    [2390] = { -- magic longsword = great axe recipe
-        cost = 2000000,
-        materials = {
-            {id = 2400, count = 5},
-            {id = 2408, count = 1},
-            {id = 7879, count = 5},
-            {id = 7872, count = 5},
-            {id = 2348, count = 5},
-            {id = 2158, count = 100}
-        }
-    },
-    [2408] = { -- warlord sword = vampiric axe recipe
-        cost = 1000000,
-        materials = {
-            {id = 5535, count = 5},
-            {id = 2400, count = 1},
-            {id = 2144, count = 100},
-            {id = 2147, count = 100},
-            {id = 2149, count = 100},
-            {id = 2466, count = 20}
-        }
-    }
+    [2438] = {cost = 7000, materials = {{id = 5905, count = 2}, {id = 2245, count = 5}}}, -- epee
+    [2451] = {cost = 8000, materials = {{id = 2392, count = 1}, {id = 2144, count = 10}, {id = 2147, count = 5}, {id = 2149, count = 5}, {id = 2146, count = 5}}}, -- djinn blade
+    [2407] = {cost = 5000, materials = {{id = 5905, count = 1}, {id = 2151, count = 5}}}, -- bright sword
+    [5906] = {cost = 7000, materials = {{id = 2377, count = 10}, {id = 2804, count = 10}, {id = 2144, count = 3}}}, -- blacksteel sword
+    [2393] = {cost = 8000, materials = {{id = 5906, count = 1}, {id = 2377, count = 5}}}, -- giant sword
+    [5898] = {cost = 8000, materials = {{id = 2396, count = 3}, {id = 2158, count = 1}}}, -- ice blade
+    [2396] = {cost = 2000, materials = {{id = 2384, count = 1}, {id = 2349, count = 1}}}, -- ice rapier
+    [2446] = {cost = 8000, materials = {{id = 2451, count = 1}, {id = 2144, count = 10}, {id = 2147, count = 10}, {id = 2149, count = 10}, {id = 2146, count = 10}}}, -- pharaoh sword
+    [2400] = {cost = 220000, materials = {{id = 2407, count = 10}, {id = 2033, count = 25}, {id = 1950, count = 10}, {id = 2354, count = 1}}}, -- magic sword
+    [2408] = {cost = 2000000, materials = {{id = 2400, count = 3}, {id = 2062, count = 25}, {id = 1986, count = 20}, {id = 7875, count = 5}, {id = 2154, count = 10}, {id = 2193, count = 15}}}, -- warlord sword
+    [2390] = {cost = 5000000, materials = {{id = 2400, count = 2}, {id = 2472, count = 5}, {id = 2470, count = 10}, {id = 2514, count = 10}, {id = 2070, count = 50}, {id = 2760, count = 50}}}, -- magic longsword
+    [5535] = {disabled = true}, -- sword of furion
+    [5899] = {disabled = true}, -- rune sword
+    [5755] = {disabled = true} -- avenger
 }
 
 -- Manual club recipes from weapon_recipe_source_report.txt (up to line 168).

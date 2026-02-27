@@ -6065,6 +6065,7 @@
 	</item>
 	<item id="2350" article="a" name="royal crossbow">
 		<attribute key="description" value="This crossbow seems to make you stronger."/>
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3500"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
@@ -6826,6 +6827,7 @@
 		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2455" article="a" name="crossbow">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="4000"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
@@ -6834,6 +6836,7 @@
 		<attribute key="attack" value="1"/>
 	</item>
 	<item id="2456" article="a" name="bow">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3100"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
@@ -15849,6 +15852,7 @@
 	</item>
 	
 	<item id="5915" article="a" name="composite hornbow">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="3100"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
@@ -15996,6 +16000,7 @@
 
 
 <item id="5912" article="a" name="modified crossbow">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="3500"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="weaponType" value="distance"/>
@@ -16005,6 +16010,7 @@
 	</item>
 
 <item id="5913" article="a" name="royal crossbow">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="12000"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="weaponType" value="distance"/>
@@ -16016,6 +16022,7 @@
 	
 	
 <item id="5914" article="a" name="death crossbow">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="10000"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="weaponType" value="distance"/>
@@ -16052,6 +16059,7 @@
 	</item>
 	
 	<item id="5916" article="a" name="earth bow">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="3100"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
@@ -16062,6 +16070,7 @@
 	</item>
 	
 	<item id="5917" article="a" name="ice bow">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="3100"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>

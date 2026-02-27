@@ -1,0 +1,15 @@
+﻿Bow/Crossbow local mapping from items.xml
+Generated: 2026-02-27 17:36:58
+Filter: name contains bow|crossbow AND weaponType=distance AND ammoType in {arrow, bolt}
+Matched entries: 9
+Item level range formula: tier N => ((N-1)*25)- (N*25), with tier1 starting at 1
+
+- name="royal crossbow" id=2350 weaponType=distance ammoType=bolt slotType=two-handed tier=1 itemLevelRange=1-25
+- name="crossbow" id=2455 weaponType=distance ammoType=bolt slotType=two-handed tier=1 itemLevelRange=1-25
+- name="bow" id=2456 weaponType=distance ammoType=arrow slotType=two-handed tier=1 itemLevelRange=1-25
+- name="modified crossbow" id=5912 weaponType=distance ammoType=bolt slotType=two-handed tier=2 itemLevelRange=25-50
+- name="royal crossbow" id=5913 weaponType=distance ammoType=bolt slotType=two-handed tier=3 itemLevelRange=50-75
+- name="death crossbow" id=5914 weaponType=distance ammoType=bolt slotType=two-handed tier=4 itemLevelRange=75-100
+- name="composite hornbow" id=5915 weaponType=distance ammoType=arrow slotType=two-handed tier=2 itemLevelRange=25-50
+- name="earth bow" id=5916 weaponType=distance ammoType=arrow slotType=two-handed tier=3 itemLevelRange=50-75
+- name="ice bow" id=5917 weaponType=distance ammoType=arrow slotType=two-handed tier=3 itemLevelRange=50-75
