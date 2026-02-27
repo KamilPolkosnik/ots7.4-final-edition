@@ -16,6 +16,48 @@ local function us_CountTable(data)
     return count
 end
 
+local function us_GetTierRange(tier)
+    tier = tonumber(tier)
+    if not tier then
+        return nil
+    end
+
+    tier = math.floor(tier)
+
+    local minTier = tonumber(US_CONFIG and US_CONFIG.ITEM_TIER_MIN) or 1
+    local maxTier = tonumber(US_CONFIG and US_CONFIG.ITEM_TIER_MAX) or 25
+    local levelStep = tonumber(US_CONFIG and US_CONFIG.ITEM_LEVEL_PER_TIER) or 25
+    local firstTierMin = tonumber(US_CONFIG and US_CONFIG.ITEM_LEVEL_FIRST_TIER_MIN) or 1
+
+    minTier = math.max(1, math.floor(minTier))
+    maxTier = math.max(minTier, math.floor(maxTier))
+    levelStep = math.max(1, math.floor(levelStep))
+    firstTierMin = math.max(1, math.floor(firstTierMin))
+
+    if tier < minTier or tier > maxTier then
+        return nil
+    end
+
+    -- Optional per-tier overrides kept for backward compatibility.
+    local customRange = US_CONFIG and US_CONFIG.ITEM_LEVEL_TIERS and US_CONFIG.ITEM_LEVEL_TIERS[tier]
+    if customRange then
+        local customMin = tonumber(customRange.min)
+        local customMax = tonumber(customRange.max)
+        if customMin and customMax then
+            customMin = math.max(1, math.floor(customMin))
+            customMax = math.max(customMin, math.floor(customMax))
+            return {min = customMin, max = customMax}
+        end
+    end
+
+    local minLevel = (tier == minTier) and firstTierMin or ((tier - 1) * levelStep)
+    local maxLevel = tier * levelStep
+    minLevel = math.max(1, minLevel)
+    maxLevel = math.max(minLevel, maxLevel)
+
+    return {min = minLevel, max = maxLevel}
+end
+
 local function us_ParseItemTierFromLine(line)
     local key = line:match('key%s*=%s*"([^"]+)"')
     if not key then
@@ -38,7 +80,7 @@ local function us_ParseItemTierFromLine(line)
     end
 
     tier = math.floor(tier)
-    if tier < 1 or tier > 4 then
+    if not us_GetTierRange(tier) then
         return nil
     end
 
@@ -101,7 +143,7 @@ local function us_GetTieredRollLevel(item)
         return nil
     end
 
-    local range = US_CONFIG.ITEM_LEVEL_TIERS and US_CONFIG.ITEM_LEVEL_TIERS[tier]
+    local range = us_GetTierRange(tier)
     if not range then
         return nil
     end
@@ -132,7 +174,7 @@ local function us_GetTierStatBaseLevel(item)
         return 0
     end
 
-    local range = US_CONFIG.ITEM_LEVEL_TIERS and US_CONFIG.ITEM_LEVEL_TIERS[tier]
+    local range = us_GetTierRange(tier)
     if not range then
         return 0
     end
@@ -1640,9 +1682,13 @@ function Item.isMirrored(self)
     return self:getCustomAttribute("mirrored")
 end
 
+local function us_NormalizeSlotPosition(slotPosition)
+    return bit.band(slotPosition, bit.bnot(bit.bor(SLOTP_LEFT, SLOTP_RIGHT)))
+end
+
 function Item.getItemType(self)
     local itemType = self:getType()
-    local slot = itemType:getSlotPosition() - SLOTP_LEFT - SLOTP_RIGHT
+    local slot = us_NormalizeSlotPosition(itemType:getSlotPosition())
 
     local weaponType = itemType:getWeaponType()
     if weaponType > 0 then
@@ -1845,7 +1891,7 @@ function ItemType.isUpgradable(self)
     if self:isStackable() or self:getTransformEquipId() > 0 or self:getDecayId() > 0 or self:getDestroyId() > 0 or self:getCharges() > 0 then
         return false
     end
-    local slot = self:getSlotPosition() - SLOTP_LEFT - SLOTP_RIGHT
+    local slot = us_NormalizeSlotPosition(self:getSlotPosition())
 
     local weaponType = self:getWeaponType()
     if weaponType > 0 then
@@ -1870,7 +1916,7 @@ function ItemType.canHaveItemLevel(self)
     if self:getTransformEquipId() > 0 or self:getDecayId() > 0 or self:getDestroyId() > 0 or self:getCharges() > 0 then
         return false
     end
-    local slot = self:getSlotPosition() - SLOTP_LEFT - SLOTP_RIGHT
+    local slot = us_NormalizeSlotPosition(self:getSlotPosition())
 
     local weaponType = self:getWeaponType()
     if weaponType > 0 then

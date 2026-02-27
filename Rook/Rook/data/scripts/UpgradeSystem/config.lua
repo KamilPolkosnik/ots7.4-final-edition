@@ -38,13 +38,13 @@ ITEM_MIND_CRYSTAL = 7876, -- Mind Crystal item id
   MAX_ITEM_LEVEL = 3000, -- max that Item Level can be assigned to item
   MAX_UPGRADE_LEVEL = 9, -- max level that item can be upgraded to,
   --
-  USE_ITEM_XML_TIERS = true, -- when true, use <attribute key="tier" value="1-4"/> from items.xml
-  ITEM_LEVEL_TIERS = {
-    [1] = {min = 1, max = 25},
-    [2] = {min = 25, max = 50},
-    [3] = {min = 50, max = 75},
-    [4] = {min = 75, max = 100}
-  },
+  USE_ITEM_XML_TIERS = true, -- when true, use <attribute key="tier" value="X"/> from items.xml
+  ITEM_TIER_MIN = 1, -- minimum supported tier
+  ITEM_TIER_MAX = 25, -- maximum supported tier
+  ITEM_LEVEL_PER_TIER = 25, -- tier N max level = N * ITEM_LEVEL_PER_TIER
+  ITEM_LEVEL_FIRST_TIER_MIN = 1, -- tier 1 min level (tier 2 starts at previous max)
+  -- Optional legacy override per tier:
+  -- ITEM_LEVEL_TIERS = { [1]={min=1,max=25}, [2]={min=25,max=50}, ... }
   --
   ATTACK_PER_ITEM_LEVEL = 15, -- every X effective Item Level +ATTACK_FROM_ITEM_LEVEL attack
   ATTACK_FROM_ITEM_LEVEL = 1, -- +X bonus attack for every ATTACK_PER_ITEM_LEVEL
@@ -54,7 +54,7 @@ ITEM_MIND_CRYSTAL = 7876, -- Mind Crystal item id
   ARMOR_FROM_ITEM_LEVEL = 1, -- +X bonus armor for every ARMOR_PER_ITEM_LEVEL
   HITCHANCE_PER_ITEM_LEVEL = 15, -- every X effective Item Level +HITCHANCE_FROM_ITEM_LEVEL hit chance
   HITCHANCE_FROM_ITEM_LEVEL = 1, -- +X bonus hit chance for every HITCHANCE_PER_ITEM_LEVEL
-  -- Effective Item Level for stat scaling starts above tier max (e.g. T4 max=100, first bonus at 115).
+  -- Effective Item Level for stat scaling starts above current tier max (e.g. T25 max=625, first bonus at 640).
   ITEM_LEVEL_STAT_TIER_BASE = true,
   --
   UPGRADE_ITEM_LEVEL_BY_RARITY = {

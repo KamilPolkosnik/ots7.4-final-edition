@@ -1,6 +1,16 @@
 local CODE_TOOLTIP = 105
 local ITEM_TIER_BY_ID = {}
 
+local function getMaxTooltipTier()
+  if type(US_CONFIG) == "table" and US_CONFIG.ITEM_TIER_MAX then
+    local maxTier = tonumber(US_CONFIG.ITEM_TIER_MAX)
+    if maxTier then
+      return math.max(1, math.floor(maxTier))
+    end
+  end
+  return 25
+end
+
 local function parseItemTierFromLine(line)
   local key = line:match('key%s*=%s*"([^"]+)"')
   if not key then
@@ -23,7 +33,7 @@ local function parseItemTierFromLine(line)
   end
 
   tier = math.floor(tier)
-  if tier < 1 or tier > 4 then
+  if tier < 1 or tier > getMaxTooltipTier() then
     return nil
   end
 
@@ -514,9 +524,12 @@ end
 
 function formatItemType(itemType)
   local weaponType = itemType:getWeaponType()
+  local function normalizeSlotPosition(slotPosition)
+    return bit.band(slotPosition, bit.bnot(bit.bor(SLOTP_LEFT, SLOTP_RIGHT)))
+  end
 
   if weaponType ~= WEAPON_SHIELD then
-    local slotPosition = itemType:getSlotPosition() - SLOTP_LEFT - SLOTP_RIGHT
+    local slotPosition = normalizeSlotPosition(itemType:getSlotPosition())
 
     if slotPosition == SLOTP_TWO_HAND and weaponType == WEAPON_SWORD then
       return "Two-Handed Sword"
