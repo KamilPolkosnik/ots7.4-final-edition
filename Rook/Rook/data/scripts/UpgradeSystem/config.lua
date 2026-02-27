@@ -38,14 +38,31 @@ ITEM_MIND_CRYSTAL = 7876, -- Mind Crystal item id
   MAX_ITEM_LEVEL = 3000, -- max that Item Level can be assigned to item
   MAX_UPGRADE_LEVEL = 9, -- max level that item can be upgraded to,
   --
-  ATTACK_PER_ITEM_LEVEL = 5, -- every X Item Level +ATTACK_FROM_ITEM_LEVEL attack
+  USE_ITEM_XML_TIERS = true, -- when true, use <attribute key="tier" value="1-4"/> from items.xml
+  ITEM_LEVEL_TIERS = {
+    [1] = {min = 1, max = 25},
+    [2] = {min = 25, max = 50},
+    [3] = {min = 50, max = 75},
+    [4] = {min = 75, max = 100}
+  },
+  --
+  ATTACK_PER_ITEM_LEVEL = 15, -- every X effective Item Level +ATTACK_FROM_ITEM_LEVEL attack
   ATTACK_FROM_ITEM_LEVEL = 1, -- +X bonus attack for every ATTACK_PER_ITEM_LEVEL
-  DEFENSE_PER_ITEM_LEVEL = 5, -- every X Item Level +DEFENSE_FROM_ITEM_LEVEL defense
+  DEFENSE_PER_ITEM_LEVEL = 15, -- every X effective Item Level +DEFENSE_FROM_ITEM_LEVEL defense
   DEFENSE_FROM_ITEM_LEVEL = 1, -- +X bonus defense for every DEFENSE_PER_ITEM_LEVEL
-  ARMOR_PER_ITEM_LEVEL = 5, -- every X Item Level +ARMOR_FROM_ITEM_LEVEL armor
+  ARMOR_PER_ITEM_LEVEL = 15, -- every X effective Item Level +ARMOR_FROM_ITEM_LEVEL armor
   ARMOR_FROM_ITEM_LEVEL = 1, -- +X bonus armor for every ARMOR_PER_ITEM_LEVEL
-  HITCHANCE_PER_ITEM_LEVEL = 10, -- every X Item Level +HITCHANCE_FROM_ITEM_LEVEL hit chance
+  HITCHANCE_PER_ITEM_LEVEL = 15, -- every X effective Item Level +HITCHANCE_FROM_ITEM_LEVEL hit chance
   HITCHANCE_FROM_ITEM_LEVEL = 1, -- +X bonus hit chance for every HITCHANCE_PER_ITEM_LEVEL
+  -- Effective Item Level for stat scaling starts above tier max (e.g. T4 max=100, first bonus at 115).
+  ITEM_LEVEL_STAT_TIER_BASE = true,
+  --
+  UPGRADE_ITEM_LEVEL_BY_RARITY = {
+    [COMMON] = 1,
+    [RARE] = 2,
+    [EPIC] = 5,
+    [LEGENDARY] = 10
+  },
   --
   ITEM_LEVEL_PER_ATTACK = 1, -- +1 to Item Level for every X Attack in item
   ITEM_LEVEL_PER_DEFENSE = 1, -- +1 to Item Level for every X Defense in item
@@ -81,6 +98,21 @@ ITEM_MIND_CRYSTAL = 7876, -- Mind Crystal item id
     [EPIC] = 951,
     [LEGENDARY] = 991
   },
+  RARITY_ITEM_LEVEL_MULTIPLIER = {
+    [COMMON] = 1.0,
+    [RARE] = 1.5,
+    [EPIC] = 2.0,
+    [LEGENDARY] = 3.0
+  },
+  -- Bonus value scaling:
+  -- If BONUS_VALUE_TICK_EVERY_DEFAULT > 0 then bonus value uses:
+  -- value = 1 + floor((itemLevel - baseLevel) / tick)
+  -- baseLevel = max(minLevel, BASE_ITEM_LEVEL, BONUS_BASE_ITEM_LEVEL_DEFAULT)
+  -- Per enchant override keys:
+  --   BASE_ITEM_LEVEL = X
+  --   VALUE_TICK_EVERY = Y
+  BONUS_BASE_ITEM_LEVEL_DEFAULT = 1,
+  BONUS_VALUE_TICK_EVERY_DEFAULT = 15,
   RARITY = {
     [COMMON] = {
       name = "common",
@@ -327,6 +359,9 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.CONDITION,
     condition = CONDITION_ATTRIBUTES,
     param = CONDITION_PARAM_SKILL_SHIELD,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 15,
     VALUES_PER_LEVEL = 0.25,
     format = function(value)
       return "Shielding +" .. value
@@ -863,12 +898,14 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.OFFENSIVE,
     combatDamage = COMBAT_ENERGYDAMAGE + COMBAT_EARTHDAMAGE + COMBAT_FIREDAMAGE + COMBAT_ICEDAMAGE + COMBAT_HOLYDAMAGE + COMBAT_DEATHDAMAGE +
       COMBAT_PHYSICALDAMAGE,
+    minLevel = 100,
+    BASE_ITEM_LEVEL = 100,
+    VALUE_TICK_EVERY = 50,
     VALUES_PER_LEVEL = 0.1,
     format = function(value)
       return value .. "%% to deal double damage"
     end,
     itemType = US_ITEM_TYPES.WEAPON_ANY,
-    minLevel = 80,
     chance = 5
   },
   [52] = {
@@ -990,6 +1027,84 @@ US_ENCHANTMENTS = {
     itemType = US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE,
     minLevel = 30,
     chance = 10
+  },
+  [56] = {
+    name = "Critical Hit Chance",
+    combatType = US_TYPES.CONDITION,
+    condition = CONDITION_ATTRIBUTES,
+    param = CONDITION_PARAM_SPECIALSKILL_CRITICALHITCHANCE,
+    format = function(value)
+      return "Critical Hit Chance +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+  },
+  [57] = {
+    name = "Critical Hit Damage",
+    combatType = US_TYPES.CONDITION,
+    condition = CONDITION_ATTRIBUTES,
+    param = CONDITION_PARAM_SPECIALSKILL_CRITICALHITAMOUNT,
+    format = function(value)
+      return "Critical Hit Damage +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+  },
+  [58] = {
+    name = "Dodge",
+    special = "DODGE",
+    combatType = US_TYPES.DEFENSIVE,
+    format = function(value)
+      return "Dodge +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+  },
+  [59] = {
+    name = "Damage Reflect",
+    special = "REFLECT",
+    combatType = US_TYPES.DEFENSIVE,
+    format = function(value)
+      return "Damage Reflect +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+  },
+  [60] = {
+    name = "Life Leech Chance",
+    combatType = US_TYPES.CONDITION,
+    condition = CONDITION_ATTRIBUTES,
+    param = CONDITION_PARAM_SPECIALSKILL_LIFELEECHCHANCE,
+    format = function(value)
+      return "Life Leech Chance +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+  },
+  [61] = {
+    name = "Life Leech Amount",
+    combatType = US_TYPES.CONDITION,
+    condition = CONDITION_ATTRIBUTES,
+    param = CONDITION_PARAM_SPECIALSKILL_LIFELEECHAMOUNT,
+    format = function(value)
+      return "Life Leech Amount +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+  },
+  [62] = {
+    name = "Mana Leech Chance",
+    combatType = US_TYPES.CONDITION,
+    condition = CONDITION_ATTRIBUTES,
+    param = CONDITION_PARAM_SPECIALSKILL_MANALEECHCHANCE,
+    format = function(value)
+      return "Mana Leech Chance +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+  },
+  [63] = {
+    name = "Mana Leech Amount",
+    combatType = US_TYPES.CONDITION,
+    condition = CONDITION_ATTRIBUTES,
+    param = CONDITION_PARAM_SPECIALSKILL_MANALEECHAMOUNT,
+    format = function(value)
+      return "Mana Leech Amount +" .. value .. "%%"
+    end,
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   }
 }
 

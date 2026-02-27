@@ -5358,6 +5358,7 @@
 		<attribute key="weight" value="490"/>
 	</item>
 	<item id="2195" name="boots of haste">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="750"/>
 		<attribute key="slotType" value="feet"/>
 		<attribute key="speed" value="40"/>
@@ -5946,6 +5947,8 @@
 		<attribute key="defense" value="14"/>
 		<attribute key="attack" value="24"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2322" article="a" name="doll">
 		<attribute key="weight" value="20"/>
@@ -6168,6 +6171,8 @@
 		<attribute key="defense" value="12"/>
 		<attribute key="attack" value="14"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2377" article="a" name="two handed sword">
 		<attribute key="weight" value="7000"/>
@@ -6175,6 +6180,8 @@
 		<attribute key="attack" value="30"/>
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2378" article="a" name="battle axe">
 		<attribute key="weight" value="5000"/>
@@ -6182,18 +6189,24 @@
 		<attribute key="attack" value="25"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2379" article="a" name="dagger">
 		<attribute key="weight" value="950"/>
 		<attribute key="defense" value="6"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2380" article="a" name="hand axe">
 		<attribute key="weight" value="1800"/>
 		<attribute key="defense" value="5"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2381" article="a" name="halberd">
 		<attribute key="weight" value="9000"/>
@@ -6201,36 +6214,48 @@
 		<attribute key="attack" value="35"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2382" article="a" name="club">
 		<attribute key="weight" value="2500"/>
 		<attribute key="defense" value="7"/>
 		<attribute key="attack" value="7"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2383" article="a" name="spike sword">
 		<attribute key="weight" value="5000"/>
 		<attribute key="defense" value="21"/>
 		<attribute key="attack" value="24"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2384" article="a" name="rapier">
 		<attribute key="weight" value="1500"/>
 		<attribute key="defense" value="8"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2385" article="a" name="sabre">
 		<attribute key="weight" value="2500"/>
 		<attribute key="defense" value="10"/>
 		<attribute key="attack" value="12"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2386" article="an" name="axe">
 		<attribute key="weight" value="4000"/>
 		<attribute key="defense" value="6"/>
 		<attribute key="attack" value="12"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2387" article="a" name="double axe">
 		<attribute key="weight" value="7000"/>
@@ -6238,12 +6263,16 @@
 		<attribute key="attack" value="35"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2388" article="a" name="hatchet">
 		<attribute key="weight" value="3500"/>
 		<attribute key="defense" value="8"/>
 		<attribute key="attack" value="15"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2389" article="a" name="spear" plural="spears">
 		<attribute key="weight" value="2000"/>
@@ -6259,6 +6288,8 @@
 		<attribute key="attack" value="55"/>
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="4"/>
 	</item>
 	<item id="2391" article="a" name="war hammer">
 		<attribute key="weight" value="8500"/>
@@ -6266,6 +6297,8 @@
 		<attribute key="attack" value="45"/>
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2392" article="a" name="fire sword">
 		<attribute key="description" value="The blade is a magic flame."/>
@@ -6273,6 +6306,8 @@
 		<attribute key="defense" value="20"/>
 		<attribute key="attack" value="35"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2393" article="a" name="giant sword">
 		<attribute key="description" value="This sword has been forged by ancient giants."/>
@@ -6281,18 +6316,24 @@
 		<attribute key="attack" value="46"/>
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2394" article="a" name="morning star">
 		<attribute key="weight" value="5400"/>
 		<attribute key="defense" value="11"/>
 		<attribute key="attack" value="25"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2395" article="a" name="carlin sword">
 		<attribute key="weight" value="4000"/>
 		<attribute key="defense" value="13"/>
 		<attribute key="attack" value="15"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2396" article="an" name="ice rapier">
 		<attribute key="description" value="A deadly but fragile weapon."/>
@@ -6307,12 +6348,16 @@
 		<attribute key="defense" value="14"/>
 		<attribute key="attack" value="17"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2398" article="a" name="mace">
 		<attribute key="weight" value="2800"/>
 		<attribute key="defense" value="11"/>
 		<attribute key="attack" value="16"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2399" article="a" name="throwing star" plural="throwing stars">
 		<attribute key="weight" value="200" />
@@ -6327,6 +6372,8 @@
 		<attribute key="defense" value="35"/>
 		<attribute key="attack" value="48"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2401" article="a" name="staff">
 		<attribute key="weight" value="3800"/>
@@ -6334,36 +6381,48 @@
 		<attribute key="attack" value="10"/>
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2402" article="a" name="silver dagger">
 		<attribute key="weight" value="1019"/>
 		<attribute key="defense" value="7"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2403" article="a" name="knife">
 		<attribute key="weight" value="420"/>
 		<attribute key="defense" value="5"/>
 		<attribute key="attack" value="7"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2404" article="a" name="combat knife">
 		<attribute key="weight" value="870"/>
 		<attribute key="defense" value="6"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2405" article="a" name="sickle">
 		<attribute key="weight" value="1050"/>
 		<attribute key="defense" value="4"/>
 		<attribute key="attack" value="7"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2406" article="a" name="short sword">
 		<attribute key="weight" value="3500"/>
 		<attribute key="defense" value="11"/>
 		<attribute key="attack" value="11"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2407" article="a" name="bright sword">
 		<attribute key="description" value="The blade shimmers in light blue."/>
@@ -6371,6 +6430,8 @@
 		<attribute key="defense" value="30"/>
 		<attribute key="attack" value="36"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2408" article="a" name="warlord sword">
 			<attribute key="description" value="Strong powers flow in this magic sword."/>	
@@ -6379,12 +6440,16 @@
 		<attribute key="attack" value="53"/>
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="4"/>
 	</item>
 	<item id="2409" article="a" name="serpent sword">
 		<attribute key="weight" value="4100"/>
 		<attribute key="defense" value="15"/>
 		<attribute key="attack" value="26"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2410" article="a" name="throwing knife" plural="throwing knives">
 		<attribute key="weight" value="500"/>
@@ -6398,12 +6463,16 @@
 		<attribute key="defense" value="8"/>
 		<attribute key="attack" value="18"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2412" article="a" name="katana">
 		<attribute key="weight" value="3100"/>
 		<attribute key="defense" value="12"/>
 		<attribute key="attack" value="16"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2413" article="a" name="broad sword">
 		<attribute key="weight" value="5250"/>
@@ -6419,6 +6488,8 @@
 		<attribute key="attack" value="47"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2415" article="a" name="great axe">
 		<attribute key="description" value="A masterpiece of a dwarven smith."/>
@@ -6427,36 +6498,48 @@
 		<attribute key="attack" value="56"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2416" article="a" name="crowbar">
 		<attribute key="weight" value="2100"/>
 		<attribute key="defense" value="6"/>
 		<attribute key="attack" value="6"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2417" article="a" name="battle hammer">
 		<attribute key="weight" value="6800"/>
 		<attribute key="defense" value="14"/>
 		<attribute key="attack" value="24"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2418" article="a" name="golden sickle">
 		<attribute key="weight" value="1950"/>
 		<attribute key="defense" value="6"/>
 		<attribute key="attack" value="13"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2419" article="a" name="scimitar">
 		<attribute key="weight" value="2900"/>
 		<attribute key="defense" value="13"/>
 		<attribute key="attack" value="19"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2420" article="a" name="machete">
 		<attribute key="weight" value="1650"/>
 		<attribute key="defense" value="9"/>
 		<attribute key="attack" value="12"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2421" article="a" name="thunder hammer">
 		<attribute key="description" value="It is blessed by the gods of Tibia."/>
@@ -6464,24 +6547,32 @@
 		<attribute key="defense" value="35"/>
 		<attribute key="attack" value="49"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="4"/>
 	</item>
 	<item id="2422" article="an" name="iron hammer">
 		<attribute key="weight" value="6600"/>
 		<attribute key="defense" value="10"/>
 		<attribute key="attack" value="18"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2423" article="a" name="clerical mace">
 		<attribute key="weight" value="5800"/>
 		<attribute key="defense" value="15"/>
 		<attribute key="attack" value="28"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2424" article="a" name="silver mace">
 		<attribute key="weight" value="6700"/>
 		<attribute key="defense" value="30"/>
 		<attribute key="attack" value="40"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2425" article="an" name="obsidian lance">
 		<attribute key="weight" value="8000"/>
@@ -6489,6 +6580,8 @@
 		<attribute key="attack" value="34"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2426" article="a" name="naginata">
 		<attribute key="weight" value="8000"/>
@@ -6496,6 +6589,8 @@
 		<attribute key="attack" value="39"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2427" article="a" name="guardian halberd">
 		<attribute key="weight" value="11000"/>
@@ -6503,24 +6598,32 @@
 		<attribute key="attack" value="46"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2428" article="an" name="orcish axe">
 		<attribute key="weight" value="4500"/>
 		<attribute key="defense" value="12"/>
 		<attribute key="attack" value="23"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2429" article="a" name="barbarian axe">
 		<attribute key="weight" value="5100"/>
 		<attribute key="defense" value="18"/>
 		<attribute key="attack" value="28"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2430" article="a" name="knight axe">
 		<attribute key="weight" value="5900"/>
 		<attribute key="defense" value="21"/>
 		<attribute key="attack" value="33"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2431" article="a" name="stonecutter axe">
 		<attribute key="description" value="You feel the power of this mighty axe."/>
@@ -6528,6 +6631,8 @@
 		<attribute key="defense" value="30"/>
 		<attribute key="attack" value="50"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2432" article="a" name="fire axe">
 		<attribute key="description" value="The blade is a magic flame."/>
@@ -6535,6 +6640,8 @@
 		<attribute key="defense" value="16"/>
 		<attribute key="attack" value="38"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2433" article="an" name="enchanted staff">
 		<attribute key="description" value="Temporary magic powers enchant this staff."/>
@@ -6551,12 +6658,16 @@
 		<attribute key="defense" value="20"/>
 		<attribute key="attack" value="32"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2435" article="a" name="dwarven axe">
 		<attribute key="weight" value="8200"/>
 		<attribute key="defense" value="19"/>
 		<attribute key="attack" value="31"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2436" article="a" name="skull staff">
 		<attribute key="description" value="The staff longs for death."/>
@@ -6564,6 +6675,8 @@
 		<attribute key="defense" value="12"/>
 		<attribute key="attack" value="36"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2437" article="a" name="golden mace">
 		<attribute key="weight" value="5000"/>
@@ -6582,6 +6695,8 @@
 		<attribute key="defense" value="12"/>
 		<attribute key="attack" value="21"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2440" article="a" name="daramanian waraxe">
 		<attribute key="weight" value="5250"/>
@@ -6589,24 +6704,32 @@
 		<attribute key="attack" value="39"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2441" article="a" name="daramanian axe">
 		<attribute key="weight" value="5250"/>
 		<attribute key="defense" value="10"/>
 		<attribute key="attack" value="18"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2442" article="a" name="heavy machete">
 		<attribute key="weight" value="1839"/>
 		<attribute key="defense" value="10"/>
 		<attribute key="attack" value="16"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2443" article="a" name="ravager's axe">
 		<attribute key="weight" value="5250"/>
 		<attribute key="defense" value="14"/>
 		<attribute key="attack" value="49"/>
 		<attribute key="weaponType" value="axe"/>
+	
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2444" article="a" name="hammer of wrath">
 		<attribute key="description" value="A giant is said to have forged this hammer to take revenge for the death of his brother."/>	
@@ -6614,18 +6737,24 @@
 		<attribute key="defense" value="12"/>
 		<attribute key="attack" value="48"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2445" article="a" name="crystal mace">
 		<attribute key="weight" value="8000"/>
 		<attribute key="defense" value="16"/>
 		<attribute key="attack" value="38"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2446" article="a" name="pharaoh sword">
 		<attribute key="weight" value="5200"/>
 		<attribute key="defense" value="23"/>
 		<attribute key="attack" value="41"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2447" article="a" name="twin axe">
 		<attribute key="weight" value="6700"/>
@@ -6633,30 +6762,40 @@
 		<attribute key="attack" value="45"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2448" article="a" name="studded club">
 		<attribute key="weight" value="3500"/>
 		<attribute key="defense" value="8"/>
 		<attribute key="attack" value="9"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2449" article="a" name="bone club">
 		<attribute key="weight" value="3900"/>
 		<attribute key="defense" value="8"/>
 		<attribute key="attack" value="12"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2450" article="a" name="bone sword">
 		<attribute key="weight" value="1900"/>
 		<attribute key="defense" value="10"/>
 		<attribute key="attack" value="14"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2451" article="a" name="djinn blade">
 		<attribute key="weight" value="2450"/>
 		<attribute key="defense" value="22"/>
 		<attribute key="attack" value="38"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2452" article="a" name="heavy mace">
 			<attribute key="description" value="Its tip is made of extremely solid steel."/>	
@@ -6665,6 +6804,8 @@
 		<attribute key="attack" value="49"/>
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2453" article="an" name="arcane staff">
 		<attribute key="weight" value="4000"/>
@@ -6672,6 +6813,8 @@
 		<attribute key="attack" value="50"/>
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2454" article="a" name="war axe">
 		<attribute key="weight" value="6150"/>
@@ -6679,6 +6822,8 @@
 		<attribute key="attack" value="48"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2455" article="a" name="crossbow">
 		<attribute key="weight" value="4000"/>
@@ -6697,93 +6842,111 @@
 		<attribute key="attack" value="1"/>
 	</item>
 	<item id="2457" article="a" name="steel helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="4600"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2458" article="a" name="chain helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="4200"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2459" article="an" name="iron helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3000"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2460" article="a" name="brass helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2700"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2461" article="a" name="leather helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2200"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2462" article="a" name="devil helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="5000"/>
 		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2463" article="a" name="plate armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="12000"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2464" article="a" name="chain armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="10000"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2465" article="a" name="brass armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="8000"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2466" article="a" name="golden armor">
+		<attribute key="tier" value="2"/>
 		<attribute key="description" value="It is an enchanted armor."/>
 		<attribute key="weight" value="8000"/>
 		<attribute key="armor" value="14"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2467" article="a" name="leather armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="6000"/>
 		<attribute key="armor" value="4"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2468" name="studded legs">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2600"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2469" name="dragon scale legs">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="4800"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2470" name="golden legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="5400"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2471" article="a" name="golden helmet">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="3200"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2472" article="a" name="magic plate armor">
+		<attribute key="tier" value="3"/>
 		<attribute key="description" value="An enchanted gem glows on the plate armor."/>
 		<attribute key="weight" value="8500"/>
 		<attribute key="armor" value="17"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2473" article="a" name="viking helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3900"/>
 		<attribute key="armor" value="4"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2474" article="a" name="winged helmet">
+		<attribute key="tier" value="4"/>
 		<attribute key="description" value="It is the Helmet of Hermes."/>
 		<attribute key="weight" value="1200"/>
 		<attribute key="armor" value="10"/>
@@ -6791,159 +6954,190 @@
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2475" article="a" name="warrior helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="6800"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2476" article="a" name="knight armor">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="12000"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2477" name="knight legs">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="7000"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2478" name="brass legs">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3800"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2479" article="a" name="strange helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="4600"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2480" article="a" name="legion helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="3100"/>
 		<attribute key="armor" value="4"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2481" article="a" name="soldier helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3200"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2482" article="a" name="studded helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2450"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2483" article="a" name="scale armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="10500"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2484" article="a" name="studded armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="7100"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2485" article="a" name="doublet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2500"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2486" article="a" name="noble armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="12000"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2487" article="a" name="crown armor">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="9900"/>
 		<attribute key="armor" value="13"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2488" name="crown legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="6500"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2489" article="a" name="dark armor">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="12000"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2490" article="a" name="dark helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="4600"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2491" article="a" name="crown helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="2950"/>
 		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2492" article="a" name="dragon scale mail">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="11400"/>
 		<attribute key="armor" value="15"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2493" article="a" name="demon helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="description" value="You hear an evil whispering from the inside."/>
 		<attribute key="weight" value="2950"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2494" article="a" name="demon armor">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="8000"/>
 		<attribute key="armor" value="16"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2495" name="demon legs">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="5400"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2496" article="a" name="horned helmet">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="5100"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2497" article="a" name="crusader helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="5200"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2498" article="a" name="royal helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="description" value="An excellent masterpiece of a smith."/>
 		<attribute key="weight" value="4800"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2499" article="an" name="amazon helmet">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="2950"/>
 		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2500" article="an" name="amazon armor">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="9900"/>
 		<attribute key="armor" value="13"/>
 		<attribute key="slotType" value="body"/>
 		<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="2501" article="a" name="ceremonial mask">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="1200"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2502" article="a" name="dwarven helmet">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="4200"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2503" article="a" name="dwarven armor">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="13000"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2504" name="dwarven legs">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="4000"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2505" article="a" name="firemasters armor">
+		<attribute key="tier" value="3"/>
 <attribute key="description" value="This unique armor give you 10% protection against fire."/>
 		<attribute key="weight" value="11400"/>
 		<attribute key="armor" value="15"/>
@@ -6951,12 +7145,14 @@
 		<attribute key="transformEquipTo" value="2664"/>		
 	</item>
 	<item id="2506" article="a" name="dragon scale helmet">
+		<attribute key="tier" value="3"/>
 		<attribute key="description" value="It is made of dragon scales."/>
 		<attribute key="weight" value="6000"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2507" name="green legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="description" value="These legs seem to be unique."/>	
 		<attribute key="weight" value="1800"/>
 		<attribute key="armor" value="8"/>
@@ -6964,6 +7160,7 @@
 		<attribute key="MagicPoints" value="1"/>		
 	</item>
 	<item id="2508" article="a" name="native armor">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="5000"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="body"/>
@@ -7016,6 +7213,7 @@
 		<attribute key="weaponType" value="shield"/>
 	</item>
 	<item id="2518" article="a" name="beholder shield">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="4700"/>
 		<attribute key="defense" value="28"/>
 		<attribute key="weaponType" value="shield"/>
@@ -7096,6 +7294,7 @@
 		<attribute key="weaponType" value="shield"/>
 	</item>
 	<item id="2533" article="a" name="mercenary shield">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="5000"/>
 		<attribute key="defense" value="29"/>
 		<attribute key="weaponType" value="shield"/>
@@ -7204,6 +7403,8 @@
 		<attribute key="attack" value="8"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2551" article="a" name="broom">
 		<attribute key="weight" value="1100"/>
@@ -7465,6 +7666,7 @@
 	</item>
 	
 	<item id="2358" name="pair of soft boots">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="800"/>
 		<attribute key="slotType" value="feet"/>
 		<attribute key="transformEquipTo" value="2640"/>
@@ -7472,6 +7674,7 @@
 		<attribute key="stopduration" value="1"/>	
 	</item>
 	<item id="2640" article="a" name="pair of soft boots">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="800"/>
 		<attribute key="slotType" value="feet"/>
 		<attribute key="decayTo" value="5729"/>
@@ -7492,50 +7695,60 @@
 		<attribute key="weight" value="800"/>
 	</item>
 	<item id="2643" name="leather boots">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="900"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="feet"/>
 	</item>
 	<item id="2644" name="bunny slippers">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="800"/>
 		<attribute key="slotType" value="feet"/>
 	</item>
 	<item id="2645" name="steel boots">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="2900"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="slotType" value="feet"/>
 	</item>
 	<item id="2646" name="golden boots">
+		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="3200"/>
 		<attribute key="armor" value="4"/>
 		<attribute key="slotType" value="feet"/>
 	</item>
 	<item id="2647" name="plate legs">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="5000"/>
 		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2648" name="chain legs">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3500"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2649" name="leather legs">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="1800"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
 	<item id="2650" article="a" name="jacket">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2400"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2651" article="a" name="coat">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2700"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2652" article="a" name="green tunic">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="930"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="body"/>
@@ -7546,17 +7759,20 @@
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2654" article="a" name="cape">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2400"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="slotType" value="body"/>
 		<attribute key="magiclevelpoints" value="3"/> <!-- Adjust the value as needed -->
 	</item>
 	<item id="2655" article="a" name="red robe">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2600"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2656" article="a" name="blue robe">
+		<attribute key="tier" value="2"/>
 		<attribute key="description" value="You feel powerfull, It is a magic robe."/>
 		<attribute key="weight" value="2200"/>
 		<attribute key="armor" value="11"/>
@@ -7576,6 +7792,7 @@
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2660" article="a" name="hidden turbant">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="200"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="head"/>
@@ -7586,17 +7803,20 @@
 		<attribute key="slotType" value="necklace"/>
 	</item>
 	<item id="2662" article="a" name="magician hat">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="750"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2663" article="a" name="mystic turban">
+		<attribute key="tier" value="1"/>
 		<attribute key="description" value="Something is strange about this turban."/>
 		<attribute key="weight" value="850"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2664" article="a" name="firemasters armor">
+		<attribute key="tier" value="3"/>
 <attribute key="description" value="This unique armor give you 10% protection against fire."/>
 		<attribute key="weight" value="11400"/>
 		<attribute key="armor" value="15"/>
@@ -7605,6 +7825,7 @@
 	<attribute key="absorbPercentFire" value="10"/>	
 	</item>
 	<item id="2665" article="a" name="post officers hat">
+		<attribute key="tier" value="1"/>
 		<attribute key="description" value="This hat is the insignia of all tibian post officers."/>
 		<attribute key="weight" value="700"/>
 		<attribute key="armor" value="1"/>
@@ -11805,6 +12026,8 @@
 		<attribute key="defense" value="30"/>
 		<attribute key="shootType" value="poison" />
 		<attribute key="range" value="4" />
+	
+		<attribute key="tier" value="4"/>
 	</item>
 	<item id="3962" article="a" name="beastslayer axe">
 		<attribute key="weight" value="6150"/>
@@ -11812,12 +12035,16 @@
 		<attribute key="attack" value="35"/>
 		<attribute key="weaponType" value="axe"/>
 		
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="3963" article="a" name="templar scytheblade">
 		<attribute key="weight" value="4500"/>
 		<attribute key="defense" value="15"/>
 		<attribute key="attack" value="23"/>
 		<attribute key="weaponType" value="sword"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="3964" article="a" name="ripper lance">
 		<attribute key="weight" value="8000"/>
@@ -11825,6 +12052,8 @@
 		<attribute key="attack" value="28"/>
 		<attribute key="weaponType" value="axe"/>
 		
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="3965" article="a" name="hunting spear">
 		<attribute key="weight" value="8000" />
@@ -11837,33 +12066,41 @@
 		<attribute key="defense" value="15"/>
 		<attribute key="attack" value="25"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="3967" article="a" name="tribal mask">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2500"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="3968" article="a" name="leopard armor">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="9500"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="3969" article="a" name="horseman helmet">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="4200"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="3970" article="a" name="feather headdress">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2100"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="3971" article="a" name="charmer tiara">
+		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2200"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="3972" article="a" name="beholder helmet">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="4600"/>
 		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="head"/>
@@ -11898,6 +12135,7 @@
 		<attribute key="type" value="mailbox"/>
 	</item>
 	<item id="3982" name="crocodile boots">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="900"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="feet"/>
@@ -14277,6 +14515,8 @@
 		<attribute key="defense" value="10"/>
 		<attribute key="attack" value="18"/>
 		<attribute key="weaponType" value="club"/>
+	
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="4847" article="a" name="simple dress">
 		<attribute key="weight" value="2400"/>
@@ -14891,6 +15131,7 @@
 
 	
 	<item id="5539" article="a" name="shield of dorion">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="3500"/>
 		<attribute key="defense" value="36"/>
 		<attribute key="weaponType" value="shield"/>
@@ -15005,6 +15246,7 @@
 		<attribute key="weight" value="200" />
 	</item>
 	<item id="5728" name="blue legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1800" />
 		<attribute key="armor" value="8" />
 		<attribute key="slotType" value="legs" />
@@ -15021,6 +15263,7 @@
 		<attribute key="weaponType" value="shield"/>
 	</item>
 	<item id="5733" article="a" name="magic plate armor">
+		<attribute key="tier" value="3"/>
 		<attribute key="description" value="An enchanted gem glows on the plate armor. (Task reward)"/>
 		<attribute key="weight" value="8500"/>
 		<attribute key="armor" value="17"/>
@@ -15028,6 +15271,7 @@
 
 	</item>
 	<item id="5735" article="a" name="royal helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="description" value="An excellent masterpiece of a smith. (Task reward)"/>
 		<attribute key="weight" value="4800"/>
 		<attribute key="armor" value="9"/>
@@ -15129,7 +15373,9 @@
     <attribute key="weaponType" value="sword" />
     <attribute key="slotType" value="two-handed" />
     <attribute key="description" value="This holy blade was forged of shattered dreams." />
-    </item>
+    
+		<attribute key="tier" value="2"/>
+	</item>
 	
 	<item id="5776" article="a" name="explo backpack">
 		<attribute key="weight" value="1800"/>
@@ -15231,6 +15477,7 @@
 		<attribute key="slotType" value="backpack"/>
 	</item>	
 	<item id="5789" article="a" name="necromantic spellbook">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="250"/>
 				<attribute key="magicPoints" value="1"/>
 				  <attribute key="defense" value="18"/> 
@@ -15260,6 +15507,7 @@
 		<attribute key="range" value="4" />
 	</item>
 		<item id="5791" article="a" name="warlocks spellbook">
+			<attribute key="tier" value="3"/>
 		<attribute key="weight" value="600"/>
 				<attribute key="magicPoints" value="2"/>
 				  <attribute key="defense" value="22"/> 
@@ -15272,12 +15520,14 @@
     </item>
 	
 	<item id="5829" article="a" name="paladin armor">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="10000"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="slotType" value="body"/>
 		<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="5784" article="a" name="skullcracker armor">
+		<attribute key="tier" value="2"/>
 	<attribute key="description" value="Grim reapers finest armor."/>
 		<attribute key="weight" value="3100" />
 		<attribute key="armor" value="14" />
@@ -15286,6 +15536,7 @@
 	</item>
 	
 		<item id="5816" article="a" name="skullmaster armor">
+			<attribute key="tier" value="3"/>
 	<attribute key="description" value="King of Grim reapers has forged this unique armor."/>
 		<attribute key="weight" value="3100" />
 		<attribute key="armor" value="14" />
@@ -15295,6 +15546,7 @@
 	</item>
 	
 	<item id="5807" article="a" name="yalahari armor">
+		<attribute key="tier" value="2"/>
 	<attribute key="description" value="The armor of yalahari god."/>
 		<attribute key="weight" value="10000" />
 		<attribute key="armor" value="14" />
@@ -15306,6 +15558,7 @@
 <attribute key="skillShield" value="2"/>
 	</item>
 	<item id="5808" article="a" name="yalahari leg piece">
+		<attribute key="tier" value="2"/>
 	<attribute key="description" value="The leg piece of yalahari god."/>
 		<attribute key="weight" value="5200" />
 		<attribute key="armor" value="7" />
@@ -15314,6 +15567,7 @@
 				<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="5809" article="a" name="yalahari mask">
+		<attribute key="tier" value="2"/>
 	<attribute key="description" value="The mask of the yalahari god."/>
 		<attribute key="weight" value="2200" />
 		<attribute key="armor" value="7" />
@@ -15321,30 +15575,35 @@
 		<attribute key="magiclevelpoints" value="2" />
 	</item>
 	<item id="5827" article="a" name="zaoan helmet">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="2500" />
 		<attribute key="armor" value="9" />
 		<attribute key="slotType" value="head" />
 
 	</item>
 	<item id="5826" article="a" name="zaoan armor">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="9500" />
 		<attribute key="armor" value="13" />
 		<attribute key="slotType" value="body" />
 	
 	</item>
 	<item id="5839" article="a" name="zaoan legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="5400" />
 		<attribute key="armor" value="8" />
 		<attribute key="slotType" value="legs" />
 		<attribute key="absorbPercentPhysical" value="2" />
 	</item>
 	<item id="5838" article="a" name="zaoan shoes">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1500" />
 		<attribute key="armor" value="3" />
 		<attribute key="slotType" value="feet" />
 <attribute key="speed" value="10"/>
 	</item>
 	<item id="5828" article="a" name="archer armor">
+		<attribute key="tier" value="1"/>
 	<attribute key="description" value="The armor created by Chosens in current war between humans greatly benefits the holder."/>
 		<attribute key="weight" value="12000"/>
 		<attribute key="armor" value="15"/>
@@ -15352,6 +15611,7 @@
 		<attribute key="skillDist" value="4"/>
 	</item>
 	<item id="5812" article="a" name="lizard knowledge spellbook">
+		<attribute key="tier" value="3"/>
 	<attribute key="description" value="This spellbook contains secret lizard incantations making every holder a powerful wizard."/>
 		<attribute key="weight" value="250"/>
 				<attribute key="magicPoints" value="3"/>
@@ -15380,6 +15640,7 @@
 	</item>
 	<!--terra set--> 
 	<item id="5882" article="a" name="terra hood">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1000"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="head"/>
@@ -15387,6 +15648,7 @@
 		<attribute key="absorbPercentFire" value="-4" />
 	</item>
 	<item id="5881" article="a" name="terra mantle">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="2250"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="body"/>
@@ -15394,6 +15656,7 @@
 		<attribute key="absorbPercentFire" value="-8" />
 	</item>
 	<item id="5880" article="a" name="terra legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1900"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="legs"/>
@@ -15401,6 +15664,7 @@
 		<attribute key="absorbPercentFire" value="-6" />
 	</item>
 	<item id="5879" article="a" name="terra boots">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="750"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="feet"/>
@@ -15418,6 +15682,7 @@
 	</item>
 	<!-- glacier set-->
 	<item id="5871" article="a" name="glacier mask">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1000"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="head"/>
@@ -15425,6 +15690,7 @@
 		<attribute key="absorbPercentEnergy" value="-4" />
 	</item>
 	<item id="5872" article="a" name="glacier robe">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="2250"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="body"/>
@@ -15432,6 +15698,7 @@
 		<attribute key="absorbPercentEnergy" value="-8" />
 	</item>
 	<item id="5873" article="a" name="glacier kilt">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1900"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="legs"/>
@@ -15439,6 +15706,7 @@
 		<attribute key="absorbPercentEnergy" value="-6" />
 	</item>
 	<item id="5874" article="a" name="glacier shoes">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="750"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="feet"/>
@@ -15456,6 +15724,7 @@
 	</item>
 	<!-- magma set-->
 	<item id="5866" article="a" name="magma monocle">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1000"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="head"/>
@@ -15463,6 +15732,7 @@
 		<attribute key="absorbPercentFire" value="4" />
 	</item>
 	<item id="5862" article="a" name="magma coat">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="2250"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="body"/>
@@ -15470,6 +15740,7 @@
 		<attribute key="absorbPercentFire" value="8" />
 	</item>
 	<item id="5863" article="a" name="magma legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1900"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="legs"/>
@@ -15477,6 +15748,7 @@
 		<attribute key="absorbPercentFire" value="6" />
 	</item>
 	<item id="5864" article="a" name="magma boots">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="750"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="feet"/>
@@ -15494,6 +15766,7 @@
 	</item>
 	
 <item id="5865" article="a" name="magma shield">
+		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="5500"/>
 		<attribute key="defense" value="30"/>
 		<attribute key="weaponType" value="shield"/>
@@ -15505,6 +15778,7 @@
 <!-- lightning set-->
 
 <item id="5867" article="a" name="lightning headband">
+	<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1000"/>
 		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="head"/>
@@ -15512,6 +15786,7 @@
 		<attribute key="absorbPercentEnergy" value="4" />
 	</item>
 	<item id="5868" article="a" name="lightning robe">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="2250"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="body"/>
@@ -15519,6 +15794,7 @@
 		<attribute key="absorbPercentEnergy" value="8" />
 	</item>
 	<item id="5869" article="a" name="lightning legs">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="1900"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="legs"/>
@@ -15526,6 +15802,7 @@
 		<attribute key="absorbPercentEnergy" value="6" />
 	</item>
 	<item id="5870" article="a" name="lightning boots">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="750"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="feet"/>
@@ -15584,6 +15861,7 @@
 	<!-- 4th feb biatch-->
 	
 	<item id="5798" article="a" name="Oriental Shoes">
+		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="800"/>
 		<attribute key="slotType" value="feet"/>
 		<attribute key="healthGain" value="1"/>
@@ -16414,6 +16692,7 @@
 	</item>
 	
 	<item id="6480" name="ferumbras' hat">
+		<attribute key="tier" value="4"/>
 		<attribute key="description" value="It is the proof that Ferumbras has fallen. For now. The Edron Academy should be interested in this."/>
 		<attribute key="weight" value="850"/>
 		<attribute key="armor" value="1"/>
@@ -16697,5 +16976,35 @@
 		<attribute key="skillDist" value="6"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="showduration" value="1"/>
+	</item>
+	<item id="7956" article="a" name="small quiver">
+		<attribute key="type" value="container"/>
+		<attribute key="containerSize" value="5"/>
+		<attribute key="slotType" value="quiver"/>
+		<attribute key="tier" value="1"/>
+	</item>
+	<item id="7957" article="a" name="quiver">
+		<attribute key="type" value="container"/>
+		<attribute key="containerSize" value="8"/>
+		<attribute key="slotType" value="quiver"/>
+		<attribute key="tier" value="2"/>
+	</item>
+	<item id="7958" article="a" name="red quiver">
+		<attribute key="type" value="container"/>
+		<attribute key="containerSize" value="10"/>
+		<attribute key="slotType" value="quiver"/>
+		<attribute key="tier" value="2"/>
+	</item>
+	<item id="7959" article="a" name="jungle quiver">
+		<attribute key="type" value="container"/>
+		<attribute key="containerSize" value="10"/>
+		<attribute key="slotType" value="quiver"/>
+		<attribute key="tier" value="3"/>
+	</item>
+	<item id="7960" article="an" name="alicorn quiver">
+		<attribute key="type" value="container"/>
+		<attribute key="containerSize" value="10"/>
+		<attribute key="slotType" value="quiver"/>
+		<attribute key="tier" value="4"/>
 	</item>
 </items>

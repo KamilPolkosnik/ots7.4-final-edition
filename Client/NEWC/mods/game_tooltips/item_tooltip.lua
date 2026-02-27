@@ -22,6 +22,7 @@ local cachedItems = {}
 
 local Colors = {
   Default = "#ffffff",
+  Tier = "#ffd166",
   ItemLevel = "#abface",
   Description = "#8080ff",
   Implicit = "#ffbb22",
@@ -162,6 +163,7 @@ function newTooltip(data)
   local _upgradeLevel = data.uLevel or 0
   local _uniqueName = data.uniqueName
   local _itemRarity = data.rarityId or 0
+  local _itemTier = data.tier or 0
   local _itemMaxAttributes = data.maxAttr or 0
   local _itemAttributes = data.attr
   local _requiredLevel = data.reqLvl or 0
@@ -188,6 +190,7 @@ function newTooltip(data)
     uLvl = _upgradeLevel,
     uniqueName = _uniqueName,
     rarity = _itemRarity,
+    tier = _itemTier,
     maxAttributes = _itemMaxAttributes,
     attributes = _itemAttributes,
     stackable = _isStackable,
@@ -314,6 +317,7 @@ function buildItemTooltip(item)
   local second = item.second
   local third = item.third
   local weight = item.weight
+  local tier = item.tier or 0
 
   itemWeightLabel:setText(formatWeight(weight))
 
@@ -340,6 +344,10 @@ function buildItemTooltip(item)
 )
   if item.uLvl > 0 then
     name = name .. " +" .. item.uLvl
+  end
+
+  if tier > 0 then
+    addString("Tier " .. tier, Colors.Tier)
   end
 
   if unidentified then

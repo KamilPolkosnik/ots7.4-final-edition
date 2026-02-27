@@ -1,0 +1,106 @@
+Armory tiers from Tibiopedia (https://tibiopedia.pl/items/armory)
+Generated: 2026-02-27 10:39:25
+Tier source: Klas. column (only numeric values 1-4)
+Rows parsed from table: 574
+Unique names with tier in source: 376
+Matched to local items.xml armory names: 98
+Not matched by name: 278
+
+- name="leather helmet" tier=1
+- name="mystic turban" tier=1
+- name="magician hat" tier=3
+- name="ferumbras' hat" tier=4
+- name="chain helmet" tier=1
+- name="tribal mask" tier=1
+- name="studded helmet" tier=1
+- name="feather headdress" tier=1
+- name="brass helmet" tier=1
+- name="viking helmet" tier=1
+- name="legion helmet" tier=2
+- name="soldier helmet" tier=1
+- name="iron helmet" tier=1
+- name="glacier mask" tier=2
+- name="lightning headband" tier=2
+- name="magma monocle" tier=2
+- name="terra hood" tier=2
+- name="yalahari mask" tier=2
+- name="dark helmet" tier=1
+- name="steel helmet" tier=1
+- name="strange helmet" tier=1
+- name="horseman helmet" tier=1
+- name="dwarven helmet" tier=3
+- name="devil helmet" tier=2
+- name="crown helmet" tier=2
+- name="amazon helmet" tier=4
+- name="warrior helmet" tier=2
+- name="crusader helmet" tier=2
+- name="zaoan helmet" tier=2
+- name="royal helmet" tier=2
+- name="dragon scale helmet" tier=3
+- name="ceremonial mask" tier=4
+- name="demon helmet" tier=2
+- name="winged helmet" tier=4
+- name="horned helmet" tier=4
+- name="golden helmet" tier=4
+- name="cape" tier=1
+- name="coat" tier=1
+- name="red robe" tier=1
+- name="jacket" tier=1
+- name="green tunic" tier=1
+- name="doublet" tier=1
+- name="leather armor" tier=1
+- name="studded armor" tier=1
+- name="chain armor" tier=1
+- name="native armor" tier=4
+- name="brass armor" tier=1
+- name="scale armor" tier=1
+- name="leopard armor" tier=2
+- name="dark armor" tier=1
+- name="plate armor" tier=1
+- name="dwarven armor" tier=3
+- name="noble armor" tier=1
+- name="glacier robe" tier=2
+- name="lightning robe" tier=2
+- name="magma coat" tier=2
+- name="terra mantle" tier=2
+- name="blue robe" tier=2
+- name="paladin armor" tier=2
+- name="knight armor" tier=2
+- name="zaoan armor" tier=2
+- name="crown armor" tier=2
+- name="amazon armor" tier=4
+- name="skullcracker armor" tier=2
+- name="golden armor" tier=2
+- name="dragon scale mail" tier=2
+- name="yalahari armor" tier=2
+- name="demon armor" tier=2
+- name="magic plate armor" tier=2
+- name="leather legs" tier=1
+- name="studded legs" tier=1
+- name="chain legs" tier=1
+- name="brass legs" tier=1
+- name="plate legs" tier=1
+- name="dwarven legs" tier=3
+- name="knight legs" tier=1
+- name="zaoan legs" tier=2
+- name="crown legs" tier=2
+- name="yalahari leg piece" tier=2
+- name="glacier kilt" tier=2
+- name="lightning legs" tier=2
+- name="magma legs" tier=2
+- name="terra legs" tier=2
+- name="blue legs" tier=2
+- name="golden legs" tier=2
+- name="demon legs" tier=4
+- name="dragon scale legs" tier=4
+- name="boots of haste" tier=2
+- name="leather boots" tier=1
+- name="crocodile boots" tier=2
+- name="zaoan shoes" tier=2
+- name="glacier shoes" tier=2
+- name="lightning boots" tier=2
+- name="magma boots" tier=2
+- name="terra boots" tier=2
+- name="oriental shoes" tier=2
+- name="steel boots" tier=2
+- name="golden boots" tier=4

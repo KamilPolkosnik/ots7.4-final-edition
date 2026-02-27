@@ -5,6 +5,308 @@ US_CONDITIONS = {}
 US_BUFFS = {}
 
 local US_SUBID = {}
+local US_ITEM_TIER_BY_ID = {}
+local US_FIXED_LEECH_PROC_CHANCE = 25
+
+local function us_CountTable(data)
+    local count = 0
+    for _ in pairs(data) do
+        count = count + 1
+    end
+    return count
+end
+
+local function us_ParseItemTierFromLine(line)
+    local key = line:match('key%s*=%s*"([^"]+)"')
+    if not key then
+        return nil
+    end
+
+    key = key:lower()
+    if key ~= "tier" and key ~= "itemtier" then
+        return nil
+    end
+
+    local value = line:match('value%s*=%s*"([^"]+)"')
+    if not value then
+        return nil
+    end
+
+    local tier = tonumber(value)
+    if not tier then
+        return nil
+    end
+
+    tier = math.floor(tier)
+    if tier < 1 or tier > 4 then
+        return nil
+    end
+
+    return tier
+end
+
+local function us_LoadItemTiersFromItemsXml()
+    if not US_CONFIG.USE_ITEM_XML_TIERS then
+        US_ITEM_TIER_BY_ID = {}
+        return
+    end
+
+    local path = "data/items/items.xml"
+    local file = io.open(path, "r")
+    if not file then
+        print("[UpgradeSystem] Unable to load item tiers from " .. path)
+        US_ITEM_TIER_BY_ID = {}
+        return
+    end
+
+    local tierMap = {}
+    local currentItemId = nil
+    local currentTier = nil
+
+    for line in file:lines() do
+        local itemId = line:match('<item%s+id%s*=%s*"(%d+)"')
+        if itemId then
+            currentItemId = tonumber(itemId)
+            currentTier = nil
+        end
+
+        if currentItemId then
+            local parsedTier = us_ParseItemTierFromLine(line)
+            if parsedTier then
+                currentTier = parsedTier
+            end
+
+            if line:find("</item>", 1, true) then
+                if currentTier then
+                    tierMap[currentItemId] = currentTier
+                end
+                currentItemId = nil
+                currentTier = nil
+            end
+        end
+    end
+
+    file:close()
+    US_ITEM_TIER_BY_ID = tierMap
+    print(string.format("[UpgradeSystem] Loaded %d item tiers from %s", us_CountTable(tierMap), path))
+end
+
+local function us_GetTieredRollLevel(item)
+    if not US_CONFIG.USE_ITEM_XML_TIERS then
+        return nil
+    end
+
+    local tier = US_ITEM_TIER_BY_ID[item:getId()]
+    if not tier then
+        return nil
+    end
+
+    local range = US_CONFIG.ITEM_LEVEL_TIERS and US_CONFIG.ITEM_LEVEL_TIERS[tier]
+    if not range then
+        return nil
+    end
+
+    local minLevel = tonumber(range.min) or 1
+    local maxLevel = tonumber(range.max) or minLevel
+
+    minLevel = math.max(1, math.floor(minLevel))
+    maxLevel = math.max(minLevel, math.floor(maxLevel))
+
+    return math.random(minLevel, maxLevel)
+end
+
+local function us_GetItemTier(item)
+    if not item then
+        return nil
+    end
+    return US_ITEM_TIER_BY_ID[item:getId()]
+end
+
+local function us_GetTierStatBaseLevel(item)
+    if not US_CONFIG.ITEM_LEVEL_STAT_TIER_BASE then
+        return 0
+    end
+
+    local tier = us_GetItemTier(item)
+    if not tier then
+        return 0
+    end
+
+    local range = US_CONFIG.ITEM_LEVEL_TIERS and US_CONFIG.ITEM_LEVEL_TIERS[tier]
+    if not range then
+        return 0
+    end
+
+    local baseLevel = tonumber(range.max) or tonumber(range.min) or 0
+    return math.max(0, math.floor(baseLevel))
+end
+
+local function us_GetEffectiveItemLevelForStats(item, itemLevel)
+    local level = tonumber(itemLevel) or 0
+    level = math.max(0, math.floor(level))
+    local baseLevel = us_GetTierStatBaseLevel(item)
+
+    if level <= baseLevel then
+        return 0
+    end
+
+    return level - baseLevel
+end
+
+local function us_GetItemLevelGainFromUpgrade(item, levelsDelta)
+    local delta = tonumber(levelsDelta) or 0
+    if delta <= 0 then
+        return 0
+    end
+
+    local rarity = COMMON
+    if item and item.getRarityId then
+        rarity = item:getRarityId()
+    end
+
+    local gainByRarity = US_CONFIG.UPGRADE_ITEM_LEVEL_BY_RARITY or {}
+    local gainPerUpgrade = tonumber(gainByRarity[rarity]) or tonumber(US_CONFIG.ITEM_LEVEL_PER_UPGRADE) or 1
+    gainPerUpgrade = math.max(0, math.floor(gainPerUpgrade))
+
+    return delta * gainPerUpgrade
+end
+
+local function us_ToItem(value)
+    if not value then
+        return nil
+    end
+
+    local valueType = type(value)
+    if valueType == "number" then
+        return Item(value)
+    end
+
+    if valueType == "userdata" and value.isItem and value:isItem() then
+        return value
+    end
+
+    return nil
+end
+
+function Item.ensureInitialTierLevel(self, force)
+    if not self or not self:isItem() then
+        return false
+    end
+
+    local itemType = self:getType()
+    if not itemType or not itemType:canHaveItemLevel() then
+        return false
+    end
+
+    if not force and self:getItemLevel() > 0 then
+        return false
+    end
+
+    local tieredLevel = us_GetTieredRollLevel(self)
+    if not tieredLevel then
+        return false
+    end
+
+    self:setItemLevel(math.min(US_CONFIG.MAX_ITEM_LEVEL, tieredLevel), false)
+    return true
+end
+
+local function us_ApplyInitialTierLevel(value, force)
+    local item = us_ToItem(value)
+    if item then
+        item:ensureInitialTierLevel(force)
+    end
+end
+
+local function us_ApplyInitialTierLevelToResult(result)
+    if not result then
+        return
+    end
+
+    if type(result) == "table" then
+        for _, entry in ipairs(result) do
+            us_ApplyInitialTierLevel(entry, false)
+        end
+        return
+    end
+
+    us_ApplyInitialTierLevel(result, false)
+end
+
+local function us_InstallItemLevelWrappers()
+    if rawget(_G, "US_ITEMLEVEL_WRAPPERS_INSTALLED") then
+        return
+    end
+    _G.US_ITEMLEVEL_WRAPPERS_INSTALLED = true
+
+    if type(Player) == "table" and type(Player.addItem) == "function" then
+        local oldPlayerAddItem = Player.addItem
+        Player.addItem = function(self, ...)
+            local result = oldPlayerAddItem(self, ...)
+            us_ApplyInitialTierLevelToResult(result)
+            return result
+        end
+    end
+
+    if type(Player) == "table" and type(Player.addItemEx) == "function" then
+        local oldPlayerAddItemEx = Player.addItemEx
+        Player.addItemEx = function(self, item, ...)
+            us_ApplyInitialTierLevel(item, false)
+            return oldPlayerAddItemEx(self, item, ...)
+        end
+    end
+
+    if type(Container) == "table" and type(Container.addItem) == "function" then
+        local oldContainerAddItem = Container.addItem
+        Container.addItem = function(self, ...)
+            local result = oldContainerAddItem(self, ...)
+            us_ApplyInitialTierLevelToResult(result)
+            return result
+        end
+    end
+
+    if type(Container) == "table" and type(Container.addItemEx) == "function" then
+        local oldContainerAddItemEx = Container.addItemEx
+        Container.addItemEx = function(self, item, ...)
+            us_ApplyInitialTierLevel(item, false)
+            return oldContainerAddItemEx(self, item, ...)
+        end
+    end
+
+    if type(Game) == "table" and type(Game.createItem) == "function" then
+        local oldGameCreateItem = Game.createItem
+        Game.createItem = function(...)
+            local result = oldGameCreateItem(...)
+            us_ApplyInitialTierLevelToResult(result)
+            return result
+        end
+    end
+
+    if type(doPlayerAddItem) == "function" then
+        local oldDoPlayerAddItem = doPlayerAddItem
+        doPlayerAddItem = function(...)
+            local result = oldDoPlayerAddItem(...)
+            us_ApplyInitialTierLevelToResult(result)
+            return result
+        end
+    end
+
+    if type(doAddContainerItem) == "function" then
+        local oldDoAddContainerItem = doAddContainerItem
+        doAddContainerItem = function(...)
+            local result = oldDoAddContainerItem(...)
+            us_ApplyInitialTierLevelToResult(result)
+            return result
+        end
+    end
+end
+
+if US_CONFIG then
+    us_LoadItemTiersFromItemsXml()
+    us_InstallItemLevelWrappers()
+else
+    print("[UpgradeSystem] US_CONFIG missing while loading item tiers; skipping items.xml tier map.")
+end
 
 local TargetCombatEvent = EventCallback
 TargetCombatEvent.onTargetCombat = function(creature, target)
@@ -293,14 +595,6 @@ function ManaChangeEvent.onManaChange(creature, attacker, primaryDamage, primary
         end
     end
 
-    if primaryType == COMBAT_LIFEDRAIN or secondaryType == COMBAT_LIFEDRAIN then
-        return primaryDamage, primaryType, secondaryDamage, secondaryType
-    end
-
-    if primaryType == COMBAT_MANADRAIN or secondaryType == COMBAT_MANADRAIN then
-        return primaryDamage, primaryType, secondaryDamage, secondaryType
-    end
-
     if creature == attacker and primaryType ~= COMBAT_HEALING then
         return primaryDamage, primaryType, secondaryDamage, secondaryType
     end
@@ -321,10 +615,6 @@ function HealthChangeEvent.onHealthChange(creature, attacker, primaryDamage, pri
         if creature:getParty() == attacker:getParty() then
             return primaryDamage, primaryType, secondaryDamage, secondaryType
         end
-    end
-
-    if primaryType == COMBAT_LIFEDRAIN or secondaryType == COMBAT_LIFEDRAIN then
-        return primaryDamage, primaryType, secondaryDamage, secondaryType
     end
 
     if creature == attacker and primaryType ~= COMBAT_HEALING then
@@ -502,16 +792,20 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         end
 
         if lifeStealTotal > 0 then
-            local lifeSteal = math.floor((damage * (lifeStealTotal / 100)))
-            if lifeSteal > 0 then
-                attacker:addHealth(lifeSteal)
+            if math.random(100) <= US_FIXED_LEECH_PROC_CHANCE then
+                local lifeSteal = math.floor((damage * (lifeStealTotal / 100)))
+                if lifeSteal > 0 then
+                    attacker:addHealth(lifeSteal)
+                end
             end
         end
 
         if manaStealTotal > 0 then
-            local manaSteal = math.floor((damage * (manaStealTotal / 100)))
-            if manaSteal > 0 then
-                attacker:addMana(manaSteal)
+            if math.random(100) <= US_FIXED_LEECH_PROC_CHANCE then
+                local manaSteal = math.floor((damage * (manaStealTotal / 100)))
+                if manaSteal > 0 then
+                    attacker:addMana(manaSteal)
+                end
             end
         end
     end
@@ -519,6 +813,8 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
     if creature:isPlayer() then
         local primaryDamageTotal = 0
         local secondaryDamageTotal = 0
+        local dodgeTotal = 0
+        local reflectTotal = 0
         for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
             local item = creature:getSlotItem(slot)
             if item then
@@ -534,7 +830,11 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                                             attr.execute(creature, attacker, value[2])
                                         end
                                     else
-                                        if attr.combatDamage then
+                                        if attr.special == "DODGE" then
+                                            dodgeTotal = dodgeTotal + value[2]
+                                        elseif attr.special == "REFLECT" then
+                                            reflectTotal = reflectTotal + value[2]
+                                        elseif attr.combatDamage then
                                             if (attr.combatDamage % (primaryType + primaryType) >= primaryType) == true then
                                                 if attr.combatType == US_TYPES.DEFENSIVE and creature:isPlayer() then
                                                     primaryDamageTotal = primaryDamageTotal + value[2]
@@ -554,11 +854,38 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                 end
             end
         end
+
+        local incomingBeforeReduction = math.abs(primaryDamage) + math.abs(secondaryDamage)
+
+        if dodgeTotal > 0 and incomingBeforeReduction > 0 and primaryType ~= COMBAT_HEALING then
+            local dodgeChance = math.max(0, math.min(100, dodgeTotal))
+            if math.random(100) <= dodgeChance then
+                primaryDamage = 0
+                secondaryDamage = 0
+                creature:getPosition():sendMagicEffect(CONST_ME_POFF)
+                creature:say("DODGE!", TALKTYPE_MONSTER_SAY)
+                return primaryDamage, primaryType, secondaryDamage, secondaryType
+            end
+        end
+
         if primaryDamageTotal > 0 then
             primaryDamage = math.floor(primaryDamage - (primaryDamage * primaryDamageTotal / 100))
         end
         if secondaryDamageTotal > 0 then
             secondaryDamage = math.floor(secondaryDamage - (secondaryDamage * secondaryDamageTotal / 100))
+        end
+
+        local incomingAfterReduction = math.abs(primaryDamage) + math.abs(secondaryDamage)
+
+        if reflectTotal > 0 and incomingAfterReduction > 0 and attacker and attacker:isCreature() and attacker ~= creature and primaryType ~= COMBAT_HEALING then
+            local reflectPercent = math.max(0, math.min(100, reflectTotal))
+            local reflectDamage = math.floor(incomingAfterReduction * (reflectPercent / 100))
+            if reflectDamage > 0 then
+                doTargetCombatHealth(creature:getId(), attacker, COMBAT_PHYSICALDAMAGE, -reflectDamage, -reflectDamage, CONST_ME_HITAREA, ORIGIN_MELEE)
+                if creature:isPlayer() then
+                    creature:sendTextMessage(MESSAGE_STATUS_SMALL, "Reflect dealt " .. reflectDamage .. " damage.")
+                end
+            end
         end
     end
     return primaryDamage, primaryType, secondaryDamage, secondaryType
@@ -794,7 +1121,9 @@ function us_CheckCorpse(monsterType, corpsePosition, killerId)
                 local itemType = item:getType()
                 if itemType then
                     if itemType:canHaveItemLevel() then
-                        item:setItemLevel(math.min(US_CONFIG.MAX_ITEM_LEVEL, math.random(math.max(1, iLvl - 5), iLvl)), true)
+                        if not item:ensureInitialTierLevel(true) then
+                            item:setItemLevel(math.min(US_CONFIG.MAX_ITEM_LEVEL, math.random(math.max(1, iLvl - 5), iLvl)), true)
+                        end
                     end
                     if itemType:isUpgradable() then
                         if math.random(US_CONFIG.UNIDENTIFIED_DROP_CHANCE) == 1 then
@@ -925,6 +1254,31 @@ LookEvent.onLook = function(player, thing, position, distance, description)
 end
 LookEvent:register(10)
 
+local function us_GetAttributeRequiredLevel(attr)
+    local requiredLevel = tonumber(attr.minLevel) or 0
+    local baseLevel = tonumber(attr.BASE_ITEM_LEVEL or attr.baseItemLevel) or tonumber(US_CONFIG.BONUS_BASE_ITEM_LEVEL_DEFAULT) or 0
+    if baseLevel > requiredLevel then
+        requiredLevel = baseLevel
+    end
+    return math.max(0, math.floor(requiredLevel))
+end
+
+local function us_GetAttributeValue(itemLevel, attr)
+    local tick = tonumber(attr.VALUE_TICK_EVERY or attr.valueTickEvery) or tonumber(US_CONFIG.BONUS_VALUE_TICK_EVERY_DEFAULT) or 0
+    if tick > 0 then
+        local baseLevel = us_GetAttributeRequiredLevel(attr)
+        local level = math.max(0, math.floor(tonumber(itemLevel) or 0))
+        local effectiveLevel = math.max(0, level - baseLevel)
+        return 1 + math.floor(effectiveLevel / math.floor(tick))
+    end
+
+    if attr.VALUES_PER_LEVEL then
+        return math.random(1, math.ceil(itemLevel * attr.VALUES_PER_LEVEL))
+    end
+
+    return 1
+end
+
 function Item.rollAttribute(self, player, itemType, weaponType, unidentify)
     if not itemType:isUpgradable() or self:isUnique() then
         return false
@@ -959,13 +1313,13 @@ function Item.rollAttribute(self, player, itemType, weaponType, unidentify)
         for i = 1, slots do
             local attrId = math.random(1, #US_ENCHANTMENTS)
             local attr = US_ENCHANTMENTS[attrId]
-            while isInArray(attrIds, attrId) or attr.minLevel and item_level < attr.minLevel or bit.band(usItemType, attr.itemType) == 0 or
+            while isInArray(attrIds, attrId) or item_level < us_GetAttributeRequiredLevel(attr) or bit.band(usItemType, attr.itemType) == 0 or
                 attr.chance and math.random(100) >= attr.chance do
                 attrId = math.random(1, #US_ENCHANTMENTS)
                 attr = US_ENCHANTMENTS[attrId]
             end
             table.insert(attrIds, attrId)
-            local value = attr.VALUES_PER_LEVEL and math.random(1, math.ceil(item_level * attr.VALUES_PER_LEVEL)) or 1
+            local value = us_GetAttributeValue(item_level, attr)
             print("Rolled attribute: " .. attrId .. " (" .. attr.name .. "), Value: " .. value)
             self:setCustomAttribute("Slot" .. i, attrId .. "|" .. value)
         end
@@ -990,12 +1344,12 @@ function Item.rollAttribute(self, player, itemType, weaponType, unidentify)
         local usItemType = self:getItemType()
         local attrId = math.random(1, #US_ENCHANTMENTS)
         local attr = US_ENCHANTMENTS[attrId]
-        while isInArray(attrIds, attrId) or attr.minLevel and item_level < attr.minLevel or bit.band(usItemType, attr.itemType) == 0 or
+        while isInArray(attrIds, attrId) or item_level < us_GetAttributeRequiredLevel(attr) or bit.band(usItemType, attr.itemType) == 0 or
             attr.chance and math.random(100) >= attr.chance do
             attrId = math.random(1, #US_ENCHANTMENTS)
             attr = US_ENCHANTMENTS[attrId]
         end
-        local value = attr.VALUES_PER_LEVEL and math.random(1, math.ceil(item_level * attr.VALUES_PER_LEVEL)) or 1
+        local value = us_GetAttributeValue(item_level, attr)
         print("Rolled attribute: " .. attrId .. " (" .. attr.name .. "), Value: " .. value)
         self:setCustomAttribute("Slot" .. self:getLastSlot() + 1, attrId .. "|" .. value)
         return true
@@ -1056,92 +1410,58 @@ end
 
 function Item.setItemLevel(self, level, first)
     local oldLevel = self:getItemLevel()
+    level = math.max(0, math.floor(tonumber(level) or 0))
     local itemType = ItemType(self.itemid)
-    local finalValue = 0
-    local value = 0
-    if oldLevel < level then
-        value = (level - oldLevel)
-    else
-        value = (oldLevel - level)
+    local oldEffectiveLevel = us_GetEffectiveItemLevelForStats(self, oldLevel)
+    local newEffectiveLevel = us_GetEffectiveItemLevelForStats(self, level)
+
+    local function getBonus(effectiveLevel, levelsPerBonus, bonusPerStep)
+        local per = tonumber(levelsPerBonus) or 0
+        local bonus = tonumber(bonusPerStep) or 0
+        if per <= 0 or bonus == 0 then
+            return 0
+        end
+        return math.floor(effectiveLevel / per) * bonus
     end
+
+    local function addDeltaAttribute(attributeKey, baseValue, oldBonus, newBonus)
+        local delta = newBonus - oldBonus
+        if delta == 0 then
+            return
+        end
+
+        local current = self:getAttribute(attributeKey)
+        if not current or current <= 0 then
+            current = baseValue
+        end
+
+        self:setAttribute(attributeKey, current + delta)
+    end
+
     if itemType:getAttack() > 0 then
-        if value >= US_CONFIG.ATTACK_PER_ITEM_LEVEL then
-            finalValue = math.floor((value / US_CONFIG.ATTACK_PER_ITEM_LEVEL) * US_CONFIG.ATTACK_FROM_ITEM_LEVEL)
-        else
-            finalValue = 0
-        end
-        if oldLevel < level then
-            self:setAttribute(
-                ITEM_ATTRIBUTE_ATTACK,
-                (self:getAttribute(ITEM_ATTRIBUTE_ATTACK) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_ATTACK) + finalValue) or
-                    (itemType:getAttack() + finalValue)
-            )
-        else
-            self:setAttribute(
-                ITEM_ATTRIBUTE_ATTACK,
-                (self:getAttribute(ITEM_ATTRIBUTE_ATTACK) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_ATTACK) - finalValue) or
-                    (itemType:getAttack() - finalValue)
-            )
-        end
+        local oldAttackBonus = getBonus(oldEffectiveLevel, US_CONFIG.ATTACK_PER_ITEM_LEVEL, US_CONFIG.ATTACK_FROM_ITEM_LEVEL)
+        local newAttackBonus = getBonus(newEffectiveLevel, US_CONFIG.ATTACK_PER_ITEM_LEVEL, US_CONFIG.ATTACK_FROM_ITEM_LEVEL)
+        addDeltaAttribute(ITEM_ATTRIBUTE_ATTACK, itemType:getAttack(), oldAttackBonus, newAttackBonus)
     end
+
     if itemType:getDefense() > 0 then
-        if value >= US_CONFIG.DEFENSE_PER_ITEM_LEVEL then
-            finalValue = math.floor((value / US_CONFIG.DEFENSE_PER_ITEM_LEVEL) * US_CONFIG.DEFENSE_FROM_ITEM_LEVEL)
-        else
-            finalValue = 0
-        end
-        if oldLevel < level then
-            self:setAttribute(
-                ITEM_ATTRIBUTE_DEFENSE,
-                (self:getAttribute(ITEM_ATTRIBUTE_DEFENSE) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_DEFENSE) + finalValue) or
-                    (itemType:getDefense() + finalValue)
-            )
-        else
-            self:setAttribute(
-                ITEM_ATTRIBUTE_DEFENSE,
-                (self:getAttribute(ITEM_ATTRIBUTE_DEFENSE) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_DEFENSE) - finalValue) or
-                    (itemType:getDefense() - finalValue)
-            )
-        end
+        local oldDefenseBonus = getBonus(oldEffectiveLevel, US_CONFIG.DEFENSE_PER_ITEM_LEVEL, US_CONFIG.DEFENSE_FROM_ITEM_LEVEL)
+        local newDefenseBonus = getBonus(newEffectiveLevel, US_CONFIG.DEFENSE_PER_ITEM_LEVEL, US_CONFIG.DEFENSE_FROM_ITEM_LEVEL)
+        addDeltaAttribute(ITEM_ATTRIBUTE_DEFENSE, itemType:getDefense(), oldDefenseBonus, newDefenseBonus)
     end
+
     if itemType:getArmor() > 0 then
-        if value >= US_CONFIG.ARMOR_PER_ITEM_LEVEL then
-            finalValue = math.floor((value / US_CONFIG.ARMOR_PER_ITEM_LEVEL) * US_CONFIG.ARMOR_FROM_ITEM_LEVEL)
-        else
-            finalValue = 0
-        end
-        if oldLevel < level then
-            self:setAttribute(
-                ITEM_ATTRIBUTE_ARMOR,
-                (self:getAttribute(ITEM_ATTRIBUTE_ARMOR) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_ARMOR) + finalValue) or (itemType:getArmor() + finalValue)
-            )
-        else
-            self:setAttribute(
-                ITEM_ATTRIBUTE_ARMOR,
-                (self:getAttribute(ITEM_ATTRIBUTE_ARMOR) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_ARMOR) - finalValue) or (itemType:getArmor() - finalValue)
-            )
-        end
+        local oldArmorBonus = getBonus(oldEffectiveLevel, US_CONFIG.ARMOR_PER_ITEM_LEVEL, US_CONFIG.ARMOR_FROM_ITEM_LEVEL)
+        local newArmorBonus = getBonus(newEffectiveLevel, US_CONFIG.ARMOR_PER_ITEM_LEVEL, US_CONFIG.ARMOR_FROM_ITEM_LEVEL)
+        addDeltaAttribute(ITEM_ATTRIBUTE_ARMOR, itemType:getArmor(), oldArmorBonus, newArmorBonus)
     end
+
     if itemType:getHitChance() > 0 then
-        if value >= US_CONFIG.HITCHANCE_PER_ITEM_LEVEL then
-            finalValue = math.floor((value / US_CONFIG.HITCHANCE_PER_ITEM_LEVEL) * US_CONFIG.HITCHANCE_FROM_ITEM_LEVEL)
-        else
-            finalValue = 0
-        end
-        if oldLevel < level then
-            self:setAttribute(
-                ITEM_ATTRIBUTE_HITCHANCE,
-                (self:getAttribute(ITEM_ATTRIBUTE_HITCHANCE) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_HITCHANCE) + finalValue) or
-                    (itemType:getHitChance() + finalValue)
-            )
-        else
-            self:setAttribute(
-                ITEM_ATTRIBUTE_HITCHANCE,
-                (self:getAttribute(ITEM_ATTRIBUTE_HITCHANCE) > 0) and (self:getAttribute(ITEM_ATTRIBUTE_HITCHANCE) - finalValue) or
-                    (itemType:getHitChance() - finalValue)
-            )
-        end
+        local oldHitBonus = getBonus(oldEffectiveLevel, US_CONFIG.HITCHANCE_PER_ITEM_LEVEL, US_CONFIG.HITCHANCE_FROM_ITEM_LEVEL)
+        local newHitBonus = getBonus(newEffectiveLevel, US_CONFIG.HITCHANCE_PER_ITEM_LEVEL, US_CONFIG.HITCHANCE_FROM_ITEM_LEVEL)
+        addDeltaAttribute(ITEM_ATTRIBUTE_HITCHANCE, itemType:getHitChance(), oldHitBonus, newHitBonus)
     end
+
     if first then
         if itemType:getAttack() > 0 then
             level = level + math.floor(itemType:getAttack() / US_CONFIG.ITEM_LEVEL_PER_ATTACK)
@@ -1166,47 +1486,57 @@ end
 function Item.setUpgradeLevel(self, level)
     local itemType = ItemType(self.itemid)
     local oldLevel = self:getUpgradeLevel()
+    local delta = oldLevel < level and (level - oldLevel) or (oldLevel - level)
+
+    local function currentOrBase(attrKey, baseValue)
+        local v = self:getAttribute(attrKey)
+        if not v or v <= 0 then
+            return baseValue
+        end
+        return v
+    end
+
     if itemType:getAttack() > 0 then
         if oldLevel < level then
-            self:setAttribute(ITEM_ATTRIBUTE_ATTACK, self:getAttribute(ITEM_ATTRIBUTE_ATTACK) + (level - oldLevel) * US_CONFIG.ATTACK_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_ATTACK, currentOrBase(ITEM_ATTRIBUTE_ATTACK, itemType:getAttack()) + delta * US_CONFIG.ATTACK_PER_UPGRADE)
         else
-            self:setAttribute(ITEM_ATTRIBUTE_ATTACK, self:getAttribute(ITEM_ATTRIBUTE_ATTACK) - (oldLevel - level) * US_CONFIG.ATTACK_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_ATTACK, currentOrBase(ITEM_ATTRIBUTE_ATTACK, itemType:getAttack()) - delta * US_CONFIG.ATTACK_PER_UPGRADE)
         end
     end
     if itemType:getDefense() > 0 then
         if oldLevel < level then
-            self:setAttribute(ITEM_ATTRIBUTE_DEFENSE, self:getAttribute(ITEM_ATTRIBUTE_DEFENSE) + (level - oldLevel) * US_CONFIG.DEFENSE_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_DEFENSE, currentOrBase(ITEM_ATTRIBUTE_DEFENSE, itemType:getDefense()) + delta * US_CONFIG.DEFENSE_PER_UPGRADE)
         else
-            self:setAttribute(ITEM_ATTRIBUTE_DEFENSE, self:getAttribute(ITEM_ATTRIBUTE_DEFENSE) - (oldLevel - level) * US_CONFIG.DEFENSE_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_DEFENSE, currentOrBase(ITEM_ATTRIBUTE_DEFENSE, itemType:getDefense()) - delta * US_CONFIG.DEFENSE_PER_UPGRADE)
         end
     end
     if itemType:getExtraDefense() > 0 then
         if oldLevel < level then
-            self:setAttribute(ITEM_ATTRIBUTE_EXTRADEFENSE, itemType:getExtraDefense() + (level - oldLevel) * US_CONFIG.EXTRADEFENSE_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_EXTRADEFENSE, currentOrBase(ITEM_ATTRIBUTE_EXTRADEFENSE, itemType:getExtraDefense()) + delta * US_CONFIG.EXTRADEFENSE_PER_UPGRADE)
         else
-            self:setAttribute(
-                ITEM_ATTRIBUTE_EXTRADEFENSE,
-                self:getAttribute(ITEM_ATTRIBUTE_EXTRADEFENSE) - (oldLevel - level) * US_CONFIG.EXTRADEFENSE_PER_UPGRADE
-            )
+            self:setAttribute(ITEM_ATTRIBUTE_EXTRADEFENSE, currentOrBase(ITEM_ATTRIBUTE_EXTRADEFENSE, itemType:getExtraDefense()) - delta * US_CONFIG.EXTRADEFENSE_PER_UPGRADE)
         end
     end
     if itemType:getArmor() > 0 then
         if oldLevel < level then
-            self:setAttribute(ITEM_ATTRIBUTE_ARMOR, self:getAttribute(ITEM_ATTRIBUTE_ARMOR) + (level - oldLevel) * US_CONFIG.ARMOR_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_ARMOR, currentOrBase(ITEM_ATTRIBUTE_ARMOR, itemType:getArmor()) + delta * US_CONFIG.ARMOR_PER_UPGRADE)
         else
-            self:setAttribute(ITEM_ATTRIBUTE_ARMOR, self:getAttribute(ITEM_ATTRIBUTE_ARMOR) - (oldLevel - level) * US_CONFIG.ARMOR_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_ARMOR, currentOrBase(ITEM_ATTRIBUTE_ARMOR, itemType:getArmor()) - delta * US_CONFIG.ARMOR_PER_UPGRADE)
         end
     end
     if itemType:getHitChance() > 0 then
         if oldLevel < level then
-            self:setAttribute(ITEM_ATTRIBUTE_HITCHANCE, self:getAttribute(ITEM_ATTRIBUTE_HITCHANCE) + (level - oldLevel) * US_CONFIG.HITCHANCE_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_HITCHANCE, currentOrBase(ITEM_ATTRIBUTE_HITCHANCE, itemType:getHitChance()) + delta * US_CONFIG.HITCHANCE_PER_UPGRADE)
         else
-            self:setAttribute(ITEM_ATTRIBUTE_HITCHANCE, self:getAttribute(ITEM_ATTRIBUTE_HITCHANCE) - (oldLevel - level) * US_CONFIG.HITCHANCE_PER_UPGRADE)
+            self:setAttribute(ITEM_ATTRIBUTE_HITCHANCE, currentOrBase(ITEM_ATTRIBUTE_HITCHANCE, itemType:getHitChance()) - delta * US_CONFIG.HITCHANCE_PER_UPGRADE)
         end
     end
     self:setCustomAttribute("upgrade", level)
     if oldLevel < level then
-        self:setItemLevel(self:getItemLevel() + (US_CONFIG.ITEM_LEVEL_PER_UPGRADE * (level - oldLevel)))
+        local addedLevel = us_GetItemLevelGainFromUpgrade(self, (level - oldLevel))
+        if addedLevel > 0 then
+            self:setItemLevel(self:getItemLevel() + addedLevel)
+        end
     end
 end
 
@@ -1215,8 +1545,16 @@ function Item.getUpgradeLevel(self)
 end
 
 function Item.reduceUpgradeLevel(self)
-    self:setUpgradeLevel(self:getUpgradeLevel() - 1)
-    self:setItemLevel(self:getItemLevel() - US_CONFIG.ITEM_LEVEL_PER_UPGRADE)
+    local oldUpgradeLevel = self:getUpgradeLevel()
+    if oldUpgradeLevel <= 0 then
+        return
+    end
+
+    local removedLevel = us_GetItemLevelGainFromUpgrade(self, 1)
+    self:setUpgradeLevel(oldUpgradeLevel - 1)
+    if removedLevel > 0 then
+        self:setItemLevel(math.max(0, self:getItemLevel() - removedLevel))
+    end
 end
 
 function Item.unidentify(self)
@@ -1260,7 +1598,7 @@ function Item.setUnique(self, uniqueId)
         for i = 1, #unique.attributes do
             local attrId = unique.attributes[i]
             local attr = US_ENCHANTMENTS[attrId]
-            local value = attr.VALUES_PER_LEVEL and math.random(1, math.ceil(self:getItemLevel() * attr.VALUES_PER_LEVEL)) or 1
+            local value = us_GetAttributeValue(self:getItemLevel(), attr)
             self:setCustomAttribute("Slot" .. self:getLastSlot() + 1, attrId .. "|" .. value)
         end
     end
@@ -1339,11 +1677,42 @@ function Item.getItemType(self)
         if slot == SLOTP_RING then
             return US_ITEM_TYPES.RING
         end
+        if slot == SLOTP_QUIVER then
+            return US_ITEM_TYPES.WEAPON_DISTANCE
+        end
     end
     return US_ITEM_TYPES.ALL
 end
 
 function Item.setRarity(self, rarity)
+    rarity = rarity or COMMON
+
+    local itemType = self:getType()
+    if itemType and itemType:canHaveItemLevel() then
+        if self:getItemLevel() <= 0 then
+            self:ensureInitialTierLevel(false)
+        end
+
+        local currentLevel = self:getItemLevel()
+        local previousBonus = self:getCustomAttribute("rarity_level_bonus") or 0
+        local baseLevel = currentLevel - previousBonus
+        if baseLevel < 0 then
+            baseLevel = 0
+        end
+
+        local rarityMultipliers = US_CONFIG.RARITY_ITEM_LEVEL_MULTIPLIER or {}
+        local multiplier = rarityMultipliers[rarity] or 1.0
+        local boostedLevel = math.floor(baseLevel * multiplier + 0.5)
+        if boostedLevel < 0 then
+            boostedLevel = 0
+        end
+
+        if boostedLevel ~= currentLevel then
+            self:setItemLevel(boostedLevel, false)
+        end
+        self:setCustomAttribute("rarity_level_bonus", boostedLevel - baseLevel)
+    end
+
     self:setCustomAttribute("rarity", rarity)
 	self:updateRarityFrame()
 end
@@ -1421,11 +1790,35 @@ function Item.rollRarity(self, source)
     end
 
     -- Populate the selected number of slots with random attributes
+    local usItemType = self:getItemType()
+    local itemLevel = self:getItemLevel()
+    local attrIds = {}
+    for _, bonus in pairs(currentAttributes) do
+        if bonus and bonus[1] then
+            table.insert(attrIds, bonus[1])
+        end
+    end
+
     for i = 1, numSlotsToPopulate do
         local attrId = math.random(1, #US_ENCHANTMENTS)
         local attr = US_ENCHANTMENTS[attrId]
-        local value = attr.VALUES_PER_LEVEL and math.random(1, math.ceil(self:getItemLevel() * attr.VALUES_PER_LEVEL)) or 1
-        self:setCustomAttribute("Slot" .. self:getLastSlot() + 1, attrId .. "|" .. value)
+        local guard = 0
+        while isInArray(attrIds, attrId) or itemLevel < us_GetAttributeRequiredLevel(attr) or bit.band(usItemType, attr.itemType) == 0 or
+            attr.chance and math.random(100) >= attr.chance do
+            attrId = math.random(1, #US_ENCHANTMENTS)
+            attr = US_ENCHANTMENTS[attrId]
+            guard = guard + 1
+            if guard > (#US_ENCHANTMENTS * 4) then
+                attrId = nil
+                break
+            end
+        end
+
+        if attrId then
+            table.insert(attrIds, attrId)
+            local value = us_GetAttributeValue(itemLevel, attr)
+            self:setCustomAttribute("Slot" .. self:getLastSlot() + 1, attrId .. "|" .. value)
+        end
     end
 end
 
@@ -1466,7 +1859,7 @@ function ItemType.isUpgradable(self)
             return true
         end
     else
-        if slot == SLOTP_HEAD or slot == SLOTP_ARMOR or slot == SLOTP_LEGS or slot == SLOTP_FEET or slot == SLOTP_NECKLACE or slot == SLOTP_RING then
+        if slot == SLOTP_HEAD or slot == SLOTP_ARMOR or slot == SLOTP_LEGS or slot == SLOTP_FEET or slot == SLOTP_NECKLACE or slot == SLOTP_RING or slot == SLOTP_QUIVER then
             return true
         end
     end
@@ -1491,7 +1884,7 @@ function ItemType.canHaveItemLevel(self)
             return true
         end
     else
-        if slot == SLOTP_HEAD or slot == SLOTP_ARMOR or slot == SLOTP_LEGS or slot == SLOTP_FEET or slot == SLOTP_NECKLACE or slot == SLOTP_RING then
+        if slot == SLOTP_HEAD or slot == SLOTP_ARMOR or slot == SLOTP_LEGS or slot == SLOTP_FEET or slot == SLOTP_NECKLACE or slot == SLOTP_RING or slot == SLOTP_QUIVER then
             return true
         end
     end

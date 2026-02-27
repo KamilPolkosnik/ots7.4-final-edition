@@ -1,0 +1,54 @@
+Local armory items found on Tibiopedia armory page BUT without numeric tier (Klas. != 1..4)
+Generated: 2026-02-27 10:47:03
+Items in this list: 50
+
+- name="amazon shield" id=2537 slotType=- weaponType=shield
+- name="ancient shield" id=2532 slotType=- weaponType=shield
+- name="ball gown" id=2659 slotType=body weaponType=-
+- name="bast skirt" id=3983 slotType=legs weaponType=-
+- name="battle shield" id=2513 slotType=- weaponType=shield
+- name="black shield" id=2529 slotType=- weaponType=shield
+- name="blessed shield" id=2523 slotType=- weaponType=shield
+- name="bone shield" id=2541 slotType=- weaponType=shield
+- name="brass shield" id=2511 slotType=- weaponType=shield
+- name="castle shield" id=2535 slotType=- weaponType=shield
+- name="copper shield" id=2530 slotType=- weaponType=shield
+- name="crown shield" id=2519 slotType=- weaponType=shield
+- name="dark shield" id=2521 slotType=- weaponType=shield
+- name="demon shield" id=2520 slotType=- weaponType=shield
+- name="dragon shield" id=2516 slotType=- weaponType=shield
+- name="dwarven shield" id=2525 slotType=- weaponType=shield
+- name="eagle shield" id=2538 slotType=- weaponType=shield
+- name="great shield" id=2522 slotType=- weaponType=shield
+- name="guardian shield" id=2515 slotType=- weaponType=shield
+- name="hat of the mad" id=2323 slotType=head weaponType=-
+- name="helmet of the ancients" id=2342 slotType=head weaponType=-
+- name="helmet of the ancients" id=2343 slotType=head weaponType=-
+- name="mastermind shield" id=2514 slotType=- weaponType=shield
+- name="medusa shield" id=2536 slotType=- weaponType=shield
+- name="ornamented shield" id=2524 slotType=- weaponType=shield
+- name="phoenix shield" id=2539 slotType=- weaponType=shield
+- name="plate shield" id=2510 slotType=- weaponType=shield
+- name="red tunic" id=2653 slotType=body weaponType=-
+- name="rose shield" id=2527 slotType=- weaponType=shield
+- name="salamander shield" id=3975 slotType=- weaponType=shield
+- name="scarab shield" id=2540 slotType=- weaponType=shield
+- name="sentinel shield" id=3974 slotType=- weaponType=shield
+- name="shield of honour" id=2517 slotType=- weaponType=shield
+- name="simple dress" id=2657 slotType=body weaponType=-
+- name="simple dress" id=4847 slotType=body weaponType=-
+- name="spellbook" id=2175 slotType=- weaponType=shield
+- name="spellbook of mind control" id=5920 slotType=- weaponType=shield
+- name="spellscroll of prophecies" id=5918 slotType=- weaponType=shield
+- name="steel shield" id=2509 slotType=- weaponType=shield
+- name="studded shield" id=2526 slotType=- weaponType=shield
+- name="tempest shield" id=2542 slotType=- weaponType=shield
+- name="tower shield" id=2528 slotType=- weaponType=shield
+- name="tusk shield" id=3973 slotType=- weaponType=shield
+- name="vampire shield" id=2534 slotType=- weaponType=shield
+- name="vampire shield" id=5732 slotType=- weaponType=shield
+- name="viking shield" id=2531 slotType=- weaponType=shield
+- name="white dress" id=2658 slotType=body weaponType=-
+- name="wooden shield" id=2512 slotType=- weaponType=shield
+- name="worn soft boots" id=2641 slotType=feet weaponType=-
+- name="worn soft boots" id=5729 slotType=feet weaponType=-

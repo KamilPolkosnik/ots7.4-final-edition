@@ -1,0 +1,96 @@
+Upgrade System - bonus scaling report
+Generated: 2026-02-26 18:13:26
+
+GLOBAL SCALING (obecnie)
+- Tier item level range (from items.xml tier):
+  T1: 1-25
+  T2: 25-50
+  T3: 50-75
+  T4: 75-100
+- Effective item level for base stats:
+  effective_ilvl = max(0, item_level - tier_max)
+  (tier_max = max value of tier range, e.g. T4=>100, T3=>75)
+- Base stat growth from item level:
+  Attack:    +1 per 15 effective ilvl
+  Defense:   +1 per 15 effective ilvl
+  Armor:     +1 per 15 effective ilvl
+  HitChance: +1 per 15 effective ilvl
+- Tier base for stat scaling enabled: true
+- Rarity -> item level multiplier:
+  COMMON: x1.0
+  RARE: x1.5
+  EPIC: x2.0
+  LEGENDARY: x3.0
+- Upgrade crystal -> item level gain per +1 upgrade:
+  COMMON: +1 ilvl
+  RARE: +2 ilvl
+  EPIC: +5 ilvl
+  LEGENDARY: +10 ilvl
+- Max attribute slots by rarity:
+  COMMON: 1 slots
+  RARE: 2 slots
+  EPIC: 3 slots
+  LEGENDARY: 4 slots
+- Rarity roll scale: 1000
+- Common no-bonus cutoff: 50
+- Attribute value roll formula:
+  value = random(1, ceil(item_level * VALUES_PER_LEVEL))
+  if VALUES_PER_LEVEL is missing -> value = 1
+
+ENCHANTMENT LIST (US_ENCHANTMENTS)
+Format: [id] name | VPL | roll | minLevel | chance | combatType | triggerType | buff
+[01] Max HP | VPL=1 | roll=1..ceil(item_level * 1) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[02] Max MP | VPL=1 | roll=1..ceil(item_level * 1) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[03] Magic Level | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[04] Melee Skills | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[05] Fist Fighting | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=30 | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[06] Sword Fighting | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[07] Axe Fighting | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[08] Club Fighting | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[09] Distance Fighting | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[10] Shielding | VPL=0.25 | roll=1..ceil(item_level * 0.25) | minLevel=- | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[11] Mana Shield | VPL=- | roll=stale: 1 | minLevel=50 | chance=- | combatType=US_TYPES.CONDITION | triggerType=- | buff=-
+[12] Life Steal | VPL=0.1 | roll=1..ceil(item_level * 0.1) | minLevel=- | chance=10 | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[13] Experience | VPL=0.35 | roll=1..ceil(item_level * 0.35) | minLevel=- | chance=30 | combatType=- | triggerType=- | buff=-
+[14] Physical Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=- | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[15] Energy Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=- | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[16] Earth Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=- | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[17] Fire Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=- | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[18] Ice Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=- | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[19] Holy Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=- | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[20] Death Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=- | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[21] Elemental Damage | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=50 | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[22] Physical Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[23] Energy Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[24] Earth Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[25] Fire Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[26] Ice Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[27] Holy Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[28] Death Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[29] Elemental Protection | VPL=2 | roll=1..ceil(item_level * 2) | minLevel=- | chance=10 | combatType=US_TYPES.DEFENSIVE | triggerType=- | buff=-
+[30] Flame Strike on Attack | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.ATTACK | buff=-
+[31] Flame Strike on Hit | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.HIT | buff=-
+[32] Ice Strike on Attack | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.ATTACK | buff=-
+[33] Ice Strike on Hit | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.HIT | buff=-
+[34] Terra Strike on Attack | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.ATTACK | buff=-
+[35] Terra Strike on Hit | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.HIT | buff=-
+[36] Death Strike on Attack | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.ATTACK | buff=-
+[37] Death Strike on Hit | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.HIT | buff=-
+[38] Divine Missile on Attack | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.ATTACK | buff=-
+[39] Divine Missile on Hit | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.HIT | buff=-
+[40] Energy Strike on Attack | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.ATTACK | buff=-
+[41] Energy Strike on Hit | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=- | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.HIT | buff=-
+[42] Explosion on Kill | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=50 | chance=- | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=-
+[43] Health on Kill | VPL=0.2 | roll=1..ceil(item_level * 0.2) | minLevel=- | chance=25 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=-
+[44] Mana on Kill | VPL=0.1 | roll=1..ceil(item_level * 0.1) | minLevel=- | chance=25 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=-
+[45] Mana Steal | VPL=0.1 | roll=1..ceil(item_level * 0.1) | minLevel=- | chance=10 | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[46] Full HP on Kill | VPL=0.05 | roll=1..ceil(item_level * 0.05) | minLevel=70 | chance=5 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=-
+[47] Full MP on Kill | VPL=0.05 | roll=1..ceil(item_level * 0.05) | minLevel=70 | chance=5 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=-
+[48] Mass Healing on Attack | VPL=0.2 | roll=1..ceil(item_level * 0.2) | minLevel=100 | chance=15 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.HIT | buff=-
+[49] Increased Healing | VPL=0.35 | roll=1..ceil(item_level * 0.35) | minLevel=25 | chance=20 | combatType=- | triggerType=- | buff=-
+[50] Additonal Gold | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=10 | chance=30 | combatType=- | triggerType=- | buff=-
+[51] Double Damage | VPL=0.1 | roll=1..ceil(item_level * 0.1) | minLevel=80 | chance=5 | combatType=US_TYPES.OFFENSIVE | triggerType=- | buff=-
+[52] Revive on death | VPL=0.05 | roll=1..ceil(item_level * 0.05) | minLevel=100 | chance=30 | combatType=- | triggerType=- | buff=-
+[53] Damage Buff | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=30 | chance=10 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=-
+[54] Max HP Buff | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=30 | chance=10 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=true
+[55] Max MP Buff | VPL=0.5 | roll=1..ceil(item_level * 0.5) | minLevel=30 | chance=10 | combatType=US_TYPES.TRIGGER | triggerType=US_TRIGGERS.KILL | buff=true

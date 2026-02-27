@@ -22,6 +22,7 @@
 #include "bed.h"
 #include "chat.h"
 #include "combat.h"
+#include "container.h"
 #include "configmanager.h"
 #include "creatureevent.h"
 #include "events.h"
@@ -192,6 +193,68 @@ Item* Player::getInventoryItem(slots_t slot) const
 	return inventory[slot];
 }
 
+Item* Player::getAmmunitionItem(Ammo_t ammoType) const
+{
+	if (ammoType == AMMO_NONE) {
+		return nullptr;
+	}
+
+	for (slots_t slot : {CONST_SLOT_LEFT, CONST_SLOT_RIGHT}) {
+		Item* equippedItem = inventory[slot];
+		if (!equippedItem || !(equippedItem->getSlotPosition() & SLOTP_QUIVER)) {
+			continue;
+		}
+
+		Container* quiver = equippedItem->getContainer();
+		if (!quiver) {
+			continue;
+		}
+
+		for (Item* quiverItem : quiver->getItemList()) {
+			if (quiverItem->getAmmoType() == ammoType) {
+				return quiverItem;
+			}
+		}
+	}
+
+	Item* ammoItem = inventory[CONST_SLOT_AMMO];
+	if (ammoItem && ammoItem->getAmmoType() == ammoType) {
+		return ammoItem;
+	}
+	return nullptr;
+}
+
+bool Player::isQuiverItem(const Item* item) const
+{
+	if (!item) {
+		return false;
+	}
+
+	if (item->getSlotPosition() & SLOTP_QUIVER) {
+		return true;
+	}
+
+	// Compatibility fallback: some custom OTB/XML sets may miss quiver slot flags.
+	const ItemType& it = Item::items[item->getID()];
+	return it.isContainer() && asLowerCaseString(it.name).find("quiver") != std::string::npos;
+}
+
+bool Player::isQuiverCompatibleWeapon(const Item* item) const
+{
+	if (!item || item->getWeaponType() != WEAPON_DISTANCE) {
+		return false;
+	}
+
+	const ItemType& it = Item::items[item->getID()];
+	if (it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT) {
+		return true;
+	}
+
+	// Compatibility fallback: allow custom bow/crossbow definitions without ammoType.
+	const std::string lowerName = asLowerCaseString(it.name);
+	return lowerName.find("bow") != std::string::npos || lowerName.find("crossbow") != std::string::npos;
+}
+
 void Player::addConditionSuppressions(uint32_t conditions)
 {
 	conditionSuppressions |= conditions;
@@ -217,8 +280,8 @@ Item* Player::getWeapon(slots_t slot, bool ignoreAmmo) const
 	if (!ignoreAmmo && weaponType == WEAPON_DISTANCE) {
 		const ItemType& it = Item::items[item->getID()];
 		if (it.ammoType != AMMO_NONE) {
-			Item* ammoItem = inventory[CONST_SLOT_AMMO];
-			if (!ammoItem || ammoItem->getAmmoType() != it.ammoType) {
+			Item* ammoItem = getAmmunitionItem(it.ammoType);
+			if (!ammoItem) {
 				return nullptr;
 			}
 			item = ammoItem;
@@ -2396,9 +2459,10 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 		        (slotPosition & SLOTP_LEGS) || (slotPosition & SLOTP_FEET) ||
 		        (slotPosition & SLOTP_RING)) {
 			ret = RETURNVALUE_CANNOTBEDRESSED;
-		} else if (slotPosition & SLOTP_TWO_HAND) {
+		} else if ((slotPosition & SLOTP_TWO_HAND) &&
+		           index != CONST_SLOT_LEFT && index != CONST_SLOT_RIGHT) {
 			ret = RETURNVALUE_PUTTHISOBJECTINBOTHHANDS;
-		} else if ((slotPosition & SLOTP_RIGHT) || (slotPosition & SLOTP_LEFT)) {
+		} else if ((slotPosition & SLOTP_RIGHT) || (slotPosition & SLOTP_LEFT) || (slotPosition & SLOTP_QUIVER)) {
 			if (!g_config.getBoolean(ConfigManager::CLASSIC_EQUIPMENT_SLOTS)) {
 				ret = RETURNVALUE_CANNOTBEDRESSED;
 			} else {
@@ -2437,15 +2501,29 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 		}
 
 		case CONST_SLOT_RIGHT: {
-			if (slotPosition & SLOTP_RIGHT) {
+			const Item* leftItem = inventory[CONST_SLOT_LEFT];
+			if (slotPosition & SLOTP_QUIVER) {
+				if (!leftItem || (leftItem != item && !isQuiverCompatibleWeapon(leftItem))) {
+					ret = RETURNVALUE_CANNOTBEDRESSED;
+				} else {
+					ret = RETURNVALUE_NOERROR;
+				}
+				break;
+			}
+
+			if ((slotPosition & SLOTP_RIGHT) || (slotPosition & SLOTP_TWO_HAND)) {
+				if (leftItem && isQuiverItem(leftItem)) {
+					ret = isQuiverCompatibleWeapon(item) ? RETURNVALUE_NOERROR : RETURNVALUE_CANNOTBEDRESSED;
+					break;
+				}
+
 				if (slotPosition & SLOTP_TWO_HAND) {
-					if (inventory[CONST_SLOT_LEFT] && inventory[CONST_SLOT_LEFT] != item) {
+					if (leftItem && leftItem != item) {
 						ret = RETURNVALUE_BOTHHANDSNEEDTOBEFREE;
 					} else {
 						ret = RETURNVALUE_NOERROR;
 					}
-				} else if (inventory[CONST_SLOT_LEFT]) {
-					const Item* leftItem = inventory[CONST_SLOT_LEFT];
+				} else if (leftItem) {
 					WeaponType_t type = item->getWeaponType(), leftType = leftItem->getWeaponType();
 
 					if (leftItem->getSlotPosition() & SLOTP_TWO_HAND) {
@@ -2469,15 +2547,29 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 		}
 
 		case CONST_SLOT_LEFT: {
-			if (slotPosition & SLOTP_LEFT) {
+			const Item* rightItem = inventory[CONST_SLOT_RIGHT];
+			if (slotPosition & SLOTP_QUIVER) {
+				if (!rightItem || (rightItem != item && !isQuiverCompatibleWeapon(rightItem))) {
+					ret = RETURNVALUE_CANNOTBEDRESSED;
+				} else {
+					ret = RETURNVALUE_NOERROR;
+				}
+				break;
+			}
+
+			if ((slotPosition & SLOTP_LEFT) || (slotPosition & SLOTP_TWO_HAND)) {
+				if (rightItem && isQuiverItem(rightItem)) {
+					ret = isQuiverCompatibleWeapon(item) ? RETURNVALUE_NOERROR : RETURNVALUE_CANNOTBEDRESSED;
+					break;
+				}
+
 				if (slotPosition & SLOTP_TWO_HAND) {
-					if (inventory[CONST_SLOT_RIGHT] && inventory[CONST_SLOT_RIGHT] != item) {
+					if (rightItem && rightItem != item) {
 						ret = RETURNVALUE_BOTHHANDSNEEDTOBEFREE;
 					} else {
 						ret = RETURNVALUE_NOERROR;
 					}
-				} else if (inventory[CONST_SLOT_RIGHT]) {
-					const Item* rightItem = inventory[CONST_SLOT_RIGHT];
+				} else if (rightItem) {
 					WeaponType_t type = item->getWeaponType(), rightType = rightItem->getWeaponType();
 
 					if (rightItem->getSlotPosition() & SLOTP_TWO_HAND) {
@@ -2764,6 +2856,25 @@ Cylinder* Player::queryDestination(int32_t& index, const Thing& thing, Item** de
 		}
 
 		return this;
+	}
+
+	if (index == CONST_SLOT_LEFT || index == CONST_SLOT_RIGHT) {
+		const Item* moveItem = thing.getItem();
+		if (moveItem) {
+			const slots_t requestedSlot = static_cast<slots_t>(index);
+			const slots_t otherSlot = (requestedSlot == CONST_SLOT_LEFT) ? CONST_SLOT_RIGHT : CONST_SLOT_LEFT;
+			Item* requestedHandItem = inventory[requestedSlot];
+			Item* otherHandItem = inventory[otherSlot];
+
+			if ((moveItem->getSlotPosition() & SLOTP_QUIVER) &&
+			        requestedHandItem && isQuiverCompatibleWeapon(requestedHandItem) && !otherHandItem) {
+				index = otherSlot;
+			} else if ((moveItem->getSlotPosition() & SLOTP_TWO_HAND) &&
+			           isQuiverCompatibleWeapon(moveItem) &&
+			           requestedHandItem && isQuiverItem(requestedHandItem) && !otherHandItem) {
+				index = otherSlot;
+			}
+		}
 	}
 
 	Thing* destThing = getThing(index);

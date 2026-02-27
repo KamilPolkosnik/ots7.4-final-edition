@@ -58,6 +58,23 @@ extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern Scripts* g_scripts;
 
+namespace {
+bool isQuiverCompatibleDistanceWeapon(const Item* item)
+{
+	if (!item || item->getWeaponType() != WEAPON_DISTANCE) {
+		return false;
+	}
+
+	const ItemType& it = Item::items[item->getID()];
+	return it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT;
+}
+
+bool isQuiverCompatibleDistanceWeapon(const ItemType& it)
+{
+	return it.weaponType == WEAPON_DISTANCE && (it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT);
+}
+} // namespace
+
 Game::Game()
 {
 	offlineTrainingWindow.defaultEnterButton = 1;
@@ -1121,11 +1138,15 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 			const slots_t otherSlot = (index == CONST_SLOT_LEFT) ? CONST_SLOT_RIGHT : CONST_SLOT_LEFT;
 			Item* otherHandItem = toPlayer->getInventoryItem(otherSlot);
 			if (otherHandItem && otherHandItem != item) {
-				// Two-handed equip should work from either hand slot by freeing the other hand first.
-				ReturnValue handRet = internalMoveItem(otherHandItem->getParent(), toPlayer, CONST_SLOT_WHEREEVER,
-					otherHandItem, otherHandItem->getItemCount(), nullptr, FLAG_IGNOREAUTOSTACK, actor);
-				if (handRet != RETURNVALUE_NOERROR) {
-					return handRet;
+				const bool keepQuiverInHand = (otherHandItem->getSlotPosition() & SLOTP_QUIVER) &&
+				                              isQuiverCompatibleDistanceWeapon(item);
+				if (!keepQuiverInHand) {
+					// Two-handed equip should work from either hand slot by freeing the other hand first.
+					ReturnValue handRet = internalMoveItem(otherHandItem->getParent(), toPlayer, CONST_SLOT_WHEREEVER,
+						otherHandItem, otherHandItem->getItemCount(), nullptr, FLAG_IGNOREAUTOSTACK, actor);
+					if (handRet != RETURNVALUE_NOERROR) {
+						return handRet;
+					}
 				}
 			}
 		}
@@ -1810,6 +1831,8 @@ slots_t getSlotType(const ItemType& it)
 			slot = CONST_SLOT_RING;
 		} else if (slotPosition & SLOTP_AMMO) {
 			slot = CONST_SLOT_AMMO;
+		} else if (slotPosition & SLOTP_QUIVER) {
+			slot = CONST_SLOT_LEFT;
 		} else if (slotPosition & SLOTP_TWO_HAND || slotPosition & SLOTP_LEFT) {
 			slot = CONST_SLOT_LEFT;
 		}
@@ -1838,6 +1861,23 @@ void Game::playerEquipItem(uint32_t playerId, uint16_t spriteId)
 
 	const ItemType& it = Item::items.getItemIdByClientId(spriteId);
 	slots_t slot = getSlotType(it);
+	if (it.slotPosition & SLOTP_QUIVER) {
+		Item* leftHandItem = player->getInventoryItem(CONST_SLOT_LEFT);
+		Item* rightHandItem = player->getInventoryItem(CONST_SLOT_RIGHT);
+		if (isQuiverCompatibleDistanceWeapon(leftHandItem)) {
+			slot = CONST_SLOT_RIGHT;
+		} else if (isQuiverCompatibleDistanceWeapon(rightHandItem)) {
+			slot = CONST_SLOT_LEFT;
+		}
+	} else if ((it.slotPosition & SLOTP_TWO_HAND) && isQuiverCompatibleDistanceWeapon(it)) {
+		Item* leftHandItem = player->getInventoryItem(CONST_SLOT_LEFT);
+		Item* rightHandItem = player->getInventoryItem(CONST_SLOT_RIGHT);
+		if (leftHandItem && (leftHandItem->getSlotPosition() & SLOTP_QUIVER)) {
+			slot = CONST_SLOT_RIGHT;
+		} else if (rightHandItem && (rightHandItem->getSlotPosition() & SLOTP_QUIVER)) {
+			slot = CONST_SLOT_LEFT;
+		}
+	}
 
 	Item* slotItem = player->getInventoryItem(slot);
 	Item* equipItem = searchForItem(backpack, it.id);

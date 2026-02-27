@@ -1829,6 +1829,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(SLOTP_AMMO)
 	registerEnum(SLOTP_DEPOT)
 	registerEnum(SLOTP_TWO_HAND)
+	registerEnum(SLOTP_QUIVER)
 
 	// Use with combat functions
 	registerEnum(ORIGIN_NONE)
@@ -16872,6 +16873,8 @@ int LuaScriptInterface::luaMoveEventSlot(lua_State* L)
 			moveevent->setSlot(SLOTP_RING);
 		} else if (slotName == "ammo") {
 			moveevent->setSlot(SLOTP_AMMO);
+		} else if (slotName == "quiver") {
+			moveevent->setSlot(SLOTP_QUIVER);
 		} else {
 			std::cout << "[Warning - MoveEvent::configureMoveEvent] Unknown slot type: " << slotName << std::endl;
 			pushBoolean(L, false);

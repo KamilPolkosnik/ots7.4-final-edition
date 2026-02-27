@@ -1,0 +1,381 @@
+Armory tiers from Tibiopedia (https://tibiopedia.pl/items/armory)
+Generated: 2026-02-27 10:39:56
+Tier source: Klas. column (only numeric values 1-4)
+Unique names with tier in source: 376
+
+- name="flower wreath" tier=1
+- name="pair of earmuffs" tier=2
+- name="leather helmet" tier=1
+- name="bandana" tier=1
+- name="ferumbras' candy hat" tier=1
+- name="mystic turban" tier=1
+- name="party hat" tier=1
+- name="santa hat" tier=1
+- name="mining helmet" tier=1
+- name="post officer's hat" tier=1
+- name="jester hat" tier=2
+- name="porcelain mask" tier=2
+- name="magician hat" tier=3
+- name="ferumbras' hat" tier=4
+- name="chain helmet" tier=1
+- name="tribal mask" tier=1
+- name="studded helmet" tier=1
+- name="charmer's tiara" tier=1
+- name="feather headdress" tier=1
+- name="sedge hat" tier=1
+- name="rusty winged helmet" tier=1
+- name="brass helmet" tier=1
+- name="pirate hat" tier=1
+- name="mage hat" tier=1
+- name="wood cape" tier=2
+- name="cobra crown" tier=2
+- name="witch hat" tier=2
+- name="batwing hat" tier=2
+- name="helmet of ultimate terror" tier=2
+- name="helmet of nature" tier=2
+- name="fur cap" tier=3
+- name="mage's cap" tier=4
+- name="light bandana" tier=1
+- name="viking helmet" tier=1
+- name="legion helmet" tier=2
+- name="jade hat" tier=2
+- name="shamanic mask" tier=2
+- name="coned hat of enlightenment" tier=1
+- name="soldier helmet" tier=1
+- name="iron helmet" tier=1
+- name="glacier mask" tier=2
+- name="lightning headband" tier=2
+- name="magma monocle" tier=2
+- name="terra hood" tier=2
+- name="gill gugel" tier=2
+- name="rubber cap" tier=2
+- name="yalahari mask" tier=2
+- name="odd hat" tier=2
+- name="jade conical hat" tier=2
+- name="dark vision bandana" tier=3
+- name="norcferatu bonehood" tier=4
+- name="krimhorn helmet" tier=1
+- name="dark helmet" tier=1
+- name="steel helmet" tier=1
+- name="strange helmet" tier=1
+- name="horseman helmet" tier=1
+- name="ragnir helmet" tier=1
+- name="mighty helm of green sparks" tier=2
+- name="dwarven helmet" tier=3
+- name="demon mengu" tier=4
+- name="devil helmet" tier=2
+- name="crest of the deep seas" tier=2
+- name="bonelord helmet" tier=2
+- name="helmet of the lost" tier=2
+- name="crown helmet" tier=2
+- name="dark whispers" tier=3
+- name="galea mortis" tier=3
+- name="shroud of despair" tier=4
+- name="lion spangenhelm" tier=4
+- name="amazon helmet" tier=4
+- name="eldritch hood" tier=4
+- name="eldritch cowl" tier=4
+- name="ethereal coned hat" tier=4
+- name="warrior helmet" tier=2
+- name="crusader helmet" tier=2
+- name="gnome helmet" tier=3
+- name="stoic iks casque" tier=4
+- name="stoic iks headpiece" tier=4
+- name="dreadfire headpiece" tier=4
+- name="demonfang mask" tier=4
+- name="stag helmet" tier=4
+- name="falcon circlet" tier=4
+- name="prismatic helmet" tier=2
+- name="zaoan helmet" tier=2
+- name="royal helmet" tier=2
+- name="skull helmet" tier=2
+- name="dragon scale helmet" tier=3
+- name="elite draken helmet" tier=3
+- name="terra helmet" tier=3
+- name="ceremonial mask" tier=4
+- name="norcferatu skullguard" tier=4
+- name="cobra hood" tier=4
+- name="antler-horn helmet" tier=4
+- name="arcanomancer regalia" tier=4
+- name="arboreal crown" tier=4
+- name="demon helmet" tier=2
+- name="winged helmet" tier=4
+- name="visage of the end days" tier=4
+- name="hellstalker visor" tier=4
+- name="green demon helmet" tier=4
+- name="falcon coif" tier=4
+- name="maliceforged helmet" tier=4
+- name="horned helmet" tier=4
+- name="alicorn headguard" tier=4
+- name="spiritthorn helmet" tier=4
+- name="golden helmet" tier=4
+- name="cape" tier=1
+- name="coat" tier=1
+- name="red robe" tier=1
+- name="jacket" tier=1
+- name="green tunic" tier=1
+- name="old cape" tier=3
+- name="doublet" tier=1
+- name="pirate shirt" tier=1
+- name="leather armor" tier=1
+- name="studded armor" tier=1
+- name="magician's robe" tier=1
+- name="chain armor" tier=1
+- name="heavy metal t-shirt" tier=2
+- name="plain monk robe" tier=1
+- name="ranger's cloak" tier=1
+- name="ethno coat" tier=1
+- name="native armor" tier=4
+- name="monk robe" tier=1
+- name="zaoan monk robe" tier=2
+- name="merudri nanbando" tier=2
+- name="merudri scale mail" tier=3
+- name="brass armor" tier=1
+- name="spirit cloak" tier=1
+- name="spirit bind" tier=2
+- name="ghazbaran oyoroi" tier=4
+- name="gnomish cuirass" tier=2
+- name="robe of enlightenment" tier=1
+- name="scale armor" tier=1
+- name="leather harness" tier=1
+- name="glooth cape" tier=2
+- name="focus cape" tier=2
+- name="leopard armor" tier=2
+- name="elven mail" tier=3
+- name="energy robe" tier=2
+- name="ice robe" tier=2
+- name="leaf robe" tier=2
+- name="magma robe" tier=2
+- name="death oyoroi" tier=3
+- name="stoic iks robe" tier=4
+- name="dark armor" tier=1
+- name="plate armor" tier=1
+- name="belted cape" tier=1
+- name="mammoth fur cape" tier=2
+- name="dwarven armor" tier=3
+- name="stag robe" tier=4
+- name="merudri battle mail" tier=4
+- name="naga tanko" tier=4
+- name="noble armor" tier=1
+- name="fur armor" tier=2
+- name="zaoan robe" tier=2
+- name="spellweaver's robe" tier=2
+- name="glacier robe" tier=2
+- name="lightning robe" tier=2
+- name="magma coat" tier=2
+- name="terra mantle" tier=2
+- name="blue robe" tier=2
+- name="albino plate" tier=3
+- name="dark lord's cape" tier=4
+- name="soulgarb" tier=4
+- name="buckle" tier=2
+- name="robe of the underworld" tier=2
+- name="dragon robe" tier=2
+- name="greenwood coat" tier=2
+- name="velvet mantle" tier=2
+- name="calopteryx cape" tier=2
+- name="gill coat" tier=2
+- name="swan feather cloak" tier=2
+- name="paladin armor" tier=2
+- name="mooh'tah plate" tier=2
+- name="knight armor" tier=2
+- name="heat core" tier=2
+- name="goo shell" tier=3
+- name="royal scale robe" tier=3
+- name="dream shroud" tier=3
+- name="furious frock" tier=4
+- name="robe of the ice queen" tier=4
+- name="zaoan armor" tier=2
+- name="lavos armor" tier=2
+- name="crystalline armor" tier=2
+- name="swamplair armor" tier=2
+- name="voltage armor" tier=2
+- name="divine plate" tier=2
+- name="frozen plate" tier=2
+- name="crown armor" tier=2
+- name="living armor" tier=3
+- name="molten plate" tier=4
+- name="amazon armor" tier=4
+- name="skullcracker armor" tier=2
+- name="golden armor" tier=2
+- name="fireborn giant armor" tier=2
+- name="windborn colossus armor" tier=2
+- name="earthmind raiment" tier=2
+- name="firemind raiment" tier=2
+- name="frostmind raiment" tier=2
+- name="thundermind raiment" tier=2
+- name="dragon scale mail" tier=2
+- name="prismatic armor" tier=2
+- name="elite draken mail" tier=2
+- name="master archer's armor" tier=3
+- name="earthborn titan armor" tier=4
+- name="oceanborn leviathan armor" tier=4
+- name="stoic iks cuirass" tier=4
+- name="arcane dragon robe" tier=4
+- name="mystical dragon robe" tier=4
+- name="yalahari armor" tier=2
+- name="ornate chestplate" tier=2
+- name="depth lorica" tier=2
+- name="demon armor" tier=2
+- name="royal draken mail" tier=3
+- name="toga mortis" tier=3
+- name="bear skin" tier=3
+- name="embrace of nature" tier=3
+- name="norcferatu bonecloak" tier=4
+- name="norcferatu bloodhide" tier=4
+- name="dawnfire sherwani" tier=4
+- name="midnight tunic" tier=4
+- name="stoic iks chestplate" tier=4
+- name="eldritch cuirass" tier=4
+- name="green demon armor" tier=4
+- name="magic plate armor" tier=2
+- name="ghost chestplate" tier=3
+- name="gnome armor" tier=3
+- name="lion plate" tier=4
+- name="unerring dragon scale armor" tier=4
+- name="stag plate" tier=4
+- name="mutated skin armor" tier=4
+- name="soulmantle" tier=4
+- name="soulshroud" tier=4
+- name="earthheart cuirass" tier=2
+- name="earthheart hauberk" tier=2
+- name="earthheart platemail" tier=2
+- name="earthsoul tabard" tier=2
+- name="fireheart cuirass" tier=2
+- name="fireheart hauberk" tier=2
+- name="fireheart platemail" tier=2
+- name="firesoul tabard" tier=2
+- name="frostheart cuirass" tier=2
+- name="frostheart hauberk" tier=2
+- name="frostheart platemail" tier=2
+- name="frostsoul tabard" tier=2
+- name="thunderheart cuirass" tier=2
+- name="thunderheart hauberk" tier=2
+- name="thunderheart platemail" tier=2
+- name="thundersoul tabard" tier=2
+- name="falcon plate" tier=4
+- name="dauntless dragon scale armor" tier=4
+- name="soulshell" tier=4
+- name="spiritthorn armor" tier=4
+- name="norcferatu tuskplate" tier=4
+- name="leaf legs" tier=1
+- name="mammoth fur shorts" tier=2
+- name="leather legs" tier=1
+- name="pirate knee breeches" tier=1
+- name="tatty dragon scale legs" tier=1
+- name="studded legs" tier=1
+- name="chocolatey dragon scale legs" tier=1
+- name="trousers of the ancients" tier=2
+- name="chain legs" tier=1
+- name="ranger legs" tier=1
+- name="elven legs" tier=3
+- name="legs of enlightenment" tier=1
+- name="legs of wisdom" tier=2
+- name="brass legs" tier=1
+- name="jungle survivor legs" tier=4
+- name="jade legs" tier=3
+- name="norcferatu fleshguards" tier=4
+- name="alloy legs" tier=2
+- name="wereboar loincloth" tier=2
+- name="mutant hide trousers" tier=4
+- name="sanguine trousers" tier=4
+- name="plate legs" tier=1
+- name="grasshopper legs" tier=2
+- name="gill legs" tier=2
+- name="dwarven legs" tier=3
+- name="knight legs" tier=1
+- name="ornate legs" tier=2
+- name="prismatic legs" tier=2
+- name="zaoan legs" tier=2
+- name="crown legs" tier=2
+- name="yalahari leg piece" tier=2
+- name="depth ocrea" tier=2
+- name="glacier kilt" tier=2
+- name="lightning legs" tier=2
+- name="magma legs" tier=2
+- name="terra legs" tier=2
+- name="blue legs" tier=2
+- name="soulful legs" tier=3
+- name="exotic legs" tier=4
+- name="bast legs" tier=4
+- name="mutant bone kilt" tier=4
+- name="stoic iks faulds" tier=4
+- name="midnight sarong" tier=4
+- name="dawnfire pantaloons" tier=4
+- name="icy culottes" tier=4
+- name="norcferatu bloodstrider" tier=4
+- name="golden legs" tier=2
+- name="fabulous legs" tier=3
+- name="gnome legs" tier=3
+- name="demon legs" tier=4
+- name="green demon legs" tier=4
+- name="eldritch breeches" tier=4
+- name="mutated skin legs" tier=4
+- name="stoic iks culet" tier=4
+- name="stitched mutant hide legs" tier=4
+- name="norcferatu thornwraps" tier=4
+- name="dragon scale legs" tier=4
+- name="soulshanks" tier=4
+- name="soulstrider" tier=4
+- name="falcon greaves" tier=4
+- name="stag legs" tier=4
+- name="sanguine greaves" tier=4
+- name="sanguine legs" tier=4
+- name="filthy bunnyslippers" tier=1
+- name="coconut shoes" tier=1
+- name="sandals" tier=1
+- name="yetislippers" tier=2
+- name="boots of haste" tier=2
+- name="boots of waterwalking" tier=4
+- name="vampire silk slippers" tier=4
+- name="bunnyslippers" tier=4
+- name="green demon slippers" tier=4
+- name="boots of enlightenment" tier=1
+- name="leather boots" tier=1
+- name="metal spats" tier=2
+- name="crocodile boots" tier=2
+- name="yalahari footwraps" tier=2
+- name="zaoan shoes" tier=2
+- name="gnomish footwraps" tier=3
+- name="pirate boots" tier=1
+- name="badger boots" tier=2
+- name="fur boots" tier=2
+- name="glacier shoes" tier=2
+- name="lightning boots" tier=2
+- name="magma boots" tier=2
+- name="terra boots" tier=2
+- name="oriental shoes" tier=2
+- name="pair of nightmare boots" tier=3
+- name="winged boots" tier=3
+- name="pair of dreamwalkers" tier=3
+- name="stag shinguards" tier=4
+- name="alchemist's boots" tier=4
+- name="stoic iks boots" tier=4
+- name="makeshift boots" tier=4
+- name="stag boots" tier=4
+- name="stag footwraps" tier=4
+- name="eldritch monk boots" tier=4
+- name="soulsoles" tier=4
+- name="make-do boots" tier=4
+- name="mutant bone boots" tier=4
+- name="norcferatu fangstompers" tier=4
+- name="patched boots" tier=4
+- name="feverbloom boots" tier=4
+- name="stoic iks sandals" tier=4
+- name="iks footwraps" tier=4
+- name="depth calcei" tier=2
+- name="steel boots" tier=2
+- name="draken boots" tier=2
+- name="guardian boots" tier=2
+- name="prismatic boots" tier=2
+- name="sanguine boots" tier=4
+- name="crystal boots" tier=4
+- name="dragon scale boots" tier=4
+- name="sanguine galoshes" tier=4
+- name="pair of soulstalkers" tier=4
+- name="norcferatu goretrampers" tier=4
+- name="frostflower boots" tier=4
+- name="cobra boots" tier=4
+- name="treader of torment" tier=3
+- name="golden boots" tier=4
+- name="pair of soulwalkers" tier=4

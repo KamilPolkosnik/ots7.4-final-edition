@@ -1,0 +1,573 @@
+UPGRADE BONUS TICK TEMPLATE
+Generated: 2026-02-26 18:42:52
+
+Global base_item_lvl default: 1
+Global value_per_tick default: 15
+
+[01] Max HP
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[02] Max MP
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[03] Magic Level
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[04] Melee Skills
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[05] Fist Fighting
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 30
+special: 
+notes:
+
+[06] Sword Fighting
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[07] Axe Fighting
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[08] Club Fighting
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[09] Distance Fighting
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[10] Shielding
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 1
+chance: 
+special: 
+notes:
+
+[11] Mana Shield
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 50
+chance: 
+special: 
+notes:
+
+[12] Life Steal
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[13] Experience
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 30
+special: 
+notes:
+
+[14] Physical Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[15] Energy Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[16] Earth Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[17] Fire Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[18] Ice Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[19] Holy Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[20] Death Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[21] Elemental Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 50
+special: 
+notes:
+
+[22] Physical Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[23] Energy Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[24] Earth Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[25] Fire Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[26] Ice Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[27] Holy Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[28] Death Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[29] Elemental Protection
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[30] Flame Strike on Attack
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[31] Flame Strike on Hit
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[32] Ice Strike on Attack
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[33] Ice Strike on Hit
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[34] Terra Strike on Attack
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[35] Terra Strike on Hit
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[36] Death Strike on Attack
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[37] Death Strike on Hit
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[38] Divine Missile on Attack
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[39] Divine Missile on Hit
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[40] Energy Strike on Attack
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[41] Energy Strike on Hit
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[42] Explosion on Kill
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 50
+chance: 
+special: 
+notes:
+
+[43] Health on Kill
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 25
+special: 
+notes:
+
+[44] Mana on Kill
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 25
+special: 
+notes:
+
+[45] Mana Steal
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 10
+special: 
+notes:
+
+[46] Full HP on Kill
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 70
+chance: 5
+special: 
+notes:
+
+[47] Full MP on Kill
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 70
+chance: 5
+special: 
+notes:
+
+[48] Mass Healing on Attack
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 100
+chance: 15
+special: 
+notes:
+
+[49] Increased Healing
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 25
+chance: 20
+special: 
+notes:
+
+[50] Additonal Gold
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 10
+chance: 30
+special: 
+notes:
+
+[51] Double Damage
+value_per_tick: 50
+base_item_lvl: 100
+base_bonus: 1
+minLevel: 100
+chance: 5
+special: 
+notes:
+
+[52] Revive on death
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 100
+chance: 30
+special: 
+notes:
+
+[53] Damage Buff
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 30
+chance: 10
+special: 
+notes:
+
+[54] Max HP Buff
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 30
+chance: 10
+special: 
+notes:
+
+[55] Max MP Buff
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 30
+chance: 10
+special: 
+notes:
+
+[56] Critical Hit Chance
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[57] Critical Hit Damage
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[58] Dodge
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: DODGE
+notes:
+
+[59] Damage Reflect
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: REFLECT
+notes:
+
+[60] Life Leech Chance
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[61] Life Leech Amount
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[62] Mana Leech Chance
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+
+[63] Mana Leech Amount
+value_per_tick: 15
+base_item_lvl: 1
+base_bonus: 1
+minLevel: 
+chance: 
+special: 
+notes:
+

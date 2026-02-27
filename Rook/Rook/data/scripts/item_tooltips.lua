@@ -1,4 +1,83 @@
 local CODE_TOOLTIP = 105
+local ITEM_TIER_BY_ID = {}
+
+local function parseItemTierFromLine(line)
+  local key = line:match('key%s*=%s*"([^"]+)"')
+  if not key then
+    return nil
+  end
+
+  key = key:lower()
+  if key ~= "tier" and key ~= "itemtier" then
+    return nil
+  end
+
+  local value = line:match('value%s*=%s*"([^"]+)"')
+  if not value then
+    return nil
+  end
+
+  local tier = tonumber(value)
+  if not tier then
+    return nil
+  end
+
+  tier = math.floor(tier)
+  if tier < 1 or tier > 4 then
+    return nil
+  end
+
+  return tier
+end
+
+local function loadItemTiersFromItemsXml()
+  local path = "data/items/items.xml"
+  local file = io.open(path, "r")
+  if not file then
+    print("[Tooltips] Unable to load item tiers from " .. path)
+    ITEM_TIER_BY_ID = {}
+    return
+  end
+
+  local tierMap = {}
+  local currentItemId = nil
+  local currentTier = nil
+
+  for line in file:lines() do
+    local itemId = line:match('<item%s+id%s*=%s*"(%d+)"')
+    if itemId then
+      currentItemId = tonumber(itemId)
+      currentTier = nil
+    end
+
+    if currentItemId then
+      local parsedTier = parseItemTierFromLine(line)
+      if parsedTier then
+        currentTier = parsedTier
+      end
+
+      if line:find("</item>", 1, true) then
+        if currentTier then
+          tierMap[currentItemId] = currentTier
+        end
+        currentItemId = nil
+        currentTier = nil
+      end
+    end
+  end
+
+  file:close()
+  ITEM_TIER_BY_ID = tierMap
+end
+
+local function getItemTierById(itemId)
+  if not itemId then
+    return nil
+  end
+  return ITEM_TIER_BY_ID[itemId]
+end
+
+loadItemTiersFromItemsXml()
 
 local specialSkills = {
   [SPECIALSKILL_CRITICALHITCHANCE] = "cc",
@@ -110,6 +189,10 @@ function Item:buildTooltip()
     itemName = itemType:getName(),
     clientId = itemType:getClientId()
   }
+  local itemTier = getItemTierById(self:getId())
+  if itemTier then
+    item_data.tier = itemTier
+  end
 
   if itemType:getDescription():len() > 0 then
     item_data.desc = itemType:getDescription()
@@ -305,6 +388,10 @@ function ItemType:buildTooltip(count)
     count = count,
     itemName = self:getName()
   }
+  local itemTier = getItemTierById(self:getId())
+  if itemTier then
+    item_data.tier = itemTier
+  end
 
   if self:getDescription():len() > 0 then
     item_data.desc = self:getDescription()
@@ -459,6 +546,8 @@ function formatItemType(itemType)
       return "Boots"
     elseif slotPosition == SLOTP_RING then
       return "Ring"
+    elseif slotPosition == SLOTP_QUIVER then
+      return "Quiver"
     elseif slotPosition == SLOTP_AMMO and itemType:getAmmoType() > 0 then
       return "Ammunition"
     elseif itemType:isRune() then

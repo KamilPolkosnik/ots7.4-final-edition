@@ -50,15 +50,19 @@ function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, is
                     end
                 end
 
+                -- Initialize item level baseline before first upgrade stat scaling.
+                if target:getItemLevel() == 0 then
+                    if not target:ensureInitialTierLevel(true) then
+                        target:setItemLevel(1, true)
+                    end
+                end
+
                 target:setUpgradeLevel(upgrade)
 
                 item:remove(1)
                 player:sendTextMessage(MESSAGE_INFO_DESCR, "Item upgrade level increased to " .. upgrade .. "!")
                 player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
                 player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
-                if target:getItemLevel() == 0 then
-                    target:setItemLevel(1, true)
-                end
             else
                 player:sendTextMessage(MESSAGE_STATUS_WARNING, "Maximum upgrade level reached!")
             end

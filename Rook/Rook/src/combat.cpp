@@ -32,6 +32,18 @@ extern ConfigManager g_config;
 extern Events* g_events;
 
 namespace {
+constexpr uint16_t FIXED_CRITICAL_HIT_AMOUNT = 50;
+constexpr uint16_t FIXED_LIFE_LEECH_CHANCE = 25;
+constexpr uint16_t FIXED_MANA_LEECH_CHANCE = 25;
+
+void sendLeechGainColoredText(Player* player, int32_t value, TextColor_t color)
+{
+	if (!player || value <= 0) {
+		return;
+	}
+
+	g_game.addColoredText(ColoredText("+" + std::to_string(value), player->getPosition(), color));
+}
 
 MatrixArea createArea(const std::vector<uint32_t>& vec, uint32_t rows)
 {
@@ -859,10 +871,9 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 
 			if (!damage.critical && damage.primary.type != COMBAT_HEALING && damage.origin != ORIGIN_CONDITION) {
 				uint16_t chance = casterPlayer->getSpecialSkill(SPECIALSKILL_CRITICALHITCHANCE);
-				uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_CRITICALHITAMOUNT);
-				if (chance > 0 && skill > 0 && normal_random(1, 100) <= chance) {
-					damage.primary.value += std::round(damage.primary.value * (skill / 100.));
-					damage.secondary.value += std::round(damage.secondary.value * (skill / 100.));
+				if (chance > 0 && normal_random(1, 100) <= chance) {
+					damage.primary.value += std::round(damage.primary.value * (FIXED_CRITICAL_HIT_AMOUNT / 100.));
+					damage.secondary.value += std::round(damage.secondary.value * (FIXED_CRITICAL_HIT_AMOUNT / 100.));
 					damage.critical = true;
 				}
 			}
@@ -900,21 +911,25 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 			int32_t totalDamage = std::abs(damage.primary.value + damage.secondary.value);
 
 			if (casterPlayer->getHealth() < casterPlayer->getMaxHealth()) {
-				uint16_t chance = casterPlayer->getSpecialSkill(SPECIALSKILL_LIFELEECHCHANCE);
 				uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_LIFELEECHAMOUNT);
-				if (chance > 0 && skill > 0 && normal_random(1, 100) <= chance) {
+				if (skill > 0 && normal_random(1, 100) <= FIXED_LIFE_LEECH_CHANCE) {
 					leechCombat.primary.value = std::round(totalDamage * (skill / 100.));
+					int32_t healthBeforeLeech = casterPlayer->getHealth();
 					g_game.combatChangeHealth(nullptr, casterPlayer, leechCombat);
+					int32_t healedByLeech = casterPlayer->getHealth() - healthBeforeLeech;
+					sendLeechGainColoredText(casterPlayer, healedByLeech, TEXTCOLOR_LIGHTGREEN);
 					casterPlayer->sendMagicEffect(casterPlayer->getPosition(), CONST_ME_MAGIC_RED);
 				}
 			}
 
 			if (casterPlayer->getMana() < casterPlayer->getMaxMana()) {
-				uint16_t chance = casterPlayer->getSpecialSkill(SPECIALSKILL_MANALEECHCHANCE);
 				uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT);
-				if (chance > 0 && skill > 0 && normal_random(1, 100) <= chance) {
+				if (skill > 0 && normal_random(1, 100) <= FIXED_MANA_LEECH_CHANCE) {
 					leechCombat.primary.value = std::round(totalDamage * (skill / 100.));
+					int32_t manaBeforeLeech = casterPlayer->getMana();
 					g_game.combatChangeMana(nullptr, casterPlayer, leechCombat);
+					int32_t restoredManaByLeech = casterPlayer->getMana() - manaBeforeLeech;
+					sendLeechGainColoredText(casterPlayer, restoredManaByLeech, TEXTCOLOR_BLUE);
 					casterPlayer->sendMagicEffect(casterPlayer->getPosition(), CONST_ME_MAGIC_BLUE);
 				}
 			}
@@ -941,10 +956,9 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 	int32_t criticalSecondary = 0;
 	if (!damage.critical && damage.primary.type != COMBAT_HEALING && casterPlayer && damage.origin != ORIGIN_CONDITION) {
 		uint16_t chance = casterPlayer->getSpecialSkill(SPECIALSKILL_CRITICALHITCHANCE);
-		uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_CRITICALHITAMOUNT);
-		if (chance > 0 && skill > 0 && uniform_random(1, 100) <= chance) {
-			criticalPrimary = std::round(damage.primary.value * (skill / 100.));
-			criticalSecondary = std::round(damage.secondary.value * (skill / 100.));
+		if (chance > 0 && uniform_random(1, 100) <= chance) {
+			criticalPrimary = std::round(damage.primary.value * (FIXED_CRITICAL_HIT_AMOUNT / 100.));
+			criticalSecondary = std::round(damage.secondary.value * (FIXED_CRITICAL_HIT_AMOUNT / 100.));
 			damage.critical = true;
 		}
 	}
@@ -1062,21 +1076,25 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 				int32_t targetsCount = toDamageCreatures.size();
 
 				if (casterPlayer->getHealth() < casterPlayer->getMaxHealth()) {
-					uint16_t chance = casterPlayer->getSpecialSkill(SPECIALSKILL_LIFELEECHCHANCE);
 					uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_LIFELEECHAMOUNT);
-					if (chance > 0 && skill > 0 && normal_random(1, 100) <= chance) {
+					if (skill > 0 && normal_random(1, 100) <= FIXED_LIFE_LEECH_CHANCE) {
 						leechCombat.primary.value = std::ceil(totalDamage * ((skill / 100.) + ((targetsCount - 1) * ((skill / 100.) / 10.))) / targetsCount);
+						int32_t healthBeforeLeech = casterPlayer->getHealth();
 						g_game.combatChangeHealth(nullptr, casterPlayer, leechCombat);
+						int32_t healedByLeech = casterPlayer->getHealth() - healthBeforeLeech;
+						sendLeechGainColoredText(casterPlayer, healedByLeech, TEXTCOLOR_LIGHTGREEN);
 						casterPlayer->sendMagicEffect(casterPlayer->getPosition(), CONST_ME_MAGIC_RED);
 					}
 				}
 
 				if (casterPlayer->getMana() < casterPlayer->getMaxMana()) {
-					uint16_t chance = casterPlayer->getSpecialSkill(SPECIALSKILL_MANALEECHCHANCE);
 					uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT);
-					if (chance > 0 && skill > 0 && normal_random(1, 100) <= chance) {
+					if (skill > 0 && normal_random(1, 100) <= FIXED_MANA_LEECH_CHANCE) {
 						leechCombat.primary.value = std::ceil(totalDamage * ((skill / 100.) + ((targetsCount - 1) * ((skill / 100.) / 10.))) / targetsCount);
+						int32_t manaBeforeLeech = casterPlayer->getMana();
 						g_game.combatChangeMana(nullptr, casterPlayer, leechCombat);
+						int32_t restoredManaByLeech = casterPlayer->getMana() - manaBeforeLeech;
+						sendLeechGainColoredText(casterPlayer, restoredManaByLeech, TEXTCOLOR_BLUE);
 						casterPlayer->sendMagicEffect(casterPlayer->getPosition(), CONST_ME_MAGIC_BLUE);
 					}
 				}

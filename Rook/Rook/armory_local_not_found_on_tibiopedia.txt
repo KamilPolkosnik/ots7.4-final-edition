@@ -1,0 +1,24 @@
+Local armory items in items.xml NOT found on https://tibiopedia.pl/items/armory
+Generated: 2026-02-27 10:47:03
+Local armory items checked: 169
+Not found on Tibiopedia armory page: 19
+
+- name="archer armor" id=5828 slotType=body weaponType=-tier 1
+- name="beholder helmet" id=3972 slotType=head weaponType=- tier 3
+- name="beholder shield" id=2518 slotType=- weaponType=shield 
+- name="bunny slippers" id=2644 slotType=feet weaponType=- tier 1
+- name="charmer tiara" id=3971 slotType=head weaponType=- tier 1
+- name="firemasters armor" id=2505 slotType=body weaponType=- tier 3
+- name="firemasters armor" id=2664 slotType=body weaponType=-tier 3
+- name="green legs" id=2507 slotType=legs weaponType=- tier 2
+- name="hidden turbant" id=2660 slotType=head weaponType=- tier 1
+- name="lizard knowledge spellbook" id=5812 slotType=- weaponType=shield tier 3
+- name="magma shield" id=5865 slotType=- weaponType=shield tier 3
+- name="mercenary shield" id=2533 slotType=- weaponType=shield tier 3
+- name="necromantic spellbook" id=5789 slotType=- weaponType=shield tier 3
+- name="pair of soft boots" id=2358 slotType=feet weaponType=- tier 1
+- name="pair of soft boots" id=2640 slotType=feet weaponType=-tier 1
+- name="post officers hat" id=2665 slotType=head weaponType=- tier 1
+- name="shield of dorion" id=5539 slotType=- weaponType=shield tier 2
+- name="skullmaster armor" id=5816 slotType=body weaponType=- tier 3
+- name="warlocks spellbook" id=5791 slotType=- weaponType=shield tier 3

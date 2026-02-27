@@ -290,6 +290,13 @@ ReturnValue Container::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 		return RETURNVALUE_CANNOTPICKUP;
 	}
 
+	if (getSlotPosition() & SLOTP_QUIVER) {
+		Ammo_t ammoType = item->getAmmoType();
+		if (ammoType != AMMO_ARROW && ammoType != AMMO_BOLT) {
+			return RETURNVALUE_NOTPOSSIBLE;
+		}
+	}
+
 	if (item == this) {
 		return RETURNVALUE_THISISIMPOSSIBLE;
 	}

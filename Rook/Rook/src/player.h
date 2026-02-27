@@ -1222,6 +1222,9 @@ class Player final : public Creature, public Cylinder
 
 		void checkTradeState(const Item* item);
 		bool hasCapacity(const Item* item, uint32_t count) const;
+		Item* getAmmunitionItem(Ammo_t ammoType) const;
+		bool isQuiverItem(const Item* item) const;
+		bool isQuiverCompatibleWeapon(const Item* item) const;
 
 		void gainExperience(uint64_t gainExp, Creature* source);
 		void addExperience(Creature* source, uint64_t exp, bool sendText = false);
