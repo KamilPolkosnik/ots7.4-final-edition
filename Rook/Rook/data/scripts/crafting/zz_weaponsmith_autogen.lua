@@ -290,10 +290,10 @@ local swordOverrides = {
     } -- blacksteel sword
 }
 
--- Manual club filters/costs.
+-- Manual club filters/recipes.
 -- Rules:
 -- 1) Remove from crafting every club obtainable via monster loot or quest reward.
--- 2) Keep craft-only clubs with cost only (recipes will be added later).
+-- 2) Keep craft-only clubs with custom recipes and costs.
 local clubOverrides = {
     [2321] = {disabled = true}, -- giant smithhammer (quest)
     [2382] = {disabled = true}, -- club (loot)
@@ -303,24 +303,89 @@ local clubOverrides = {
     [2401] = {disabled = true}, -- staff (loot)
     [2416] = {disabled = true}, -- crowbar (loot)
     [2417] = {disabled = true}, -- battle hammer (loot/quest)
-    [2421] = {cost = 16450}, -- thunder hammer (loot)
+    [2421] = {
+        cost = 500000,
+        materials = {
+            {id = 2209, count = 100} -- club ring
+        }
+    }, -- thunder hammer
     [2422] = {disabled = true}, -- iron hammer (quest)
     [2423] = {disabled = true}, -- clerical mace (loot)
-    [2424] = {cost = 16450}, -- silver mace
+    [2424] = {
+        cost = 25000,
+        materials = {
+            {id = 5536, count = 1}, -- club of dorion
+            {id = 2209, count = 5}, -- club ring
+            {id = 2678, count = 12} -- coconut
+        }
+    }, -- silver mace
     [2433] = {disabled = true}, -- enchanted staff
     [2434] = {disabled = true}, -- dragon hammer (loot/quest)
     [2436] = {disabled = true}, -- skull staff (loot/quest)
-    [2437] = {cost = 18950}, -- golden mace
+    [2437] = {
+        recipes = {
+            {
+                cost = 70000,
+                materials = {
+                    {id = 2424, count = 1}, -- silver mace
+                    {id = 2678, count = 10}, -- coconut
+                    {id = 2237, count = 10}, -- dirty cape
+                    {id = 2220, count = 10}, -- dirty fur
+                    {id = 2209, count = 12} -- club ring
+                }
+            },
+            {
+                cost = 70000,
+                materials = {
+                    {id = 5894, count = 1}, -- sapphire axe
+                    {id = 2678, count = 10}, -- coconut
+                    {id = 2237, count = 10}, -- dirty cape
+                    {id = 2220, count = 10}, -- dirty fur
+                    {id = 2209, count = 12} -- club ring
+                }
+            }
+        }
+    }, -- golden mace
     [2439] = {disabled = true}, -- daramanian mace (loot)
     [2444] = {disabled = true}, -- hammer of wrath (loot/quest)
     [2445] = {disabled = true}, -- crystal mace (loot)
     [2448] = {disabled = true}, -- studded club (loot)
     [2449] = {disabled = true}, -- bone club (loot)
-    [2452] = {cost = 25700}, -- heavy mace
-    [2453] = {cost = 26350}, -- arcane staff
-    [3966] = {cost = 16450}, -- banana staff (loot)
-    [4846] = {cost = 6700}, -- iron hammer (variant)
-    [5536] = {cost = 16000}, -- club of dorion
+    [2452] = {
+        cost = 180000,
+        materials = {
+            {id = 2391, count = 20}, -- war hammer
+            {id = 2209, count = 12}, -- club ring
+            {id = 2678, count = 15}, -- coconut
+            {id = 2237, count = 15}, -- dirty cape
+            {id = 2220, count = 15} -- dirty fur
+        }
+    }, -- heavy mace
+    [2453] = {
+        cost = 200000,
+        materials = {
+            {id = 2452, count = 1}, -- heavy mace
+            {id = 2209, count = 12}, -- club ring
+            {id = 2678, count = 15}, -- coconut
+            {id = 2237, count = 15}, -- dirty cape
+            {id = 2220, count = 15} -- dirty fur
+        }
+    }, -- arcane staff
+    [3966] = {
+        cost = 1500,
+        materials = {
+            {id = 2209, count = 1} -- club ring
+        }
+    }, -- banana staff
+    [4846] = {disabled = true}, -- iron hammer (variant)
+    [5536] = {
+        cost = 30000,
+        materials = {
+            {id = 5892, count = 1}, -- hadge hammer
+            {id = 2209, count = 5}, -- club ring
+            {id = 2678, count = 10} -- coconut
+        }
+    }, -- club of dorion
     [5799] = {disabled = true}, -- terra wand
     [5800] = {disabled = true}, -- fire wand
     [5801] = {disabled = true}, -- icy wand
@@ -328,19 +393,67 @@ local clubOverrides = {
     [5885] = {disabled = true}, -- ice flail
     [5886] = {disabled = true}, -- abyss club
     [5888] = {disabled = true}, -- death star
-    [5889] = {cost = 4350}, -- Spark Hammer
-    [5892] = {cost = 4350}, -- hadge hammer
-    [5894] = {cost = 16450}, -- Sapphire Axe (loot)
-    [5897] = {cost = 4350}, -- squarearth hammer
-    [5901] = {cost = 4350}, -- Quara Sceptre
+    [5889] = {
+        cost = 1000000,
+        materials = {
+            {id = 2421, count = 1}, -- thunder hammer
+            {id = 2209, count = 25}, -- club ring
+            {id = 2678, count = 30}, -- coconut
+            {id = 2237, count = 25}, -- dirty cape
+            {id = 2220, count = 25}, -- dirty fur
+            {id = 2110, count = 25} -- doll
+        }
+    }, -- Spark Hammer
+    [5892] = {
+        cost = 5000,
+        materials = {
+            {id = 2434, count = 1}, -- dragon hammer
+            {id = 2678, count = 10}, -- coconut
+            {id = 2209, count = 2} -- club ring
+        }
+    }, -- hadge hammer
+    [5894] = {
+        cost = 25000,
+        materials = {
+            {id = 5536, count = 1}, -- club of dorion
+            {id = 2209, count = 5}, -- club ring
+            {id = 2678, count = 12} -- coconut
+        }
+    }, -- Sapphire Axe
+    [5897] = {
+        cost = 70000,
+        materials = {
+            {id = 2209, count = 12}, -- club ring
+            {id = 2678, count = 10}, -- coconut
+            {id = 2237, count = 10}, -- dirty cape
+            {id = 2220, count = 10} -- dirty fur
+        }
+    }, -- squarearth hammer
+    [5901] = {
+        cost = 1800,
+        materials = {
+            {id = 2209, count = 1}, -- club ring
+            {id = 2678, count = 2} -- coconut
+        }
+    }, -- Quara Sceptre
     [5902] = {disabled = true}, -- Destroyer Club
-    [7916] = {cost = 16450} -- golden war hammer (loot)
+    [7916] = {
+        cost = 5000000,
+        materials = {
+            {id = 2112, count = 1}, -- teddy bear
+            {id = 2209, count = 100}, -- club ring
+            {id = 2678, count = 50}, -- coconut
+            {id = 2237, count = 50}, -- dirty cape
+            {id = 2220, count = 50}, -- dirty fur
+            {id = 2110, count = 50} -- doll
+        }
+    } -- golden war hammer
 }
 
--- Manual distance filters/costs.
+-- Manual distance filters/recipes.
 -- Rules:
 -- 1) Remove from crafting every distance weapon obtainable via monster loot or quest reward.
--- 2) Keep craft-only distance weapons with cost only (recipes will be added later).
+-- 2) Keep craft-only distance weapons with custom recipes and costs.
 local distanceOverrides = {
     [1294] = {disabled = true}, -- small stone (loot)
     [2111] = {disabled = true}, -- snowball (loot)
@@ -350,14 +463,71 @@ local distanceOverrides = {
     [2410] = {disabled = true}, -- throwing knife (loot)
     [2455] = {disabled = true}, -- crossbow (loot/quest)
     [2456] = {disabled = true}, -- bow (loot/quest)
-    [5754] = {cost = 1250}, -- arbalest
-    [5836] = {cost = 20800}, -- assassin star
-    [5912] = {cost = 4750}, -- modified crossbow
+    [5754] = {
+        cost = 100000,
+        materials = {
+            {id = 2455, count = 10}, -- crossbow
+            {id = 2070, count = 2}, -- flute
+            {id = 1976, count = 2} -- gemmed book
+        }
+    }, -- arbalest
+    [5836] = {
+        cost = 100,
+        materials = {
+            {id = 2399, count = 50} -- throwing star
+        }
+    }, -- assassin star
+    [5912] = {
+        cost = 1000000,
+        materials = {
+            {id = 5754, count = 1}, -- arbalest
+            {id = 2455, count = 20}, -- crossbow
+            {id = 2070, count = 5}, -- flute
+            {id = 1976, count = 5}, -- gemmed book
+            {id = 2760, count = 5} -- goat grass
+        }
+    }, -- modified crossbow
     [5913] = {cost = 2100}, -- royal crossbow
-    [5914] = {cost = 2550}, -- death crossbow
-    [5915] = {cost = 1250}, -- composite hornbow
-    [5916] = {cost = 2100}, -- earth bow
-    [5917] = {cost = 1700} -- ice bow
+    [5914] = {
+        cost = 4000000,
+        materials = {
+            {id = 5912, count = 1}, -- modified crossbow
+            {id = 2455, count = 50}, -- crossbow
+            {id = 2070, count = 25}, -- flute
+            {id = 1976, count = 25}, -- gemmed book
+            {id = 2760, count = 25}, -- goat grass
+            {id = 2033, count = 25} -- golden mug
+        }
+    }, -- death crossbow
+    [5915] = {
+        cost = 100000,
+        materials = {
+            {id = 2456, count = 10}, -- bow
+            {id = 2070, count = 2}, -- flute
+            {id = 1976, count = 2} -- gemmed book
+        }
+    }, -- composite hornbow
+    [5916] = {
+        cost = 3000000,
+        materials = {
+            {id = 5917, count = 1}, -- ice bow
+            {id = 2456, count = 50}, -- bow
+            {id = 2070, count = 25}, -- flute
+            {id = 1976, count = 25}, -- gemmed book
+            {id = 2760, count = 25}, -- goat grass
+            {id = 2033, count = 25} -- golden mug
+        }
+    }, -- earth bow
+    [5917] = {
+        cost = 1000000,
+        materials = {
+            {id = 5915, count = 1}, -- composite hornbow
+            {id = 2456, count = 20}, -- bow
+            {id = 2070, count = 5}, -- flute
+            {id = 1976, count = 5}, -- gemmed book
+            {id = 2760, count = 5} -- goat grass
+        }
+    } -- ice bow
 }
 
 local materialSets = {
@@ -496,8 +666,8 @@ local function generateWeaponsmithCrafts()
 end
 
 local function applyOverrideSet(crafts, overrides)
-    local byId = {}
-    for i = 1, #crafts do
+  local byId = {}
+  for i = 1, #crafts do
         local craft = crafts[i]
         if type(craft) == "table" and craft.id then
             byId[craft.id] = i
@@ -516,7 +686,37 @@ local function applyOverrideSet(crafts, overrides)
                         craft.cost = math.max(0, tonumber(override.cost) or craft.cost)
                     end
 
-                    if override.materials ~= nil then
+                    if override.recipes ~= nil then
+                        local recipes = {}
+                        for recipeIndex = 1, #override.recipes do
+                            local recipe = override.recipes[recipeIndex]
+                            if type(recipe) == "table" then
+                                local recipeData = {
+                                    cost = math.max(0, tonumber(recipe.cost) or tonumber(override.cost) or tonumber(craft.cost) or 0),
+                                    count = math.max(1, tonumber(recipe.count) or tonumber(craft.count) or 1),
+                                    materials = {}
+                                }
+
+                                for materialIndex = 1, #(recipe.materials or {}) do
+                                    local mat = recipe.materials[materialIndex]
+                                    local matId = tonumber(mat.id)
+                                    local matCount = tonumber(mat.count)
+                                    if matId and matId > 0 and matCount and matCount > 0 and itemExists(matId) then
+                                        recipeData.materials[#recipeData.materials + 1] = {id = matId, count = matCount}
+                                    end
+                                end
+
+                                recipes[#recipes + 1] = recipeData
+                            end
+                        end
+
+                        if #recipes > 0 then
+                            craft.recipes = recipes
+                            craft.cost = recipes[1].cost
+                            craft.count = recipes[1].count
+                            craft.materials = recipes[1].materials
+                        end
+                    elseif override.materials ~= nil then
                         local mats = {}
                         for i = 1, #override.materials do
                             local mat = override.materials[i]
@@ -527,6 +727,7 @@ local function applyOverrideSet(crafts, overrides)
                             end
                         end
                         craft.materials = mats
+                        craft.recipes = nil
                     end
                 end
             end
