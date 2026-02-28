@@ -375,6 +375,69 @@ local function buildCraftSummary(itemType)
   return ""
 end
 
+local craftProtectionNames = {
+  [COMBAT_PHYSICALDAMAGE] = "Physical Protection",
+  [COMBAT_ENERGYDAMAGE] = "Energy Protection",
+  [COMBAT_EARTHDAMAGE] = "Earth Protection",
+  [COMBAT_FIREDAMAGE] = "Fire Protection",
+  [COMBAT_LIFEDRAIN] = "Lifedrain Protection",
+  [COMBAT_MANADRAIN] = "Manadrain Protection",
+  [COMBAT_HEALING] = "Healing Protection",
+  [COMBAT_DROWNDAMAGE] = "Drown Protection",
+  [COMBAT_ICEDAMAGE] = "Ice Protection",
+  [COMBAT_HOLYDAMAGE] = "Holy Protection",
+  [COMBAT_DEATHDAMAGE] = "Death Protection"
+}
+
+local craftElementNames = {
+  [COMBAT_PHYSICALDAMAGE] = "Physical",
+  [COMBAT_ENERGYDAMAGE] = "Energy",
+  [COMBAT_EARTHDAMAGE] = "Earth",
+  [COMBAT_FIREDAMAGE] = "Fire",
+  [COMBAT_LIFEDRAIN] = "Lifedrain",
+  [COMBAT_MANADRAIN] = "Manadrain",
+  [COMBAT_HEALING] = "Healing",
+  [COMBAT_DROWNDAMAGE] = "Drown",
+  [COMBAT_ICEDAMAGE] = "Ice",
+  [COMBAT_HOLYDAMAGE] = "Holy",
+  [COMBAT_DEATHDAMAGE] = "Death"
+}
+
+local craftSkillBonuses = {}
+local craftStatBonuses = {}
+local craftSpecialBonuses = {}
+
+local function addCraftBonusDef(target, id, name, percent)
+  if id ~= nil then
+    target[#target + 1] = {id = id, name = name, percent = percent == true}
+  end
+end
+
+addCraftBonusDef(craftSkillBonuses, SKILL_FIST, "Fist Fighting")
+addCraftBonusDef(craftSkillBonuses, SKILL_SWORD, "Sword Fighting")
+addCraftBonusDef(craftSkillBonuses, SKILL_AXE, "Axe Fighting")
+addCraftBonusDef(craftSkillBonuses, SKILL_CLUB, "Club Fighting")
+addCraftBonusDef(craftSkillBonuses, SKILL_DISTANCE, "Distance Fighting")
+addCraftBonusDef(craftSkillBonuses, SKILL_SHIELD, "Shielding")
+addCraftBonusDef(craftSkillBonuses, SKILL_FISHING, "Fishing")
+
+addCraftBonusDef(craftStatBonuses, STAT_MAGICPOINTS, "Magic Level")
+addCraftBonusDef(craftStatBonuses, STAT_MAXHITPOINTS, "Max HP")
+addCraftBonusDef(craftStatBonuses, STAT_MAXMANAPOINTS, "Max Mana")
+
+addCraftBonusDef(craftSpecialBonuses, SPECIALSKILL_CRITICALHITCHANCE, "Critical Chance", true)
+addCraftBonusDef(craftSpecialBonuses, SPECIALSKILL_CRITICALHITAMOUNT, "Critical Damage", true)
+addCraftBonusDef(craftSpecialBonuses, SPECIALSKILL_LIFELEECHCHANCE, "Life Leech Chance", true)
+addCraftBonusDef(craftSpecialBonuses, SPECIALSKILL_LIFELEECHAMOUNT, "Life Leech", true)
+addCraftBonusDef(craftSpecialBonuses, SPECIALSKILL_MANALEECHCHANCE, "Mana Leech Chance", true)
+addCraftBonusDef(craftSpecialBonuses, SPECIALSKILL_MANALEECHAMOUNT, "Mana Leech", true)
+
+local function formatSigned(value, suffix)
+  local n = tonumber(value) or 0
+  local sign = n > 0 and "+" or ""
+  return sign .. tostring(n) .. (suffix or "")
+end
+
 local function buildCraftTooltip(itemType, craft)
   if not itemType or itemType:getId() == 0 then
     return nil
@@ -416,6 +479,103 @@ local function buildCraftTooltip(itemType, craft)
   local shootRange = itemType:getShootRange()
   if shootRange and shootRange > 1 then
     lines[#lines + 1] = "Range: " .. shootRange
+  end
+
+  local bonuses = {}
+
+  local elementType = itemType:getElementType()
+  local elementDamage = itemType:getElementDamage()
+  if elementType and elementType ~= COMBAT_NONE and elementDamage and elementDamage ~= 0 then
+    local elementName = craftElementNames[elementType] or "Elemental"
+    bonuses[#bonuses + 1] = "Element Damage: " .. formatSigned(elementDamage) .. " " .. elementName
+  end
+
+  local allProtection = itemType:getAbsorbPercent(0)
+  if allProtection ~= 0 then
+    for i = 0, COMBAT_COUNT - 1 do
+      if itemType:getAbsorbPercent(i) ~= allProtection then
+        allProtection = 0
+        break
+      end
+    end
+  end
+
+  if allProtection ~= 0 then
+    bonuses[#bonuses + 1] = "All Protection: " .. formatSigned(allProtection, "%")
+  else
+    for i = 0, COMBAT_COUNT - 1 do
+      local value = itemType:getAbsorbPercent(i)
+      if value ~= 0 then
+        local combatType = bit.lshift(1, i)
+        if combatType ~= COMBAT_UNDEFINEDDAMAGE then
+          local protectionName = craftProtectionNames[combatType]
+          if protectionName then
+            bonuses[#bonuses + 1] = protectionName .. ": " .. formatSigned(value, "%")
+          end
+        end
+      end
+    end
+  end
+
+  for i = 1, #craftSkillBonuses do
+    local bonus = craftSkillBonuses[i]
+    local value = itemType:getSkill(bonus.id)
+    if value and value ~= 0 then
+      bonuses[#bonuses + 1] = bonus.name .. ": " .. formatSigned(value)
+    end
+  end
+
+  for i = 1, #craftStatBonuses do
+    local bonus = craftStatBonuses[i]
+    local flatValue = itemType:getStat(bonus.id)
+    if flatValue and flatValue ~= 0 then
+      bonuses[#bonuses + 1] = bonus.name .. ": " .. formatSigned(flatValue)
+    end
+
+    local percentValue = itemType:getStatPercent(bonus.id)
+    if percentValue and percentValue ~= 0 and percentValue ~= 100 then
+      bonuses[#bonuses + 1] = bonus.name .. ": " .. formatSigned(percentValue - 100, "%")
+    end
+  end
+
+  for i = 1, #craftSpecialBonuses do
+    local bonus = craftSpecialBonuses[i]
+    local value = itemType:getSpecialSkill(bonus.id)
+    if value and value ~= 0 then
+      bonuses[#bonuses + 1] = bonus.name .. ": " .. formatSigned(value, bonus.percent and "%" or "")
+    end
+  end
+
+  local speed = itemType:getSpeed()
+  if speed and speed ~= 0 then
+    bonuses[#bonuses + 1] = "Movement Speed: " .. formatSigned(speed)
+  end
+
+  local healthGain = itemType:getHealthGain()
+  local healthTicks = itemType:getHealthTicks()
+  if healthGain and healthGain ~= 0 then
+    if healthTicks and healthTicks > 0 then
+      bonuses[#bonuses + 1] = "Health Regen: " .. formatSigned(healthGain) .. " / " .. (healthTicks / 1000) .. "s"
+    else
+      bonuses[#bonuses + 1] = "Health Regen: " .. formatSigned(healthGain)
+    end
+  end
+
+  local manaGain = itemType:getManaGain()
+  local manaTicks = itemType:getManaTicks()
+  if manaGain and manaGain ~= 0 then
+    if manaTicks and manaTicks > 0 then
+      bonuses[#bonuses + 1] = "Mana Regen: " .. formatSigned(manaGain) .. " / " .. (manaTicks / 1000) .. "s"
+    else
+      bonuses[#bonuses + 1] = "Mana Regen: " .. formatSigned(manaGain)
+    end
+  end
+
+  if #bonuses > 0 then
+    lines[#lines + 1] = "Bonuses:"
+    for i = 1, #bonuses do
+      lines[#lines + 1] = "- " .. bonuses[i]
+    end
   end
 
   lines[#lines + 1] = "Craft Cost: " .. craft.cost .. " gp"
@@ -573,6 +733,8 @@ function Crafting:sendCrafts(player, category)
 
     local itemType = ItemType(craft.id)
     craft.clientId = itemType:getClientId()
+    craft.attack = itemType:getAttack()
+    craft.twoHanded = itemType:isTwoHanded()
     craft.tooltip = buildCraftTooltip(itemType, craft)
     craft.summary = buildCraftSummary(itemType)
     if category == "enchanter" and craft.enchantId then

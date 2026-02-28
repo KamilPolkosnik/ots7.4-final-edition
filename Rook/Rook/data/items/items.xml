@@ -5071,7 +5071,6 @@
 	<item id="2123" article="a" name="ring of the sky">
 		<attribute key="weight" value="40"/>
 		<attribute key="slotType" value="ring"/>
-		<attribute key="skillShield" value="5"/>
 	</item>
 	<item id="2124" article="a" name="crystal ring">
 		<attribute key="weight" value="90"/>
@@ -5955,8 +5954,9 @@
 	</item>
 	<item id="2323" article="a" name="hat of the mad">
 		<attribute key="weight" value="805"/>
-		<attribute key="armor" value="1"/>
-		<attribute key="slotType" value="head"/>	
+		<attribute key="armor" value="3"/>
+		<attribute key="slotType" value="head"/>
+				<attribute key="magiclevelpoints" value="1" />
 	</item>
 	<item id="2324" article="a" name="witchesbroom">
 		<attribute key="weight" value="1100"/>
@@ -6071,6 +6071,8 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="ammoType" value="bolt"/>
 		<attribute key="skillDist" value="2"/>
+				<attribute key="hitChance" value="5"/>
+		<attribute key="attack" value="7"/>
 		<attribute key="range" value="8"/>
 	</item>
 	<item id="2351" article="a" name="cobrafang dagger">
@@ -6105,11 +6107,11 @@
 			<attribute key="description" value="You feel the energy of this mighty ring!"/>
 		<attribute key="weight" value="90"/>
 		<attribute key="slotType" value="ring"/>
-				<attribute key="skillDist" value="20"/>
-				<attribute key="skillSword" value="20"/>
-				<attribute key="skillAxe" value="20"/>
-				<attribute key="skillClub" value="20"/>
-				<attribute key="skillFist" value="20"/>
+				<attribute key="skillDist" value="3"/>
+				<attribute key="skillSword" value="3"/>
+				<attribute key="skillAxe" value="3"/>
+				<attribute key="skillClub" value="3"/>
+				<attribute key="skillFist" value="3"/>
 		<attribute key="decayTo" value="0"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="showduration" value="1"/>
@@ -6287,6 +6289,7 @@
 		<attribute key="weight" value="4200"/>
 		<attribute key="defense" value="40"/>
 		<attribute key="attack" value="55"/>
+		<attribute key="skillSword" value="4"/>
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
 	
@@ -6498,6 +6501,7 @@
 		<attribute key="defense" value="32"/>
 		<attribute key="attack" value="56"/>
 		<attribute key="weaponType" value="axe"/>
+		<attribute key="skillAxe" value="4"/>
 		<attribute key="slotType" value="two-handed"/>
 	
 		<attribute key="tier" value="3"/>
@@ -6934,7 +6938,9 @@
 		<attribute key="weight" value="3200"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="slotType" value="head"/>
+<attribute key="skillShield" value="4"/>
 	</item>
+	
 	<item id="2472" article="a" name="magic plate armor">
 		<attribute key="tier" value="3"/>
 		<attribute key="description" value="An enchanted gem glows on the plate armor."/>
@@ -6955,6 +6961,7 @@
 		<attribute key="armor" value="10"/>
 		<attribute key="speed" value="15"/>
 		<attribute key="slotType" value="head"/>
+				<attribute key="skillDist" value="4"/>
 	</item>
 	<item id="2475" article="a" name="warrior helmet">
 		<attribute key="tier" value="2"/>
@@ -7088,6 +7095,7 @@
 		<attribute key="weight" value="5100"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="head"/>
+		<attribute key="skillShield" value="4"/>
 	</item>
 	<item id="2497" article="a" name="crusader helmet">
 		<attribute key="tier" value="2"/>
@@ -7107,6 +7115,7 @@
 		<attribute key="weight" value="2950"/>
 		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="head"/>
+				<attribute key="skillDist" value="1"/>
 	</item>
 	<item id="2500" article="an" name="amazon armor">
 		<attribute key="tier" value="4"/>
@@ -7126,6 +7135,7 @@
 		<attribute key="weight" value="4200"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="slotType" value="head"/>
+				<attribute key="skillShield" value="1"/>
 	</item>
 	<item id="2503" article="a" name="dwarven armor">
 		<attribute key="tier" value="3"/>
@@ -7153,6 +7163,7 @@
 		<attribute key="weight" value="6000"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="head"/>
+				<attribute key="skillShield" value="2"/>
 	</item>
 	<item id="2507" name="green legs">
 		<attribute key="tier" value="2"/>
@@ -7808,8 +7819,9 @@
 	<item id="2662" article="a" name="magician hat">
 		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="750"/>
-		<attribute key="armor" value="1"/>
+		<attribute key="armor" value="3"/>
 		<attribute key="slotType" value="head"/>
+		<attribute key="magiclevelpoints" value="2"/>
 	</item>
 	<item id="2663" article="a" name="mystic turban">
 		<attribute key="tier" value="1"/>
@@ -15117,6 +15129,7 @@
 		<attribute key="weight" value="3800"/>
 		<attribute key="defense" value="37"/>
 		<attribute key="attack" value="50"/>
+		<attribute key="skillSword" value="2"/>
 		<attribute key="weaponType" value="sword"/>
 	</item>
 	<item id="5536" article="a" name="club of dorion">
@@ -15288,7 +15301,6 @@
 		<attribute key="weight" value="2300"/>
 		<attribute key="defense" value="20"/>
 		<attribute key="attack" value="35"/>
-		<attribute key="elementIce" value="11"/>
 		<attribute key="weaponType" value="sword"/>
 	</item>
 	<item id="5740" name="elemental ashes">
@@ -15365,14 +15377,13 @@
     <attribute key="slotType" value="two-handed" />
     <attribute key="ammoType" value="bolt" />
     <attribute key="range" value="5" />
-<attribute key="skillDist" value="1"/>
 <attribute key="attack" value="3"/>
     </item>
 
 	<item id="5755" article="the" name="avenger">
     <attribute key="weight" value="6400" />
     <attribute key="defense" value="38" />
-    <attribute key="attack" value="55" />
+    <attribute key="attack" value="50" />
     <attribute key="weaponType" value="sword" />
     <attribute key="slotType" value="two-handed" />
     <attribute key="description" value="This holy blade was forged of shattered dreams." />
@@ -15582,6 +15593,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="armor" value="9" />
 		<attribute key="slotType" value="head" />
+				<attribute key="skillShield" value="2"/>
 
 	</item>
 	<item id="5826" article="a" name="zaoan armor">
@@ -15859,7 +15871,6 @@
 		<attribute key="ammoType" value="arrow"/>
 		<attribute key="range" value="5"/>
 		<attribute key="attack" value="3"/>
-		<attribute key="skillDist" value="1"/>
 	</item>
 	
 	<!-- 4th feb biatch-->
@@ -15879,7 +15890,6 @@
 		<attribute key="weight" value="5200"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="attack" value="40"/>
-		<attribute key="elementIce" value="15"/>
 		<attribute key="weaponType" value="club"/>
 	</item>
 	
@@ -15888,7 +15898,6 @@
 		<attribute key="weight" value="7700"/>
 		<attribute key="defense" value="40"/>
 		<attribute key="attack" value="47"/>
-		<attribute key="elementDeath" value="15"/>
 		<attribute key="weaponType" value="club"/>
 	</item>
 		
@@ -15905,7 +15914,6 @@
 	<attribute key="description" value="You feel the thorn of earth"/>
 	<attack key="weight" value="9000"/>
 	<attack key="defense" value="40"/>
-	<attack key="elementEarth" value="13"/>
 	<attack key="attack" value="43"/>
 	<attribute key="weaponType" value="club"/>
 	</item>	
@@ -15915,7 +15923,6 @@
 	<attribute key="description" value="Weapon of the lost"/>
 	<attack key="weight" value="5000"/>
 	<attack key="defense" value="30"/>
-	<attack key="elementDeath" value="6"/>
 	<attack key="attack" value="40"/>
 	<attribute key="weaponType" value="club"/>
 	</item>
@@ -15926,7 +15933,6 @@
 	<attribute key="description" value="Sapphire within this hammer shines bright."/>
 	<attack key="weight" value="3300"/>
 	<attack key="defense" value="25"/>
-	<attack key="elementHoly" value="10"/>
 	<attack key="attack" value="35"/>
 	<attribute key="weaponType" value="club"/>
 	</item>
@@ -15938,8 +15944,8 @@
 	<attribute key="description" value="Its half hammer half emerald rock"/>
 	<attack key="weight" value="8200"/>
 	<attack key="defense" value="35"/>
-	<attack key="elementEarth" value="10"/>
-	<attack key="attack" value="60"/>
+	<attack key="attack" value="53"/>
+	<attribute key="skillClub" value="2"/>
 	<attribute key="weaponType" value="club"/>
 	</item>
 	
@@ -15947,7 +15953,6 @@
 	<attribute key="description" value="Sword made from bloods of ice dragons"/>
 	<attack key="weight" value="4100"/>
 	<attack key="defense" value="33"/>
-	<attack key="elementIce" value="8"/>
 	<attack key="attack" value="38"/>
 	<attribute key="weaponType" value="sword"/>
 	</item>
@@ -15956,7 +15961,6 @@
 	<attribute key="description" value="Soul of a demon rests inside this axe."/>
 	<attack key="weight" value="4200"/>
 	<attack key="defense" value="35"/>
-	<attack key="elementDeath" value="10"/>
 	<attack key="attack" value="50"/>
 	<attribute key="weaponType" value="axe"/>
 	</item>
@@ -15967,7 +15971,6 @@
 	<attribute key="description" value="This Sceptre feels like water while holding."/>
 	<attack key="weight" value="1200"/>
 	<attack key="defense" value="20"/>
-	<attack key="elementIce" value="10"/>
 	<attack key="attack" value="26"/>
 	<attribute key="weaponType" value="club"/>
 	</item>
@@ -16005,7 +16008,8 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="ammoType" value="bolt"/>
-		<attribute key="range" value="5"/>
+		<attribute key="range" value="6"/>
+				<attribute key="attack" value="4"/>
 		<attribute key="hitChance" value="1"/>
 	</item>
 
@@ -16015,7 +16019,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="ammoType" value="bolt"/>
-		<attribute key="range" value="5"/>
+		<attribute key="range" value="8"/>
 		<attribute key="hitChance" value="3"/>
 		<attribute key="attack" value="5"/>
 	</item>
@@ -16027,10 +16031,10 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="ammoType" value="bolt"/>
-		<attribute key="range" value="5"/>
+		<attribute key="range" value="7"/>
 		<attribute key="hitChance" value="3"/>
+		<attribute key="skillDist" value="4"/>
 		<attribute key="attack" value="6"/>
-		<attribute key="elementDeath" value="6"/>
 	</item>
 	
 	
@@ -16038,7 +16042,6 @@
 		<attribute key="weight" value="3000"/>
 		<attribute key="defense" value="25"/>
 		<attribute key="attack" value="43"/>
-		<attribute key="elementHoly" value="6"/>
 		<attribute key="weaponType" value="sword"/>
 	</item>
 	
@@ -16064,9 +16067,10 @@
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="ammoType" value="arrow"/>
-		<attribute key="elementEarth" value="5"/>
 		<attribute key="attack" value="5"/>
-		<attribute key="range" value="5"/>
+		<attribute key="hitChance" value="3"/>
+		<attribute key="skillDist" value="3"/>
+		<attribute key="range" value="7"/>
 	</item>
 	
 	<item id="5917" article="a" name="ice bow">
@@ -16075,31 +16079,29 @@
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="ammoType" value="arrow"/>
-		<attribute key="elementIce" value="2"/>
 		<attribute key="attack" value="4"/>
-		<attribute key="range" value="5"/>
+				<attribute key="hitChance" value="1"/>
+		<attribute key="range" value="6"/>
 	</item>
 	<item id="5890" article="a" name="Phonic Axe">
 		<attribute key="weight" value="5400"/>
 		<attribute key="weaponType" value="axe"/>
-		<attribute key="elementDeath" value="5"/>
 		<attribute key="attack" value="54"/>
+	    <attribute key="skillAxe" value="2"/>
 		<attribute key="defense" value="36"/>
 		</item>
 		
 		<item id="5893" article="a" name="Vampiric Axe">
 		<attribute key="weight" value="5400"/>
 		<attribute key="weaponType" value="axe"/>
-		<attribute key="elementDeath" value="8"/>
 		<attribute key="attack" value="50"/>
 		<attribute key="defense" value="33"/>
 		</item>
 	
 		
-		<item id="5894" article="a" name="Sapphire Ace">
+		<item id="5894" article="a" name="Sapphire Axe">
 		<attribute key="weight" value="5400"/>
 		<attribute key="weaponType" value="club"/>
-		<attribute key="elementIce" value="12"/>
 		<attribute key="attack" value="40"/>
 		<attribute key="defense" value="26"/>
 		</item>
@@ -16704,7 +16706,8 @@
 		<attribute key="tier" value="4"/>
 		<attribute key="description" value="It is the proof that Ferumbras has fallen. For now. The Edron Academy should be interested in this."/>
 		<attribute key="weight" value="850"/>
-		<attribute key="armor" value="1"/>
+		<attribute key="armor" value="9"/>
+				<attribute key="magiclevelpoints" value="4" />
 		<attribute key="slotType" value="head"/>
 	</item>
 	
@@ -16962,6 +16965,7 @@
 		<attribute key="weight" value="8500"/>
 		<attribute key="defense" value="10"/>
 		<attribute key="attack" value="52"/>
+		<attribute key="skillClub" value="4"/>
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
 	</item>
@@ -16988,32 +16992,37 @@
 	</item>
 	<item id="7956" article="a" name="small quiver">
 		<attribute key="type" value="container"/>
-		<attribute key="containerSize" value="5"/>
+		<attribute key="containerSize" value="4"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="1"/>
+				<attribute key="defense" value="5"/>
 	</item>
 	<item id="7957" article="a" name="quiver">
 		<attribute key="type" value="container"/>
-		<attribute key="containerSize" value="8"/>
+		<attribute key="containerSize" value="5"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="2"/>
+				<attribute key="defense" value="6"/>
 	</item>
 	<item id="7958" article="a" name="red quiver">
 		<attribute key="type" value="container"/>
-		<attribute key="containerSize" value="10"/>
+		<attribute key="containerSize" value="6"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="2"/>
+				<attribute key="defense" value="10"/>
 	</item>
 	<item id="7959" article="a" name="jungle quiver">
 		<attribute key="type" value="container"/>
-		<attribute key="containerSize" value="10"/>
+		<attribute key="containerSize" value="7"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="3"/>
+				<attribute key="defense" value="12"/>
 	</item>
 	<item id="7960" article="an" name="alicorn quiver">
 		<attribute key="type" value="container"/>
-		<attribute key="containerSize" value="10"/>
+		<attribute key="containerSize" value="8"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="4"/>
+				<attribute key="defense" value="15"/>
 	</item>
 </items>

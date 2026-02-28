@@ -376,7 +376,7 @@ function buildItemTooltip(item)
       type == "Ammunition"
    then
     firstText = "Attack: " .. first
-  elseif type == "Shield" then
+  elseif type == "Shield" or type == "Quiver" then
     firstText = "Defense: " .. second
   end
 
@@ -396,7 +396,7 @@ function buildItemTooltip(item)
       addString("Required Level " .. reqLvl, Colors.ItemLevel)
   end
 
-  if (firstText and (type == "Shield" or type == "Ring" or type == "Necklace")) or (first ~= 0 and second == 0 and third == 0) then
+  if (firstText and (type == "Shield" or type == "Quiver" or type == "Ring" or type == "Necklace")) or (first ~= 0 and second == 0 and third == 0) then
     addSeparator()
     addEmpty(5)
     addString(firstText, Colors.Default)

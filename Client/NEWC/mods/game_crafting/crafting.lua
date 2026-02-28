@@ -5,6 +5,7 @@ local categories = nil
 local craftPanel = nil
 local itemsList = nil
 local weaponCategoryPanel = nil
+local weaponHandPanel = nil
 local armorCategoryPanel = nil
 local alchemistCategoryPanel = nil
 local categorySeparator = nil
@@ -20,6 +21,7 @@ local refreshItemsList = nil
 local selectedCategory = nil
 local selectedCraftId = nil
 local selectedWeaponCategory = "axe"
+local selectedWeaponHandFilter = "all"
 local selectedArmorCategory = "helmet"
 local selectedAlchemistCategory = "rings"
 local Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {}, jeweller = {}}
@@ -311,6 +313,7 @@ function create()
   craftPanel = window:getChildById("craftPanel")
   itemsList = window:getChildById("itemsList")
   weaponCategoryPanel = window:getChildById("weaponCategoryPanel")
+  weaponHandPanel = window:getChildById("weaponHandPanel")
   armorCategoryPanel = window:getChildById("armorCategoryPanel")
   alchemistCategoryPanel = window:getChildById("alchemistCategoryPanel")
   categorySeparator = window:getChildById("categorySeparator")
@@ -362,6 +365,7 @@ function destroy()
     craftPanel = nil
     itemsList = nil
     weaponCategoryPanel = nil
+    weaponHandPanel = nil
     armorCategoryPanel = nil
     alchemistCategoryPanel = nil
     categorySeparator = nil
@@ -376,6 +380,7 @@ function destroy()
     selectedCategory = nil
     selectedCraftId = nil
     selectedWeaponCategory = "axe"
+    selectedWeaponHandFilter = "all"
     selectedArmorCategory = "helmet"
     selectedAlchemistCategory = "rings"
     Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {}, jeweller = {}}
@@ -559,6 +564,43 @@ local function getWeaponGroup(craft)
   return "others"
 end
 
+local function isTwoHandedCraft(craft)
+  if not craft then
+    return false
+  end
+
+  local twoHanded = craft.twoHanded
+  if twoHanded == true or twoHanded == 1 then
+    return true
+  end
+
+  if type(twoHanded) == "string" then
+    local v = twoHanded:lower()
+    return v == "true" or v == "1" or v == "yes"
+  end
+
+  return false
+end
+
+local function getCraftAttackValue(craft)
+  if not craft then
+    return 0
+  end
+
+  local direct = tonumber(craft.attack)
+  if direct then
+    return direct
+  end
+
+  local summary = tostring(craft.summary or "")
+  local fromSummary = tonumber(summary:match("Atk%s+([%-]?%d+)"))
+  if fromSummary then
+    return fromSummary
+  end
+
+  return 0
+end
+
 local function updateWeaponCategoryButtons()
   if not weaponCategoryPanel then
     return
@@ -576,6 +618,25 @@ local function updateWeaponCategoryButtons()
     local button = weaponCategoryPanel:getChildById(widgetId)
     if button then
       button:setOn(key == selectedWeaponCategory)
+    end
+  end
+end
+
+local function updateWeaponHandButtons()
+  if not weaponHandPanel then
+    return
+  end
+
+  local map = {
+    all = "weaponHandAll",
+    one = "weaponHandOne",
+    two = "weaponHandTwo"
+  }
+
+  for key, widgetId in pairs(map) do
+    local button = weaponHandPanel:getChildById(widgetId)
+    if button then
+      button:setOn(key == selectedWeaponHandFilter)
     end
   end
 end
@@ -677,7 +738,7 @@ local function resetCraftDetails()
 end
 
 local function updateCategoryLayout()
-  if not weaponCategoryPanel or not armorCategoryPanel or not alchemistCategoryPanel then
+  if not weaponCategoryPanel or not weaponHandPanel or not armorCategoryPanel or not alchemistCategoryPanel then
     return
   end
 
@@ -688,11 +749,16 @@ local function updateCategoryLayout()
   local hasSubcategory = showWeapon or showArmor or showAlchemist
 
   weaponCategoryPanel:setVisible(showWeapon)
+  weaponHandPanel:setVisible(showWeapon)
   armorCategoryPanel:setVisible(showArmor)
   alchemistCategoryPanel:setVisible(showAlchemist)
 
   if categorySeparator then
-    categorySeparator:setMarginTop(hasSubcategory and 40 or 10)
+    if showWeapon then
+      categorySeparator:setMarginTop(68)
+    else
+      categorySeparator:setMarginTop(hasSubcategory and 40 or 10)
+    end
   end
 
   if enchantTargetPanel then
@@ -731,6 +797,11 @@ function refreshItemsList()
     local visible = true
     if selectedCategory == "weaponsmith" then
       visible = getWeaponGroup(craft) == selectedWeaponCategory
+      if visible and selectedWeaponHandFilter == "one" then
+        visible = not isTwoHandedCraft(craft)
+      elseif visible and selectedWeaponHandFilter == "two" then
+        visible = isTwoHandedCraft(craft)
+      end
     elseif selectedCategory == "armorsmith" then
       visible = getArmorGroup(craft) == selectedArmorCategory
     elseif selectedCategory == "alchemist" then
@@ -751,6 +822,14 @@ function refreshItemsList()
   table.sort(
     sortedCrafts,
     function(a, b)
+      if selectedCategory == "weaponsmith" then
+        local attackA = getCraftAttackValue(a.craft)
+        local attackB = getCraftAttackValue(b.craft)
+        if attackA ~= attackB then
+          return attackA < attackB
+        end
+      end
+
       local levelA = tonumber(a.craft.level) or 0
       local levelB = tonumber(b.craft.level) or 0
       if levelA ~= levelB then
@@ -836,6 +915,19 @@ function selectWeaponCategory(category)
   end
 end
 
+function selectWeaponHandFilter(filter)
+  local value = tostring(filter or "all"):lower()
+  if value ~= "one" and value ~= "two" then
+    value = "all"
+  end
+
+  selectedWeaponHandFilter = value
+  updateWeaponHandButtons()
+  if selectedCategory == "weaponsmith" then
+    refreshItemsList()
+  end
+end
+
 function selectArmorCategory(category)
   selectedArmorCategory = category or "helmet"
   updateArmorCategoryButtons()
@@ -868,6 +960,9 @@ function selectCategory(category)
     if weaponCategoryPanel then
       weaponCategoryPanel:setVisible(selectedCategory == "weaponsmith")
     end
+    if weaponHandPanel then
+      weaponHandPanel:setVisible(selectedCategory == "weaponsmith")
+    end
     if armorCategoryPanel then
       armorCategoryPanel:setVisible(selectedCategory == "armorsmith")
     end
@@ -876,6 +971,7 @@ function selectCategory(category)
     end
     updateCategoryLayout()
     updateWeaponCategoryButtons()
+    updateWeaponHandButtons()
     updateArmorCategoryButtons()
     updateAlchemistCategoryButtons()
     refreshItemsList()

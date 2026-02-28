@@ -12,171 +12,160 @@ local function itemExists(itemId)
     return it and it:getId() ~= 0 and it:getClientId() > 0
 end
 
--- Manual axe recipes from weapon_recipe_source_report.txt (lines 1-118).
--- Only these axe ids are overridden; all other weapons keep auto-generated data.
+-- Manual axe filters/costs.
+-- Rules:
+-- 1) Remove from crafting every axe obtainable via monster loot or quest reward.
+-- 2) Keep craft-only axes with cost only (recipes will be added later).
 local axeOverrides = {
-    [2405] = {cost = 5, materials = {}}, -- sickle
-    [2550] = {cost = 5, materials = {{id = 2405, count = 1}}}, -- scythe
-    [2380] = {cost = 5, materials = {{id = 2696, count = 10}}}, -- hand axe
-    [2386] = {cost = 15, materials = {{id = 2696, count = 15}}}, -- axe
-    [2418] = {cost = 900, materials = {{id = 2405, count = 1}, {id = 2033, count = 1}}}, -- golden sickle
-    [2388] = {cost = 70, materials = {{id = 2386, count = 1}, {id = 2230, count = 10}}}, -- hatchet
-    [2441] = {cost = 100, materials = {{id = 2388, count = 1}, {id = 2230, count = 25}}}, -- daramanian axe
-    [2428] = {cost = 250, materials = {{id = 2441, count = 1}, {id = 2468, count = 1}}}, -- orcish axe
-    [3964] = {cost = 200, materials = {{id = 2237, count = 1}}}, -- ripper lance
-    [2378] = {cost = 200, materials = {{id = 2428, count = 1}}}, -- battle axe
-    [3962] = {cost = 5000, materials = {{id = 2231, count = 1}, {id = 2430, count = 1}}}, -- beastslayer axe
-    [2435] = {cost = 2000, materials = {{id = 2429, count = 1}, {id = 3956, count = 3}}}, -- dwarven axe
-    [2425] = {cost = 400, materials = {{id = 3964, count = 1}}}, -- obsidian lance
-    [2387] = {cost = 200, materials = {{id = 2378, count = 1}, {id = 2513, count = 1}}}, -- double axe
-    [2430] = {cost = 3000, materials = {{id = 2429, count = 1}, {id = 2144, count = 5}}}, -- knight axe
-    [2381] = {cost = 300, materials = {{id = 2387, count = 1}}}, -- halberd
-    [2432] = {cost = 5000, materials = {{id = 2430, count = 1}, {id = 2147, count = 10}}}, -- fire axe
-    [5537] = {cost = 6000, materials = {{id = 2432, count = 1}, {id = 2145, count = 10}}}, -- axe of donarion
-    [2440] = {cost = 1000, materials = {{id = 2381, count = 10}}}, -- daramanian waraxe
-    [2427] = {cost = 7000, materials = {{id = 2440, count = 5}, {id = 2381, count = 5}}}, -- guardian halberd
-    [2426] = {cost = 1800, materials = {{id = 2425, count = 6}}}, -- naginata
-    [2414] = {cost = 8000, materials = {{id = 2426, count = 1}, {id = 2427, count = 1}, {id = 2381, count = 4}}}, -- dragon lance
-    [2443] = {cost = 100000, materials = {{id = 2432, count = 10}, {id = 2231, count = 10}, {id = 2466, count = 1}}}, -- ravager's axe
-    [2454] = {cost = 25000, materials = {{id = 2414, count = 1}, {id = 2150, count = 50}}}, -- war axe
-    [2431] = {cost = 250000, materials = {{id = 2443, count = 1}, {id = 2645, count = 1}, {id = 2348, count = 15}}}, -- stonecutter axe
-    [5890] = {cost = 2000000, materials = {{id = 2431, count = 3}, {id = 2158, count = 10}, {id = 7872, count = 5}, {id = 2745, count = 20}, {id = 2349, count = 20}, {id = 6437, count = 1}}}, -- phonic axe
-    [2415] = {cost = 5000000, materials = {{id = 2431, count = 2}, {id = 2193, count = 50}, {id = 3955, count = 50}, {id = 2472, count = 5}, {id = 2470, count = 10}, {id = 2514, count = 10}}}, -- great axe
-    [5903] = {disabled = true}, -- thornfang axe
-    [5923] = {disabled = true}, -- thornfang axe (variant)
-    [2447] = {disabled = true}, -- twin axe
-    [5904] = {disabled = true}, -- royal axe
-    [5893] = {disabled = true} -- vampiric axe
+    [2378] = {disabled = true}, -- battle axe (loot/quest)
+    [2380] = {disabled = true}, -- hand axe (loot)
+    [2381] = {disabled = true}, -- halberd (loot/quest)
+    [2386] = {disabled = true}, -- axe (loot)
+    [2387] = {disabled = true}, -- double axe (loot)
+    [2388] = {disabled = true}, -- hatchet (loot/quest)
+    [2405] = {disabled = true}, -- sickle (loot)
+    [2414] = {disabled = true}, -- dragon lance (loot/quest)
+    [2415] = {cost = 30300}, -- great axe
+    [2418] = {disabled = true}, -- golden sickle (loot)
+    [2425] = {disabled = true}, -- obsidian lance (loot/quest)
+    [2426] = {cost = 30300}, -- naginata (loot/quest)
+    [2427] = {disabled = true}, -- guardian halberd (quest)
+    [2428] = {disabled = true}, -- orcish axe (loot/quest)
+    [2429] = {disabled = true}, -- barbarian axe (loot/quest)
+    [2430] = {disabled = true}, -- knight axe (loot/quest)
+    [2431] = {cost = 30300}, -- stonecutter axe (quest)
+    [2432] = {disabled = true}, -- fire axe (loot/quest)
+    [2435] = {disabled = true}, -- dwarven axe (quest)
+    [2440] = {disabled = true}, -- daramanian waraxe (loot)
+    [2441] = {cost = 6700}, -- daramanian axe
+    [2443] = {cost = 30300}, -- ravager's axe (loot/quest)
+    [2447] = {cost = 30300}, -- twin axe (loot)
+    [2454] = {cost = 25100}, -- war axe
+    [2550] = {disabled = true}, -- scythe
+    [3962] = {cost = 14100}, -- beastslayer axe
+    [3964] = {disabled = true}, -- ripper lance (loot)
+    [3965] = {disabled = true}, -- hunting spear (loot)
+    [5537] = {cost = 16000}, -- axe of donarion
+    [5890] = {cost = 23600}, -- phonic axe
+    [5893] = {disabled = true}, -- vampiric axe
+    [5903] = {cost = 5700}, -- thornfang axe
+    [5904] = {cost = 19900}, -- royal axe
+    [5923] = {cost = 4350} -- thornfang axe (variant)
 }
 
--- Manual sword recipes from weapon_recipe_source_report.txt (up to line 148).
+-- Manual sword filters/costs.
+-- Rules:
+-- 1) Remove from crafting every sword obtainable via monster loot or quest reward.
+-- 2) Keep craft-only swords with cost only (recipes will be added later).
 local swordOverrides = {
-    [2403] = {cost = 5, materials = {}}, -- knife
-    [2404] = {cost = 5, materials = {{id = 2403, count = 1}}}, -- combat knife
-    [2379] = {cost = 5, materials = {{id = 2696, count = 10}}}, -- dagger
-    [2402] = {cost = 900, materials = {{id = 2379, count = 1}, {id = 2033, count = 1}}}, -- silver dagger
-    [2384] = {cost = 10, materials = {{id = 2666, count = 3}, {id = 2671, count = 3}}}, -- rapier
-    [2406] = {cost = 10, materials = {{id = 2512, count = 1}}}, -- short sword
-    [2420] = {disabled = true}, -- machete
-    [2385] = {cost = 30, materials = {{id = 2406, count = 1}}}, -- sabre
-    [2450] = {cost = 40, materials = {{id = 2385, count = 1}, {id = 2230, count = 10}}}, -- bone sword
-    [2376] = {cost = 70, materials = {{id = 2385, count = 1}, {id = 2230, count = 15}}}, -- sword
-    [2395] = {disabled = true}, -- carlin sword
-    [2442] = {cost = 50, materials = {{id = 2420, count = 1}, {id = 2376, count = 1}}}, -- heavy machete
-    [2411] = {cost = 40, materials = {{id = 2379, count = 1}, {id = 2149, count = 3}}}, -- poison dagger
-    [2412] = {cost = 40, materials = {{id = 3976, count = 100}, {id = 2376, count = 1}}}, -- katana
-    [2397] = {cost = 120, materials = {{id = 2412, count = 1}, {id = 2674, count = 5}}}, -- longsword
-    [2419] = {cost = 100, materials = {{id = 2482, count = 3}, {id = 2397, count = 1}}}, -- scimitar
-    [3963] = {cost = 250, materials = {{id = 2406, count = 10}, {id = 2419, count = 1}}}, -- templar scytheblade
-    [2383] = {cost = 600, materials = {{id = 2419, count = 2}, {id = 2412, count = 5}}}, -- spike sword
-    [2409] = {cost = 800, materials = {{id = 2174, count = 1}, {id = 2383, count = 1}}}, -- serpent sword
-    [2413] = {cost = 200, materials = {{id = 2672, count = 5}}}, -- broad sword
-    [5905] = {cost = 2000, materials = {{id = 3955, count = 1}, {id = 2409, count = 1}}}, -- wyvern fang
-    [2392] = {cost = 2800, materials = {{id = 2409, count = 1}, {id = 2383, count = 1}, {id = 2147, count = 5}}}, -- fire sword
-    [2377] = {cost = 800, materials = {{id = 2413, count = 1}}}, -- two handed sword
-    [5739] = {disabled = true}, -- ice sword (quest)
-    [2438] = {cost = 7000, materials = {{id = 5905, count = 2}, {id = 2245, count = 5}}}, -- epee
-    [2451] = {cost = 8000, materials = {{id = 2392, count = 1}, {id = 2144, count = 10}, {id = 2147, count = 5}, {id = 2149, count = 5}, {id = 2146, count = 5}}}, -- djinn blade
-    [2407] = {cost = 5000, materials = {{id = 5905, count = 1}, {id = 2151, count = 5}}}, -- bright sword
-    [5906] = {cost = 7000, materials = {{id = 2377, count = 10}, {id = 2804, count = 10}, {id = 2144, count = 3}}}, -- blacksteel sword
-    [2393] = {cost = 8000, materials = {{id = 5906, count = 1}, {id = 2377, count = 5}}}, -- giant sword
-    [5898] = {cost = 8000, materials = {{id = 2396, count = 3}, {id = 2158, count = 1}}}, -- ice blade
-    [2396] = {cost = 2000, materials = {{id = 2384, count = 1}, {id = 2349, count = 1}}}, -- ice rapier
-    [2446] = {cost = 8000, materials = {{id = 2451, count = 1}, {id = 2144, count = 10}, {id = 2147, count = 10}, {id = 2149, count = 10}, {id = 2146, count = 10}}}, -- pharaoh sword
-    [2400] = {cost = 220000, materials = {{id = 2407, count = 10}, {id = 2033, count = 25}, {id = 1950, count = 10}, {id = 2354, count = 1}}}, -- magic sword
-    [2408] = {cost = 2000000, materials = {{id = 2400, count = 3}, {id = 2062, count = 25}, {id = 1986, count = 20}, {id = 7875, count = 5}, {id = 2154, count = 10}, {id = 2193, count = 15}}}, -- warlord sword
-    [2390] = {cost = 5000000, materials = {{id = 2400, count = 2}, {id = 2472, count = 5}, {id = 2470, count = 10}, {id = 2514, count = 10}, {id = 2070, count = 50}, {id = 2760, count = 50}}}, -- magic longsword
-    [5535] = {disabled = true}, -- sword of furion
-    [5899] = {disabled = true}, -- rune sword
-    [5755] = {disabled = true} -- avenger
+    [2376] = {disabled = true}, -- sword (loot)
+    [2377] = {disabled = true}, -- two handed sword (loot/quest)
+    [2379] = {disabled = true}, -- dagger (loot)
+    [2383] = {disabled = true}, -- spike sword (loot/quest)
+    [2384] = {disabled = true}, -- rapier (loot/quest)
+    [2385] = {disabled = true}, -- sabre (loot)
+    [2390] = {cost = 29500}, -- magic longsword
+    [2392] = {disabled = true}, -- fire sword (loot/quest)
+    [2393] = {disabled = true}, -- giant sword (loot/quest)
+    [2395] = {disabled = true}, -- carlin sword (loot/quest)
+    [2396] = {disabled = true}, -- ice rapier (loot)
+    [2397] = {disabled = true}, -- longsword (loot/quest)
+    [2400] = {cost = 29500}, -- magic sword (quest)
+    [2402] = {disabled = true}, -- silver dagger (loot/quest)
+    [2403] = {disabled = true}, -- knife (loot)
+    [2404] = {disabled = true}, -- combat knife (loot/quest)
+    [2406] = {disabled = true}, -- short sword (loot)
+    [2407] = {disabled = true}, -- bright sword (quest)
+    [2408] = {cost = 28300}, -- warlord sword
+    [2409] = {disabled = true}, -- serpent sword (loot/quest)
+    [2411] = {disabled = true}, -- poison dagger (loot/quest)
+    [2412] = {disabled = true}, -- katana (loot/quest)
+    [2413] = {disabled = true}, -- broad sword (loot/quest)
+    [2419] = {disabled = true}, -- scimitar (loot/quest)
+    [2420] = {disabled = true}, -- machete (loot)
+    [2438] = {cost = 15050}, -- epee
+    [2442] = {disabled = true}, -- heavy machete (loot)
+    [2446] = {cost = 15050}, -- pharaoh sword (loot/quest)
+    [2450] = {disabled = true}, -- bone sword (loot)
+    [2451] = {cost = 15050}, -- djinn blade (loot)
+    [3963] = {disabled = true}, -- templar scytheblade (loot)
+    [5535] = {cost = 21500}, -- sword of furion
+    [5739] = {cost = 15050}, -- ice sword (quest)
+    [5755] = {cost = 29500}, -- avenger
+    [5898] = {cost = 4350}, -- ice blade
+    [5899] = {cost = 17950}, -- rune sword
+    [5905] = {cost = 12700}, -- wyvern fang
+    [5906] = {cost = 5700} -- blacksteel sword
 }
 
--- Manual club recipes from weapon_recipe_source_report.txt (up to line 168).
+-- Manual club filters/costs.
+-- Rules:
+-- 1) Remove from crafting every club obtainable via monster loot or quest reward.
+-- 2) Keep craft-only clubs with cost only (recipes will be added later).
 local clubOverrides = {
-    [2416] = {cost = 500, materials = {}}, -- crowbar
-    [2382] = {cost = 100, materials = {{id = 2416, count = 1}}}, -- club
-    [2448] = {cost = 50, materials = {{id = 2512, count = 1}}}, -- studded club
-    [2401] = {cost = 50, materials = {{id = 2674, count = 5}, {id = 2512, count = 1}}}, -- staff
-    [2449] = {cost = 500, materials = {{id = 2448, count = 1}, {id = 2230, count = 10}}}, -- bone club
-    [5888] = {cost = 5000, materials = {{id = 2434, count = 5}}}, -- death star
-    [5892] = {cost = 10000, materials = {{id = 2525, count = 100}}}, -- hadge hammer
-    [5901] = {cost = 30000, materials = {{id = 2417, count = 30}}}, -- Quara Sceptre
-    [5889] = { -- Spark Hammer = magic longsword recipe
-        cost = 2000000,
-        materials = {
-            {id = 2452, count = 5},
-            {id = 2421, count = 1},
-            {id = 7879, count = 5},
-            {id = 7872, count = 5},
-            {id = 2348, count = 5},
-            {id = 2158, count = 100}
-        }
-    },
-    [5897] = {cost = 50000, materials = {{id = 5536, count = 10}}}, -- squarearth hammer
-    [2398] = {cost = 10, materials = {{id = 2230, count = 10}}}, -- mace
-    [2422] = {disabled = true}, -- iron hammer (remove from craft)
-    [2439] = {cost = 1000, materials = {{id = 2398, count = 2}, {id = 2512, count = 1}, {id = 2230, count = 10}}}, -- daramanian mace
-    [2417] = {cost = 1000, materials = {{id = 2394, count = 1}}}, -- battle hammer
-    [2321] = {disabled = true}, -- giant smithhammer (remove from craft)
-    [3966] = {materials = {{id = 2676, count = 100}, {id = 2394, count = 1}}}, -- banana staff
-    [2394] = {cost = 1000, materials = {{id = 2439, count = 1}, {id = 2512, count = 10}, {id = 2230, count = 10}}}, -- morning star
-    [2423] = {cost = 1000, materials = {{id = 2417, count = 2}, {id = 2439, count = 1}}}, -- clerical mace
-    [2434] = {cost = 5000, materials = {{id = 2423, count = 4}}}, -- dragon hammer
-    [5902] = {cost = 5000, materials = {{id = 2434, count = 5}}}, -- Destroyer Club
-    [2436] = {cost = 10000, materials = {{id = 2229, count = 20}, {id = 2230, count = 10}, {id = 2434, count = 1}}}, -- skull staff
-    [2445] = {cost = 10000, materials = {{id = 2436, count = 1}, {id = 2158, count = 2}}}, -- crystal mace
-    [5536] = {cost = 20000, materials = {{id = 5892, count = 5}}}, -- club of dorion
-    [5885] = {cost = 30000, materials = {{id = 2434, count = 1}, {id = 2391, count = 1}, {id = 2144, count = 10}, {id = 2147, count = 5}, {id = 2149, count = 5}, {id = 2146, count = 20}}}, -- ice flail
-    [5894] = {disabled = true}, -- Sapphire Ace (remove from craft)
-    [2424] = {materials = {{id = 2401, count = 1}, {id = 2391, count = 1}}}, -- silver mace
-    [2433] = {cost = 5000, materials = {{id = 2401, count = 10}, {id = 2417, count = 10}}}, -- enchanted staff
-    [5886] = {cost = 200000, materials = {{id = 2151, count = 100}, {id = 2472, count = 5}, {id = 2398, count = 100}}}, -- abyss club
-    [2444] = {cost = 100000, materials = {{id = 5886, count = 1}, {id = 2151, count = 100}}}, -- hammer of wrath
-    [2421] = { -- thunder hammer = warlord sword recipe
-        cost = 1000000,
-        materials = {
-            {id = 5897, count = 5},
-            {id = 2452, count = 1},
-            {id = 2144, count = 100},
-            {id = 2147, count = 100},
-            {id = 2149, count = 100},
-            {id = 2466, count = 20}
-        }
-    },
-    [2391] = {cost = 5000, materials = {{id = 2229, count = 30}, {id = 2434, count = 1}}}, -- war hammer
-    [2452] = {cost = 200000, materials = {{id = 2444, count = 1}, {id = 2149, count = 10}, {id = 2472, count = 5}}}, -- heavy mace
-    [2453] = {disabled = true}, -- arcane staff (remove from craft)
-    [7916] = {cost = 100000, materials = {{id = 2391, count = 5}, {id = 7876, count = 1}}} -- golden war hammer
+    [2321] = {disabled = true}, -- giant smithhammer (quest)
+    [2382] = {disabled = true}, -- club (loot)
+    [2391] = {disabled = true}, -- war hammer (loot/quest)
+    [2394] = {disabled = true}, -- morning star (loot/quest)
+    [2398] = {disabled = true}, -- mace (loot)
+    [2401] = {disabled = true}, -- staff (loot)
+    [2416] = {disabled = true}, -- crowbar (loot)
+    [2417] = {disabled = true}, -- battle hammer (loot/quest)
+    [2421] = {cost = 16450}, -- thunder hammer (loot)
+    [2422] = {disabled = true}, -- iron hammer (quest)
+    [2423] = {disabled = true}, -- clerical mace (loot)
+    [2424] = {cost = 16450}, -- silver mace
+    [2433] = {disabled = true}, -- enchanted staff
+    [2434] = {disabled = true}, -- dragon hammer (loot/quest)
+    [2436] = {disabled = true}, -- skull staff (loot/quest)
+    [2437] = {cost = 18950}, -- golden mace
+    [2439] = {disabled = true}, -- daramanian mace (loot)
+    [2444] = {disabled = true}, -- hammer of wrath (loot/quest)
+    [2445] = {disabled = true}, -- crystal mace (loot)
+    [2448] = {disabled = true}, -- studded club (loot)
+    [2449] = {disabled = true}, -- bone club (loot)
+    [2452] = {cost = 25700}, -- heavy mace
+    [2453] = {cost = 26350}, -- arcane staff
+    [3966] = {cost = 16450}, -- banana staff (loot)
+    [4846] = {cost = 6700}, -- iron hammer (variant)
+    [5536] = {cost = 16000}, -- club of dorion
+    [5799] = {disabled = true}, -- terra wand
+    [5800] = {disabled = true}, -- fire wand
+    [5801] = {disabled = true}, -- icy wand
+    [5802] = {disabled = true}, -- electric wand (quest)
+    [5885] = {disabled = true}, -- ice flail
+    [5886] = {disabled = true}, -- abyss club
+    [5888] = {disabled = true}, -- death star
+    [5889] = {cost = 4350}, -- Spark Hammer
+    [5892] = {cost = 4350}, -- hadge hammer
+    [5894] = {cost = 16450}, -- Sapphire Axe (loot)
+    [5897] = {cost = 4350}, -- squarearth hammer
+    [5901] = {cost = 4350}, -- Quara Sceptre
+    [5902] = {disabled = true}, -- Destroyer Club
+    [7916] = {cost = 16450} -- golden war hammer (loot)
 }
 
--- Manual distance recipes.
+-- Manual distance filters/costs.
+-- Rules:
+-- 1) Remove from crafting every distance weapon obtainable via monster loot or quest reward.
+-- 2) Keep craft-only distance weapons with cost only (recipes will be added later).
 local distanceOverrides = {
-    [2456] = {cost = 600, materials = {{id = 2544, count = 100}}}, -- bow
-    [2455] = {cost = 600, materials = {{id = 2543, count = 100}}}, -- crossbow
-    [5912] = { -- modified crossbow
-        cost = 10000,
-        materials = {
-            {id = 2455, count = 10},
-            {id = 2456, count = 10},
-            {id = 2151, count = 10},
-            {id = 2389, count = 10},
-            {id = 5836, count = 5},
-            {id = 1294, count = 100}
-        }
-    },
-    [5913] = {disabled = true}, -- royal crossbow
-    [2350] = {disabled = true}, -- royal crossbow (duplicate name variant)
-    [2111] = {disabled = true}, -- snowball
-    [1294] = {disabled = true}, -- small stone
-    [5754] = {disabled = true}, -- arbalest
-    [5915] = {cost = 30000, materials = {{id = 2456, count = 10}}}, -- composite hornbow
-    [5917] = {cost = 30000, materials = {{id = 5915, count = 1}, {id = 2456, count = 10}}}, -- ice bow
-    [5916] = {cost = 30000, materials = {{id = 5917, count = 1}, {id = 5915, count = 1}, {id = 2456, count = 10}}}, -- earth bow
-    [5914] = {cost = 100000, materials = {{id = 5912, count = 10}, {id = 2268, count = 100}, {id = 5836, count = 100}}}, -- death crossbow
-    [2389] = {disabled = true}, -- spear
-    [2410] = {cost = 500, materials = {{id = 2403, count = 1}}}, -- throwing knife
-    [2399] = {cost = 500, materials = {{id = 2410, count = 1}, {id = 2380, count = 1}}}, -- throwing star
-    [5836] = {cost = 1000, materials = {{id = 2399, count = 1}, {id = 2151, count = 5}, {id = 2033, count = 1}}} -- assassin star
+    [1294] = {disabled = true}, -- small stone (loot)
+    [2111] = {disabled = true}, -- snowball (loot)
+    [2350] = {disabled = true}, -- royal crossbow (loot)
+    [2389] = {disabled = true}, -- spear (loot/quest)
+    [2399] = {disabled = true}, -- throwing star (loot/quest)
+    [2410] = {disabled = true}, -- throwing knife (loot)
+    [2455] = {disabled = true}, -- crossbow (loot/quest)
+    [2456] = {disabled = true}, -- bow (loot/quest)
+    [5754] = {cost = 1250}, -- arbalest
+    [5836] = {cost = 20800}, -- assassin star
+    [5912] = {cost = 4750}, -- modified crossbow
+    [5913] = {cost = 2100}, -- royal crossbow
+    [5914] = {cost = 2550}, -- death crossbow
+    [5915] = {cost = 1250}, -- composite hornbow
+    [5916] = {cost = 2100}, -- earth bow
+    [5917] = {cost = 1700} -- ice bow
 }
 
 local materialSets = {

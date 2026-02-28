@@ -21,101 +21,61 @@ local materialSets = {
     others = {5881, 5887, 2149}
 }
 
--- Manual helmet recipes/costs.
+-- Manual helmet filters/costs.
+-- Rules:
+-- 1) Remove from crafting every helmet obtainable via monster loot or quest reward.
+-- 2) Keep craft-only helmets with cost only (recipes will be added later).
 local helmetOverrides = {
-    [2458] = {cost = 50, materials = {}}, -- chain helmet
-    [3971] = {cost = 100, materials = {}}, -- charmer tiara
-    [3970] = {disabled = true}, -- feather headdress
-    [6480] = {cost = 10000000, materials = {{id = 2662, count = 1}}}, -- ferumbras' hat
-    [2323] = {cost = 1000, materials = {{id = 2663, count = 1}}}, -- hat of the mad
-    [2660] = {cost = 50, materials = {}}, -- hidden turbant
-    [2461] = {cost = 50, materials = {}}, -- leather helmet
-    [2662] = {cost = 100000, materials = {{id = 2323, count = 10}}}, -- magician hat
-    [2663] = { -- mystic turban
-        cost = 500,
-        recipes = {
-            {cost = 500, materials = {{id = 2457, count = 1}}, count = 1}, -- steel helmet
-            {cost = 500, materials = {{id = 2490, count = 1}}, count = 1}, -- dark helmet
-            {cost = 0, materials = {{id = 5871, count = 1}}, count = 1}, -- glacier mask
-            {cost = 0, materials = {{id = 5867, count = 1}}, count = 1}, -- lightning headband
-            {cost = 0, materials = {{id = 5866, count = 1}}, count = 1}, -- magma monocle
-            {cost = 0, materials = {{id = 5882, count = 1}}, count = 1}, -- terra hood
-            {cost = 5000, materials = {{id = 5809, count = 1}}, count = 100} -- yalahari mask -> 100 mystic turban
-        }
-    },
-    [2665] = {disabled = true}, -- post officers hat
-    [2482] = {cost = 50, materials = {{id = 2461, count = 1}}}, -- studded helmet
-    [3967] = {cost = 50, materials = {{id = 2482, count = 1}}}, -- tribal mask
-    [2460] = {cost = 50, materials = {{id = 2229, count = 10}}}, -- brass helmet
-    [2480] = {cost = 50, materials = {{id = 2376, count = 3}}}, -- legion helmet
-    [2473] = {cost = 100, materials = {{id = 2230, count = 10}}}, -- viking helmet
-    [5871] = {cost = 5000, materials = {{id = 2146, count = 30}}}, -- glacier mask
-    [2459] = {cost = 500, materials = {{id = 2473, count = 3}}}, -- iron helmet
-    [5867] = {cost = 5000, materials = {{id = 2150, count = 30}}}, -- lightning headband
-    [5866] = {cost = 5000, materials = {{id = 2147, count = 30}}}, -- magma monocle
-    [2481] = {cost = 500, materials = {{id = 2480, count = 3}}}, -- soldier helmet
-    [2490] = {cost = 500, materials = {{id = 2144, count = 1}}}, -- dark helmet
-    [2502] = {cost = 10000, materials = {{id = 2525, count = 100}}}, -- dwarven helmet
-    [3969] = {cost = 100000, materials = {{id = 2348, count = 10}, {id = 2339, count = 1}}}, -- horseman helmet
-    [2457] = {cost = 500, materials = {{id = 2647, count = 1}}}, -- steel helmet
-    [2479] = {cost = 500, materials = {{id = 2144, count = 2}}}, -- strange helmet
-    [3972] = {cost = 1000, materials = {{id = 2516, count = 30}}}, -- beholder helmet
-    [2491] = {cost = 3000, materials = {{id = 2457, count = 10}}}, -- crown helmet
-    [2462] = {cost = 3000, materials = {{id = 2479, count = 10}}}, -- devil helmet
-    [5809] = {cost = 100000, materials = {{id = 2663, count = 100}}}, -- yalahari mask
-    [2497] = {cost = 10000, materials = {{id = 2475, count = 2}}}, -- crusader helmet
-    [2498] = {cost = 10000, materials = {{id = 2497, count = 3}}}, -- royal helmet
-    [5827] = {cost = 5000, materials = {{id = 2498, count = 1}, {id = 2377, count = 2}}}, -- zaoan helmet
-    [2493] = {cost = 50000, materials = {{id = 2472, count = 5}}}, -- demon helmet
-    [2506] = {cost = 1000000, materials = {{id = 2493, count = 30}, {id = 7870, count = 30}, {id = 2492, count = 30}}}, -- dragon scale helmet
-    [2474] = {cost = 1000000, materials = {{id = 2493, count = 30}, {id = 7870, count = 30}, {id = 2470, count = 30}}}, -- winged helmet
-    [2499] = {cost = 10000, materials = {{id = 2457, count = 25}}}, -- amazon helmet
-    [5882] = {cost = 5000, materials = {{id = 2149, count = 30}}}, -- terra hood
+    [2323] = {cost = 10000}, -- hat of the mad (drop+quest)
     [2342] = {disabled = true}, -- helmet of the ancients
-    [2343] = {disabled = true}, -- helmet of the ancients
+    [2343] = {disabled = true}, -- helmet of the ancients (variant)
+    [2457] = {disabled = true}, -- steel helmet (drop+quest)
+    [2458] = {disabled = true}, -- chain helmet (drop)
+    [2459] = {disabled = true}, -- iron helmet (drop+quest)
+    [2460] = {disabled = true}, -- brass helmet (drop+quest)
+    [2461] = {disabled = true}, -- leather helmet (drop)
+    [2462] = {disabled = true}, -- devil helmet (drop+quest)
+    [2471] = {cost = 10000}, -- golden helmet (quest)
+    [2473] = {disabled = true}, -- viking helmet (drop+quest)
+    [2474] = {cost = 10000}, -- winged helmet (quest)
+    [2475] = {disabled = true}, -- warrior helmet (drop+quest)
+    [2479] = {disabled = true}, -- strange helmet (drop)
+    [2480] = {disabled = true}, -- legion helmet (drop+quest)
+    [2481] = {disabled = true}, -- soldier helmet (drop)
+    [2482] = {disabled = true}, -- studded helmet (drop)
+    [2490] = {disabled = true}, -- dark helmet (drop)
+    [2491] = {disabled = true}, -- crown helmet (drop+quest)
+    [2493] = {disabled = true}, -- demon helmet (quest)
+    [2496] = {cost = 2000000}, -- horned helmet
+    [2497] = {disabled = true}, -- crusader helmet (drop+quest)
+    [2498] = {disabled = true}, -- royal helmet (drop)
+    [2499] = {cost = 5000}, -- amazon helmet (drop)
     [2501] = {disabled = true}, -- ceremonial mask
-    [2475] = { -- warrior helmet
-        cost = 5000,
-        recipes = {
-            {cost = 5000, materials = {{id = 2457, count = 10}, {id = 2491, count = 2}}, count = 1},
-            {cost = 3000, materials = {{id = 2490, count = 10}, {id = 2462, count = 2}}, count = 1}
-        }
-    },
-    [2496] = { -- horned helmet
-        cost = 2000000,
-        recipes = {
-            {cost = 2000000, materials = {{id = 2474, count = 1}, {id = 2472, count = 5}}, count = 1},
-            {cost = 2000000, materials = {{id = 2506, count = 1}, {id = 2492, count = 5}}, count = 1}
-        }
-    },
-    [2471] = { -- golden helmet (two recipes)
-        cost = 10000000,
-        recipes = {
-            {
-                cost = 10000000,
-                materials = {
-                    {id = 2474, count = 1}, -- winged helmet
-                    {id = 2466, count = 100}, -- golden armor
-                    {id = 2470, count = 100}, -- golden legs
-                    {id = 7879, count = 10}, -- void crystal
-                    {id = 2033, count = 100}, -- golden mug
-                    {id = 2112, count = 1} -- teddy bear
-                }
-            },
-            {
-                cost = 10000000,
-                materials = {
-                    {id = 2506, count = 1}, -- dragon scale helmet
-                    {id = 2492, count = 80}, -- dragon scale mail
-                    {id = 2195, count = 100}, -- boots of haste
-                    {id = 7879, count = 10}, -- void crystal
-                    {id = 2033, count = 100}, -- golden mug
-                    {id = 2112, count = 1} -- teddy bear
-                }
-            }
-        }
-    }
+    [2502] = {cost = 5000}, -- dwarven helmet (drop)
+    [2506] = {cost = 1000000}, -- dragon scale helmet
+    [2660] = {disabled = true}, -- hidden turbant
+    [2662] = {cost = 100000}, -- magician hat
+    [2663] = {disabled = true}, -- mystic turban (drop)
+    [2665] = {disabled = true}, -- post officers hat
+    [3967] = {disabled = true}, -- tribal mask (drop)
+    [3969] = {disabled = true}, -- horseman helmet (drop)
+    [3970] = {disabled = true}, -- feather headdress (drop)
+    [3971] = {disabled = true}, -- charmer tiara (drop)
+    [3972] = {disabled = true}, -- beholder helmet (drop)
+    [5735] = {disabled = true}, -- royal helmet (task reward variant)
+    [5809] = {cost = 100000}, -- yalahari mask
+    [5827] = {cost = 5000}, -- zaoan helmet
+    [5866] = {cost = 5000}, -- magma monocle
+    [5867] = {cost = 5000}, -- lightning headband
+    [5871] = {cost = 5000}, -- glacier mask
+    [5882] = {cost = 5000}, -- terra hood
+    [6480] = {cost = 10000000} -- ferumbras' hat
 }
+
+-- Keep craft-only helmet variants that are skipped by name-based deduplication
+-- (e.g. blocked low-id variant exists with the same name).
+-- Empty for now: 5735 is intentionally blocked.
+local helmetExtraCrafts = {}
 
 -- Manual chest/body recipes/costs.
 local chestOverrides = {
@@ -290,6 +250,15 @@ local othersOverrides = {
     [2661] = {cost = 500, materials = {}}, -- scarf
     [2171] = {cost = 3000, materials = {{id = 2661, count = 5}}}, -- platinum amulet
     [2339] = {disabled = true} -- damaged helmet
+}
+
+-- Items for armorsmith "others" that are not auto-detected as armor.
+local othersExtraCrafts = {
+    [7956] = {cost = 1200, level = 8}, -- small quiver
+    [7957] = {cost = 1800, level = 14}, -- quiver
+    [7958] = {cost = 2600, level = 20}, -- red quiver
+    [7959] = {cost = 3500, level = 28}, -- jungle quiver
+    [7960] = {cost = 4500, level = 36} -- alicorn quiver
 }
 
 local function getArmorGroup(itemType)
@@ -496,13 +465,72 @@ local function applyOverrideSet(crafts, overrides)
     end
 end
 
+local function appendExtraHelmetCrafts(crafts)
+    local byId = {}
+    for i = 1, #crafts do
+        local craft = crafts[i]
+        if type(craft) == "table" and craft.id then
+            byId[craft.id] = true
+        end
+    end
+
+    for itemId, extra in pairs(helmetExtraCrafts) do
+        if not (type(extra) == "table" and extra.disabled) and not byId[itemId] and itemExists(itemId) then
+            local it = ItemType(itemId)
+            local level = computeLevel(it, "helmet")
+            table.insert(
+                crafts,
+                {
+                    id = itemId,
+                    name = it:getName(),
+                    armorType = "helmet",
+                    level = level,
+                    cost = math.max(0, tonumber(extra.cost) or computeCost(it, level, "helmet")),
+                    count = 1,
+                    materials = {}
+                }
+            )
+        end
+    end
+end
+
+local function appendExtraOthersCrafts(crafts)
+    local byId = {}
+    for i = 1, #crafts do
+        local craft = crafts[i]
+        if type(craft) == "table" and craft.id then
+            byId[craft.id] = true
+        end
+    end
+
+    for itemId, extra in pairs(othersExtraCrafts) do
+        if not byId[itemId] and itemExists(itemId) then
+            local it = ItemType(itemId)
+            table.insert(
+                crafts,
+                {
+                    id = itemId,
+                    name = it:getName(),
+                    armorType = "others",
+                    level = math.max(1, tonumber(extra.level) or 1),
+                    cost = math.max(0, tonumber(extra.cost) or 0),
+                    count = 1,
+                    materials = {}
+                }
+            )
+        end
+    end
+end
+
 local function applyManualOverrides(crafts)
     applyOverrideSet(crafts, helmetOverrides)
+    appendExtraHelmetCrafts(crafts)
     applyOverrideSet(crafts, chestOverrides)
     applyOverrideSet(crafts, legsOverrides)
     applyOverrideSet(crafts, bootsOverrides)
     applyOverrideSet(crafts, shieldOverrides)
     applyOverrideSet(crafts, othersOverrides)
+    appendExtraOthersCrafts(crafts)
 
     local filtered = {}
     for i = 1, #crafts do

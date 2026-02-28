@@ -267,6 +267,43 @@ MainWindow
         text: Others
 
   Panel
+    id: weaponHandPanel
+    anchors.top: weaponCategoryPanel.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 3
+    height: 24
+    visible: false
+    layout: horizontalBox
+    padding-left: 1
+    padding-right: 1
+    spacing: 3
+
+    CategoryButton
+      id: weaponHandAll
+      width: 172
+      @onClick: modules.game_crafting.selectWeaponHandFilter("all")
+
+      WeaponTabLabel
+        text: All
+
+    CategoryButton
+      id: weaponHandOne
+      width: 172
+      @onClick: modules.game_crafting.selectWeaponHandFilter("one")
+
+      WeaponTabLabel
+        text: 1H
+
+    CategoryButton
+      id: weaponHandTwo
+      width: 172
+      @onClick: modules.game_crafting.selectWeaponHandFilter("two")
+
+      WeaponTabLabel
+        text: 2H
+
+  Panel
     id: armorCategoryPanel
     anchors.top: searchPanel.bottom
     anchors.left: parent.left

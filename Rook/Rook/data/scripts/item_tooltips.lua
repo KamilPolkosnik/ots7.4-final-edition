@@ -302,7 +302,7 @@ function Item:buildTooltip()
   end
 
   if self:isContainer() then
-    implicit.cap = self:getCapacity()
+    implicit.cap = "Capacity " .. self:getCapacity()
   end
 
   if next(implicit) ~= nil then
