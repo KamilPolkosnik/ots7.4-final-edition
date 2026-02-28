@@ -14,7 +14,7 @@ end
 
 local materialSets = {
     helmet = {5890, 5880, 2147},
-    chest = {5880, 5890, 2146},
+    armor = {5880, 5890, 2146},
     legs = {5880, 5885, 2149},
     boots = {5890, 5887, 2147},
     shield = {5880, 5890, 2146},
@@ -77,171 +77,154 @@ local helmetOverrides = {
 -- Empty for now: 5735 is intentionally blocked.
 local helmetExtraCrafts = {}
 
--- Manual chest/body recipes/costs.
-local chestOverrides = {
-    [2659] = {disabled = true}, -- ball gown
-    [2651] = {cost = 50, materials = {}}, -- coat
-    [2485] = {cost = 50, materials = {}}, -- doublet
-    [2650] = {cost = 50, materials = {}}, -- jacket
-    [2508] = {disabled = true}, -- native armor
-    [2652] = {disabled = true}, -- green tunic
-    [2655] = {cost = 100, materials = {}}, -- red robe
-    [2653] = {cost = 100, materials = {{id = 2650, count = 2}}}, -- red tunic
-    [2657] = {disabled = true}, -- simple dress
-    [4847] = {disabled = true}, -- simple dress (duplicate id variant)
-    [2658] = {disabled = true}, -- white dress
-    [2654] = {cost = 300, materials = {{id = 2650, count = 3}}}, -- cape
-    [2467] = {materials = {{id = 2650, count = 5}}}, -- leather armor
-    [2484] = {cost = 100, materials = {{id = 2467, count = 1}}}, -- studded armor
-    [2464] = {cost = 100, materials = {{id = 2484, count = 1}}}, -- chain armor
-    [2465] = {cost = 500, materials = {{id = 2229, count = 10}, {id = 2464, count = 5}}}, -- brass armor
-    [3968] = {cost = 5000, materials = {{id = 2410, count = 100}, {id = 5836, count = 10}}}, -- leopard armor
-    [2483] = {cost = 400, materials = {{id = 2229, count = 10}, {id = 2465, count = 1}}}, -- scale armor
-    [2489] = {cost = 1000, materials = {{id = 2490, count = 2}, {id = 2465, count = 1}}}, -- dark armor
-    [2503] = {cost = 100000, materials = {{id = 2525, count = 100}}}, -- dwarven armor
-    [2463] = {cost = 1000, materials = {{id = 2457, count = 2}, {id = 2465, count = 1}}}, -- plate armor
-    [2656] = {cost = 10000, materials = {{id = 2654, count = 35}, {id = 2146, count = 2}}}, -- blue robe
-    [5872] = {cost = 5000, materials = {{id = 2656, count = 1}, {id = 2146, count = 25}}}, -- glacier robe
-    [5868] = {cost = 5000, materials = {{id = 2656, count = 1}, {id = 2150, count = 25}}}, -- lightning robe
-    [5862] = {cost = 5000, materials = {{id = 2656, count = 1}, {id = 2147, count = 25}}}, -- magma coat
-    [2486] = {cost = 3000, materials = {{id = 2463, count = 10}}}, -- noble armor
-    [5881] = {cost = 5000, materials = {{id = 2656, count = 1}, {id = 2149, count = 25}}}, -- terra mantle
-    [2476] = {cost = 5000, materials = {{id = 2463, count = 5}, {id = 2144, count = 5}}}, -- knight armor
-    [5829] = { -- paladin armor
-        cost = 25000,
-        materials = {
-            {id = 2486, count = 1},
-            {id = 2455, count = 10},
-            {id = 2456, count = 10},
-            {id = 2547, count = 50},
-            {id = 2546, count = 50}
-        }
-    },
-    [2500] = {cost = 50000, materials = {{id = 2487, count = 10}, {id = 2488, count = 10}, {id = 5829, count = 1}}}, -- amazon armor
-    [2487] = {cost = 10000, materials = {{id = 2476, count = 3}, {id = 2147, count = 5}}}, -- crown armor
-    [5826] = {cost = 10000, materials = {{id = 2466, count = 1}, {id = 2393, count = 1}}}, -- zaoan armor
-    [2466] = {cost = 10000, materials = {{id = 2487, count = 5}}}, -- golden armor
-    [5784] = {cost = 50000, materials = {{id = 2466, count = 5}, {id = 2268, count = 100}}}, -- skullcracker armor
-    [5816] = {cost = 50000, materials = {{id = 2466, count = 5}, {id = 2268, count = 100}}}, -- skullmaster armor
-    [5807] = {cost = 50000, materials = {{id = 2466, count = 5}, {id = 2519, count = 5}, {id = 2293, count = 10}}}, -- yalahari armor
-    [5828] = {cost = 50000, materials = {{id = 5829, count = 2}, {id = 2492, count = 3}}}, -- archer armor
-    [2492] = {cost = 45000, materials = {{id = 2392, count = 3}, {id = 2466, count = 3}}}, -- dragon scale mail
-    [2505] = {cost = 45000, materials = {{id = 2147, count = 30}, {id = 2492, count = 5}}}, -- firemasters armor
-    [2664] = {cost = 45000, materials = {{id = 2147, count = 30}, {id = 2492, count = 5}}}, -- firemasters armor (duplicate id variant)
-    [2494] = {cost = 100000, materials = {{id = 2472, count = 5}}}, -- demon armor
-    [2472] = {cost = 80000, materials = {{id = 2393, count = 3}}} -- magic plate armor
+-- Manual armor/body filters/costs.
+-- Based on armorsmith_chests_drop_report.txt:
+-- disable all DROP/QUEST statuses, keep UNKNOWN as craft-only (cost only).
+local armorOverrides = {
+    [2500] = {cost = 5000}, -- amazon armor (drop)
+    [5828] = {cost = 50000}, -- archer armor
+    [2659] = {cost = 1000}, -- ball gown
+    [2656] = {disabled = true}, -- blue robe (drop+quest)
+    [2465] = {disabled = true}, -- brass armor (drop+quest)
+    [2654] = {disabled = true}, -- cape (drop)
+    [2464] = {disabled = true}, -- chain armor (drop+quest)
+    [2651] = {disabled = true}, -- coat (drop)
+    [2487] = {disabled = true}, -- crown armor (drop+quest)
+    [2489] = {disabled = true}, -- dark armor (drop+quest)
+    [2494] = {cost = 45000}, -- demon armor (quest)
+    [2485] = {disabled = true}, -- doublet (quest)
+    [2492] = {disabled = true}, -- dragon scale mail (drop+quest)
+    [2503] = {disabled = true}, -- dwarven armor (quest)
+    [2505] = {cost = 45000}, -- firemasters armor
+    [2664] = {cost = 45000}, -- firemasters armor (alt id)
+    [5872] = {cost = 5000}, -- glacier robe
+    [2466] = {disabled = true}, -- golden armor (drop+quest)
+    [2652] = {disabled = true}, -- green tunic (drop)
+    [2650] = {disabled = true}, -- jacket
+    [2476] = {disabled = true}, -- knight armor (drop+quest)
+    [2467] = {disabled = true}, -- leather armor (drop+quest)
+    [3968] = {cost = 5000}, -- leopard armor (drop)
+    [5868] = {cost = 5000}, -- lightning robe
+    [2472] = {disabled = true}, -- magic plate armor (drop)
+    [5733] = {disabled = true}, -- magic plate armor (alt id)
+    [5862] = {cost = 5000}, -- magma coat
+    [2508] = {cost = 5000}, -- native armor
+    [2486] = {disabled = true}, -- noble armor (drop+quest)
+    [5829] = {cost = 25000}, -- paladin armor
+    [2463] = {disabled = true}, -- plate armor (drop+quest)
+    [2655] = {disabled = true}, -- red robe (drop)
+    [2653] = {cost = 100}, -- red tunic
+    [2483] = {disabled = true}, -- scale armor (drop+quest)
+    [2657] = {disabled = true}, -- simple dress (drop)
+    [4847] = {cost = 100}, -- simple dress (duplicate id variant)
+    [5784] = {cost = 50000}, -- skullcracker armor
+    [5816] = {cost = 50000}, -- skullmaster armor
+    [2484] = {disabled = true}, -- studded armor (drop)
+    [5881] = {cost = 5000}, -- terra mantle
+    [2658] = {cost = 100}, -- white dress
+    [5807] = {cost = 50000}, -- yalahari armor
+    [5826] = {cost = 10000} -- zaoan armor
 }
 
--- Manual legs recipes/costs.
+-- Manual legs filters/costs.
+-- Based on armorsmith_legs_drop_report.txt:
+-- disable all DROP/QUEST statuses, keep UNKNOWN as craft-only (cost only).
 local legsOverrides = {
-    [3983] = {disabled = true}, -- bast skirt
-    [2649] = {cost = 50, materials = {}}, -- leather legs
-    [2468] = {cost = 100, materials = {}}, -- studded legs
-    [2648] = {cost = 150, materials = {}}, -- chain legs
-    [2478] = {cost = 500, materials = {{id = 2648, count = 5}, {id = 2229, count = 10}}}, -- brass legs
-    [2504] = {cost = 100000, materials = {{id = 2525, count = 100}}}, -- dwarven legs
-    [2647] = {cost = 1000, materials = {{id = 2478, count = 1}, {id = 2457, count = 2}}}, -- plate legs
-    [5808] = {cost = 50000, materials = {{id = 2470, count = 5}, {id = 2519, count = 5}, {id = 2293, count = 10}}}, -- yalahari leg piece
-    [5728] = {cost = 10000, materials = {{id = 2654, count = 35}, {id = 2146, count = 2}}}, -- blue legs
-    [2488] = {cost = 10000, materials = {{id = 2476, count = 3}}}, -- crown legs
-    [5873] = {cost = 5000, materials = {{id = 5728, count = 1}, {id = 2146, count = 25}}}, -- glacier kilt
-    [2507] = {disabled = true}, -- green legs
-    [2477] = {cost = 5000, materials = {{id = 2647, count = 5}, {id = 2144, count = 5}}}, -- knight legs
-    [5869] = {cost = 5000, materials = {{id = 5728, count = 1}, {id = 2150, count = 25}}}, -- lightning legs
-    [5863] = {cost = 5000, materials = {{id = 5728, count = 1}, {id = 2147, count = 25}}}, -- magma legs
-    [5880] = {cost = 5000, materials = {{id = 5728, count = 1}, {id = 2149, count = 25}}}, -- terra legs
-    [5839] = {cost = 10000, materials = {{id = 2470, count = 1}, {id = 2393, count = 1}}}, -- zaoan legs
-    [2470] = {cost = 10000, materials = {{id = 2033, count = 100}, {id = 2488, count = 1}, {id = 2393, count = 1}}}, -- golden legs
-    [2495] = { -- demon legs
-        cost = 100000,
-        materials = {
-            {id = 2493, count = 10},
-            {id = 2494, count = 1},
-            {id = 2472, count = 1},
-            {id = 2112, count = 1},
-            {id = 2147, count = 50},
-            {id = 2470, count = 5}
-        }
-    },
-    [2469] = {cost = 1000000, materials = {{id = 2495, count = 1}, {id = 2494, count = 1}, {id = 2112, count = 1}, {id = 2492, count = 30}}} -- dragon scale legs
+    [3983] = {disabled = true}, -- bast skirt (drop)
+    [5728] = {cost = 10000}, -- blue legs
+    [2478] = {disabled = true}, -- brass legs (drop+quest)
+    [2648] = {disabled = true}, -- chain legs (drop)
+    [2488] = {disabled = true}, -- crown legs (drop+quest)
+    [2495] = {cost = 100000}, -- demon legs
+    [2469] = {cost = 1000000}, -- dragon scale legs
+    [2504] = {cost = 100000}, -- dwarven legs
+    [5873] = {cost = 5000}, -- glacier kilt
+    [2470] = {disabled = true}, -- golden legs (drop)
+    [2507] = {cost = 5000}, -- green legs
+    [2477] = {disabled = true}, -- knight legs (drop+quest)
+    [2649] = {disabled = true}, -- leather legs (drop)
+    [5869] = {cost = 5000}, -- lightning legs
+    [5863] = {cost = 5000}, -- magma legs
+    [2647] = {disabled = true}, -- plate legs (drop+quest)
+    [2468] = {disabled = true}, -- studded legs (drop)
+    [5880] = {cost = 5000}, -- terra legs
+    [5808] = {cost = 50000}, -- yalahari leg piece
+    [5839] = {cost = 10000} -- zaoan legs
 }
 
--- Manual boots/feet recipes/costs.
+-- Manual boots/feet filters/costs.
+-- Based on armorsmith_boots_drop_report.txt:
+-- disable all DROP/QUEST statuses, keep UNKNOWN as craft-only (cost only).
 local bootsOverrides = {
-    [2195] = {cost = 10000, materials = {{id = 2169, count = 6}}}, -- boots of haste
-    [2644] = {disabled = true}, -- bunny slippers
-    [3982] = {cost = 1000, materials = {{id = 2643, count = 1}, {id = 2674, count = 10}}}, -- crocodile boots
-    [5874] = {cost = 5000, materials = {{id = 2643, count = 1}, {id = 2146, count = 35}}}, -- glacier shoes
-    [2643] = {cost = 100, materials = {}}, -- leather boots
-    [5870] = {cost = 5000, materials = {{id = 2643, count = 1}, {id = 2150, count = 35}}}, -- lightning boots
-    [5864] = {cost = 5000, materials = {{id = 2643, count = 1}, {id = 2147, count = 35}}}, -- magma boots
-    [5798] = {disabled = true}, -- oriental shoes
-    [2358] = {disabled = true}, -- pair of soft boots
-    [2640] = {disabled = true}, -- pair of soft boots
-    [5879] = {cost = 5000, materials = {{id = 2643, count = 1}, {id = 2149, count = 35}}}, -- terra boots
+    [2195] = {disabled = true}, -- boots of haste (drop+quest)
+    [2644] = {cost = 5000}, -- bunny slippers (drop)
+    [3982] = {disabled = true}, -- crocodile boots (drop)
+    [5874] = {cost = 5000}, -- glacier shoes
+    [2646] = {cost = 5000}, -- golden boots (quest)
+    [2643] = {disabled = true}, -- leather boots (drop)
+    [5870] = {cost = 5000}, -- lightning boots
+    [5864] = {cost = 5000}, -- magma boots
+    [5798] = {cost = 5000}, -- oriental shoes
+    [2358] = {disabled = true}, -- pair of soft boots (quest)
+    [2640] = {disabled = true}, -- pair of soft boots (quest)
+    [2645] = {disabled = true}, -- steel boots (drop+quest)
+    [5879] = {cost = 5000}, -- terra boots
     [2641] = {disabled = true}, -- worn soft boots
     [5729] = {disabled = true}, -- worn soft boots
-    [2645] = {cost = 30000, materials = {{id = 2393, count = 2}}}, -- steel boots
-    [2646] = { -- golden boots
-        cost = 10000000,
-        materials = {
-            {id = 2466, count = 100}, -- golden armor
-            {id = 2470, count = 100}, -- golden legs
-            {id = 7879, count = 10}, -- void crystal
-            {id = 2033, count = 100}, -- golden mug
-            {id = 2112, count = 1} -- teddy bear
-        }
-    },
-    [5838] = {cost = 10000, materials = {{id = 2195, count = 1}, {id = 5827, count = 1}, {id = 5839, count = 1}, {id = 5826, count = 1}}} -- zaoan shoes
+    [5838] = {cost = 10000} -- zaoan shoes
 }
 
--- Manual shield/spellbook recipes/costs.
+-- Manual shield/spellbook filters/costs.
+-- Remapped against current sources:
+-- data/monster/*.xml + quest reward scripts (data/actions/scripts, data/scripts/actions).
+-- If item id appears in loot OR quest reward patterns, disable it.
 local shieldOverrides = {
-    [5918] = {disabled = true}, -- spellscroll of prophecies
-    [2512] = {cost = 40, materials = {{id = 2671, count = 4}}}, -- wooden shield
-    [2526] = {cost = 50, materials = {{id = 2512, count = 1}}}, -- studded shield
-    [2511] = {cost = 10, materials = {{id = 2526, count = 1}, {id = 2230, count = 5}}}, -- brass shield
-    [5920] = {cost = 5000, materials = {{id = 2175, count = 1}, {id = 2311, count = 50}}}, -- spellbook of mind control
-    [2510] = {cost = 30, materials = {{id = 2511, count = 1}, {id = 2376, count = 3}, {id = 2398, count = 2}}}, -- plate shield
-    [2529] = {cost = 100, materials = {{id = 2510, count = 1}}}, -- black shield
-    [5789] = {cost = 1000, materials = {{id = 2436, count = 1}, {id = 5920, count = 1}}}, -- necromantic spellbook
-    [2530] = {cost = 0, materials = {{id = 2412, count = 1}, {id = 2230, count = 10}, {id = 2229, count = 10}}}, -- copper shield
-    [2175] = {cost = 0, materials = {{id = 2260, count = 35}}}, -- spellbook
-    [2509] = {cost = 1000, materials = {{id = 2530, count = 1}}}, -- steel shield
-    [2524] = {cost = 1000000, materials = {{id = 2503, count = 1}}}, -- ornamented shield
-    [3974] = {disabled = true}, -- sentinel shield
-    [2531] = {cost = 1000, materials = {{id = 2473, count = 20}}}, -- viking shield
-    [5791] = {cost = 3000, materials = {{id = 5789, count = 1}, {id = 2313, count = 30}}}, -- warlocks spellbook
-    [2513] = {cost = 300, materials = {{id = 2509, count = 3}}}, -- battle shield
-    [5812] = {cost = 5000, materials = {{id = 5791, count = 1}, {id = 2286, count = 10}}}, -- lizard knowledge spellbook
-    [2537] = {cost = 100000, materials = {{id = 2499, count = 100}}}, -- amazon shield
-    [2532] = {cost = 50000, materials = {{id = 2348, count = 10}}}, -- ancient shield
-    [2518] = {cost = 1000, materials = {{id = 2516, count = 30}}}, -- beholder shield
-    [2535] = {disabled = true}, -- castle shield
-    [2519] = {cost = 5000, materials = {{id = 2516, count = 5}}}, -- crown shield
-    [2521] = {cost = 500, materials = {{id = 2144, count = 5}}}, -- dark shield
-    [2520] = {cost = 15000, materials = {{id = 2519, count = 10}, {id = 2147, count = 5}}}, -- demon shield
-    [2516] = {cost = 3000, materials = {{id = 2463, count = 3}, {id = 2457, count = 5}, {id = 2647, count = 2}}}, -- dragon shield
-    [2538] = {disabled = true}, -- eagle shield
-    [2522] = {cost = 1000000, materials = {{id = 2492, count = 30}, {id = 7870, count = 30}, {id = 2514, count = 30}}}, -- great shield
-    [2515] = {cost = 3000, materials = {{id = 2525, count = 5}}}, -- guardian shield
-    [5865] = {cost = 10000, materials = {{id = 2520, count = 4}, {id = 2147, count = 50}, {id = 5862, count = 1}, {id = 5864, count = 1}, {id = 5866, count = 1}}}, -- magma shield
-    [2514] = {cost = 30000, materials = {{id = 2393, count = 2}}}, -- mastermind shield
-    [2536] = {cost = 3000, materials = {{id = 2515, count = 2}}}, -- medusa shield
-    [2533] = {disabled = true}, -- mercenary shield
-    [3975] = {disabled = true}, -- salamander shield
-    [2540] = {cost = 1000, materials = {{id = 2525, count = 1}, {id = 2193, count = 10}}}, -- scarab shield
-    [5539] = {cost = 30000, materials = {{id = 2147, count = 100}, {id = 2516, count = 3}, {id = 2519, count = 2}, {id = 2514, count = 1}}}, -- shield of dorion
-    [2517] = {disabled = true}, -- shield of honour
-    [2542] = {cost = 30000, materials = {{id = 2528, count = 1}, {id = 2519, count = 1}, {id = 2146, count = 100}}}, -- tempest shield
-    [2528] = {cost = 3000, materials = {{id = 2516, count = 3}, {id = 2430, count = 1}}}, -- tower shield
-    [3973] = {disabled = true}, -- tusk shield
-    [2534] = {cost = 5000, materials = {{id = 2656, count = 2}, {id = 2519, count = 1}}}, -- vampire shield
-    [5732] = {cost = 5000, materials = {{id = 2656, count = 2}, {id = 2519, count = 1}}}, -- vampire shield (alt id)
-    [2539] = {materials = {{id = 2393, count = 1}, {id = 2536, count = 3}}}, -- phoenix shield
-    [2527] = {materials = {{id = 2744, count = 100}, {id = 2745, count = 100}}}, -- rose shield
-    [2541] = {cost = 600, materials = {{id = 2230, count = 10}}}, -- bone shield
-    [2523] = {cost = 10000000, materials = {{id = 2466, count = 100}, {id = 2470, count = 100}, {id = 7879, count = 10}, {id = 2112, count = 1}, {id = 2033, count = 1}}} -- blessed shield
+    [2537] = {cost = 25000}, -- amazon shield (drop)
+    [2532] = {disabled = true}, -- ancient shield (drop)
+    [2513] = {disabled = true}, -- battle shield (drop)
+    [2518] = {disabled = true}, -- beholder shield (drop)
+    [2529] = {disabled = true}, -- black shield (drop)
+    [2523] = {cost = 25000}, -- blessed shield (quest)
+    [2541] = {disabled = true}, -- bone shield (drop)
+    [2511] = {disabled = true}, -- brass shield (drop)
+    [2535] = {disabled = true}, -- castle shield (drop)
+    [2530] = {disabled = true}, -- copper shield (drop+quest)
+    [2519] = {disabled = true}, -- crown shield (quest)
+    [2521] = {disabled = true}, -- dark shield (quest)
+    [2520] = {disabled = true}, -- demon shield (quest)
+    [2516] = {disabled = true}, -- dragon shield (drop)
+    [2525] = {disabled = true}, -- dwarven shield (quest)
+    [2538] = {cost = 100000}, -- eagle shield (craft-only)
+    [2522] = {cost = 1000000}, -- great shield
+    [2515] = {disabled = true}, -- guardian shield (drop)
+    [5812] = {cost = 5000}, -- lizard knowledge spellbook (craft-only)
+    [5865] = {cost = 10000}, -- magma shield
+    [2514] = {disabled = true}, -- mastermind shield (drop+quest)
+    [2536] = {disabled = true}, -- medusa shield (drop+quest)
+    [2533] = {cost = 25000}, -- mercenary shield (quest)
+    [5789] = {cost = 25000}, -- necromantic spellbook (drop)
+    [2524] = {disabled = true}, -- ornamented shield (drop+quest)
+    [2539] = {cost = 25000}, -- phoenix shield (drop)
+    [2510] = {disabled = true}, -- plate shield (drop)
+    [2527] = {cost = 25000}, -- rose shield
+    [3975] = {disabled = true}, -- salamander shield (drop)
+    [2540] = {disabled = true}, -- scarab shield (drop)
+    [3974] = {disabled = true}, -- sentinel shield (drop)
+    [5539] = {cost = 30000}, -- shield of dorion
+    [2517] = {cost = 30000}, -- shield of honour (drop)
+    [2175] = {disabled = true}, -- spellbook (drop+quest)
+    [5920] = {cost = 5000}, -- spellbook of mind control
+    [5918] = {cost = 5000}, -- spellscroll of prophecies
+    [2509] = {disabled = true}, -- steel shield (quest)
+    [2526] = {disabled = true}, -- studded shield (drop)
+    [2542] = {cost = 30000}, -- tempest shield
+    [2528] = {disabled = true}, -- tower shield (quest)
+    [3973] = {disabled = true}, -- tusk shield (drop)
+    [2534] = {disabled = true}, -- vampire shield (quest)
+    [5732] = {disabled = true}, -- vampire shield (alt id)
+    [2531] = {disabled = true}, -- viking shield (craft-only)
+    [5791] = {cost = 3000}, -- warlocks spellbook
+    [2512] = {disabled = true} -- wooden shield (drop)
 }
 
 -- Manual overrides for "others" category.
@@ -265,7 +248,7 @@ local function getArmorGroup(itemType)
     if itemType:isHelmet() then
         return "helmet"
     elseif itemType:isArmor() then
-        return "chest"
+        return "armor"
     elseif itemType:isLegs() then
         return "legs"
     elseif itemType:isBoots() then
@@ -525,7 +508,7 @@ end
 local function applyManualOverrides(crafts)
     applyOverrideSet(crafts, helmetOverrides)
     appendExtraHelmetCrafts(crafts)
-    applyOverrideSet(crafts, chestOverrides)
+    applyOverrideSet(crafts, armorOverrides)
     applyOverrideSet(crafts, legsOverrides)
     applyOverrideSet(crafts, bootsOverrides)
     applyOverrideSet(crafts, shieldOverrides)

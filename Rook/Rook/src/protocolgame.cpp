@@ -2142,7 +2142,7 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId)
 				ss << ", ";
 			}
 
-			ss << "speed " << std::showpos << (it.abilities->speed >> 1) << std::noshowpos;
+			ss << "speed " << std::showpos << it.abilities->speed << std::noshowpos;
 		}
 
 		msg.addString(ss.str());

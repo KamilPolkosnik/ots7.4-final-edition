@@ -6443,6 +6443,7 @@
 		<attribute key="defense" value="38"/>
 		<attribute key="attack" value="53"/>
 		<attribute key="weaponType" value="sword"/>
+		<attribute key="skillSword" value="2"/>
 		<attribute key="slotType" value="two-handed"/>
 	
 		<attribute key="tier" value="4"/>
@@ -6926,6 +6927,10 @@
 		<attribute key="weight" value="4800"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="legs"/>
+		<attribute key="skillAxe" value="1"/>
+		<attribute key="skillSword" value="1"/>
+		<attribute key="skillClub" value="1"/>
+		<attribute key="skillDist" value="1"/>
 	</item>
 	<item id="2470" name="golden legs">
 		<attribute key="tier" value="2"/>
@@ -6938,7 +6943,7 @@
 		<attribute key="weight" value="3200"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="slotType" value="head"/>
-<attribute key="skillShield" value="4"/>
+<attribute key="skillShield" value="2"/>
 	</item>
 	
 	<item id="2472" article="a" name="magic plate armor">
@@ -6947,6 +6952,11 @@
 		<attribute key="weight" value="8500"/>
 		<attribute key="armor" value="17"/>
 		<attribute key="slotType" value="body"/>
+		<attribute key="skillShield" value="2"/>
+		<attribute key="skillAxe" value="2"/>
+		<attribute key="skillSword" value="2"/>
+		<attribute key="skillClub" value="2"/>
+		<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="2473" article="a" name="viking helmet">
 		<attribute key="tier" value="1"/>
@@ -6961,7 +6971,7 @@
 		<attribute key="armor" value="10"/>
 		<attribute key="speed" value="15"/>
 		<attribute key="slotType" value="head"/>
-				<attribute key="skillDist" value="4"/>
+				<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="2475" article="a" name="warrior helmet">
 		<attribute key="tier" value="2"/>
@@ -7083,19 +7093,28 @@
 		<attribute key="weight" value="8000"/>
 		<attribute key="armor" value="16"/>
 		<attribute key="slotType" value="body"/>
+		<attribute key="skillShield" value="2"/>
+		<attribute key="skillAxe" value="2"/>
+		<attribute key="skillSword" value="2"/>
+		<attribute key="skillClub" value="2"/>
+		<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="2495" name="demon legs">
 		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="5400"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="legs"/>
+		<attribute key="skillAxe" value="1"/>
+		<attribute key="skillSword" value="1"/>
+		<attribute key="skillClub" value="1"/>
+		<attribute key="skillDist" value="1"/>
 	</item>
 	<item id="2496" article="a" name="horned helmet">
 		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="5100"/>
 		<attribute key="armor" value="11"/>
 		<attribute key="slotType" value="head"/>
-		<attribute key="skillShield" value="4"/>
+		<attribute key="skillShield" value="2"/>
 	</item>
 	<item id="2497" article="a" name="crusader helmet">
 		<attribute key="tier" value="2"/>
@@ -7122,7 +7141,7 @@
 		<attribute key="weight" value="9900"/>
 		<attribute key="armor" value="13"/>
 		<attribute key="slotType" value="body"/>
-		<attribute key="skillDist" value="2"/>
+		<attribute key="skillDist" value="1"/>
 	</item>
 	<item id="2501" article="a" name="ceremonial mask">
 		<attribute key="tier" value="4"/>
@@ -7142,12 +7161,14 @@
 		<attribute key="weight" value="13000"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="body"/>
+		<attribute key="skillShield" value="1"/>
 	</item>
 	<item id="2504" name="dwarven legs">
 		<attribute key="tier" value="3"/>
 		<attribute key="weight" value="4000"/>
-		<attribute key="armor" value="6"/>
+		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="legs"/>
+		<attribute key="skillShield" value="1"/>
 	</item>
 	<item id="2505" article="a" name="firemasters armor">
 		<attribute key="tier" value="3"/>
@@ -7730,6 +7751,7 @@
 		<attribute key="weight" value="3200"/>
 		<attribute key="armor" value="4"/>
 		<attribute key="slotType" value="feet"/>
+		<attribute key="speed" value="50"/>
 	</item>
 	<item id="2647" name="plate legs">
 		<attribute key="tier" value="1"/>
@@ -15128,7 +15150,7 @@
 	<item id="5535" article="a" name="sword of furion">
 		<attribute key="weight" value="3800"/>
 		<attribute key="defense" value="37"/>
-		<attribute key="attack" value="50"/>
+		<attribute key="attack" value="53"/>
 		<attribute key="skillSword" value="2"/>
 		<attribute key="weaponType" value="sword"/>
 	</item>
@@ -15280,11 +15302,15 @@
 	</item>
 	<item id="5733" article="a" name="magic plate armor">
 		<attribute key="tier" value="3"/>
-		<attribute key="description" value="An enchanted gem glows on the plate armor. (Task reward)"/>
+		<attribute key="description" value="An enchanted gem glows on the plate armor."/>
 		<attribute key="weight" value="8500"/>
 		<attribute key="armor" value="17"/>
 		<attribute key="slotType" value="body"/>
-
+		<attribute key="skillShield" value="2"/>
+		<attribute key="skillAxe" value="2"/>
+		<attribute key="skillSword" value="2"/>
+		<attribute key="skillClub" value="2"/>
+		<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="5735" article="a" name="royal helmet">
 		<attribute key="tier" value="2"/>
@@ -15538,7 +15564,7 @@
 		<attribute key="weight" value="10000"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="slotType" value="body"/>
-		<attribute key="skillDist" value="2"/>
+		<attribute key="skillDist" value="1"/>
 	</item>
 	<item id="5784" article="a" name="skullcracker armor">
 		<attribute key="tier" value="2"/>
@@ -15546,7 +15572,8 @@
 		<attribute key="weight" value="3100" />
 		<attribute key="armor" value="14" />
 		<attribute key="slotType" value="body" />
-		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="magiclevelpoints" value="1" />
+		<attribute key="elementDeath" value="10"/>
 	</item>
 	
 		<item id="5816" article="a" name="skullmaster armor">
@@ -15555,8 +15582,8 @@
 		<attribute key="weight" value="3100" />
 		<attribute key="armor" value="14" />
 		<attribute key="slotType" value="body" />
-
-		<attribute key="magiclevelpoints" value="2" />
+<attribute key="elementDeath" value="15"/>
+		<attribute key="magiclevelpoints" value="1" />
 	</item>
 	
 	<item id="5807" article="a" name="yalahari armor">
@@ -15565,14 +15592,10 @@
 		<attribute key="weight" value="10000" />
 		<attribute key="armor" value="14" />
 		<attribute key="slotType" value="body" />
-
-		
-
-
-<attribute key="skillShield" value="2"/>
+<attribute key="skillShield" value="1"/>
 	</item>
 	<item id="5808" article="a" name="yalahari leg piece">
-		<attribute key="tier" value="2"/>
+		<attribute key="tier" value="1"/>
 	<attribute key="description" value="The leg piece of yalahari god."/>
 		<attribute key="weight" value="5200" />
 		<attribute key="armor" value="7" />
@@ -15593,7 +15616,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="armor" value="9" />
 		<attribute key="slotType" value="head" />
-				<attribute key="skillShield" value="2"/>
+				<attribute key="skillShield" value="1"/>
 
 	</item>
 	<item id="5826" article="a" name="zaoan armor">
@@ -15601,14 +15624,14 @@
 		<attribute key="weight" value="9500" />
 		<attribute key="armor" value="13" />
 		<attribute key="slotType" value="body" />
-	
+		<attribute key="speed" value="10"/>
 	</item>
 	<item id="5839" article="a" name="zaoan legs">
 		<attribute key="tier" value="2"/>
 		<attribute key="weight" value="5400" />
 		<attribute key="armor" value="8" />
 		<attribute key="slotType" value="legs" />
-		<attribute key="absorbPercentPhysical" value="2" />
+		<attribute key="skillShield" value="1"/>
 	</item>
 	<item id="5838" article="a" name="zaoan shoes">
 		<attribute key="tier" value="2"/>
@@ -15623,7 +15646,7 @@
 		<attribute key="weight" value="12000"/>
 		<attribute key="armor" value="15"/>
 		<attribute key="slotType" value="body"/>
-		<attribute key="skillDist" value="4"/>
+		<attribute key="skillDist" value="2"/>
 	</item>
 	<item id="5812" article="a" name="lizard knowledge spellbook">
 		<attribute key="tier" value="3"/>
@@ -15880,9 +15903,9 @@
 		<attribute key="weight" value="800"/>
 		<attribute key="slotType" value="feet"/>
 		<attribute key="healthGain" value="1"/>
-		<attribute key="healthTicks" value="3000"/>
-		<attribute key="manaGain" value="5"/>
-		<attribute key="manaTicks" value="2000"/>		
+		<attribute key="healthTicks" value="5000"/>
+		<attribute key="manaGain" value="1"/>
+		<attribute key="manaTicks" value="5000"/>		
 	</item>
 	
 	<item id="5885" article="a" name="ice flail">
@@ -16963,8 +16986,8 @@
 	
 	<item id="7916" article="a" name="golden war hammer">
 		<attribute key="weight" value="8500"/>
-		<attribute key="defense" value="10"/>
-		<attribute key="attack" value="52"/>
+		<attribute key="defense" value="28"/>
+		<attribute key="attack" value="55"/>
 		<attribute key="skillClub" value="4"/>
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>

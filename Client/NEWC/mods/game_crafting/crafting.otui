@@ -327,10 +327,10 @@ MainWindow
     CategoryButton
       id: armorChestCat
       width: 82
-      @onClick: modules.game_crafting.selectArmorCategory("chest")
+      @onClick: modules.game_crafting.selectArmorCategory("armor")
 
       WeaponTabLabel
-        text: Chest
+        text: Armor
 
     CategoryButton
       id: armorLegsCat

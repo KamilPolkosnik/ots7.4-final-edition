@@ -650,7 +650,7 @@ local function getArmorGroup(craft)
   if armorType == "helmet" then
     return "helmet"
   elseif armorType == "chest" or armorType == "armor" then
-    return "chest"
+    return "armor"
   elseif armorType == "legs" then
     return "legs"
   elseif armorType == "boots" then
@@ -668,6 +668,7 @@ local function updateArmorCategoryButtons()
 
   local map = {
     helmet = "armorHelmetCat",
+    armor = "armorChestCat",
     chest = "armorChestCat",
     legs = "armorLegsCat",
     boots = "armorBootsCat",
@@ -929,7 +930,12 @@ function selectWeaponHandFilter(filter)
 end
 
 function selectArmorCategory(category)
-  selectedArmorCategory = category or "helmet"
+  local value = tostring(category or "helmet"):lower()
+  if value == "chest" then
+    value = "armor"
+  end
+
+  selectedArmorCategory = value
   updateArmorCategoryButtons()
   if selectedCategory == "armorsmith" then
     refreshItemsList()
