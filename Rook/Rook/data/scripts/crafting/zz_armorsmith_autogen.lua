@@ -230,8 +230,8 @@ local shieldOverrides = {
 -- Manual overrides for "others" category.
 local othersOverrides = {
     [7088] = {disabled = true}, -- regeneration amulet
-    [2661] = {cost = 500, materials = {}}, -- scarf
-    [2171] = {cost = 3000, materials = {{id = 2661, count = 5}}}, -- platinum amulet
+    [2661] = {disabled = true}, -- scarf
+    [2171] = {disabled = true}, -- platinum amulet
     [2339] = {disabled = true} -- damaged helmet
 }
 

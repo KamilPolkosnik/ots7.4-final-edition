@@ -6107,14 +6107,11 @@
 			<attribute key="description" value="You feel the energy of this mighty ring!"/>
 		<attribute key="weight" value="90"/>
 		<attribute key="slotType" value="ring"/>
-				<attribute key="skillDist" value="3"/>
-				<attribute key="skillSword" value="3"/>
-				<attribute key="skillAxe" value="3"/>
-				<attribute key="skillClub" value="3"/>
-				<attribute key="skillFist" value="3"/>
-		<attribute key="decayTo" value="0"/>
-		<attribute key="duration" value="3600"/>
-		<attribute key="showduration" value="1"/>
+				<attribute key="skillDist" value="2"/>
+				<attribute key="skillSword" value="2"/>
+				<attribute key="skillAxe" value="2"/>
+				<attribute key="skillClub" value="2"/>
+				<attribute key="skillFist" value="2"/>
 	</item>
 	<item id="2359" article="a" name="small oil lamp">
 		<attribute key="weight" value="900"/>
@@ -7274,12 +7271,14 @@
 		<attribute key="weight" value="8400"/>
 		<attribute key="defense" value="38"/>
 		<attribute key="weaponType" value="shield"/>
+		<attribute key="skillShield" value="1"/>
 	</item>
 	<item id="2523" article="a" name="blessed shield">
 		<attribute key="description" value="The shield grants divine protection."/>
 		<attribute key="weight" value="6800"/>
 		<attribute key="defense" value="40"/>
 		<attribute key="weaponType" value="shield"/>
+		<attribute key="skillShield" value="2"/>
 	</item>
 	<item id="2524" article="an" name="ornamented shield">
 		<attribute key="description" value="Many gems sparkle on the shield."/>
@@ -15526,7 +15525,7 @@
 	
 	<item id="5920" article="a" name="spellbook of mind control">
 		<attribute key="weight" value="2450"/>
-				<attribute key="magicPoints" value="2"/>
+				<attribute key="magicPoints" value="1"/>
 				  <attribute key="defense" value="16"/> 
   <attribute key="weaponType" value="shield"/> 
 	</item>
@@ -15534,7 +15533,7 @@
 			
 	<item id="5918" article="a" name="spellscroll of prophecies">
 		<attribute key="weight" value="2650"/>
-				<attribute key="magicPoints" value="3"/>
+				<attribute key="magicPoints" value="1"/>
 				  <attribute key="defense" value="12"/> 
   <attribute key="weaponType" value="shield"/> 
 	</item>
@@ -15547,9 +15546,9 @@
 		<attribute key="range" value="4" />
 	</item>
 		<item id="5791" article="a" name="warlocks spellbook">
-			<attribute key="tier" value="3"/>
+			<attribute key="tier" value="1"/>
 		<attribute key="weight" value="600"/>
-				<attribute key="magicPoints" value="2"/>
+				<attribute key="magicPoints" value="1"/>
 				  <attribute key="defense" value="22"/> 
   <attribute key="weaponType" value="shield"/> 
 	</item>
@@ -15652,7 +15651,7 @@
 		<attribute key="tier" value="3"/>
 	<attribute key="description" value="This spellbook contains secret lizard incantations making every holder a powerful wizard."/>
 		<attribute key="weight" value="250"/>
-				<attribute key="magicPoints" value="3"/>
+				<attribute key="magicPoints" value="1"/>
 				  <attribute key="defense" value="24"/> 
   <attribute key="weaponType" value="shield"/> 
 	</item>
@@ -16678,24 +16677,24 @@
 	-->
 	
 	<item id="7088" article="a" name="regeneration amulet">
-	<attribute key="description" value="It grants you 5 health and mana per 4 seconds" />
+	<attribute key="description" value="It grants you 1 health and mana per 5 seconds." />
 		<attribute key="weight" value="5200"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="necklace"/>
-		<attribute key="healthGain" value="5"/>
-		<attribute key="healthTicks" value="4000"/>
-		<attribute key="manaGain" value="5"/>
-		<attribute key="manaTicks" value="4000"/>
+		<attribute key="healthGain" value="1"/>
+		<attribute key="healthTicks" value="5000"/>
+		<attribute key="manaGain" value="1"/>
+		<attribute key="manaTicks" value="5000"/>
 				<attribute key="duration" value="3600"/>	
 	</item>
 	<item id="7089" article="a" name="regeneration ring">
-		<attribute key="description" value="It grants you 5 health and mana per 4 seconds" />
+		<attribute key="description" value="It grants you 1 health and mana per 5 seconds." />
 		<attribute key="weight" value="80"/>
 		<attribute key="slotType" value="ring"/>
-		<attribute key="healthGain" value="5"/>
-		<attribute key="healthTicks" value="4000"/>
-		<attribute key="manaGain" value="5"/>
-		<attribute key="manaTicks" value="4000"/>	
+		<attribute key="healthGain" value="1"/>
+		<attribute key="healthTicks" value="5000"/>
+		<attribute key="manaGain" value="1"/>
+		<attribute key="manaTicks" value="5000"/>	
 				<attribute key="duration" value="3600"/>
 
 	</item>

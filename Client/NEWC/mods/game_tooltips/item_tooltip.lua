@@ -91,6 +91,22 @@ local impPercent = {
   ["a_all"] = true
 }
 
+local function formatRegenSeconds(ticks)
+  local value = tonumber(ticks)
+  if not value or value <= 0 then
+    return nil
+  end
+
+  local seconds = value / 1000
+  if seconds == math.floor(seconds) then
+    return tostring(math.floor(seconds))
+  end
+
+  local formatted = string.format("%.2f", seconds)
+  formatted = formatted:gsub("0+$", ""):gsub("%.$", "")
+  return formatted
+end
+
 function init()
   connect(UIItem, {onHoverChange = onHoverChange})
   connect(g_game, {onGameEnd = resetData})
@@ -419,14 +435,42 @@ function buildItemTooltip(item)
       addEmpty(5)
     end
 
-    for key, value in pairs(item.imp) do
-      local impText
-      if not implicits[key] then
-        impText = value
+    local skipImplicit = {}
+    local hpGain = tonumber(item.imp.hpgain) or 0
+    local hpTicks = tonumber(item.imp.hpticks) or 0
+    local mpGain = tonumber(item.imp.mpgain) or 0
+    local mpTicks = tonumber(item.imp.mpticks) or 0
+    local hpSeconds = formatRegenSeconds(hpTicks)
+    local mpSeconds = formatRegenSeconds(mpTicks)
+
+    if hpGain > 0 or mpGain > 0 then
+      skipImplicit.hpgain = true
+      skipImplicit.hpticks = true
+      skipImplicit.mpgain = true
+      skipImplicit.mpticks = true
+
+      if hpGain > 0 and mpGain > 0 and hpGain == mpGain and hpSeconds and mpSeconds and hpSeconds == mpSeconds then
+        addString("Regen mana and health " .. hpGain .. "/" .. hpSeconds .. " s", Colors.Implicit)
       else
-        impText = implicits[key] .. " " .. (value > 0 and "+" or "") .. value .. (impPercent[key] and "%" or "")
+        if hpGain > 0 then
+          addString("Health regen " .. hpGain .. (hpSeconds and ("/" .. hpSeconds .. " s") or ""), Colors.Implicit)
+        end
+        if mpGain > 0 then
+          addString("Mana regen " .. mpGain .. (mpSeconds and ("/" .. mpSeconds .. " s") or ""), Colors.Implicit)
+        end
       end
-      addString(impText, Colors.Implicit)
+    end
+
+    for key, value in pairs(item.imp) do
+      if not skipImplicit[key] then
+        local impText
+        if not implicits[key] then
+          impText = value
+        else
+          impText = implicits[key] .. " " .. (value > 0 and "+" or "") .. value .. (impPercent[key] and "%" or "")
+        end
+        addString(impText, Colors.Implicit)
+      end
     end
   end
 

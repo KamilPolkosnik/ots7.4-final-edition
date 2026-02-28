@@ -316,6 +316,34 @@ local function shortenText(text, maxLen)
   return text:sub(1, maxLen - 3) .. "..."
 end
 
+local function getQuiverSlotCount(itemType)
+  if not itemType or itemType:getId() == 0 then
+    return 0
+  end
+
+  local isQuiver = false
+  local slotPosition = itemType:getSlotPosition()
+  if type(slotPosition) == "number" and type(SLOTP_QUIVER) == "number" then
+    if bit and bit.band then
+      isQuiver = bit.band(slotPosition, SLOTP_QUIVER) ~= 0
+    else
+      isQuiver = slotPosition == SLOTP_QUIVER
+    end
+  end
+
+  if not isQuiver and itemType:isContainer() then
+    local lowerName = (itemType:getName() or ""):lower()
+    isQuiver = lowerName:find("quiver", 1, true) ~= nil
+  end
+
+  if not isQuiver then
+    return 0
+  end
+
+  local capacity = tonumber(itemType:getCapacity()) or 0
+  return math.max(0, capacity)
+end
+
 local function buildCraftSummary(itemType)
   if not itemType or itemType:getId() == 0 then
     return nil
@@ -336,6 +364,11 @@ local function buildCraftSummary(itemType)
   local extraDefense = itemType:getExtraDefense()
   if extraDefense and extraDefense > 0 then
     tags[#tags + 1] = "Def+ " .. extraDefense
+  end
+
+  local quiverSlots = getQuiverSlotCount(itemType)
+  if quiverSlots > 0 then
+    tags[#tags + 1] = "Slots " .. quiverSlots
   end
 
   local armor = itemType:getArmor()
@@ -469,6 +502,11 @@ local function buildCraftTooltip(itemType, craft)
   local extraDefense = itemType:getExtraDefense()
   if extraDefense and extraDefense > 0 then
     lines[#lines + 1] = "Extra Defense: " .. extraDefense
+  end
+
+  local quiverSlots = getQuiverSlotCount(itemType)
+  if quiverSlots > 0 then
+    lines[#lines + 1] = "Slots: " .. quiverSlots
   end
 
   local hitChance = itemType:getHitChance()
@@ -734,6 +772,8 @@ function Crafting:sendCrafts(player, category)
     local itemType = ItemType(craft.id)
     craft.clientId = itemType:getClientId()
     craft.attack = itemType:getAttack()
+    craft.defense = itemType:getDefense()
+    craft.extraDefense = itemType:getExtraDefense()
     craft.twoHanded = itemType:isTwoHanded()
     craft.tooltip = buildCraftTooltip(itemType, craft)
     craft.summary = buildCraftSummary(itemType)

@@ -601,6 +601,23 @@ local function getCraftAttackValue(craft)
   return 0
 end
 
+local function getCraftDefenseValue(craft)
+  if not craft then
+    return 0
+  end
+
+  local defense = tonumber(craft.defense)
+  local extraDefense = tonumber(craft.extraDefense) or 0
+  if defense then
+    return defense + extraDefense
+  end
+
+  local summary = tostring(craft.summary or "")
+  local fromSummary = tonumber(summary:match("Def%s+([%-]?%d+)")) or 0
+  local fromExtra = tonumber(summary:match("Def%+%s*([%-]?%d+)")) or 0
+  return fromSummary + fromExtra
+end
+
 local function updateWeaponCategoryButtons()
   if not weaponCategoryPanel then
     return
@@ -828,6 +845,12 @@ function refreshItemsList()
         local attackB = getCraftAttackValue(b.craft)
         if attackA ~= attackB then
           return attackA < attackB
+        end
+      elseif selectedCategory == "armorsmith" and selectedArmorCategory == "shield" then
+        local defenseA = getCraftDefenseValue(a.craft)
+        local defenseB = getCraftDefenseValue(b.craft)
+        if defenseA ~= defenseB then
+          return defenseA < defenseB
         end
       end
 

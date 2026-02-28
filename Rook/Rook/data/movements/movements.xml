@@ -681,6 +681,10 @@
 		
 	</movevent>
 	<movevent event="DeEquip" itemid="2175" slot="shield" function="onDeEquipItem" />
+	<movevent event="Equip" itemid="2522" slot="shield" function="onEquipItem" />
+	<movevent event="DeEquip" itemid="2522" slot="shield" function="onDeEquipItem" />
+	<movevent event="Equip" itemid="2523" slot="shield" function="onEquipItem" />
+	<movevent event="DeEquip" itemid="2523" slot="shield" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="5789" slot="shield" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="5789" slot="shield" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="5791" slot="shield" function="onEquipItem" />
