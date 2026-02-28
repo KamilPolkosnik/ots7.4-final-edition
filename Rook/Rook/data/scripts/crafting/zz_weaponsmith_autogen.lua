@@ -12,10 +12,10 @@ local function itemExists(itemId)
     return it and it:getId() ~= 0 and it:getClientId() > 0
 end
 
--- Manual axe filters/costs.
+-- Manual axe filters/recipes.
 -- Rules:
 -- 1) Remove from crafting every axe obtainable via monster loot or quest reward.
--- 2) Keep craft-only axes with cost only (recipes will be added later).
+-- 2) Keep craft-only axes with custom recipes and costs.
 local axeOverrides = {
     [2378] = {disabled = true}, -- battle axe (loot/quest)
     [2380] = {disabled = true}, -- hand axe (loot)
@@ -25,38 +25,129 @@ local axeOverrides = {
     [2388] = {disabled = true}, -- hatchet (loot/quest)
     [2405] = {disabled = true}, -- sickle (loot)
     [2414] = {disabled = true}, -- dragon lance (loot/quest)
-    [2415] = {cost = 30300}, -- great axe
+    [2415] = {
+        cost = 5000000,
+        materials = {
+            {id = 2112, count = 1}, -- teddy bear
+            {id = 2208, count = 100}, -- axe ring
+            {id = 2348, count = 50}, -- ancient rune
+            {id = 2193, count = 50}, -- ankh
+            {id = 3956, count = 50}, -- elephant tusk
+            {id = 2230, count = 200} -- bone
+        }
+    }, -- great axe
     [2418] = {disabled = true}, -- golden sickle (loot)
     [2425] = {disabled = true}, -- obsidian lance (loot/quest)
-    [2426] = {cost = 30300}, -- naginata (loot/quest)
+    [2426] = {
+        cost = 4000,
+        materials = {
+            {id = 2381, count = 5}, -- halberd
+            {id = 2230, count = 10}, -- bone
+            {id = 2208, count = 2} -- axe ring
+        }
+    }, -- naginata
     [2427] = {disabled = true}, -- guardian halberd (quest)
     [2428] = {disabled = true}, -- orcish axe (loot/quest)
     [2429] = {disabled = true}, -- barbarian axe (loot/quest)
     [2430] = {disabled = true}, -- knight axe (loot/quest)
-    [2431] = {cost = 30300}, -- stonecutter axe (quest)
+    [2431] = {cost = 500000, materials = {
+        {id = 2208, count = 100},
+    }}, -- stonecutter axe
     [2432] = {disabled = true}, -- fire axe (loot/quest)
     [2435] = {disabled = true}, -- dwarven axe (quest)
     [2440] = {disabled = true}, -- daramanian waraxe (loot)
-    [2441] = {cost = 6700}, -- daramanian axe
-    [2443] = {cost = 30300}, -- ravager's axe (loot/quest)
-    [2447] = {cost = 30300}, -- twin axe (loot)
-    [2454] = {cost = 25100}, -- war axe
+    [2441] = {
+        cost = 200,
+        materials = {
+            {id = 2230, count = 3} -- bone
+        }
+    }, -- daramanian axe
+    [2443] = {
+        cost = 250000,
+        materials = {
+            {id = 5904, count = 1}, -- royal axe
+            {id = 2208, count = 15}, -- axe ring
+            {id = 2348, count = 20}, -- ancient rune
+            {id = 2193, count = 10}, -- ankh
+            {id = 3956, count = 10}, -- elephant tusk
+            {id = 2230, count = 75} -- bone
+        }
+    }, -- ravager's axe
+    [2447] = {
+        cost = 45000,
+        materials = {
+            {id = 5903, count = 1}, -- thornfang axe
+            {id = 2208, count = 8}, -- axe ring
+            {id = 2348, count = 5}, -- ancient rune
+            {id = 2193, count = 10} -- ankh
+        }
+    }, -- twin axe
+    [2454] = {
+        cost = 150000,
+        materials = {
+            {id = 2447, count = 1}, -- twin axe
+            {id = 2208, count = 12}, -- axe ring
+            {id = 2348, count = 10}, -- ancient rune
+            {id = 2193, count = 20}, -- ankh
+            {id = 3956, count = 5}, -- elephant tusk
+            {id = 2230, count = 50} -- bone
+        }
+    }, -- war axe
     [2550] = {disabled = true}, -- scythe
-    [3962] = {cost = 14100}, -- beastslayer axe
+    [3962] = {
+        cost = 5000,
+        materials = {
+            {id = 2430, count = 1}, -- knight axe
+            {id = 2230, count = 10}, -- bone
+            {id = 2208, count = 2} -- axe ring
+        }
+    }, -- beastslayer axe
     [3964] = {disabled = true}, -- ripper lance (loot)
     [3965] = {disabled = true}, -- hunting spear (loot)
-    [5537] = {cost = 16000}, -- axe of donarion
-    [5890] = {cost = 23600}, -- phonic axe
+    [5537] = {
+        cost = 30000,
+        materials = {
+            {id = 3962, count = 1}, -- beastslayer axe
+            {id = 2208, count = 5}, -- axe ring
+            {id = 3956, count = 10} -- elephant tusk
+        }
+    }, -- axe of donarion
+    [5890] = {
+        cost = 1000000,
+        materials = {
+            {id = 2431, count = 1}, -- stonecutter axe
+            {id = 2208, count = 25}, -- axe ring
+            {id = 2348, count = 30}, -- ancient rune
+            {id = 2193, count = 15}, -- ankh
+            {id = 3956, count = 15}, -- elephant tusk
+            {id = 2230, count = 85} -- bone
+        }
+    }, -- phonic axe
     [5893] = {disabled = true}, -- vampiric axe
-    [5903] = {cost = 5700}, -- thornfang axe
-    [5904] = {cost = 19900}, -- royal axe
-    [5923] = {cost = 4350} -- thornfang axe (variant)
+    [5903] = {
+        cost = 28000,
+        materials = {
+            {id = 2426, count = 1}, -- naginata
+            {id = 2208, count = 4}, -- axe ring
+            {id = 2230, count = 15} -- bone
+        }
+    }, -- thornfang axe
+    [5904] = {
+        cost = 50000,
+        materials = {
+            {id = 3962, count = 1}, -- beastslayer axe
+            {id = 2208, count = 10}, -- axe ring
+            {id = 2348, count = 10}, -- ancient rune
+            {id = 2193, count = 10} -- ankh
+        }
+    }, -- royal axe
+    [5923] = {disabled = true} -- thornfang axe (variant)
 }
 
--- Manual sword filters/costs.
+-- Manual sword filters/recipes.
 -- Rules:
 -- 1) Remove from crafting every sword obtainable via monster loot or quest reward.
--- 2) Keep craft-only swords with cost only (recipes will be added later).
+-- 2) Keep craft-only swords with custom recipes and costs.
 local swordOverrides = {
     [2376] = {disabled = true}, -- sword (loot)
     [2377] = {disabled = true}, -- two handed sword (loot/quest)
@@ -64,38 +155,139 @@ local swordOverrides = {
     [2383] = {disabled = true}, -- spike sword (loot/quest)
     [2384] = {disabled = true}, -- rapier (loot/quest)
     [2385] = {disabled = true}, -- sabre (loot)
-    [2390] = {cost = 29500}, -- magic longsword
+    [2390] = {
+        cost = 5000000,
+        materials = {
+            {id = 2112, count = 1}, -- teddy bear
+            {id = 2408, count = 1} -- warlord sword
+        }
+    }, -- magic longsword
     [2392] = {disabled = true}, -- fire sword (loot/quest)
     [2393] = {disabled = true}, -- giant sword (loot/quest)
     [2395] = {disabled = true}, -- carlin sword (loot/quest)
     [2396] = {disabled = true}, -- ice rapier (loot)
     [2397] = {disabled = true}, -- longsword (loot/quest)
-    [2400] = {cost = 29500}, -- magic sword (quest)
+    [2400] = {
+        cost = 500000,
+        materials = {
+            {id = 2207, count = 100} -- sword ring
+        }
+    }, -- magic sword
     [2402] = {disabled = true}, -- silver dagger (loot/quest)
     [2403] = {disabled = true}, -- knife (loot)
     [2404] = {disabled = true}, -- combat knife (loot/quest)
     [2406] = {disabled = true}, -- short sword (loot)
     [2407] = {disabled = true}, -- bright sword (quest)
-    [2408] = {cost = 28300}, -- warlord sword
+    [2408] = {
+        cost = 800000,
+        materials = {
+            {id = 5755, count = 1}, -- avenger
+            {id = 2207, count = 20}, -- sword ring
+            {id = 2231, count = 20}, -- big bone
+            {id = 2349, count = 20}, -- blue note
+            {id = 2745, count = 20}, -- blue rose
+            {id = 1950, count = 15} -- book
+        }
+    }, -- warlord sword
     [2409] = {disabled = true}, -- serpent sword (loot/quest)
     [2411] = {disabled = true}, -- poison dagger (loot/quest)
     [2412] = {disabled = true}, -- katana (loot/quest)
     [2413] = {disabled = true}, -- broad sword (loot/quest)
     [2419] = {disabled = true}, -- scimitar (loot/quest)
     [2420] = {disabled = true}, -- machete (loot)
-    [2438] = {cost = 15050}, -- epee
+    [2438] = {
+        cost = 8000,
+        materials = {
+            {id = 5739, count = 1}, -- ice sword
+            {id = 2231, count = 2}, -- big bone
+            {id = 2349, count = 2}, -- blue note
+            {id = 2207, count = 2} -- sword ring
+        }
+    }, -- epee
     [2442] = {disabled = true}, -- heavy machete (loot)
-    [2446] = {cost = 15050}, -- pharaoh sword (loot/quest)
+    [2446] = {
+        cost = 30000,
+        materials = {
+            {id = 2451, count = 1}, -- djinn blade
+            {id = 2231, count = 6}, -- big bone
+            {id = 2349, count = 6}, -- blue note
+            {id = 2207, count = 8} -- sword ring
+        }
+    }, -- pharaoh sword
     [2450] = {disabled = true}, -- bone sword (loot)
-    [2451] = {cost = 15050}, -- djinn blade (loot)
+    [2451] = {
+        cost = 16000,
+        materials = {
+            {id = 5905, count = 2}, -- wyvern fang
+            {id = 2231, count = 5}, -- big bone
+            {id = 2349, count = 5}, -- blue note
+            {id = 2207, count = 4} -- sword ring
+        }
+    }, -- djinn blade (djin sword)
     [3963] = {disabled = true}, -- templar scytheblade (loot)
-    [5535] = {cost = 21500}, -- sword of furion
-    [5739] = {cost = 15050}, -- ice sword (quest)
-    [5755] = {cost = 29500}, -- avenger
-    [5898] = {cost = 4350}, -- ice blade
-    [5899] = {cost = 17950}, -- rune sword
-    [5905] = {cost = 12700}, -- wyvern fang
-    [5906] = {cost = 5700} -- blacksteel sword
+    [5535] = {
+        cost = 1000000,
+        materials = {
+            {id = 2400, count = 1}, -- magic sword
+            {id = 2207, count = 25}, -- sword ring
+            {id = 2231, count = 30}, -- big bone
+            {id = 2349, count = 25}, -- blue note
+            {id = 2745, count = 25}, -- blue rose
+            {id = 1950, count = 20} -- book
+        }
+    }, -- sword of furion
+    [5739] = {
+        cost = 4000,
+        materials = {
+            {id = 2231, count = 2}, -- big bone
+            {id = 2207, count = 2} -- sword ring
+        }
+    }, -- ice sword
+    [5755] = {
+        cost = 200000,
+        materials = {
+            {id = 5906, count = 1}, -- blacksteel sword
+            {id = 2207, count = 12}, -- sword ring
+            {id = 2231, count = 15}, -- big bone
+            {id = 2349, count = 15}, -- blue note
+            {id = 2745, count = 15}, -- blue rose
+            {id = 1950, count = 10} -- book
+        }
+    }, -- avenger
+    [5898] = {
+        cost = 16000,
+        materials = {
+            {id = 5739, count = 1}, -- ice sword
+            {id = 2231, count = 5}, -- big bone
+            {id = 2349, count = 5}, -- blue note
+            {id = 2207, count = 4} -- sword ring
+        }
+    }, -- ice blade
+    [5899] = {
+        cost = 40000,
+        materials = {
+            {id = 2446, count = 1}, -- pharaoh sword
+            {id = 2231, count = 10}, -- big bone
+            {id = 2349, count = 10}, -- blue note
+            {id = 2745, count = 10}, -- blue rose
+            {id = 2207, count = 12} -- sword ring
+        }
+    }, -- rune sword
+    [5905] = {
+        cost = 3500,
+        materials = {
+            {id = 2409, count = 2} -- serpent sword
+        }
+    }, -- wyvern fang
+    [5906] = {
+        cost = 27000,
+        materials = {
+            {id = 2377, count = 5}, -- two handed sword
+            {id = 2207, count = 8}, -- sword ring
+            {id = 2231, count = 4}, -- big bone
+            {id = 2349, count = 4} -- blue note
+        }
+    } -- blacksteel sword
 }
 
 -- Manual club filters/costs.
