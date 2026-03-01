@@ -57,10 +57,8 @@ local axeOverrides = {
     [2435] = {disabled = true}, -- dwarven axe (quest)
     [2440] = {disabled = true}, -- daramanian waraxe (loot)
     [2441] = {
-        cost = 200,
-        materials = {
-            {id = 2230, count = 3} -- bone
-        }
+        cost = 500,
+        materials = {}
     }, -- daramanian axe
     [2443] = {
         cost = 250000,
@@ -309,7 +307,7 @@ local clubOverrides = {
             {id = 2209, count = 100} -- club ring
         }
     }, -- thunder hammer
-    [2422] = {disabled = true}, -- iron hammer (quest)
+    [2422] = {cost = 500, materials = {}}, -- iron hammer (quest)
     [2423] = {disabled = true}, -- clerical mace (loot)
     [2424] = {
         cost = 25000,

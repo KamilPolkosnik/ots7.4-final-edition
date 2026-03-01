@@ -638,6 +638,8 @@
 	<movevent event="DeEquip" itemid="2495" slot="legs" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="2504" slot="legs" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="2504" slot="legs" function="onDeEquipItem" />
+	<movevent event="Equip" itemid="2507" slot="legs" function="onEquipItem" />
+	<movevent event="DeEquip" itemid="2507" slot="legs" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="5728" slot="legs" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="5728" slot="legs" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="5808" slot="legs" function="onEquipItem" />

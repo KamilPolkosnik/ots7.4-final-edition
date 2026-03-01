@@ -6107,11 +6107,11 @@
 			<attribute key="description" value="You feel the energy of this mighty ring!"/>
 		<attribute key="weight" value="90"/>
 		<attribute key="slotType" value="ring"/>
-				<attribute key="skillDist" value="2"/>
-				<attribute key="skillSword" value="2"/>
-				<attribute key="skillAxe" value="2"/>
-				<attribute key="skillClub" value="2"/>
-				<attribute key="skillFist" value="2"/>
+				<attribute key="skillDist" value="1"/>
+				<attribute key="skillSword" value="1"/>
+				<attribute key="skillAxe" value="1"/>
+				<attribute key="skillClub" value="1"/>
+				<attribute key="skillFist" value="1"/>
 	</item>
 	<item id="2359" article="a" name="small oil lamp">
 		<attribute key="weight" value="900"/>
@@ -7189,7 +7189,7 @@
 		<attribute key="weight" value="1800"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="legs"/>
-		<attribute key="MagicPoints" value="1"/>		
+		<attribute key="skillDist" value="2"/>		
 	</item>
 	<item id="2508" article="a" name="native armor">
 		<attribute key="tier" value="4"/>
@@ -7790,7 +7790,7 @@
 	</item>
 	<item id="2653" article="a" name="red tunic">
 		<attribute key="weight" value="3000"/>
-		<attribute key="armor" value="2"/>
+		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2654" article="a" name="cape">
@@ -7803,7 +7803,7 @@
 	<item id="2655" article="a" name="red robe">
 		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2600"/>
-		<attribute key="armor" value="1"/>
+		<attribute key="armor" value="8"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="2656" article="a" name="blue robe">
@@ -12113,8 +12113,8 @@
 	</item>
 	<item id="3968" article="a" name="leopard armor">
 		<attribute key="tier" value="2"/>
-		<attribute key="weight" value="9500"/>
-		<attribute key="armor" value="9"/>
+		<attribute key="weight" value="6500"/>
+		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="3969" article="a" name="horseman helmet">
@@ -12126,7 +12126,7 @@
 	<item id="3970" article="a" name="feather headdress">
 		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="2100"/>
-		<attribute key="armor" value="2"/>
+		<attribute key="armor" value="5"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="3971" article="a" name="charmer tiara">
@@ -15589,7 +15589,7 @@
 		<attribute key="tier" value="2"/>
 	<attribute key="description" value="The armor of yalahari god."/>
 		<attribute key="weight" value="10000" />
-		<attribute key="armor" value="14" />
+		<attribute key="armor" value="16" />
 		<attribute key="slotType" value="body" />
 <attribute key="skillShield" value="1"/>
 	</item>
@@ -15600,7 +15600,7 @@
 		<attribute key="armor" value="7" />
 		<attribute key="slotType" value="legs" />
 
-				<attribute key="skillDist" value="2"/>
+				<attribute key="skillDist" value="1"/>
 	</item>
 	<item id="5809" article="a" name="yalahari mask">
 		<attribute key="tier" value="2"/>
@@ -15651,16 +15651,16 @@
 		<attribute key="tier" value="3"/>
 	<attribute key="description" value="This spellbook contains secret lizard incantations making every holder a powerful wizard."/>
 		<attribute key="weight" value="250"/>
-				<attribute key="magicPoints" value="1"/>
+				<attribute key="magicPoints" value="2"/>
 				  <attribute key="defense" value="24"/> 
   <attribute key="weaponType" value="shield"/> 
 	</item>
 	
 	<item id="5971" article="a" name="infernal bolt" plural="infernal bolts">
-	<attribute key="description" value="57 attack."/>
+	<attribute key="description" value="52 attack."/>
 		<attribute key="weight" value="90" />
 		<attribute key="slotType" value="ammo" />
-		<attribute key="attack" value="57" />
+		<attribute key="attack" value="52" />
 		<attribute key="maxHitChance" value="85" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="ammoType" value="bolt" />
@@ -15807,7 +15807,7 @@
 		<attribute key="weight" value="5500"/>
 		<attribute key="defense" value="30"/>
 		<attribute key="weaponType" value="shield"/>
-		<attribute key="absorbPercentFire" value="15"/>
+		<attribute key="absorbPercentFire" value="8"/>
 		<attribute key="absorbPercentPoison" value="-10"/>
 		<attribute key="magiclevelpoints" value="1" />
 	</item>	
@@ -15902,9 +15902,9 @@
 		<attribute key="weight" value="800"/>
 		<attribute key="slotType" value="feet"/>
 		<attribute key="healthGain" value="1"/>
-		<attribute key="healthTicks" value="5000"/>
+		<attribute key="healthTicks" value="10000"/>
 		<attribute key="manaGain" value="1"/>
-		<attribute key="manaTicks" value="5000"/>		
+		<attribute key="manaTicks" value="10000"/>		
 	</item>
 	
 	<item id="5885" article="a" name="ice flail">
@@ -16677,24 +16677,24 @@
 	-->
 	
 	<item id="7088" article="a" name="regeneration amulet">
-	<attribute key="description" value="It grants you 1 health and mana per 5 seconds." />
+	<attribute key="description" value="It grants you 1 health and mana per 10 seconds." />
 		<attribute key="weight" value="5200"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="healthGain" value="1"/>
-		<attribute key="healthTicks" value="5000"/>
+		<attribute key="healthTicks" value="10000"/>
 		<attribute key="manaGain" value="1"/>
-		<attribute key="manaTicks" value="5000"/>
+		<attribute key="manaTicks" value="10000"/>
 				<attribute key="duration" value="3600"/>	
 	</item>
 	<item id="7089" article="a" name="regeneration ring">
-		<attribute key="description" value="It grants you 1 health and mana per 5 seconds." />
+		<attribute key="description" value="It grants you 1 health and mana per 10 seconds." />
 		<attribute key="weight" value="80"/>
 		<attribute key="slotType" value="ring"/>
 		<attribute key="healthGain" value="1"/>
-		<attribute key="healthTicks" value="5000"/>
+		<attribute key="healthTicks" value="10000"/>
 		<attribute key="manaGain" value="1"/>
-		<attribute key="manaTicks" value="5000"/>	
+		<attribute key="manaTicks" value="10000"/>	
 				<attribute key="duration" value="3600"/>
 
 	</item>
@@ -17017,34 +17017,34 @@
 		<attribute key="containerSize" value="4"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="1"/>
-				<attribute key="defense" value="5"/>
+				<attribute key="defense" value="10"/>
 	</item>
 	<item id="7957" article="a" name="quiver">
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="5"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="2"/>
-				<attribute key="defense" value="6"/>
+				<attribute key="defense" value="12"/>
 	</item>
 	<item id="7958" article="a" name="red quiver">
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="6"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="2"/>
-				<attribute key="defense" value="10"/>
+				<attribute key="defense" value="20"/>
 	</item>
 	<item id="7959" article="a" name="jungle quiver">
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="7"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="3"/>
-				<attribute key="defense" value="12"/>
+				<attribute key="defense" value="24"/>
 	</item>
 	<item id="7960" article="an" name="alicorn quiver">
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="8"/>
 		<attribute key="slotType" value="quiver"/>
 		<attribute key="tier" value="4"/>
-				<attribute key="defense" value="15"/>
+				<attribute key="defense" value="30"/>
 	</item>
 </items>
