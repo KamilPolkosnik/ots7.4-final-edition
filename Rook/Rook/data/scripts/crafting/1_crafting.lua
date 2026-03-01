@@ -10,6 +10,73 @@ local CONTAINER_POS = rawget(_G, "CONTAINER_POSITION") or 65535
 local SLOT_AMMO = rawget(_G, "CONST_SLOT_AMMO") or 10
 local MAX_CONTAINER_SCAN_ID = 15
 local MAX_CONTAINER_RECURSION = 8
+local REVIVE_SPELLBOOK_ITEM_ID = 7961
+local REVIVE_SPELLBOOK_DODGE_VALUE = 5
+local REVIVE_SPELLBOOK_DODGE_FALLBACK_ENCHANT_ID = 58
+
+local function resolveEnchantIdBySpecial(specialName, fallbackId)
+  if type(US_ENCHANTMENTS) ~= "table" then
+    return fallbackId
+  end
+
+  for enchantId, attr in pairs(US_ENCHANTMENTS) do
+    if type(attr) == "table" and attr.special == specialName then
+      return tonumber(enchantId) or fallbackId
+    end
+  end
+
+  return fallbackId
+end
+
+local function applyCraftPresetBonuses(result, craftedItemId)
+  if craftedItemId ~= REVIVE_SPELLBOOK_ITEM_ID or not result then
+    return
+  end
+
+  local dodgeEnchantId = resolveEnchantIdBySpecial("DODGE", REVIVE_SPELLBOOK_DODGE_FALLBACK_ENCHANT_ID)
+
+  local function applyToItem(item)
+    if not item or not item.isItem or not item:isItem() then
+      return
+    end
+
+    if item:getId() ~= REVIVE_SPELLBOOK_ITEM_ID then
+      return
+    end
+
+    local maxSlots = item:getMaxAttributes() or 0
+    if maxSlots <= 0 then
+      return
+    end
+
+    local emptySlot = nil
+    for i = 1, maxSlots do
+      local bonus = item:getBonusAttribute(i)
+      if bonus then
+        if bonus[1] == dodgeEnchantId then
+          if tonumber(bonus[2]) ~= REVIVE_SPELLBOOK_DODGE_VALUE then
+            item:setAttributeValue(i, dodgeEnchantId .. "|" .. REVIVE_SPELLBOOK_DODGE_VALUE)
+          end
+          return
+        end
+      elseif not emptySlot then
+        emptySlot = i
+      end
+    end
+
+    if emptySlot then
+      item:addAttribute(emptySlot, dodgeEnchantId, REVIVE_SPELLBOOK_DODGE_VALUE)
+    end
+  end
+
+  if type(result) == "table" then
+    for i = 1, #result do
+      applyToItem(result[i])
+    end
+  else
+    applyToItem(result)
+  end
+end
 
 local function clonePos(pos)
   if not pos then
@@ -964,7 +1031,9 @@ function Crafting:craft(player, data)
   end
 
   local resultCount = math.max(1, tonumber(recipe.count) or tonumber(craft.count) or 1)
-  if player:addItem(craft.id, resultCount, false) then
+  local craftedResult = player:addItem(craft.id, resultCount, false)
+  if craftedResult then
+    applyCraftPresetBonuses(craftedResult, craft.id)
     player:removeTotalMoney(recipe.cost)
 
     for i = 1, #recipe.materials do
