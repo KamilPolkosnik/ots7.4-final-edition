@@ -240,6 +240,65 @@ local function getEmptyAttributeSlots(target)
   return slots
 end
 
+local function isEnchantAllowedForTarget(attr, target, usItemType)
+  if type(us_IsEnchantAllowedForItem) == "function" then
+    return us_IsEnchantAllowedForItem(attr, target, usItemType)
+  end
+
+  local typeMask = tonumber(attr and attr.itemType) or 0
+  local maskAllowed = typeMask > 0 and usItemType and bit.band(usItemType, typeMask) ~= 0
+
+  local idAllowed = false
+  if attr and type(attr.allowedItemIds) == "table" then
+    local itemId = target:getId()
+    for _, allowedId in ipairs(attr.allowedItemIds) do
+      if tonumber(allowedId) == itemId then
+        idAllowed = true
+        break
+      end
+    end
+  end
+
+  if not maskAllowed and not idAllowed then
+    return false
+  end
+
+  local itemType = target:getType()
+  if not itemType then
+    return false
+  end
+
+  local weaponType = itemType:getWeaponType()
+  if attr and type(attr.allowedWeaponTypes) == "table" and weaponType > 0 then
+    local weaponAllowed = false
+    for _, allowedWeaponType in ipairs(attr.allowedWeaponTypes) do
+      if tonumber(allowedWeaponType) == weaponType then
+        weaponAllowed = true
+        break
+      end
+    end
+    if not weaponAllowed then
+      return false
+    end
+  end
+
+  if attr and type(attr.allowedAmmoTypes) == "table" and weaponType > 0 then
+    local ammoType = itemType:getAmmoType()
+    local ammoAllowed = false
+    for _, allowedAmmoType in ipairs(attr.allowedAmmoTypes) do
+      if tonumber(allowedAmmoType) == ammoType then
+        ammoAllowed = true
+        break
+      end
+    end
+    if not ammoAllowed then
+      return false
+    end
+  end
+
+  return true
+end
+
 local function canApplyEnchanterCraft(target, craft, player, selectedSlot)
   if not target or not craft or not craft.enchantId then
     return false, nil, "invalid_target_or_craft"
@@ -275,7 +334,8 @@ local function canApplyEnchanterCraft(target, craft, player, selectedSlot)
   end
 
   local usItemType = target:getItemType()
-  if not usItemType or bit.band(usItemType, attr.itemType) == 0 then
+  local matchesType = usItemType and isEnchantAllowedForTarget(attr, target, usItemType) or false
+  if not matchesType then
     return false, attr, "item_type_mask"
   end
 

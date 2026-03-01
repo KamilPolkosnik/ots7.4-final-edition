@@ -263,7 +263,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Max HP +" .. value
     end,
-    itemType = US_ITEM_TYPES.HELMET + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+    itemType = US_ITEM_TYPES.HELMET + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [2] = {
     name = "Max MP",
@@ -274,7 +274,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Max MP +" .. value
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+    itemType = US_ITEM_TYPES.HELMET + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [3] = {
     name = "Magic Level",
@@ -285,7 +285,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Magic Level +" .. value
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [4] = {
     name = "Melee Skills",
@@ -319,7 +319,8 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Sword Fighting +" .. value
     end,
-    itemType = US_ITEM_TYPES.WEAPON_MELEE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+    itemType = US_ITEM_TYPES.WEAPON_MELEE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.BOOTS,
+    allowedWeaponTypes = {WEAPON_SWORD}
   },
   [7] = {
     name = "Axe Fighting",
@@ -330,7 +331,8 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Axe Fighting +" .. value
     end,
-    itemType = US_ITEM_TYPES.WEAPON_MELEE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+    itemType = US_ITEM_TYPES.WEAPON_MELEE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS,
+    allowedWeaponTypes = {WEAPON_AXE}
   },
   [8] = {
     name = "Club Fighting",
@@ -341,7 +343,8 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Club Fighting +" .. value
     end,
-    itemType = US_ITEM_TYPES.WEAPON_MELEE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+    itemType = US_ITEM_TYPES.WEAPON_MELEE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS,
+    allowedWeaponTypes = {WEAPON_CLUB}
   },
   [9] = {
     name = "Distance Fighting",
@@ -352,7 +355,9 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Distance Fighting +" .. value
     end,
-    itemType = US_ITEM_TYPES.WEAPON_DISTANCE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+    itemType = US_ITEM_TYPES.WEAPON_DISTANCE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS,
+    allowedWeaponTypes = {WEAPON_DISTANCE},
+    allowedAmmoTypes = {AMMO_ARROW, AMMO_BOLT}
   },
   [10] = {
     name = "Shielding",
@@ -394,7 +399,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Experience +" .. value .. "%%"
     end,
-    itemType = US_ITEM_TYPES.BOOTS,
+    itemType = US_ITEM_TYPES.BOOTS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE,
     chance = 30
   },
   [14] = {
@@ -475,7 +480,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Elemental Damage +" .. value .. "%%"
     end,
-    itemType =  US_ITEM_TYPES.NECKLACE,
+    itemType = US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.RING,
     chance = 50
   },
   [22] = {
@@ -580,7 +585,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "20%% to cast Flame Strike on Attack dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [31] = {
     name = "Flame Strike on Hit",
@@ -596,7 +601,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "10%% to cast Flame Strike on Hit dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [32] = {
     name = "Ice Strike on Attack",
@@ -612,7 +617,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "20%% to cast Ice Strike on Attack dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [33] = {
     name = "Ice Strike on Hit",
@@ -628,7 +633,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "10%% to cast Ice Strike on Hit dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [34] = {
     name = "Terra Strike on Attack",
@@ -644,7 +649,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "20%% to cast Terra Strike on Attack dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [35] = {
     name = "Terra Strike on Hit",
@@ -660,7 +665,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "10%% to cast Terra Strike on Hit dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [36] = {
     name = "Death Strike on Attack",
@@ -676,7 +681,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "20%% to cast Death Strike on Attack dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [37] = {
     name = "Death Strike on Hit",
@@ -708,7 +713,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "20%% to cast Divine Missile on Attack dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [39] = {
     name = "Divine Missile on Hit",
@@ -724,7 +729,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "10%% to cast Divine Missile on Hit dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [40] = {
     name = "Energy Strike on Attack",
@@ -740,7 +745,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "20%% to cast Energy Strike on Attack dealing upto " .. value .. " damage"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [41] = {
     name = "Energy Strike on Hit",
@@ -779,7 +784,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Explosion on Kill dealing " .. value .. "%% Max HP of a killed monster"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY
+    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
   [43] = {
     name = "Health on Kill",
@@ -816,7 +821,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Regenerate Mana for " .. value .. "%% of dealt damage"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_WAND + US_ITEM_TYPES.WEAPON_DISTANCE,
+    itemType = US_ITEM_TYPES.WEAPON_ANY,
     chance = 10
   },
   [46] = {
@@ -832,7 +837,8 @@ US_ENCHANTMENTS = {
     format = function(value)
       return value .. "%% to regenerate full HP on Kill"
     end,
-    itemType = US_ITEM_TYPES.RING,
+    itemType = US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE,
+    allowedItemIds = {2471},
     minLevel = 70,
     chance = 5
   },
@@ -849,7 +855,8 @@ US_ENCHANTMENTS = {
     format = function(value)
       return value .. "%% to regenerate full MP on Kill"
     end,
-    itemType = US_ITEM_TYPES.RING,
+    itemType = US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE,
+    allowedItemIds = {6480},
     minLevel = 70,
     chance = 5
   },
@@ -869,7 +876,8 @@ US_ENCHANTMENTS = {
     format = function(value)
       return value .. "%% to cast Mass Healing on Attack"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_WAND,
+    itemType = 0,
+    allowedItemIds = {7088},
     minLevel = 100,
     chance = 15
   },
@@ -915,6 +923,7 @@ US_ENCHANTMENTS = {
       return value .. "%% to be revived"
     end,
     itemType = US_ITEM_TYPES.BOOTS,
+    allowedItemIds = {6480},
     minLevel = 100,
     chance = 30
   },
@@ -1055,7 +1064,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Dodge +" .. value .. "%%"
     end,
-    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
   },
   [59] = {
     name = "Damage Reflect",
@@ -1064,7 +1073,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Damage Reflect +" .. value .. "%%"
     end,
-    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
+    itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS
   },
   [60] = {
     name = "Life Leech Chance",
@@ -1074,7 +1083,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Life Leech Chance +" .. value .. "%%"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+    itemType = US_ITEM_TYPES.WEAPON_ANY
   },
   [61] = {
     name = "Life Leech Amount",
@@ -1084,7 +1093,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Life Leech Amount +" .. value .. "%%"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+    itemType = US_ITEM_TYPES.WEAPON_ANY
   },
   [62] = {
     name = "Mana Leech Chance",
@@ -1094,7 +1103,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Mana Leech Chance +" .. value .. "%%"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+    itemType = US_ITEM_TYPES.WEAPON_ANY
   },
   [63] = {
     name = "Mana Leech Amount",
@@ -1104,7 +1113,7 @@ US_ENCHANTMENTS = {
     format = function(value)
       return "Mana Leech Amount +" .. value .. "%%"
     end,
-    itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
+    itemType = US_ITEM_TYPES.WEAPON_ANY
   }
 }
 
