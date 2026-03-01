@@ -1,10 +1,14 @@
 Crafting.enchanter = {}
 
+local ENCHANT_RECIPE_BLOCKLIST = {
+    [45] = true -- Mana Steal
+}
+
 local enchantCrystalId = US_CONFIG[1][ITEM_ENCHANT_CRYSTAL]
 for enchantId, attr in ipairs(US_ENCHANTMENTS) do
     local itemTypeMask = attr and tonumber(attr.itemType) or 0
     local hasAllowedIds = attr and type(attr.allowedItemIds) == "table" and #attr.allowedItemIds > 0
-    if attr and attr.name and (itemTypeMask > 0 or hasAllowedIds) then
+    if attr and attr.name and not ENCHANT_RECIPE_BLOCKLIST[enchantId] and (itemTypeMask > 0 or hasAllowedIds) then
         table.insert(Crafting.enchanter, {
             id = enchantCrystalId,
             name = attr.name,

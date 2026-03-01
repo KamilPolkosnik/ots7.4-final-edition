@@ -7,6 +7,8 @@ US_BUFFS = {}
 local US_SUBID = {}
 local US_ITEM_TIER_BY_ID = {}
 local US_FIXED_LEECH_PROC_CHANCE = 25
+local US_ITEM_TIER_CUSTOM_ATTRIBUTE = "item_tier"
+local us_GetItemTier
 
 local function us_CountTable(data)
     local count = 0
@@ -14,6 +16,36 @@ local function us_CountTable(data)
         count = count + 1
     end
     return count
+end
+
+local function us_GetChanceForLevel(chanceByLevel, level)
+    if type(chanceByLevel) ~= "table" then
+        return nil
+    end
+
+    local normalizedLevel = tonumber(level)
+    if not normalizedLevel then
+        return nil
+    end
+    normalizedLevel = math.floor(normalizedLevel)
+
+    local direct = tonumber(chanceByLevel[normalizedLevel])
+    if direct then
+        return direct
+    end
+
+    local fallbackLevel = nil
+    local fallbackValue = nil
+    for key, value in pairs(chanceByLevel) do
+        local keyLevel = tonumber(key)
+        local numericValue = tonumber(value)
+        if keyLevel and numericValue and (not fallbackLevel or keyLevel > fallbackLevel) then
+            fallbackLevel = keyLevel
+            fallbackValue = numericValue
+        end
+    end
+
+    return fallbackValue
 end
 
 local function us_GetTierRange(tier)
@@ -138,7 +170,7 @@ local function us_GetTieredRollLevel(item)
         return nil
     end
 
-    local tier = US_ITEM_TIER_BY_ID[item:getId()]
+    local tier = us_GetItemTier(item)
     if not tier then
         return nil
     end
@@ -157,11 +189,67 @@ local function us_GetTieredRollLevel(item)
     return math.random(minLevel, maxLevel)
 end
 
-local function us_GetItemTier(item)
+us_GetItemTier = function(item)
     if not item then
         return nil
     end
+
+    local customTier = tonumber(item:getCustomAttribute(US_ITEM_TIER_CUSTOM_ATTRIBUTE))
+    if customTier then
+        customTier = math.floor(customTier)
+        if us_GetTierRange(customTier) then
+            return customTier
+        end
+    end
+
     return US_ITEM_TIER_BY_ID[item:getId()]
+end
+
+local function us_SetItemTier(item, tier)
+    if not item or not item.isItem or not item:isItem() then
+        return false
+    end
+
+    local normalizedTier = tonumber(tier)
+    if not normalizedTier then
+        return false
+    end
+
+    normalizedTier = math.floor(normalizedTier)
+    if not us_GetTierRange(normalizedTier) then
+        return false
+    end
+
+    local baseTier = US_ITEM_TIER_BY_ID[item:getId()]
+    if baseTier and normalizedTier == baseTier then
+        item:removeCustomAttribute(US_ITEM_TIER_CUSTOM_ATTRIBUTE)
+    else
+        item:setCustomAttribute(US_ITEM_TIER_CUSTOM_ATTRIBUTE, normalizedTier)
+    end
+
+    return true
+end
+
+local function us_GetMaxUpgradeLevel(item)
+    local fallbackMax = tonumber(US_CONFIG and US_CONFIG.MAX_UPGRADE_LEVEL) or 9
+    fallbackMax = math.max(1, math.floor(fallbackMax))
+
+    local perTierMultiplier = tonumber(US_CONFIG and US_CONFIG.MAX_UPGRADE_LEVEL_PER_TIER) or 0
+    if perTierMultiplier <= 0 then
+        return fallbackMax
+    end
+
+    local tier = us_GetItemTier(item)
+    if not tier then
+        return fallbackMax
+    end
+
+    local dynamicMax = math.floor(tier * perTierMultiplier)
+    if dynamicMax < 1 then
+        return fallbackMax
+    end
+
+    return dynamicMax
 end
 
 local function us_GetTierStatBaseLevel(item)
@@ -1401,14 +1489,17 @@ function Item.rollAttribute(self, player, itemType, weaponType, unidentify)
     if unidentify then
         if US_CONFIG.IDENTIFY_UPGRADE_LEVEL then
             local upgrade_level = 1
-            for i = US_CONFIG.MAX_UPGRADE_LEVEL, 1, -1 do
+            local maxUpgradeLevel = us_GetMaxUpgradeLevel(self)
+            for i = maxUpgradeLevel, 1, -1 do
                 if i >= US_CONFIG.UPGRADE_LEVEL_DESTROY then
-                    if math.random(100) <= US_CONFIG.UPGRADE_DESTROY_CHANCE[i] then
+                    local destroyChance = us_GetChanceForLevel(US_CONFIG.UPGRADE_DESTROY_CHANCE, i) or 0
+                    if math.random(100) <= destroyChance then
                         upgrade_level = i
                         break
                     end
                 else
-                    if math.random(100) <= US_CONFIG.UPGRADE_SUCCESS_CHANCE[i] then
+                    local successChance = us_GetChanceForLevel(US_CONFIG.UPGRADE_SUCCESS_CHANCE, i) or 0
+                    if math.random(100) <= successChance then
                         upgrade_level = i
                         break
                     end
@@ -1517,6 +1608,28 @@ function Item.getLastSlot(self)
     return last
 end
 
+local function us_RecalculateItemBonusSlots(item, itemLevel)
+    if not item or not item.isItem or not item:isItem() then
+        return
+    end
+
+    local level = math.max(0, math.floor(tonumber(itemLevel) or 0))
+    for slot = 1, item:getMaxAttributes() do
+        local bonus = item:getBonusAttribute(slot)
+        if bonus and bonus[1] then
+            local attrId = bonus[1]
+            local attr = US_ENCHANTMENTS[attrId]
+            if attr then
+                local recalculated = tonumber(us_GetAttributeValue(level, attr)) or bonus[2] or 1
+                recalculated = math.max(1, math.floor(recalculated))
+                if bonus[2] ~= recalculated then
+                    item:setCustomAttribute("Slot" .. slot, attrId .. "|" .. recalculated)
+                end
+            end
+        end
+    end
+end
+
 function Item.setItemLevel(self, level, first)
     local oldLevel = self:getItemLevel()
     level = math.max(0, math.floor(tonumber(level) or 0))
@@ -1585,11 +1698,29 @@ function Item.setItemLevel(self, level, first)
             level = level + math.floor(itemType:getHitChance() / US_CONFIG.ITEM_LEVEL_PER_HITCHANCE)
         end
     end
-    return self:setCustomAttribute("item_level", level)
+
+    local updated = self:setCustomAttribute("item_level", level)
+    if updated then
+        -- Keep slot values synchronized with current item level scaling rules.
+        us_RecalculateItemBonusSlots(self, level)
+    end
+    return updated
 end
 
 function Item.getItemLevel(self)
     return self:getCustomAttribute("item_level") and self:getCustomAttribute("item_level") or 0
+end
+
+function Item.getItemTier(self)
+    return us_GetItemTier(self)
+end
+
+function Item.setItemTier(self, tier)
+    return us_SetItemTier(self, tier)
+end
+
+function Item.getMaxUpgradeLevel(self)
+    return us_GetMaxUpgradeLevel(self)
 end
 
 function Item.setUpgradeLevel(self, level)

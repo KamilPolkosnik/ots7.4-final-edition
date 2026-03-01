@@ -1,7 +1,76 @@
 local CrystalsAction = Action()
 
+local function getTierRange(tier)
+    tier = tonumber(tier)
+    if not tier then
+        return nil
+    end
+
+    local minTier = tonumber(US_CONFIG and US_CONFIG.ITEM_TIER_MIN) or 1
+    local maxTier = tonumber(US_CONFIG and US_CONFIG.ITEM_TIER_MAX) or 25
+    local levelStep = tonumber(US_CONFIG and US_CONFIG.ITEM_LEVEL_PER_TIER) or 25
+    local firstTierMin = tonumber(US_CONFIG and US_CONFIG.ITEM_LEVEL_FIRST_TIER_MIN) or 1
+
+    minTier = math.max(1, math.floor(minTier))
+    maxTier = math.max(minTier, math.floor(maxTier))
+    levelStep = math.max(1, math.floor(levelStep))
+    firstTierMin = math.max(1, math.floor(firstTierMin))
+    tier = math.floor(tier)
+
+    if tier < minTier or tier > maxTier then
+        return nil
+    end
+
+    local minLevel = (tier == minTier) and firstTierMin or ((tier - 1) * levelStep)
+    local maxLevel = tier * levelStep
+    minLevel = math.max(1, minLevel)
+    maxLevel = math.max(minLevel, maxLevel)
+    return {min = minLevel, max = maxLevel}
+end
+
+local function getChanceForLevel(chanceByLevel, level)
+    if type(chanceByLevel) ~= "table" then
+        return nil
+    end
+
+    local normalizedLevel = tonumber(level)
+    if not normalizedLevel then
+        return nil
+    end
+    normalizedLevel = math.floor(normalizedLevel)
+
+    local direct = tonumber(chanceByLevel[normalizedLevel])
+    if direct then
+        return direct
+    end
+
+    local fallbackLevel = nil
+    local fallbackValue = nil
+    for key, value in pairs(chanceByLevel) do
+        local keyLevel = tonumber(key)
+        local numericValue = tonumber(value)
+        if keyLevel and numericValue and (not fallbackLevel or keyLevel > fallbackLevel) then
+            fallbackLevel = keyLevel
+            fallbackValue = numericValue
+        end
+    end
+
+    return fallbackValue
+end
+
 function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    if not target or not target:isItem() or not target:getType():isUpgradable() then
+    local isRarityCrystal = item.itemid == US_CONFIG.ITEM_RARITY_CRYSTAL
+    local isTierCrystal = item.itemid == US_CONFIG.ITEM_TIER_CRYSTAL
+    if not target or not target:isItem() then
+        if isRarityCrystal or isTierCrystal then
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, "Use this crystal on an item.")
+            player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+            return true
+        end
+        return false
+    end
+    local targetType = target:getType()
+    if not isRarityCrystal and not isTierCrystal and (not targetType or not targetType:isUpgradable()) then
         return false
     end
     if toPosition.y <= CONST_SLOT_AMMO then
@@ -23,10 +92,13 @@ function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, is
     if item.itemid == US_CONFIG[1][ITEM_UPGRADE_CRYSTAL] then
         if itemType:isUpgradable() then
             local upgrade = target:getUpgradeLevel()
-            if upgrade < US_CONFIG.MAX_UPGRADE_LEVEL then
+            local maxUpgradeLevel = target.getMaxUpgradeLevel and target:getMaxUpgradeLevel() or US_CONFIG.MAX_UPGRADE_LEVEL
+            maxUpgradeLevel = math.max(1, math.floor(tonumber(maxUpgradeLevel) or 1))
+            if upgrade < maxUpgradeLevel then
                 upgrade = upgrade + 1
                 if upgrade >= US_CONFIG.UPGRADE_LEVEL_DESTROY then
-                    if math.random(100) > US_CONFIG.UPGRADE_DESTROY_CHANCE[upgrade] then
+                    local destroyChance = getChanceForLevel(US_CONFIG.UPGRADE_DESTROY_CHANCE, upgrade) or 0
+                    if math.random(100) > destroyChance then
                         if player:getItemCount(US_CONFIG.ITEM_UPGRADE_CATALYST) > 0 then
                             player:sendTextMessage(MESSAGE_INFO_DESCR, "Upgrade failed! Item protected from being destroyed!")
                             player:removeItem(US_CONFIG.ITEM_UPGRADE_CATALYST, 1)
@@ -41,7 +113,8 @@ function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, is
                         return true
                     end
                 else
-                    if math.random(100) > US_CONFIG.UPGRADE_SUCCESS_CHANCE[upgrade] then
+                    local successChance = getChanceForLevel(US_CONFIG.UPGRADE_SUCCESS_CHANCE, upgrade) or 0
+                    if math.random(100) > successChance then
                         player:sendTextMessage(MESSAGE_STATUS_WARNING, "Upgrade failed! Upgrade level -1!")
                         target:reduceUpgradeLevel()
                         item:remove(1)
@@ -64,7 +137,7 @@ function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, is
                 player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
                 player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
             else
-                player:sendTextMessage(MESSAGE_STATUS_WARNING, "Maximum upgrade level reached!")
+                player:sendTextMessage(MESSAGE_STATUS_WARNING, "Maximum upgrade level reached (" .. maxUpgradeLevel .. ")!")
             end
         else
             player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
@@ -213,6 +286,12 @@ function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, is
         copy:setRarity(target:getRarityId())
         copy:setCustomAttribute("upgrade", target:getUpgradeLevel())
         copy:setCustomAttribute("item_level", target:getItemLevel())
+        if target.getItemTier and copy.setItemTier then
+            local sourceTier = target:getItemTier()
+            if sourceTier then
+                copy:setItemTier(sourceTier)
+            end
+        end
         if target:getBonusAttributes() then
             for i = 1, target:getMaxAttributes() do
                 local attr = target:getBonusAttribute(i)
@@ -276,6 +355,66 @@ function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, is
             player:sendTextMessage(MESSAGE_INFO_DESCR, "Unique item " .. target:getUniqueName() .. " discovered!")
             item:remove(1)
         end
+    elseif item.itemid == US_CONFIG.ITEM_RARITY_CRYSTAL then
+        local currentRarity = target:getRarityId()
+        if currentRarity >= LEGENDARY then
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, "Maximum rarity reached!")
+            player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+            return true
+        end
+
+        target:setRarity(currentRarity + 1)
+        item:remove(1)
+        player:sendTextMessage(MESSAGE_INFO_DESCR, "Item rarity increased to " .. target:getRarity().name .. "!")
+        player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+    elseif item.itemid == US_CONFIG.ITEM_TIER_CRYSTAL then
+        local currentTier = target.getItemTier and target:getItemTier() or nil
+        if not currentTier then
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, "This item has no tier.")
+            player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+            return true
+        end
+
+        local maxTier = tonumber(US_CONFIG and US_CONFIG.ITEM_TIER_MAX) or 25
+        maxTier = math.max(1, math.floor(maxTier))
+        if currentTier >= maxTier then
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, "Maximum tier reached!")
+            player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+            return true
+        end
+
+        local nextTier = currentTier + 1
+        if not target:setItemTier(nextTier) then
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, "Unable to increase item tier.")
+            player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+            return true
+        end
+
+        -- Always raise item level when tier increases.
+        -- We shift by tier-step so effective power does not drop after tier base changes.
+        local currentLevel = target:getItemLevel()
+        local maxItemLevel = tonumber(US_CONFIG and US_CONFIG.MAX_ITEM_LEVEL) or 3000
+        maxItemLevel = math.max(1, math.floor(maxItemLevel))
+
+        local previousRange = getTierRange(currentTier)
+        local nextRangeInfo = getTierRange(nextTier)
+        local targetLevel = currentLevel + 1 -- hard minimum: tier up must increase level
+
+        if previousRange and nextRangeInfo then
+            local step = math.max(1, (tonumber(nextRangeInfo.min) or 1) - (tonumber(previousRange.min) or 1))
+            targetLevel = math.max(targetLevel, currentLevel + step, tonumber(nextRangeInfo.min) or 1)
+        elseif nextRangeInfo then
+            targetLevel = math.max(targetLevel, tonumber(nextRangeInfo.min) or 1)
+        end
+
+        targetLevel = math.min(maxItemLevel, math.floor(targetLevel))
+        if targetLevel > currentLevel then
+            target:setItemLevel(targetLevel, false)
+        end
+
+        item:remove(1)
+        player:sendTextMessage(MESSAGE_INFO_DESCR, "Item tier increased to " .. nextTier .. "!")
+        player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
     end
 
     return true
@@ -293,6 +432,8 @@ CrystalsAction:id(
     US_CONFIG.ITEM_LIMITLESS_CRYSTAL,
     US_CONFIG.ITEM_MIRRORED_CRYSTAL,
     US_CONFIG.ITEM_VOID_CRYSTAL,
+    US_CONFIG.ITEM_RARITY_CRYSTAL,
+    US_CONFIG.ITEM_TIER_CRYSTAL,
     US_CONFIG.ITEM_SCROLL_IDENTIFY
 )
 CrystalsAction:register()

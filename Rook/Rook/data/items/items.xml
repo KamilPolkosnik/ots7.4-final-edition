@@ -5071,22 +5071,27 @@
 	<item id="2123" article="a" name="ring of the sky">
 		<attribute key="weight" value="40"/>
 		<attribute key="slotType" value="ring"/>
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2124" article="a" name="crystal ring">
 		<attribute key="weight" value="90"/>
 		<attribute key="slotType" value="ring"/>
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2125" article="a" name="crystal necklace">
 		<attribute key="weight" value="490"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2126" article="a" name="bronzen necklace">
 		<attribute key="weight" value="700"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="4"/>
 	</item>
 	<item id="2127" article="an" name="emerald bangle">
 		<attribute key="weight" value="170"/>
 		<attribute key="slotType" value="ring"/>
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2128" article="a" name="crown">
 		<attribute key="weight" value="1500"/>
@@ -5099,6 +5104,7 @@
 		<attribute key="description" value="Many gems glitter on the amulet."/>
 		<attribute key="weight" value="830"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="4"/>
 	</item>
 	<item id="2131" article="a" name="star amulet">
 		<attribute key="weight" value="660"/>
@@ -5111,6 +5117,7 @@
 	<item id="2133" article="a" name="ruby necklace">
 		<attribute key="weight" value="570"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2134" article="a" name="silver brooch">
 		<attribute key="weight" value="110"/>
@@ -5118,10 +5125,12 @@
 	<item id="2135" article="a" name="scarab amulet">
 		<attribute key="weight" value="120"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2136" article="a" name="demonbone amulet">
 		<attribute key="weight" value="700"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2137" name="some golden fruits">
 		<attribute key="weight" value="300"/>
@@ -5140,6 +5149,7 @@
 	<item id="2142" article="an" name="ancient amulet">
 		<attribute key="weight" value="840"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2143" article="a" name="white pearl" plural="white pearls">
 		<attribute key="weight" value="20"/>
@@ -5279,6 +5289,7 @@
 		<attribute key="weight" value="600"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="2"/>
 	</item>
 	<item id="2172" article="a" name="bronze amulet">
 	
@@ -5317,6 +5328,7 @@
 	<item id="2179" article="a" name="golden ring">
 		<attribute key="weight" value="100"/>
 		<attribute key="slotType" value="ring"/>
+		<attribute key="tier" value="3"/>
 	</item>
 	<item id="2180" article="an" name="orb of nature">
 	</item>
@@ -5365,6 +5377,7 @@
 	<item id="2196" article="a" name="broken amulet">
 		<attribute key="weight" value="420"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="1"/>
 		<attribute key="description" value="A Broken Amulet of Life."/> 
 	</item>
 	<item id="2197" article="a" name="stone skin amulet">
@@ -6107,6 +6120,7 @@
 			<attribute key="description" value="You feel the energy of this mighty ring!"/>
 		<attribute key="weight" value="90"/>
 		<attribute key="slotType" value="ring"/>
+		<attribute key="tier" value="4"/>
 				<attribute key="skillDist" value="1"/>
 				<attribute key="skillSword" value="1"/>
 				<attribute key="skillAxe" value="1"/>
@@ -7836,6 +7850,7 @@
 		<attribute key="weight" value="200"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="1"/>
 	</item>
 	<item id="2662" article="a" name="magician hat">
 		<attribute key="tier" value="3"/>
@@ -16677,10 +16692,11 @@
 	-->
 	
 	<item id="7088" article="a" name="regeneration amulet">
-	<attribute key="description" value="It grants you 1 health and mana per 10 seconds." />
+	<attribute key="description" value="It improves your health and mana regeneration." />
 		<attribute key="weight" value="5200"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="necklace"/>
+		<attribute key="tier" value="4"/>
 		<attribute key="healthGain" value="1"/>
 		<attribute key="healthTicks" value="10000"/>
 		<attribute key="manaGain" value="1"/>
@@ -16688,7 +16704,7 @@
 				<attribute key="duration" value="3600"/>	
 	</item>
 	<item id="7089" article="a" name="regeneration ring">
-		<attribute key="description" value="It grants you 1 health and mana per 10 seconds." />
+		<attribute key="description" value="It improves your health and mana regeneration." />
 		<attribute key="weight" value="80"/>
 		<attribute key="slotType" value="ring"/>
 		<attribute key="healthGain" value="1"/>
@@ -16962,6 +16978,16 @@
 		<attribute key="weight" value="10"/>
 	</item>
 
+	<item id="7893" article="a" name="rarity crystal" plural="rarity crystals">
+		<attribute key="description" value="Used to increase item rarity by one step."/>
+		<attribute key="weight" value="10"/>
+	</item>
+
+	<item id="7894" article="a" name="tier crystal" plural="tier crystals">
+		<attribute key="description" value="Used to increase item tier by one step."/>
+		<attribute key="weight" value="10"/>
+	</item>
+
 	<item id="7936" article="an" name="haste rune">
 		<attribute key="type" value="rune"/>
 		<attribute key="runeSpellName" value="adura hur"/>
@@ -16982,7 +17008,7 @@
 	
 	<item id="7952" article="a" name="Discovery">
 	</item>
-	
+
 	<item id="7916" article="a" name="golden war hammer">
 		<attribute key="weight" value="8500"/>
 		<attribute key="defense" value="28"/>

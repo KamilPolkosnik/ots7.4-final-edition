@@ -1,0 +1,41 @@
+Rings/Amulets local mapping from items.xml
+Generated: 2026-03-01 18:27:02
+Filter: slotType in {ring, necklace}
+Matched entries: 25
+
+[RINGS]
+
+tier 1 - name="crystal ring" id=2124 slotType=ring weaponType=- tier=1 itemLevel=? dropFrom=[Banshee; Grorlam; Mummy; Orshabaal; Stone Golem; Vashresamun; ... (+1)] questFrom=[data\actions\scripts\main\Old Quest file.lua:753; data\actions\scripts\quests\server74_quest_chest_positions.lua:15]
+
+tier 2 - name="emerald bangle" id=2127 slotType=ring weaponType=- tier=2 itemLevel=? dropFrom=[Vampire] questFrom=[data\actions\scripts\quests\server74_quest_chest_positions.lua:17]
+
+tier 3 - name="golden ring" id=2179 slotType=ring weaponType=- tier=3 itemLevel=? dropFrom=[Demon; Orshabaal] questFrom=[data\actions\scripts\quests\server74_quest_chest_positions.lua:11]
+
+
+tier 2 - name="ring of the sky" id=2123 slotType=ring weaponType=- tier=2 itemLevel=? dropFrom=[Orshabaal; Warlock] questFrom=[-]
+tier 4 - name="ring of the unforgiving master" id=2357 slotType=ring weaponType=- tier=4 itemLevel=? dropFrom=[-] questFrom=[data\actions\scripts\quest\ring quest-revard.lua:46; data\actions\scripts\quests\server74_quest_chest_positions.lua:108]
+
+
+[AMULETS]
+tier ? - name="amulet of loss" id=2173 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[-] questFrom=[data\actions\scripts\quest\exploorer quest.lua:12]
+tier 1 - name="ancient amulet" id=2142 slotType=necklace weaponType=- tier=1 itemLevel=? dropFrom=[Ancient Scarab; Orshabaal] questFrom=[-]
+tier 1 - name="broken amulet" id=2196 slotType=necklace weaponType=- tier=1 itemLevel=? dropFrom=[-] questFrom=[-]
+
+tier 4 - name="bronzen necklace" id=2126 slotType=necklace weaponType=- tier=4 itemLevel=? dropFrom=[-] questFrom=[-]
+tier 1 - name="crystal necklace" id=2125 slotType=necklace weaponType=- tier=1 itemLevel=? dropFrom=[Amazon; Behemoth; Orshabaal; Priestess] questFrom=[data\actions\scripts\main\Old Quest file.lua:153; data\actions\scripts\quest\amazon-swamp1-quest.lua:15; data\actions\scripts\quest\knight axe.lua:15]
+tier 3 - name="demonbone amulet" id=2136 slotType=necklace weaponType=- tier=3 itemLevel=? dropFrom=[Morguthis] questFrom=[-]
+
+tier 4 - name="golden amulet" id=2130 slotType=necklace weaponType=- tier=4 itemLevel=? dropFrom=[-] questFrom=[data\actions\scripts\quests\server74_quest_chest_positions.lua:16; data\actions\scripts\quests\server74_quest_chest_positions.lua:21; data\actions\scripts\quests\server74_quest_chest_positions.lua:108]
+tier 2 - name="platinum amulet" id=2171 slotType=necklace weaponType=- tier=2 itemLevel=? dropFrom=[Demon; Giant Spider; Lich; Orshabaal; The Old Widow] questFrom=[data\actions\scripts\main\Old Quest file.lua:751; data\actions\scripts\quest\behe quest4.lua:10; data\actions\scripts\quest\djinn tower.lua:16; data\actions\scripts\quest\edron behemoth quest.lua:13; data\actions\scripts\quests\server74_quest_chest_positions.lua:4; data\actions\scripts\quests\server74_quest_chest_positions.lua:66; ... (+3)]
+tier 4 - name="regeneration amulet" id=7088 slotType=necklace weaponType=- tier=4 itemLevel=? dropFrom=[-] questFrom=[-]
+tier 3 - name="ruby necklace" id=2133 slotType=necklace weaponType=- tier=3 itemLevel=? dropFrom=[Black Knight] questFrom=[-]
+tier 2 - name="scarab amulet" id=2135 slotType=necklace weaponType=- tier=2 itemLevel=? dropFrom=[Ancient Scarab] questFrom=[-]
+tier 1 - name="scarf" id=2661 slotType=necklace weaponType=- tier=1 itemLevel=? dropFrom=[Hero] questFrom=[-]
+tier? - name="silver necklace" id=2132 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[-] questFrom=[-]
+tier ? - name="star amulet" id=2131 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[-] questFrom=[data\actions\scripts\main\Old Quest file.lua:447; data\actions\scripts\quest\mad-mage-room-quest.lua:15]
+tier ? - name="starlight amulet" id=5093 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[-] questFrom=[-]
+tier ? - name="stone skin amulet" id=2197 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[Banshee; Hydra; Morguthis; Orshabaal; Warlock] questFrom=[data\actions\scripts\main\Old Quest file.lua:448; data\actions\scripts\quest\banshee quest.lua:14; data\actions\scripts\quest\banshee-queen-quest.lua:16; data\actions\scripts\quest\mad-mage-room-quest.lua:14; data\actions\scripts\quests\server74_quest_chest_positions.lua:4]
+tier ? - name="strange symbol" id=2319 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[-] questFrom=[-]
+tier ? - name="strange talisman" id=2161 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[Mummy] questFrom=[-]
+tier ? - name="terra amulet" id=5878 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[-] questFrom=[-]
+tier ? - name="wolf tooth chain" id=2129 slotType=necklace weaponType=- tier=? itemLevel=? dropFrom=[Cyclops; Fernfang; Gargoyle; Krulak the Savage; Orc Rider; Witch; ... (+1)] questFrom=[data\actions\scripts\main\Old Quest file.lua:150; data\actions\scripts\quest\amazon-swamp1-quest.lua:12; data\actions\scripts\quest\knight axe.lua:12; data\actions\scripts\quests\server74_quest_chest_positions.lua:22]
