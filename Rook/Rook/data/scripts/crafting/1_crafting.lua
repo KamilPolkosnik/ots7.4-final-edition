@@ -436,6 +436,26 @@ local function canApplyEnchanterCraft(target, craft, player, selectedSlot)
   return true, attr, nil
 end
 
+local function getEnchanterRollValue(target, attr)
+  local itemLevel = math.max(0, math.floor(tonumber(target and target:getItemLevel() or 0) or 0))
+
+  local tick = tonumber(attr.VALUE_TICK_EVERY or attr.valueTickEvery) or tonumber(US_CONFIG.BONUS_VALUE_TICK_EVERY_DEFAULT) or 0
+  if tick > 0 then
+    local minLevel = tonumber(attr.minLevel) or 0
+    local baseLevel = tonumber(attr.BASE_ITEM_LEVEL or attr.baseItemLevel) or tonumber(US_CONFIG.BONUS_BASE_ITEM_LEVEL_DEFAULT) or 0
+    local requiredLevel = math.max(math.floor(minLevel), math.floor(baseLevel))
+    local effectiveLevel = math.max(0, itemLevel - requiredLevel)
+    return 1 + math.floor(effectiveLevel / math.max(1, math.floor(tick)))
+  end
+
+  if attr.VALUES_PER_LEVEL then
+    local maxRoll = math.max(1, math.ceil(math.max(1, itemLevel) * attr.VALUES_PER_LEVEL))
+    return math.random(1, maxRoll)
+  end
+
+  return 1
+end
+
 local function shortenText(text, maxLen)
   if not text or text:len() <= maxLen then
     return text
@@ -990,12 +1010,7 @@ function Crafting:craft(player, data)
       return
     end
 
-    local maxRoll = 1
-    local itemLevel = target:getItemLevel()
-    if attr.VALUES_PER_LEVEL then
-      maxRoll = math.max(1, math.ceil(math.max(1, itemLevel) * attr.VALUES_PER_LEVEL))
-    end
-    local value = attr.VALUES_PER_LEVEL and math.random(1, maxRoll) or 1
+    local value = getEnchanterRollValue(target, attr)
     target:addAttribute(chosenSlot, craft.enchantId, value)
 
     player:removeItem(crystalId, 1)

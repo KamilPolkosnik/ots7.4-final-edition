@@ -89,6 +89,22 @@ local statNameAliases = {
   lifeleechamount = 'Life Leech Amount',
   manaleechchance = 'Mana Leech Chance',
   manaleechamount = 'Mana Leech Amount',
+  physicalprotection = 'Physical Protection',
+  energyprotection = 'Energy Protection',
+  earthprotection = 'Earth Protection',
+  fireprotection = 'Fire Protection',
+  iceprotection = 'Ice Protection',
+  holyprotection = 'Holy Protection',
+  deathprotection = 'Death Protection',
+  elementalprotection = 'Elemental Protection',
+  physicalprot = 'Physical Protection',
+  energyprot = 'Energy Protection',
+  earthprot = 'Earth Protection',
+  fireprot = 'Fire Protection',
+  iceprot = 'Ice Protection',
+  holyprot = 'Holy Protection',
+  deathprot = 'Death Protection',
+  allprot = 'Elemental Protection',
   damagereflect = 'Damage Reflect',
   reflect = 'Damage Reflect',
   dodge = 'Dodge',
@@ -192,7 +208,7 @@ local function collectEquipmentBonusLines(player)
 
   local function parseAggregatedBonusLine(line)
     -- Pattern: "Name +12%" / "Name +12"
-    local bonusName, numericValue = line:match("^(.+)%s+%+([%d%.]+)%%$")
+    local bonusName, numericValue = line:match("^(.+)%s+%+([%d%.]+)%%+$")
     if bonusName and numericValue then
       addAggregatedBonus(bonusName, tonumber(numericValue) or 0, true)
       return
@@ -201,6 +217,30 @@ local function collectEquipmentBonusLines(player)
     bonusName, numericValue = line:match("^(.+)%s+%+([%d%.]+)$")
     if bonusName and numericValue then
       addAggregatedBonus(bonusName, tonumber(numericValue) or 0, false)
+      return
+    end
+
+    numericValue = line:match("^Regenerate%s+([%d%.]+)%s+Mana%s+on%s+Kill$")
+    if numericValue then
+      addAggregatedBonus("Mana on Kill", tonumber(numericValue) or 0, false)
+      return
+    end
+
+    numericValue = line:match("^Regenerate%s+([%d%.]+)%s+Health%s+on%s+Kill$")
+    if numericValue then
+      addAggregatedBonus("Life on Kill", tonumber(numericValue) or 0, false)
+      return
+    end
+
+    numericValue = line:match("^Regenerate%s+Mana%s+for%s+([%d%.]+)%%+%s+of%s+dealt%s+damage$")
+    if numericValue then
+      addAggregatedBonus("Mana Steal", tonumber(numericValue) or 0, true)
+      return
+    end
+
+    numericValue = line:match("^Heal%s+for%s+([%d%.]+)%%+%s+of%s+dealt%s+damage$")
+    if numericValue then
+      addAggregatedBonus("Life Steal", tonumber(numericValue) or 0, true)
       return
     end
   end
@@ -267,6 +307,94 @@ local function addBonusLine(panel, text, color)
   if color then
     label:setColor(color)
   end
+end
+
+local function stripLineCountSuffix(line)
+  if not line then
+    return ''
+  end
+  return trimText(line):gsub('%s+[xX]%d+$', '')
+end
+
+local function parseCanonicalStatNameFromLine(line)
+  local clean = stripLineCountSuffix(line)
+  if clean == '' then
+    return nil
+  end
+
+  local bonusName = clean:match("^(.+)%s+%+([%d%.]+)%%+$")
+  if bonusName then
+    return canonicalStatName(bonusName)
+  end
+
+  bonusName = clean:match("^(.+)%s+%+([%d%.]+)$")
+  if bonusName then
+    return canonicalStatName(bonusName)
+  end
+
+  bonusName = clean:match("^(.+):%s*([%d%.]+)%%+$")
+  if bonusName then
+    return canonicalStatName(bonusName)
+  end
+
+  bonusName = clean:match("^(.+):%s*([%d%.]+)$")
+  if bonusName then
+    return canonicalStatName(bonusName)
+  end
+
+  if clean:match("^Regenerate%s+([%d%.]+)%s+Mana%s+on%s+Kill$") then
+    return 'Mana on Kill'
+  end
+
+  if clean:match("^Regenerate%s+([%d%.]+)%s+Health%s+on%s+Kill$") then
+    return 'Life on Kill'
+  end
+
+  if clean:match("^Regenerate%s+Mana%s+for%s+([%d%.]+)%%+%s+of%s+dealt%s+damage$") then
+    return 'Mana Steal'
+  end
+
+  if clean:match("^Heal%s+for%s+([%d%.]+)%%+%s+of%s+dealt%s+damage$") then
+    return 'Life Steal'
+  end
+
+  return nil
+end
+
+local function isTriggerOrSpecialLine(line)
+  local clean = stripLineCountSuffix(line)
+  if clean == '' then
+    return false
+  end
+
+  local lower = clean:lower()
+
+  if lower == 'mana shield' then
+    return true
+  end
+
+  if lower:find(' on attack', 1, true) or lower:find(' on hit', 1, true) or lower:find(' on kill', 1, true) then
+    return true
+  end
+
+  local keywordPatterns = {
+    'to cast ',
+    ' to get ',
+    ' to regenerate ',
+    ' to be revived',
+    'deal double damage',
+    'more healing',
+    'more gold',
+    'explosion on kill'
+  }
+
+  for i = 1, #keywordPatterns do
+    if lower:find(keywordPatterns[i], 1, true) then
+      return true
+    end
+  end
+
+  return false
 end
 
 local function refreshBonusStatsWindow(force)
@@ -338,7 +466,6 @@ local function refreshBonusStatsWindow(force)
   local manaLeechAmount = 0
   local dodgeValue = 0
   local reflectValue = 0
-  local sourceLabel = tr('Source: fallback (client parsing)')
 
   if usingServerData then
     local coreStats = serverExtraStatsSnapshot.coreStats
@@ -350,7 +477,6 @@ local function refreshBonusStatsWindow(force)
     manaLeechAmount = math.floor(tonumber(coreStats.manaLeechAmount) or 0)
     dodgeValue = math.floor(tonumber(coreStats.dodge) or 0)
     reflectValue = math.floor(tonumber(coreStats.reflect) or 0)
-    sourceLabel = tr('Source: server snapshot')
 
     if type(serverExtraStatsSnapshot.aggregatedBonuses) == 'table' then
       for i = 1, #serverExtraStatsSnapshot.aggregatedBonuses do
@@ -475,6 +601,7 @@ local function refreshBonusStatsWindow(force)
   local coreEntries = {}
   local skillEntries = {}
   local otherEntries = {}
+  local triggerEntries = {}
 
   for i = 1, #coreCombatOrder do
     local key = coreCombatOrder[i]:lower()
@@ -497,10 +624,34 @@ local function refreshBonusStatsWindow(force)
     end
   end
 
-  addBonusLine(listPanel, tr('Summed Stats (3 Categories):'), '#f15a5a')
-  addBonusLine(listPanel, sourceLabel, '#9a9a9a')
+  local mergedLookup = {}
+  for key, _ in pairs(mergedByKey) do
+    mergedLookup[key] = true
+  end
 
-  if #mergedEntries == 0 then
+  local seenTriggerLine = {}
+  for i = 1, #equipmentLines do
+    local line = trimText(equipmentLines[i])
+    if line ~= '' and isTriggerOrSpecialLine(line) then
+      local canonicalName = parseCanonicalStatNameFromLine(line)
+      local alreadyInMerged = canonicalName and mergedLookup[canonicalName:lower()]
+      if not alreadyInMerged then
+        local key = line:lower()
+        if not seenTriggerLine[key] then
+          seenTriggerLine[key] = true
+          triggerEntries[#triggerEntries + 1] = line
+        end
+      end
+    end
+  end
+
+  table.sort(triggerEntries, function(a, b)
+    return a:lower() < b:lower()
+  end)
+
+  local hasAnyDisplayEntries = (#mergedEntries > 0) or (#triggerEntries > 0)
+
+  if not hasAnyDisplayEntries then
     if serverExtraStatsRequestPending then
       addBonusLine(listPanel, tr('Loading server extra stats...'), '#9a9a9a')
     elseif missingTooltip and not usingServerData then
@@ -544,13 +695,23 @@ local function refreshBonusStatsWindow(force)
         addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
       end
     end
+
+    addBonusLine(listPanel, ' ', nil)
+    addBonusLine(listPanel, tr('4. Trigger / Special Effects'), '#f15a5a')
+    if #triggerEntries == 0 then
+      addBonusLine(listPanel, tr('No trigger/special effects.'), '#9a9a9a')
+    else
+      for i = 1, #triggerEntries do
+        addBonusLine(listPanel, triggerEntries[i], '#d4d4d4')
+      end
+    end
   end
 
-  local lineCount = 2
-  if #mergedEntries == 0 then
+  local lineCount = 0
+  if not hasAnyDisplayEntries then
     lineCount = lineCount + 1
   else
-    lineCount = lineCount + 9 + #coreEntries + #skillEntries + #otherEntries
+    lineCount = lineCount + 12 + #coreEntries + #skillEntries + #otherEntries + #triggerEntries
     if #coreEntries == 0 then
       lineCount = lineCount + 1
     end
@@ -558,6 +719,9 @@ local function refreshBonusStatsWindow(force)
       lineCount = lineCount + 1
     end
     if #otherEntries == 0 then
+      lineCount = lineCount + 1
+    end
+    if #triggerEntries == 0 then
       lineCount = lineCount + 1
     end
   end

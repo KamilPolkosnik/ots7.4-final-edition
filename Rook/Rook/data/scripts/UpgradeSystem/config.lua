@@ -583,7 +583,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to cast Flame Strike on Attack dealing upto " .. value .. " damage"
+      return "4%% to cast Flame Strike on Attack dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -599,7 +599,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "10%% to cast Flame Strike on Hit dealing upto " .. value .. " damage"
+      return "9%% to cast Flame Strike on Hit dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -615,7 +615,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to cast Ice Strike on Attack dealing upto " .. value .. " damage"
+      return "4%% to cast Ice Strike on Attack dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -631,7 +631,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "10%% to cast Ice Strike on Hit dealing upto " .. value .. " damage"
+      return "9%% to cast Ice Strike on Hit dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -647,7 +647,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to cast Terra Strike on Attack dealing upto " .. value .. " damage"
+      return "19%% to cast Terra Strike on Attack dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -663,7 +663,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "10%% to cast Terra Strike on Hit dealing upto " .. value .. " damage"
+      return "9%% to cast Terra Strike on Hit dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -679,7 +679,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to cast Death Strike on Attack dealing upto " .. value .. " damage"
+      return "4%% to cast Death Strike on Attack dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -695,7 +695,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "10%% to cast Death Strike on Hit dealing upto " .. value .. " damage"
+      return "9%% to cast Death Strike on Hit dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS
   },
@@ -711,7 +711,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to cast Divine Missile on Attack dealing upto " .. value .. " damage"
+      return "4%% to cast Divine Missile on Attack dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -727,7 +727,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "10%% to cast Divine Missile on Hit dealing upto " .. value .. " damage"
+      return "9%% to cast Divine Missile on Hit dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -743,7 +743,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to cast Energy Strike on Attack dealing upto " .. value .. " damage"
+      return "4%% to cast Energy Strike on Attack dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.WEAPON_ANY + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE
   },
@@ -759,7 +759,7 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "10%% to cast Energy Strike on Hit dealing upto " .. value .. " damage"
+      return "9%% to cast Energy Strike on Hit dealing up to " .. value .. " damage"
     end,
     itemType = US_ITEM_TYPES.SHIELD + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS
   },
@@ -931,9 +931,21 @@ US_ENCHANTMENTS = {
     name = "Damage Buff",
     combatType = US_TYPES.TRIGGER,
     triggerType = US_TRIGGERS.KILL,
-    VALUES_PER_LEVEL = 0.5,
-    execute = function(player, value)
-      if math.random(100) < 20 then
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 15,
+    execute = function(player, value, center, target, sourceItem)
+      local itemLevel = 1
+      if sourceItem and sourceItem.getItemLevel then
+        itemLevel = math.max(1, math.floor(tonumber(sourceItem:getItemLevel()) or 1))
+      end
+
+      -- Proc chance scales separately from buff value:
+      -- starts at 1% and gains +1% every 60 item levels.
+      local procChance = 1 + math.floor((itemLevel - 1) / 60)
+      procChance = math.max(1, math.min(100, procChance))
+
+      if math.random(100) <= procChance then
         local pid = player:getId()
         local buffId = 1
         if not US_BUFFS[pid] then
@@ -953,10 +965,9 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to get " .. value .. "%% damage buff for 8 sec. on Kill"
+      return "1%% +1%% per 60 Item Level to get " .. value .. "%% damage buff for 8 sec. on Kill"
     end,
     itemType = US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE,
-    minLevel = 30,
     chance = 10
   },
   [54] = {
@@ -992,9 +1003,9 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to get " .. value .. "%% Max HP buff for 8 sec. on Kill"
+      return "19%% to get " .. value .. "%% Max HP buff for 8 sec. on Kill"
     end,
-    itemType = US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE,
+    itemType = 0,
     minLevel = 30,
     chance = 10
   },
@@ -1031,9 +1042,9 @@ US_ENCHANTMENTS = {
       end
     end,
     format = function(value)
-      return "20%% to get " .. value .. "%% Max MP buff for 8 sec. on Kill"
+      return "19%% to get " .. value .. "%% Max MP buff for 8 sec. on Kill"
     end,
-    itemType = US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE,
+    itemType = 0,
     minLevel = 30,
     chance = 10
   },
@@ -1042,6 +1053,9 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.CONDITION,
     condition = CONDITION_ATTRIBUTES,
     param = CONDITION_PARAM_SPECIALSKILL_CRITICALHITCHANCE,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 30,
     format = function(value)
       return "Critical Hit Chance +" .. value .. "%%"
     end,
@@ -1052,6 +1066,9 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.CONDITION,
     condition = CONDITION_ATTRIBUTES,
     param = CONDITION_PARAM_SPECIALSKILL_CRITICALHITAMOUNT,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 30,
     format = function(value)
       return "Critical Hit Damage +" .. value .. "%%"
     end,
@@ -1061,6 +1078,9 @@ US_ENCHANTMENTS = {
     name = "Dodge",
     special = "DODGE",
     combatType = US_TYPES.DEFENSIVE,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 70,
     format = function(value)
       return "Dodge +" .. value .. "%%"
     end,
@@ -1070,6 +1090,9 @@ US_ENCHANTMENTS = {
     name = "Damage Reflect",
     special = "REFLECT",
     combatType = US_TYPES.DEFENSIVE,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 70,
     format = function(value)
       return "Damage Reflect +" .. value .. "%%"
     end,
@@ -1080,6 +1103,9 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.CONDITION,
     condition = CONDITION_ATTRIBUTES,
     param = CONDITION_PARAM_SPECIALSKILL_LIFELEECHCHANCE,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 75,
     format = function(value)
       return "Life Leech Chance +" .. value .. "%%"
     end,
@@ -1090,6 +1116,9 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.CONDITION,
     condition = CONDITION_ATTRIBUTES,
     param = CONDITION_PARAM_SPECIALSKILL_LIFELEECHAMOUNT,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 30,
     format = function(value)
       return "Life Leech Amount +" .. value .. "%%"
     end,
@@ -1100,6 +1129,9 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.CONDITION,
     condition = CONDITION_ATTRIBUTES,
     param = CONDITION_PARAM_SPECIALSKILL_MANALEECHCHANCE,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 75,
     format = function(value)
       return "Mana Leech Chance +" .. value .. "%%"
     end,
@@ -1110,6 +1142,9 @@ US_ENCHANTMENTS = {
     combatType = US_TYPES.CONDITION,
     condition = CONDITION_ATTRIBUTES,
     param = CONDITION_PARAM_SPECIALSKILL_MANALEECHAMOUNT,
+    minLevel = 1,
+    BASE_ITEM_LEVEL = 1,
+    VALUE_TICK_EVERY = 30,
     format = function(value)
       return "Mana Leech Amount +" .. value .. "%%"
     end,

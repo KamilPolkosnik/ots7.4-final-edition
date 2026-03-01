@@ -745,7 +745,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
             for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
                 local item = attacker:getSlotItem(slot)
                 if item then
-                    if item:getType():usesSlot(slot) then
+                    if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
                         local values = item:getBonusAttributes()
                         if values then
                             for key, value in pairs(values) do
@@ -778,7 +778,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
             for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
                 local item = creature:getSlotItem(slot)
                 if item then
-                    if item:getType():usesSlot(slot) then
+                    if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
                         local values = item:getBonusAttributes()
                         if values then
                             for key, value in pairs(values) do
@@ -829,7 +829,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
             local item = attacker:getSlotItem(slot)
             if item then
-                if item:getType():usesSlot(slot) then
+                if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
                     if item:getId() == 2390 then
                         doubleDamageTotal = math.max(doubleDamageTotal, 100)
                     end
@@ -927,7 +927,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
             local item = creature:getSlotItem(slot)
             if item then
-                if item:getType():usesSlot(slot) then
+                if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
                     local values = item:getBonusAttributes()
                     if values then
                         for key, value in pairs(values) do
@@ -1031,7 +1031,7 @@ function KillEvent.onKill(player, target, lastHit)
                     local attr = US_ENCHANTMENTS[value[1]]
                     if attr then
                         if attr.triggerType == US_TRIGGERS.KILL then
-                            attr.execute(player, value[2], center, target)
+                            attr.execute(player, value[2], center, target, item)
                         end
                     end
                 end

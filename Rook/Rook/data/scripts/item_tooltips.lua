@@ -211,6 +211,22 @@ local extraStatsNameAliases = {
   lifeleechamount = "Life Leech Amount",
   manaleechchance = "Mana Leech Chance",
   manaleechamount = "Mana Leech Amount",
+  physicalprotection = "Physical Protection",
+  energyprotection = "Energy Protection",
+  earthprotection = "Earth Protection",
+  fireprotection = "Fire Protection",
+  iceprotection = "Ice Protection",
+  holyprotection = "Holy Protection",
+  deathprotection = "Death Protection",
+  elementalprotection = "Elemental Protection",
+  physicalprot = "Physical Protection",
+  energyprot = "Energy Protection",
+  earthprot = "Earth Protection",
+  fireprot = "Fire Protection",
+  iceprot = "Ice Protection",
+  holyprot = "Holy Protection",
+  deathprot = "Death Protection",
+  allprot = "Elemental Protection",
   damagereflect = "Damage Reflect",
   reflect = "Damage Reflect",
   dodge = "Dodge",
@@ -279,7 +295,7 @@ local function addExtraStatsLine(lineCounts, totalsByName, line)
 
   lineCounts[line] = (lineCounts[line] or 0) + 1
 
-  local name, numeric = line:match("^(.+)%s+%+([%d%.]+)%%$")
+  local name, numeric = line:match("^(.+)%s+%+([%d%.]+)%%+$")
   if name and numeric then
     addExtraStatsAggregated(totalsByName, name, tonumber(numeric) or 0, true)
     return
@@ -291,7 +307,7 @@ local function addExtraStatsLine(lineCounts, totalsByName, line)
     return
   end
 
-  name, numeric = line:match("^(.+):%s*([%d%.]+)%%$")
+  name, numeric = line:match("^(.+):%s*([%d%.]+)%%+$")
   if name and numeric then
     addExtraStatsAggregated(totalsByName, name, tonumber(numeric) or 0, true)
     return
@@ -300,6 +316,30 @@ local function addExtraStatsLine(lineCounts, totalsByName, line)
   name, numeric = line:match("^(.+):%s*([%d%.]+)$")
   if name and numeric then
     addExtraStatsAggregated(totalsByName, name, tonumber(numeric) or 0, false)
+    return
+  end
+
+  numeric = line:match("^Regenerate%s+([%d%.]+)%s+Mana%s+on%s+Kill$")
+  if numeric then
+    addExtraStatsAggregated(totalsByName, "Mana on Kill", tonumber(numeric) or 0, false)
+    return
+  end
+
+  numeric = line:match("^Regenerate%s+([%d%.]+)%s+Health%s+on%s+Kill$")
+  if numeric then
+    addExtraStatsAggregated(totalsByName, "Life on Kill", tonumber(numeric) or 0, false)
+    return
+  end
+
+  numeric = line:match("^Regenerate%s+Mana%s+for%s+([%d%.]+)%%+%s+of%s+dealt%s+damage$")
+  if numeric then
+    addExtraStatsAggregated(totalsByName, "Mana Steal", tonumber(numeric) or 0, true)
+    return
+  end
+
+  numeric = line:match("^Heal%s+for%s+([%d%.]+)%%+%s+of%s+dealt%s+damage$")
+  if numeric then
+    addExtraStatsAggregated(totalsByName, "Life Steal", tonumber(numeric) or 0, true)
     return
   end
 end
@@ -401,7 +441,7 @@ local function collectExtraStatsBonuses(player)
 
   for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
     local item = player:getSlotItem(slot)
-    if item and item:getType():usesSlot(slot) then
+    if item and (item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT) then
       collectItemSlotBonuses(item)
       collectItemImplicit(item)
     end
