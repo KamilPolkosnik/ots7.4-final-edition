@@ -1,9 +1,19 @@
 skillsWindow = nil
 skillsButton = nil
+bonusStatsWindow = nil
+bonusStatsButton = nil
 bonusRefreshEvent = nil
+bonusStatsPollEvent = nil
 inventorySignalDeadline = 0
 lastObservedSkillValues = {}
 syntheticEquipBonusBySkill = {}
+serverExtraStatsSnapshot = nil
+serverExtraStatsRequestPending = false
+lastServerExtraStatsRequestAt = 0
+
+local OPCODE_EXTRA_STATS = 107
+local EXTRA_STATS_REQUEST_INTERVAL = 400
+local EXTRA_STATS_REQUEST_TIMEOUT = 2500
 
 -- Item ids that provide time-based bonuses while equipped (active forms).
 local timedSkillBonusByItem = {
@@ -14,6 +24,410 @@ local timedSkillBonusByItem = {
   [2212] = { skillId1 = true }, -- club ring
   [7955] = { skillId4 = true }  -- distance ring
 }
+
+local function trimText(text)
+  if not text then
+    return ""
+  end
+  return text:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+local function shouldDisplayBonusLine(line)
+  if not line or line == "" then
+    return false
+  end
+
+  local lower = line:lower()
+
+  if lower:find("^you see ") or lower:find("^it weighs") or lower:find("^item level:") or lower:find("^item id:") or lower:find("^position:") then
+    return false
+  end
+
+  if lower:find("^it can only be wielded") then
+    return false
+  end
+
+  -- Include the vast majority of upgrade-system lines:
+  -- +value, any numeric percent, trigger texts and known keyword-based bonuses.
+  if line:find("%+") or line:find("%d+%%") or lower:find(" on kill") or lower:find(" on hit") or lower:find(" on attack") then
+    return true
+  end
+
+  local keywordPatterns = {
+    "dodge",
+    "reflect",
+    "mana shield",
+    "heal for",
+    "regenerate mana for",
+    "more healing",
+    "more gold",
+    "be revived",
+    "explosion on kill",
+    "life steal",
+    "mana steal"
+  }
+
+  for i = 1, #keywordPatterns do
+    if lower:find(keywordPatterns[i], 1, true) then
+      return true
+    end
+  end
+
+  return false
+end
+
+local function clearServerExtraStatsSnapshot()
+  serverExtraStatsSnapshot = nil
+  serverExtraStatsRequestPending = false
+  lastServerExtraStatsRequestAt = 0
+end
+
+local function requestServerExtraStats(force)
+  if not g_game.isOnline() then
+    return
+  end
+
+  local now = g_clock.millis()
+  if serverExtraStatsRequestPending and now - lastServerExtraStatsRequestAt >= EXTRA_STATS_REQUEST_TIMEOUT then
+    serverExtraStatsRequestPending = false
+  end
+
+  if not force then
+    if serverExtraStatsRequestPending then
+      return
+    end
+    if now - lastServerExtraStatsRequestAt < EXTRA_STATS_REQUEST_INTERVAL then
+      return
+    end
+  end
+
+  local protocol = g_game.getProtocolGame()
+  if not protocol then
+    return
+  end
+
+  lastServerExtraStatsRequestAt = now
+  serverExtraStatsRequestPending = true
+  protocol:sendExtendedOpcode(OPCODE_EXTRA_STATS, json.encode({action = "request"}))
+end
+
+local function onExtraStatsExtendedOpcode(protocol, opcode, buffer)
+  if opcode ~= OPCODE_EXTRA_STATS then
+    return
+  end
+
+  serverExtraStatsRequestPending = false
+
+  local ok, payload = pcall(function()
+    return json.decode(buffer)
+  end)
+  if not ok or type(payload) ~= "table" then
+    return
+  end
+
+  if payload.action ~= "snapshot" or type(payload.data) ~= "table" then
+    return
+  end
+
+  serverExtraStatsSnapshot = payload.data
+  refreshBonusStatsWindow(false)
+end
+
+local function collectEquipmentBonusLines(player)
+  local counts = {}
+  local missingTooltip = false
+  local aggregatedTotals = {}
+
+  local function addAggregatedBonus(name, value, isPercent)
+    if not name or name == "" or not value then
+      return
+    end
+    local key = trimText(name)
+    if key == "" then
+      return
+    end
+
+    local entry = aggregatedTotals[key]
+    if not entry then
+      entry = {value = 0, percent = isPercent and true or false}
+      aggregatedTotals[key] = entry
+    end
+
+    entry.value = entry.value + value
+    if isPercent then
+      entry.percent = true
+    end
+  end
+
+  local function parseAggregatedBonusLine(line)
+    -- Pattern: "Name +12%" / "Name +12"
+    local bonusName, numericValue = line:match("^(.+)%s+%+([%d%.]+)%%$")
+    if bonusName and numericValue then
+      addAggregatedBonus(bonusName, tonumber(numericValue) or 0, true)
+      return
+    end
+
+    bonusName, numericValue = line:match("^(.+)%s+%+([%d%.]+)$")
+    if bonusName and numericValue then
+      addAggregatedBonus(bonusName, tonumber(numericValue) or 0, false)
+      return
+    end
+  end
+
+  local function readTooltipForItem(item)
+    local tooltip = item:getTooltip()
+    if tooltip and tooltip:len() > 0 then
+      return tooltip
+    end
+
+    if modules and modules.game_itemtooltip then
+      local itemTooltipModule = modules.game_itemtooltip
+      if itemTooltipModule.getCachedTooltipForItem then
+        local cached = itemTooltipModule.getCachedTooltipForItem(item)
+        if cached and cached:len() > 0 then
+          return cached
+        end
+      end
+      if itemTooltipModule.requestTooltipForItem then
+        itemTooltipModule.requestTooltipForItem(item)
+        missingTooltip = true
+      end
+    end
+
+    return nil
+  end
+
+  for slot = InventorySlotFirst, InventorySlotLast do
+    local item = player:getInventoryItem(slot)
+    if item then
+      local tooltip = readTooltipForItem(item)
+      if tooltip and tooltip:len() > 0 then
+        for rawLine in tooltip:gmatch("[^\r\n]+") do
+          local line = trimText(rawLine)
+          if shouldDisplayBonusLine(line) then
+            counts[line] = (counts[line] or 0) + 1
+            parseAggregatedBonusLine(line)
+          end
+        end
+      end
+    end
+  end
+
+  local lines = {}
+  for line, count in pairs(counts) do
+    if count > 1 then
+      lines[#lines + 1] = string.format("%s x%d", line, count)
+    else
+      lines[#lines + 1] = line
+    end
+  end
+
+  table.sort(lines, function(a, b)
+    return a:lower() < b:lower()
+  end)
+
+  return lines, missingTooltip, aggregatedTotals
+end
+
+local function addBonusLine(panel, text, color)
+  local label = g_ui.createWidget('GameLabel', panel)
+  label:setText(text)
+  label:setFont('verdana-11px-monochrome')
+  if color then
+    label:setColor(color)
+  end
+end
+
+local function refreshBonusStatsWindow(force)
+  if not bonusStatsWindow or not bonusStatsButton then
+    return
+  end
+
+  if not force and not bonusStatsButton:isOn() then
+    return
+  end
+
+  local player = g_game.getLocalPlayer()
+  if not player then
+    return
+  end
+
+  local listPanel = bonusStatsWindow:recursiveGetChildById('bonusList')
+  if not listPanel then
+    return
+  end
+
+  listPanel:destroyChildren()
+
+  if serverExtraStatsSnapshot then
+    requestServerExtraStats(false)
+  else
+    requestServerExtraStats(true)
+  end
+
+  local function readSkillValue(skillId)
+    return tonumber(player:getSkillLevel(skillId)) or 0
+  end
+
+  local usingServerData = type(serverExtraStatsSnapshot) == 'table' and type(serverExtraStatsSnapshot.coreStats) == 'table'
+  local equipmentLines = {}
+  local aggregatedEntries = {}
+  local missingTooltip = false
+
+  local function readTotalPercent(serverSkillId, tooltipName, aggregatedTotals)
+    local serverValue = readSkillValue(serverSkillId)
+    if serverValue > 0 then
+      return serverValue
+    end
+
+    local fromTooltip = aggregatedTotals and aggregatedTotals[tooltipName]
+    if fromTooltip and fromTooltip.value and fromTooltip.value > 0 then
+      return math.floor(fromTooltip.value)
+    end
+
+    return 0
+  end
+
+  local criticalHitChance = 0
+  local criticalHitDamage = 50
+  local lifeLeechChance = 25
+  local lifeLeechAmount = 0
+  local manaLeechChance = 25
+  local manaLeechAmount = 0
+  local dodgeValue = 0
+  local reflectValue = 0
+  local sourceLabel = tr('Source: fallback (client parsing)')
+
+  if usingServerData then
+    local coreStats = serverExtraStatsSnapshot.coreStats
+    criticalHitChance = math.floor(tonumber(coreStats.criticalChance) or 0)
+    criticalHitDamage = math.floor(tonumber(coreStats.criticalDamage) or 50)
+    lifeLeechChance = math.floor(tonumber(coreStats.lifeLeechChance) or 25)
+    lifeLeechAmount = math.floor(tonumber(coreStats.lifeLeechAmount) or 0)
+    manaLeechChance = math.floor(tonumber(coreStats.manaLeechChance) or 25)
+    manaLeechAmount = math.floor(tonumber(coreStats.manaLeechAmount) or 0)
+    dodgeValue = math.floor(tonumber(coreStats.dodge) or 0)
+    reflectValue = math.floor(tonumber(coreStats.reflect) or 0)
+    sourceLabel = tr('Source: server snapshot')
+
+    if type(serverExtraStatsSnapshot.aggregatedBonuses) == 'table' then
+      for i = 1, #serverExtraStatsSnapshot.aggregatedBonuses do
+        local entry = serverExtraStatsSnapshot.aggregatedBonuses[i]
+        if type(entry) == 'table' then
+          local entryName = trimText(tostring(entry.name or ''))
+          if entryName ~= '' then
+            aggregatedEntries[#aggregatedEntries + 1] = {
+              name = entryName,
+              value = math.floor(tonumber(entry.value) or 0),
+              percent = entry.percent and true or false
+            }
+          end
+        end
+      end
+    end
+
+    if type(serverExtraStatsSnapshot.equipmentLines) == 'table' then
+      for i = 1, #serverExtraStatsSnapshot.equipmentLines do
+        local line = trimText(tostring(serverExtraStatsSnapshot.equipmentLines[i] or ''))
+        if line ~= '' then
+          equipmentLines[#equipmentLines + 1] = line
+        end
+      end
+    end
+  else
+    local tooltipLines, tooltipMissing, aggregatedTotals = collectEquipmentBonusLines(player)
+    equipmentLines = tooltipLines
+    missingTooltip = tooltipMissing
+
+    criticalHitChance = readTotalPercent(Skill.CriticalChance, "Critical Hit Chance", aggregatedTotals)
+    criticalHitDamage = 50 + readTotalPercent(Skill.CriticalDamage, "Critical Hit Damage", aggregatedTotals)
+    lifeLeechChance = 25 + readTotalPercent(Skill.LifeLeechChance, "Life Leech Chance", aggregatedTotals)
+    lifeLeechAmount = readTotalPercent(Skill.LifeLeechAmount, "Life Leech Amount", aggregatedTotals)
+    manaLeechChance = 25 + readTotalPercent(Skill.ManaLeechChance, "Mana Leech Chance", aggregatedTotals)
+    manaLeechAmount = readTotalPercent(Skill.ManaLeechAmount, "Mana Leech Amount", aggregatedTotals)
+    dodgeValue = math.floor((aggregatedTotals["Dodge"] and aggregatedTotals["Dodge"].value) or 0)
+    reflectValue = math.floor((aggregatedTotals["Damage Reflect"] and aggregatedTotals["Damage Reflect"].value) or 0)
+
+    for key, entry in pairs(aggregatedTotals) do
+      aggregatedEntries[#aggregatedEntries + 1] = {
+        name = key,
+        value = math.floor(tonumber(entry.value) or 0),
+        percent = entry.percent and true or false
+      }
+    end
+  end
+
+  table.sort(aggregatedEntries, function(a, b)
+    return a.name:lower() < b.name:lower()
+  end)
+
+  addBonusLine(listPanel, tr('Core combat stats (server + equipment):'), '#f15a5a')
+  addBonusLine(listPanel, sourceLabel, '#9a9a9a')
+  addBonusLine(listPanel, string.format("Critical Hit Chance: %d%%", criticalHitChance))
+  addBonusLine(listPanel, string.format("Critical Hit Damage: %d%%", criticalHitDamage))
+  addBonusLine(listPanel, string.format("Life Leech Chance: %d%%", lifeLeechChance))
+  addBonusLine(listPanel, string.format("Life Leech Amount: %d%%", lifeLeechAmount))
+  addBonusLine(listPanel, string.format("Mana Leech Chance: %d%%", manaLeechChance))
+  addBonusLine(listPanel, string.format("Mana Leech Amount: %d%%", manaLeechAmount))
+  addBonusLine(listPanel, string.format("Dodge: %d%%", dodgeValue))
+  addBonusLine(listPanel, string.format("Damage Reflect: %d%%", reflectValue))
+
+  addBonusLine(listPanel, " ", nil)
+  addBonusLine(listPanel, tr('Aggregated equipment statuses:'), '#f15a5a')
+  if #aggregatedEntries == 0 then
+    addBonusLine(listPanel, tr('No aggregated values yet.'), '#9a9a9a')
+  else
+    for i = 1, #aggregatedEntries do
+      local entry = aggregatedEntries[i]
+      local suffix = entry.percent and "%" or ""
+      addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+    end
+  end
+
+  addBonusLine(listPanel, " ", nil)
+  addBonusLine(listPanel, tr('Bonuses from equipped items:'), '#f15a5a')
+
+  if #equipmentLines == 0 then
+    if usingServerData then
+      addBonusLine(listPanel, tr('No extra item bonuses detected.'), '#9a9a9a')
+    elseif serverExtraStatsRequestPending then
+      addBonusLine(listPanel, tr('Loading server extra stats...'), '#9a9a9a')
+    elseif missingTooltip then
+      addBonusLine(listPanel, tr('Loading equipped item bonuses...'), '#9a9a9a')
+    else
+      addBonusLine(listPanel, tr('No extra item bonuses detected.'), '#9a9a9a')
+    end
+  else
+    for i = 1, #equipmentLines do
+      addBonusLine(listPanel, equipmentLines[i], '#d4d4d4')
+    end
+  end
+
+  local lineCount = 14 + #aggregatedEntries + #equipmentLines
+  bonusStatsWindow:setContentMinimumHeight(44)
+  bonusStatsWindow:setContentMaximumHeight(math.max(200, math.min(620, lineCount * 15)))
+end
+
+local function startBonusStatsPolling()
+  if bonusStatsPollEvent then
+    bonusStatsPollEvent:cancel()
+    bonusStatsPollEvent = nil
+  end
+
+  bonusStatsPollEvent = cycleEvent(function()
+    if not bonusStatsButton or not bonusStatsWindow or not bonusStatsButton:isOn() then
+      return
+    end
+    refreshBonusStatsWindow(true)
+  end, 500)
+end
+
+local function stopBonusStatsPolling()
+  if bonusStatsPollEvent then
+    bonusStatsPollEvent:cancel()
+    bonusStatsPollEvent = nil
+  end
+end
 
 local function hasTimedBonusForSkill(id)
   local player = g_game.getLocalPlayer()
@@ -62,11 +476,15 @@ end
 local function onSkillsInventoryChange(localPlayer, slot, item, oldItem)
   inventorySignalDeadline = g_clock.millis() + 1200
   -- Refresh immediately and once again shortly after equip/deequip packets settle.
+  requestServerExtraStats(true)
   refreshBonusDisplay()
+  refreshBonusStatsWindow(false)
   scheduleBonusDisplayRefresh(75)
 end
 
 function init()
+  clearServerExtraStatsSnapshot()
+
   connect(LocalPlayer, {
     onExperienceChange = onExperienceChange,
     onLevelChange = onLevelChange,
@@ -91,12 +509,18 @@ function init()
     onGameEnd = offline
   })
 
+  ProtocolGame.registerExtendedOpcode(OPCODE_EXTRA_STATS, onExtraStatsExtendedOpcode)
+
   skillsButton = modules.client_topmenu.addRightGameToggleButton('skillsButton', tr('Skills'), '/images/topbuttons/skills', toggle, false, 1)
   skillsButton:setOn(true)
   skillsWindow = g_ui.loadUI('skills', modules.game_interface.getRightPanel())
+  bonusStatsButton = modules.client_topmenu.addRightGameToggleButton('bonusStatsButton', tr('Extra Stats'), '/images/topbuttons/skills_red', toggleBonusStats, false, 2)
+  bonusStatsButton:setOn(false)
+  bonusStatsWindow = g_ui.loadUI('bonus_stats', modules.game_interface.getRightPanel())
   
   refresh()
   skillsWindow:setup()
+  bonusStatsWindow:setup()
 end
 
 function terminate()
@@ -104,6 +528,8 @@ function terminate()
     bonusRefreshEvent:cancel()
     bonusRefreshEvent = nil
   end
+  stopBonusStatsPolling()
+  clearServerExtraStatsSnapshot()
 
   disconnect(LocalPlayer, {
     onExperienceChange = onExperienceChange,
@@ -128,9 +554,12 @@ function terminate()
     onGameStart = refresh,
     onGameEnd = offline
   })
+  pcall(function() ProtocolGame.unregisterExtendedOpcode(OPCODE_EXTRA_STATS) end)
 
   skillsWindow:destroy()
   skillsButton:destroy()
+  bonusStatsWindow:destroy()
+  bonusStatsButton:destroy()
 end
 
 function expForLevel(level)
@@ -311,6 +740,7 @@ function refresh()
   local player = g_game.getLocalPlayer()
   if not player then return end
 
+  clearServerExtraStatsSnapshot()
   inventorySignalDeadline = 0
   lastObservedSkillValues = {}
   syntheticEquipBonusBySkill = {}
@@ -349,10 +779,15 @@ function refresh()
   else
     skillsWindow:setContentMaximumHeight(390)
   end
+
+  requestServerExtraStats(true)
+  refreshBonusStatsWindow(true)
 end
 
 function offline()
   if expSpeedEvent then expSpeedEvent:cancel() expSpeedEvent = nil end
+  stopBonusStatsPolling()
+  clearServerExtraStatsSnapshot()
   inventorySignalDeadline = 0
   lastObservedSkillValues = {}
   syntheticEquipBonusBySkill = {}
@@ -365,6 +800,20 @@ function toggle()
   else
     skillsWindow:open()
     skillsButton:setOn(true)
+  end
+end
+
+function toggleBonusStats()
+  if bonusStatsButton:isOn() then
+    bonusStatsWindow:close()
+    bonusStatsButton:setOn(false)
+    stopBonusStatsPolling()
+  else
+    bonusStatsWindow:open()
+    bonusStatsButton:setOn(true)
+    requestServerExtraStats(true)
+    refreshBonusStatsWindow(true)
+    startBonusStatsPolling()
   end
 end
 
@@ -388,6 +837,11 @@ end
 
 function onMiniWindowClose()
   skillsButton:setOn(false)
+end
+
+function onBonusMiniWindowClose()
+  bonusStatsButton:setOn(false)
+  stopBonusStatsPolling()
 end
 
 function onSkillButtonClick(button)
@@ -551,8 +1005,10 @@ function onSkillChange(localPlayer, id, level, percent)
   setSkillPercent('skillId' .. id, percent, tr('You have %s percent to go', 100 - percent))
 
   onBaseSkillChange(localPlayer, id, localPlayer:getSkillBaseLevel(id))
+  refreshBonusStatsWindow(false)
 end
 
 function onBaseSkillChange(localPlayer, id, baseLevel)
   setSkillBase('skillId'..id, localPlayer:getSkillLevel(id), baseLevel)
+  refreshBonusStatsWindow(false)
 end

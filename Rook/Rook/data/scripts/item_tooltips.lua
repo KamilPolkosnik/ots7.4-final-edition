@@ -1,5 +1,9 @@
 local CODE_TOOLTIP = 105
+local CODE_EXTRA_STATS = 107
 local ITEM_TIER_BY_ID = {}
+local FIXED_CRITICAL_HIT_DAMAGE = 50
+local FIXED_LIFE_LEECH_CHANCE = 25
+local FIXED_MANA_LEECH_CHANCE = 25
 
 local function getMaxTooltipTier()
   if type(US_CONFIG) == "table" and US_CONFIG.ITEM_TIER_MAX then
@@ -147,10 +151,303 @@ local combatShortNames = {
   [COMBAT_DEATHDAMAGE] = "a_death"
 }
 
+local extraStatsImplicitLabels = {
+  a_phys = "Physical Prot",
+  a_ene = "Energy Prot",
+  a_earth = "Earth Prot",
+  a_fire = "Fire Prot",
+  a_ldrain = "Lifedrain Prot",
+  a_mdrain = "Manadrain Prot",
+  a_heal = "Healing Prot",
+  a_drown = "Drown Prot",
+  a_ice = "Ice Prot",
+  a_holy = "Holy Prot",
+  a_death = "Death Prot",
+  a_all = "All Prot",
+  cc = "Critical Hit Chance",
+  ca = "Critical Hit Damage",
+  lc = "Life Leech Chance",
+  la = "Life Leech Amount",
+  mc = "Mana Leech Chance",
+  ma = "Mana Leech Amount",
+  fist = "Fist Fighting",
+  axe = "Axe Fighting",
+  sword = "Sword Fighting",
+  club = "Club Fighting",
+  dist = "Distance Fighting",
+  shield = "Shielding",
+  fish = "Fishing",
+  mag = "Magic Level",
+  maxhp = "Max HP",
+  maxmp = "Max MP",
+  maxhp_p = "Max HP",
+  maxmp_p = "Max MP",
+  hpgain = "Life Gain",
+  hpticks = "Life Tick",
+  mpgain = "Mana Gain",
+  mpticks = "Mana Tick",
+  speed = "Speed",
+  cap = "Capacity",
+  eleDmg = "Element"
+}
+
+local function toNumberOrZero(value)
+  return tonumber(value) or 0
+end
+
+local function clampChance(value)
+  value = toNumberOrZero(value)
+  if value < 0 then
+    return 0
+  end
+  if value > 100 then
+    return 100
+  end
+  return value
+end
+
+local function addExtraStatsAggregated(totalsByName, name, value, isPercent)
+  if not name or name == "" then
+    return
+  end
+
+  local entry = totalsByName[name]
+  if not entry then
+    entry = {value = 0, percent = false}
+    totalsByName[name] = entry
+  end
+
+  entry.value = entry.value + value
+  if isPercent then
+    entry.percent = true
+  end
+end
+
+local function addExtraStatsLine(lineCounts, totalsByName, line)
+  if not line then
+    return
+  end
+
+  line = tostring(line):gsub("^%s+", ""):gsub("%s+$", "")
+  if line == "" or line == "Empty Slot" then
+    return
+  end
+
+  lineCounts[line] = (lineCounts[line] or 0) + 1
+
+  local name, numeric = line:match("^(.+)%s+%+([%d%.]+)%%$")
+  if name and numeric then
+    addExtraStatsAggregated(totalsByName, name, tonumber(numeric) or 0, true)
+    return
+  end
+
+  name, numeric = line:match("^(.+)%s+%+([%d%.]+)$")
+  if name and numeric then
+    addExtraStatsAggregated(totalsByName, name, tonumber(numeric) or 0, false)
+    return
+  end
+
+  name, numeric = line:match("^(.+):%s*([%d%.]+)%%$")
+  if name and numeric then
+    addExtraStatsAggregated(totalsByName, name, tonumber(numeric) or 0, true)
+    return
+  end
+
+  name, numeric = line:match("^(.+):%s*([%d%.]+)$")
+  if name and numeric then
+    addExtraStatsAggregated(totalsByName, name, tonumber(numeric) or 0, false)
+    return
+  end
+end
+
+local function collectExtraStatsBonuses(player)
+  local totalsByName = {}
+  local lineCounts = {}
+  local dodgeTotalFromSpecial = 0
+  local reflectTotalFromSpecial = 0
+
+  local function addImplicitIfPositive(labelKey, value, isPercent)
+    value = toNumberOrZero(value)
+    if value <= 0 then
+      return
+    end
+
+    local label = extraStatsImplicitLabels[labelKey] or labelKey
+    local suffix = isPercent and "%" or ""
+    addExtraStatsLine(lineCounts, totalsByName, string.format("%s +%d%s", label, math.floor(value), suffix))
+  end
+
+  local function collectItemImplicit(item)
+    local itemType = item:getType()
+    if not itemType then
+      return
+    end
+
+    for key, shortKey in pairs(specialSkills) do
+      addImplicitIfPositive(shortKey, itemType:getSpecialSkill(key), true)
+    end
+
+    for key, shortKey in pairs(skills) do
+      addImplicitIfPositive(shortKey, itemType:getSkill(key), false)
+    end
+
+    for key, shortKey in pairs(stats) do
+      addImplicitIfPositive(shortKey, itemType:getStat(key), false)
+    end
+
+    for key, shortKey in pairs(statsPercent) do
+      local s = toNumberOrZero(itemType:getStatPercent(key))
+      if s >= 1 then
+        addImplicitIfPositive(shortKey, s - 100, true)
+      end
+    end
+
+    addImplicitIfPositive("hpgain", itemType:getHealthGain(), false)
+    addImplicitIfPositive("hpticks", itemType:getHealthTicks(), false)
+    addImplicitIfPositive("mpgain", itemType:getManaGain(), false)
+    addImplicitIfPositive("mpticks", itemType:getManaTicks(), false)
+    addImplicitIfPositive("speed", itemType:getSpeed(), false)
+  end
+
+  local function collectItemSlotBonuses(item)
+    if not item.getBonusAttributes then
+      return
+    end
+
+    local ok, values = pcall(function()
+      return item:getBonusAttributes()
+    end)
+    if not ok or not values then
+      return
+    end
+
+    for i = 1, #values do
+      local bonus = values[i]
+      local attrId = bonus[1]
+      local attrValue = toNumberOrZero(bonus[2])
+      local attr = US_ENCHANTMENTS and US_ENCHANTMENTS[attrId] or nil
+
+      if attr and attrValue ~= 0 then
+        local line = nil
+        if type(attr.format) == "function" then
+          local ok, formatted = pcall(attr.format, attrValue)
+          if ok and type(formatted) == "string" and formatted:len() > 0 then
+            line = formatted
+          end
+        end
+
+        if not line then
+          local suffix = (attr.percentage == true or attr.special == "DODGE" or attr.special == "REFLECT") and "%" or ""
+          local attrName = attr.name or ("Bonus " .. tostring(attrId))
+          line = string.format("%s +%d%s", attrName, math.floor(attrValue), suffix)
+        end
+
+        addExtraStatsLine(lineCounts, totalsByName, line)
+
+        if attr.special == "DODGE" then
+          dodgeTotalFromSpecial = dodgeTotalFromSpecial + attrValue
+        elseif attr.special == "REFLECT" then
+          reflectTotalFromSpecial = reflectTotalFromSpecial + attrValue
+        end
+      elseif attrValue ~= 0 then
+        addExtraStatsLine(lineCounts, totalsByName, string.format("Unknown Bonus %s +%d", tostring(attrId), math.floor(attrValue)))
+      end
+    end
+  end
+
+  for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+    local item = player:getSlotItem(slot)
+    if item and item:getType():usesSlot(slot) then
+      collectItemSlotBonuses(item)
+      collectItemImplicit(item)
+    end
+  end
+
+  local aggregatedBonuses = {}
+  for name, entry in pairs(totalsByName) do
+    aggregatedBonuses[#aggregatedBonuses + 1] = {
+      name = name,
+      value = math.floor(entry.value),
+      percent = entry.percent and true or false
+    }
+  end
+
+  table.sort(aggregatedBonuses, function(a, b)
+    return a.name:lower() < b.name:lower()
+  end)
+
+  local equipmentLines = {}
+  for line, count in pairs(lineCounts) do
+    if count > 1 then
+      equipmentLines[#equipmentLines + 1] = string.format("%s x%d", line, count)
+    else
+      equipmentLines[#equipmentLines + 1] = line
+    end
+  end
+
+  table.sort(equipmentLines, function(a, b)
+    return a:lower() < b:lower()
+  end)
+
+  local dodgeTotal = totalsByName["Dodge"] and toNumberOrZero(totalsByName["Dodge"].value) or 0
+  local reflectTotal = totalsByName["Damage Reflect"] and toNumberOrZero(totalsByName["Damage Reflect"].value) or 0
+  dodgeTotal = math.max(dodgeTotal, dodgeTotalFromSpecial)
+  reflectTotal = math.max(reflectTotal, reflectTotalFromSpecial)
+
+  return aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal
+end
+
+local function buildExtraStatsPayload(player)
+  local critChanceBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_CRITICALHITCHANCE))
+  local critDamageBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_CRITICALHITAMOUNT))
+  local lifeLeechChanceBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_LIFELEECHCHANCE))
+  local lifeLeechAmount = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_LIFELEECHAMOUNT))
+  local manaLeechChanceBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_MANALEECHCHANCE))
+  local manaLeechAmount = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT))
+
+  local aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal = collectExtraStatsBonuses(player)
+
+  return {
+    coreStats = {
+      criticalChance = clampChance(critChanceBonus),
+      criticalDamage = math.floor(FIXED_CRITICAL_HIT_DAMAGE + critDamageBonus),
+      criticalDamageBase = FIXED_CRITICAL_HIT_DAMAGE,
+      criticalDamageBonus = math.floor(critDamageBonus),
+      lifeLeechChance = clampChance(FIXED_LIFE_LEECH_CHANCE + lifeLeechChanceBonus),
+      lifeLeechChanceBase = FIXED_LIFE_LEECH_CHANCE,
+      lifeLeechChanceBonus = math.floor(lifeLeechChanceBonus),
+      lifeLeechAmount = math.floor(lifeLeechAmount),
+      manaLeechChance = clampChance(FIXED_MANA_LEECH_CHANCE + manaLeechChanceBonus),
+      manaLeechChanceBase = FIXED_MANA_LEECH_CHANCE,
+      manaLeechChanceBonus = math.floor(manaLeechChanceBonus),
+      manaLeechAmount = math.floor(manaLeechAmount),
+      dodge = clampChance(dodgeTotal),
+      reflect = clampChance(reflectTotal)
+    },
+    aggregatedBonuses = aggregatedBonuses,
+    equipmentLines = equipmentLines,
+    generatedAt = os.time()
+  }
+end
+
+local function isEquipmentPosition(pos)
+  if not pos or not pos.y then
+    return false
+  end
+
+  return pos.y <= CONST_SLOT_AMMO and pos.y ~= CONST_SLOT_BACKPACK
+end
+
 local LoginEvent = CreatureEvent("TooltipsLogin")
 
 function LoginEvent.onLogin(player)
   player:registerEvent("TooltipsExtended")
+  addEvent(function(playerId)
+    local onlinePlayer = Player(playerId)
+    if onlinePlayer and onlinePlayer.sendExtraStatsSnapshot then
+      onlinePlayer:sendExtraStatsSnapshot()
+    end
+  end, 300, player:getId())
   return true
 end
 
@@ -178,7 +475,17 @@ function ExtendedEvent.onExtendedOpcode(player, opcode, buffer)
         player:sendItemTooltip(item)
       end
     end
-    
+  elseif opcode == CODE_EXTRA_STATS then
+    if buffer and buffer:len() > 0 then
+      local ok, payload = pcall(function()
+        return json.decode(buffer)
+      end)
+      if ok and type(payload) == "table" and payload.action and payload.action ~= "request" then
+        return
+      end
+    end
+
+    player:sendExtraStatsSnapshot()
   end
 end
 
@@ -189,6 +496,10 @@ function Player:sendItemTooltip(item)
       self:sendExtendedOpcode(CODE_TOOLTIP, json.encode({action = "new", data = item_data}))
     end
   end
+end
+
+function Player:sendExtraStatsSnapshot()
+  self:sendExtendedOpcode(CODE_EXTRA_STATS, json.encode({action = "snapshot", data = buildExtraStatsPayload(self)}))
 end
 
 function Item:buildTooltip()
@@ -521,6 +832,27 @@ function ItemType:buildTooltip(count)
   item_data.weight = self:getWeight() * item_data.count
   return item_data
 end
+
+local ExtraStatsMoveEvent = EventCallback
+
+function ExtraStatsMoveEvent.onMoveItem(player, item, count, fromPosition, toPosition, fromCylinder, toCylinder)
+  if not player then
+    return true
+  end
+
+  if isEquipmentPosition(fromPosition) or isEquipmentPosition(toPosition) then
+    addEvent(function(playerId)
+      local onlinePlayer = Player(playerId)
+      if onlinePlayer and onlinePlayer.sendExtraStatsSnapshot then
+        onlinePlayer:sendExtraStatsSnapshot()
+      end
+    end, 100, player:getId())
+  end
+
+  return true
+end
+
+ExtraStatsMoveEvent:register()
 
 function formatItemType(itemType)
   local weaponType = itemType:getWeaponType()

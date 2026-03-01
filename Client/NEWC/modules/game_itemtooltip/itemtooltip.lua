@@ -3,6 +3,11 @@ local hoveredWidget = nil
 local lastRequest = 0
 local REQUEST_DELAY = 150
 local originalOnHoverChange = nil
+local tooltipCache = {}
+local requestQueue = {}
+local waitingResponse = false
+local activeRequest = nil
+local activeRequestTimeoutEvent = nil
 
 local impLabels = {
   a_phys = "Physical Prot",
@@ -126,6 +131,106 @@ local function getStackPos(item)
   return 0
 end
 
+local function getItemCacheKey(item)
+  if not item then
+    return nil
+  end
+
+  local pos = item:getPosition()
+  if not pos then
+    return nil
+  end
+
+  local stack = getStackPos(item)
+  return string.format("%d:%d:%d:%d:%d", pos.x or -1, pos.y or -1, pos.z or -1, stack or 0, item:getId() or 0)
+end
+
+local function pumpTooltipQueue()
+  if waitingResponse or #requestQueue == 0 then
+    return
+  end
+
+  if not g_game.isOnline() then
+    requestQueue = {}
+    return
+  end
+
+  local now = g_clock.millis()
+  if now - lastRequest < REQUEST_DELAY then
+    scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+    return
+  end
+
+  local request = table.remove(requestQueue, 1)
+  if not request or not request.item then
+    scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+    return
+  end
+
+  local item = request.item
+  local pos = item:getPosition()
+  if not pos then
+    scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+    return
+  end
+
+  local protocol = g_game.getProtocolGame()
+  if not protocol then
+    scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+    return
+  end
+
+  lastRequest = now
+  waitingResponse = true
+  activeRequest = request
+  if activeRequestTimeoutEvent then
+    activeRequestTimeoutEvent:cancel()
+    activeRequestTimeoutEvent = nil
+  end
+
+  protocol:sendExtendedOpcode(CODE_TOOLTIP, json.encode({pos.x, pos.y, pos.z, getStackPos(item)}))
+
+  activeRequestTimeoutEvent = scheduleEvent(function()
+    activeRequestTimeoutEvent = nil
+    waitingResponse = false
+    activeRequest = nil
+    pumpTooltipQueue()
+  end, 1000)
+end
+
+local function enqueueTooltipRequest(item, widget)
+  if not item then
+    return
+  end
+
+  local key = getItemCacheKey(item)
+  if not key then
+    return
+  end
+
+  -- De-duplicate queued request by key.
+  for i = 1, #requestQueue do
+    if requestQueue[i].key == key then
+      -- Prefer a concrete hovered widget if present.
+      if widget then
+        requestQueue[i].widget = widget
+      end
+      return
+    end
+  end
+
+  -- If this exact key is already in-flight, just attach widget (if any).
+  if activeRequest and activeRequest.key == key then
+    if widget then
+      activeRequest.widget = widget
+    end
+    return
+  end
+
+  requestQueue[#requestQueue + 1] = {key = key, item = item, widget = widget}
+  pumpTooltipQueue()
+end
+
 local function requestTooltip(widget)
   if not g_game.isOnline() then return end
   if not widget or widget:isVirtual() then return end
@@ -133,36 +238,76 @@ local function requestTooltip(widget)
   local item = widget:getItem()
   if not item then return end
 
-  local now = g_clock.millis()
-  if now - lastRequest < REQUEST_DELAY then return end
-  lastRequest = now
-
-  local pos = item:getPosition()
-  if not pos then return end
-
-  local stack = getStackPos(item)
-  local protocol = g_game.getProtocolGame()
-  if protocol then
-    protocol:sendExtendedOpcode(CODE_TOOLTIP, json.encode({pos.x, pos.y, pos.z, stack}))
-    hoveredWidget = widget
-  end
+  hoveredWidget = widget
+  enqueueTooltipRequest(item, widget)
 end
 
 local function onExtendedOpcode(protocol, opcode, buffer)
   if opcode ~= CODE_TOOLTIP then return end
   local ok, payload = pcall(function() return json.decode(buffer) end)
-  if not ok or not payload or type(payload) ~= 'table' then return end
-  if payload.action ~= "new" or not payload.data then return end
+  if activeRequestTimeoutEvent then
+    activeRequestTimeoutEvent:cancel()
+    activeRequestTimeoutEvent = nil
+  end
+
+  if not ok or not payload or type(payload) ~= 'table' then
+    waitingResponse = false
+    activeRequest = nil
+    scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+    return
+  end
+  if payload.action ~= "new" or not payload.data then
+    waitingResponse = false
+    activeRequest = nil
+    scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+    return
+  end
 
   local text = buildTooltipText(payload.data)
-  if not text then return end
+  if not text then
+    waitingResponse = false
+    activeRequest = nil
+    scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+    return
+  end
 
-  if hoveredWidget and hoveredWidget:getItem() then
-    hoveredWidget:setTooltip(text)
-    if g_tooltip and g_tooltip.display then
+  if activeRequest and activeRequest.key then
+    tooltipCache[activeRequest.key] = text
+  end
+
+  local targetWidget = nil
+  if activeRequest and activeRequest.widget and activeRequest.widget:getItem() then
+    targetWidget = activeRequest.widget
+  elseif hoveredWidget and hoveredWidget:getItem() then
+    targetWidget = hoveredWidget
+  end
+
+  if targetWidget then
+    targetWidget:setTooltip(text)
+    if g_tooltip and g_tooltip.display and targetWidget:isHovered() then
       g_tooltip.display(text)
     end
   end
+
+  waitingResponse = false
+  activeRequest = nil
+  scheduleEvent(pumpTooltipQueue, REQUEST_DELAY)
+end
+
+function getCachedTooltipForItem(item)
+  local key = getItemCacheKey(item)
+  if not key then
+    return nil
+  end
+  return tooltipCache[key]
+end
+
+function requestTooltipForItem(item)
+  enqueueTooltipRequest(item, nil)
+end
+
+function hasTooltipRequestPending()
+  return waitingResponse or #requestQueue > 0
 end
 
 function init()
@@ -189,4 +334,12 @@ function terminate()
 
   if pcall(function() ProtocolGame.unregisterExtendedOpcode(CODE_TOOLTIP) end) then end
   hoveredWidget = nil
+  tooltipCache = {}
+  requestQueue = {}
+  waitingResponse = false
+  activeRequest = nil
+  if activeRequestTimeoutEvent then
+    activeRequestTimeoutEvent:cancel()
+    activeRequestTimeoutEvent = nil
+  end
 end
