@@ -36,8 +36,7 @@
   </voices>
   <loot>
     <item id="2148" chance="40000" countmax="10"/>
-    <item id="2229" chance="80000" countmax="2"/>
-    <item id="2147" chance="100"/>
+<item id="2147" chance="100"/>
     <item id="2467" chance="50000"/>
     <item id="2125" chance="200"/>
     <item id="2050" chance="5000"/>

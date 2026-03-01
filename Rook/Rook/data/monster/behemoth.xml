@@ -45,8 +45,7 @@
     <item id="2148" chance="70000" countmax="60"/>
     <item id="2148" chance="50000" countmax="80"/>
     <item id="2150" chance="4000" countmax="2"/>
-    <item id="2231" chance="7000"/>
-    <item id="2553" chance="6000"/>
+<item id="2553" chance="6000"/>
     <item id="2023" chance="11000"/>
     <item id="2125" chance="300"/>
     <item id="2489" chance="3000"/>
@@ -56,7 +55,6 @@
     <item id="2377" chance="4000"/>
     <item id="2387" chance="10000"/>
     <item id="2416" chance="15000"/>
-    <item id="2174" chance="800"/>
-    <item id="6512" chance="250"/>
+<item id="6512" chance="250"/>
   </loot>
 </monster>

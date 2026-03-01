@@ -56,8 +56,7 @@
     <item id="2148" chance="70000" countmax="50"/>
     <item id="2146" chance="2500" countmax="4"/>
     <item id="2063" chance="7500"/>
-    <item id="2745" chance="500"/>
-    <item id="2663" chance="100"/>
+<item id="2663" chance="100"/>
     <item id="1978" chance="2500"/>
     <item id="6512" chance="250"/>
   </loot>

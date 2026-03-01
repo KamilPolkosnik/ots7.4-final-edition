@@ -57,11 +57,7 @@
     <item id="2124" chance="100"/>
     <item id="2121" chance="500"/>
     <item id="2071" chance="1000"/>
-    <item id="2560" chance="7000"/>
-    <item id="2134" chance="1500"/>
-    <item id="2657" chance="60000"/>
-    <item id="2237" chance="19900"/>
-    <item id="2656" chance="600"/>
+<item id="2656" chance="600"/>
     <item id="2655" chance="100"/>
     <item id="2047" chance="70000"/>
     <item id="2411" chance="1500"/>

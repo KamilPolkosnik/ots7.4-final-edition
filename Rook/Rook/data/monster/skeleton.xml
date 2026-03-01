@@ -32,8 +32,7 @@
   <voices interval="1000" chance="5"/>
   <loot>
     <item id="2148" chance="45000" countmax="10"/>
-    <item id="2230" chance="50000"/>
-    <item id="2473" chance="1000"/>
+<item id="2473" chance="1000"/>
     <item id="2050" chance="50000"/>
     <item id="2398" chance="800"/>
     <item id="2388" chance="1200"/>
