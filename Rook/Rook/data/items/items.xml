@@ -17047,4 +17047,14 @@
 		<attribute key="tier" value="4"/>
 				<attribute key="defense" value="30"/>
 	</item>
+	<item id="7961" article="a" name="revive spellbook">
+		<attribute key="description" value="A spellbook infused with revival magic."/>
+		<attribute key="tier" value="4"/>
+		<attribute key="weight" value="2600"/>
+		<attribute key="magicPoints" value="5"/>
+		<attribute key="manaLeechChance" value="5"/>
+		<attribute key="criticalHitChance" value="5"/>
+		<attribute key="defense" value="30"/>
+		<attribute key="weaponType" value="shield"/>
+	</item>
 </items>

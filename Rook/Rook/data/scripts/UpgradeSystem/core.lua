@@ -230,6 +230,73 @@ local function us_ToItem(value)
     return nil
 end
 
+function us_IsEnchantAllowedForItem(attr, item, usItemType)
+    if not attr or not item or not item.isItem or not item:isItem() then
+        return false
+    end
+
+    if usItemType == nil and item.getItemType then
+        usItemType = item:getItemType()
+    end
+
+    local typeMask = tonumber(attr.itemType) or 0
+    local maskAllowed = false
+    if typeMask > 0 and usItemType and bit.band(usItemType, typeMask) ~= 0 then
+        maskAllowed = true
+    end
+
+    local idAllowed = false
+    if type(attr.allowedItemIds) == "table" then
+        local itemId = item:getId()
+        for _, allowedId in ipairs(attr.allowedItemIds) do
+            if tonumber(allowedId) == itemId then
+                idAllowed = true
+                break
+            end
+        end
+    end
+
+    -- Allowed when either mask matches or explicit item id is listed.
+    if not maskAllowed and not idAllowed then
+        return false
+    end
+
+    local itemType = item:getType()
+    if not itemType then
+        return false
+    end
+
+    local weaponType = itemType:getWeaponType()
+    if type(attr.allowedWeaponTypes) == "table" and weaponType > 0 then
+        local weaponAllowed = false
+        for _, allowedWeaponType in ipairs(attr.allowedWeaponTypes) do
+            if tonumber(allowedWeaponType) == weaponType then
+                weaponAllowed = true
+                break
+            end
+        end
+        if not weaponAllowed then
+            return false
+        end
+    end
+
+    if type(attr.allowedAmmoTypes) == "table" and weaponType > 0 then
+        local ammoType = itemType:getAmmoType()
+        local ammoAllowed = false
+        for _, allowedAmmoType in ipairs(attr.allowedAmmoTypes) do
+            if tonumber(allowedAmmoType) == ammoType then
+                ammoAllowed = true
+                break
+            end
+        end
+        if not ammoAllowed then
+            return false
+        end
+    end
+
+    return true
+end
+
 function Item.ensureInitialTierLevel(self, force)
     if not self or not self:isItem() then
         return false
@@ -1355,7 +1422,7 @@ function Item.rollAttribute(self, player, itemType, weaponType, unidentify)
         for i = 1, slots do
             local attrId = math.random(1, #US_ENCHANTMENTS)
             local attr = US_ENCHANTMENTS[attrId]
-            while isInArray(attrIds, attrId) or item_level < us_GetAttributeRequiredLevel(attr) or bit.band(usItemType, attr.itemType) == 0 or
+            while isInArray(attrIds, attrId) or item_level < us_GetAttributeRequiredLevel(attr) or not us_IsEnchantAllowedForItem(attr, self, usItemType) or
                 attr.chance and math.random(100) >= attr.chance do
                 attrId = math.random(1, #US_ENCHANTMENTS)
                 attr = US_ENCHANTMENTS[attrId]
@@ -1386,7 +1453,7 @@ function Item.rollAttribute(self, player, itemType, weaponType, unidentify)
         local usItemType = self:getItemType()
         local attrId = math.random(1, #US_ENCHANTMENTS)
         local attr = US_ENCHANTMENTS[attrId]
-        while isInArray(attrIds, attrId) or item_level < us_GetAttributeRequiredLevel(attr) or bit.band(usItemType, attr.itemType) == 0 or
+        while isInArray(attrIds, attrId) or item_level < us_GetAttributeRequiredLevel(attr) or not us_IsEnchantAllowedForItem(attr, self, usItemType) or
             attr.chance and math.random(100) >= attr.chance do
             attrId = math.random(1, #US_ENCHANTMENTS)
             attr = US_ENCHANTMENTS[attrId]
@@ -1849,7 +1916,7 @@ function Item.rollRarity(self, source)
         local attrId = math.random(1, #US_ENCHANTMENTS)
         local attr = US_ENCHANTMENTS[attrId]
         local guard = 0
-        while isInArray(attrIds, attrId) or itemLevel < us_GetAttributeRequiredLevel(attr) or bit.band(usItemType, attr.itemType) == 0 or
+        while isInArray(attrIds, attrId) or itemLevel < us_GetAttributeRequiredLevel(attr) or not us_IsEnchantAllowedForItem(attr, self, usItemType) or
             attr.chance and math.random(100) >= attr.chance do
             attrId = math.random(1, #US_ENCHANTMENTS)
             attr = US_ENCHANTMENTS[attrId]

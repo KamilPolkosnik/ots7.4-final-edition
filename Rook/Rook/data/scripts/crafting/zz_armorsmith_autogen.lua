@@ -554,6 +554,17 @@ local shieldOverrides = {
             {id = 3955, count = 15} -- voodoo doll
         }
     }, -- blessed shield
+    [7961] = {
+        cost = 3000000,
+        materials = {
+            {id = 5539, count = 1}, -- shield of dorion
+            {id = 2514, count = 3}, -- mastermind shield
+            {id = 2174, count = 15}, -- strange symbol
+            {id = 2151, count = 15}, -- talon
+            {id = 2245, count = 15}, -- twigs
+            {id = 3955, count = 15} -- voodoo doll
+        }
+    }, -- revive spellbook
     [2541] = {cost = 600, materials = {}}, -- bone shield (drop)
     [2511] = {disabled = true}, -- brass shield (drop)
     [2535] = {disabled = true}, -- castle shield (drop)
