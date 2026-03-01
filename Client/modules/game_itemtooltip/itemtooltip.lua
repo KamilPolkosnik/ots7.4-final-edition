@@ -35,13 +35,18 @@ local impLabels = {
   maxmp = "Max MP",
   maxhp_p = "Max HP%",
   maxmp_p = "Max MP%",
-  hpgain = "HP/4s",
-  hpticks = "HP ticks",
-  mpgain = "MP/4s",
-  mpticks = "MP ticks",
+  hpgain = "Life Gain",
+  hpticks = "Life Tick",
+  mpgain = "Mana Gain",
+  mpticks = "Mana Tick",
   speed = "Speed",
   cap = "Capacity",
   eleDmg = "Element"
+}
+
+local hiddenImpKeys = {
+  hpticks = true,
+  mpticks = true
 }
 
 local function formatImpValue(key, value)
@@ -105,8 +110,10 @@ local function buildTooltipText(data)
 
   if data.imp then
     for k, v in pairs(data.imp) do
-      local label = impLabels[k] or k
-      table.insert(lines, label .. ": " .. formatImpValue(k, v))
+      if not hiddenImpKeys[k] then
+        local label = impLabels[k] or k
+        table.insert(lines, label .. ": " .. formatImpValue(k, v))
+      end
     end
   end
 

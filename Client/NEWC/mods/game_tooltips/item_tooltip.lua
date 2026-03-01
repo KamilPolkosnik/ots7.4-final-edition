@@ -437,11 +437,7 @@ function buildItemTooltip(item)
 
     local skipImplicit = {}
     local hpGain = tonumber(item.imp.hpgain) or 0
-    local hpTicks = tonumber(item.imp.hpticks) or 0
     local mpGain = tonumber(item.imp.mpgain) or 0
-    local mpTicks = tonumber(item.imp.mpticks) or 0
-    local hpSeconds = formatRegenSeconds(hpTicks)
-    local mpSeconds = formatRegenSeconds(mpTicks)
 
     if hpGain > 0 or mpGain > 0 then
       skipImplicit.hpgain = true
@@ -449,14 +445,14 @@ function buildItemTooltip(item)
       skipImplicit.mpgain = true
       skipImplicit.mpticks = true
 
-      if hpGain > 0 and mpGain > 0 and hpGain == mpGain and hpSeconds and mpSeconds and hpSeconds == mpSeconds then
-        addString("Regen mana and health " .. hpGain .. "/" .. hpSeconds .. " s", Colors.Implicit)
+      if hpGain > 0 and mpGain > 0 and hpGain == mpGain then
+        addString("Regen mana and health +" .. hpGain, Colors.Implicit)
       else
         if hpGain > 0 then
-          addString("Health regen " .. hpGain .. (hpSeconds and ("/" .. hpSeconds .. " s") or ""), Colors.Implicit)
+          addString("Health regen +" .. hpGain, Colors.Implicit)
         end
         if mpGain > 0 then
-          addString("Mana regen " .. mpGain .. (mpSeconds and ("/" .. mpSeconds .. " s") or ""), Colors.Implicit)
+          addString("Mana regen +" .. mpGain, Colors.Implicit)
         end
       end
     end
