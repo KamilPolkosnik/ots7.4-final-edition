@@ -191,6 +191,34 @@ local extraStatsImplicitLabels = {
   eleDmg = "Element"
 }
 
+local extraStatsNameAliases = {
+  magiclevel = "Magic Level",
+  magiclvl = "Magic Level",
+  mlvl = "Magic Level",
+  fistfighting = "Fist Fighting",
+  axefighting = "Axe Fighting",
+  swordfighting = "Sword Fighting",
+  clubfighting = "Club Fighting",
+  distancefighting = "Distance Fighting",
+  shielding = "Shielding",
+  fishing = "Fishing",
+  criticalhitchance = "Critical Hit Chance",
+  criticalhitdamage = "Critical Hit Damage",
+  criticaldamage = "Critical Hit Damage",
+  critchance = "Critical Hit Chance",
+  critdamage = "Critical Hit Damage",
+  lifeleechchance = "Life Leech Chance",
+  lifeleechamount = "Life Leech Amount",
+  manaleechchance = "Mana Leech Chance",
+  manaleechamount = "Mana Leech Amount",
+  damagereflect = "Damage Reflect",
+  reflect = "Damage Reflect",
+  dodge = "Dodge",
+  manaonkill = "Mana on Kill",
+  lifeonkill = "Life on Kill",
+  healthonkill = "Life on Kill"
+}
+
 local function toNumberOrZero(value)
   return tonumber(value) or 0
 end
@@ -206,8 +234,24 @@ local function clampChance(value)
   return value
 end
 
+local function canonicalExtraStatsName(name)
+  name = tostring(name or ""):gsub("^%s+", ""):gsub("%s+$", "")
+  if name == "" then
+    return ""
+  end
+
+  local normalized = name:lower():gsub("[^a-z0-9]+", "")
+  local alias = extraStatsNameAliases[normalized]
+  if alias then
+    return alias
+  end
+
+  return name
+end
+
 local function addExtraStatsAggregated(totalsByName, name, value, isPercent)
-  if not name or name == "" then
+  name = canonicalExtraStatsName(name)
+  if name == "" then
     return
   end
 

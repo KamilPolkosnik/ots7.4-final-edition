@@ -76,6 +76,37 @@ local function shouldDisplayBonusLine(line)
   return false
 end
 
+local statNameAliases = {
+  magiclevel = 'Magic Level',
+  magiclvl = 'Magic Level',
+  mlvl = 'Magic Level',
+  criticalhitchance = 'Critical Hit Chance',
+  criticalhitdamage = 'Critical Hit Damage',
+  criticaldamage = 'Critical Hit Damage',
+  critchance = 'Critical Hit Chance',
+  critdamage = 'Critical Hit Damage',
+  lifeleechchance = 'Life Leech Chance',
+  lifeleechamount = 'Life Leech Amount',
+  manaleechchance = 'Mana Leech Chance',
+  manaleechamount = 'Mana Leech Amount',
+  damagereflect = 'Damage Reflect',
+  reflect = 'Damage Reflect',
+  dodge = 'Dodge',
+  manaonkill = 'Mana on Kill',
+  lifeonkill = 'Life on Kill',
+  healthonkill = 'Life on Kill'
+}
+
+local function canonicalStatName(name)
+  local clean = trimText(name)
+  if clean == '' then
+    return ''
+  end
+
+  local normalized = clean:lower():gsub('[^a-z0-9]+', '')
+  return statNameAliases[normalized] or clean
+end
+
 local function clearServerExtraStatsSnapshot()
   serverExtraStatsSnapshot = nil
   serverExtraStatsRequestPending = false
@@ -257,6 +288,17 @@ local function refreshBonusStatsWindow(force)
     return
   end
 
+  local scrollBar = bonusStatsWindow:recursiveGetChildById('bonusListScroll')
+  local preservedScrollValue = nil
+  if scrollBar and scrollBar.getValue then
+    local ok, value = pcall(function()
+      return scrollBar:getValue()
+    end)
+    if ok then
+      preservedScrollValue = value
+    end
+  end
+
   listPanel:destroyChildren()
 
   if serverExtraStatsSnapshot then
@@ -357,55 +399,89 @@ local function refreshBonusStatsWindow(force)
     end
   end
 
-  table.sort(aggregatedEntries, function(a, b)
+  local mergedByKey = {}
+
+  local function mergeStat(name, value, isPercent, authoritative)
+    local label = canonicalStatName(name)
+    if label == '' then
+      return
+    end
+
+    local numericValue = math.floor(tonumber(value) or 0)
+    local key = label:lower()
+    local entry = mergedByKey[key]
+    if not entry then
+      entry = {name = label, value = 0, percent = false, authoritative = false}
+      mergedByKey[key] = entry
+    end
+
+    if authoritative then
+      entry.value = numericValue
+      entry.authoritative = true
+    elseif not entry.authoritative then
+      entry.value = entry.value + numericValue
+    end
+
+    if isPercent then
+      entry.percent = true
+    end
+  end
+
+  mergeStat('Critical Hit Chance', criticalHitChance, true, true)
+  mergeStat('Critical Hit Damage', criticalHitDamage, true, true)
+  mergeStat('Life Leech Chance', lifeLeechChance, true, true)
+  mergeStat('Life Leech Amount', lifeLeechAmount, true, true)
+  mergeStat('Mana Leech Chance', manaLeechChance, true, true)
+  mergeStat('Mana Leech Amount', manaLeechAmount, true, true)
+  mergeStat('Dodge', dodgeValue, true, true)
+  mergeStat('Damage Reflect', reflectValue, true, true)
+
+  for i = 1, #aggregatedEntries do
+    local entry = aggregatedEntries[i]
+    mergeStat(entry.name, entry.value, entry.percent and true or false, false)
+  end
+
+  local mergedEntries = {}
+  for _, entry in pairs(mergedByKey) do
+    mergedEntries[#mergedEntries + 1] = entry
+  end
+
+  table.sort(mergedEntries, function(a, b)
     return a.name:lower() < b.name:lower()
   end)
 
-  addBonusLine(listPanel, tr('Core combat stats (server + equipment):'), '#f15a5a')
+  addBonusLine(listPanel, tr('Summed Stats (Total):'), '#f15a5a')
   addBonusLine(listPanel, sourceLabel, '#9a9a9a')
-  addBonusLine(listPanel, string.format("Critical Hit Chance: %d%%", criticalHitChance))
-  addBonusLine(listPanel, string.format("Critical Hit Damage: %d%%", criticalHitDamage))
-  addBonusLine(listPanel, string.format("Life Leech Chance: %d%%", lifeLeechChance))
-  addBonusLine(listPanel, string.format("Life Leech Amount: %d%%", lifeLeechAmount))
-  addBonusLine(listPanel, string.format("Mana Leech Chance: %d%%", manaLeechChance))
-  addBonusLine(listPanel, string.format("Mana Leech Amount: %d%%", manaLeechAmount))
-  addBonusLine(listPanel, string.format("Dodge: %d%%", dodgeValue))
-  addBonusLine(listPanel, string.format("Damage Reflect: %d%%", reflectValue))
 
-  addBonusLine(listPanel, " ", nil)
-  addBonusLine(listPanel, tr('Aggregated equipment statuses:'), '#f15a5a')
-  if #aggregatedEntries == 0 then
-    addBonusLine(listPanel, tr('No aggregated values yet.'), '#9a9a9a')
+  if #mergedEntries == 0 then
+    if serverExtraStatsRequestPending then
+      addBonusLine(listPanel, tr('Loading server extra stats...'), '#9a9a9a')
+    elseif missingTooltip and not usingServerData then
+      addBonusLine(listPanel, tr('Loading equipped item bonuses...'), '#9a9a9a')
+    else
+      addBonusLine(listPanel, tr('No summed stats detected.'), '#9a9a9a')
+    end
   else
-    for i = 1, #aggregatedEntries do
-      local entry = aggregatedEntries[i]
+    for i = 1, #mergedEntries do
+      local entry = mergedEntries[i]
       local suffix = entry.percent and "%" or ""
       addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
     end
   end
 
-  addBonusLine(listPanel, " ", nil)
-  addBonusLine(listPanel, tr('Bonuses from equipped items:'), '#f15a5a')
-
-  if #equipmentLines == 0 then
-    if usingServerData then
-      addBonusLine(listPanel, tr('No extra item bonuses detected.'), '#9a9a9a')
-    elseif serverExtraStatsRequestPending then
-      addBonusLine(listPanel, tr('Loading server extra stats...'), '#9a9a9a')
-    elseif missingTooltip then
-      addBonusLine(listPanel, tr('Loading equipped item bonuses...'), '#9a9a9a')
-    else
-      addBonusLine(listPanel, tr('No extra item bonuses detected.'), '#9a9a9a')
-    end
-  else
-    for i = 1, #equipmentLines do
-      addBonusLine(listPanel, equipmentLines[i], '#d4d4d4')
-    end
-  end
-
-  local lineCount = 14 + #aggregatedEntries + #equipmentLines
+  local lineCount = 4 + #mergedEntries
   bonusStatsWindow:setContentMinimumHeight(44)
   bonusStatsWindow:setContentMaximumHeight(math.max(200, math.min(620, lineCount * 15)))
+
+  if scrollBar and preservedScrollValue ~= nil and scrollBar.setValue then
+    scheduleEvent(function()
+      if scrollBar and scrollBar.setValue then
+        pcall(function()
+          scrollBar:setValue(preservedScrollValue)
+        end)
+      end
+    end, 1)
+  end
 end
 
 local function startBonusStatsPolling()
@@ -413,13 +489,7 @@ local function startBonusStatsPolling()
     bonusStatsPollEvent:cancel()
     bonusStatsPollEvent = nil
   end
-
-  bonusStatsPollEvent = cycleEvent(function()
-    if not bonusStatsButton or not bonusStatsWindow or not bonusStatsButton:isOn() then
-      return
-    end
-    refreshBonusStatsWindow(true)
-  end, 500)
+  -- Disabled intentionally: panel is updated by server snapshot pushes and key events.
 end
 
 local function stopBonusStatsPolling()
@@ -813,7 +883,6 @@ function toggleBonusStats()
     bonusStatsButton:setOn(true)
     requestServerExtraStats(true)
     refreshBonusStatsWindow(true)
-    startBonusStatsPolling()
   end
 end
 
