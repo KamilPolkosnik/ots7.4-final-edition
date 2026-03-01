@@ -15,6 +15,9 @@ local OPCODE_EXTRA_STATS = 107
 local EXTRA_STATS_REQUEST_INTERVAL = 400
 local EXTRA_STATS_REQUEST_TIMEOUT = 2500
 
+-- Forward declaration used by callbacks defined above the implementation.
+local refreshBonusStatsWindow
+
 -- Item ids that provide time-based bonuses while equipped (active forms).
 local timedSkillBonusByItem = {
   [2203] = { skillId0 = true }, -- power ring -> fist
@@ -110,7 +113,13 @@ local statNameAliases = {
   dodge = 'Dodge',
   manaonkill = 'Mana on Kill',
   lifeonkill = 'Life on Kill',
-  healthonkill = 'Life on Kill'
+  healthonkill = 'Life on Kill',
+  lifegain = 'Life Gain',
+  healthgain = 'Life Gain',
+  managain = 'Mana Gain',
+  lifetick = 'Life Tick',
+  healthtick = 'Life Tick',
+  manatick = 'Mana Tick'
 }
 
 local function canonicalStatName(name)
@@ -121,6 +130,33 @@ local function canonicalStatName(name)
 
   local normalized = clean:lower():gsub('[^a-z0-9]+', '')
   return statNameAliases[normalized] or clean
+end
+
+local hiddenStatNames = {
+  ['Life Tick'] = true,
+  ['Mana Tick'] = true
+}
+
+local function shouldHideStatName(name)
+  return hiddenStatNames[name] == true
+end
+
+local function isPerSecondGainStat(name)
+  return name == 'Life Gain' or name == 'Mana Gain'
+end
+
+local function formatExtraStatValue(entry)
+  local numericValue = tonumber(entry.value) or 0
+
+  if entry.percent then
+    return string.format('%d%%', math.floor(numericValue + 0.0001))
+  end
+
+  if isPerSecondGainStat(entry.name) then
+    return string.format('%.2f/s', numericValue)
+  end
+
+  return string.format('%d', math.floor(numericValue + 0.0001))
 end
 
 local function clearServerExtraStatsSnapshot()
@@ -397,7 +433,7 @@ local function isTriggerOrSpecialLine(line)
   return false
 end
 
-local function refreshBonusStatsWindow(force)
+refreshBonusStatsWindow = function(force)
   if not bonusStatsWindow or not bonusStatsButton then
     return
   end
@@ -466,6 +502,8 @@ local function refreshBonusStatsWindow(force)
   local manaLeechAmount = 0
   local dodgeValue = 0
   local reflectValue = 0
+  local lifeGainPerSecond = 0
+  local manaGainPerSecond = 0
 
   if usingServerData then
     local coreStats = serverExtraStatsSnapshot.coreStats
@@ -477,6 +515,10 @@ local function refreshBonusStatsWindow(force)
     manaLeechAmount = math.floor(tonumber(coreStats.manaLeechAmount) or 0)
     dodgeValue = math.floor(tonumber(coreStats.dodge) or 0)
     reflectValue = math.floor(tonumber(coreStats.reflect) or 0)
+    if type(serverExtraStatsSnapshot.regenStats) == 'table' then
+      lifeGainPerSecond = tonumber(serverExtraStatsSnapshot.regenStats.lifePerSecond) or 0
+      manaGainPerSecond = tonumber(serverExtraStatsSnapshot.regenStats.manaPerSecond) or 0
+    end
 
     if type(serverExtraStatsSnapshot.aggregatedBonuses) == 'table' then
       for i = 1, #serverExtraStatsSnapshot.aggregatedBonuses do
@@ -486,7 +528,7 @@ local function refreshBonusStatsWindow(force)
           if entryName ~= '' then
             aggregatedEntries[#aggregatedEntries + 1] = {
               name = entryName,
-              value = math.floor(tonumber(entry.value) or 0),
+              value = tonumber(entry.value) or 0,
               percent = entry.percent and true or false
             }
           end
@@ -519,7 +561,7 @@ local function refreshBonusStatsWindow(force)
     for key, entry in pairs(aggregatedTotals) do
       aggregatedEntries[#aggregatedEntries + 1] = {
         name = key,
-        value = math.floor(tonumber(entry.value) or 0),
+        value = tonumber(entry.value) or 0,
         percent = entry.percent and true or false
       }
     end
@@ -529,11 +571,11 @@ local function refreshBonusStatsWindow(force)
 
   local function mergeStat(name, value, isPercent, authoritative)
     local label = canonicalStatName(name)
-    if label == '' then
+    if label == '' or shouldHideStatName(label) then
       return
     end
 
-    local numericValue = math.floor(tonumber(value) or 0)
+    local numericValue = tonumber(value) or 0
     local key = label:lower()
     local entry = mergedByKey[key]
     if not entry then
@@ -561,6 +603,12 @@ local function refreshBonusStatsWindow(force)
   mergeStat('Mana Leech Amount', manaLeechAmount, true, true)
   mergeStat('Dodge', dodgeValue, true, true)
   mergeStat('Damage Reflect', reflectValue, true, true)
+  if lifeGainPerSecond > 0 then
+    mergeStat('Life Gain', lifeGainPerSecond, false, true)
+  end
+  if manaGainPerSecond > 0 then
+    mergeStat('Mana Gain', manaGainPerSecond, false, true)
+  end
 
   for i = 1, #aggregatedEntries do
     local entry = aggregatedEntries[i]
@@ -667,8 +715,7 @@ local function refreshBonusStatsWindow(force)
     else
       for i = 1, #coreEntries do
         local entry = coreEntries[i]
-        local suffix = entry.percent and "%" or ""
-        addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+        addBonusLine(listPanel, string.format("%s: %s", entry.name, formatExtraStatValue(entry)), '#d4d4d4')
       end
     end
 
@@ -679,8 +726,7 @@ local function refreshBonusStatsWindow(force)
     else
       for i = 1, #skillEntries do
         local entry = skillEntries[i]
-        local suffix = entry.percent and "%" or ""
-        addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+        addBonusLine(listPanel, string.format("%s: %s", entry.name, formatExtraStatValue(entry)), '#d4d4d4')
       end
     end
 
@@ -691,8 +737,7 @@ local function refreshBonusStatsWindow(force)
     else
       for i = 1, #otherEntries do
         local entry = otherEntries[i]
-        local suffix = entry.percent and "%" or ""
-        addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+        addBonusLine(listPanel, string.format("%s: %s", entry.name, formatExtraStatValue(entry)), '#d4d4d4')
       end
     end
 

@@ -91,6 +91,22 @@ local function getItemTierById(itemId)
   return ITEM_TIER_BY_ID[itemId]
 end
 
+local function getItemTier(item)
+  if not item then
+    return nil
+  end
+
+  local customTier = tonumber(item:getCustomAttribute("item_tier"))
+  if customTier then
+    customTier = math.floor(customTier)
+    if customTier >= 1 and customTier <= getMaxTooltipTier() then
+      return customTier
+    end
+  end
+
+  return getItemTierById(item:getId())
+end
+
 loadItemTiersFromItemsXml()
 
 local specialSkills = {
@@ -387,9 +403,7 @@ local function collectExtraStatsBonuses(player)
     end
 
     addImplicitIfPositive("hpgain", itemType:getHealthGain(), false)
-    addImplicitIfPositive("hpticks", itemType:getHealthTicks(), false)
     addImplicitIfPositive("mpgain", itemType:getManaGain(), false)
-    addImplicitIfPositive("mpticks", itemType:getManaTicks(), false)
     addImplicitIfPositive("speed", itemType:getSpeed(), false)
   end
 
@@ -481,6 +495,41 @@ local function collectExtraStatsBonuses(player)
   return aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal
 end
 
+local function roundTo(value, decimals)
+  local factor = 10 ^ (decimals or 0)
+  return math.floor((value * factor) + 0.5) / factor
+end
+
+local function gainPerSecond(gain, ticksMs)
+  gain = toNumberOrZero(gain)
+  ticksMs = toNumberOrZero(ticksMs)
+  if gain <= 0 or ticksMs <= 0 then
+    return 0
+  end
+  return (gain * 1000) / ticksMs
+end
+
+local function collectEffectiveRegenPerSecond(player)
+  local lifePerSecond = 0
+  local manaPerSecond = 0
+
+  local vocation = player:getVocation()
+  if vocation then
+    lifePerSecond = lifePerSecond + gainPerSecond(vocation:getHealthGainAmount(), vocation:getHealthGainTicks() * 1000)
+    manaPerSecond = manaPerSecond + gainPerSecond(vocation:getManaGainAmount(), vocation:getManaGainTicks() * 1000)
+  end
+
+  for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+    local item = player:getSlotItem(slot)
+    if item and (item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT) then
+      lifePerSecond = lifePerSecond + gainPerSecond(item:getHealthGain(), item:getHealthTicks())
+      manaPerSecond = manaPerSecond + gainPerSecond(item:getManaGain(), item:getManaTicks())
+    end
+  end
+
+  return roundTo(lifePerSecond, 2), roundTo(manaPerSecond, 2)
+end
+
 local function buildExtraStatsPayload(player)
   local critChanceBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_CRITICALHITCHANCE))
   local critDamageBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_CRITICALHITAMOUNT))
@@ -490,6 +539,7 @@ local function buildExtraStatsPayload(player)
   local manaLeechAmount = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT))
 
   local aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal = collectExtraStatsBonuses(player)
+  local lifeGainPerSecond, manaGainPerSecond = collectEffectiveRegenPerSecond(player)
 
   return {
     coreStats = {
@@ -507,6 +557,10 @@ local function buildExtraStatsPayload(player)
       manaLeechAmount = math.floor(manaLeechAmount),
       dodge = clampChance(dodgeTotal),
       reflect = clampChance(reflectTotal)
+    },
+    regenStats = {
+      lifePerSecond = lifeGainPerSecond,
+      manaPerSecond = manaGainPerSecond
     },
     aggregatedBonuses = aggregatedBonuses,
     equipmentLines = equipmentLines,
@@ -594,7 +648,7 @@ function Item:buildTooltip()
     itemName = itemType:getName(),
     clientId = itemType:getClientId()
   }
-  local itemTier = getItemTierById(self:getId())
+  local itemTier = getItemTier(self)
   if itemTier then
     item_data.tier = itemTier
   end

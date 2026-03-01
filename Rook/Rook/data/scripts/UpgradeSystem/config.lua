@@ -25,7 +25,9 @@ ITEM_MIND_CRYSTAL = 7876, -- Mind Crystal item id
   ITEM_LIMITLESS_CRYSTAL = 7877, -- Limitless Crystal item id
   ITEM_MIRRORED_CRYSTAL = 7878, -- Mirrored Crystal item id
   ITEM_VOID_CRYSTAL = 7879, -- Void Crystal item id
-  ITEM_SCROLL_IDENTIFY = 7953, -- Scrol of Identification item id
+  ITEM_RARITY_CRYSTAL = 7893, -- Rarity Crystal item id (+1 rarity level)
+  ITEM_TIER_CRYSTAL = 7894, -- Tier Crystal item id (+1 tier level)
+  ITEM_SCROLL_IDENTIFY = 7953, -- Scroll of Identification item id
   ITEM_UPGRADE_CATALYST = 7881, -- Upgrade Catalyst item id
   CRYSTAL_EXTRACTOR = 7882, -- Crystal Extractor item id
   CRYSTAL_FOSSIL = 7883, -- Crystal Fossil item id
@@ -36,7 +38,8 @@ ITEM_MIND_CRYSTAL = 7876, -- Mind Crystal item id
   UPGRADE_DESTROY_CHANCE = {[7] = 30, [8] = 15, [9] = 5}, -- chance for the item to break at given upgrade level
   --
   MAX_ITEM_LEVEL = 3000, -- max that Item Level can be assigned to item
-  MAX_UPGRADE_LEVEL = 9, -- max level that item can be upgraded to,
+  MAX_UPGRADE_LEVEL = 9, -- fallback max level that item can be upgraded to when item has no tier
+  MAX_UPGRADE_LEVEL_PER_TIER = 3, -- if > 0 then max upgrade = item tier * value
   --
   USE_ITEM_XML_TIERS = true, -- when true, use <attribute key="tier" value="X"/> from items.xml
   ITEM_TIER_MIN = 1, -- minimum supported tier
