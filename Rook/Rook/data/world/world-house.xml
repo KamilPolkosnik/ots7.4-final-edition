@@ -851,46 +851,46 @@
 <house name="Vangloria Center, House 4" houseid="960" entryx="31715" entryy="32773" entryz="7" rent="0" townid="13" size="28"/>
 <house name="Vangloria Center, House 5" houseid="961" entryx="31715" entryy="32772" entryz="6" rent="0" townid="13" size="22"/>
 <house name="Vangloria Center, House 1" houseid="962" entryx="31741" entryy="32769" entryz="6" rent="0" townid="13" size="38"/>
-	<house name="Edron Rocks 3" houseid="963" entryx="0" entryy="0" entryz="0" rent="0" townid="9" size="17" />
-	<house name="Edron Rocks 2" houseid="964" entryx="0" entryy="0" entryz="0" rent="0" townid="9" size="55" />
-	<house name="Edron Rocks 1" houseid="965" entryx="0" entryy="0" entryz="0" rent="0" townid="9" size="60" />
-	<house name="Edron Rocks Guildhall" houseid="966" entryx="0" entryy="0" entryz="0" rent="0" guildhall="true" townid="9" size="402" />
-	<house name="On Hill 1" houseid="967" entryx="0" entryy="0" entryz="0" rent="0" townid="9" size="11" />
-	<house name="On Hill 2" houseid="968" entryx="0" entryy="0" entryz="0" rent="0" townid="9" size="9" />
-	<house name="Hero Street 1" houseid="969" entryx="0" entryy="0" entryz="0" rent="0" townid="9" size="25" />
-	<house name="Swamp 1" houseid="971" entryx="0" entryy="0" entryz="0" rent="0" townid="1" size="21" />
-	<house name="Swamp 2" houseid="972" entryx="0" entryy="0" entryz="0" rent="0" townid="1" size="80" />
-	<house name="Wildhouse 1" houseid="973" entryx="32675" entryy="31716" entryz="7" rent="0" townid="1" size="34" />
-	<house name="Wildhouse 2" houseid="974" entryx="32678" entryy="31726" entryz="7" rent="0" townid="1" size="24" />
-	<house name="Carlin Canals 2" houseid="977" entryx="0" entryy="0" entryz="0" rent="0" townid="5" size="10" />
-	<house name="Carlin Canals 5" houseid="980" entryx="0" entryy="0" entryz="0" rent="0" townid="5" size="7" />
-	<house name="Carlin Canals 4" houseid="981" entryx="0" entryy="0" entryz="0" rent="0" townid="5" size="7" />
-	<house name="Carlin Canals 3" houseid="982" entryx="0" entryy="0" entryz="0" rent="0" townid="5" size="10" />
-	<house name="Carlin Canals 1" houseid="983" entryx="0" entryy="0" entryz="0" rent="0" townid="5" size="25" />
-	<house name="Mushroom Street 2" houseid="985" entryx="0" entryy="0" entryz="0" rent="0" townid="2" size="44" />
-	<house name="Mushroom Street 1" houseid="986" entryx="0" entryy="0" entryz="0" rent="0" townid="2" size="4" />
-	<house name="Mushroom Street 3" houseid="987" entryx="0" entryy="0" entryz="0" rent="0" townid="2" size="12" />
-	<house name="Mushroom Street 4" houseid="988" entryx="0" entryy="0" entryz="0" rent="0" townid="2" size="93" />
-	<house name="Hidden Street 1" houseid="989" entryx="0" entryy="0" entryz="0" rent="0" townid="3" size="10" />
-	<house name="Hidden Street 2" houseid="990" entryx="0" entryy="0" entryz="0" rent="0" townid="3" size="57" />
-	<house name="Tower Street 1" houseid="991" entryx="0" entryy="0" entryz="0" rent="0" townid="3" size="6" />
-	<house name="Tower Street 2" houseid="992" entryx="0" entryy="0" entryz="0" rent="0" townid="3" size="16" />
-	<house name="Venore Caves 2" houseid="994" entryx="0" entryy="0" entryz="0" rent="0" townid="4" size="15" />
-	<house name="Venore Caves 3" houseid="995" entryx="0" entryy="0" entryz="0" rent="0" townid="4" size="16" />
-	<house name="Venore Swamp Street 1" houseid="996" entryx="0" entryy="0" entryz="0" rent="0" townid="4" size="8" />
-	<house name="Venore Caves 4" houseid="997" entryx="0" entryy="0" entryz="0" rent="0" townid="4" size="13" />
-	<house name="Venore Caves 1" houseid="998" entryx="0" entryy="0" entryz="0" rent="0" townid="4" size="12" />
-	<house name="Evening Home 1" houseid="999" entryx="0" entryy="0" entryz="0" rent="0" townid="3" size="5" />
-	<house name="Oasis 3" houseid="1002" entryx="0" entryy="0" entryz="0" rent="0" townid="7" size="14" />
-	<house name="Oasis 1" houseid="1004" entryx="0" entryy="0" entryz="0" rent="0" townid="7" size="4" />
-	<house name="Oasis 2" houseid="1005" entryx="0" entryy="0" entryz="0" rent="0" townid="7" size="16" />
-	<house name="Oasis 4" houseid="1006" entryx="0" entryy="0" entryz="0" rent="0" townid="7" size="4" />
-	<house name="Oasis 5" houseid="1007" entryx="0" entryy="0" entryz="0" rent="0" townid="7" size="4" />
-	<house name="Oasis 6" houseid="1008" entryx="0" entryy="0" entryz="0" rent="0" townid="7" size="28" />
-	<house name="Pyramide 2" houseid="1011" entryx="0" entryy="0" entryz="0" rent="0" townid="6" size="137" />
-	<house name="Pyramide 3" houseid="1012" entryx="0" entryy="0" entryz="0" rent="0" townid="6" size="66" />
-	<house name="Pyramide 4" houseid="1014" entryx="0" entryy="0" entryz="0" rent="0" townid="6" size="20" />
-	<house name="Pyramide 5" houseid="1015" entryx="0" entryy="0" entryz="0" rent="0" townid="6" size="16" />
-	<house name="Pyramide 1" houseid="1018" entryx="0" entryy="0" entryz="0" rent="0" townid="6" size="593" />
-	<house name="Djin Street 1" houseid="1019" entryx="0" entryy="0" entryz="0" rent="0" townid="6" size="27" />
+	<house name="Edron Rocks 3" houseid="963" entryx="33210" entryy="31759" entryz="4" rent="1065" townid="9" size="17" />
+	<house name="Edron Rocks 2" houseid="964" entryx="33233" entryy="31764" entryz="6" rent="2935" townid="9" size="55" />
+	<house name="Edron Rocks 1" houseid="965" entryx="33227" entryy="31771" entryz="6" rent="3200" townid="9" size="60" />
+	<house name="Edron Rocks Guildhall" houseid="966" entryx="33210" entryy="31764" entryz="5" rent="24350" guildhall="true" townid="9" size="402" />
+	<house name="On Hill 1" houseid="967" entryx="33261" entryy="31794" entryz="6" rent="740" townid="9" size="11" />
+	<house name="On Hill 2" houseid="968" entryx="33271" entryy="31796" entryz="6" rent="525" townid="9" size="9" />
+	<house name="Hero Street 1" houseid="969" entryx="33155" entryy="31814" entryz="7" rent="1540" townid="9" size="25" />
+	<house name="Swamp 1" houseid="971" entryx="32640" entryy="31636" entryz="7" rent="1475" townid="1" size="21" />
+	<house name="Swamp 2" houseid="972" entryx="32644" entryy="31632" entryz="6" rent="4265" townid="1" size="80" />
+	<house name="Wildhouse 1" houseid="973" entryx="32675" entryy="31716" entryz="7" rent="2265" townid="1" size="34" />
+	<house name="Wildhouse 2" houseid="974" entryx="32678" entryy="31726" entryz="7" rent="1610" townid="1" size="24" />
+	<house name="Carlin Canals 2" houseid="977" entryx="32309" entryy="31808" entryz="9" rent="730" townid="5" size="10" />
+	<house name="Carlin Canals 5" houseid="980" entryx="32296" entryy="31814" entryz="9" rent="425" townid="5" size="7" />
+	<house name="Carlin Canals 4" houseid="981" entryx="32297" entryy="31813" entryz="9" rent="425" townid="5" size="7" />
+	<house name="Carlin Canals 3" houseid="982" entryx="32307" entryy="31807" entryz="9" rent="730" townid="5" size="10" />
+	<house name="Carlin Canals 1" houseid="983" entryx="32358" entryy="31803" entryz="8" rent="1465" townid="5" size="25" />
+	<house name="Mushroom Street 2" houseid="985" entryx="32551" entryy="31935" entryz="10" rent="2495" townid="2" size="44" />
+	<house name="Mushroom Street 1" houseid="986" entryx="32584" entryy="31936" entryz="10" rent="170" townid="2" size="4" />
+	<house name="Mushroom Street 3" houseid="987" entryx="32586" entryy="31920" entryz="10" rent="705" townid="2" size="12" />
+	<house name="Mushroom Street 4" houseid="988" entryx="32547" entryy="31920" entryz="10" rent="5090" townid="2" size="93" />
+	<house name="Hidden Street 1" houseid="989" entryx="32360" entryy="32283" entryz="8" rent="520" townid="3" size="10" />
+	<house name="Hidden Street 2" houseid="990" entryx="32374" entryy="32267" entryz="8" rent="4825" townid="3" size="57" />
+	<house name="Tower Street 1" houseid="991" entryx="32342" entryy="32266" entryz="6" rent="715" townid="3" size="6" />
+	<house name="Tower Street 2" houseid="992" entryx="32345" entryy="32265" entryz="0" rent="1000" townid="3" size="16" />
+	<house name="Venore Caves 2" houseid="994" entryx="32894" entryy="32172" entryz="7" rent="880" townid="4" size="15" />
+	<house name="Venore Caves 3" houseid="995" entryx="32889" entryy="32181" entryz="7" rent="940" townid="4" size="16" />
+	<house name="Venore Swamp Street 1" houseid="996" entryx="32870" entryy="32086" entryz="7" rent="515" townid="4" size="8" />
+	<house name="Venore Caves 4" houseid="997" entryx="32846" entryy="32199" entryz="7" rent="765" townid="4" size="13" />
+	<house name="Venore Caves 1" houseid="998" entryx="32884" entryy="32161" entryz="7" rent="705" townid="4" size="12" />
+	<house name="Evening Home 1" houseid="999" entryx="32441" entryy="32213" entryz="7" rent="595" townid="3" size="5" />
+	<house name="Oasis 3" houseid="1002" entryx="33166" entryy="32479" entryz="7" rent="730" townid="7" size="14" />
+	<house name="Oasis 1" houseid="1004" entryx="33161" entryy="32473" entryz="7" rent="210" townid="7" size="4" />
+	<house name="Oasis 2" houseid="1005" entryx="33166" entryy="32475" entryz="7" rent="910" townid="7" size="16" />
+	<house name="Oasis 4" houseid="1006" entryx="33163" entryy="32481" entryz="7" rent="210" townid="7" size="4" />
+	<house name="Oasis 5" houseid="1007" entryx="33157" entryy="32481" entryz="7" rent="210" townid="7" size="4" />
+	<house name="Oasis 6" houseid="1008" entryx="33155" entryy="32478" entryz="7" rent="1465" townid="7" size="28" />
+	<house name="Pyramide 2" houseid="1011" entryx="33168" entryy="32678" entryz="7" rent="7765" townid="6" size="137" />
+	<house name="Pyramide 3" houseid="1012" entryx="33168" entryy="32676" entryz="6" rent="3940" townid="6" size="66" />
+	<house name="Pyramide 4" houseid="1014" entryx="33140" entryy="32690" entryz="7" rent="1140" townid="6" size="20" />
+	<house name="Pyramide 5" houseid="1015" entryx="33143" entryy="32686" entryz="6" rent="790" townid="6" size="16" />
+	<house name="Pyramide 1" houseid="1018" entryx="33192" entryy="32657" entryz="7" rent="19800" townid="6" size="593" />
+	<house name="Djin Street 1" houseid="1019" entryx="33071" entryy="32560" entryz="4" rent="1460" townid="6" size="27" />
 </houses>
