@@ -450,7 +450,54 @@ local function refreshBonusStatsWindow(force)
     return a.name:lower() < b.name:lower()
   end)
 
-  addBonusLine(listPanel, tr('Summed Stats (Total):'), '#f15a5a')
+  local coreCombatOrder = {
+    'Critical Hit Chance',
+    'Critical Hit Damage',
+    'Life Leech Amount',
+    'Life Leech Chance',
+    'Mana Leech Amount',
+    'Mana Leech Chance'
+  }
+
+  local skillAndSpeedLookup = {
+    ['fist fighting'] = true,
+    ['club fighting'] = true,
+    ['sword fighting'] = true,
+    ['axe fighting'] = true,
+    ['distance fighting'] = true,
+    ['shielding'] = true,
+    ['fishing'] = true,
+    ['magic level'] = true,
+    ['speed'] = true
+  }
+
+  local coreLookup = {}
+  local coreEntries = {}
+  local skillEntries = {}
+  local otherEntries = {}
+
+  for i = 1, #coreCombatOrder do
+    local key = coreCombatOrder[i]:lower()
+    coreLookup[key] = true
+    local entry = mergedByKey[key]
+    if entry then
+      coreEntries[#coreEntries + 1] = entry
+    end
+  end
+
+  for i = 1, #mergedEntries do
+    local entry = mergedEntries[i]
+    local key = entry.name:lower()
+    if coreLookup[key] then
+      -- already rendered in fixed order
+    elseif skillAndSpeedLookup[key] then
+      skillEntries[#skillEntries + 1] = entry
+    else
+      otherEntries[#otherEntries + 1] = entry
+    end
+  end
+
+  addBonusLine(listPanel, tr('Summed Stats (3 Categories):'), '#f15a5a')
   addBonusLine(listPanel, sourceLabel, '#9a9a9a')
 
   if #mergedEntries == 0 then
@@ -462,14 +509,59 @@ local function refreshBonusStatsWindow(force)
       addBonusLine(listPanel, tr('No summed stats detected.'), '#9a9a9a')
     end
   else
-    for i = 1, #mergedEntries do
-      local entry = mergedEntries[i]
-      local suffix = entry.percent and "%" or ""
-      addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+    addBonusLine(listPanel, ' ', nil)
+    addBonusLine(listPanel, tr('1. Core Combat Stats'), '#f15a5a')
+    if #coreEntries == 0 then
+      addBonusLine(listPanel, tr('No core combat stats.'), '#9a9a9a')
+    else
+      for i = 1, #coreEntries do
+        local entry = coreEntries[i]
+        local suffix = entry.percent and "%" or ""
+        addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+      end
+    end
+
+    addBonusLine(listPanel, ' ', nil)
+    addBonusLine(listPanel, tr('2. Skill Stats + Speed'), '#f15a5a')
+    if #skillEntries == 0 then
+      addBonusLine(listPanel, tr('No skill/speed bonuses.'), '#9a9a9a')
+    else
+      for i = 1, #skillEntries do
+        local entry = skillEntries[i]
+        local suffix = entry.percent and "%" or ""
+        addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+      end
+    end
+
+    addBonusLine(listPanel, ' ', nil)
+    addBonusLine(listPanel, tr('3. Other Stats'), '#f15a5a')
+    if #otherEntries == 0 then
+      addBonusLine(listPanel, tr('No other bonuses.'), '#9a9a9a')
+    else
+      for i = 1, #otherEntries do
+        local entry = otherEntries[i]
+        local suffix = entry.percent and "%" or ""
+        addBonusLine(listPanel, string.format("%s: %d%s", entry.name, math.floor(entry.value), suffix), '#d4d4d4')
+      end
     end
   end
 
-  local lineCount = 4 + #mergedEntries
+  local lineCount = 2
+  if #mergedEntries == 0 then
+    lineCount = lineCount + 1
+  else
+    lineCount = lineCount + 9 + #coreEntries + #skillEntries + #otherEntries
+    if #coreEntries == 0 then
+      lineCount = lineCount + 1
+    end
+    if #skillEntries == 0 then
+      lineCount = lineCount + 1
+    end
+    if #otherEntries == 0 then
+      lineCount = lineCount + 1
+    end
+  end
+
   bonusStatsWindow:setContentMinimumHeight(44)
   bonusStatsWindow:setContentMaximumHeight(math.max(200, math.min(620, lineCount * 15)))
 
