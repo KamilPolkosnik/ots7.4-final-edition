@@ -39,8 +39,7 @@
     <item id="2666" chance="40000"/>
     <item id="2148" chance="40000" countmax="20"/>
     <item id="2148" chance="15000" countmax="10"/>
-    <item id="2110" chance="500"/>
-    <item id="2458" chance="5000"/>
+<item id="2458" chance="5000"/>
     <item id="2459" chance="500"/>
     <item id="2465" chance="2500"/>
     <item id="2649" chance="15000"/>

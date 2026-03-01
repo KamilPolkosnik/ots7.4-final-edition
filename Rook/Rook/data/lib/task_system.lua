@@ -131,8 +131,6 @@ TaskSystem.shop = {
     {name = "scarab coin", id = 2159, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},
     {name = "dirty fur", id = 2220, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},
     {name = "voodoo doll", id = 3955, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},
-    {name = "green tapestry", id = 1860, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},
-    {name = "blue tapestry", id = 1872, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},
     {name = "parchment", id = 1967, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},
     {name = "red tome", id = 1986, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},
     {name = "panpipes", id = 2074, count = 1, cost = 5, category = "creature", description = "Creature loot material used for trade, tasks, or crafting."},

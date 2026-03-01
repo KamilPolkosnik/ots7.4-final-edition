@@ -40,13 +40,11 @@
   </voices>
   <loot>
     <item id="2654" chance="9000"/>
-    <item id="2804" chance="15000"/>
-    <item id="2642" chance="20000"/>
+<item id="2642" chance="20000"/>
     <item id="2404" chance="7000"/>
     <item id="2394" chance="11000"/>
     <item id="2532" chance="800"/>
-    <item id="1977" chance="1500"/>
-    <item id="2165" chance="200"/>
+<item id="2165" chance="200"/>
     <item id="6512" chance="250"/>
   </loot>
 </monster>

@@ -465,6 +465,9 @@
 	<spawn centerx="32878" centery="31767" centerz="4" radius="1">
 		<monster name="orc warrior" x="0" y="0" z="4" spawntime="60" />
 	</spawn>
+	<spawn centerx="32592" centery="31775" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
 	<spawn centerx="32600" centery="31775" centerz="4" radius="1">
 		<monster name="poison spider" x="0" y="0" z="4" spawntime="60" />
 	</spawn>
@@ -473,11 +476,29 @@
 		<monster name="orc spearman" x="1" y="0" z="4" spawntime="60" />
 		<monster name="orc spearman" x="1" y="1" z="4" spawntime="60" />
 	</spawn>
+	<spawn centerx="32580" centery="31777" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32568" centery="31778" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32604" centery="31780" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
 	<spawn centerx="32802" centery="31783" centerz="4" radius="1">
 		<monster name="orc shaman" x="0" y="0" z="4" spawntime="60" />
 	</spawn>
 	<spawn centerx="32804" centery="31783" centerz="4" radius="1">
 		<monster name="scorpion" x="0" y="0" z="4" spawntime="60" />
+	</spawn>
+	<spawn centerx="32603" centery="31794" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32588" centery="31798" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32591" centery="31798" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
 	</spawn>
 	<spawn centerx="32596" centery="31805" centerz="4" radius="1">
 		<monster name="sheep" x="-1" y="0" z="4" spawntime="60" />
@@ -492,10 +513,22 @@
 		<monster name="black sheep" x="1" y="0" z="4" spawntime="60" />
 	</spawn>
 	<spawn centerx="32599" centery="31805" centerz="4" radius="1" />
+	<spawn centerx="32557" centery="31806" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32577" centery="31809" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
 	<spawn centerx="32585" centery="31811" centerz="4" radius="1">
 		<monster name="spider" x="0" y="0" z="4" spawntime="60" />
 		<monster name="spider" x="1" y="0" z="4" spawntime="60" />
 		<monster name="spider" x="1" y="1" z="4" spawntime="60" />
+	</spawn>
+	<spawn centerx="32591" centery="31812" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="32567" centery="31813" centerz="4" radius="1">
+		<monster name="hunter" x="0" y="0" z="4" spawntime="60" direction="2" />
 	</spawn>
 	<spawn centerx="33257" centery="31826" centerz="4" radius="1">
 		<monster name="rat" x="0" y="0" z="4" spawntime="60" />
