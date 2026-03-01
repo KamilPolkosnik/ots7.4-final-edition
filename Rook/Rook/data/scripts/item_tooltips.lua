@@ -521,9 +521,10 @@ local function collectEffectiveRegenPerSecond(player)
 
   for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
     local item = player:getSlotItem(slot)
-    if item and (item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT) then
-      lifePerSecond = lifePerSecond + gainPerSecond(item:getHealthGain(), item:getHealthTicks())
-      manaPerSecond = manaPerSecond + gainPerSecond(item:getManaGain(), item:getManaTicks())
+    local itemType = item and item:getType() or nil
+    if itemType and (itemType:usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT) then
+      lifePerSecond = lifePerSecond + gainPerSecond(itemType:getHealthGain(), itemType:getHealthTicks())
+      manaPerSecond = manaPerSecond + gainPerSecond(itemType:getManaGain(), itemType:getManaTicks())
     end
   end
 
