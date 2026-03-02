@@ -302,7 +302,7 @@ function showTooltip(uid)
   local cachedItem = cachedItems[uid]
 
   cachedItem.id = hoveredItem:getId()
-  cachedItem.count = hoveredItem:getCount()
+  cachedItem.count = hoveredItem:getCountOrSubType()
 
   buildItemTooltip(cachedItem)
 end
@@ -327,7 +327,7 @@ function buildItemTooltip(item)
   local rarity = item.rarity + 1
   local maxAttributes = item.maxAttributes
   local attributes = item.attributes
-  local count = item.count
+  local count = item.count or 1
   local type = item.type
   local first = item.first
   local second = item.second
@@ -337,8 +337,7 @@ function buildItemTooltip(item)
 
   itemWeightLabel:setText(formatWeight(weight))
 
-  itemSprite:setItemId(id)
-  itemSprite:setItemCount(count)
+  itemSprite:setItem(Item.create(id, count))
 
   local itemNameColor
   if unidentified then
@@ -446,13 +445,13 @@ function buildItemTooltip(item)
       skipImplicit.mpticks = true
 
       if hpGain > 0 and mpGain > 0 and hpGain == mpGain then
-        addString("Regen mana and health +" .. hpGain, Colors.Implicit)
+        addString("Regen mana and health +" .. hpGain .. " per tick for specific vocation", Colors.Implicit)
       else
         if hpGain > 0 then
-          addString("Health regen +" .. hpGain, Colors.Implicit)
+          addString("Health regen +" .. hpGain .. " per tick for specific vocation", Colors.Implicit)
         end
         if mpGain > 0 then
-          addString("Mana regen +" .. mpGain, Colors.Implicit)
+          addString("Mana regen +" .. mpGain .. " per tick for specific vocation", Colors.Implicit)
         end
       end
     end
