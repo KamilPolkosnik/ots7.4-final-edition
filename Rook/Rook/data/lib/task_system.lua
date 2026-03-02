@@ -44,7 +44,7 @@ TaskSystem.shop = {
     {name = "Life Fluid", id = 2006, count = 1, cost = 1, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
     {name = "Life Fluid", id = 2006, count = 8, cost = 5, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
     {name = "Life Fluid", id = 2006, count = 16, cost = 10, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
-    {name = "Life Fluid", id = 2006, count = 33, cost = 20, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
+    {name = "Life Fluid", id = 2006, count = 20, cost = 16, fluidType = 10, previewFluidType = 11, bundleContainerId = 2001, bundleCount = 20, description = "Consumable fluid that restores health when used."},
 
     -- Rune rewards
     {name = "blank rune", id = 2260, count = 20, cost = 2, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 blank runes packed in a backpack."},
@@ -691,17 +691,53 @@ function TaskSystem.buyShopItem(player, shopId, amount)
             end
 
             local perPurchaseCount = entry.count or 1
-            for _ = 1, amount do
-                local item
-                if backpack and backpack:isContainer() then
-                    item = backpack:addItem(entry.id, perPurchaseCount)
-                else
-                    item = player:addItem(entry.id, perPurchaseCount, true)
+            local itemType = ItemType(entry.id)
+            local isStackable = itemType and itemType:isStackable() or false
+
+            if isStackable then
+                local remaining = perPurchaseCount * amount
+                local requiredStacks = math.max(1, math.ceil(remaining / 100))
+                if backpack and backpack:isContainer() and backpack:getEmptySlots(true) < requiredStacks then
+                    player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "You don't have enough space in backpack.")
+                    return false
                 end
 
-                if not item then
-                    player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
-                    return false
+                local added = {}
+                while remaining > 0 do
+                    local stackCount = math.min(100, remaining)
+                    local item
+                    if backpack and backpack:isContainer() then
+                        item = backpack:addItem(entry.id, stackCount)
+                    else
+                        item = player:addItem(entry.id, stackCount, true)
+                    end
+
+                    if not item then
+                        for _, created in ipairs(added) do
+                            if created and not created:isRemoved() then
+                                created:remove()
+                            end
+                        end
+                        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
+                        return false
+                    end
+
+                    table.insert(added, item)
+                    remaining = remaining - stackCount
+                end
+            else
+                for _ = 1, amount do
+                    local item
+                    if backpack and backpack:isContainer() then
+                        item = backpack:addItem(entry.id, perPurchaseCount)
+                    else
+                        item = player:addItem(entry.id, perPurchaseCount, true)
+                    end
+
+                    if not item then
+                        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
+                        return false
+                    end
                 end
             end
         end
