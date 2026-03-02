@@ -66,9 +66,9 @@ local axeOverrides = {
             {id = 5904, count = 1}, -- royal axe
             {id = 2208, count = 15}, -- axe ring
             {id = 2348, count = 20}, -- ancient rune
-            {id = 2193, count = 10}, -- ankh
-            {id = 3956, count = 10}, -- elephant tusk
-            {id = 2230, count = 75} -- bone
+            {id = 2193, count = 20}, -- ankh
+            {id = 3956, count = 20}, -- elephant tusk
+            {id = 2230, count = 20} -- bone
         }
     }, -- ravager's axe
     [2447] = {
