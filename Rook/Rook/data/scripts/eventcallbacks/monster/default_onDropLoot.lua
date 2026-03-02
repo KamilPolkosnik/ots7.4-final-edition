@@ -13,7 +13,7 @@ local function getVariantLootRolls(monster)
     local skull = monster:getSkull()
     if skull == SKULL_GREEN and tiers[1] and tiers[1].lootRolls then
         return tiers[1].lootRolls
-    elseif skull == SKULL_ORANGE and tiers[2] and tiers[2].lootRolls then
+    elseif skull == SKULL_YELLOW and tiers[2] and tiers[2].lootRolls then
         return tiers[2].lootRolls
     elseif skull == SKULL_RED and tiers[3] and tiers[3].lootRolls then
         return tiers[3].lootRolls

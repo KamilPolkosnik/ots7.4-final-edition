@@ -57,7 +57,7 @@ RewardOfferWidget < MiniPanel
     height: 20
     text-align: center
     color: #f0f0f0
-    font: terminus-11px-rounded
+    font: verdana-11px-rounded
 
   Panel
     id: offerIconPanel
@@ -81,7 +81,7 @@ RewardOfferWidget < MiniPanel
     text-align: center
     margin-left: 0
     margin-right: 2
-    font: terminus-11px-rounded
+    font: verdana-11px-rounded
 
   Item
     id: offerIcon
@@ -128,7 +128,7 @@ RewardOfferLine < Panel
     color: #f0f0f0
     text-align: left
     text-vertical-auto-resize: true
-    font: terminus-11px-rounded
+    font: verdana-11px-rounded
 
   Label
     id: offerPrice
@@ -138,7 +138,7 @@ RewardOfferLine < Panel
     margin-right: 8
     color: #28db00
     text-align: right
-    font: terminus-11px-rounded
+    font: verdana-11px-rounded
 
 MainWindow
   id: taskRewardsWindow

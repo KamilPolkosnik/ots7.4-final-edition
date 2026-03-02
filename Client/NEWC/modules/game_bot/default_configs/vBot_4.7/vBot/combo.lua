@@ -353,7 +353,7 @@ end)
 local toFollow
 local toFollowPos = {}
 
-macro(100, function()
+macro(20, function()
   toFollow = nil
   if not config.enabled or not config.followLeaderEnabled then return end
   if leaderTarget and config.follow == "LEADER TARGET" and leaderTarget:isPlayer() then
@@ -380,9 +380,7 @@ macro(100, function()
   if player:isWalking() then return end
   local p = toFollowPos[posz()]
   if not p then return end
-  if CaveBot.walkTo(p, 20, {ignoreNonPathable=true, precision=1, ignoreStairs=false}) then
-    delay(100)
-  end
+  CaveBot.walkTo(p, 20, {ignoreNonPathable=true, precision=1, ignoreStairs=false})
 end)
 
 onCreaturePositionChange(function(creature, oldPos, newPos)

@@ -1,5 +1,8 @@
 local increasing = {[416] = 417, [426] = 425, [446] = 447, [3216] = 3217, [3202] = 3215, [11062] = 11063}
 local decreasing = {[417] = 416, [425] = 426, [447] = 446, [3217] = 3216, [3215] = 3202, [11063] = 11062}
+local legacyLevelByActionId = {
+	[3010] = 2, -- rook bridge tile
+}
 
 function onStepIn(creature, item, position, fromPosition)
 	if not increasing[item.itemid] then
@@ -12,8 +15,13 @@ function onStepIn(creature, item, position, fromPosition)
 
 	item:transform(increasing[item.itemid])
 
-	if item.actionid >= actionIds.levelDoor then
-		if creature:getLevel() < item.actionid - actionIds.levelDoor then
+	local requiredLevel = legacyLevelByActionId[item.actionid]
+	if not requiredLevel and item.actionid >= actionIds.levelDoor then
+		requiredLevel = item.actionid - actionIds.levelDoor
+	end
+
+	if requiredLevel then
+		if creature:getLevel() < requiredLevel then
 			creature:teleportTo(fromPosition, false)
 			position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The tile seems to be protected against unwanted intruders.")
