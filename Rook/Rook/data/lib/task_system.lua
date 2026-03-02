@@ -617,13 +617,17 @@ function TaskSystem.buyShopItem(player, shopId, amount)
                 player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "You don't have enough space in backpack.")
                 return false
             end
-            local item = backpack:addItem(entry.id, totalCount)
-            if not item then
-                player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
-                return false
+        end
+
+        local perPurchaseCount = entry.count or 1
+        for _ = 1, amount do
+            local item
+            if backpack and backpack:isContainer() then
+                item = backpack:addItem(entry.id, perPurchaseCount)
+            else
+                item = player:addItem(entry.id, perPurchaseCount, true)
             end
-        else
-            local item = player:addItem(entry.id, totalCount, true)
+
             if not item then
                 player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
                 return false
