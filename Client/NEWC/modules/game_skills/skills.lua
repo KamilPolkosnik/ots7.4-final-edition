@@ -8,6 +8,7 @@ inventorySignalDeadline = 0
 lastObservedSkillValues = {}
 syntheticEquipBonusBySkill = {}
 serverExtraStatsSnapshot = nil
+serverExtraStatsSnapshotReceivedAt = 0
 serverExtraStatsRequestPending = false
 lastServerExtraStatsRequestAt = 0
 
@@ -33,6 +34,14 @@ local function trimText(text)
     return ""
   end
   return text:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+local function formatDurationHMS(totalSeconds)
+  local seconds = math.max(0, math.floor(tonumber(totalSeconds) or 0))
+  local h = math.floor(seconds / 3600)
+  local m = math.floor((seconds % 3600) / 60)
+  local s = seconds % 60
+  return string.format('%02d:%02d:%02d', h, m, s)
 end
 
 local function shouldDisplayBonusLine(line)
@@ -164,6 +173,7 @@ end
 
 local function clearServerExtraStatsSnapshot()
   serverExtraStatsSnapshot = nil
+  serverExtraStatsSnapshotReceivedAt = 0
   serverExtraStatsRequestPending = false
   lastServerExtraStatsRequestAt = 0
 end
@@ -216,6 +226,7 @@ local function onExtraStatsExtendedOpcode(protocol, opcode, buffer)
   end
 
   serverExtraStatsSnapshot = payload.data
+  serverExtraStatsSnapshotReceivedAt = g_clock.millis()
   refreshBonusStatsWindow(false)
 end
 
@@ -436,7 +447,7 @@ local function isTriggerOrSpecialLine(line)
   return false
 end
 
-refreshBonusStatsWindow = function(force)
+refreshBonusStatsWindow = function(force, suppressServerRequest)
   if not bonusStatsWindow or not bonusStatsButton then
     return
   end
@@ -468,10 +479,12 @@ refreshBonusStatsWindow = function(force)
 
   listPanel:destroyChildren()
 
-  if serverExtraStatsSnapshot then
-    requestServerExtraStats(false)
-  else
-    requestServerExtraStats(true)
+  if not suppressServerRequest then
+    if serverExtraStatsSnapshot then
+      requestServerExtraStats(false)
+    else
+      requestServerExtraStats(true)
+    end
   end
 
   local function readSkillValue(skillId)
@@ -510,6 +523,7 @@ refreshBonusStatsWindow = function(force)
   local reflectValue = 0
   local lifeGainPerSecond = 0
   local manaGainPerSecond = 0
+  local expBoostState = nil
 
   if usingServerData then
     local coreStats = serverExtraStatsSnapshot.coreStats
@@ -550,6 +564,29 @@ refreshBonusStatsWindow = function(force)
           equipmentLines[#equipmentLines + 1] = line
         end
       end
+    end
+
+    if type(serverExtraStatsSnapshot.expBoost) == 'table' then
+      local expBoostData = serverExtraStatsSnapshot.expBoost
+      local remainingSeconds = math.max(0, math.floor(tonumber(expBoostData.remainingSeconds) or 0))
+      if remainingSeconds > 0 and serverExtraStatsSnapshotReceivedAt > 0 then
+        local elapsed = math.floor((g_clock.millis() - serverExtraStatsSnapshotReceivedAt) / 1000)
+        if elapsed > 0 then
+          remainingSeconds = math.max(0, remainingSeconds - elapsed)
+        end
+      end
+
+      local active = expBoostData.active and true or false
+      if remainingSeconds <= 0 then
+        active = false
+      end
+
+      expBoostState = {
+        active = active,
+        percent = math.floor(tonumber(expBoostData.percent) or 30),
+        remainingSeconds = remainingSeconds,
+        remainingText = formatDurationHMS(remainingSeconds)
+      }
     end
   else
     local tooltipLines, tooltipMissing, aggregatedTotals = collectEquipmentBonusLines(player)
@@ -709,6 +746,17 @@ refreshBonusStatsWindow = function(force)
 
   local hasAnyDisplayEntries = (#mergedEntries > 0) or (#triggerEntries > 0)
 
+  if expBoostState then
+    addBonusLine(listPanel, ' ', nil)
+    addBonusLine(listPanel, tr('EXP Boost'), '#f15a5a')
+    if expBoostState.active then
+      addBonusLine(listPanel, string.format('Status: Active (+%d%%)', expBoostState.percent), '#d4d4d4')
+      addBonusLine(listPanel, string.format('Remaining: %s', expBoostState.remainingText), '#d4d4d4')
+    else
+      addBonusLine(listPanel, 'Status: Inactive', '#9a9a9a')
+    end
+  end
+
   if not hasAnyDisplayEntries then
     if serverExtraStatsRequestPending then
       addBonusLine(listPanel, tr('Loading server extra stats...'), '#9a9a9a')
@@ -763,6 +811,13 @@ refreshBonusStatsWindow = function(force)
   end
 
   local lineCount = 0
+  if expBoostState then
+    lineCount = lineCount + 3
+    if expBoostState.active then
+      lineCount = lineCount + 1
+    end
+  end
+
   if not hasAnyDisplayEntries then
     lineCount = lineCount + 1
   else
@@ -800,7 +855,17 @@ local function startBonusStatsPolling()
     bonusStatsPollEvent:cancel()
     bonusStatsPollEvent = nil
   end
-  -- Disabled intentionally: panel is updated by server snapshot pushes and key events.
+
+  bonusStatsPollEvent = cycleEvent(function()
+    if not bonusStatsWindow or not bonusStatsButton or not bonusStatsButton:isOn() then
+      return
+    end
+
+    if type(serverExtraStatsSnapshot) == 'table' and type(serverExtraStatsSnapshot.expBoost) == 'table' then
+      -- Live countdown refresh without extra server requests.
+      refreshBonusStatsWindow(false, true)
+    end
+  end, 1000)
 end
 
 local function stopBonusStatsPolling()
@@ -1194,6 +1259,7 @@ function toggleBonusStats()
     bonusStatsButton:setOn(true)
     requestServerExtraStats(true)
     refreshBonusStatsWindow(true)
+    startBonusStatsPolling()
   end
 end
 

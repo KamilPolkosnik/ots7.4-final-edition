@@ -35,12 +35,32 @@ local firstItems = {
 }
 
 local EXP_BOOST_STORAGE = 78011
+local LEGACY_ABSOLUTE_TIME_THRESHOLD = 1000000000
 
 local function formatDuration(seconds)
 	local h = math.floor(seconds / 3600)
 	local m = math.floor((seconds % 3600) / 60)
 	local s = seconds % 60
 	return string.format("%02d:%02d:%02d", h, m, s)
+end
+
+local function normalizeRemainingSeconds(rawValue)
+	local now = os.time()
+	local value = tonumber(rawValue) or -1
+
+	if value < 0 then
+		return 0
+	end
+
+	if value >= LEGACY_ABSOLUTE_TIME_THRESHOLD then
+		local remaining = value - now
+		if remaining > 0 then
+			return remaining
+		end
+		return 0
+	end
+
+	return value
 end
 
 
@@ -103,12 +123,12 @@ function onLogin(player)
 	player:registerEvent("AdvanceSave")
 	player:registerEvent("task")
 
-	local now = os.time()
-	local expBoostExpires = player:getStorageValue(EXP_BOOST_STORAGE)
-	if expBoostExpires > now then
-		local remaining = formatDuration(expBoostExpires - now)
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_RED, "Active EXP boost: +30%. Remaining time: " .. remaining .. ". Use !expboost anytime.")
-	elseif expBoostExpires ~= -1 then
+	local expBoostRemaining = normalizeRemainingSeconds(player:getStorageValue(EXP_BOOST_STORAGE))
+	if expBoostRemaining > 0 then
+		player:setStorageValue(EXP_BOOST_STORAGE, expBoostRemaining)
+		local remaining = formatDuration(expBoostRemaining)
+		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_RED, "Active EXP boost: +30%. Remaining online time: " .. remaining .. ".")
+	else
 		player:setStorageValue(EXP_BOOST_STORAGE, -1)
 	end
 

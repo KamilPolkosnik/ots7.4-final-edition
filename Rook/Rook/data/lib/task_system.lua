@@ -158,22 +158,22 @@ TaskSystem.shop = {
     -- End creature rewards
 
     -- Craft rewards (upgrade/crafting system items)
-    {name = "upgrade crystal", id = 7870, count = 1, cost = 90, category = "craft", description = "Used to upgrade item tier or quality."},
-    {name = "enchant crystal", id = 7871, count = 1, cost = 50, category = "craft", description = "Adds or rerolls enchant effects on equipment."},
-    {name = "alter crystal", id = 7872, count = 1, cost = 50, category = "craft", description = "Changes selected upgrade or enchant outcome."},
-    {name = "cleanse crystal", id = 7873, count = 1, cost = 70, category = "craft", description = "Removes unstable or unwanted modifiers."},
-    {name = "fortune crystal", id = 7874, count = 1, cost = 50, category = "craft", description = "Improves success chance during upgrades."},
-    {name = "faith crystal", id = 7875, count = 1, cost = 60, category = "craft", description = "Reduces downgrade risk on failed upgrades."},
-    {name = "mind crystal", id = 7876, count = 1, cost = 100, category = "craft", description = "High-tier crystal for advanced crafting rolls."},
-    {name = "limitless crystal", id = 7877, count = 1, cost = 500, category = "craft", description = "Extends upgrade limits on supported items."},
-    {name = "mirrored crystal", id = 7878, count = 1, cost = 1000, category = "craft", description = "Copies or mirrors specific item properties."},
-    {name = "void crystal", id = 7879, count = 1, cost = 100, category = "craft", description = "Rerolls with high variance and rare outcomes."},
-    {name = "upgrade catalyst", id = 7881, count = 1, cost = 250, category = "craft", description = "Catalyst consumed to perform upgrade actions."},
-    {name = "crystal extractor", id = 7882, count = 1, cost = 500, category = "craft", description = "Extracts crystal resources from valid items."},
-    {name = "crystal fossil", id = 7883, count = 1, cost = 50, category = "craft", description = "Material used in crystal conversion recipes."},
-    {name = "rarity crystal", id = 7893, count = 1, cost = 200, category = "craft", description = "Increases item rarity progression."},
-    {name = "tier crystal", id = 7894, count = 1, cost = 250, category = "craft", description = "Increases item tier progression."},
-    {name = "identification scroll", id = 7953, count = 1, cost = 20, category = "craft", description = "Identifies unknown rarity and hidden stats."},
+    {name = "upgrade crystal", id = 7870, count = 1, cost = 140, category = "craft", description = "You can use this on an item to upgrade its level"},
+    {name = "enchant crystal", id = 7871, count = 1, cost = 50, category = "craft", description = "Can be used on a piece of equipment to add random attribute."},
+    {name = "alter crystal", id = 7872, count = 1, cost = 50, category = "craft", description = "Can be used on a piece of equipment to remove last attribute."},
+    {name = "cleanse crystal", id = 7873, count = 1, cost = 70, category = "craft", description = "Can be used on a piece of equipment to remove all attributes."},
+    {name = "fortune crystal", id = 7874, count = 1, cost = 50, category = "craft", description = "Can be used on a piece of equipment to change value of last attribute."},
+    {name = "faith crystal", id = 7875, count = 1, cost = 100, category = "craft", description = "Can be used on a piece of equipment to change values of all attributes."},
+    {name = "mind crystal", id = 7876, count = 1, cost = 100, category = "craft", description = "Can be used to extract all attributes and values and store in that crystal. Can be used again to place these attributes to a new item. Lower item rarity will remove exceeded attributes."},
+    {name = "limitless crystal", id = 7877, count = 1, cost = 500, category = "craft", description = "Can be used to remove Item Level requirement to equip given item."},
+    {name = "mirrored crystal", id = 7878, count = 1, cost = 1000, category = "craft", description = "Can be used to make a copy of any item. Copies can't be modified and mirrored again."},
+    {name = "void crystal", id = 7879, count = 1, cost = 100, category = "craft", description = "Can be used to transform item into random Unique type."},
+    {name = "upgrade catalyst", id = 7881, count = 1, cost = 250, category = "craft", description = "Prevents item destroy on upgrade. Consumed on item upgrade."},
+    {name = "crystal extractor", id = 7882, count = 1, cost = 500, category = "craft", description = "Can be used to extract rare crystals from crystal fossil."},
+    {name = "crystal fossil", id = 7883, count = 1, cost = 50, category = "craft", description = "There is unknown crystal inside, try to use crystal extractor."},
+    {name = "rarity crystal", id = 7893, count = 1, cost = 200, category = "craft", description = "Can be used to increase item rarity by one step."},
+    {name = "tier crystal", id = 7894, count = 1, cost = 250, category = "craft", description = "Can be used to increase item tier by one step."},
+    {name = "identification scroll", id = 7953, count = 1, cost = 20, category = "craft", description = "Can be used to identify an item, revealing its attributes and values."},
     -- End craft rewards
 
 }

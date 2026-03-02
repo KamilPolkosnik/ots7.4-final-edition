@@ -16941,27 +16941,27 @@
 	</item>
 
 	<item id="7876" article="a" name="mind crystal" plural="mind crystal">
-		<attribute key="description" value="Used to extract all attributes and values and store in that crystal. Can be used again to place these attributes to a new item. Lower item rarity will remove exceeded attributes."/>
+		<attribute key="description" value="Can be used to extract all attributes and values and store in that crystal. Can be used again to place these attributes to a new item. Lower item rarity will remove exceeded attributes."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
 	<item id="7877" article="a" name="limitless crystal" plural="limitless crystal">
-		<attribute key="description" value="	Used to remove Item Level requirement to equip given item."/>
+		<attribute key="description" value="Can be used to remove Item Level requirement to equip given item."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
 	<item id="7878" article="a" name="mirrored crystal" plural="mirrored crystal">
-		<attribute key="description" value="Used to make a copy of any item. Copies can't be modified and mirrored again."/>
+		<attribute key="description" value="Can be used to make a copy of any item. Copies can't be modified and mirrored again."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
 	<item id="7879" article="a" name="void crystal" plural="void crystal">
-		<attribute key="description" value="Used to transform item into random Unique type."/>
+		<attribute key="description" value="Can be used to transform item into random Unique type."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
 	<item id="7880" article="a" name="scroll of identify" plural="scrolls of identification">
-		<attribute key="description" value="Identify items with the scroll."/>
+		<attribute key="description" value="Can be used to identify an item, revealing its attributes and values."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
@@ -16971,22 +16971,22 @@
 	</item>
 
 	<item id="7882" article="a" name="crystal extractor" plural="crystal extractors">
-		<attribute key="description" value="Used to extract rare crystals from crystal fossil."/>
+		<attribute key="description" value="Can be used to extract rare crystals from crystal fossil."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
 	<item id="7883" article="a" name="crystal fossil" plural="crystal fossils">
-		<attribute key="description" value="	There is unknown crystal inside, try to use crystal extractor."/>
+		<attribute key="description" value="There is unknown crystal inside, try to use crystal extractor."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
 	<item id="7893" article="a" name="rarity crystal" plural="rarity crystals">
-		<attribute key="description" value="Used to increase item rarity by one step."/>
+		<attribute key="description" value="Can be used to increase item rarity by one step."/>
 		<attribute key="weight" value="10"/>
 	</item>
 
 	<item id="7894" article="a" name="tier crystal" plural="tier crystals">
-		<attribute key="description" value="Used to increase item tier by one step."/>
+		<attribute key="description" value="Can be used to increase item tier by one step."/>
 		<attribute key="weight" value="10"/>
 	</item>
 

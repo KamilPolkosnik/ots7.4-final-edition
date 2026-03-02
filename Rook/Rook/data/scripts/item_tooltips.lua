@@ -521,6 +521,40 @@ local function gainPerSecond(gain, ticksMs)
   return (gain * 1000) / ticksMs
 end
 
+local EXP_BOOST_STORAGE = 78011
+local EXP_BOOST_PERCENT = 30
+local LEGACY_ABSOLUTE_TIME_THRESHOLD = 1000000000
+
+local function formatDuration(seconds)
+  seconds = math.max(0, math.floor(toNumberOrZero(seconds)))
+  local h = math.floor(seconds / 3600)
+  local m = math.floor((seconds % 3600) / 60)
+  local s = seconds % 60
+  return string.format("%02d:%02d:%02d", h, m, s)
+end
+
+local function getExpBoostRemainingSeconds(player)
+  local rawValue = tonumber(player:getStorageValue(EXP_BOOST_STORAGE)) or -1
+  local now = os.time()
+
+  if rawValue < 0 then
+    return 0
+  end
+
+  -- Legacy format: absolute expiration timestamp.
+  if rawValue >= LEGACY_ABSOLUTE_TIME_THRESHOLD then
+    local remaining = rawValue - now
+    if remaining > 0 then
+      player:setStorageValue(EXP_BOOST_STORAGE, remaining)
+      return remaining
+    end
+    player:setStorageValue(EXP_BOOST_STORAGE, -1)
+    return 0
+  end
+
+  return rawValue
+end
+
 local function collectEffectiveRegenPerSecond(player)
   local lifePerSecond = 0
   local manaPerSecond = 0
@@ -553,6 +587,7 @@ local function buildExtraStatsPayload(player)
 
   local aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal, hitChanceTotal = collectExtraStatsBonuses(player)
   local lifeGainPerSecond, manaGainPerSecond = collectEffectiveRegenPerSecond(player)
+  local expBoostRemaining = getExpBoostRemainingSeconds(player)
 
   return {
     coreStats = {
@@ -578,6 +613,12 @@ local function buildExtraStatsPayload(player)
     },
     aggregatedBonuses = aggregatedBonuses,
     equipmentLines = equipmentLines,
+    expBoost = {
+      active = expBoostRemaining > 0,
+      percent = EXP_BOOST_PERCENT,
+      remainingSeconds = expBoostRemaining,
+      remainingText = formatDuration(expBoostRemaining)
+    },
     generatedAt = os.time()
   }
 end

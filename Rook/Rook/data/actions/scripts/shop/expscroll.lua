@@ -3,6 +3,38 @@ local config = {
 	storage = 78011
 }
 
+local LEGACY_ABSOLUTE_TIME_THRESHOLD = 1000000000
+
+local function normalizeRemainingSeconds(rawValue)
+	local now = os.time()
+	local value = tonumber(rawValue) or -1
+
+	if value < 0 then
+		return 0
+	end
+
+	-- Legacy format: absolute expiration timestamp.
+	if value >= LEGACY_ABSOLUTE_TIME_THRESHOLD then
+		local remaining = value - now
+		if remaining > 0 then
+			return remaining
+		end
+		return 0
+	end
+
+	return value
+end
+
+local function getRemainingSeconds(cid)
+	local remaining = normalizeRemainingSeconds(getCreatureStorage(cid, config.storage))
+	if remaining > 0 then
+		doCreatureSetStorage(cid, config.storage, remaining)
+	else
+		doCreatureSetStorage(cid, config.storage, -1)
+	end
+	return remaining
+end
+
 local function consumeScroll(cid, item)
 	if doRemoveItem(item.uid, 1) then
 		return true
@@ -13,9 +45,8 @@ local function consumeScroll(cid, item)
 end
 
 function onUse(cid, item, fromPosition, itemEx, toPosition)
-	local expiresAt = getCreatureStorage(cid, config.storage)
-	if expiresAt > os.time() then
-		doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You still have extra experience time left. Use !expboost to check the remaining time.")
+	if getRemainingSeconds(cid) > 0 then
+		doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You still have extra experience time left.")
 		return true
 	end
 
@@ -24,8 +55,14 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 		return true
 	end
 
-	doCreatureSetStorage(cid, config.storage, os.time() + config.time)
+	doCreatureSetStorage(cid, config.storage, config.time)
 	doSendMagicEffect(getPlayerPosition(cid), CONST_ME_MAGIC_RED)
-	doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You have now 30% experience boost. It will last for 1 hour. Use !expboost to check the remaining time.")
+	doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You have now 30% experience boost. It will last for 1 hour of online time.")
+
+	local player = Player(cid)
+	if player and player.sendExtraStatsSnapshot then
+		player:sendExtraStatsSnapshot()
+	end
+
 	return true
 end
