@@ -874,7 +874,7 @@
 	<house name="Hidden Street 1" houseid="989" entryx="32360" entryy="32283" entryz="8" rent="520" townid="3" size="10" />
 	<house name="Hidden Street 2" houseid="990" entryx="32374" entryy="32267" entryz="8" rent="4825" townid="3" size="57" />
 	<house name="Tower Street 1" houseid="991" entryx="32342" entryy="32266" entryz="6" rent="715" townid="3" size="6" />
-	<house name="Tower Street 2" houseid="992" entryx="0" entryy="0" entryz="0" rent="1000" townid="3" size="16" />
+	<house name="Tower Street 2" houseid="992" entryx="32345" entryy="32265" entryz="6" rent="1000" townid="3" size="16" />
 	<house name="Venore Caves 2" houseid="994" entryx="32894" entryy="32172" entryz="7" rent="880" townid="4" size="15" />
 	<house name="Venore Caves 3" houseid="995" entryx="32889" entryy="32181" entryz="7" rent="940" townid="4" size="16" />
 	<house name="Venore Swamp Street 1" houseid="996" entryx="32870" entryy="32086" entryz="7" rent="515" townid="4" size="8" />
