@@ -336,10 +336,10 @@ local clubOverrides = {
                 cost = 70000,
                 materials = {
                     {id = 5894, count = 1}, -- sapphire axe
-                    {id = 2678, count = 12}, -- coconut
-                    {id = 2237, count = 12}, -- dirty cape
-                    {id = 2220, count = 12}, -- dirty fur
-                    {id = 2209, count = 12} -- club ring
+                    {id = 2678, count = 10}, -- coconut
+                    {id = 2237, count = 10}, -- dirty cape
+                    {id = 2220, count = 10}, -- dirty fur
+                    {id = 2209, count = 10} -- club ring
                 }
             }
         }
