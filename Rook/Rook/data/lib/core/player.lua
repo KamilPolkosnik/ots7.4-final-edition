@@ -161,6 +161,10 @@ function Player.transferMoneyTo(self, target, amount)
 	return true
 end
 
+function Player.getTotalMoney(self)
+	return (self:getMoney() or 0) + (self:getBankBalance() or 0)
+end
+
 function Player.canCarryMoney(self, amount)
 	-- Anyone can carry as much imaginary money as they desire
 	if amount == 0 then

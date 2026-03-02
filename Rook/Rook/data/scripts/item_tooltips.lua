@@ -630,6 +630,19 @@ end
 
 function Player:sendItemTooltip(item)
   if item then
+    local itemType = item:getType()
+    if itemType and itemType:canHaveItemLevel() and item:getItemLevel() <= 0 then
+      local topParent = item:getTopParent()
+      if topParent and topParent == self then
+        if item.ensureInitialTierLevel then
+          item:ensureInitialTierLevel(false)
+        end
+        if item:getItemLevel() <= 0 and item.setItemLevel then
+          item:setItemLevel(1, false)
+        end
+      end
+    end
+
     local item_data = item:buildTooltip()
     if item_data then
       self:sendExtendedOpcode(CODE_TOOLTIP, json.encode({action = "new", data = item_data}))

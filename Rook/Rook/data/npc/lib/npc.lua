@@ -1,6 +1,84 @@
 -- Including the Advanced NPC System
 dofile('data/npc/lib/npcsystem/npcsystem.lua')
 
+local function getTierRangeForNpcItem(tier)
+	tier = tonumber(tier)
+	if not tier then
+		return nil
+	end
+	tier = math.floor(tier)
+
+	local cfg = rawget(_G, "US_CONFIG")
+	if type(cfg) ~= "table" then
+		return nil
+	end
+
+	local minTier = math.max(1, math.floor(tonumber(cfg.ITEM_TIER_MIN) or 1))
+	local maxTier = math.max(minTier, math.floor(tonumber(cfg.ITEM_TIER_MAX) or 25))
+	if tier < minTier or tier > maxTier then
+		return nil
+	end
+
+	local customTiers = cfg.ITEM_LEVEL_TIERS
+	if type(customTiers) == "table" and type(customTiers[tier]) == "table" then
+		local customMin = tonumber(customTiers[tier].min)
+		local customMax = tonumber(customTiers[tier].max)
+		if customMin and customMax then
+			customMin = math.max(1, math.floor(customMin))
+			customMax = math.max(customMin, math.floor(customMax))
+			return customMin, customMax
+		end
+	end
+
+	local levelStep = math.max(1, math.floor(tonumber(cfg.ITEM_LEVEL_PER_TIER) or 25))
+	local firstTierMin = math.max(1, math.floor(tonumber(cfg.ITEM_LEVEL_FIRST_TIER_MIN) or 1))
+	local minLevel = (tier == minTier) and firstTierMin or ((tier - 1) * levelStep)
+	local maxLevel = tier * levelStep
+	minLevel = math.max(1, minLevel)
+	maxLevel = math.max(minLevel, maxLevel)
+	return minLevel, maxLevel
+end
+
+local function ensureNpcShopItemLevel(item)
+	if not item or not item.isItem or not item:isItem() then
+		return
+	end
+
+	local itemType = item:getType()
+	local canHaveItemLevel = item.getItemLevel and item.setItemLevel
+	if itemType and itemType.canHaveItemLevel then
+		local ok, result = pcall(function()
+			return itemType:canHaveItemLevel()
+		end)
+		if ok then
+			canHaveItemLevel = canHaveItemLevel and result
+		end
+	end
+
+	if not canHaveItemLevel then
+		return
+	end
+
+	-- Prefer normal UpgradeSystem tier roll; fallback to level 1 when the item still has no Item Level.
+	if item.getItemLevel and item:getItemLevel() <= 0 then
+		if item.ensureInitialTierLevel then
+			item:ensureInitialTierLevel(false)
+		end
+
+		if item.getItemLevel and item.setItemLevel and item:getItemLevel() <= 0 and item.getItemTier then
+			local tier = item:getItemTier()
+			local minLevel, maxLevel = getTierRangeForNpcItem(tier)
+			if minLevel and maxLevel then
+				item:setItemLevel(math.random(minLevel, maxLevel), false)
+			end
+		end
+
+		if item.getItemLevel and item:setItemLevel and item:getItemLevel() <= 0 then
+			item:setItemLevel(1, false)
+		end
+	end
+end
+
 function msgcontains(message, keyword)
 	local message, keyword = message:lower(), keyword:lower()
 	if message == keyword then
@@ -18,8 +96,10 @@ function doNpcSellItem(cid, itemid, amount, subType, ignoreCap, inBackpacks, bac
 		if inBackpacks then
 			stuff = Game.createItem(backpack, 1)
 			item = stuff:addItem(itemid, math.min(100, amount))
+			ensureNpcShopItemLevel(item)
 		else
 			stuff = Game.createItem(itemid, math.min(100, amount))
+			ensureNpcShopItemLevel(stuff)
 		end
 		return Player(cid):addItemEx(stuff, ignoreCap) ~= RETURNVALUE_NOERROR and 0 or amount, 0
 	end
@@ -29,6 +109,7 @@ function doNpcSellItem(cid, itemid, amount, subType, ignoreCap, inBackpacks, bac
 		local container, b = Game.createItem(backpack, 1), 1
 		for i = 1, amount do
 			local item = container:addItem(itemid, subType)
+			ensureNpcShopItemLevel(item)
 			if table.contains({(ItemType(backpack):getCapacity() * b), amount}, i) then
 				if Player(cid):addItemEx(container, ignoreCap) ~= RETURNVALUE_NOERROR then
 					b = b - 1
@@ -47,6 +128,7 @@ function doNpcSellItem(cid, itemid, amount, subType, ignoreCap, inBackpacks, bac
 
 	for i = 1, amount do -- normal method for non-stackable items
 		local item = Game.createItem(itemid, subType)
+		ensureNpcShopItemLevel(item)
 		if Player(cid):addItemEx(item, ignoreCap) ~= RETURNVALUE_NOERROR then
 			break
 		end
@@ -90,7 +172,8 @@ function doPlayerBuyItemContainer(cid, containerid, itemid, count, cost, charges
 	for i = 1, count do
 		local container = Game.createItem(containerid, 1)
 		for x = 1, ItemType(containerid):getCapacity() do
-			container:addItem(itemid, charges)
+			local item = container:addItem(itemid, charges)
+			ensureNpcShopItemLevel(item)
 		end
 
 		if player:addItemEx(container, true) ~= RETURNVALUE_NOERROR then

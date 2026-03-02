@@ -170,6 +170,7 @@ enum ItemParseAttributes_t {
 	ITEM_PARSE_BLOCKING,
 	ITEM_PARSE_ALLOWDISTREAD,
 	ITEM_PARSE_STOREITEM,
+	ITEM_PARSE_TIER,
 	ITEM_PARSE_WORTH,
 };
 
@@ -361,6 +362,7 @@ class ItemType
 		uint8_t lightLevel = 0;
 		uint8_t lightColor = 0;
 		uint8_t shootRange = 1;
+		uint8_t tier = 0;
 		int8_t hitChance = 0;
 
 		bool storeItem = false;

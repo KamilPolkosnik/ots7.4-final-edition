@@ -150,6 +150,7 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
 	{"blocking", ITEM_PARSE_BLOCKING},
 	{"allowdistread", ITEM_PARSE_ALLOWDISTREAD},
 	{"storeitem", ITEM_PARSE_STOREITEM},
+	{"tier", ITEM_PARSE_TIER},
 	{"worth", ITEM_PARSE_WORTH},
 };
 
@@ -1397,6 +1398,12 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 
 				case ITEM_PARSE_STOREITEM: {
 					it.storeItem = booleanString(valueAttribute.as_string());
+					break;
+				}
+
+				case ITEM_PARSE_TIER: {
+					const uint32_t parsedTier = pugi::cast<uint32_t>(valueAttribute.value());
+					it.tier = static_cast<uint8_t>(std::max<uint32_t>(0, std::min<uint32_t>(255, parsedTier)));
 					break;
 				}
 

@@ -19,11 +19,98 @@ extern Monsters g_monsters;
 extern Spells* g_spells;
 
 namespace {
+static std::string CUSTOM_ATTR_ITEM_LEVEL = "item_level";
+static std::string CUSTOM_ATTR_ITEM_TIER = "item_tier";
+
+constexpr int32_t NPC_TIER_MIN = 1;
+constexpr int32_t NPC_TIER_MAX = 25;
+constexpr int32_t NPC_LEVELS_PER_TIER = 25;
+constexpr int32_t NPC_FIRST_TIER_MIN_LEVEL = 1;
+
+bool getIntCustomAttribute(Item* item, const std::string& key, int64_t& outValue)
+{
+	if (!item) {
+		return false;
+	}
+
+	const auto* attr = item->getCustomAttribute(key);
+	if (!attr || attr->value.type() != typeid(int64_t)) {
+		return false;
+	}
+
+	outValue = boost::get<int64_t>(attr->value);
+	return true;
+}
+
+bool npcCanHaveItemLevel(const ItemType& it)
+{
+	if (it.transformEquipTo > 0 || it.decayTo > 0 || it.destroyTo > 0 || it.charges > 0) {
+		return false;
+	}
+
+	if (it.weaponType != WEAPON_NONE) {
+		if (it.weaponType == WEAPON_AMMO) {
+			return false;
+		}
+
+		return it.weaponType == WEAPON_SHIELD || it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_WAND ||
+			it.weaponType == WEAPON_SWORD || it.weaponType == WEAPON_CLUB || it.weaponType == WEAPON_AXE;
+	}
+
+	return (it.slotPosition & (SLOTP_HEAD | SLOTP_ARMOR | SLOTP_LEGS | SLOTP_FEET | SLOTP_NECKLACE | SLOTP_RING | SLOTP_QUIVER)) != 0;
+}
+
+int32_t getNpcItemTier(Item* item, const ItemType& it)
+{
+	int64_t tierFromCustomAttr = 0;
+	if (getIntCustomAttribute(item, CUSTOM_ATTR_ITEM_TIER, tierFromCustomAttr) && tierFromCustomAttr > 0) {
+		return static_cast<int32_t>(tierFromCustomAttr);
+	}
+
+	if (it.tier > 0) {
+		return static_cast<int32_t>(it.tier);
+	}
+
+	return 0;
+}
+
+int32_t rollLevelForTier(int32_t tier)
+{
+	tier = std::max<int32_t>(NPC_TIER_MIN, std::min<int32_t>(NPC_TIER_MAX, tier));
+
+	const int32_t minLevel = (tier == NPC_TIER_MIN ? NPC_FIRST_TIER_MIN_LEVEL : (tier - 1) * NPC_LEVELS_PER_TIER);
+	const int32_t maxLevel = std::max<int32_t>(minLevel, tier * NPC_LEVELS_PER_TIER);
+	return uniform_random(minLevel, maxLevel);
+}
+
+void ensureNpcItemLevel(Item* item)
+{
+	if (!item) {
+		return;
+	}
+
+	const ItemType& it = Item::items[item->getID()];
+	if (it.id == 0 || !npcCanHaveItemLevel(it)) {
+		return;
+	}
+
+	int64_t currentLevel = 0;
+	if (getIntCustomAttribute(item, CUSTOM_ATTR_ITEM_LEVEL, currentLevel) && currentLevel > 0) {
+		return;
+	}
+
+	const int32_t tier = getNpcItemTier(item, it);
+	const int64_t itemLevel = tier > 0 ? rollLevelForTier(tier) : 1;
+	item->setCustomAttribute(CUSTOM_ATTR_ITEM_LEVEL, itemLevel);
+}
+
 bool addShopItemToPlayerOrGround(Player* player, Item* item)
 {
 	if (!player || !item || !player->getTile()) {
 		return false;
 	}
+
+	ensureNpcItemLevel(item);
 
 	// Always keep drop-on-map fallback enabled for NPC shop purchases.
 	ReturnValue ret = g_game.internalPlayerAddItem(player, item, true);
@@ -1130,6 +1217,7 @@ void NpcBehavior::checkAction(const NpcBehaviourActionPtr& action, Player* playe
 					if (!item) {
 						break;
 					}
+					ensureNpcItemLevel(item);
 
 					ReturnValue ret = g_game.internalPlayerAddItem(player, item);
 					if (ret != RETURNVALUE_NOERROR) {
@@ -1151,6 +1239,7 @@ void NpcBehavior::checkAction(const NpcBehaviourActionPtr& action, Player* playe
 					if (!item) {
 						break;
 					}
+					ensureNpcItemLevel(item);
 					// Ensure NPC-created keys get their key number (Data) as actionid
 					if (it.isKey()) {
 						if (data > 0) {
@@ -1318,6 +1407,7 @@ void NpcBehavior::checkAction(const NpcBehaviourActionPtr& action, Player* playe
 						std::cout << "[Error - NpcBehavior::checkAction]: CreateContainer - failed to create item" << std::endl;
 						break;
 					}
+					ensureNpcItemLevel(item);
 
 					realContainer->internalAddThing(item);
 				}
