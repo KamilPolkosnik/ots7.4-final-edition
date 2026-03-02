@@ -159,16 +159,17 @@ end
 
 local function formatExtraStatValue(entry)
   local numericValue = tonumber(entry.value) or 0
+  local signPrefix = numericValue > 0 and '+' or ''
 
   if entry.percent then
-    return string.format('%d%%', math.floor(numericValue + 0.0001))
+    return string.format('%s%d%%', signPrefix, math.floor(numericValue + 0.0001))
   end
 
   if isPerSecondGainStat(entry.name) then
-    return string.format('%.2f/s', numericValue)
+    return string.format('%s%.2f/s', signPrefix, numericValue)
   end
 
-  return string.format('%d', math.floor(numericValue + 0.0001))
+  return string.format('%s%d', signPrefix, math.floor(numericValue + 0.0001))
 end
 
 local function clearServerExtraStatsSnapshot()
@@ -513,10 +514,10 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
   end
 
   local criticalHitChance = 0
-  local criticalHitDamage = 50
-  local lifeLeechChance = 25
+  local criticalHitDamage = 0
+  local lifeLeechChance = 0
   local lifeLeechAmount = 0
-  local manaLeechChance = 25
+  local manaLeechChance = 0
   local manaLeechAmount = 0
   local hitChance = 0
   local dodgeValue = 0
@@ -528,10 +529,32 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
   if usingServerData then
     local coreStats = serverExtraStatsSnapshot.coreStats
     criticalHitChance = math.floor(tonumber(coreStats.criticalChance) or 0)
-    criticalHitDamage = math.floor(tonumber(coreStats.criticalDamage) or 50)
-    lifeLeechChance = math.floor(tonumber(coreStats.lifeLeechChance) or 25)
+    local critDamageBonus = tonumber(coreStats.criticalDamageBonus)
+    if critDamageBonus == nil then
+      local critTotal = tonumber(coreStats.criticalDamage) or 0
+      local critBase = tonumber(coreStats.criticalDamageBase) or 0
+      critDamageBonus = critTotal - critBase
+    end
+    criticalHitDamage = math.floor(critDamageBonus or 0)
+
+    local lifeLeechChanceBonus = tonumber(coreStats.lifeLeechChanceBonus)
+    if lifeLeechChanceBonus == nil then
+      local lifeTotal = tonumber(coreStats.lifeLeechChance) or 0
+      local lifeBase = tonumber(coreStats.lifeLeechChanceBase) or 0
+      lifeLeechChanceBonus = lifeTotal - lifeBase
+    end
+    lifeLeechChance = math.floor(lifeLeechChanceBonus or 0)
+
     lifeLeechAmount = math.floor(tonumber(coreStats.lifeLeechAmount) or 0)
-    manaLeechChance = math.floor(tonumber(coreStats.manaLeechChance) or 25)
+
+    local manaLeechChanceBonus = tonumber(coreStats.manaLeechChanceBonus)
+    if manaLeechChanceBonus == nil then
+      local manaTotal = tonumber(coreStats.manaLeechChance) or 0
+      local manaBase = tonumber(coreStats.manaLeechChanceBase) or 0
+      manaLeechChanceBonus = manaTotal - manaBase
+    end
+    manaLeechChance = math.floor(manaLeechChanceBonus or 0)
+
     manaLeechAmount = math.floor(tonumber(coreStats.manaLeechAmount) or 0)
     hitChance = math.floor(tonumber(coreStats.hitChance) or 0)
     dodgeValue = math.floor(tonumber(coreStats.dodge) or 0)
@@ -594,10 +617,10 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
     missingTooltip = tooltipMissing
 
     criticalHitChance = readTotalPercent(Skill.CriticalChance, "Critical Hit Chance", aggregatedTotals)
-    criticalHitDamage = 50 + readTotalPercent(Skill.CriticalDamage, "Critical Hit Damage", aggregatedTotals)
-    lifeLeechChance = 25 + readTotalPercent(Skill.LifeLeechChance, "Life Leech Chance", aggregatedTotals)
+    criticalHitDamage = readTotalPercent(Skill.CriticalDamage, "Critical Hit Damage", aggregatedTotals)
+    lifeLeechChance = readTotalPercent(Skill.LifeLeechChance, "Life Leech Chance", aggregatedTotals)
     lifeLeechAmount = readTotalPercent(Skill.LifeLeechAmount, "Life Leech Amount", aggregatedTotals)
-    manaLeechChance = 25 + readTotalPercent(Skill.ManaLeechChance, "Mana Leech Chance", aggregatedTotals)
+    manaLeechChance = readTotalPercent(Skill.ManaLeechChance, "Mana Leech Chance", aggregatedTotals)
     manaLeechAmount = readTotalPercent(Skill.ManaLeechAmount, "Mana Leech Amount", aggregatedTotals)
     hitChance = readTotalPercent(nil, "Hit Chance", aggregatedTotals)
     dodgeValue = math.floor((aggregatedTotals["Dodge"] and aggregatedTotals["Dodge"].value) or 0)
