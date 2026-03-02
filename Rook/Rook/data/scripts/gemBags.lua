@@ -1,110 +1,77 @@
+local GEM_BAG_ITEM_ID = 6512
+local CHANCE_NO_ITEM = 30
+local CHANCE_ONE_ITEM = 60
+local CHANCE_MULTI_ITEMS = 10
 
--- Define other items for loot tables
-local LOW_TIER_LOOT = {
-    {itemID = 3976, count = math.random(1,100)},
-	{itemID = 3976, count = math.random(1,100)}, 
-	{itemID = 3976, count = math.random(1,100)}, 	
-    {itemID = 2152, count = math.random(1,7)}, 
-    2800, 
-    2687,
-    2799,
-    2801,
-    2802,
-    2803,
-    2804,
-    2805,
-    2759,
-    2741,
-    2760,
-    2229,
-    2230,
-    2231,
-    2219,
-	7870,
-	7871,
-	7872,
-	7873,
-	7874,
-	7875
-}			
+-- Task rewards: Craft + Crystals categories only.
+local GEM_BAG_LOOT = {
+    -- Craft (creature)
+    2229, 2230, 2747, 2802, 2033, 2151, 2193, 2231, 1976, 2134,
+    2174, 2176, 2237, 2359, 2804, 1977, 1982, 2070, 2159, 2220,
+    3955, 1967, 1986, 2074, 2110, 2194, 2245, 2348, 2349, 2354,
+    2560, 2678, 2745, 2760, 2803, 3956, 6437,
+    -- Crystals (craft)
+    7870, 7871, 7872, 7873, 7874, 7875, 7876, 7877,
+    7879, 7882, 7883, 7953
+}
 
-
---7870, 7871, 7872, 7873, 7874, 7875
-local MID_TIER_LOOT = {2147, 2146, 2149, 7924,1986,1985,1984,1983,1982,2798,7953,7881} 
-
-local HIGH_TIER_LOOT = GEM_IDS 
-
--- Define the chances for mid-tier and high-tier loot
-local MID_TIER_CHANCE = 5 
-local HIGH_TIER_CHANCE = 1 
-
--- Define chances for finding multiple items
-local TWO_ITEMS_CHANCE = 30 
-local THREE_ITEMS_CHANCE = 15 
-
--- Function to randomly select an item from a table
 local function getRandomItem(items)
     return items[math.random(1, #items)]
 end
 
--- Register gem bag action
+local function buildRandomUniqueItems(items, amount)
+    local pool = {}
+    for i = 1, #items do
+        pool[i] = items[i]
+    end
+
+    local selected = {}
+    local maxItems = math.min(amount, #pool)
+    for _ = 1, maxItems do
+        local index = math.random(1, #pool)
+        selected[#selected + 1] = pool[index]
+        table.remove(pool, index)
+    end
+    return selected
+end
+
 local gemBag = Action()
-gemBag:id(6512)
+gemBag:id(GEM_BAG_ITEM_ID)
 
 function gemBag.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    -- Roll for number of items
-    local rollItems = math.random(1, 100)
-    local numItems = 1
-    
-    if rollItems <= THREE_ITEMS_CHANCE then
-        numItems = 3
-    elseif rollItems <= TWO_ITEMS_CHANCE + THREE_ITEMS_CHANCE then
-        numItems = 2
-    end
-
-    -- Roll for loot
+    local roll = math.random(1, 100)
     local lootItems = {}
-    for i = 1, numItems do
-        local roll = math.random(1, 100)
-        local lootItem = nil
 
-        if roll <= HIGH_TIER_CHANCE then
-            lootItem = getRandomItem(HIGH_TIER_LOOT)
-        elseif roll <= MID_TIER_CHANCE then
-            lootItem = getRandomItem(MID_TIER_LOOT)
-        else
-            local lowTierItem = getRandomItem(LOW_TIER_LOOT)
-            if type(lowTierItem) == "table" then
-                lootItem = lowTierItem.itemID
-                player:addItem(lootItem, lowTierItem.count)
-            else
-                lootItem = lowTierItem
-            end
-        end
-
-        -- If loot item is not found, roll for gem
-        if not lootItem then
-            lootItem = getRandomItem(GEM_IDS)
-        end
-
-        table.insert(lootItems, lootItem)
+    if roll <= CHANCE_NO_ITEM then
+        -- 30%: no reward
+    elseif roll <= CHANCE_NO_ITEM + CHANCE_ONE_ITEM then
+        -- 60%: exactly one random reward
+        lootItems[1] = getRandomItem(GEM_BAG_LOOT)
+    else
+        -- 10%: exactly two random rewards
+        lootItems = buildRandomUniqueItems(GEM_BAG_LOOT, 2)
     end
 
-    -- Inform the player about the result
+    item:remove(1)
+
+    if #lootItems == 0 then
+        player:say("You found nothing.", TALKTYPE_MONSTER_SAY)
+        return true
+    end
+
     local message = "You found: "
-    for i, lootItem in ipairs(lootItems) do
-        message = message .. ItemType(lootItem):getArticle() .. " " .. ItemType(lootItem):getName()
+    for i = 1, #lootItems do
+        local lootItemId = lootItems[i]
+        player:addItem(lootItemId, 1)
+
+        local itemType = ItemType(lootItemId)
+        message = message .. itemType:getArticle() .. " " .. itemType:getName()
         if i < #lootItems then
             message = message .. ", "
         end
-        player:addItem(lootItem, 1)
     end
 
-    -- Remove the gem bag from the player's inventory
-    item:remove(1)
-
     player:say(message, TALKTYPE_MONSTER_SAY)
-
     return true
 end
 

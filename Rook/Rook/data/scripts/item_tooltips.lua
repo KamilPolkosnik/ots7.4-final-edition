@@ -708,12 +708,38 @@ function Player:sendExtraStatsSnapshot()
   self:sendExtendedOpcode(CODE_EXTRA_STATS, json.encode({action = "snapshot", data = buildExtraStatsPayload(self)}))
 end
 
+local fluidTooltipNames = {
+  [2] = "Mana Fluid",
+  [7] = "Mana Fluid",
+  [10] = "Life Fluid",
+  [11] = "Life Fluid"
+}
+
+local function getFluidTooltipName(item, itemType)
+  if not item or not itemType or not itemType:isFluidContainer() then
+    return nil
+  end
+
+  local fluidType = tonumber(item:getFluidType()) or 0
+  if fluidType <= 0 then
+    return nil
+  end
+
+  return fluidTooltipNames[fluidType]
+end
+
 function Item:buildTooltip()
   local uid = self:getRealUID()
   local itemType = self:getType()
+  local itemName = itemType:getName()
+  local fluidName = getFluidTooltipName(self, itemType)
+  if fluidName then
+    itemName = fluidName
+  end
+
   local item_data = {
     uid = uid,
-    itemName = itemType:getName(),
+    itemName = itemName,
     clientId = itemType:getClientId()
   }
   local itemTier = getItemTier(self)
