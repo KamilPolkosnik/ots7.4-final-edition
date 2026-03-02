@@ -2526,6 +2526,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "addItem", LuaScriptInterface::luaPlayerAddItem);
 	registerMethod("Player", "addItemEx", LuaScriptInterface::luaPlayerAddItemEx);
 	registerMethod("Player", "removeItem", LuaScriptInterface::luaPlayerRemoveItem);
+	registerMethod("Player", "conjureItem", LuaScriptInterface::luaPlayerConjureItem);
 
 	registerMethod("Player", "getMoney", LuaScriptInterface::luaPlayerGetMoney);
 	registerMethod("Player", "addMoney", LuaScriptInterface::luaPlayerAddMoney);
@@ -9543,6 +9544,158 @@ int LuaScriptInterface::luaPlayerRemoveItem(lua_State* L)
 	int32_t subType = getNumber<int32_t>(L, 4, -1);
 	bool ignoreEquipped = getBoolean(L, 5, false);
 	pushBoolean(L, player->removeItemOfType(itemId, count, subType, ignoreEquipped));
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerConjureItem(lua_State* L)
+{
+	// player:conjureItem(reagentId, conjureId[, conjureCount[, effect]])
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint16_t reagentId = getNumber<uint16_t>(L, 2);
+	uint16_t conjureId = getNumber<uint16_t>(L, 3);
+	uint32_t conjureCount = getNumber<uint32_t>(L, 4, 0);
+	MagicEffectClasses effect = getNumber<MagicEffectClasses>(L, 5, CONST_ME_NONE);
+
+	const ItemType& conjureType = Item::items[conjureId];
+	if (conjureType.id == 0) {
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	if (conjureCount == 0) {
+		conjureCount = std::max<uint32_t>(1, conjureType.charges);
+	}
+
+	auto failConjure = [&player](ReturnValue message) {
+		player->sendCancelMessage(message);
+		g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+	};
+
+	auto addConjuredItem = [&player, conjureId, conjureCount]() -> bool {
+		Item* item = Item::CreateItem(conjureId, conjureCount);
+		if (!item) {
+			return false;
+		}
+
+		ReturnValue ret = g_game.internalPlayerAddItem(player, item, true, CONST_SLOT_WHEREEVER);
+		if (ret != RETURNVALUE_NOERROR) {
+			delete item;
+			return false;
+		}
+
+		if (item->hasAttribute(ITEM_ATTRIBUTE_DURATION)) {
+			g_game.startDecay(item);
+		}
+		return true;
+	};
+
+	if (reagentId == 2260) {
+		auto consumeHandBlankRune = [](Item* handItem) {
+			return handItem && g_game.internalRemoveItem(handItem, 1) == RETURNVALUE_NOERROR;
+		};
+
+		Item* leftHandItem = player->getInventoryItem(CONST_SLOT_LEFT);
+		Item* rightHandItem = player->getInventoryItem(CONST_SLOT_RIGHT);
+		bool hasLeftBlankRune = leftHandItem && leftHandItem->getID() == 2260;
+		bool hasRightBlankRune = rightHandItem && rightHandItem->getID() == 2260;
+		if (!hasLeftBlankRune && !hasRightBlankRune) {
+			failConjure(RETURNVALUE_YOUNEEDAMAGICITEMTOCASTSPELL);
+			pushBoolean(L, false);
+			return 1;
+		}
+
+		uint32_t castCount = 1;
+		uint32_t extraManaCost = 0;
+		if (hasLeftBlankRune && hasRightBlankRune) {
+			const uint32_t manaCost = [&]() -> uint32_t {
+				switch (conjureId) {
+					case 2261: return 60;
+					case 2262: return 220;
+					case 2265: return 60;
+					case 2266: return 70;
+					case 2268: return 220;
+					case 2273: return 100;
+					case 2277: return 80;
+					case 2278: return 900;
+					case 2279: return 250;
+					case 2285: return 50;
+					case 2286: return 120;
+					case 2287: return 50;
+					case 2289: return 160;
+					case 2290: return 100;
+					case 2291: return 150;
+					case 2292: return 100;
+					case 2293: return 250;
+					case 2301: return 60;
+					case 2302: return 60;
+					case 2303: return 200;
+					case 2304: return 120;
+					case 2305: return 150;
+					case 2308: return 150;
+					case 2310: return 100;
+					case 2311: return 70;
+					case 2313: return 180;
+					case 2316: return 300;
+					case 7936: return 75;
+					case 7937: return 125;
+					default: return 0;
+				}
+			}();
+
+			if (manaCost > 0 && player->getMana() >= (manaCost * 2)) {
+				castCount = 2;
+				extraManaCost = manaCost;
+			}
+		}
+
+		if (castCount == 2) {
+			if (!consumeHandBlankRune(leftHandItem) || !consumeHandBlankRune(rightHandItem)) {
+				failConjure(RETURNVALUE_NOTPOSSIBLE);
+				pushBoolean(L, false);
+				return 1;
+			}
+		} else {
+			Item* sourceRune = hasRightBlankRune ? rightHandItem : leftHandItem;
+			if (!consumeHandBlankRune(sourceRune)) {
+				failConjure(RETURNVALUE_NOTPOSSIBLE);
+				pushBoolean(L, false);
+				return 1;
+			}
+		}
+
+		for (uint32_t i = 0; i < castCount; ++i) {
+			if (!addConjuredItem()) {
+				failConjure(RETURNVALUE_NOTPOSSIBLE);
+				pushBoolean(L, false);
+				return 1;
+			}
+		}
+
+		if (extraManaCost > 0) {
+			player->addManaSpent(extraManaCost);
+			player->changeMana(-static_cast<int32_t>(extraManaCost));
+		}
+	} else if (reagentId != 0) {
+		if (!player->removeItemOfType(reagentId, 1, -1, false)) {
+			failConjure(RETURNVALUE_YOUNEEDAMAGICITEMTOCASTSPELL);
+			pushBoolean(L, false);
+			return 1;
+		}
+	}
+
+	if (reagentId != 2260 && !addConjuredItem()) {
+		failConjure(RETURNVALUE_NOTPOSSIBLE);
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	g_game.addMagicEffect(player->getPosition(), conjureType.isRune() ? CONST_ME_MAGIC_RED : effect);
+	pushBoolean(L, true);
 	return 1;
 }
 

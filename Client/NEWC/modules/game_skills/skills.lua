@@ -88,6 +88,9 @@ local statNameAliases = {
   criticaldamage = 'Critical Hit Damage',
   critchance = 'Critical Hit Chance',
   critdamage = 'Critical Hit Damage',
+  hitchance = 'Hit Chance',
+  hitchancepercent = 'Hit Chance',
+  hitchancebonus = 'Hit Chance',
   lifeleechchance = 'Life Leech Chance',
   lifeleechamount = 'Life Leech Amount',
   manaleechchance = 'Mana Leech Chance',
@@ -481,9 +484,11 @@ refreshBonusStatsWindow = function(force)
   local missingTooltip = false
 
   local function readTotalPercent(serverSkillId, tooltipName, aggregatedTotals)
-    local serverValue = readSkillValue(serverSkillId)
-    if serverValue > 0 then
-      return serverValue
+    if serverSkillId ~= nil then
+      local serverValue = readSkillValue(serverSkillId)
+      if serverValue > 0 then
+        return serverValue
+      end
     end
 
     local fromTooltip = aggregatedTotals and aggregatedTotals[tooltipName]
@@ -500,6 +505,7 @@ refreshBonusStatsWindow = function(force)
   local lifeLeechAmount = 0
   local manaLeechChance = 25
   local manaLeechAmount = 0
+  local hitChance = 0
   local dodgeValue = 0
   local reflectValue = 0
   local lifeGainPerSecond = 0
@@ -513,6 +519,7 @@ refreshBonusStatsWindow = function(force)
     lifeLeechAmount = math.floor(tonumber(coreStats.lifeLeechAmount) or 0)
     manaLeechChance = math.floor(tonumber(coreStats.manaLeechChance) or 25)
     manaLeechAmount = math.floor(tonumber(coreStats.manaLeechAmount) or 0)
+    hitChance = math.floor(tonumber(coreStats.hitChance) or 0)
     dodgeValue = math.floor(tonumber(coreStats.dodge) or 0)
     reflectValue = math.floor(tonumber(coreStats.reflect) or 0)
     if type(serverExtraStatsSnapshot.regenStats) == 'table' then
@@ -555,6 +562,7 @@ refreshBonusStatsWindow = function(force)
     lifeLeechAmount = readTotalPercent(Skill.LifeLeechAmount, "Life Leech Amount", aggregatedTotals)
     manaLeechChance = 25 + readTotalPercent(Skill.ManaLeechChance, "Mana Leech Chance", aggregatedTotals)
     manaLeechAmount = readTotalPercent(Skill.ManaLeechAmount, "Mana Leech Amount", aggregatedTotals)
+    hitChance = readTotalPercent(nil, "Hit Chance", aggregatedTotals)
     dodgeValue = math.floor((aggregatedTotals["Dodge"] and aggregatedTotals["Dodge"].value) or 0)
     reflectValue = math.floor((aggregatedTotals["Damage Reflect"] and aggregatedTotals["Damage Reflect"].value) or 0)
 
@@ -597,6 +605,7 @@ refreshBonusStatsWindow = function(force)
 
   mergeStat('Critical Hit Chance', criticalHitChance, true, true)
   mergeStat('Critical Hit Damage', criticalHitDamage, true, true)
+  mergeStat('Hit Chance', hitChance, true, true)
   mergeStat('Life Leech Chance', lifeLeechChance, true, true)
   mergeStat('Life Leech Amount', lifeLeechAmount, true, true)
   mergeStat('Mana Leech Chance', manaLeechChance, true, true)
@@ -627,6 +636,7 @@ refreshBonusStatsWindow = function(force)
   local coreCombatOrder = {
     'Critical Hit Chance',
     'Critical Hit Damage',
+    'Hit Chance',
     'Life Leech Amount',
     'Life Leech Chance',
     'Mana Leech Amount',

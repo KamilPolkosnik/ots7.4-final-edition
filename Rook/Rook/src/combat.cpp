@@ -33,8 +33,9 @@ extern Events* g_events;
 
 namespace {
 constexpr uint16_t FIXED_CRITICAL_HIT_AMOUNT = 50;
-constexpr uint16_t FIXED_LIFE_LEECH_CHANCE = 25;
-constexpr uint16_t FIXED_MANA_LEECH_CHANCE = 25;
+constexpr uint16_t FIXED_LIFE_LEECH_CHANCE = 10;
+constexpr uint16_t FIXED_MANA_LEECH_CHANCE = 10;
+constexpr uint8_t CRITICAL_VISUAL_EFFECT_ID = 89;
 
 void sendLeechGainColoredText(Player* player, int32_t value, TextColor_t color)
 {
@@ -43,6 +44,12 @@ void sendLeechGainColoredText(Player* player, int32_t value, TextColor_t color)
 	}
 
 	g_game.addColoredText(ColoredText("+" + std::to_string(value), player->getPosition(), color));
+}
+
+void sendCriticalHitVisuals(const Position& position)
+{
+	g_game.addMagicEffect(position, static_cast<MagicEffectClasses>(CRITICAL_VISUAL_EFFECT_ID));
+	g_game.addColoredText(ColoredText("CRITICAL!", position, TEXTCOLOR_RED));
 }
 
 MatrixArea createArea(const std::vector<uint32_t>& vec, uint32_t rows)
@@ -899,9 +906,9 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 			}
 		}
 
-		/*if (damage.critical) {
-			g_game.addMagicEffect(target->getPosition(), CONST_ME_CRITICAL_DAMAGE);
-		}*/
+		if (damage.critical) {
+			sendCriticalHitVisuals(target->getPosition());
+		}
 
 		if (!damage.leeched && damage.primary.type != COMBAT_HEALING && casterPlayer && damage.origin != ORIGIN_CONDITION) {
 			CombatDamage leechCombat;
@@ -1042,7 +1049,7 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 		if (damageCopy.critical) {
 			damageCopy.primary.value += playerCombatReduced ? criticalPrimary / 2 : criticalPrimary;
 			damageCopy.secondary.value += playerCombatReduced ? criticalSecondary / 2 : criticalSecondary;
-			//g_game.addMagicEffect(creature->getPosition(), CONST_ME_CRITICAL_DAMAGE);
+			sendCriticalHitVisuals(creature->getPosition());
 		}
 
 		bool success = false;

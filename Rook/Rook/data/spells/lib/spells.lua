@@ -299,38 +299,112 @@ function Player:addPartyCondition(combat, variant, condition, baseMana)
 	return true
 end
 
-function Player:conjureItem(reagentId, conjureId, conjureCount, effect)
-	if not conjureCount and conjureId ~= 0 then
-		local itemType = ItemType(conjureId)
-		if itemType:getId() == 0 then
+if not Player.conjureItem then
+	local BLANK_RUNE_MANA_COST_BY_CONJURE_ID = {
+		[2261] = 60, [2262] = 220, [2265] = 60, [2266] = 70, [2268] = 220, [2273] = 100,
+		[2277] = 80, [2278] = 900, [2279] = 250, [2285] = 50, [2286] = 120, [2287] = 50,
+		[2289] = 160, [2290] = 100, [2291] = 150, [2292] = 100, [2293] = 250, [2301] = 60,
+		[2302] = 60, [2303] = 200, [2304] = 120, [2305] = 150, [2308] = 150, [2310] = 100,
+		[2311] = 70, [2313] = 180, [2316] = 300, [7936] = 75, [7937] = 125,
+	}
+
+	function Player:conjureItem(reagentId, conjureId, conjureCount, effect)
+		if not conjureCount and conjureId ~= 0 then
+			local itemType = ItemType(conjureId)
+			if itemType:getId() == 0 then
+				return false
+			end
+
+			local charges = itemType:getCharges()
+			if charges ~= 0 then
+				conjureCount = charges
+			end
+		end
+
+		if reagentId == 2260 then
+			local leftHandItem = self:getSlotItem(CONST_SLOT_LEFT)
+			local rightHandItem = self:getSlotItem(CONST_SLOT_RIGHT)
+			local hasLeftBlankRune = leftHandItem and leftHandItem:getId() == 2260
+			local hasRightBlankRune = rightHandItem and rightHandItem:getId() == 2260
+			local castCount = 1
+			local extraManaCost = 0
+
+			if not hasLeftBlankRune and not hasRightBlankRune then
+				self:sendCancelMessage(RETURNVALUE_YOUNEEDAMAGICITEMTOCASTSPELL)
+				self:getPosition():sendMagicEffect(CONST_ME_POFF)
+				return false
+			end
+
+			if hasLeftBlankRune and hasRightBlankRune then
+				local manaCost = BLANK_RUNE_MANA_COST_BY_CONJURE_ID[conjureId] or 0
+				if manaCost > 0 and self:getMana() >= (manaCost * 2) then
+					castCount = 2
+					extraManaCost = manaCost
+				end
+			end
+
+			local function transformBlankRune(blankRune)
+				if not blankRune then
+					return nil
+				end
+
+				if not blankRune:transform(conjureId, conjureCount) then
+					return nil
+				end
+
+				if blankRune:hasAttribute(ITEM_ATTRIBUTE_DURATION) then
+					blankRune:decay()
+				end
+				return blankRune
+			end
+
+			local producedRune = nil
+			if castCount == 2 then
+				local leftRune = transformBlankRune(leftHandItem)
+				local rightRune = transformBlankRune(rightHandItem)
+				if not leftRune or not rightRune then
+					self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+					self:getPosition():sendMagicEffect(CONST_ME_POFF)
+					return false
+				end
+				producedRune = rightRune
+			else
+				local sourceRune = hasRightBlankRune and rightHandItem or leftHandItem
+				producedRune = transformBlankRune(sourceRune)
+				if not producedRune then
+					self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+					self:getPosition():sendMagicEffect(CONST_ME_POFF)
+					return false
+				end
+			end
+
+			if extraManaCost > 0 then
+				self:addMana(-extraManaCost)
+				self:addManaSpent(extraManaCost)
+			end
+
+			self:getPosition():sendMagicEffect(producedRune:getType():isRune() and CONST_ME_MAGIC_RED or effect)
+			return true
+		elseif reagentId ~= 0 and not self:removeItem(reagentId, 1, -1) then
+			self:sendCancelMessage(RETURNVALUE_YOUNEEDAMAGICITEMTOCASTSPELL)
+			self:getPosition():sendMagicEffect(CONST_ME_POFF)
 			return false
 		end
 
-		local charges = itemType:getCharges()
-		if charges ~= 0 then
-			conjureCount = charges
+		local item = self:addItem(conjureId, conjureCount)
+		if not item then
+			self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+			self:getPosition():sendMagicEffect(CONST_ME_POFF)
+			return false
 		end
-	end
 
-	if reagentId ~= 0 and not self:removeItem(reagentId, 1, -1) then
-		self:sendCancelMessage(RETURNVALUE_YOUNEEDAMAGICITEMTOCASTSPELL)
-		self:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return false
-	end
+		if item:hasAttribute(ITEM_ATTRIBUTE_DURATION) then
+			item:decay()
+		end
 
-	local item = self:addItem(conjureId, conjureCount)
-	if not item then
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		self:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return false
+		self:getPosition():sendMagicEffect(item:getType():isRune() and CONST_ME_MAGIC_RED or effect)
+		return true
 	end
-
-	if item:hasAttribute(ITEM_ATTRIBUTE_DURATION) then
-		item:decay()
-	end
-
-	self:getPosition():sendMagicEffect(item:getType():isRune() and CONST_ME_MAGIC_RED or effect)
-	return true
 end
 
 function Creature:addAttributeCondition(parameters)
