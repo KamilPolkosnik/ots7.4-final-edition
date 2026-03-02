@@ -1,0 +1,11 @@
+Module
+  name: game_combattextstyle
+  description: Combat animated text styling (font, size, bold/italic)
+  author: Codex
+  autoload: true
+  sandboxed: true
+  scripts: [ combattextstyle ]
+  @onLoad: init()
+  @onUnload: terminate()
+  dependencies:
+    - game_interface
