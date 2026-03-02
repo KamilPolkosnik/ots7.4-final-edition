@@ -2,8 +2,8 @@ local CODE_TOOLTIP = 105
 local CODE_EXTRA_STATS = 107
 local ITEM_TIER_BY_ID = {}
 local FIXED_CRITICAL_HIT_DAMAGE = 50
-local FIXED_LIFE_LEECH_CHANCE = 25
-local FIXED_MANA_LEECH_CHANCE = 25
+local FIXED_LIFE_LEECH_CHANCE = 10
+local FIXED_MANA_LEECH_CHANCE = 10
 
 local function getMaxTooltipTier()
   if type(US_CONFIG) == "table" and US_CONFIG.ITEM_TIER_MAX then
@@ -198,6 +198,7 @@ local extraStatsImplicitLabels = {
   maxmp = "Max MP",
   maxhp_p = "Max HP",
   maxmp_p = "Max MP",
+  hitchance = "Hit Chance",
   hpgain = "Life Gain",
   hpticks = "Life Tick",
   mpgain = "Mana Gain",
@@ -248,7 +249,8 @@ local extraStatsNameAliases = {
   dodge = "Dodge",
   manaonkill = "Mana on Kill",
   lifeonkill = "Life on Kill",
-  healthonkill = "Life on Kill"
+  healthonkill = "Life on Kill",
+  hitchance = "Hit Chance"
 }
 
 local function toNumberOrZero(value)
@@ -365,6 +367,7 @@ local function collectExtraStatsBonuses(player)
   local lineCounts = {}
   local dodgeTotalFromSpecial = 0
   local reflectTotalFromSpecial = 0
+  local totalHitChance = 0
 
   local function addImplicitIfPositive(labelKey, value, isPercent)
     value = toNumberOrZero(value)
@@ -405,6 +408,15 @@ local function collectExtraStatsBonuses(player)
     addImplicitIfPositive("hpgain", itemType:getHealthGain(), false)
     addImplicitIfPositive("mpgain", itemType:getManaGain(), false)
     addImplicitIfPositive("speed", itemType:getSpeed(), false)
+
+    local hitChance = toNumberOrZero(item:getAttribute(ITEM_ATTRIBUTE_HITCHANCE))
+    if hitChance == 0 then
+      hitChance = toNumberOrZero(itemType:getHitChance())
+    end
+    if hitChance > 0 then
+      totalHitChance = totalHitChance + hitChance
+      addImplicitIfPositive("hitchance", hitChance, true)
+    end
   end
 
   local function collectItemSlotBonuses(item)
@@ -492,7 +504,7 @@ local function collectExtraStatsBonuses(player)
   dodgeTotal = math.max(dodgeTotal, dodgeTotalFromSpecial)
   reflectTotal = math.max(reflectTotal, reflectTotalFromSpecial)
 
-  return aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal
+  return aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal, totalHitChance
 end
 
 local function roundTo(value, decimals)
@@ -539,7 +551,7 @@ local function buildExtraStatsPayload(player)
   local manaLeechChanceBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_MANALEECHCHANCE))
   local manaLeechAmount = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT))
 
-  local aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal = collectExtraStatsBonuses(player)
+  local aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal, hitChanceTotal = collectExtraStatsBonuses(player)
   local lifeGainPerSecond, manaGainPerSecond = collectEffectiveRegenPerSecond(player)
 
   return {
@@ -556,6 +568,7 @@ local function buildExtraStatsPayload(player)
       manaLeechChanceBase = FIXED_MANA_LEECH_CHANCE,
       manaLeechChanceBonus = math.floor(manaLeechChanceBonus),
       manaLeechAmount = math.floor(manaLeechAmount),
+      hitChance = math.floor(hitChanceTotal),
       dodge = clampChance(dodgeTotal),
       reflect = clampChance(reflectTotal)
     },

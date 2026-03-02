@@ -152,14 +152,6 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="support" name="Blank Rune" words="adori blank" mana="50" soul="10" aggressive="0" cooldown="2000" premium="0" needlearn="0" lvl="0" script="conjuring/blank_rune.lua">
-		<vocation name="Druid" />
-		<vocation name="Elder Druid" />
-		<vocation name="Paladin" />
-		<vocation name="Royal Paladin" />
-		<vocation name="Sorcerer" />
-		<vocation name="Master Sorcerer" />
-	</instant>
 	<instant group="support" name="Chameleon Rune" words="adevo ina" magiclevel="11" mana="150" aggressive="0" cooldown="2000" premium="0" needlearn="0" lvl="0" script="conjuring/chameleon_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />

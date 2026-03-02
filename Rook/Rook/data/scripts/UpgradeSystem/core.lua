@@ -6,8 +6,9 @@ US_BUFFS = {}
 
 local US_SUBID = {}
 local US_ITEM_TIER_BY_ID = {}
-local US_FIXED_LEECH_PROC_CHANCE = 25
+local US_FIXED_LEECH_PROC_CHANCE = 10
 local US_ITEM_TIER_CUSTOM_ATTRIBUTE = "item_tier"
+local US_CRITICAL_EFFECT = rawget(_G, "CONST_ME_CRITICAL_DAMAGE") or 89
 local us_GetItemTier
 
 local function us_CountTable(data)
@@ -981,7 +982,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                 secondaryDamage = secondaryDamage * 2
                 if creature and creature:isCreature() then
                     local pos = creature:getPosition()
-                    pos:sendMagicEffect(CONST_ME_CRAPS)
+                    pos:sendMagicEffect(US_CRITICAL_EFFECT)
                     creature:say("CRIT!", TALKTYPE_MONSTER_SAY)
                 end
             end
