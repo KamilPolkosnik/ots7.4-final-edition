@@ -79,7 +79,7 @@ ec.onSpawn = function(self, position, startup, artificial)
   if selected.id == 1 then
     self:setSkull(SKULL_GREEN)
   elseif selected.id == 2 then
-    self:setSkull(SKULL_ORANGE)
+    self:setSkull(SKULL_YELLOW)
   elseif selected.id == 3 then
     self:setSkull(SKULL_RED)
   end

@@ -70,6 +70,10 @@ function init()
   manaCircle = overlay:getChildById('manaCircle')
   topHealthBar = overlay:getChildById('topHealthBar')
   topManaBar = overlay:getChildById('topManaBar')
+  -- game_topbar already renders player hp/mp bars; keep healthinfo overlay bars hidden
+  -- to avoid duplicated life/mana bars on screen.
+  topHealthBar:setVisible(false)
+  topManaBar:setVisible(false)
   
   connect(overlay, { onGeometryChange = onOverlayGeometryChange })
   

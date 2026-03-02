@@ -70,7 +70,7 @@ TaskRewardLine < Panel
     width: 70
     text-align: center
     color: #f2c96d
-    font: terminus-11px-rounded
+    font: verdana-11px-rounded
 
   Label
     id: rewardText
