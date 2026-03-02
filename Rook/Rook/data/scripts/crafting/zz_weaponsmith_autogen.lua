@@ -31,9 +31,9 @@ local axeOverrides = {
             {id = 2112, count = 1}, -- teddy bear
             {id = 2208, count = 100}, -- axe ring
             {id = 2348, count = 50}, -- ancient rune
-            {id = 2193, count = 50}, -- ankh
+            {id = 2193, count = 200}, -- ankh
             {id = 3956, count = 50}, -- elephant tusk
-            {id = 2230, count = 200} -- bone
+            {id = 2230, count = 50} -- bone
         }
     }, -- great axe
     [2418] = {disabled = true}, -- golden sickle (loot)

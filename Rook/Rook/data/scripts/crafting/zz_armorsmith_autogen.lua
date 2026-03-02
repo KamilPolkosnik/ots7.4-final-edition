@@ -721,36 +721,36 @@ local othersOverrides = {
         cost = 20000,
         materials = {
             {id = 7956, count = 1}, -- small quiver
-            {id = 2074, count = 2}, -- panpipes
-            {id = 2804, count = 2} -- shadow herb
+            {id = 2074, count = 10}, -- panpipes
+            {id = 2804, count = 10} -- shadow herb
         }
     }, -- quiver
     [7958] = {
         cost = 100000,
         materials = {
             {id = 7957, count = 1}, -- quiver
-            {id = 2074, count = 5}, -- panpipes
-            {id = 2804, count = 5}, -- shadow herb
-            {id = 2802, count = 5} -- sling herb
+            {id = 2074, count = 15}, -- panpipes
+            {id = 2804, count = 15}, -- shadow herb
+            {id = 2802, count = 15} -- sling herb
         }
     }, -- red quiver
     [7959] = {
         cost = 500000,
         materials = {
             {id = 7958, count = 1}, -- red quiver
-            {id = 2074, count = 10}, -- panpipes
-            {id = 2804, count = 10}, -- shadow herb
-            {id = 2802, count = 10} -- sling herb
+            {id = 2074, count = 25}, -- panpipes
+            {id = 2804, count = 25}, -- shadow herb
+            {id = 2802, count = 25} -- sling herb
         }
     }, -- jungle quiver
     [7960] = {
         cost = 2500000,
         materials = {
             {id = 7959, count = 1}, -- jungle quiver
-            {id = 2074, count = 15}, -- panpipes
-            {id = 2804, count = 15}, -- shadow herb
-            {id = 2802, count = 15}, -- sling herb
-            {id = 2174, count = 15} -- strange symbol
+            {id = 2074, count = 50}, -- panpipes
+            {id = 2804, count = 50}, -- shadow herb
+            {id = 2802, count = 50}, -- sling herb
+            {id = 2174, count = 50} -- strange symbol
         }
     } -- alicorn quiver
 }
