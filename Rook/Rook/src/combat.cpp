@@ -47,8 +47,7 @@ void sendLeechGainColoredText(Player* player, int32_t value, TextColor_t color)
 
 void sendCriticalHitVisuals(const Position& position)
 {
-	g_game.addMagicEffect(position, CONST_ME_CRITICAL_DAMAGE);
-	g_game.addColoredText(ColoredText("CRITICAL!", position, TEXTCOLOR_RED));
+	g_game.addColoredText(ColoredText("Critical!", position, TEXTCOLOR_RED));
 }
 
 MatrixArea createArea(const std::vector<uint32_t>& vec, uint32_t rows)

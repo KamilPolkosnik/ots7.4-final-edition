@@ -565,6 +565,7 @@ class LuaScriptInterface
 
 		static int luaGameGetItemAttributeByName(lua_State* L);
 		static int luaGameGetReturnMessage(lua_State* L);
+		static int luaGameAddColoredText(lua_State* L);
 
 		static int luaGameCreateItem(lua_State* L);
 		static int luaGameCreateContainer(lua_State* L);

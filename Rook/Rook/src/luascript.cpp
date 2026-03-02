@@ -2110,6 +2110,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Game", "getItemAttributeByName", LuaScriptInterface::luaGameGetItemAttributeByName);
 	registerMethod("Game", "getReturnMessage", LuaScriptInterface::luaGameGetReturnMessage);
+	registerMethod("Game", "addColoredText", LuaScriptInterface::luaGameAddColoredText);
 
 	registerMethod("Game", "createItem", LuaScriptInterface::luaGameCreateItem);
 	registerMethod("Game", "createContainer", LuaScriptInterface::luaGameCreateContainer);
@@ -4519,6 +4520,18 @@ int LuaScriptInterface::luaGameGetReturnMessage(lua_State* L)
 	// Game.getReturnMessage(value)
 	ReturnValue value = getNumber<ReturnValue>(L, 1);
 	pushString(L, getReturnMessage(value));
+	return 1;
+}
+
+int LuaScriptInterface::luaGameAddColoredText(lua_State* L)
+{
+	// Game.addColoredText(text, position, color)
+	const std::string& text = getString(L, 1);
+	const Position& position = getPosition(L, 2);
+	TextColor_t color = getNumber<TextColor_t>(L, 3, TEXTCOLOR_NONE);
+
+	g_game.addColoredText(ColoredText(text, position, color));
+	pushBoolean(L, true);
 	return 1;
 }
 

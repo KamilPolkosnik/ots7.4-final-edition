@@ -1070,7 +1070,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                 primaryDamage = 0
                 secondaryDamage = 0
                 creature:getPosition():sendMagicEffect(CONST_ME_POFF)
-                creature:say("DODGE!", TALKTYPE_MONSTER_SAY)
+                Game.addColoredText("Dodge!", creature:getPosition(), TEXTCOLOR_LIGHTGREEN)
                 return primaryDamage, primaryType, secondaryDamage, secondaryType
             end
         end
@@ -1089,6 +1089,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
             local reflectDamage = math.floor(incomingAfterReduction * (reflectPercent / 100))
             if reflectDamage > 0 then
                 doTargetCombatHealth(creature:getId(), attacker, COMBAT_PHYSICALDAMAGE, -reflectDamage, -reflectDamage, CONST_ME_HITAREA, ORIGIN_MELEE)
+                Game.addColoredText("Reflect!", creature:getPosition(), TEXTCOLOR_PURPLE)
                 if creature:isPlayer() then
                     creature:sendTextMessage(MESSAGE_STATUS_SMALL, "Reflect dealt " .. reflectDamage .. " damage.")
                 end
