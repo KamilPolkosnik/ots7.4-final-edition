@@ -116,6 +116,7 @@
   <monster name="Spit Nettle" file="spit nettle.xml"/>
   <monster name="Stalker" file="stalker.xml"/>
   <monster name="Stone Golem" file="stone golem.xml"/>
+  <monster name="Suro" file="suro.xml"/>
   <monster name="Swamp Troll" file="swamp troll.xml"/>
   <monster name="Tarantula" file="tarantula.xml"/>
   <monster name="Terror Bird" file="terror bird.xml"/>

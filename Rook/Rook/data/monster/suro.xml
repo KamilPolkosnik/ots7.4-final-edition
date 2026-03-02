@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<monster name="Suro" nameDescription="Suro" race="venom" experience="35000" speed="620" manacost="0">
+  <health now="100000" max="100000"/>
+  <look type="630" corpse="2916"/>
+  <targetchange interval="2000" chance="12"/>
+  <targetstrategies nearest="80" health="10" damage="10" random="0"/>
+  <flags>
+    <flag attackable="1"/>
+    <flag hostile="1"/>
+    <flag summonable="0"/>
+    <flag convinceable="0"/>
+    <flag illusionable="0"/>
+    <flag pushable="0"/>
+    <flag canpushitems="1"/>
+    <flag canpushcreatures="1"/>
+    <flag targetdistance="4"/>
+    <flag staticattack="90"/>
+    <flag runonhealth="0"/>
+    <flag canwalkonenergy="1"/>
+    <flag canwalkonfire="1"/>
+    <flag canwalkonpoison="1"/>
+  </flags>
+  <attacks>
+    <attack name="poison" chance="35" range="7" target="1" min="-1" max="-8">
+      <attribute key="shootEffect" value="poison"/>
+      <attribute key="areaEffect" value="greenbubble"/>
+    </attack>
+    <attack name="poisoncondition" chance="25" range="7" target="1" radius="2" min="-2" max="-12">
+      <attribute key="shootEffect" value="poison"/>
+      <attribute key="areaEffect" value="poison"/>
+    </attack>
+    <attack name="poisonfield" chance="24" range="7" radius="3" target="1">
+      <attribute key="shootEffect" value="poison"/>
+    </attack>
+  </attacks>
+  <defenses armor="85" defense="120"/>
+  <elements>
+    <element physicalPercent="100"/>
+    <element icePercent="100"/>
+    <element earthPercent="0"/>
+    <element firePercent="100"/>
+    <element energyPercent="100"/>
+    <element holyPercent="100"/>
+    <element deathPercent="100"/>
+    <element drownPercent="100"/>
+    <element lifedrainPercent="100"/>
+    <element manadrainPercent="100"/>
+  </elements>
+  <immunities>
+    <immunity paralyze="1"/>
+    <immunity outfit="1"/>
+    <immunity drunk="1"/>
+    <immunity invisible="1"/>
+    <immunity bleed="1"/>
+  </immunities>
+  <loot>
+    <item id="3976" chance="100000" countmax="250"/>
+    <item id="3976" chance="100000" countmax="250"/>
+    <item id="2148" chance="100000" countmax="100"/>
+    <item id="2149" chance="45000" countmax="10"/>
+    <item id="2152" chance="12000" countmax="5"/>
+  </loot>
+</monster>
