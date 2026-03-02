@@ -15190,7 +15190,7 @@
 	</item>
 	
 	<item id="5540" article="a" name="experience booster">
-		<attribute key="description" value="This scroll will give you 30% experience boost for 6 hours!"/>
+		<attribute key="description" value="This scroll will give you 30% experience boost for 1 hour!"/>
 		<attribute key="weight" value="2500"/>
 	</item>
 	
@@ -15198,9 +15198,11 @@
 		<attribute key="description" value="This book will remove all your frags!"/>
 		<attribute key="weight" value="2500"/>
 	</item>
-	<item id="5542" article="a" name="namelock">
-		<attribute key="description" value="This scroll will namelock your character!"/>
-		<attribute key="weight" value="500"/>
+	<item id="5542" article="a" name="blessing scroll">
+		<attribute key="description" value="This scroll will grant you all 5 blessings immediately."/>
+		<attribute key="weight" value="200"/>
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 	</item>
 	<item id="5543" article="a" name="rashid scroll">
 		<attribute key="description" value="This scroll will let you trade with Rashid in Edron."/>

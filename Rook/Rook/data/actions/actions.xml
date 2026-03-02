@@ -215,6 +215,7 @@
 	<!-- Donations -->
 	<action itemid="5544" script="shop/changesex.lua"/>
 	<action itemid="5541" script="shop/fragremover.lua"/>
+	<action itemid="5542" script="shop/instantbless.lua"/>
 	<action itemid="5540" script="shop/expscroll.lua"/>
 	<action itemid="5543" script="shop/scrollrashid.lua"/>
 	<action itemid="5722" script="shop/dice.lua"/>
