@@ -42,71 +42,77 @@ TaskSystem.shop = {
     {name = "Mana Fluid", id = 2006, count = 10, cost = 10, fluidType = 7, previewFluidType = 2, description = "Consumable fluid that restores mana when used."},
     {name = "Mana Fluid", id = 2006, count = 20, cost = 20, fluidType = 7, previewFluidType = 2, bundleContainerId = 2001, bundleCount = 20, description = "Consumable fluid that restores mana when used."},
     {name = "Life Fluid", id = 2006, count = 1, cost = 1, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
-    {name = "Life Fluid", id = 2006, count = 5, cost = 5, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
-    {name = "Life Fluid", id = 2006, count = 10, cost = 10, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
-    {name = "Life Fluid", id = 2006, count = 20, cost = 20, fluidType = 10, previewFluidType = 11, bundleContainerId = 2000, bundleCount = 20, description = "Consumable fluid that restores health when used."},
+    {name = "Life Fluid", id = 2006, count = 8, cost = 5, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
+    {name = "Life Fluid", id = 2006, count = 16, cost = 10, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
+    {name = "Life Fluid", id = 2006, count = 33, cost = 20, fluidType = 10, previewFluidType = 11, description = "Consumable fluid that restores health when used."},
+
+    -- Rune rewards
+    {name = "blank rune", id = 2260, count = 20, cost = 2, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 blank runes packed in a backpack."},
+    {name = "heavy magic missile rune", id = 2311, count = 20, cost = 12, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 heavy magic missile runes packed in a backpack."},
+    {name = "great fireball rune", id = 2304, count = 20, cost = 18, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 great fireball runes packed in a backpack."},
+    {name = "explosion rune", id = 2313, count = 20, cost = 26, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 explosion runes packed in a backpack."},
+    {name = "sudden death rune", id = 2268, count = 20, cost = 39, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 sudden death runes packed in a backpack."},
+    {name = "ultimate healing rune", id = 2273, count = 20, cost = 16, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 ultimate healing runes packed in a backpack."},
+    {name = "intense healing rune", id = 2265, count = 20, cost = 7, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 intense healing runes packed in a backpack."},
+    {name = "fireball rune", id = 2302, count = 20, cost = 7, category = "runes", bundleContainerId = 1988, bundleCount = 20, bundleItemCount = 0, description = "20 fireball runes packed in a backpack."},
 
     -- Others rewards
-    {name = "gem bag", id = 6512, count = 1, cost = 5, category = "others", description = "Special bag used for storing gem-type resources."},
-    {name = "amulet of loss", id = 2173, count = 1, cost = 5, category = "others", description = "Protects equipped items from dropping on death."},
+    {name = "gem bag", id = 6512, count = 1, cost = 190, category = "others", description = "Special bag used for storing gem-type resources."},
+    {name = "amulet of loss", id = 2173, count = 1, cost = 490, category = "others", description = "Protects equipped items from dropping on death."},
+    {name = "stone skin amulet", id = 2197, count = 1, cost = 240, category = "others", description = "Defensive amulet that helps absorb incoming damage."},
 
     -- Game rewards (from task_rewards_game_list.txt)
-    {name = "backpack", id = 1988, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "green backpack", id = 1998, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "yellow backpack", id = 1999, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "red backpack", id = 2000, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "purple backpack", id = 2001, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "blue backpack", id = 2002, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "grey backpack", id = 2003, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "golden backpack", id = 2004, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "backpack of holding", id = 2365, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "camouflage backpack", id = 3940, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "old and used backpack", id = 3960, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "explo backpack", id = 5776, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "gfb backpack", id = 5777, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "hmm backpack", id = 5778, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "ih backpack", id = 5779, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "lmm backpack", id = 5780, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "mw backpack", id = 5781, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "sd backpack", id = 5782, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "uh backpack", id = 5783, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "werewolf backpack", id = 5797, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "demon backpack", id = 5813, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "heart backpack", id = 5817, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "crown backpack", id = 5818, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "frosty backpack", id = 5842, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "energy backpack", id = 5843, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "goldenruby backpack", id = 5859, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "War backpack", id = 5954, count = 1, cost = 5, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "backpack", id = 1988, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "green backpack", id = 1998, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "yellow backpack", id = 1999, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "red backpack", id = 2000, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "purple backpack", id = 2001, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "blue backpack", id = 2002, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "grey backpack", id = 2003, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "golden backpack", id = 2004, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "backpack of holding", id = 2365, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "camouflage backpack", id = 3940, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "old and used backpack", id = 3960, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "explo backpack", id = 5776, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "gfb backpack", id = 5777, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "hmm backpack", id = 5778, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "ih backpack", id = 5779, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "lmm backpack", id = 5780, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "mw backpack", id = 5781, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "sd backpack", id = 5782, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "uh backpack", id = 5783, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "werewolf backpack", id = 5797, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "demon backpack", id = 5813, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "heart backpack", id = 5817, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "crown backpack", id = 5818, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "frosty backpack", id = 5842, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "energy backpack", id = 5843, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "goldenruby backpack", id = 5859, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "War backpack", id = 5954, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
+    {name = "torch", id = 2050, count = 1, cost = 1, category = "game", description = "Portable light source for dark areas."},
+    {name = "magic lightwand", id = 2162, count = 1, cost = 2, category = "game", description = "Portable light source for dark areas."},
+    {name = "watch", id = 2036, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "rope", id = 2120, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "sickle", id = 2405, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "machete", id = 2420, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "scythe", id = 2550, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "pick", id = 2553, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "shovel", id = 2554, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "saw", id = 2558, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "fishing rod", id = 2580, count = 1, cost = 1, category = "game", description = "Utility tool used for world interactions and exploration."},
+    {name = "life ring", id = 2168, count = 1, cost = 8, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "ring of healing", id = 2214, count = 1, cost = 19, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "stealth ring", id = 2165, count = 1, cost = 49, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "dwarven ring", id = 2213, count = 1, cost = 19, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "time ring", id = 2169, count = 1, cost = 19, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "might ring", id = 2164, count = 1, cost = 240, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "power ring", id = 2166, count = 1, cost = 1, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "energy ring", id = 2167, count = 1, cost = 19, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "sword ring", id = 2207, count = 1, cost = 4, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "axe ring", id = 2208, count = 1, cost = 4, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "club ring", id = 2209, count = 1, cost = 4, category = "game", description = "Ring equipment with temporary or passive bonuses."},
+    {name = "distance ring", id = 7954, count = 1, cost = 4, category = "game", description = "Ring equipment with temporary or passive bonuses."},
 
-    {name = "torch", id = 2050, count = 1, cost = 5, category = "game", description = "Portable light source for dark areas."},
-    {name = "magic lightwand", id = 2162, count = 1, cost = 5, category = "game", description = "Portable light source for dark areas."},
-
-    {name = "pendulum clock", id = 1728, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "cuckoo clock", id = 1877, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "watch", id = 2036, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "rope", id = 2120, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "sickle", id = 2405, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "golden sickle", id = 2418, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "machete", id = 2420, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "scythe", id = 2550, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "pick", id = 2553, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "shovel", id = 2554, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "saw", id = 2558, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "fishing rod", id = 2580, count = 1, cost = 5, category = "game", description = "Utility tool used for world interactions and exploration."},
-    {name = "parchment", id = 4842, count = 1, cost = 5, category = "game", description = "Utility item used in quests or scripted interactions."},
-    {name = "life ring", id = 2168, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "ring of healing", id = 2214, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "stealth ring", id = 2165, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "dwarven ring", id = 2213, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "time ring", id = 2169, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "might ring", id = 2164, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "power ring", id = 2166, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "energy ring", id = 2167, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "sword ring", id = 2207, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "axe ring", id = 2208, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "club ring", id = 2209, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
-    {name = "regeneration ring", id = 7089, count = 1, cost = 5, category = "game", description = "Ring equipment with temporary or passive bonuses."},
     -- End game rewards
 
     -- Creature rewards (auto from task_rewards_creature_trash_loot_report.txt)
@@ -150,20 +156,22 @@ TaskSystem.shop = {
     -- End creature rewards
 
     -- Craft rewards (upgrade/crafting system items)
-    {name = "upgrade crystal", id = 7870, count = 1, cost = 10, category = "craft", description = "Used to upgrade item tier or quality."},
-    {name = "enchant crystal", id = 7871, count = 1, cost = 10, category = "craft", description = "Adds or rerolls enchant effects on equipment."},
-    {name = "alter crystal", id = 7872, count = 1, cost = 10, category = "craft", description = "Changes selected upgrade or enchant outcome."},
-    {name = "cleanse crystal", id = 7873, count = 1, cost = 10, category = "craft", description = "Removes unstable or unwanted modifiers."},
-    {name = "fortune crystal", id = 7874, count = 1, cost = 10, category = "craft", description = "Improves success chance during upgrades."},
-    {name = "faith crystal", id = 7875, count = 1, cost = 10, category = "craft", description = "Reduces downgrade risk on failed upgrades."},
-    {name = "mind crystal", id = 7876, count = 1, cost = 20, category = "craft", description = "High-tier crystal for advanced crafting rolls."},
-    {name = "limitless crystal", id = 7877, count = 1, cost = 20, category = "craft", description = "Extends upgrade limits on supported items."},
-    {name = "mirrored crystal", id = 7878, count = 1, cost = 20, category = "craft", description = "Copies or mirrors specific item properties."},
-    {name = "void crystal", id = 7879, count = 1, cost = 20, category = "craft", description = "Rerolls with high variance and rare outcomes."},
-    {name = "upgrade catalyst", id = 7881, count = 1, cost = 15, category = "craft", description = "Catalyst consumed to perform upgrade actions."},
-    {name = "crystal extractor", id = 7882, count = 1, cost = 15, category = "craft", description = "Extracts crystal resources from valid items."},
-    {name = "crystal fossil", id = 7883, count = 1, cost = 15, category = "craft", description = "Material used in crystal conversion recipes."},
-    {name = "identification scroll", id = 7953, count = 1, cost = 15, category = "craft", description = "Identifies unknown rarity and hidden stats."},
+    {name = "upgrade crystal", id = 7870, count = 1, cost = 90, category = "craft", description = "Used to upgrade item tier or quality."},
+    {name = "enchant crystal", id = 7871, count = 1, cost = 50, category = "craft", description = "Adds or rerolls enchant effects on equipment."},
+    {name = "alter crystal", id = 7872, count = 1, cost = 50, category = "craft", description = "Changes selected upgrade or enchant outcome."},
+    {name = "cleanse crystal", id = 7873, count = 1, cost = 70, category = "craft", description = "Removes unstable or unwanted modifiers."},
+    {name = "fortune crystal", id = 7874, count = 1, cost = 50, category = "craft", description = "Improves success chance during upgrades."},
+    {name = "faith crystal", id = 7875, count = 1, cost = 60, category = "craft", description = "Reduces downgrade risk on failed upgrades."},
+    {name = "mind crystal", id = 7876, count = 1, cost = 100, category = "craft", description = "High-tier crystal for advanced crafting rolls."},
+    {name = "limitless crystal", id = 7877, count = 1, cost = 500, category = "craft", description = "Extends upgrade limits on supported items."},
+    {name = "mirrored crystal", id = 7878, count = 1, cost = 1000, category = "craft", description = "Copies or mirrors specific item properties."},
+    {name = "void crystal", id = 7879, count = 1, cost = 100, category = "craft", description = "Rerolls with high variance and rare outcomes."},
+    {name = "upgrade catalyst", id = 7881, count = 1, cost = 250, category = "craft", description = "Catalyst consumed to perform upgrade actions."},
+    {name = "crystal extractor", id = 7882, count = 1, cost = 500, category = "craft", description = "Extracts crystal resources from valid items."},
+    {name = "crystal fossil", id = 7883, count = 1, cost = 50, category = "craft", description = "Material used in crystal conversion recipes."},
+    {name = "rarity crystal", id = 7893, count = 1, cost = 200, category = "craft", description = "Increases item rarity progression."},
+    {name = "tier crystal", id = 7894, count = 1, cost = 250, category = "craft", description = "Increases item tier progression."},
+    {name = "identification scroll", id = 7953, count = 1, cost = 20, category = "craft", description = "Identifies unknown rarity and hidden stats."},
     -- End craft rewards
 
 }
@@ -610,26 +618,89 @@ function TaskSystem.buyShopItem(player, shopId, amount)
         end
         end
     else
-        if backpack and backpack:isContainer() then
-            local slots = backpack:getEmptySlots(true)
-            if slots <= 0 then
+        if entry.bundleContainerId then
+            if backpack and backpack:isContainer() and backpack:getEmptySlots(true) < amount then
                 player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "You don't have enough space in backpack.")
                 return false
             end
-        end
 
-        local perPurchaseCount = entry.count or 1
-        for _ = 1, amount do
-            local item
-            if backpack and backpack:isContainer() then
-                item = backpack:addItem(entry.id, perPurchaseCount)
-            else
-                item = player:addItem(entry.id, perPurchaseCount, true)
+            local createdBundles = {}
+            local bundleCount = math.max(1, tonumber(entry.bundleCount) or tonumber(entry.count) or 1)
+            local bundleItemCount = nil
+            if entry.bundleItemCount ~= nil then
+                bundleItemCount = tonumber(entry.bundleItemCount)
+                if bundleItemCount == nil then
+                    bundleItemCount = 1
+                end
             end
 
-            if not item then
-                player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
-                return false
+            for _ = 1, amount do
+                local bundle
+                if backpack and backpack:isContainer() then
+                    bundle = backpack:addItem(entry.bundleContainerId, 1)
+                else
+                    bundle = player:addItem(entry.bundleContainerId, 1, true)
+                end
+
+                if not bundle or not bundle:isContainer() then
+                    for _, created in ipairs(createdBundles) do
+                        if created and not created:isRemoved() then
+                            created:remove()
+                        end
+                    end
+                    player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
+                    return false
+                end
+
+                local filled = true
+                for _ = 1, bundleCount do
+                    local bundledItem
+                    if bundleItemCount ~= nil then
+                        bundledItem = bundle:addItem(entry.id, bundleItemCount)
+                    else
+                        bundledItem = bundle:addItem(entry.id, 1)
+                    end
+                    if not bundledItem then
+                        filled = false
+                        break
+                    end
+                end
+
+                if not filled then
+                    bundle:remove()
+                    for _, created in ipairs(createdBundles) do
+                        if created and not created:isRemoved() then
+                            created:remove()
+                        end
+                    end
+                    player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
+                    return false
+                end
+
+                table.insert(createdBundles, bundle)
+            end
+        else
+            if backpack and backpack:isContainer() then
+                local slots = backpack:getEmptySlots(true)
+                if slots <= 0 then
+                    player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "You don't have enough space in backpack.")
+                    return false
+                end
+            end
+
+            local perPurchaseCount = entry.count or 1
+            for _ = 1, amount do
+                local item
+                if backpack and backpack:isContainer() then
+                    item = backpack:addItem(entry.id, perPurchaseCount)
+                else
+                    item = player:addItem(entry.id, perPurchaseCount, true)
+                end
+
+                if not item then
+                    player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Not enough capacity or space.")
+                    return false
+                end
             end
         end
     end

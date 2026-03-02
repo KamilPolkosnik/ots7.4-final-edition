@@ -41,8 +41,9 @@ local RewardCategories = {
   {id = "all", label = "All", description = "All rewards."},
   {id = "gold", label = "Gold", description = "Coins and gold rewards."},
   {id = "potions", label = "Potions", description = "Potions and fluid rewards."},
-  {id = "creature", label = "Creature", description = "Creature and summon rewards."},
-  {id = "craft", label = "Craft", description = "Crafting materials and forge rewards."},
+  {id = "runes", label = "Runes", description = "Runes packaged in backpacks."},
+  {id = "creature", label = "Craft", description = "Creature loot and crafting materials."},
+  {id = "craft", label = "Crystals", description = "Crystals and upgrade-system rewards."},
   {id = "game", label = "Game", description = "Gameplay rewards (points, exp, unlocks, teleports)."},
   {id = "others", label = "Others", description = "Uncategorized rewards."}
 }
