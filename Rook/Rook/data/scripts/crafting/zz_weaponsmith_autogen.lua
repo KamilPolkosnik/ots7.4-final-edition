@@ -42,7 +42,7 @@ local axeOverrides = {
         cost = 4000,
         materials = {
             {id = 2381, count = 5}, -- halberd
-            {id = 2230, count = 10}, -- bone
+            {id = 2230, count = 6}, -- bone
             {id = 2208, count = 2} -- axe ring
         }
     }, -- naginata
@@ -76,8 +76,8 @@ local axeOverrides = {
         materials = {
             {id = 5903, count = 1}, -- thornfang axe
             {id = 2208, count = 8}, -- axe ring
-            {id = 2348, count = 5}, -- ancient rune
-            {id = 2193, count = 10} -- ankh
+            {id = 2348, count = 7}, -- ancient rune
+            {id = 2193, count = 7} -- ankh
         }
     }, -- twin axe
     [2454] = {
@@ -86,9 +86,9 @@ local axeOverrides = {
             {id = 2447, count = 1}, -- twin axe
             {id = 2208, count = 12}, -- axe ring
             {id = 2348, count = 10}, -- ancient rune
-            {id = 2193, count = 20}, -- ankh
-            {id = 3956, count = 5}, -- elephant tusk
-            {id = 2230, count = 50} -- bone
+            {id = 2193, count = 10}, -- ankh
+            {id = 3956, count = 10}, -- elephant tusk
+            {id = 2230, count = 10} -- bone
         }
     }, -- war axe
     [2550] = {disabled = true}, -- scythe
@@ -96,7 +96,7 @@ local axeOverrides = {
         cost = 5000,
         materials = {
             {id = 2430, count = 1}, -- knight axe
-            {id = 2230, count = 10}, -- bone
+            {id = 2230, count = 5}, -- bone
             {id = 2208, count = 2} -- axe ring
         }
     }, -- beastslayer axe
@@ -116,9 +116,9 @@ local axeOverrides = {
             {id = 2431, count = 1}, -- stonecutter axe
             {id = 2208, count = 25}, -- axe ring
             {id = 2348, count = 30}, -- ancient rune
-            {id = 2193, count = 15}, -- ankh
-            {id = 3956, count = 15}, -- elephant tusk
-            {id = 2230, count = 85} -- bone
+            {id = 2193, count = 30}, -- ankh
+            {id = 3956, count = 30}, -- elephant tusk
+            {id = 2230, count = 30} -- bone
         }
     }, -- phonic axe
     [5893] = {disabled = true}, -- vampiric axe
@@ -127,7 +127,7 @@ local axeOverrides = {
         materials = {
             {id = 2426, count = 1}, -- naginata
             {id = 2208, count = 4}, -- axe ring
-            {id = 2230, count = 15} -- bone
+            {id = 2230, count = 12} -- bone
         }
     }, -- thornfang axe
     [5904] = {
@@ -181,10 +181,10 @@ local swordOverrides = {
         materials = {
             {id = 5755, count = 1}, -- avenger
             {id = 2207, count = 20}, -- sword ring
-            {id = 2231, count = 20}, -- big bone
-            {id = 2349, count = 20}, -- blue note
-            {id = 2745, count = 20}, -- blue rose
-            {id = 1950, count = 15} -- book
+            {id = 2231, count = 50}, -- big bone
+            {id = 2349, count = 50}, -- blue note
+            {id = 2745, count = 50}, -- blue rose
+            {id = 1950, count = 200} -- book
         }
     }, -- warlord sword
     [2409] = {disabled = true}, -- serpent sword (loot/quest)
@@ -197,8 +197,8 @@ local swordOverrides = {
         cost = 8000,
         materials = {
             {id = 5739, count = 1}, -- ice sword
-            {id = 2231, count = 2}, -- big bone
-            {id = 2349, count = 2}, -- blue note
+            {id = 2231, count = 3}, -- big bone
+            {id = 2349, count = 3}, -- blue note
             {id = 2207, count = 2} -- sword ring
         }
     }, -- epee
@@ -217,8 +217,8 @@ local swordOverrides = {
         cost = 16000,
         materials = {
             {id = 5905, count = 2}, -- wyvern fang
-            {id = 2231, count = 5}, -- big bone
-            {id = 2349, count = 5}, -- blue note
+            {id = 2231, count = 3}, -- big bone
+            {id = 2349, count = 3}, -- blue note
             {id = 2207, count = 4} -- sword ring
         }
     }, -- djinn blade (djin sword)
@@ -229,15 +229,15 @@ local swordOverrides = {
             {id = 2400, count = 1}, -- magic sword
             {id = 2207, count = 25}, -- sword ring
             {id = 2231, count = 30}, -- big bone
-            {id = 2349, count = 25}, -- blue note
-            {id = 2745, count = 25}, -- blue rose
-            {id = 1950, count = 20} -- book
+            {id = 2349, count = 30}, -- blue note
+            {id = 2745, count = 30}, -- blue rose
+            {id = 1950, count = 30} -- book
         }
     }, -- sword of furion
     [5739] = {
         cost = 4000,
         materials = {
-            {id = 2231, count = 2}, -- big bone
+            {id = 2231, count = 5}, -- big bone
             {id = 2207, count = 2} -- sword ring
         }
     }, -- ice sword
@@ -246,18 +246,18 @@ local swordOverrides = {
         materials = {
             {id = 5906, count = 1}, -- blacksteel sword
             {id = 2207, count = 12}, -- sword ring
-            {id = 2231, count = 15}, -- big bone
-            {id = 2349, count = 15}, -- blue note
-            {id = 2745, count = 15}, -- blue rose
-            {id = 1950, count = 10} -- book
+            {id = 2231, count = 11}, -- big bone
+            {id = 2349, count = 12}, -- blue note
+            {id = 2745, count = 11}, -- blue rose
+            {id = 1950, count = 11} -- book
         }
     }, -- avenger
     [5898] = {
         cost = 16000,
         materials = {
             {id = 5739, count = 1}, -- ice sword
-            {id = 2231, count = 5}, -- big bone
-            {id = 2349, count = 5}, -- blue note
+            {id = 2231, count = 3}, -- big bone
+            {id = 2349, count = 3}, -- blue note
             {id = 2207, count = 4} -- sword ring
         }
     }, -- ice blade
@@ -265,9 +265,9 @@ local swordOverrides = {
         cost = 40000,
         materials = {
             {id = 2446, count = 1}, -- pharaoh sword
-            {id = 2231, count = 10}, -- big bone
-            {id = 2349, count = 10}, -- blue note
-            {id = 2745, count = 10}, -- blue rose
+            {id = 2231, count = 7}, -- big bone
+            {id = 2349, count = 7}, -- blue note
+            {id = 2745, count = 7}, -- blue rose
             {id = 2207, count = 12} -- sword ring
         }
     }, -- rune sword
@@ -282,8 +282,8 @@ local swordOverrides = {
         materials = {
             {id = 2377, count = 5}, -- two handed sword
             {id = 2207, count = 8}, -- sword ring
-            {id = 2231, count = 4}, -- big bone
-            {id = 2349, count = 4} -- blue note
+            {id = 2231, count = 5}, -- big bone
+            {id = 2349, count = 5} -- blue note
         }
     } -- blacksteel sword
 }
@@ -314,7 +314,7 @@ local clubOverrides = {
         materials = {
             {id = 5536, count = 1}, -- club of dorion
             {id = 2209, count = 5}, -- club ring
-            {id = 2678, count = 12} -- coconut
+            {id = 2678, count = 10} -- coconut
         }
     }, -- silver mace
     [2433] = {disabled = true}, -- enchanted staff
@@ -336,9 +336,9 @@ local clubOverrides = {
                 cost = 70000,
                 materials = {
                     {id = 5894, count = 1}, -- sapphire axe
-                    {id = 2678, count = 10}, -- coconut
-                    {id = 2237, count = 10}, -- dirty cape
-                    {id = 2220, count = 10}, -- dirty fur
+                    {id = 2678, count = 12}, -- coconut
+                    {id = 2237, count = 12}, -- dirty cape
+                    {id = 2220, count = 12}, -- dirty fur
                     {id = 2209, count = 12} -- club ring
                 }
             }
@@ -354,7 +354,7 @@ local clubOverrides = {
         materials = {
             {id = 2391, count = 20}, -- war hammer
             {id = 2209, count = 12}, -- club ring
-            {id = 2678, count = 15}, -- coconut
+            {id = 2678, count = 12}, -- coconut
             {id = 2237, count = 15}, -- dirty cape
             {id = 2220, count = 15} -- dirty fur
         }
@@ -397,16 +397,16 @@ local clubOverrides = {
             {id = 2421, count = 1}, -- thunder hammer
             {id = 2209, count = 25}, -- club ring
             {id = 2678, count = 30}, -- coconut
-            {id = 2237, count = 25}, -- dirty cape
-            {id = 2220, count = 25}, -- dirty fur
-            {id = 2110, count = 25} -- doll
+            {id = 2237, count = 30}, -- dirty cape
+            {id = 2220, count = 30}, -- dirty fur
+            {id = 2110, count = 30} -- doll
         }
     }, -- Spark Hammer
     [5892] = {
         cost = 5000,
         materials = {
             {id = 2434, count = 1}, -- dragon hammer
-            {id = 2678, count = 10}, -- coconut
+            {id = 2678, count = 5}, -- coconut
             {id = 2209, count = 2} -- club ring
         }
     }, -- hadge hammer
@@ -415,16 +415,16 @@ local clubOverrides = {
         materials = {
             {id = 5536, count = 1}, -- club of dorion
             {id = 2209, count = 5}, -- club ring
-            {id = 2678, count = 12} -- coconut
+            {id = 2678, count = 10} -- coconut
         }
     }, -- Sapphire Axe
     [5897] = {
         cost = 70000,
         materials = {
             {id = 2209, count = 12}, -- club ring
-            {id = 2678, count = 10}, -- coconut
-            {id = 2237, count = 10}, -- dirty cape
-            {id = 2220, count = 10} -- dirty fur
+            {id = 2678, count = 7}, -- coconut
+            {id = 2237, count = 7}, -- dirty cape
+            {id = 2220, count = 7} -- dirty fur
         }
     }, -- squarearth hammer
     [5901] = {
@@ -443,7 +443,7 @@ local clubOverrides = {
             {id = 2678, count = 50}, -- coconut
             {id = 2237, count = 50}, -- dirty cape
             {id = 2220, count = 50}, -- dirty fur
-            {id = 2110, count = 50} -- doll
+            {id = 2110, count = 200} -- doll
         }
     } -- golden war hammer
 }
@@ -491,10 +491,10 @@ local distanceOverrides = {
         materials = {
             {id = 5912, count = 1}, -- modified crossbow
             {id = 2455, count = 50}, -- crossbow
-            {id = 2070, count = 25}, -- flute
-            {id = 1976, count = 25}, -- gemmed book
-            {id = 2760, count = 25}, -- goat grass
-            {id = 2033, count = 25} -- golden mug
+            {id = 2070, count = 50}, -- flute
+            {id = 1976, count = 50}, -- gemmed book
+            {id = 2760, count = 50}, -- goat grass
+            {id = 2033, count = 200} -- golden mug
         }
     }, -- death crossbow
     [5915] = {
