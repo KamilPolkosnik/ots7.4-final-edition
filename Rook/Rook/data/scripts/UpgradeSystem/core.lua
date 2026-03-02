@@ -8,7 +8,7 @@ local US_SUBID = {}
 local US_ITEM_TIER_BY_ID = {}
 local US_FIXED_LEECH_PROC_CHANCE = 10
 local US_ITEM_TIER_CUSTOM_ATTRIBUTE = "item_tier"
-local US_CRITICAL_EFFECT = rawget(_G, "CONST_ME_CRITICAL_DAMAGE") or 89
+local US_CRITICAL_EFFECT = 173
 local us_GetItemTier
 
 local function us_CountTable(data)
@@ -931,9 +931,6 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
             local item = attacker:getSlotItem(slot)
             if item then
                 if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
-                    if item:getId() == 2390 then
-                        doubleDamageTotal = math.max(doubleDamageTotal, 100)
-                    end
                     local values = item:getBonusAttributes()
                     if values then
                         for key, value in pairs(values) do

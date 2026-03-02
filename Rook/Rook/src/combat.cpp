@@ -35,7 +35,6 @@ namespace {
 constexpr uint16_t FIXED_CRITICAL_HIT_AMOUNT = 50;
 constexpr uint16_t FIXED_LIFE_LEECH_CHANCE = 10;
 constexpr uint16_t FIXED_MANA_LEECH_CHANCE = 10;
-constexpr uint8_t CRITICAL_VISUAL_EFFECT_ID = 89;
 
 void sendLeechGainColoredText(Player* player, int32_t value, TextColor_t color)
 {
@@ -48,7 +47,7 @@ void sendLeechGainColoredText(Player* player, int32_t value, TextColor_t color)
 
 void sendCriticalHitVisuals(const Position& position)
 {
-	g_game.addMagicEffect(position, static_cast<MagicEffectClasses>(CRITICAL_VISUAL_EFFECT_ID));
+	g_game.addMagicEffect(position, CONST_ME_CRITICAL_DAMAGE);
 	g_game.addColoredText(ColoredText("CRITICAL!", position, TEXTCOLOR_RED));
 }
 
