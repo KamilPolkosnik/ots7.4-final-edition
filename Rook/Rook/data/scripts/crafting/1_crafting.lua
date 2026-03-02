@@ -746,23 +746,18 @@ local function buildCraftTooltip(itemType, craft)
     bonuses[#bonuses + 1] = "Movement Speed: " .. formatSigned(speed)
   end
 
-  local healthGain = itemType:getHealthGain()
-  local healthTicks = itemType:getHealthTicks()
-  if healthGain and healthGain ~= 0 then
-    if healthTicks and healthTicks > 0 then
-      bonuses[#bonuses + 1] = "Health Regen: " .. formatSigned(healthGain) .. " / " .. (healthTicks / 1000) .. "s"
+  local healthGain = tonumber(itemType:getHealthGain()) or 0
+  local manaGain = tonumber(itemType:getManaGain()) or 0
+  if healthGain > 0 or manaGain > 0 then
+    if healthGain > 0 and manaGain > 0 and healthGain == manaGain then
+      bonuses[#bonuses + 1] = "Regen mana and health +" .. healthGain .. " per tick for specific vocation"
     else
-      bonuses[#bonuses + 1] = "Health Regen: " .. formatSigned(healthGain)
-    end
-  end
-
-  local manaGain = itemType:getManaGain()
-  local manaTicks = itemType:getManaTicks()
-  if manaGain and manaGain ~= 0 then
-    if manaTicks and manaTicks > 0 then
-      bonuses[#bonuses + 1] = "Mana Regen: " .. formatSigned(manaGain) .. " / " .. (manaTicks / 1000) .. "s"
-    else
-      bonuses[#bonuses + 1] = "Mana Regen: " .. formatSigned(manaGain)
+      if healthGain > 0 then
+        bonuses[#bonuses + 1] = "Health regen +" .. healthGain .. " per tick for specific vocation"
+      end
+      if manaGain > 0 then
+        bonuses[#bonuses + 1] = "Mana regen +" .. manaGain .. " per tick for specific vocation"
+      end
     end
   end
 
