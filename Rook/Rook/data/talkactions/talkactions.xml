@@ -56,6 +56,8 @@
 	<talkaction words="!serverinfo" script="serverinfo.lua" />
 	<talkaction words="!cast" separator=" " script="castcomxp.lua" />
 	<talkaction words="!spectators" script="spectators.lua" />
+	<talkaction words="!expboost" script="expboost.lua" />
+	<talkaction words="!bless" script="bless.lua" />
 
 	<!-- test talkactions -->
 	<talkaction words="!z" separator=" " script="magiceffect.lua" />

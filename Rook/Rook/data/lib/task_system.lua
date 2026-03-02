@@ -59,7 +59,9 @@ TaskSystem.shop = {
     -- Others rewards
     {name = "gem bag", id = 6512, count = 1, cost = 190, category = "others", description = "Special bag used for storing gem-type resources."},
     {name = "amulet of loss", id = 2173, count = 1, cost = 490, category = "others", description = "Protects equipped items from dropping on death."},
+    {name = "blessing scroll", id = 5542, count = 1, cost = 490, category = "others", description = "Grants all 5 blessings immediately."},
     {name = "stone skin amulet", id = 2197, count = 1, cost = 240, category = "others", description = "Defensive amulet that helps absorb incoming damage."},
+    {name = "experience booster", id = 5540, count = 1, cost = 490, category = "others", description = "Grants 30% extra experience for 1 hour when used."},
 
     -- Game rewards (from task_rewards_game_list.txt)
     {name = "backpack", id = 1988, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},

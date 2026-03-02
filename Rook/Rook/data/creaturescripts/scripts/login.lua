@@ -34,6 +34,15 @@ local firstItems = {
     }
 }
 
+local EXP_BOOST_STORAGE = 78011
+
+local function formatDuration(seconds)
+	local h = math.floor(seconds / 3600)
+	local m = math.floor((seconds % 3600) / 60)
+	local s = seconds % 60
+	return string.format("%02d:%02d:%02d", h, m, s)
+end
+
 
 function onLogin(player)
 	
@@ -93,6 +102,15 @@ function onLogin(player)
 	player:registerEvent("Discoveries")
 	player:registerEvent("AdvanceSave")
 	player:registerEvent("task")
+
+	local now = os.time()
+	local expBoostExpires = player:getStorageValue(EXP_BOOST_STORAGE)
+	if expBoostExpires > now then
+		local remaining = formatDuration(expBoostExpires - now)
+		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_RED, "Active EXP boost: +30%. Remaining time: " .. remaining .. ". Use !expboost anytime.")
+	elseif expBoostExpires ~= -1 then
+		player:setStorageValue(EXP_BOOST_STORAGE, -1)
+	end
 
 	return true
 end
