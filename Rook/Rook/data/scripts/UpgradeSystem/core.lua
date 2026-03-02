@@ -668,7 +668,19 @@ MoveItemEvent:register()
 
 local ItemMovedEvent = EventCallback
 ItemMovedEvent.onItemMoved = function(player, item, count, fromPosition, toPosition, fromCylinder, toCylinder)
-    if not item:getType():isUpgradable() then
+    local itemType = item:getType()
+
+    -- Catch items created by C++ paths (e.g. behavior NPC shops) that bypass Lua addItem wrappers.
+    if itemType and itemType:canHaveItemLevel() and item:getItemLevel() <= 0 then
+        if item.ensureInitialTierLevel then
+            item:ensureInitialTierLevel(false)
+        end
+        if item:getItemLevel() <= 0 and item.setItemLevel then
+            item:setItemLevel(1, false)
+        end
+    end
+
+    if not itemType:isUpgradable() then
         return
     end
     if toPosition.y <= CONST_SLOT_AMMO and toPosition.y ~= CONST_SLOT_BACKPACK then
@@ -1358,7 +1370,22 @@ LookEvent.onLook = function(player, thing, position, distance, description)
             end
         end
     elseif thing:isItem() then
-        if thing:getType():isUpgradable() then
+        -- Some NPC shop paths create items through C++ and bypass Lua addItem wrappers.
+        -- Initialize Item Level when the owner looks at the item for the first time.
+        local itemType = thing:getType()
+        if itemType and itemType:canHaveItemLevel() and thing:getItemLevel() <= 0 then
+            local topParent = thing:getTopParent()
+            if topParent and topParent == player then
+                if thing.ensureInitialTierLevel then
+                    thing:ensureInitialTierLevel(false)
+                end
+                if thing:getItemLevel() <= 0 and thing.setItemLevel then
+                    thing:setItemLevel(1, false)
+                end
+            end
+        end
+
+        if itemType:isUpgradable() then
             local upgrade = thing:getUpgradeLevel()
             local itemLevel = thing:getItemLevel()
             if upgrade > 0 then
@@ -1431,7 +1458,7 @@ LookEvent.onLook = function(player, thing, position, distance, description)
                     description = description .. "\nMirrored"
                 end
             end
-        elseif thing:getType():canHaveItemLevel() then
+        elseif itemType:canHaveItemLevel() then
             local itemLevel = thing:getItemLevel()
             if description:find("(%)%.?)") then
                 description = description:gsub("(%)%.?)", "%1\nItem Level: " .. itemLevel)

@@ -78,6 +78,16 @@ local function applyCraftPresetBonuses(result, craftedItemId)
   end
 end
 
+local function getPlayerTotalMoney(player)
+  if player and player.getTotalMoney then
+    local total = player:getTotalMoney()
+    if total then
+      return total
+    end
+  end
+  return (player:getMoney() or 0) + (player:getBankBalance() or 0)
+end
+
 local function clonePos(pos)
   if not pos then
     return nil
@@ -999,7 +1009,7 @@ function Crafting:craft(player, data)
       return
     end
 
-    local money = player:getTotalMoney()
+    local money = getPlayerTotalMoney(player)
     if money < recipe.cost then
       return
     end
@@ -1028,7 +1038,7 @@ function Crafting:craft(player, data)
     return
   end
 
-  local money = player:getTotalMoney()
+  local money = getPlayerTotalMoney(player)
 
   if money < recipe.cost then
     return
@@ -1211,7 +1221,7 @@ function Crafting:sendMaterials(player, category)
 end
 
 function Crafting:sendMoney(player)
-  player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "money", data = player:getTotalMoney()}))
+  player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "money", data = getPlayerTotalMoney(player)}))
 end
 
 function Player:showCrafting()
