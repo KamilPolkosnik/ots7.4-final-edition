@@ -5,12 +5,55 @@ gameStoreWindow = nil
 offersGrid = nil
 msgWindow = nil
 local gameStoreButton = nil
+local gameStoreButtonWindow = nil
 local giftWindow = nil
 
 local categories = nil
 local offers = {}
 
 local selectedOffer = nil
+
+local function createStoreButtonWindow()
+  local rightPanel = modules.game_interface.getRightPanel()
+  if not rightPanel then
+    return false
+  end
+
+  gameStoreButtonWindow = g_ui.loadUI("store_button", rightPanel)
+  if not gameStoreButtonWindow then
+    return false
+  end
+
+  gameStoreButtonWindow:disableResize()
+  gameStoreButtonWindow:setup()
+
+  local contentsPanel = gameStoreButtonWindow:getChildById("contentsPanel")
+  if contentsPanel then
+    gameStoreButton = contentsPanel:getChildById("gameStoreWideButton")
+  end
+  if not gameStoreButton then
+    gameStoreButton = gameStoreButtonWindow:recursiveGetChildById("gameStoreWideButton")
+  end
+
+  if not gameStoreButton then
+    gameStoreButtonWindow:destroy()
+    gameStoreButtonWindow = nil
+    return false
+  end
+
+  gameStoreButton:setText("STORE")
+  gameStoreButton:setTooltip(tr("Store"))
+  gameStoreButton.onClick = toggle
+  return true
+end
+
+local function destroyStoreButtonWindow()
+  if gameStoreButtonWindow then
+    gameStoreButtonWindow:destroy()
+    gameStoreButtonWindow = nil
+  end
+  gameStoreButton = nil
+end
 
 function init()
   connect(
@@ -80,7 +123,9 @@ function create()
   gameStoreWindow = g_ui.displayUI("store")
   gameStoreWindow:hide()
 
-  gameStoreButton = modules.client_topmenu.addRightGameToggleButton("gameStoreButton", tr("Store"), "/images/topbuttons/particles", toggle, true)
+  if not createStoreButtonWindow() then
+    gameStoreButton = modules.client_topmenu.addRightGameToggleButton("gameStoreButton", tr("Store"), "/images/topbuttons/particles", toggle, true)
+  end
 
   connect(gameStoreWindow:getChildById("categories"), {onChildFocusChange = changeCategory})
   connect(gameStoreWindow:getChildById("offers"), {onChildFocusChange = offerFocus})
@@ -92,10 +137,10 @@ function create()
 end
 
 function destroy()
-  if gameStoreButton then
+  if gameStoreButton and not gameStoreButtonWindow then
     gameStoreButton:destroy()
-    gameStoreButton = nil
   end
+  destroyStoreButtonWindow()
 
   if gameStoreWindow then
     disconnect(gameStoreWindow:getChildById("categories"), {onChildFocusChange = changeCategory})

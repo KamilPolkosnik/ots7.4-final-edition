@@ -394,9 +394,6 @@ local function onContainerOpen(container, previousContainer)
 end
 
 local function onGameStart()
-  if modules and modules.game_textmessage and modules.game_textmessage.displayStatusMessage then
-    modules.game_textmessage.displayStatusMessage("[CorpsePulse] active: " .. BUILD_TAG)
-  end
   startPulse()
 end
 
@@ -406,10 +403,6 @@ local function onGameEnd()
 end
 
 function init()
-  if g_logger and g_logger.warning then
-    g_logger.warning("[CorpsePulse] loaded: " .. BUILD_TAG)
-  end
-
   connect(Container, {
     onOpen = onContainerOpen,
   })
