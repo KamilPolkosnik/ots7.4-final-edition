@@ -1,21 +1,19 @@
 TaskSystem = {
     monsters = {
-        "Amazon", "Ancient Scarab", "Assassin", "Badger", "Bandit", "Banshee", "Bat", "Bear", "Behemoth", "Beholder",
-        "Black Knight", "Black Sheep", "Blue Djinn", "Bonebeast", "Bug", "Butterfly", "Butterfly Purple",
-        "Butterfly Yellow", "Butterfly Red", "Butterfly Blue", "Carniphila", "Cave Rat", "Centipede", "Chicken",
-        "Cobra", "Crab", "Crocodile", "Crypt Shambler", "Cyclops", "Dark Monk", "Deer", "Demon Skeleton", "Demon",
-        "Dog", "Dragon Lord", "Dragon", "Dwarf Geomancer", "Dwarf Guard", "Dwarf Soldier", "Dwarf",
+        "Amazon", "Ancient Scarab", "Assassin", "Bandit", "Banshee", "Bat", "Bear", "Behemoth", "Beholder",
+        "Black Knight", "Black Sheep", "Blue Djinn", "Bonebeast", "Bug", "Carniphila", "Cave Rat", "Centipede",
+        "Chicken", "Cobra", "Crab", "Crocodile", "Crypt Shambler", "Cyclops", "Dark Monk", "Deer", "Demon Skeleton",
+        "Demon", "Dog", "Dragon Lord", "Dragon", "Dwarf Geomancer", "Dwarf Guard", "Dwarf Soldier", "Dwarf",
         "Dworc Fleshhunter", "Dworc Venomsniper", "Dworc Voodoomaster", "Efreet", "Elder Beholder", "Elephant",
-        "Elf Arcanist", "Elf Scout", "Elf", "Fire Devil", "Fire Elemental", "Flamingo", "Frost Troll", "Gargoyle",
-        "Gazer", "Ghost", "Ghoul", "Giant Spider", "Goblin", "Green Djinn", "Hero", "Hunter", "Hyaena", "Hydra",
-        "Kongra", "Larva", "Lich", "Lion", "Lizard Sentinel", "Lizard Snakecharmer", "Lizard Templar", "Marid",
-        "Merlkin", "Minotaur Archer", "Minotaur Guard", "Minotaur Mage", "Minotaur", "Monk", "Mummy",
-        "Necromancer", "Orc Berserker", "Orc Leader", "Orc Rider", "Orc Shaman", "Orc Spearman", "Orc Warlord",
-        "Orc Warrior", "Orc", "Panda", "Parrot", "Pig", "Poison Spider", "Polar Bear", "Priestess", "Rabbit", "Rat",
-        "Rotworm", "Scarab", "Scorpion", "Serpent Spawn", "Sheep", "Sibang", "Skeleton", "Skunk", "Slime2", "Slime",
-        "Smuggler", "Snake", "Spider", "Spit Nettle", "Stalker", "Stone Golem", "Swamp Troll", "Tarantula",
-        "Terror Bird", "Tiger", "Troll", "Valkyrie", "Vampire", "War Wolf", "Warlock", "Wasp", "Wild Warrior",
-        "Winter Wolf", "Witch", "Wolf", "Yeti"
+        "Elf Arcanist", "Elf Scout", "Elf", "Fire Devil", "Fire Elemental", "Frost Troll", "Gargoyle", "Gazer",
+        "Ghost", "Ghoul", "Giant Spider", "Goblin", "Green Djinn", "Hero", "Hunter", "Hyaena", "Hydra", "Kongra",
+        "Larva", "Lich", "Lion", "Lizard Sentinel", "Lizard Snakecharmer", "Lizard Templar", "Marid", "Merlkin",
+        "Minotaur Archer", "Minotaur Guard", "Minotaur Mage", "Minotaur", "Monk", "Mummy", "Necromancer",
+        "Orc Berserker", "Orc Leader", "Orc Rider", "Orc Shaman", "Orc Spearman", "Orc Warlord", "Orc Warrior",
+        "Orc", "Panda", "Parrot", "Pig", "Poison Spider", "Polar Bear", "Priestess", "Rabbit", "Rat", "Rotworm",
+        "Scarab", "Scorpion", "Serpent Spawn", "Sheep", "Sibang", "Skeleton", "Skunk", "Slime", "Smuggler", "Snake",
+        "Spider", "Stalker", "Stone Golem", "Swamp Troll", "Tarantula", "Terror Bird", "Tiger", "Troll", "Valkyrie",
+        "Vampire", "War Wolf", "Warlock", "Wasp", "Wild Warrior", "Winter Wolf", "Witch", "Wolf"
     }
 }
 
@@ -29,7 +27,7 @@ TaskSystem.config = {
     exp = 5,
     gold = 5,
     range = 20,
-    maxActive = 5,
+    maxActive = 2,
     rewardPoints = 1
 }
 
@@ -272,29 +270,217 @@ function TaskSystem.addPoints(player, amount)
     TaskSystem.setPoints(player, TaskSystem.getPoints(player) + amount)
 end
 
-function TaskSystem.getTaskOutfit(monsterName)
+local function resolveMonsterType(monsterName)
+    if not monsterName or monsterName == "" then
+        return nil
+    end
+
     local monsterType = MonsterType(monsterName)
+    if monsterType then
+        return monsterType
+    end
+
+    local lower = monsterName:lower()
+    if lower ~= monsterName then
+        monsterType = MonsterType(lower)
+        if monsterType then
+            return monsterType
+        end
+    end
+
+    local title = monsterName:gsub("(%a)([%w_']*)", function(first, rest)
+        return first:upper() .. rest:lower()
+    end)
+    if title ~= monsterName then
+        monsterType = MonsterType(title)
+        if monsterType then
+            return monsterType
+        end
+    end
+
+    return nil
+end
+
+local function trimString(value)
+    return tostring(value or ""):gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+local function normalizeMonsterKey(value)
+    return trimString(value):lower()
+end
+
+local function buildOutfitTable(lookType, lookTypeEx, lookHead, lookBody, lookLegs, lookFeet, lookAddons, lookMount)
+    lookType = tonumber(lookType) or 0
+    lookTypeEx = tonumber(lookTypeEx) or 0
+    lookHead = tonumber(lookHead) or 0
+    lookBody = tonumber(lookBody) or 0
+    lookLegs = tonumber(lookLegs) or 0
+    lookFeet = tonumber(lookFeet) or 0
+    lookAddons = tonumber(lookAddons) or 0
+    lookMount = tonumber(lookMount) or 0
+
+    return {
+        type = lookType,
+        typeEx = lookTypeEx,
+        head = lookHead,
+        body = lookBody,
+        legs = lookLegs,
+        feet = lookFeet,
+        addons = lookAddons,
+        mount = lookMount,
+        lookType = lookType,
+        lookTypeEx = lookTypeEx,
+        lookHead = lookHead,
+        lookBody = lookBody,
+        lookLegs = lookLegs,
+        lookFeet = lookFeet,
+        lookAddons = lookAddons,
+        lookMount = lookMount
+    }
+end
+
+local function cloneOutfit(outfit)
+    if not outfit then
+        return nil
+    end
+
+    local copy = {}
+    for key, value in pairs(outfit) do
+        copy[key] = value
+    end
+    return copy
+end
+
+local function parseOutfitFromLookAttributes(lookAttributes)
+    if type(lookAttributes) ~= "string" or lookAttributes == "" then
+        return nil
+    end
+
+    local attrs = {}
+    for key, value in lookAttributes:gmatch("([%w_]+)%s*=%s*\"([^\"]*)\"") do
+        attrs[key] = value
+    end
+
+    local lookType = tonumber(attrs.type) or tonumber(attrs.lookType) or 0
+    local lookTypeEx = tonumber(attrs.typeEx) or tonumber(attrs.lookTypeEx) or 0
+    if lookType == 0 and lookTypeEx == 0 then
+        return nil
+    end
+
+    return buildOutfitTable(
+        lookType,
+        lookTypeEx,
+        attrs.head or attrs.lookHead,
+        attrs.body or attrs.lookBody,
+        attrs.legs or attrs.lookLegs,
+        attrs.feet or attrs.lookFeet,
+        attrs.addons or attrs.lookAddons,
+        attrs.mount or attrs.lookMount
+    )
+end
+
+local monsterFileByName = nil
+local monsterOutfitByFile = {}
+local monsterOutfitByName = {}
+
+local function ensureMonsterFileIndex()
+    if monsterFileByName then
+        return
+    end
+
+    monsterFileByName = {}
+
+    local file = io.open("data/monster/monsters.xml", "r")
+    if not file then
+        return
+    end
+
+    local content = file:read("*a") or ""
+    file:close()
+
+    for name, path in content:gmatch("<monster%s+name=\"([^\"]+)\"%s+file=\"([^\"]+)\"%s*/>") do
+        local key = normalizeMonsterKey(name)
+        if key ~= "" and path ~= "" then
+            monsterFileByName[key] = path
+        end
+    end
+
+    for path, name in content:gmatch("<monster%s+file=\"([^\"]+)\"%s+name=\"([^\"]+)\"%s*/>") do
+        local key = normalizeMonsterKey(name)
+        if key ~= "" and path ~= "" and not monsterFileByName[key] then
+            monsterFileByName[key] = path
+        end
+    end
+end
+
+local function getTaskOutfitFromXml(monsterName)
+    local key = normalizeMonsterKey(monsterName)
+    if key == "" then
+        return nil
+    end
+
+    local cached = monsterOutfitByName[key]
+    if cached ~= nil then
+        return cached ~= false and cloneOutfit(cached) or nil
+    end
+
+    ensureMonsterFileIndex()
+    local relativePath = monsterFileByName and monsterFileByName[key] or nil
+    if not relativePath then
+        monsterOutfitByName[key] = false
+        return nil
+    end
+
+    local fileKey = normalizeMonsterKey(relativePath)
+    local fileCached = monsterOutfitByFile[fileKey]
+    if fileCached == nil then
+        local path = "data/monster/" .. relativePath
+        local monsterFile = io.open(path, "r")
+        local parsedOutfit = nil
+
+        if monsterFile then
+            local xml = monsterFile:read("*a") or ""
+            monsterFile:close()
+            local lookAttributes = xml:match("<look%s+([^>]-)/>")
+            if not lookAttributes then
+                lookAttributes = xml:match("<look%s+([^>]-)>")
+            end
+            parsedOutfit = parseOutfitFromLookAttributes(lookAttributes)
+        end
+
+        monsterOutfitByFile[fileKey] = parsedOutfit or false
+        fileCached = monsterOutfitByFile[fileKey]
+    end
+
+    if fileCached and fileCached ~= false then
+        monsterOutfitByName[key] = fileCached
+        return cloneOutfit(fileCached)
+    end
+
+    monsterOutfitByName[key] = false
+    return nil
+end
+
+function TaskSystem.getTaskOutfit(monsterName)
+    local xmlOutfit = getTaskOutfitFromXml(monsterName)
+    if xmlOutfit then
+        return xmlOutfit
+    end
+
+    local monsterType = resolveMonsterType(monsterName)
     if monsterType then
         local outfit = monsterType:outfit()
         if type(outfit) == "table" then
-            return {
-                type = outfit.lookType or 0,
-                typeEx = outfit.lookTypeEx or 0,
-                head = outfit.lookHead or 0,
-                body = outfit.lookBody or 0,
-                legs = outfit.lookLegs or 0,
-                feet = outfit.lookFeet or 0,
-                addons = outfit.lookAddons or 0,
-                mount = outfit.lookMount or 0,
-                lookType = outfit.lookType or 0,
-                lookTypeEx = outfit.lookTypeEx or 0,
-                lookHead = outfit.lookHead or 0,
-                lookBody = outfit.lookBody or 0,
-                lookLegs = outfit.lookLegs or 0,
-                lookFeet = outfit.lookFeet or 0,
-                lookAddons = outfit.lookAddons or 0,
-                lookMount = outfit.lookMount or 0
-            }
+            return buildOutfitTable(
+                outfit.lookType or outfit.type,
+                outfit.lookTypeEx or outfit.typeEx,
+                outfit.lookHead or outfit.head,
+                outfit.lookBody or outfit.body,
+                outfit.lookLegs or outfit.legs,
+                outfit.lookFeet or outfit.feet,
+                outfit.lookAddons or outfit.addons,
+                outfit.lookMount or outfit.mount
+            )
         end
     end
     return {
@@ -304,7 +490,7 @@ function TaskSystem.getTaskOutfit(monsterName)
 end
 
 function TaskSystem.getTaskHp(monsterName)
-    local monsterType = MonsterType(monsterName)
+    local monsterType = resolveMonsterType(monsterName)
     if monsterType then
         local hp = monsterType:maxHealth()
         if not hp or hp <= 0 then

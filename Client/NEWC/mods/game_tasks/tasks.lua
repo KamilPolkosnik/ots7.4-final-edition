@@ -414,7 +414,6 @@ local function renderTaskMonsters(task, retryCount)
     widget:setX((id - 1) * (slotSize + slotSpacing))
     widget:setY(0)
     local outfit = ensureOutfit(task.outfits[id])
-    outfit.shader = "default"
     local creatureWidget = widget.creature or widget:getChildById("creature")
     if creatureWidget then
       creatureWidget:setOutfit(outfit)
@@ -991,7 +990,6 @@ function onTasksList(data)
     local widget = g_ui.createWidget("TaskMenuEntry", tasksWindow.tasksList)
     widget:setId(taskId)
     local outfit = ensureOutfit(task.outfits[1])
-    outfit.shader = "default"
     widget.preview:setOutfit(outfit)
     widget.preview:setCenter(true)
     widget.info.title:setText(task.name)
@@ -1025,7 +1023,6 @@ function onTasksActive(data)
         local widget = g_ui.createWidget("TrackerButton", panel)
         widget:setId(taskId)
         local outfit = ensureOutfit(task.outfits[1])
-        outfit.shader = "default"
         widget.creature:setOutfit(outfit)
         widget.creature:setCenter(true)
         if task.name:len() > 12 then
@@ -1059,7 +1056,6 @@ function onTaskUpdate(data)
       widget = g_ui.createWidget("TrackerButton", trackerWindow.contentsPanel.trackerPanel)
       widget:setId(data.taskId)
       local outfit = ensureOutfit(task.outfits[1])
-      outfit.shader = "default"
       widget.creature:setOutfit(outfit)
       widget.creature:setCenter(true)
       if task.name:len() > 12 then
@@ -1225,7 +1221,7 @@ function onKillsValueChange(widget, value, delta)
   if rewardsList then
     local rewardPointsWidget = rewardsList:getChildById("reward_points")
     if rewardPointsWidget and rewardPointsWidget.rewardText then
-      rewardPointsWidget.rewardText:setText(string.format("Laczna wartosc taska: %d", totalPoints))
+      rewardPointsWidget.rewardText:setText(string.format("Total task value: %d", totalPoints))
     end
   end
 end
