@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <monster name="Demon" nameDescription="a demon" race="fire" experience="6000" speed="240" manacost="0">
   <health now="8200" max="8200"/>
-  <look type="35" corpse="2916"/>
+111
   <targetchange interval="1000" chance="10"/>
   <targetstrategies nearest="70" health="10" damage="10" random="10"/>
   <flags>
