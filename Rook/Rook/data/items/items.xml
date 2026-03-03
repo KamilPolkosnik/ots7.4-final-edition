@@ -17085,4 +17085,8 @@
 		<attribute key="defense" value="30"/>
 		<attribute key="weaponType" value="shield"/>
 	</item>
+	<item id="7962" article="a" name="multitool">
+		<attribute key="description" value="A compact tool that can be used as rope, shovel, pick and scythe."/>
+		<attribute key="weight" value="3500"/>
+	</item>
 </items>

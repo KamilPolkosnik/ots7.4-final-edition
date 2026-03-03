@@ -232,6 +232,7 @@
 	<action itemid="2163" script="tools/magic_lightwand.lua"/>
 	<action itemid="4842" script="tools/lottery ticket.lua" />
 	<action itemid="2580" script="tools/fishing.lua" allowfaruse="1"/>
+	<action itemid="7962" script="tools/multitool.lua"/>
 	<action itemid="2120" script="tools/rope.lua"/>
 	<action itemid="5710" script="tools/shovel.lua"/>
 	<action itemid="2554" script="tools/shovel.lua"/>
