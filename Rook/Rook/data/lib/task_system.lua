@@ -27,7 +27,7 @@ TaskSystem.config = {
     exp = 5,
     gold = 5,
     range = 20,
-    maxActive = 5,
+    maxActive = 2,
     rewardPoints = 1
 }
 

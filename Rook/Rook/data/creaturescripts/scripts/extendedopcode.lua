@@ -54,7 +54,13 @@ function onExtendedOpcode(player, opcode, buffer)
 
 			local activeCount = TaskSystem.countActiveTasks(player)
 			if activeCount >= TaskSystem.config.maxActive then
-				player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "You are already doing the maximum number of tasks.")
+				player:sendTextMessage(
+					MESSAGE_STATUS_CONSOLE_ORANGE,
+					string.format(
+						"You can only have %d active tasks. To start this one, abandon one of your active tasks first.",
+						TaskSystem.config.maxActive
+					)
+				)
 				return true
 			end
 
