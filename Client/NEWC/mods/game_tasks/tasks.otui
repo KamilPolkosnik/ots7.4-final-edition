@@ -8,7 +8,7 @@ MiniPanel < Panel
   padding-top: 23
 
 TaskMenuEntry < Panel
-  height: 56
+  height: 58
   margin-bottom: 2
   image-source: /images/ui/panel_flat
   image-border: 1
@@ -42,6 +42,7 @@ TaskMenuEntry < Panel
       id: title
       color: #f0e6bf
       font: terminus-14px-bold
+      height: 18
 
     Label
       id: level
