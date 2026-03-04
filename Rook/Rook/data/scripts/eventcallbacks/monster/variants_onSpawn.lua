@@ -1,5 +1,9 @@
 local ec = EventCallback
 
+local function isAliveMonster(monster)
+  return monster and monster:isMonster() and monster:getHealth() > 0
+end
+
 local function getSpawnKey(position, monster)
   local pos = position
   if not pos and monster then
@@ -20,7 +24,7 @@ local function scheduleVariantEffect(cid, effect, interval)
 
   addEvent(function()
     local monster = Monster(cid)
-    if not monster then
+    if not isAliveMonster(monster) then
       return
     end
 

@@ -29,7 +29,7 @@ float atan2(in float y, in float x)
 {
     return x == 0.0 ? sign(y)*pi/2.0 : atan(y, x);
 }
-vec4 ShinyFX(vec4 txt, vec2 uv, float pos, float size, float smooth, float intensity, float speed)
+vec4 ShinyFX(vec4 txt, vec2 uv, float pos, float size, float smoothness, float intensity, float speed)
 {
 return txt;
 }
