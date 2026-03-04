@@ -17126,4 +17126,9 @@
 		<attribute key="description" value="A compact tool that can be used as rope, shovel, pick and scythe."/>
 		<attribute key="weight" value="3500"/>
 	</item>
+	<item id="7965" article="a" name="premium coin" plural="premium coins">
+		<attribute key="description" value="A special premium currency coin."/>
+		<attribute key="weight" value="10"/>
+		<attribute key="stackable" value="1"/>
+	</item>
 </items>

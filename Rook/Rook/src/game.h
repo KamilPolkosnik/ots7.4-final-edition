@@ -557,6 +557,7 @@ class Game
 			Position pos;
 			uint16_t itemId = 0;
 			uint32_t remainingTicks = 0;
+			uint32_t effectCooldownTicks = 0;
 		};
 
 		void processCorpsePulseEffect(const std::string& key);

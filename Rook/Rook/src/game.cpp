@@ -60,9 +60,13 @@ extern Weapons* g_weapons;
 extern Scripts* g_scripts;
 
 namespace {
-constexpr uint8_t CORPSE_PULSE_EFFECT_ID = 69;
-constexpr uint32_t CORPSE_PULSE_INTERVAL_MS = 650;
+constexpr uint8_t CORPSE_PULSE_EFFECT_ID = 32;
+constexpr uint32_t CORPSE_PULSE_INTERVAL_MS = 5;
 constexpr uint32_t CORPSE_PULSE_MAX_TICKS = (15 * 60 * 1000) / CORPSE_PULSE_INTERVAL_MS;
+constexpr uint32_t CORPSE_PULSE_EFFECT_LOOP_MS = 720;
+constexpr uint32_t CORPSE_PULSE_EFFECT_REPEAT_TICKS = (CORPSE_PULSE_EFFECT_LOOP_MS / CORPSE_PULSE_INTERVAL_MS) > 0
+	? (CORPSE_PULSE_EFFECT_LOOP_MS / CORPSE_PULSE_INTERVAL_MS)
+	: 1;
 
 bool isQuiverCompatibleDistanceWeapon(const Item* item)
 {
@@ -2239,6 +2243,9 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
 		return;
 	}
+
+	// Stop corpse pulse immediately on click (before open/use checks).
+	stopCorpsePulseEffect(item);
 
 	ReturnValue ret = g_actions->canUse(player, pos);
 	if (ret != RETURNVALUE_NOERROR) {
@@ -4646,11 +4653,6 @@ void Game::startCorpsePulseEffect(Item* corpse)
 		return;
 	}
 
-	const ItemType& itemType = Item::items[corpse->getID()];
-	if (itemType.corpseType == RACE_NONE) {
-		return;
-	}
-
 	const Position& pos = corpse->getPosition();
 	if (pos.x == 0xFFFF) {
 		return;
@@ -4660,11 +4662,18 @@ void Game::startCorpsePulseEffect(Item* corpse)
 	auto it = corpsePulseEffects.find(key);
 	if (it != corpsePulseEffects.end()) {
 		it->second.remainingTicks = CORPSE_PULSE_MAX_TICKS;
+		const Position& currentPos = corpse->getPosition();
+		if (currentPos != it->second.pos) {
+			it->second.pos = currentPos;
+			addMagicEffect(currentPos, CORPSE_PULSE_EFFECT_ID);
+			it->second.effectCooldownTicks = CORPSE_PULSE_EFFECT_REPEAT_TICKS;
+		}
 		return;
 	}
 
 	corpse->incrementReferenceCounter();
-	corpsePulseEffects.emplace(key, CorpsePulseEntry { corpse, Position(pos), corpse->getID(), CORPSE_PULSE_MAX_TICKS });
+	corpsePulseEffects.emplace(key, CorpsePulseEntry { corpse, Position(pos), corpse->getID(), CORPSE_PULSE_MAX_TICKS, CORPSE_PULSE_EFFECT_REPEAT_TICKS });
+	addMagicEffect(pos, CORPSE_PULSE_EFFECT_ID);
 	g_scheduler.addEvent(createSchedulerTask(CORPSE_PULSE_INTERVAL_MS, std::bind(&Game::processCorpsePulseEffect, this, key)));
 }
 
@@ -4706,16 +4715,19 @@ void Game::processCorpsePulseEffect(const std::string& key)
 		return;
 	}
 
-	if (Item::items[corpse->getID()].corpseType == RACE_NONE) {
-		eraseCorpsePulseEntry(it);
-		return;
-	}
-
+	const bool moved = (corpsePos != entry.pos);
 	entry.pos = corpsePos;
 	entry.itemId = corpse->getID();
-
-	addMagicEffect(entry.pos, CORPSE_PULSE_EFFECT_ID);
 	--entry.remainingTicks;
+
+	if (entry.effectCooldownTicks > 0) {
+		--entry.effectCooldownTicks;
+	}
+
+	if (moved || entry.effectCooldownTicks == 0) {
+		addMagicEffect(entry.pos, CORPSE_PULSE_EFFECT_ID);
+		entry.effectCooldownTicks = CORPSE_PULSE_EFFECT_REPEAT_TICKS;
+	}
 	g_scheduler.addEvent(createSchedulerTask(CORPSE_PULSE_INTERVAL_MS, std::bind(&Game::processCorpsePulseEffect, this, key)));
 }
 

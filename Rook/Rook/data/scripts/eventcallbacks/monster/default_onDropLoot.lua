@@ -1,37 +1,4 @@
 local ec = EventCallback
-local OPCODE_CORPSE_PULSE = 112
-
-local function sendCorpseSpawnToSpectators(corpse)
-    if not corpse then
-        return
-    end
-
-    local pos = corpse:getPosition()
-    if not pos then
-        return
-    end
-
-    local payload = string.format("spawn|%d|%d|%d|%d|1", pos.x, pos.y, pos.z, corpse:getId())
-
-    local sentTo = {}
-
-    local owner = Player(corpse:getCorpseOwner())
-    if owner and owner:isUsingOtClient() then
-        owner:sendExtendedOpcode(OPCODE_CORPSE_PULSE, payload)
-        sentTo[owner:getId()] = true
-    end
-
-    local spectators = Game.getSpectators(pos, false, true, 18, 18, 14, 14)
-    if not spectators then
-        return
-    end
-
-    for _, spectator in ipairs(spectators) do
-        if spectator and spectator:isPlayer() and spectator:isUsingOtClient() and not sentTo[spectator:getId()] then
-            spectator:sendExtendedOpcode(OPCODE_CORPSE_PULSE, payload)
-        end
-    end
-end
 
 local function getVariantLootRolls(monster)
     if not MonsterVariants then
@@ -118,7 +85,6 @@ end
 
 ec.onDropLoot = function(self, corpse)
     if configManager.getNumber(configKeys.RATE_LOOT) == 0 then
-        sendCorpseSpawnToSpectators(corpse)
         return
     end
 
@@ -157,7 +123,6 @@ ec.onDropLoot = function(self, corpse)
         end
     end
 
-    sendCorpseSpawnToSpectators(corpse)
 end
 
 ec:register()

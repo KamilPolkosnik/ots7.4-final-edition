@@ -4,7 +4,7 @@ local PULSE_INTERVAL_MS = 420
 local EFFECT_PULSE_INTERVAL_MS = 650
 local CORPSE_EFFECT_ID = 69
 local OPEN_SUPPRESS_MS = 30 * 60 * 1000
-local DEBUG = true
+local DEBUG = false
 local ENABLE_CLIENT_EFFECT = false
 local PULSE_SEQUENCE = {
   "#FFFF00",
