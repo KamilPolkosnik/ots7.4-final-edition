@@ -325,6 +325,25 @@ local function sendCreateFeedback(player, text)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, text)
 end
 
+local function getDefaultCreateCount(itemType)
+	if not itemType then
+		return 1
+	end
+
+	if itemType:isFluidContainer() then
+		return 0
+	end
+
+	if itemType:hasSubType() then
+		local charges = itemType:getCharges()
+		if charges and charges > 0 then
+			return charges
+		end
+	end
+
+	return 1
+end
+
 function onSay(player, words, param)
 	if not player:getGroup():getAccess() then
 		return true
@@ -361,7 +380,7 @@ function onSay(player, words, param)
 	end
 
 	if explicitLegendaryBuilder then
-		local result = player:addItem(itemType:getId(), 1)
+		local result = player:addItem(itemType:getId(), getDefaultCreateCount(itemType))
 		local item = result
 		if type(result) == "table" then
 			item = result[1]
@@ -422,11 +441,7 @@ function onSay(player, words, param)
 			count = math.max(0, count)
 		end
 	else
-		if not itemType:isFluidContainer() then
-			count = 1
-		else
-			count = 0
-		end
+		count = getDefaultCreateCount(itemType)
 	end
 
 	local result = player:addItem(itemType:getId(), count)

@@ -16209,32 +16209,52 @@
 		<attribute key="description" value="Sell loot with this wand"/>
 		</item>
 	<item id="6877" article="a" name="exercise rod">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="wand" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Druid training weapon"/>
-		</item>
+	</item>
 		
 	<item id="6878" article="a" name="exercise bow">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="distance" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Palladin Training weapon"/>
-		</item>
+	</item>
 	<item id="6879" article="a" name="exercise axe">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Knight training weapon"/>
-		</item>
+	</item>
 	<item id="6880" article="a" name="exercise sword">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Knight training weapon"/>
-		</item>
+	</item>
 		
 	<item id="6881" article="a" name="exercise club">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Knight training weapon"/>
-		</item>
+	</item>
 
 
 <item id="6560" article="a" name="vampire soul"></item>
