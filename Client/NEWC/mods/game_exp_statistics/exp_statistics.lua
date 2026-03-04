@@ -104,7 +104,6 @@ local SUPPLY_CATALOG = {
   {name = "poison wall rune", id = 2289},
   {name = "explosion rune", id = 2313},
   {name = "fire wall rune", id = 2303},
-  {name = "wild growth rune", id = 2269},
   {name = "magic wall rune", id = 2293},
   {name = "energy wall rune", id = 2279},
   {name = "energy bomb rune", id = 2262},

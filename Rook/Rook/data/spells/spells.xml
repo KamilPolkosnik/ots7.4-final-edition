@@ -143,7 +143,7 @@
 		<vocation name="Sorcerer"/> 
 		<vocation name="Master Sorcerer"/>
 	</instant>
-	<instant name="Wild Growth" words="exevo grav vita" premium="0" needlearn="0" lvl="0" magiclevel="13" mana="220"  script="support/wild_growth.lua">
+	<instant name="Wild Growth" words="exevo grav vita" premium="1" needlearn="1" lvl="0" magiclevel="13" mana="220" cooldown="1000" direction="1" script="support/wild_growth.lua">
 		<vocation name="Elder Druid"/>
 	</instant>
 	<instant name="Food" words="exevo pan" premium="0" needlearn="0" lvl="0" magiclevel="1" mana="0" soul="5" selftarget="1" aggressive="0" script="support/food.lua">
