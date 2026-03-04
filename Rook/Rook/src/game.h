@@ -473,6 +473,8 @@ class Game
 		static void addMagicEffect(const SpectatorVec& spectators, const Position& pos, uint8_t effect);
 		void addDistanceEffect(const Position& fromPos, const Position& toPos, uint8_t effect);
 		static void addDistanceEffect(const SpectatorVec& spectators, const Position& fromPos, const Position& toPos, uint8_t effect);
+		void startCorpsePulseEffect(Item* corpse);
+		void stopCorpsePulseEffect(const Item* corpse);
 
 		void setAccountStorageValue(const uint32_t accountId, const uint32_t key, const int32_t value);
 		int32_t getAccountStorageValue(const uint32_t accountId, const uint32_t key) const;
@@ -550,6 +552,17 @@ class Game
 		}
 
 	private:
+		struct CorpsePulseEntry {
+			Item* corpse = nullptr;
+			Position pos;
+			uint16_t itemId = 0;
+			uint32_t remainingTicks = 0;
+		};
+
+		void processCorpsePulseEffect(const std::string& key);
+		void eraseCorpsePulseEntry(std::unordered_map<std::string, CorpsePulseEntry>::iterator it);
+		std::string makeCorpsePulseKey(const Item* corpse) const;
+
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
 		void playerWhisper(Player* player, const std::string& text);
 		bool playerYell(Player* player, const std::string& text);
@@ -566,6 +579,7 @@ class Game
 		std::unordered_map<uint16_t, Item*> uniqueItems;
 		std::map<uint32_t, uint32_t> stages;
 		std::unordered_map<uint32_t, std::unordered_map<uint32_t, int32_t>> accountStorageMap;
+		std::unordered_map<std::string, CorpsePulseEntry> corpsePulseEffects;
 
 		std::list<Item*> decayItems[EVENT_DECAY_BUCKETS];
 		std::list<Creature*> checkCreatureLists[EVENT_CREATURECOUNT];

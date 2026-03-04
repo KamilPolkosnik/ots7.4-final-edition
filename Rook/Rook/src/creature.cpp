@@ -774,6 +774,7 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 		if (corpse) {
 			g_game.internalAddItem(tile, corpse, INDEX_WHEREEVER, FLAG_NOLIMIT);
 			g_game.startDecay(corpse);
+			g_game.startCorpsePulseEffect(corpse);
 		}
 
 		//scripting event - onDeath

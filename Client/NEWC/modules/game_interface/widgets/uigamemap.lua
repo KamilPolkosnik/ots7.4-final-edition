@@ -6,6 +6,8 @@ function UIGameMap.create()
   gameMap:setVisibleDimension({width = 15, height = 11})
   gameMap:setDrawLights(true)
   gameMap.markedThing = nil
+  gameMap.forcedMarkedThing = nil
+  gameMap.forcedMarkedColor = nil
   gameMap.blockNextRelease = 0
   gameMap:updateMarkedCreature()
   return gameMap
@@ -28,6 +30,20 @@ function UIGameMap:markThing(thing, color)
   self.markedThing = thing
   if self.markedThing and g_settings.getBoolean('highlightThingsUnderCursor') then
     self.markedThing:setMarked(color)
+  end
+end
+
+function UIGameMap:setForcedMarkedThing(thing, color)
+  self.forcedMarkedThing = thing
+  self.forcedMarkedColor = color or 'yellow'
+end
+
+function UIGameMap:clearForcedMarkedThing()
+  self.forcedMarkedThing = nil
+  self.forcedMarkedColor = nil
+  if self.markedThing then
+    self.markedThing:setMarked('')
+    self.markedThing = nil
   end
 end
 
@@ -85,6 +101,16 @@ end
 
 function UIGameMap:updateMarkedCreature()
   self.updateMarkedCreatureEvent = scheduleEvent(function() self:updateMarkedCreature() end, 100)
+
+  if self.forcedMarkedThing then
+    if self.markedThing ~= self.forcedMarkedThing then
+      self:markThing(self.forcedMarkedThing, self.forcedMarkedColor or 'yellow')
+    elseif g_settings.getBoolean('highlightThingsUnderCursor') then
+      self.markedThing:setMarked(self.forcedMarkedColor or 'yellow')
+    end
+    return
+  end
+
   if self.mousePos and g_game.isOnline() then
     self.markingMouseRelease = true
     self:onMouseRelease(self.mousePos, MouseRightButton)

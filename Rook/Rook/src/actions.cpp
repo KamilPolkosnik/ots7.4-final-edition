@@ -360,6 +360,10 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_
 	}
 
 	if (Container* container = item->getContainer()) {
+		if (Item::items[item->getID()].corpseType != RACE_NONE) {
+			g_game.stopCorpsePulseEffect(item);
+		}
+
 		Container* openContainer;
 
 		//depot container

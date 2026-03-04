@@ -42,6 +42,7 @@
 #include "weapons.h"
 #include "script.h"
 
+#include <cstdint>
 #include <fmt/format.h>
 
 extern ConfigManager g_config;
@@ -59,6 +60,10 @@ extern Weapons* g_weapons;
 extern Scripts* g_scripts;
 
 namespace {
+constexpr uint8_t CORPSE_PULSE_EFFECT_ID = 69;
+constexpr uint32_t CORPSE_PULSE_INTERVAL_MS = 650;
+constexpr uint32_t CORPSE_PULSE_MAX_TICKS = (15 * 60 * 1000) / CORPSE_PULSE_INTERVAL_MS;
+
 bool isQuiverCompatibleDistanceWeapon(const Item* item)
 {
 	if (!item || item->getWeaponType() != WEAPON_DISTANCE) {
@@ -91,6 +96,14 @@ Game::Game()
 
 Game::~Game()
 {
+	for (auto& it : corpsePulseEffects) {
+		if (it.second.corpse) {
+			it.second.corpse->decrementReferenceCounter();
+			it.second.corpse = nullptr;
+		}
+	}
+	corpsePulseEffects.clear();
+
 	for (const auto& it : guilds) {
 		delete it.second;
 	}
@@ -4606,6 +4619,104 @@ void Game::addDistanceEffect(const SpectatorVec& spectators, const Position& fro
 			tmpPlayer->sendDistanceShoot(fromPos, toPos, effect);
 		}
 	}
+}
+
+std::string Game::makeCorpsePulseKey(const Item* corpse) const
+{
+	return std::to_string(reinterpret_cast<uintptr_t>(corpse));
+}
+
+void Game::eraseCorpsePulseEntry(std::unordered_map<std::string, CorpsePulseEntry>::iterator it)
+{
+	if (it == corpsePulseEffects.end()) {
+		return;
+	}
+
+	if (it->second.corpse) {
+		it->second.corpse->decrementReferenceCounter();
+		it->second.corpse = nullptr;
+	}
+
+	corpsePulseEffects.erase(it);
+}
+
+void Game::startCorpsePulseEffect(Item* corpse)
+{
+	if (!corpse) {
+		return;
+	}
+
+	const ItemType& itemType = Item::items[corpse->getID()];
+	if (itemType.corpseType == RACE_NONE) {
+		return;
+	}
+
+	const Position& pos = corpse->getPosition();
+	if (pos.x == 0xFFFF) {
+		return;
+	}
+
+	const std::string key = makeCorpsePulseKey(corpse);
+	auto it = corpsePulseEffects.find(key);
+	if (it != corpsePulseEffects.end()) {
+		it->second.remainingTicks = CORPSE_PULSE_MAX_TICKS;
+		return;
+	}
+
+	corpse->incrementReferenceCounter();
+	corpsePulseEffects.emplace(key, CorpsePulseEntry { corpse, Position(pos), corpse->getID(), CORPSE_PULSE_MAX_TICKS });
+	g_scheduler.addEvent(createSchedulerTask(CORPSE_PULSE_INTERVAL_MS, std::bind(&Game::processCorpsePulseEffect, this, key)));
+}
+
+void Game::stopCorpsePulseEffect(const Item* corpse)
+{
+	if (!corpse) {
+		return;
+	}
+
+	const std::string key = makeCorpsePulseKey(corpse);
+	auto it = corpsePulseEffects.find(key);
+	if (it != corpsePulseEffects.end()) {
+		eraseCorpsePulseEntry(it);
+	}
+}
+
+void Game::processCorpsePulseEffect(const std::string& key)
+{
+	auto it = corpsePulseEffects.find(key);
+	if (it == corpsePulseEffects.end()) {
+		return;
+	}
+
+	CorpsePulseEntry& entry = it->second;
+	if (entry.remainingTicks == 0) {
+		eraseCorpsePulseEntry(it);
+		return;
+	}
+
+	Item* corpse = entry.corpse;
+	if (!corpse || corpse->isRemoved()) {
+		eraseCorpsePulseEntry(it);
+		return;
+	}
+
+	const Position& corpsePos = corpse->getPosition();
+	if (corpsePos.x == 0xFFFF || !corpse->getContainer()) {
+		eraseCorpsePulseEntry(it);
+		return;
+	}
+
+	if (Item::items[corpse->getID()].corpseType == RACE_NONE) {
+		eraseCorpsePulseEntry(it);
+		return;
+	}
+
+	entry.pos = corpsePos;
+	entry.itemId = corpse->getID();
+
+	addMagicEffect(entry.pos, CORPSE_PULSE_EFFECT_ID);
+	--entry.remainingTicks;
+	g_scheduler.addEvent(createSchedulerTask(CORPSE_PULSE_INTERVAL_MS, std::bind(&Game::processCorpsePulseEffect, this, key)));
 }
 
 void Game::setAccountStorageValue(const uint32_t accountId, const uint32_t key, const int32_t value)
