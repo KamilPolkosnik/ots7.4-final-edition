@@ -3074,7 +3074,7 @@
 		<attribute key="decayTo" value="1488"/>
 		<attribute key="duration" value="200"/>
 		<attribute key="field" value="fire">
-			<attribute key="damage" value="20"/>
+			<attribute key="initDamage" value="20"/>
 			<attribute key="ticks" value="9000"/>
 			<attribute key="count" value="7"/>
 			<attribute key="damage" value="10"/>
@@ -3086,8 +3086,9 @@
 		<attribute key="decayTo" value="1489"/>
 		<attribute key="duration" value="148"/>
 		<attribute key="field" value="fire">
+			<attribute key="initDamage" value="10"/>
 			<attribute key="ticks" value="9000"/>
-			<attribute key="count" value="7"/>
+			<attribute key="count" value="5"/>
 			<attribute key="damage" value="10"/>
 		</attribute>
 	</item>
@@ -3104,7 +3105,8 @@
 		<attribute key="decayTo" value="0"/>
 		<attribute key="duration" value="98"/>
 		<attribute key="field" value="poison">
-			<attribute key="ticks" value="9000"/>
+			<attribute key="initDamage" value="5"/>
+			<attribute key="ticks" value="4000"/>
 			<attribute key="start" value="5"/>
 			<attribute key="damage" value="100"/>
 		</attribute>
@@ -3115,15 +3117,16 @@
 		<attribute key="decayTo" value="0"/>
 		<attribute key="duration" value="98"/>
 		<attribute key="field" value="energy">
-			<attribute key="damage" value="30"/>
-			<attribute key="ticks" value="9000"/>
+			<attribute key="initDamage" value="30"/>
+			<attribute key="ticks" value="11000"/>
+			<attribute key="count" value="1"/>
 			<attribute key="damage" value="25"/>
 		</attribute>
 	</item>
 	<item id="1492" article="a" name="fire field">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="field" value="fire">
-			<attribute key="damage" value="20"/>
+			<attribute key="initDamage" value="20"/>
 			<attribute key="ticks" value="9000"/>
 			<attribute key="count" value="7"/>
 			<attribute key="damage" value="10"/>
@@ -3132,8 +3135,9 @@
 	<item id="1493" article="a" name="fire field">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="field" value="fire">
+			<attribute key="initDamage" value="10"/>
 			<attribute key="ticks" value="9000"/>
-			<attribute key="count" value="7"/>
+			<attribute key="count" value="5"/>
 			<attribute key="damage" value="10"/>
 		</attribute>
 	</item>
@@ -3144,15 +3148,17 @@
 	<item id="1495" article="an" name="energy field">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="field" value="energy">
-			<attribute key="damage" value="30"/>
-			<attribute key="ticks" value="10000"/>
+			<attribute key="initDamage" value="30"/>
+			<attribute key="ticks" value="11000"/>
+			<attribute key="count" value="1"/>
 			<attribute key="damage" value="25"/>
 		</attribute>
 	</item>
 	<item id="1496" article="a" name="poison field">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="field" value="poison">
-			<attribute key="ticks" value="5000"/>
+			<attribute key="initDamage" value="5"/>
+			<attribute key="ticks" value="4000"/>
 			<attribute key="start" value="5"/>
 			<attribute key="damage" value="100"/>
 		</attribute>
@@ -3173,9 +3179,9 @@
 	<item id="1500" article="a" name="fire field">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="decayTo" value="1501"/>
-		<attribute key="duration" value="10"/>
+		<attribute key="duration" value="200"/>
 		<attribute key="field" value="fire">
-			<attribute key="damage" value="20"/>
+			<attribute key="initDamage" value="20"/>
 			<attribute key="ticks" value="9000"/>
 			<attribute key="count" value="7"/>
 			<attribute key="damage" value="10"/>
@@ -3184,25 +3190,27 @@
 	<item id="1501" article="a" name="fire field">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="decayTo" value="1502"/>
-		<attribute key="duration" value="10"/>
+		<attribute key="duration" value="148"/>
 		<attribute key="field" value="fire">
+			<attribute key="initDamage" value="10"/>
 			<attribute key="ticks" value="9000"/>
-			<attribute key="count" value="7"/>
+			<attribute key="count" value="5"/>
 			<attribute key="damage" value="10"/>
 		</attribute>
 	</item>
 	<item id="1502" article="a" name="fire field">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="decayTo" value="0"/>
-		<attribute key="duration" value="10"/>
+		<attribute key="duration" value="98"/>
 		<attribute key="field" value="fire"/>
 	</item>
 	<item id="1503" article="a" name="poison gas">
 		<attribute key="type" value="magicfield"/>
 		<attribute key="decayTo" value="0"/>
-		<attribute key="duration" value="10"/>
+		<attribute key="duration" value="2"/>
 		<attribute key="field" value="poison">
-			<attribute key="ticks" value="5000"/>
+			<attribute key="initDamage" value="5"/>
+			<attribute key="ticks" value="4000"/>
 			<attribute key="start" value="5"/>
 			<attribute key="damage" value="100"/>
 		</attribute>
@@ -3212,8 +3220,9 @@
 		<attribute key="decayTo" value="0"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="field" value="energy">
-			<attribute key="damage" value="30"/>
-			<attribute key="ticks" value="9000"/>
+			<attribute key="initDamage" value="30"/>
+			<attribute key="ticks" value="11000"/>
+			<attribute key="count" value="1"/>
 			<attribute key="damage" value="25"/>
 		</attribute>
 	</item>
@@ -17095,6 +17104,7 @@
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="6"/>
 		<attribute key="slotType" value="quiver"/>
+				<attribute key="skillDist" value="1"/>
 		<attribute key="tier" value="2"/>
 				<attribute key="defense" value="20"/>
 	</item>
@@ -17102,6 +17112,7 @@
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="7"/>
 		<attribute key="slotType" value="quiver"/>
+				<attribute key="skillDist" value="1"/>
 		<attribute key="tier" value="3"/>
 				<attribute key="defense" value="24"/>
 	</item>
@@ -17109,6 +17120,7 @@
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="8"/>
 		<attribute key="slotType" value="quiver"/>
+				<attribute key="skillDist" value="2"/>
 		<attribute key="tier" value="4"/>
 				<attribute key="defense" value="30"/>
 	</item>
@@ -17117,8 +17129,6 @@
 		<attribute key="tier" value="4"/>
 		<attribute key="weight" value="2600"/>
 		<attribute key="magicPoints" value="5"/>
-		<attribute key="manaLeechChance" value="5"/>
-		<attribute key="criticalHitChance" value="5"/>
 		<attribute key="defense" value="30"/>
 		<attribute key="weaponType" value="shield"/>
 	</item>

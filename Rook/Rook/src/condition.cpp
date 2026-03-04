@@ -1325,7 +1325,11 @@ bool ConditionDamage::executeCondition(Creature* creature, int32_t interval)
 		IntervalInfo& damageInfo = damageList.front();
 
 		bool bRemove = (ticks != -1);
-		creature->onTickCondition(getType(), bRemove);
+		// Field conditions are finite damage programs (init + queued ticks).
+		// Let them progress naturally; do not convert them into "repeat forever while standing".
+		if (!field) {
+			creature->onTickCondition(getType(), bRemove);
+		}
 		damageInfo.timeLeft -= interval;
 
 		if (damageInfo.timeLeft <= 0) {
@@ -1380,9 +1384,6 @@ bool ConditionDamage::doDamage(Creature* creature, int32_t healthChange)
 	damage.primary.type = Combat::ConditionToDamageType(conditionType);
 
 	Creature* attacker = g_game.getCreatureByID(owner);
-	if (field && creature->getPlayer() && attacker && attacker->getPlayer()) {
-		damage.primary.value = static_cast<int32_t>(std::round(damage.primary.value / 2.));
-	}
 
 	if (!creature->isAttackable() || Combat::canDoCombat(attacker, creature) != RETURNVALUE_NOERROR) {
 		if (!creature->isInGhostMode()) {
@@ -1441,9 +1442,14 @@ void ConditionDamage::addCondition(Creature* creature, const Condition* conditio
 		}
 
 		if (!delayed) {
-			int32_t damage;
-			if (getNextDamage(damage)) {
-				doDamage(creature, damage);
+			if (field) {
+				// 7.4-like behavior: every contact with a field tile reapplies the entry hit.
+				doDamage(creature, initDamage);
+			} else {
+				int32_t damage;
+				if (getNextDamage(damage)) {
+					doDamage(creature, damage);
+				}
 			}
 		}
 	}
