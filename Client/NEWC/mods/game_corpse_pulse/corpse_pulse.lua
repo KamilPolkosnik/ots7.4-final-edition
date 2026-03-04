@@ -1,17 +1,13 @@
+local OPCODE_CORPSE_PULSE = 112
 local PULSE_INTERVAL_MS = 420
-local BUILD_TAG = "corpse_pulse_spellflash_alt_v3"
-
--- New spell-like flash sequence (different from the previous pulse).
+local TRACK_TTL_MS = 10 * 60 * 1000
 local PULSE_SEQUENCE = {
-  "#3E3E3E",
-  "#4A4A4A",
-  "#555555",
-  "#4A4A4A",
+  "yellow",
+  "",
 }
 
 local trackedByKey = {}
-local trackedByBaseKey = {}
-local openedAtByKey = {}
+local markedByObjectKey = {}
 local pulseEvent = nil
 local pulseIndex = 1
 
@@ -30,10 +26,13 @@ local function clearMark(item)
 end
 
 local function setMark(item, color)
-  if not item then
-    return
+  if item then
+    safeCall(item.setMarked, item, color or "")
   end
-  safeCall(item.setMarked, item, color or "")
+end
+
+local function makeKey(x, y, z, itemId)
+  return string.format("%d:%d:%d:%d", x, y, z, itemId)
 end
 
 local function normalizeName(name)
@@ -64,177 +63,212 @@ local function looksLikeCorpseName(name)
     or s:find("lifeless ", 1, true) == 1
 end
 
-local function getItemKey(item, fallbackPos)
-  if not item then
-    return nil
-  end
-
-  local pos = safeCall(item.getPosition, item) or fallbackPos
-  if not pos then
-    return nil
-  end
-
-  local itemId = safeCall(item.getId, item)
-  if not itemId then
-    return nil
-  end
-
-  local stackPos = safeCall(item.getStackPos, item) or 0
-  return string.format("%d:%d:%d:%d:%d", pos.x, pos.y, pos.z, itemId, stackPos)
-end
-
-local function getItemBaseKey(item, fallbackPos)
-  if not item then
-    return nil
-  end
-
-  local pos = safeCall(item.getPosition, item) or fallbackPos
-  if not pos then
-    return nil
-  end
-
-  local itemId = safeCall(item.getId, item)
-  if not itemId then
-    return nil
-  end
-
-  return string.format("%d:%d:%d:%d", pos.x, pos.y, pos.z, itemId)
-end
-
-local function isCorpseThing(thing)
+local function isLikelyCorpseThing(thing)
   if not thing then
     return false
   end
-
   if not safeCall(thing.isItem, thing) then
     return false
   end
-
   if safeCall(thing.isFluidContainer, thing) then
     return false
   end
 
-  if not safeCall(thing.isContainer, thing) then
+  local name = safeCall(thing.getName, thing)
+  if type(name) ~= "string" or name == "" then
     return false
   end
-
-  local name = safeCall(thing.getName, thing)
-  if type(name) == "string" and name ~= "" then
-    return looksLikeCorpseName(name)
-  end
-
-  -- Fallback for client builds where corpse items don't expose a proper name.
-  -- This is the original simple behavior: container on tile = likely corpse.
-  return true
+  return looksLikeCorpseName(name)
 end
 
-local function pickCorpseFromTile(tile)
-  if not tile then
+local function getEntryFromData(data)
+  if type(data) ~= "table" then
     return nil
   end
 
-  local topUse = safeCall(tile.getTopUseThing, tile)
-  if isCorpseThing(topUse) then
-    return topUse
+  local x = tonumber(data.x)
+  local y = tonumber(data.y)
+  local z = tonumber(data.z)
+  local itemId = tonumber(data.id)
+  local count = math.max(1, math.floor(tonumber(data.count) or 1))
+  if not x or not y or not z or not itemId then
+    return nil
   end
 
-  local topLook = safeCall(tile.getTopLookThing, tile)
-  if isCorpseThing(topLook) then
-    return topLook
+  return {
+    x = x,
+    y = y,
+    z = z,
+    itemId = itemId,
+    count = count,
+  }
+end
+
+local function getEntryFromThing(thing, fallbackPos)
+  if not thing then
+    return nil
   end
 
-  local items = safeCall(tile.getItems, tile)
-  if type(items) == "table" and #items > 0 then
-    for _, item in ipairs(items) do
-      if isCorpseThing(item) then
-        return item
-      end
+  local pos = safeCall(thing.getPosition, thing) or fallbackPos
+  if not pos or not pos.x or pos.x == 65535 then
+    return nil
+  end
+
+  local itemId = safeCall(thing.getId, thing)
+  if not itemId then
+    return nil
+  end
+
+  return {
+    x = pos.x,
+    y = pos.y,
+    z = pos.z,
+    itemId = itemId,
+    count = 1,
+  }
+end
+
+local function upsertTracked(entry, deltaCount)
+  local key = makeKey(entry.x, entry.y, entry.z, entry.itemId)
+  local now = g_clock.millis()
+  local delta = math.floor(tonumber(deltaCount) or 0)
+  if delta == 0 then
+    delta = entry.count or 1
+  end
+
+  local tracked = trackedByKey[key]
+  if not tracked then
+    if delta <= 0 then
+      return
     end
+    tracked = {
+      x = entry.x,
+      y = entry.y,
+      z = entry.z,
+      itemId = entry.itemId,
+      count = 0,
+      expiresAt = now + TRACK_TTL_MS,
+    }
+    trackedByKey[key] = tracked
   end
 
+  tracked.count = math.max(0, (tracked.count or 0) + delta)
+  tracked.expiresAt = now + TRACK_TTL_MS
+  if tracked.count <= 0 then
+    trackedByKey[key] = nil
+  end
+end
+
+local function collectMatchingCorpseItems(entry)
+  local tile = g_map.getTile({ x = entry.x, y = entry.y, z = entry.z })
+  if not tile then
+    return {}
+  end
+
+  local items = {}
   local things = safeCall(tile.getThings, tile)
-  if type(things) == "table" and #things > 0 then
-    for _, thing in ipairs(things) do
-      if isCorpseThing(thing) then
-        return thing
-      end
+  if type(things) ~= "table" then
+    return items
+  end
+
+  for _, thing in ipairs(things) do
+    if safeCall(thing.isItem, thing)
+      and not safeCall(thing.isFluidContainer, thing)
+      and safeCall(thing.getId, thing) == entry.itemId then
+      items[#items + 1] = thing
     end
   end
 
-  return nil
+  return items
 end
 
-local function removeEntry(entry)
+local function applyImmediateMark(entry)
+  local matches = collectMatchingCorpseItems(entry)
+  if #matches <= 0 then
+    return
+  end
+
+  local limit = math.min(entry.count or 1, #matches)
+  for i = 1, limit do
+    local item = matches[i]
+    local objectKey = tostring(item)
+    setMark(item, "yellow")
+    markedByObjectKey[objectKey] = item
+  end
+end
+
+local function clearAllMarks()
+  for _, item in pairs(markedByObjectKey) do
+    clearMark(item)
+  end
+  markedByObjectKey = {}
+end
+
+local function clearAll()
+  clearAllMarks()
+  trackedByKey = {}
+end
+
+local function handleServerPayload(payload)
+  if type(payload) ~= "table" then
+    return
+  end
+
+  local action = tostring(payload.action or "")
+  if action == "reset" then
+    clearAll()
+    return
+  end
+
+  local entry = getEntryFromData(payload.data)
   if not entry then
     return
   end
 
-  clearMark(entry.item)
-  if entry.key and trackedByKey[entry.key] == entry then
-    trackedByKey[entry.key] = nil
-  end
-  if entry.baseKey and trackedByBaseKey[entry.baseKey] == entry then
-    trackedByBaseKey[entry.baseKey] = nil
+  if action == "clear" then
+    upsertTracked(entry, -(entry.count or 1))
+  elseif action == "spawn" then
+    upsertTracked(entry, entry.count or 1)
+    applyImmediateMark(entry)
   end
 end
 
-local function markOpenedByKey(key, now)
-  if not key then
+local function onExtendedOpcode(protocol, opcode, buffer)
+  if opcode ~= OPCODE_CORPSE_PULSE then
     return
   end
 
-  openedAtByKey[key] = true
-
-  local entry = trackedByKey[key]
-  if entry then
-    removeEntry(entry)
-  end
-end
-
-local function markOpenedByBaseKey(baseKey, now)
-  if not baseKey then
-    return false
+  if type(buffer) ~= "string" or buffer == "" then
+    return
   end
 
-  local entry = trackedByBaseKey[baseKey]
-  if not entry then
-    return false
-  end
-
-  markOpenedByKey(entry.key, now)
-  return true
-end
-
-local function markOpenedFallbackByNearest(itemId, pos, now)
-  local bestKey = nil
-  local bestScore = math.huge
-  now = now or g_clock.millis()
-
-  for key, entry in pairs(trackedByKey) do
-    local score = 0
-
-    if itemId and entry.itemId == itemId then
-      score = score - 10000
+  if buffer:sub(1, 1) == "{" then
+    local payload = safeCall(json.decode, buffer)
+    if type(payload) == "table" then
+      handleServerPayload(payload)
     end
-
-    if pos and entry.x and entry.y and entry.z then
-      local dz = math.abs(entry.z - pos.z)
-      score = score + math.abs(entry.x - pos.x) + math.abs(entry.y - pos.y) + (dz * 10)
-    end
-
-    if score < bestScore then
-      bestScore = score
-      bestKey = key
-    end
+    return
   end
 
-  if bestKey then
-    markOpenedByKey(bestKey, now)
+  local action, x, y, z, id, count = buffer:match("^([%a_]+)|(%-?%d+)|(%-?%d+)|(%-?%d+)|(%-?%d+)|(%-?%d+)$")
+  if not action then
+    action = buffer:match("^([%a_]+)$")
   end
-end
 
-local function isRecentlyOpened(key)
-  return openedAtByKey[key] == true
+  if not action then
+    return
+  end
+
+  handleServerPayload({
+    action = action,
+    data = {
+      x = tonumber(x),
+      y = tonumber(y),
+      z = tonumber(z),
+      id = tonumber(id),
+      count = tonumber(count) or 1,
+    },
+  })
 end
 
 local function pulseTick()
@@ -251,87 +285,33 @@ local function pulseTick()
   local color = PULSE_SEQUENCE[pulseIndex]
   local now = g_clock.millis()
 
-  local player = g_game.getLocalPlayer()
-  if not player then
-    return
-  end
-
-  local playerPos = player:getPosition()
-  if not playerPos then
-    return
-  end
-
-  local visibleKeys = {}
-  local tiles = g_map.getTiles(playerPos.z) or {}
-  for _, tile in ipairs(tiles) do
-    local tilePos = safeCall(tile.getPosition, tile)
-    local corpse = pickCorpseFromTile(tile)
-    if corpse then
-      local key = getItemKey(corpse, tilePos)
-      if key then
-        visibleKeys[key] = true
-
-        if isRecentlyOpened(key) then
-          clearMark(corpse)
-          local existing = trackedByKey[key]
-          if existing then
-            removeEntry(existing)
-          end
-        else
-          local entry = trackedByKey[key]
-          if not entry then
-            entry = { key = key }
-            trackedByKey[key] = entry
-          end
-          if entry.key ~= key then
-            trackedByKey[entry.key] = nil
-            entry.key = key
-            trackedByKey[key] = entry
-          end
-          entry.item = corpse
-          local corpsePos = safeCall(corpse.getPosition, corpse)
-          entry.itemId = safeCall(corpse.getId, corpse)
-          entry.x = corpsePos and corpsePos.x or nil
-          entry.y = corpsePos and corpsePos.y or nil
-          entry.z = corpsePos and corpsePos.z or nil
-
-          local baseKey = getItemBaseKey(corpse, tilePos)
-          if entry.baseKey and entry.baseKey ~= baseKey and trackedByBaseKey[entry.baseKey] == entry then
-            trackedByBaseKey[entry.baseKey] = nil
-          end
-          entry.baseKey = baseKey
-          if baseKey then
-            trackedByBaseKey[baseKey] = entry
-          end
-
-          setMark(corpse, color)
+  local visibleMarked = {}
+  for key, entry in pairs(trackedByKey) do
+    if not entry.expiresAt or entry.expiresAt <= now or (entry.count or 0) <= 0 then
+      trackedByKey[key] = nil
+    else
+      local matches = collectMatchingCorpseItems(entry)
+      if #matches > 0 then
+        local limit = math.min(entry.count or 1, #matches)
+        for i = 1, limit do
+          local item = matches[i]
+          local objectKey = tostring(item)
+          visibleMarked[objectKey] = item
+          setMark(item, color)
         end
       end
     end
   end
 
-  -- Once corpse disappears from the map, allow future corpse on same tile/id key.
-  for key in pairs(openedAtByKey) do
-    if not visibleKeys[key] then
-      openedAtByKey[key] = nil
+  for objectKey, item in pairs(markedByObjectKey) do
+    if not visibleMarked[objectKey] then
+      clearMark(item)
+      markedByObjectKey[objectKey] = nil
     end
   end
 
-  local toRemove = {}
-  for key, entry in pairs(trackedByKey) do
-    if not visibleKeys[key] then
-      toRemove[#toRemove + 1] = entry
-    else
-      if isRecentlyOpened(key) then
-        toRemove[#toRemove + 1] = entry
-      else
-        setMark(entry.item, color)
-      end
-    end
-  end
-
-  for _, entry in ipairs(toRemove) do
-    removeEntry(entry)
+  for objectKey, item in pairs(visibleMarked) do
+    markedByObjectKey[objectKey] = item
   end
 end
 
@@ -349,48 +329,65 @@ local function stopPulse()
   end
 end
 
-local function clearAll()
-  for _, entry in pairs(trackedByKey) do
-    clearMark(entry.item)
-  end
-  trackedByKey = {}
-  trackedByBaseKey = {}
-  openedAtByKey = {}
-end
-
 local function onContainerOpen(container, previousContainer)
   local containerItem = safeCall(container.getContainerItem, container)
-  local containerName = safeCall(container.getName, container) or ""
-  local itemPos = containerItem and safeCall(containerItem.getPosition, containerItem) or nil
-  local isWorldItem = itemPos and itemPos.x and itemPos.x ~= 65535
-
-  local isCorpseContainer = looksLikeCorpseName(containerName)
-  if not isCorpseContainer and containerItem then
-    isCorpseContainer = isCorpseThing(containerItem)
-  end
-
-  if not isCorpseContainer and not isWorldItem then
+  if not containerItem then
     return
   end
 
-  if containerItem then
-    clearMark(containerItem)
-    local key = getItemKey(containerItem)
-    local now = g_clock.millis()
-    local baseKey = getItemBaseKey(containerItem)
-    if markOpenedByBaseKey(baseKey, now) then
-      return
-    end
-    if key then
-      if trackedByKey[key] then
-        markOpenedByKey(key, now)
-        return
-      end
-    end
-
-    local itemId = safeCall(containerItem.getId, containerItem)
-    markOpenedFallbackByNearest(itemId, itemPos, now)
+  local pos = safeCall(containerItem.getPosition, containerItem)
+  if not pos or not pos.x or pos.x == 65535 then
+    return
   end
+
+  local itemId = safeCall(containerItem.getId, containerItem)
+  if not itemId then
+    return
+  end
+
+  local key = makeKey(pos.x, pos.y, pos.z, itemId)
+  local entry = trackedByKey[key]
+  if entry then
+    entry.count = math.max(0, (entry.count or 1) - 1)
+    if entry.count <= 0 then
+      trackedByKey[key] = nil
+    end
+  end
+
+  local objectKey = tostring(containerItem)
+  clearMark(containerItem)
+  markedByObjectKey[objectKey] = nil
+end
+
+local function onTileAddThing(tile, thing)
+  if not isLikelyCorpseThing(thing) then
+    return
+  end
+
+  local tilePos = tile and safeCall(tile.getPosition, tile) or nil
+  local entry = getEntryFromThing(thing, tilePos)
+  if not entry then
+    return
+  end
+
+  upsertTracked(entry, 1)
+  applyImmediateMark(entry)
+end
+
+local function onTileRemoveThing(tile, thing)
+  if not isLikelyCorpseThing(thing) then
+    return
+  end
+
+  local tilePos = tile and safeCall(tile.getPosition, tile) or nil
+  local entry = getEntryFromThing(thing, tilePos)
+  if entry then
+    upsertTracked(entry, -1)
+  end
+
+  local objectKey = tostring(thing)
+  clearMark(thing)
+  markedByObjectKey[objectKey] = nil
 end
 
 local function onGameStart()
@@ -403,9 +400,20 @@ local function onGameEnd()
 end
 
 function init()
+  if ProtocolGame and ProtocolGame.registerExtendedOpcode then
+    ProtocolGame.registerExtendedOpcode(OPCODE_CORPSE_PULSE, onExtendedOpcode)
+  end
+
   connect(Container, {
     onOpen = onContainerOpen,
   })
+
+  if Tile then
+    connect(Tile, {
+      onAddThing = onTileAddThing,
+      onRemoveThing = onTileRemoveThing,
+    })
+  end
 
   connect(g_game, {
     onGameStart = onGameStart,
@@ -418,9 +426,20 @@ function init()
 end
 
 function terminate()
+  if ProtocolGame and ProtocolGame.unregisterExtendedOpcode then
+    pcall(function() ProtocolGame.unregisterExtendedOpcode(OPCODE_CORPSE_PULSE) end)
+  end
+
   disconnect(Container, {
     onOpen = onContainerOpen,
   })
+
+  if Tile then
+    disconnect(Tile, {
+      onAddThing = onTileAddThing,
+      onRemoveThing = onTileRemoveThing,
+    })
+  end
 
   disconnect(g_game, {
     onGameStart = onGameStart,
@@ -429,4 +448,3 @@ function terminate()
 
   onGameEnd()
 end
-
