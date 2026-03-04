@@ -5830,13 +5830,13 @@
 		<attribute key="type" value="rune"/>
 		<attribute key="runeSpellName" value="adevo res pox"/>
 		<attribute key="weight" value="120"/>
-		<attribute key="charges" value="1"/>
+		<attribute key="charges" value="3"/>
 	</item>
 	<item id="2293" article="an" name="magic wall rune">
 		<attribute key="type" value="rune"/>
 		<attribute key="runeSpellName" value="adevo grav tera"/>
 		<attribute key="weight" value="120"/>
-		<attribute key="charges" value="3"/>
+		<attribute key="charges" value="4"/>
 	</item>
 	<item id="2294" article="a" name="spell rune">
 		<attribute key="weight" value="120"/>
@@ -5870,7 +5870,7 @@
 		<attribute key="type" value="rune"/>
 		<attribute key="runeSpellName" value="adori flam"/>
 		<attribute key="weight" value="120"/>
-		<attribute key="charges" value="2"/>
+		<attribute key="charges" value="3"/>
 	</item>
 	<item id="2303" article="an" name="fire wall rune">
 		<attribute key="type" value="rune"/>
@@ -5939,7 +5939,7 @@
 		<attribute key="type" value="rune"/>
 		<attribute key="runeSpellName" value="adana mort"/>
 		<attribute key="weight" value="120"/>
-		<attribute key="charges" value="1"/>
+		<attribute key="charges" value="2"/>
 	</item>
 	<item id="2317" article="a" name="dead human">
 	</item>
