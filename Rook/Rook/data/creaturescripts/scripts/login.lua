@@ -132,5 +132,7 @@ function onLogin(player)
 		player:setStorageValue(EXP_BOOST_STORAGE, -1)
 	end
 
+	player:sendFoodStatus()
+
 	return true
 end

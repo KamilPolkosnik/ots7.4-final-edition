@@ -1,4 +1,152 @@
 local foodCondition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
+local FOOD_STATUS_OPCODE = 109
+local SKULL_SUMMON_SOUL_LOCK = 70
+local skullSoulSummonState = {
+	trackedByPlayer = {},
+	tickerByPlayer = {}
+}
+
+local function countTableKeys(t)
+	local count = 0
+	for _ in pairs(t) do
+		count = count + 1
+	end
+	return count
+end
+
+local function runSkullSoulSummonTicker(playerId)
+	skullSoulSummonState.tickerByPlayer[playerId] = nil
+
+	local player = Player(playerId)
+	if not player then
+		skullSoulSummonState.trackedByPlayer[playerId] = nil
+		return
+	end
+
+	local activeCount = player:getSkullSoulSummonCount()
+	if activeCount <= 0 then
+		skullSoulSummonState.trackedByPlayer[playerId] = nil
+		return
+	end
+
+	player:enforceEffectiveSoulCap()
+	skullSoulSummonState.tickerByPlayer[playerId] = addEvent(runSkullSoulSummonTicker, 1000, playerId)
+end
+
+local function ensureSkullSoulSummonTicker(playerId)
+	if skullSoulSummonState.tickerByPlayer[playerId] then
+		return
+	end
+
+	skullSoulSummonState.tickerByPlayer[playerId] = addEvent(runSkullSoulSummonTicker, 50, playerId)
+end
+
+function Player.clearSkullSoulSummonLocks(self)
+	local playerId = self:getId()
+	local eventId = skullSoulSummonState.tickerByPlayer[playerId]
+	if eventId then
+		stopEvent(eventId)
+		skullSoulSummonState.tickerByPlayer[playerId] = nil
+	end
+	skullSoulSummonState.trackedByPlayer[playerId] = nil
+end
+
+function Player.getSkullSoulSummonCount(self)
+	local playerId = self:getId()
+	local tracked = skullSoulSummonState.trackedByPlayer[playerId]
+	if not tracked then
+		return 0
+	end
+
+	local activeSummonIds = {}
+	for _, summon in ipairs(self:getSummons()) do
+		activeSummonIds[summon:getId()] = true
+	end
+
+	for summonId in pairs(tracked) do
+		if not activeSummonIds[summonId] then
+			tracked[summonId] = nil
+		end
+	end
+
+	if next(tracked) == nil then
+		skullSoulSummonState.trackedByPlayer[playerId] = nil
+		local eventId = skullSoulSummonState.tickerByPlayer[playerId]
+		if eventId then
+			stopEvent(eventId)
+			skullSoulSummonState.tickerByPlayer[playerId] = nil
+		end
+		return 0
+	end
+
+	return countTableKeys(tracked)
+end
+
+function Player.registerSkullSoulSummon(self, summon)
+	if not summon then
+		return false
+	end
+
+	local playerId = self:getId()
+	local tracked = skullSoulSummonState.trackedByPlayer[playerId]
+	if not tracked then
+		tracked = {}
+		skullSoulSummonState.trackedByPlayer[playerId] = tracked
+	end
+	tracked[summon:getId()] = true
+
+	self:enforceEffectiveSoulCap()
+	ensureSkullSoulSummonTicker(playerId)
+	return true
+end
+
+function Player.getEffectiveMaxSoul(self)
+	local vocation = self:getVocation()
+	if not vocation then
+		return 0
+	end
+
+	local baseMax = vocation:getMaxSoul()
+	local lock = self:getSkullSoulSummonCount() * SKULL_SUMMON_SOUL_LOCK
+	return math.max(0, baseMax - lock)
+end
+
+function Player.enforceEffectiveSoulCap(self)
+	local effectiveMax = self:getEffectiveMaxSoul()
+	local currentSoul = self:getSoul()
+	if currentSoul > effectiveMax then
+		self:addSoul(effectiveMax - currentSoul)
+	end
+	return effectiveMax
+end
+
+function Player.getFoodRegenRemainingSeconds(self)
+	local condition = self:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
+	if not condition then
+		return 0
+	end
+
+	local ticks = condition:getTicks() or 0
+	if ticks <= 0 then
+		return 0
+	end
+	return math.max(0, math.floor(ticks / 1000))
+end
+
+function Player.sendFoodStatus(self)
+	if not self or not self:isUsingOtClient() then
+		return false
+	end
+
+	local remainingSeconds = self:getFoodRegenRemainingSeconds()
+	return self:sendExtendedOpcode(FOOD_STATUS_OPCODE, json.encode({
+		action = "foodStatus",
+		data = {
+			remainingSeconds = remainingSeconds,
+			fed = remainingSeconds > 0
+		}
+	}))
+end
 
 function Player.feed(self, food)
 	local condition = self:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
@@ -18,6 +166,8 @@ function Player.feed(self, food)
 
 		self:addCondition(foodCondition)
 	end
+
+	self:sendFoodStatus()
 	return true
 end
 

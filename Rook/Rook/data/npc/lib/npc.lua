@@ -90,9 +90,21 @@ end
 
 function doNpcSellItem(cid, itemid, amount, subType, ignoreCap, inBackpacks, backpack)
 	local amount = amount or 1
-	local subType = subType or 0
+	local itemType = ItemType(itemid)
+	if subType == nil then
+		if itemType:hasSubType() and not itemType:isFluidContainer() then
+			local defaultCharges = itemType:getCharges()
+			if defaultCharges and defaultCharges > 0 then
+				subType = defaultCharges
+			else
+				subType = 1
+			end
+		else
+			subType = 0
+		end
+	end
 	local item = 0
-	if ItemType(itemid):isStackable() then
+	if itemType:isStackable() then
 		if inBackpacks then
 			stuff = Game.createItem(backpack, 1)
 			item = stuff:addItem(itemid, math.min(100, amount))
@@ -167,6 +179,16 @@ function doPlayerBuyItemContainer(cid, containerid, itemid, count, cost, charges
 	local player = Player(cid)
 	if not player:removeTotalMoney(cost) then
 		return false
+	end
+
+	local itemType = ItemType(itemid)
+	if charges == nil and itemType:hasSubType() and not itemType:isFluidContainer() then
+		local defaultCharges = itemType:getCharges()
+		if defaultCharges and defaultCharges > 0 then
+			charges = defaultCharges
+		else
+			charges = 1
+		end
 	end
 
 	for i = 1, count do

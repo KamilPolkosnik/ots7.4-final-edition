@@ -153,6 +153,7 @@
   <monster name="Necropharus" file="bosses/necropharus.xml"/>
   <monster name="Omruc" file="bosses/omruc.xml"/>
   <monster name="Orshabaal" file="bosses/orshabaal.xml"/>
+  <monster name="Aurel Krul" file="bosses/aurel krul.xml"/>
   <monster name="Rahemos" file="bosses/rahemos.xml"/>
   <monster name="Tiquandas Revenge" file="bosses/tiquandas revenge.xml"/>
   <monster name="Thalas" file="bosses/thalas.xml"/>

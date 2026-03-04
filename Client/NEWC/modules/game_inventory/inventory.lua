@@ -17,6 +17,11 @@ Icons[PlayerStates.Pz] = { tooltip = tr('You are within a protection zone'), pat
 Icons[PlayerStates.Bleeding] = { tooltip = tr('You are bleeding'), path = '/images/game/states/bleeding', id = 'condition_bleeding' }
 Icons[PlayerStates.Hungry] = { tooltip = tr('You are hungry'), path = '/images/game/states/hungry', id = 'condition_hungry' }
 
+local FOOD_STATUS_OPCODE = 109
+local FOOD_STATUS_ICON_ID = 'condition_food_status'
+local FOOD_STATUS_ICON_FED_PATH = '/images/game/states/strengthened'
+local FOOD_STATUS_ICON_HUNGRY_PATH = '/images/game/states/hungry'
+
 InventorySlotStyles = {
   [InventorySlotHead] = "HeadSlot",
   [InventorySlotNeck] = "NeckSlot",
@@ -48,6 +53,103 @@ buttonPvp = nil
 soulLabel = nil
 capLabel = nil
 conditionPanel = nil
+foodStatusIcon = nil
+
+local foodStatusExpiresAt = 0
+local foodStatusUpdateEvent = nil
+
+local function formatFoodDuration(totalSeconds)
+  local hours = math.floor(totalSeconds / 3600)
+  local minutes = math.floor((totalSeconds % 3600) / 60)
+  local seconds = totalSeconds % 60
+  return string.format('%02d:%02d:%02d', hours, minutes, seconds)
+end
+
+local function stopFoodStatusTicker()
+  if foodStatusUpdateEvent then
+    removeEvent(foodStatusUpdateEvent)
+    foodStatusUpdateEvent = nil
+  end
+end
+
+local function ensureFoodStatusIcon()
+  if not conditionPanel then
+    return nil
+  end
+
+  local icon = conditionPanel:getChildById(FOOD_STATUS_ICON_ID)
+  if not icon then
+    icon = g_ui.createWidget('ConditionWidget', conditionPanel)
+    icon:setId(FOOD_STATUS_ICON_ID)
+  end
+  foodStatusIcon = icon
+  return icon
+end
+
+local function updateFoodStatusIcon()
+  local icon = ensureFoodStatusIcon()
+  if not icon then
+    return 0
+  end
+
+  local remaining = math.max(0, foodStatusExpiresAt - g_clock.seconds())
+  if remaining > 0 then
+    local duration = formatFoodDuration(remaining)
+    icon:setImageSource(FOOD_STATUS_ICON_FED_PATH)
+    icon:setTooltip('You are fed. Food regeneration active: ' .. duration)
+  else
+    icon:setImageSource(FOOD_STATUS_ICON_HUNGRY_PATH)
+    icon:setTooltip('You are hungry (no food regeneration).')
+  end
+  return remaining
+end
+
+local function startFoodStatusTicker()
+  stopFoodStatusTicker()
+  foodStatusUpdateEvent = scheduleEvent(function()
+    if updateFoodStatusIcon() > 0 then
+      startFoodStatusTicker()
+    else
+      stopFoodStatusTicker()
+    end
+  end, 1000)
+end
+
+local function applyFoodStatus(remainingSeconds)
+  remainingSeconds = tonumber(remainingSeconds) or 0
+  remainingSeconds = math.max(0, math.floor(remainingSeconds))
+  foodStatusExpiresAt = g_clock.seconds() + remainingSeconds
+  if updateFoodStatusIcon() > 0 then
+    startFoodStatusTicker()
+  else
+    stopFoodStatusTicker()
+  end
+end
+
+local function requestFoodStatus()
+  local protocolGame = g_game.getProtocolGame()
+  if not protocolGame then
+    return
+  end
+
+  protocolGame:sendExtendedOpcode(FOOD_STATUS_OPCODE, json.encode({ action = 'request' }))
+end
+
+local function onFoodStatusOpcode(protocol, code, buffer)
+  local status, payload = pcall(function()
+    return json.decode(buffer)
+  end)
+
+  if not status or type(payload) ~= 'table' then
+    return
+  end
+
+  if payload.action ~= 'foodStatus' or type(payload.data) ~= 'table' then
+    return
+  end
+
+  applyFoodStatus(payload.data.remainingSeconds or 0)
+end
 
 function init()
   connect(LocalPlayer, {
@@ -125,12 +227,15 @@ function init()
   soulLabel = inventoryWindow:recursiveGetChildById('soulLabel')
   capLabel = inventoryWindow:recursiveGetChildById('capLabel')
   conditionPanel = inventoryWindow:recursiveGetChildById('conditionPanel')
+  foodStatusIcon = nil
 
 
   connect(LocalPlayer, { onStatesChange = onStatesChange,
                          onSoulChange = onSoulChange,
                          onFreeCapacityChange = onFreeCapacityChange })
 -- status end
+
+  ProtocolGame.registerExtendedOpcode(FOOD_STATUS_OPCODE, onFoodStatusOpcode)
   
   refresh()
   inventoryWindow:setup()
@@ -171,6 +276,9 @@ function terminate()
                          onFreeCapacityChange = onFreeCapacityChange })
   -- status end
 
+  pcall(function() ProtocolGame.unregisterExtendedOpcode(FOOD_STATUS_OPCODE) end)
+  stopFoodStatusTicker()
+
   inventoryWindow:destroy()
   if inventoryButton then
     inventoryButton:destroy()
@@ -200,6 +308,8 @@ function refresh()
     onSoulChange(player, player:getSoul())
     onFreeCapacityChange(player, player:getFreeCapacity())
     onStatesChange(player, player:getStates(), 0)
+    updateFoodStatusIcon()
+    requestFoodStatus()
   end
 
   purseButton:setVisible(g_game.getFeature(GamePurseSlot))
@@ -329,6 +439,9 @@ function offline()
   end
 
   conditionPanel:destroyChildren()
+  foodStatusIcon = nil
+  foodStatusExpiresAt = 0
+  stopFoodStatusTicker()
 
   local player = g_game.getLocalPlayer()
   if player then
@@ -482,7 +595,9 @@ function onStatesChange(localPlayer, now, old)
     if pow > bitsChanged then break end
     local bitChanged = bit32.band(bitsChanged, pow)
     if bitChanged ~= 0 then
-      toggleIcon(bitChanged)
+      if bitChanged ~= PlayerStates.Hungry then
+        toggleIcon(bitChanged)
+      end
     end
   end
 end

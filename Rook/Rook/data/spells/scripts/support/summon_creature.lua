@@ -35,11 +35,28 @@ function onCastSpell(creature, variant)
 	end
 
 	local position = creature:getPosition()
+	local spawnKey = string.format("%d|%d|%d", position.x, position.y, position.z)
+	if MonsterVariants then
+		MonsterVariants.pendingSummonPositions = MonsterVariants.pendingSummonPositions or {}
+		MonsterVariants.pendingSummonPositions[spawnKey] = true
+	end
+
 	local summon = Game.createMonster(monsterName, position, true)
 	if not summon then
+		if MonsterVariants and MonsterVariants.pendingSummonPositions then
+			MonsterVariants.pendingSummonPositions[spawnKey] = nil
+		end
 		creature:sendCancelMessage(RETURNVALUE_NOTENOUGHROOM)
 		position:sendMagicEffect(CONST_ME_POFF)
 		return false
+	end
+
+	if MonsterVariants and MonsterVariants.pendingSummonPositions then
+		addEvent(function()
+			if MonsterVariants and MonsterVariants.pendingSummonPositions then
+				MonsterVariants.pendingSummonPositions[spawnKey] = nil
+			end
+		end, 2000)
 	end
 
 	creature:addMana(-manaCost)

@@ -16209,32 +16209,52 @@
 		<attribute key="description" value="Sell loot with this wand"/>
 		</item>
 	<item id="6877" article="a" name="exercise rod">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="wand" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Druid training weapon"/>
-		</item>
+	</item>
 		
 	<item id="6878" article="a" name="exercise bow">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="distance" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Palladin Training weapon"/>
-		</item>
+	</item>
 	<item id="6879" article="a" name="exercise axe">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Knight training weapon"/>
-		</item>
+	</item>
 	<item id="6880" article="a" name="exercise sword">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Knight training weapon"/>
-		</item>
+	</item>
 		
 	<item id="6881" article="a" name="exercise club">
-	<attribute key="charges" value="200" />
-<attribute key="showcharges" value="1" />
+		<attribute key="charges" value="1500" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="attack" value="1" />
+		<attribute key="hitChance" value="100" />
+		<attribute key="attackSpeed" value="1700" />
 		<attribute key="description" value="Knight training weapon"/>
-		</item>
+	</item>
 
 
 <item id="6560" article="a" name="vampire soul"></item>
@@ -17040,6 +17060,23 @@
 		<attribute key="duration" value="1800"/>
 		<attribute key="showduration" value="1"/>
 	</item>
+	<item id="7963" article="a" name="ring of light">
+		<attribute key="description" value="It illuminates your surroundings like utevo vis lux."/>
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+		<attribute key="transformEquipTo" value="7964"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="showduration" value="1"/>
+	</item>
+	<item id="7964" article="a" name="ring of light">
+		<attribute key="description" value="It illuminates your surroundings like utevo vis lux."/>
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="transformDeEquipTo" value="7963"/>
+		<attribute key="duration" value="14400"/>
+		<attribute key="showduration" value="1"/>
+	</item>
 	<item id="7956" article="a" name="small quiver">
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="4"/>
@@ -17084,5 +17121,9 @@
 		<attribute key="criticalHitChance" value="5"/>
 		<attribute key="defense" value="30"/>
 		<attribute key="weaponType" value="shield"/>
+	</item>
+	<item id="7962" article="a" name="multitool">
+		<attribute key="description" value="A compact tool that can be used as rope, shovel, pick and scythe."/>
+		<attribute key="weight" value="3500"/>
 	</item>
 </items>
