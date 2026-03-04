@@ -1,0 +1,319 @@
+LootSessionRow < Panel
+  height: 24
+  margin-bottom: 2
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #505050
+  padding-left: 2
+  padding-right: 2
+
+  UIItem
+    id: icon
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    size: 20 20
+    virtual: true
+    phantom: true
+
+  Label
+    id: name
+    visible: false
+    width: 0
+    anchors.left: icon.right
+    anchors.right: icon.right
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 0
+    margin-right: 0
+    text-align: left
+    color: #e0e0e0
+
+  Label
+    id: count
+    anchors.left: icon.right
+    anchors.right: value.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 8
+    margin-right: 4
+    text-align: right
+    color: #f0d080
+
+  Label
+    id: value
+    width: 90
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    margin-right: 18
+    text-align: right
+    color: #9ed09e
+
+MiniWindow
+  id: expStatisticsWindow
+  !text: tr('Exp Statistics')
+  width: 260
+  height: 560
+  icon: /images/topbuttons/analyzers
+  @onClose: modules.game_exp_statistics.onMiniWindowClose()
+  &save: false
+  &autoOpen: false
+
+  MiniWindowContents
+    padding: 6
+
+    Label
+      id: expPerHourLabel
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      text: Exp/h: 0
+      color: #f0f0f0
+      font: verdana-11px-rounded
+
+    Label
+      id: gainedExpLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Gained Exp: 0
+      color: #d8d8d8
+      font: verdana-11px-rounded
+
+    Label
+      id: goldPerHourLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Gold/h: 0
+      color: #f0d080
+      font: verdana-11px-rounded
+
+    Label
+      id: totalLootValueLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Loot Value: 0 gp
+      color: #9ed09e
+      font: verdana-11px-rounded
+
+    Label
+      id: supplyPerHourLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Supply/h: 0
+      color: #f0a58a
+      font: verdana-11px-rounded
+
+    Label
+      id: totalSupplyValueLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Supply Value: 0 gp
+      color: #e6b39f
+      font: verdana-11px-rounded
+
+    Label
+      id: sessionTimeLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Session: 00:00:00
+      color: #c4c4c4
+      font: verdana-11px-rounded
+
+    HorizontalSeparator
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+
+    Label
+      id: dealtDamageLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+      text: Dealt Damage: 0
+      color: #e7b4b4
+      font: verdana-11px-rounded
+
+    Label
+      id: dealtDamageHourLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Dealt Damage/h: 0
+      color: #e7b4b4
+      font: verdana-11px-rounded
+
+    Label
+      id: receivedDamageLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Received Damage: 0
+      color: #e2c0c0
+      font: verdana-11px-rounded
+
+    Label
+      id: receivedDamageHourLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Received Damage/h: 0
+      color: #e2c0c0
+      font: verdana-11px-rounded
+
+    HorizontalSeparator
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+
+    Panel
+      id: actionsPanel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: 70
+      margin-top: 4
+
+      Button
+        id: addLootValueButton
+        text: Add Loot Value
+        width: 160
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        @onClick: modules.game_exp_statistics.openLootValueWindow()
+
+      Button
+        id: addSupplyValueButton
+        text: Add Supply Value
+        width: 160
+        anchors.top: prev.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        margin-top: 2
+        @onClick: modules.game_exp_statistics.openSupplyValueWindow()
+
+      Button
+        id: restartButton
+        text: Restart Statistics
+        width: 160
+        anchors.top: prev.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        margin-top: 2
+        @onClick: modules.game_exp_statistics.restartStatistics()
+
+    Label
+      id: lootHint
+      anchors.top: actionsPanel.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+      height: 34
+      text: Loot counts only when moved from corpse to backpack. Supply counts when removed from player containers.
+      color: #a9a9a9
+      font: verdana-11px-rounded
+      text-wrap: true
+
+    HorizontalSeparator
+      anchors.top: lootHint.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+
+    Label
+      id: lootedItemsTitle
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+      text: Looted This Hunt
+      color: #f2c96d
+      text-align: center
+      font: verdana-11px-rounded
+
+    ScrollablePanel
+      id: lootSessionList
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+      height: 120
+      image-source: /images/ui/panel_flat
+      image-border: 1
+      image-color: #424242
+      padding: 3
+      vertical-scrollbar: lootSessionScroll
+      layout:
+        type: verticalBox
+
+    VerticalScrollBar
+      id: lootSessionScroll
+      anchors.top: lootSessionList.top
+      anchors.right: lootSessionList.right
+      anchors.bottom: lootSessionList.bottom
+      step: 24
+      pixels-scroll: true
+
+    HorizontalSeparator
+      anchors.top: lootSessionList.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+
+    Label
+      id: supplyUsedTitle
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+      text: Supply Used This Hunt
+      color: #f2c96d
+      text-align: center
+      font: verdana-11px-rounded
+
+    ScrollablePanel
+      id: supplySessionList
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 4
+      height: 120
+      image-source: /images/ui/panel_flat
+      image-border: 1
+      image-color: #424242
+      padding: 3
+      vertical-scrollbar: supplySessionScroll
+      layout:
+        type: verticalBox
+
+    VerticalScrollBar
+      id: supplySessionScroll
+      anchors.top: supplySessionList.top
+      anchors.right: supplySessionList.right
+      anchors.bottom: supplySessionList.bottom
+      step: 24
+      pixels-scroll: true
+
+    Label
+      id: profitSummaryLabel
+      anchors.top: supplySessionList.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      height: 18
+      text: Profit 0 gp
+      color: #8fd78f
+      text-align: center
+      font: verdana-11px-rounded
