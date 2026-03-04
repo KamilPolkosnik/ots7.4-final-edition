@@ -515,6 +515,9 @@
 	<movevent event="Equip" itemid="7954" slot="ring" function="onEquipItem" />
 	<movevent event="Equip" itemid="7955" slot="ring" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="7955" slot="ring" function="onDeEquipItem" />
+	<movevent event="Equip" itemid="7963" slot="ring" function="onEquipItem" script="ring_of_light.lua" />
+	<movevent event="Equip" itemid="7964" slot="ring" function="onEquipItem" script="ring_of_light.lua" />
+	<movevent event="DeEquip" itemid="7964" slot="ring" function="onDeEquipItem" script="ring_of_light.lua" />
 	
 
 	<!-- Helmets -->

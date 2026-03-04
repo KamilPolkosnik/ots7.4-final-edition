@@ -1,6 +1,7 @@
 local OPCODE_LANGUAGE = 1
 local OPCODE_TASKS = 106
 local OPCODE_TASKS_V2 = 110
+local OPCODE_FOOD_STATUS = 109
 local function logTasks(msg)
 	print("[TasksV2] " .. msg)
 end
@@ -85,6 +86,8 @@ function onExtendedOpcode(player, opcode, buffer)
 				end
 			end
 		end
+	elseif opcode == OPCODE_FOOD_STATUS then
+		player:sendFoodStatus()
 	else
 		-- other opcodes can be ignored, and the server will just work fine...
 	end

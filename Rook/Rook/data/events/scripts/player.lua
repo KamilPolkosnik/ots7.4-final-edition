@@ -139,7 +139,16 @@ function Player:onGainExperience(source, exp, rawExp)
 
 	-- Soul regeneration
 	local vocation = self:getVocation()
-	if self:getSoul() < vocation:getMaxSoul() and exp >= self:getLevel() then
+	local maxSoul = vocation:getMaxSoul()
+	if self.getEffectiveMaxSoul then
+		maxSoul = self:getEffectiveMaxSoul()
+	end
+
+	if self.enforceEffectiveSoulCap then
+		self:enforceEffectiveSoulCap()
+	end
+
+	if self:getSoul() < maxSoul and exp >= self:getLevel() then
 		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks() * 1000)
 		self:addCondition(soulCondition)
 	end

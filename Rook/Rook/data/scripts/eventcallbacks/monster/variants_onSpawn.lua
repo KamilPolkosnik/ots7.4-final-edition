@@ -1,5 +1,18 @@
 local ec = EventCallback
 
+local function getSpawnKey(position, monster)
+  local pos = position
+  if not pos and monster then
+    pos = monster:getPosition()
+  end
+
+  if not pos then
+    return nil
+  end
+
+  return string.format("%d|%d|%d", pos.x, pos.y, pos.z)
+end
+
 local function scheduleVariantEffect(cid, effect, interval)
   if effect <= 0 or interval <= 0 then
     return
@@ -24,6 +37,14 @@ ec.onSpawn = function(self, position, startup, artificial)
 
   if cfg.skipStartupSpawns and startup then
     return true
+  end
+
+  if cfg.pendingSummonPositions then
+    local spawnKey = getSpawnKey(position, self)
+    if spawnKey and cfg.pendingSummonPositions[spawnKey] then
+      cfg.pendingSummonPositions[spawnKey] = nil
+      return true
+    end
   end
 
   if cfg.excludeSummons and self:getMaster() then

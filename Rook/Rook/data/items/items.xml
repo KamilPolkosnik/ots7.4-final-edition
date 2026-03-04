@@ -17060,6 +17060,23 @@
 		<attribute key="duration" value="1800"/>
 		<attribute key="showduration" value="1"/>
 	</item>
+	<item id="7963" article="a" name="ring of light">
+		<attribute key="description" value="It illuminates your surroundings like utevo vis lux."/>
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+		<attribute key="transformEquipTo" value="7964"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="showduration" value="1"/>
+	</item>
+	<item id="7964" article="a" name="ring of light">
+		<attribute key="description" value="It illuminates your surroundings like utevo vis lux."/>
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="transformDeEquipTo" value="7963"/>
+		<attribute key="duration" value="14400"/>
+		<attribute key="showduration" value="1"/>
+	</item>
 	<item id="7956" article="a" name="small quiver">
 		<attribute key="type" value="container"/>
 		<attribute key="containerSize" value="4"/>

@@ -3,5 +3,9 @@ function onLogout(player)
 	if nextUseStaminaTime[playerId] then
 		nextUseStaminaTime[playerId] = nil
 	end
+
+	if player.clearSkullSoulSummonLocks then
+		player:clearSkullSoulSummonLocks()
+	end
 	return true
 end

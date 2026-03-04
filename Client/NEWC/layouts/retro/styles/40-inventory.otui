@@ -254,7 +254,7 @@ InventoryWindow < HeadlessMiniWindow
         border-width: 1
         border-color: #00000077
         background-color: #ffffff22
-        
+
     Panel
       margin-top: 5
       anchors.fill: parent
@@ -330,4 +330,3 @@ InventoryWindow < HeadlessMiniWindow
         InventoryButton
           !text: tr('Logout')
           @onClick: modules.game_interface.tryLogout()
-
