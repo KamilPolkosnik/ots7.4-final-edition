@@ -1,6 +1,7 @@
 local OPCODE_LANGUAGE = 1
 local OPCODE_TASKS = 106
 local OPCODE_TASKS_V2 = 110
+local OPCODE_EXP_STATS = 111
 local OPCODE_FOOD_STATUS = 109
 local function logTasks(msg)
 	print("[TasksV2] " .. msg)
@@ -85,6 +86,33 @@ function onExtendedOpcode(player, opcode, buffer)
 					TaskSystem.cancelTask(player, taskId)
 				end
 			end
+		end
+	elseif opcode == OPCODE_EXP_STATS then
+		local status, data = pcall(function()
+			return json.decode(buffer)
+		end)
+		if not status or type(data) ~= "table" then
+			return true
+		end
+
+		local action = data.action
+		local payload = data.data
+		if action == "fetchClientIds" and type(payload) == "table" and type(payload.ids) == "table" then
+			local map = {}
+			for _, rawId in ipairs(payload.ids) do
+				local serverId = tonumber(rawId)
+				if serverId and serverId > 0 then
+					local itemType = ItemType(serverId)
+					if itemType then
+						local clientId = tonumber(itemType:getClientId()) or 0
+						if clientId > 0 then
+							map[tostring(serverId)] = clientId
+						end
+					end
+				end
+			end
+
+			player:sendExtendedOpcode(OPCODE_EXP_STATS, json.encode({action = "clientIds", data = {map = map}}))
 		end
 	elseif opcode == OPCODE_FOOD_STATUS then
 		player:sendFoodStatus()
