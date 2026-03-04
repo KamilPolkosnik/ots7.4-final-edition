@@ -117,6 +117,12 @@ function onCastSpell(creature, variant)
 		creature:registerSkullSoulSummon(summon)
 	end
 
+	-- Soul lock reduces effective cap; additionally drain current soul immediately.
+	creature:addSoul(-SOUL_LOCK_PER_SUMMON)
+	if creature.enforceEffectiveSoulCap then
+		creature:enforceEffectiveSoulCap()
+	end
+
 	local effectiveMaxSoul = creature.getEffectiveMaxSoul and creature:getEffectiveMaxSoul() or creature:getVocation():getMaxSoul()
 	creature:sendTextMessage(MESSAGE_STATUS_SMALL,
 		string.format("Skull summon active: soul cap reduced by %d (max soul now %d).", SOUL_LOCK_PER_SUMMON, effectiveMaxSoul))

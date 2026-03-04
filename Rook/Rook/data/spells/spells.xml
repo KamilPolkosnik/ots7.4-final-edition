@@ -34,6 +34,12 @@
 		<vocation name="Druid"/>	
 		<vocation name="Elder Druid"/>
 	</instant>
+	<instant name="Ally Res" words="ally res" premium="0" needlearn="0" lvl="0" magiclevel="0" mana="0" soul="5" script="support/ally_res.lua">
+		<vocation name="Sorcerer"/> 
+		<vocation name="Master Sorcerer"/>
+		<vocation name="Druid"/>	
+		<vocation name="Elder Druid"/>
+	</instant>
 	<instant name="Great Light" words="utevo gran lux" magiclevel="3" premium="0" needlearn="0" lvl="0" mana="60" selftarget="1" aggressive="0" script="support/great_light.lua"/>
 	<instant name="Magic Shield" words="utamo vita" magiclevel="3" mana="50" premium="0" selftarget="1" aggressive="0" script="support/magic_shield.lua">
 		<vocation name="Sorcerer"/> 
