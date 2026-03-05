@@ -15697,6 +15697,7 @@
 	<item id="5836" article="a" name="assassin star" plural="assassin stars">
 		<attribute key="weight" value="300" />
 		<attribute key="attack" value="50" />
+		<attribute key="hitChance" value="100" />
 		<attribute key="weaponType" value="distance" />
 		<attribute key="shootType" value="redstar" />		
 		<attribute key="range" value="5" />

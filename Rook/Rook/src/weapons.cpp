@@ -423,6 +423,11 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 		if (getSkillType(player, item, skillType, skillPoint)) {
 			player->addSkillAdvance(skillType, skillPoint);
 		}
+
+		// Exercise rod: random magic gain per hit without mana cost.
+		if (item && item->getID() == 6877) {
+			player->addManaSpent(uniform_random(8, 11));
+		}
 	}
 
 	uint32_t manaCost = getManaCost(player);

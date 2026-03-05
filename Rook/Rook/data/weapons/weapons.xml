@@ -50,7 +50,7 @@
 	<distance id="2399" breakchance="4" action="move" /> <!-- throwing star -->
 	<distance id="2410" breakchance="3" action="move" /> <!-- throwing knife -->
 	<distance id="2543" action="removecount" /> <!-- bolt -->
-		<distance id="5836" breakchance="15" action="move" /> <!-- assassin star-->
+		<distance id="5836" breakchance="33" /> <!-- assassin star: 33% chance to consume, never drops on map -->
 	<distance id="2544" action="removecount" /> <!-- arrow -->
 	<distance id="2545" action="removecount" script="poison_arrow.lua" />
 	<distance id="2546" action="removecount" script="burst_arrow.lua" />
