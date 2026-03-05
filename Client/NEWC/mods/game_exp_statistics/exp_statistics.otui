@@ -79,6 +79,26 @@ MiniWindow
       font: verdana-11px-rounded
 
     Label
+      id: expToLevelLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Exp to level: 0
+      color: #d8d8d8
+      font: verdana-11px-rounded
+
+    Label
+      id: timeToLevelLabel
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-top: 3
+      text: Time to level: --
+      color: #d8d8d8
+      font: verdana-11px-rounded
+
+    Label
       id: goldPerHourLabel
       anchors.top: prev.bottom
       anchors.left: parent.left
