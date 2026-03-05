@@ -201,6 +201,20 @@ local function useAsScythe(player, itemEx, toPosition)
 	return destroyItem(player:getId(), itemEx, toPosition)
 end
 
+local function useAsMachete(itemEx)
+	if not itemEx then
+		return false
+	end
+
+	if itemEx.itemid == 2782 then
+		itemEx:transform(2781)
+		itemEx:decay()
+		return true
+	end
+
+	return false
+end
+
 function onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 	local player = Player(cid)
 	if not player then
@@ -216,6 +230,10 @@ function onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 	end
 
 	if useAsPick(player, itemEx, copyPosition(toPosition)) then
+		return true
+	end
+
+	if useAsMachete(itemEx) then
 		return true
 	end
 

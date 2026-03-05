@@ -425,7 +425,7 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 		}
 
 		// Exercise rod: random magic gain per hit without mana cost.
-		if (item && item->getID() == 6877) {
+		if (item && (item->getID() == 6876 || item->getID() == 6877)) {
 			player->addManaSpent(uniform_random(8, 11));
 		}
 	}

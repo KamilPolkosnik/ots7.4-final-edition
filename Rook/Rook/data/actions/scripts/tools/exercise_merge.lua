@@ -1,4 +1,5 @@
 local EXERCISE_ITEM_IDS = {
+	[6876] = true, -- exercise wand
 	[6877] = true, -- exercise rod
 	[6878] = true, -- exercise bow
 	[6879] = true, -- exercise axe
