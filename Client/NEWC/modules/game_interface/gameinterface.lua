@@ -341,6 +341,11 @@ function resolveUseWithTarget(clickedWidget, mousePosition)
   elseif clickedWidget:getClassName() == 'UICreatureButton' then
     local creature = clickedWidget:getCreature()
     if creature then
+      -- Prevent using selected "use with" targets directly from battle list on players.
+      -- Players should be targeted by clicking them on the map.
+      if creature:isPlayer() then
+        return nil
+      end
       return creature
     end
   end

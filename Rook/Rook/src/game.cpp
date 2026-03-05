@@ -2160,6 +2160,23 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 		return;
 	}
 
+	// Battle-list targeting in some clients can arrive as UseItemEx (0x83) with
+	// toStackPos 0/255. Block offensive rune shots on players for that path.
+	if (RuneSpell* rune = g_spells->getRuneSpell(item->getID())) {
+		if (rune->getAggressive() && toPos.x != 0xFFFF && (toStackPos == 0 || toStackPos == 0xFF)) {
+			if (Tile* tile = map.getTile(toPos)) {
+				if (const CreatureVector* creatures = tile->getCreatures()) {
+					for (Creature* target : *creatures) {
+						if (target && target->getPlayer()) {
+							player->sendCancelMessage(RETURNVALUE_DIRECTPLAYERSHOOT);
+							return;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	Position walkToPos = fromPos;
 	ReturnValue ret = g_actions->canUse(player, fromPos);
 	if (ret == RETURNVALUE_NOERROR) {
@@ -2299,12 +2316,6 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 	}
 
 	bool isHotkey = (fromPos.x == 0xFFFF && fromPos.y == 0 && fromPos.z == 0);
-	if (!g_config.getBoolean(ConfigManager::AIMBOT_HOTKEY_ENABLED)) {
-		if (creature->getPlayer() || isHotkey) {
-			player->sendCancelMessage(RETURNVALUE_DIRECTPLAYERSHOOT);
-			return;
-		}
-	}
 
 	Thing* thing = internalGetThing(player, fromPos, fromStackPos, spriteId, STACKPOS_USEITEM);
 	if (!thing) {
@@ -2316,6 +2327,30 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 	if (!item || !item->isUseable() || item->getClientID() != spriteId) {
 		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
 		return;
+	}
+
+	// Block runes used via "use with creature" packets on players
+	// (e.g. battle list / target hotkey flow).
+	// Map-click crosshair targeting can still work through UseItemEx tile targeting.
+	if (creature->getPlayer()) {
+		const ItemType& it = Item::items[item->getID()];
+		if (it.isRune()) {
+			player->sendCancelMessage(RETURNVALUE_DIRECTPLAYERSHOOT);
+			return;
+		}
+		if (RuneSpell* rune = g_spells->getRuneSpell(item->getID())) {
+			if (rune->getAggressive()) {
+				player->sendCancelMessage(RETURNVALUE_DIRECTPLAYERSHOOT);
+				return;
+			}
+		}
+	}
+
+	if (!g_config.getBoolean(ConfigManager::AIMBOT_HOTKEY_ENABLED)) {
+		if (creature->getPlayer() || isHotkey) {
+			player->sendCancelMessage(RETURNVALUE_DIRECTPLAYERSHOOT);
+			return;
+		}
 	}
 
 	Position toPos = creature->getPosition();

@@ -36,6 +36,20 @@ constexpr uint16_t FIXED_CRITICAL_HIT_AMOUNT = 50;
 constexpr uint16_t FIXED_LIFE_LEECH_CHANCE = 10;
 constexpr uint16_t FIXED_MANA_LEECH_CHANCE = 10;
 
+uint16_t getLeechProcChance(const Player* player, SpecialSkills_t chanceSkill, uint16_t fallbackChance)
+{
+	if (!player) {
+		return fallbackChance;
+	}
+
+	const uint16_t configuredChance = player->getSpecialSkill(chanceSkill);
+	if (configuredChance > 0) {
+		return std::min<uint16_t>(100, configuredChance);
+	}
+
+	return fallbackChance;
+}
+
 void sendLeechGainColoredText(Player* player, int32_t value, TextColor_t color)
 {
 	if (!player || value <= 0) {
@@ -917,7 +931,8 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 
 			if (casterPlayer->getHealth() < casterPlayer->getMaxHealth()) {
 				uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_LIFELEECHAMOUNT);
-				if (skill > 0 && normal_random(1, 100) <= FIXED_LIFE_LEECH_CHANCE) {
+				uint16_t chance = getLeechProcChance(casterPlayer, SPECIALSKILL_LIFELEECHCHANCE, FIXED_LIFE_LEECH_CHANCE);
+				if (skill > 0 && normal_random(1, 100) <= chance) {
 					leechCombat.primary.value = std::round(totalDamage * (skill / 100.));
 					int32_t healthBeforeLeech = casterPlayer->getHealth();
 					g_game.combatChangeHealth(nullptr, casterPlayer, leechCombat);
@@ -929,7 +944,8 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 
 			if (casterPlayer->getMana() < casterPlayer->getMaxMana()) {
 				uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT);
-				if (skill > 0 && normal_random(1, 100) <= FIXED_MANA_LEECH_CHANCE) {
+				uint16_t chance = getLeechProcChance(casterPlayer, SPECIALSKILL_MANALEECHCHANCE, FIXED_MANA_LEECH_CHANCE);
+				if (skill > 0 && normal_random(1, 100) <= chance) {
 					leechCombat.primary.value = std::round(totalDamage * (skill / 100.));
 					int32_t manaBeforeLeech = casterPlayer->getMana();
 					g_game.combatChangeMana(nullptr, casterPlayer, leechCombat);
@@ -1082,7 +1098,8 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 
 				if (casterPlayer->getHealth() < casterPlayer->getMaxHealth()) {
 					uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_LIFELEECHAMOUNT);
-					if (skill > 0 && normal_random(1, 100) <= FIXED_LIFE_LEECH_CHANCE) {
+					uint16_t chance = getLeechProcChance(casterPlayer, SPECIALSKILL_LIFELEECHCHANCE, FIXED_LIFE_LEECH_CHANCE);
+					if (skill > 0 && normal_random(1, 100) <= chance) {
 						leechCombat.primary.value = std::ceil(totalDamage * ((skill / 100.) + ((targetsCount - 1) * ((skill / 100.) / 10.))) / targetsCount);
 						int32_t healthBeforeLeech = casterPlayer->getHealth();
 						g_game.combatChangeHealth(nullptr, casterPlayer, leechCombat);
@@ -1094,7 +1111,8 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 
 				if (casterPlayer->getMana() < casterPlayer->getMaxMana()) {
 					uint16_t skill = casterPlayer->getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT);
-					if (skill > 0 && normal_random(1, 100) <= FIXED_MANA_LEECH_CHANCE) {
+					uint16_t chance = getLeechProcChance(casterPlayer, SPECIALSKILL_MANALEECHCHANCE, FIXED_MANA_LEECH_CHANCE);
+					if (skill > 0 && normal_random(1, 100) <= chance) {
 						leechCombat.primary.value = std::ceil(totalDamage * ((skill / 100.) + ((targetsCount - 1) * ((skill / 100.) / 10.))) / targetsCount);
 						int32_t manaBeforeLeech = casterPlayer->getMana();
 						g_game.combatChangeMana(nullptr, casterPlayer, leechCombat);

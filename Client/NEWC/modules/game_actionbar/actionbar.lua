@@ -1052,6 +1052,16 @@ function setupAction(widget)
           modules.game_interface.startUseWith(item, widget.item:getItemSubType() or - 1)
           return
         end
+        if attackingCreature:isPlayer() then
+          local item = Item.create(widget.item:getItemId())
+          if g_game.getClientVersion() < 780 then
+            local tmpItem = g_game.findPlayerItem(widget.item:getItemId(), widget.item:getItemSubType() or -1)
+            if not tmpItem then return end
+            item = tmpItem
+          end
+          modules.game_interface.startUseWith(item, widget.item:getItemSubType() or - 1)
+          return
+        end
         if not attackingCreature:getTile() then return end
         if g_game.getClientVersion() < 780 then
           local item = g_game.findPlayerItem(widget.item:getItemId(), widget.item:getItemSubType() or -1)

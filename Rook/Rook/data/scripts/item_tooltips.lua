@@ -584,6 +584,8 @@ local function buildExtraStatsPayload(player)
   local lifeLeechAmount = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_LIFELEECHAMOUNT))
   local manaLeechChanceBonus = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_MANALEECHCHANCE))
   local manaLeechAmount = toNumberOrZero(player:getSpecialSkill(SPECIALSKILL_MANALEECHAMOUNT))
+  local lifeLeechChance = lifeLeechChanceBonus > 0 and lifeLeechChanceBonus or FIXED_LIFE_LEECH_CHANCE
+  local manaLeechChance = manaLeechChanceBonus > 0 and manaLeechChanceBonus or FIXED_MANA_LEECH_CHANCE
 
   local aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal, hitChanceTotal = collectExtraStatsBonuses(player)
   local lifeGainPerSecond, manaGainPerSecond = collectEffectiveRegenPerSecond(player)
@@ -595,11 +597,11 @@ local function buildExtraStatsPayload(player)
       criticalDamage = math.floor(FIXED_CRITICAL_HIT_DAMAGE + critDamageBonus),
       criticalDamageBase = FIXED_CRITICAL_HIT_DAMAGE,
       criticalDamageBonus = math.floor(critDamageBonus),
-      lifeLeechChance = clampChance(FIXED_LIFE_LEECH_CHANCE + lifeLeechChanceBonus),
+      lifeLeechChance = clampChance(lifeLeechChance),
       lifeLeechChanceBase = FIXED_LIFE_LEECH_CHANCE,
       lifeLeechChanceBonus = math.floor(lifeLeechChanceBonus),
       lifeLeechAmount = math.floor(lifeLeechAmount),
-      manaLeechChance = clampChance(FIXED_MANA_LEECH_CHANCE + manaLeechChanceBonus),
+      manaLeechChance = clampChance(manaLeechChance),
       manaLeechChanceBase = FIXED_MANA_LEECH_CHANCE,
       manaLeechChanceBonus = math.floor(manaLeechChanceBonus),
       manaLeechAmount = math.floor(manaLeechAmount),
