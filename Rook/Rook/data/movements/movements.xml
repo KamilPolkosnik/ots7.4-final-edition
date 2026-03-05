@@ -702,5 +702,13 @@
 	<movevent event="DeEquip" itemid="5918" slot="shield" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="5920" slot="shield" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="5920" slot="shield" function="onDeEquipItem" />
+
+	<!-- Quivers -->
+	<movevent event="Equip" itemid="7958" slot="quiver" function="onEquipItem" />
+	<movevent event="DeEquip" itemid="7958" slot="quiver" function="onDeEquipItem" />
+	<movevent event="Equip" itemid="7959" slot="quiver" function="onEquipItem" />
+	<movevent event="DeEquip" itemid="7959" slot="quiver" function="onDeEquipItem" />
+	<movevent event="Equip" itemid="7960" slot="quiver" function="onEquipItem" />
+	<movevent event="DeEquip" itemid="7960" slot="quiver" function="onDeEquipItem" />
 	
 </movements>
