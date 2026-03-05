@@ -3,6 +3,7 @@ local OPCODE_TASKS = 106
 local OPCODE_TASKS_V2 = 110
 local OPCODE_EXP_STATS = 111
 local OPCODE_BESTIARY = 112
+local OPCODE_HEADHUNTER = 115
 local OPCODE_FOOD_STATUS = 109
 local function logTasks(msg)
 	print("[TasksV2] " .. msg)
@@ -136,6 +137,34 @@ function onExtendedOpcode(player, opcode, buffer)
 		elseif action == "choose" and type(payload) == "table" then
 			print("[Bestiary] choose from " .. player:getName() .. " taskId=" .. tostring(payload.taskId) .. " type=" .. tostring(payload.bonusType))
 			BestiarySystem.chooseBonus(player, payload.taskId, payload.bonusType)
+		end
+	elseif opcode == OPCODE_HEADHUNTER then
+		if not HeadhunterSystem then
+			print("[Headhunter] HeadhunterSystem is not loaded.")
+			return true
+		end
+
+		local status, data = pcall(function()
+			return json.decode(buffer)
+		end)
+		if not status or type(data) ~= "table" then
+			return true
+		end
+
+		local action = data.action
+		local payload = data.data
+		if action == "fetch" then
+			HeadhunterSystem.sendSnapshot(player)
+		elseif action == "create" and type(payload) == "table" then
+			HeadhunterSystem.createBounty(
+				player,
+				payload.targetName or payload.target or "",
+				payload.reward or 0,
+				payload.description or "",
+				payload.anonymous == true
+			)
+		elseif action == "withdraw" and type(payload) == "table" then
+			HeadhunterSystem.withdrawBounty(player, payload.id)
 		end
 	elseif opcode == OPCODE_FOOD_STATUS then
 		player:sendFoodStatus()

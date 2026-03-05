@@ -67,6 +67,10 @@ function onDeath(player, corpse, killer, mostDamageKiller, lastHitUnjustified, m
 	end
 
 	if byPlayer == 1 then
+		if HeadhunterSystem and HeadhunterSystem.onPlayerKilled then
+			HeadhunterSystem.onPlayerKilled(player, killer)
+		end
+
 		local targetGuild = player:getGuild()
 		targetGuild = targetGuild and targetGuild:getId() or 0
 		if targetGuild ~= 0 then

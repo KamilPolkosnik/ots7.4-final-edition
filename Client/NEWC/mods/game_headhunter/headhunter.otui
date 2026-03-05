@@ -1,0 +1,275 @@
+HeadhunterBountyEntry < Panel
+  height: 62
+  margin-bottom: 2
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #5f6670
+
+  Label
+    id: title
+    anchors.left: parent.left
+    anchors.top: parent.top
+    margin-left: 5
+    margin-top: 3
+    width: 270
+    color: #f0e6bf
+    font: terminus-14px-bold
+    text: -
+
+  Label
+    id: reward
+    anchors.right: parent.right
+    anchors.top: parent.top
+    margin-right: 20
+    margin-top: 5
+    width: 122
+    text-align: right
+    color: #f2c96d
+    text: 0 gp
+
+  Label
+    id: issuer
+    anchors.left: title.left
+    anchors.top: title.bottom
+    margin-top: 2
+    width: 220
+    color: #d0d0d0
+    text: Issuer: -
+
+  Label
+    id: createdAt
+    anchors.right: reward.right
+    anchors.top: reward.bottom
+    margin-top: 2
+    width: 122
+    text-align: right
+    color: #a0a0a0
+    text: -
+
+  Label
+    id: description
+    anchors.left: title.left
+    anchors.right: withdrawButton.left
+    anchors.bottom: parent.bottom
+    margin-bottom: 3
+    margin-right: 8
+    color: #c7d4e6
+    text: -
+
+  Button
+    id: withdrawButton
+    text: Withdraw
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-right: 20
+    margin-bottom: 3
+    width: 72
+    visible: false
+
+HeadhunterLeaderEntry < Panel
+  height: 22
+  margin-bottom: 1
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #494f57
+
+  Label
+    id: rank
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 5
+    width: 26
+    color: #f0d080
+    text: #1
+
+  Label
+    id: name
+    anchors.left: rank.right
+    anchors.verticalCenter: parent.verticalCenter
+    width: 190
+    color: #f0f0f0
+    text: -
+
+  Label
+    id: kills
+    anchors.left: name.right
+    anchors.verticalCenter: parent.verticalCenter
+    width: 90
+    color: #a7f3a7
+    text: 0 kills
+
+  Label
+    id: rewards
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    margin-right: 20
+    width: 140
+    text-align: right
+    color: #f2c96d
+    text: 0 gp
+
+MainWindow
+  id: headhunterWindow
+  !text: tr('Headhunter')
+  size: 500 560
+  @onEscape: modules.game_headhunter.toggle()
+  @onClose: modules.game_headhunter.onWindowClose()
+
+  Label
+    id: infoText
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    text-align: center
+    color: #f0f0f0
+    text: Place bounty contracts and track active contracts.
+
+  Panel
+    id: createPanel
+    anchors.top: infoText.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 6
+    height: 142
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    image-color: #3f3f3f
+    padding: 5
+
+    Label
+      text: Target Name
+      anchors.left: parent.left
+      anchors.top: parent.top
+      color: #f0d080
+
+    TextEdit
+      id: targetInput
+      anchors.left: parent.left
+      anchors.top: prev.bottom
+      margin-top: 2
+      width: 200
+      placeholder: Player nickname
+
+    Label
+      text: Reward (gp)
+      anchors.left: targetInput.right
+      anchors.top: parent.top
+      margin-left: 8
+      color: #f0d080
+
+    TextEdit
+      id: rewardInput
+      anchors.left: targetInput.right
+      anchors.top: prev.bottom
+      margin-top: 2
+      margin-left: 8
+      width: 120
+      placeholder: 5000
+
+    CheckBox
+      id: anonymousCheck
+      text: ""
+      anchors.left: rewardInput.right
+      anchors.top: rewardInput.top
+      margin-left: 12
+
+    Label
+      id: anonymousLabel
+      text: Anonymous
+      anchors.left: anonymousCheck.right
+      anchors.top: anonymousCheck.top
+      margin-left: 4
+      margin-top: -1
+      color: #f0d080
+
+    Label
+      text: Description
+      anchors.left: parent.left
+      anchors.top: targetInput.bottom
+      margin-top: 8
+      color: #f0d080
+
+    TextEdit
+      id: descriptionInput
+      anchors.left: parent.left
+      anchors.right: createButton.left
+      anchors.top: prev.bottom
+      margin-top: 2
+      margin-right: 8
+      placeholder: Why this bounty was placed
+
+    Button
+      id: createButton
+      text: Create Bounty
+      anchors.right: parent.right
+      anchors.top: descriptionInput.top
+      width: 122
+      @onClick: modules.game_headhunter.createBounty()
+
+    Button
+      id: topButton
+      text: Top Headhunters
+      anchors.right: parent.right
+      anchors.top: createButton.bottom
+      margin-top: 6
+      width: 122
+      @onClick: modules.game_headhunter.toggleTopWindow()
+
+  HorizontalSeparator
+    id: separator1
+    anchors.top: createPanel.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 8
+
+  Label
+    id: bountyListTitle
+    anchors.top: separator1.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 4
+    text: Active Bounties
+    color: #f0f0f0
+    text-align: center
+
+  TextEdit
+    id: bountySearchInput
+    anchors.top: bountyListTitle.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 4
+    placeholder: Search by target or issuer nickname
+    @onKeyPress: modules.game_headhunter.onBountySearch()
+
+  ScrollablePanel
+    id: bountiesList
+    anchors.top: bountySearchInput.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: closeButton.top
+    margin-top: 4
+    margin-bottom: 8
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    image-color: #3f3f3f
+    padding: 3
+    vertical-scrollbar: bountiesScroll
+    auto-focus: first
+    layout:
+      type: verticalBox
+
+  VerticalScrollBar
+    id: bountiesScroll
+    anchors.top: bountiesList.top
+    anchors.bottom: bountiesList.bottom
+    anchors.right: bountiesList.right
+    step: 24
+    pixels-scroll: true
+
+  Button
+    id: closeButton
+    !text: tr('Close')
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    width: 64
+    @onClick: modules.game_headhunter.toggle()
