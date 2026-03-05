@@ -7,3 +7,6 @@ Rook/Rook/vc17/theforgo.A10F9657/x64/Release/theforgottenserver-x64.iobj
 Rook/Rook/**/theforgo.*/
 Rook/Rook/**/*.pch
 Rook/Rook/**/*.iobj
+
+# Local backup files created during manual binary swaps
+Rook/Rook/*.bak_*
