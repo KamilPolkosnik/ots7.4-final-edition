@@ -495,6 +495,7 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
   local usingServerData = type(serverExtraStatsSnapshot) == 'table' and type(serverExtraStatsSnapshot.coreStats) == 'table'
   local equipmentLines = {}
   local aggregatedEntries = {}
+  local bestiaryBonusEntries = {}
   local missingTooltip = false
 
   local function readTotalPercent(serverSkillId, tooltipName, aggregatedTotals)
@@ -611,6 +612,24 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
         remainingText = formatDurationHMS(remainingSeconds)
       }
     end
+
+    if type(serverExtraStatsSnapshot.bestiaryBonuses) == 'table' then
+      for i = 1, #serverExtraStatsSnapshot.bestiaryBonuses do
+        local row = serverExtraStatsSnapshot.bestiaryBonuses[i]
+        if type(row) == 'table' then
+          local monster = trimText(tostring(row.monster or ''))
+          local bonusLabel = trimText(tostring(row.bonusLabel or row.bonusType or ''))
+          local percent = math.floor(tonumber(row.percent) or 0)
+          if monster ~= '' and bonusLabel ~= '' and percent > 0 then
+            bestiaryBonusEntries[#bestiaryBonusEntries + 1] = {
+              monster = monster,
+              bonusLabel = bonusLabel,
+              percent = percent
+            }
+          end
+        end
+      end
+    end
   else
     local tooltipLines, tooltipMissing, aggregatedTotals = collectEquipmentBonusLines(player)
     equipmentLines = tooltipLines
@@ -634,6 +653,15 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
       }
     end
   end
+
+  table.sort(bestiaryBonusEntries, function(a, b)
+    local am = a.monster:lower()
+    local bm = b.monster:lower()
+    if am == bm then
+      return a.bonusLabel:lower() < b.bonusLabel:lower()
+    end
+    return am < bm
+  end)
 
   local mergedByKey = {}
 
@@ -767,7 +795,7 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
     return a:lower() < b:lower()
   end)
 
-  local hasAnyDisplayEntries = (#mergedEntries > 0) or (#triggerEntries > 0)
+  local hasAnyDisplayEntries = (#mergedEntries > 0) or (#triggerEntries > 0) or (#bestiaryBonusEntries > 0)
 
   if expBoostState then
     addBonusLine(listPanel, ' ', nil)
@@ -831,6 +859,17 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
         addBonusLine(listPanel, triggerEntries[i], '#d4d4d4')
       end
     end
+
+    addBonusLine(listPanel, ' ', nil)
+    addBonusLine(listPanel, tr('5. Bestiary Bonus'), '#f15a5a')
+    if #bestiaryBonusEntries == 0 then
+      addBonusLine(listPanel, tr('No active bestiary bonuses.'), '#9a9a9a')
+    else
+      for i = 1, #bestiaryBonusEntries do
+        local row = bestiaryBonusEntries[i]
+        addBonusLine(listPanel, string.format('%s | %s | +%d%%', row.monster, row.bonusLabel, row.percent), '#d4d4d4')
+      end
+    end
   end
 
   local lineCount = 0
@@ -844,7 +883,7 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
   if not hasAnyDisplayEntries then
     lineCount = lineCount + 1
   else
-    lineCount = lineCount + 12 + #coreEntries + #skillEntries + #otherEntries + #triggerEntries
+    lineCount = lineCount + 15 + #coreEntries + #skillEntries + #otherEntries + #triggerEntries + #bestiaryBonusEntries
     if #coreEntries == 0 then
       lineCount = lineCount + 1
     end
@@ -855,6 +894,9 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
       lineCount = lineCount + 1
     end
     if #triggerEntries == 0 then
+      lineCount = lineCount + 1
+    end
+    if #bestiaryBonusEntries == 0 then
       lineCount = lineCount + 1
     end
   end

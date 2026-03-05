@@ -1,0 +1,14 @@
+Module
+  name: game_bestiary
+  description: Bestiary window
+  author: Codex
+  version: 1.0.0
+
+  autoload: true
+  sandboxed: true
+  dependencies:
+    - game_interface
+    - client_topmenu
+  scripts: [ bestiary ]
+  @onLoad: init()
+  @onUnload: terminate()

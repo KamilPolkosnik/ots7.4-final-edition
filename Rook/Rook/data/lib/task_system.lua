@@ -501,6 +501,26 @@ function TaskSystem.getTaskHp(monsterName)
     return 0
 end
 
+function TaskSystem.getTaskExp(monsterName)
+    local monsterType = resolveMonsterType(monsterName)
+    if not monsterType then
+        return 0
+    end
+
+    local exp = 0
+    if monsterType.getExperience then
+        exp = monsterType:getExperience() or 0
+    elseif monsterType.experience then
+        exp = monsterType:experience() or 0
+    end
+
+    exp = math.floor(tonumber(exp) or 0)
+    if exp < 0 then
+        exp = 0
+    end
+    return exp
+end
+
 function TaskSystem.getTaskLevel(monsterName)
     return TaskSystem.levels[monsterName] or 1
 end

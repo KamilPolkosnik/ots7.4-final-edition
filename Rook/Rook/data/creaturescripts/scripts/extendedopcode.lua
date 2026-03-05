@@ -2,6 +2,7 @@ local OPCODE_LANGUAGE = 1
 local OPCODE_TASKS = 106
 local OPCODE_TASKS_V2 = 110
 local OPCODE_EXP_STATS = 111
+local OPCODE_BESTIARY = 112
 local OPCODE_FOOD_STATUS = 109
 local function logTasks(msg)
 	print("[TasksV2] " .. msg)
@@ -113,6 +114,28 @@ function onExtendedOpcode(player, opcode, buffer)
 			end
 
 			player:sendExtendedOpcode(OPCODE_EXP_STATS, json.encode({action = "clientIds", data = {map = map}}))
+		end
+	elseif opcode == OPCODE_BESTIARY then
+		if not BestiarySystem then
+			print("[Bestiary] BestiarySystem is not loaded.")
+			return true
+		end
+
+		local status, data = pcall(function()
+			return json.decode(buffer)
+		end)
+		if not status or type(data) ~= "table" then
+			return true
+		end
+
+		local action = data.action
+		local payload = data.data
+		if action == "fetch" then
+			print("[Bestiary] fetch from " .. player:getName())
+			BestiarySystem.sendSnapshot(player)
+		elseif action == "choose" and type(payload) == "table" then
+			print("[Bestiary] choose from " .. player:getName() .. " taskId=" .. tostring(payload.taskId) .. " type=" .. tostring(payload.bonusType))
+			BestiarySystem.chooseBonus(player, payload.taskId, payload.bonusType)
 		end
 	elseif opcode == OPCODE_FOOD_STATUS then
 		player:sendFoodStatus()

@@ -17,4 +17,5 @@ dofile('data/lib/debugging/lua_version.lua')
 
 dofile('data/lib/core/json.lua')
 dofile('data/lib/task_system.lua')
+dofile('data/lib/bestiary_system.lua')
 dofile('data/lib/monster_variants.lua')

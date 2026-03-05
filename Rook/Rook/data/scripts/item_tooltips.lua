@@ -590,6 +590,15 @@ local function buildExtraStatsPayload(player)
   local aggregatedBonuses, equipmentLines, dodgeTotal, reflectTotal, hitChanceTotal = collectExtraStatsBonuses(player)
   local lifeGainPerSecond, manaGainPerSecond = collectEffectiveRegenPerSecond(player)
   local expBoostRemaining = getExpBoostRemainingSeconds(player)
+  local bestiaryBonuses = {}
+  if BestiarySystem and BestiarySystem.getActiveBonuses then
+    local ok, data = pcall(function()
+      return BestiarySystem.getActiveBonuses(player)
+    end)
+    if ok and type(data) == "table" then
+      bestiaryBonuses = data
+    end
+  end
 
   return {
     coreStats = {
@@ -621,6 +630,7 @@ local function buildExtraStatsPayload(player)
       remainingSeconds = expBoostRemaining,
       remainingText = formatDuration(expBoostRemaining)
     },
+    bestiaryBonuses = bestiaryBonuses,
     generatedAt = os.time()
   }
 end
