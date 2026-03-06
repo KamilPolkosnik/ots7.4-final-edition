@@ -2453,8 +2453,7 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 	ReturnValue ret = RETURNVALUE_NOERROR;
 
 	const int32_t& slotPosition = item->getSlotPosition();
-	const bool isExtraBackpackSlot = index == CONST_SLOT_BACKPACK_1 || index == CONST_SLOT_BACKPACK_2 || index == CONST_SLOT_BACKPACK_3;
-	if (index != CONST_SLOT_AMMO && !isExtraBackpackSlot) {
+	if (index != CONST_SLOT_AMMO) {
 		if ((slotPosition & SLOTP_HEAD) || (slotPosition & SLOTP_NECKLACE) ||
 		        (slotPosition & SLOTP_BACKPACK) || (slotPosition & SLOTP_ARMOR) ||
 		        (slotPosition & SLOTP_LEGS) || (slotPosition & SLOTP_FEET) ||
@@ -2616,17 +2615,6 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 
 		case CONST_SLOT_AMMO: {
 			ret = RETURNVALUE_NOERROR;
-			break;
-		}
-
-		case CONST_SLOT_BACKPACK_1:
-		case CONST_SLOT_BACKPACK_2:
-		case CONST_SLOT_BACKPACK_3: {
-			if (slotPosition & SLOTP_BACKPACK) {
-				ret = RETURNVALUE_NOERROR;
-			} else {
-				ret = RETURNVALUE_CANNOTBEDRESSED;
-			}
 			break;
 		}
 

@@ -22,7 +22,21 @@ local function us_IsItemActiveInSlot(item, slot)
     end
 
     if slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
-        return itemType:usesSlot(CONST_SLOT_LEFT) or itemType:usesSlot(CONST_SLOT_RIGHT)
+        local weaponType = itemType:getWeaponType()
+        if weaponType and weaponType ~= WEAPON_NONE then
+            return true
+        end
+
+        local slotPosition = itemType:getSlotPosition()
+        if type(slotPosition) == "number" and type(SLOTP_QUIVER) == "number" then
+            return bit.band(slotPosition, SLOTP_QUIVER) ~= 0
+        end
+
+        return false
+    end
+
+    if slot == CONST_SLOT_AMMO then
+        return itemType:usesSlot(CONST_SLOT_AMMO) and itemType:getWeaponType() == WEAPON_AMMO
     end
 
     return itemType:usesSlot(slot)
@@ -623,7 +637,7 @@ end
 
 local MoveItemEvent = EventCallback
 MoveItemEvent.onMoveItem = function(player, item, count, fromPosition, toPosition, fromCylinder, toCylinder)
-    if not item:getType():isUpgradable() and not item:getType():canHaveItemLevel() or toPosition.y == CONST_SLOT_AMMO then
+    if not item:getType():isUpgradable() and not item:getType():canHaveItemLevel() then
         return true
     end
 
@@ -644,28 +658,26 @@ MoveItemEvent.onMoveItem = function(player, item, count, fromPosition, toPositio
 
     if toPosition.y <= CONST_SLOT_AMMO then
         if toPosition.y ~= CONST_SLOT_BACKPACK then
-            if fromPosition.y >= 64 or fromPosition.x ~= CONTAINER_POSITION then
-                -- remove old
-                local oldItem = player:getSlotItem(toPosition.y)
-                if oldItem then
-                    if oldItem:getType():isUpgradable() then
-                        local oldBonuses = oldItem:getBonusAttributes()
-                        if oldBonuses then
-                            local itemId = oldItem:getId()
-                            for key, value in pairs(oldBonuses) do
-                                local attr = US_ENCHANTMENTS[value[1]]
-                                if attr then
-                                    if attr.combatType == US_TYPES.CONDITION then
-                                        if US_CONDITIONS[value[1]] and US_CONDITIONS[value[1]][value[2]] and US_CONDITIONS[value[1]][value[2]][itemId] then
-                                            if US_CONDITIONS[value[1]][value[2]][itemId]:getType() ~= CONDITION_MANASHIELD then
-                                                player:removeCondition(
-                                                    US_CONDITIONS[value[1]][value[2]][itemId]:getType(),
-                                                    CONDITIONID_COMBAT,
-                                                    US_CONDITIONS[value[1]][value[2]][itemId]:getSubId()
-                                                )
-                                            else
-                                                player:removeCondition(US_CONDITIONS[value[1]][value[2]][itemId]:getType(), CONDITIONID_COMBAT)
-                                            end
+            -- remove old
+            local oldItem = player:getSlotItem(toPosition.y)
+            if oldItem then
+                if oldItem:getType():isUpgradable() then
+                    local oldBonuses = oldItem:getBonusAttributes()
+                    if oldBonuses then
+                        local itemId = oldItem:getId()
+                        for key, value in pairs(oldBonuses) do
+                            local attr = US_ENCHANTMENTS[value[1]]
+                            if attr then
+                                if attr.combatType == US_TYPES.CONDITION then
+                                    if US_CONDITIONS[value[1]] and US_CONDITIONS[value[1]][value[2]] and US_CONDITIONS[value[1]][value[2]][itemId] then
+                                        if US_CONDITIONS[value[1]][value[2]][itemId]:getType() ~= CONDITION_MANASHIELD then
+                                            player:removeCondition(
+                                                US_CONDITIONS[value[1]][value[2]][itemId]:getType(),
+                                                CONDITIONID_COMBAT,
+                                                US_CONDITIONS[value[1]][value[2]][itemId]:getSubId()
+                                            )
+                                        else
+                                            player:removeCondition(US_CONDITIONS[value[1]][value[2]][itemId]:getType(), CONDITIONID_COMBAT)
                                         end
                                     end
                                 end
@@ -673,12 +685,12 @@ MoveItemEvent.onMoveItem = function(player, item, count, fromPosition, toPositio
                         end
                     end
                 end
-                -- apply new
-                if item:getType():isUpgradable() then
-                    local newBonuses = item:getBonusAttributes()
-                    if newBonuses then
-                        addEvent(us_onEquip, 10, player:getId(), item:getUniqueId(), toPosition.y)
-                    end
+            end
+            -- apply new
+            if item:getType():isUpgradable() then
+                local newBonuses = item:getBonusAttributes()
+                if newBonuses then
+                    addEvent(us_onEquip, 10, player:getId(), item:getUniqueId(), toPosition.y)
                 end
             end
         end
@@ -706,7 +718,9 @@ ItemMovedEvent.onItemMoved = function(player, item, count, fromPosition, toPosit
         return
     end
     if toPosition.y <= CONST_SLOT_AMMO and toPosition.y ~= CONST_SLOT_BACKPACK then
-        return
+        if us_IsItemActiveInSlot(item, toPosition.y) then
+            return
+        end
     end
     if fromPosition.y >= 64 and toPosition.y >= 64 then
         return

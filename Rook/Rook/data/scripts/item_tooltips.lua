@@ -257,6 +257,37 @@ local function toNumberOrZero(value)
   return tonumber(value) or 0
 end
 
+local function isItemActiveInSlotForStats(item, slot)
+  if not item then
+    return false
+  end
+
+  local itemType = item:getType()
+  if not itemType then
+    return false
+  end
+
+  if slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
+    local weaponType = itemType:getWeaponType()
+    if weaponType and weaponType ~= WEAPON_NONE then
+      return true
+    end
+
+    local slotPosition = itemType:getSlotPosition()
+    if type(slotPosition) == "number" and type(SLOTP_QUIVER) == "number" then
+      return bit.band(slotPosition, SLOTP_QUIVER) ~= 0
+    end
+
+    return false
+  end
+
+  if slot == CONST_SLOT_AMMO then
+    return itemType:usesSlot(CONST_SLOT_AMMO) and itemType:getWeaponType() == WEAPON_AMMO
+  end
+
+  return itemType:usesSlot(slot)
+end
+
 local function clampChance(value)
   value = toNumberOrZero(value)
   if value < 0 then
@@ -467,7 +498,7 @@ local function collectExtraStatsBonuses(player)
 
   for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
     local item = player:getSlotItem(slot)
-    if item and (item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT) then
+    if item and isItemActiveInSlotForStats(item, slot) then
       collectItemSlotBonuses(item)
       collectItemImplicit(item)
     end
@@ -568,7 +599,7 @@ local function collectEffectiveRegenPerSecond(player)
   for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
     local item = player:getSlotItem(slot)
     local itemType = item and item:getType() or nil
-    if itemType and (itemType:usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT) then
+    if itemType and isItemActiveInSlotForStats(item, slot) then
       lifePerSecond = lifePerSecond + gainPerSecond(itemType:getHealthGain(), itemType:getHealthTicks())
       manaPerSecond = manaPerSecond + gainPerSecond(itemType:getManaGain(), itemType:getManaTicks())
     end
