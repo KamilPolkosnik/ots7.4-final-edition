@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
 	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
+	<globalevent type="startup" name="RashidSpawn" script="RashidSpawn.lua" />
 	<globalevent type="startup" name="TeleportFixups" script="teleport_fixups.lua" />
 	<globalevent type="startup" name="CraftAnvilFixup" script="craft_anvil_fixup.lua" />
 	<globalevent type="startup" name="Key4601DoorFixup" script="key_4601_door_fixup.lua" />

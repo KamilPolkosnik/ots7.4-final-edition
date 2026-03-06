@@ -15234,6 +15234,7 @@
 		<attribute key="description" value="This scroll will upgrade you to golden account for 7 days!"/>
 		<attribute key="weight" value="100"/>
 	</item>
+
 	
 	
 	
@@ -17147,5 +17148,10 @@
 		<attribute key="description" value="A special premium currency coin."/>
 		<attribute key="weight" value="10"/>
 		<attribute key="stackable" value="1"/>
+	</item>
+		<item id="7966" article="a" name="gold converter">
+		<attribute key="description" value="Each use converts 100 gold into 1 platinum, or 100 platinum into 1 crystal coin."/>
+		<attribute key="weight" value="100"/>
+		<attribute key="charges" value="500"/>
 	</item>
 </items>

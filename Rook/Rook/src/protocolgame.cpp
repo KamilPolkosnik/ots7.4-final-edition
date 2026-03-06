@@ -1702,6 +1702,15 @@ void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
 	msg.add<uint32_t>(player->getMoney());
 
 	std::map<uint16_t, uint32_t> saleMap;
+	auto getDisplayCount = [](const ShopInfo& shopInfo, uint32_t ownedCount) -> uint32_t {
+		// Some clients hide entries with count=0. For NPCs that only buy items
+		// (sellPrice > 0, buyPrice == 0), force a minimum display count so the
+		// player can see what the NPC accepts.
+		if (shopInfo.buyPrice == 0 && shopInfo.sellPrice > 0) {
+			return std::max<uint32_t>(1, ownedCount);
+		}
+		return ownedCount;
+	};
 
 	if (shop.size() <= 5) {
 		// For very small shops it's not worth it to create the complete map
@@ -1718,8 +1727,9 @@ void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
 			}
 
 			uint32_t count = player->getItemTypeCount(shopInfo.itemId, subtype);
-			if (count > 0) {
-				saleMap[shopInfo.itemId] = count;
+			uint32_t displayCount = getDisplayCount(shopInfo, count);
+			if (displayCount > 0) {
+				saleMap[shopInfo.itemId] = displayCount;
 			}
 		}
 	}
@@ -1754,14 +1764,17 @@ void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
 					count = subtype;
 				}
 
-				if (count > 0) {
-					saleMap[shopInfo.itemId] = count;
+				uint32_t displayCount = getDisplayCount(shopInfo, count);
+				if (displayCount > 0) {
+					saleMap[shopInfo.itemId] = displayCount;
 				}
 			}
 			else {
 				std::map<uint32_t, uint32_t>::const_iterator findIt = tempSaleMap.find(shopInfo.itemId);
-				if (findIt != tempSaleMap.end() && findIt->second > 0) {
-					saleMap[shopInfo.itemId] = findIt->second;
+				uint32_t count = (findIt != tempSaleMap.end() ? findIt->second : 0);
+				uint32_t displayCount = getDisplayCount(shopInfo, count);
+				if (displayCount > 0) {
+					saleMap[shopInfo.itemId] = displayCount;
 				}
 			}
 		}

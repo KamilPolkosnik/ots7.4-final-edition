@@ -7,6 +7,28 @@
 "change"          -> *
 "exchange"        -> *
 
+"balance"         -> Price=Balance, "Your account balance is %P gold."
+"deposit"         -> "How much gold would you like to deposit?", Topic=100
+"withdraw"        -> "How much gold would you like to withdraw?", Topic=110
+
+Topic=100,"all"      -> Price=CountMoney, "Would you like to deposit all your gold? That is %P gold.", Topic=101
+Topic=100,%1,0<%1    -> Price=%1, "Would you like to deposit %P gold?", Topic=101
+Topic=100            -> "Well, can I help you with something else?"
+
+Topic=101,"yes",Price>0,CountMoney>=Price -> Data=Balance+Price, "Alright, we have added %P gold to your bank account. Your balance is now %D gold.", DeleteMoney, Deposit(Price)
+Topic=101,"yes",Price>0                   -> "You do not have enough gold."
+Topic=101,"yes"                           -> "You don't have any gold with you."
+Topic=101                                 -> "Well, can I help you with something else?"
+
+Topic=110,"all"      -> Price=Balance, "Would you like to withdraw all your money? That is %P gold.", Topic=111
+Topic=110,%1,0<%1    -> Price=%1, "Would you like to withdraw %P gold?", Topic=111
+Topic=110            -> "Well, can I help you with something else?"
+
+Topic=111,"yes",Price>0,Balance>=Price -> Data=Balance-Price, "Here you are, %P gold. Your balance is now %D gold.", CreateMoney, Withdraw(Price)
+Topic=111,"yes",Price>0                -> "There is not enough gold on your account."
+Topic=111,"yes"                        -> "You don't have any gold on your account."
+Topic=111                              -> "Well, can I help you with something else?"
+
 "change","gold",!       -> "How many platinum coins do you want to get?", Topic=91
 "exchange","gold",!     -> *
 "change","platinum",!   -> "Do you want to change your platinum coins to gold or crystal?", Topic=95
