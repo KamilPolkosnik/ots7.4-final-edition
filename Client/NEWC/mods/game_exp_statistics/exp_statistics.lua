@@ -28,6 +28,8 @@ local totalSupplyValue = 0
 
 local expPerHourLabel = nil
 local gainedExpLabel = nil
+local expToLevelLabel = nil
+local timeToLevelLabel = nil
 local goldPerHourLabel = nil
 local totalLootValueLabel = nil
 local supplyPerHourLabel = nil
@@ -298,6 +300,11 @@ local function getAbsoluteExp(player)
   end
 
   return 0, false
+end
+
+local function expForLevel(level)
+  local lvl = math.max(1, math.floor(tonumber(level) or 1))
+  return math.floor((50 * lvl * lvl * lvl) / 3 - 100 * lvl * lvl + (850 * lvl) / 3 - 200)
 end
 
 local function parseExperienceGain(message)
@@ -1706,6 +1713,12 @@ local function updateStats()
     if gainedExpLabel then
       gainedExpLabel:setText("Gained Exp: 0")
     end
+    if expToLevelLabel then
+      expToLevelLabel:setText("Exp to level: 0")
+    end
+    if timeToLevelLabel then
+      timeToLevelLabel:setText("Time to level: --")
+    end
     if goldPerHourLabel then
       goldPerHourLabel:setText("Gold/h: 0")
     end
@@ -1760,6 +1773,20 @@ local function updateStats()
 
   local elapsedSeconds = math.max(1, math.floor((g_clock.millis() - sessionStartMs) / 1000))
   local expPerHour = math.floor((gainedExp * 3600) / elapsedSeconds)
+  local expToLevel = 0
+  local timeToLevelText = "--"
+  local currentLevel = math.max(1, math.floor(tonumber(player:getLevel()) or 1))
+  if hasAbsolute then
+    local nextLevelExp = expForLevel(currentLevel + 1)
+    expToLevel = math.max(0, nextLevelExp - currentExp)
+    if expToLevel <= 0 then
+      timeToLevelText = "00:00:00"
+    elseif expPerHour > 0 then
+      local secondsToLevel = math.max(0, math.floor((expToLevel * 3600) / expPerHour))
+      timeToLevelText = formatDurationHMS(secondsToLevel)
+    end
+  end
+
   local goldPerHour = math.floor((totalLootValue * 3600) / elapsedSeconds)
   local supplyPerHour = math.floor((totalSupplyValue * 3600) / elapsedSeconds)
   local netProfit = totalLootValue - totalSupplyValue
@@ -1771,6 +1798,12 @@ local function updateStats()
   end
   if gainedExpLabel then
     gainedExpLabel:setText("Gained Exp: " .. commaValue(gainedExp))
+  end
+  if expToLevelLabel then
+    expToLevelLabel:setText("Exp to level: " .. commaValue(expToLevel))
+  end
+  if timeToLevelLabel then
+    timeToLevelLabel:setText("Time to level: " .. timeToLevelText)
   end
   if goldPerHourLabel then
     goldPerHourLabel:setText("Gold/h: " .. commaValue(goldPerHour))
@@ -2064,6 +2097,8 @@ local function bindExpStatsWindowRefs()
 
   expPerHourLabel = expStatsWindow:recursiveGetChildById("expPerHourLabel")
   gainedExpLabel = expStatsWindow:recursiveGetChildById("gainedExpLabel")
+  expToLevelLabel = expStatsWindow:recursiveGetChildById("expToLevelLabel")
+  timeToLevelLabel = expStatsWindow:recursiveGetChildById("timeToLevelLabel")
   goldPerHourLabel = expStatsWindow:recursiveGetChildById("goldPerHourLabel")
   totalLootValueLabel = expStatsWindow:recursiveGetChildById("totalLootValueLabel")
   supplyPerHourLabel = expStatsWindow:recursiveGetChildById("supplyPerHourLabel")
@@ -2783,6 +2818,8 @@ function terminate()
 
   expPerHourLabel = nil
   gainedExpLabel = nil
+  expToLevelLabel = nil
+  timeToLevelLabel = nil
   goldPerHourLabel = nil
   totalLootValueLabel = nil
   supplyPerHourLabel = nil

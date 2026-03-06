@@ -4,6 +4,40 @@ local CODE_GAMESTORE = 102
 local GAME_STORE = nil
 
 local LoginEvent = CreatureEvent("GameStoreLogin")
+local PREMIUM_SCROLL_ACTION_15 = 60015
+local PREMIUM_SCROLL_ACTION_60 = 60060
+local PREMIUM_SCROLL_ACTION_120 = 60120
+
+local function premiumScrollStoreCallback(days, actionId)
+	return function(player, offer)
+		local weight = ItemType(offer.itemId):getWeight(offer.count)
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local item = player:addItem(offer.itemId, offer.count, false)
+		if not item then
+			return "Something went wrong, item couldn't be added."
+		end
+
+		if actionId then
+			item:setActionId(actionId)
+			item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Premium account for " .. days .. " days.")
+		end
+
+		return true
+	end
+end
 
 function LoginEvent.onLogin(player)
 	player:registerEvent("GameStoreExtended")
@@ -16,10 +50,52 @@ function gameStoreInitialize()
 		offers = {}
 	}
 
-	addCategory("Items", "Tools, Dolls & Boxes.", "item", 2640)
-	--addItem("Items", "Gem bag", "Open to try your luck and get some empowering or crafting items.", 6512, 1, 25)
-	addItem("Items", "Premium Scroll", "Premium account for 30 days.", 5546, 1, 600)
-	addItem("Items", "Weekly Premium Scroll", "Premium account for 7 days.", 5545, 1, 200)
+	addCategory("Premium", "Premium account scrolls.", "item", 5546)
+	addItem(
+		"Premium",
+		"7 days premium account scroll",
+		"Premium account for 7 days.",
+		5545,
+		1,
+		150,
+		premiumScrollStoreCallback(7)
+	)
+	addItem(
+		"Premium",
+		"15 days premium account scroll",
+		"Premium account for 15 days.",
+		5546,
+		1,
+		200,
+		premiumScrollStoreCallback(15, PREMIUM_SCROLL_ACTION_15)
+	)
+	addItem(
+		"Premium",
+		"30 days premium account scroll",
+		"Premium account for 30 days.",
+		5546,
+		1,
+		300,
+		premiumScrollStoreCallback(30)
+	)
+	addItem(
+		"Premium",
+		"60 days premium account scroll",
+		"Premium account for 60 days.",
+		5546,
+		1,
+		500,
+		premiumScrollStoreCallback(60, PREMIUM_SCROLL_ACTION_60)
+	)
+	addItem(
+		"Premium",
+		"120 days premium account scroll",
+		"Premium account for 120 days.",
+		5546,
+		1,
+		950,
+		premiumScrollStoreCallback(120, PREMIUM_SCROLL_ACTION_120)
+	)
 
 	addCategory(
 		"Outfits",
@@ -57,7 +133,7 @@ function gameStoreInitialize()
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -82,7 +158,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -107,7 +183,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -132,7 +208,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -157,7 +233,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -182,7 +258,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -207,7 +283,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -232,7 +308,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -257,7 +333,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -282,7 +358,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -307,7 +383,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -332,7 +408,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -357,7 +433,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -382,7 +458,7 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 
 addOutfit(
@@ -407,24 +483,36 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	1500
+	450
 )
 	
 
 	addCategory("Mounts", "Here you can find a fine selection of unique mounts.", "mount", 397)
-	addMount("Mounts", "Crystal Wolf", "from the deep ice caves", 1, 388, 1000)
-	addMount("Mounts", "Reindeer", "Must have fallen off the sleigh.", 2, 397, 1000)
-	addMount("Mounts", "Panda", "From the depts of the jungle.", 3, 398, 1000)
-	addMount("Mounts", "Dromedary", "Perfect for the northern heatwaves.", 4, 401, 1000)
-	addMount("Mounts", "Scorpion", "A hard golden armour on this creature.", 5, 402, 1000)
-	addMount("Mounts", "Horse", "A perfect friend for an adventurer.", 6, 415, 1500)
-	addMount("Mounts", "War Horse", "Not for an average joe.", 7, 419, 2000)
-	addMount("Mounts", "Ladybug", "Not for an average joe.", 8, 434, 1500)
-	addMount("Mounts", "Mantis", "At first glance it seems harmless.", 9, 497, 1000)
-	addMount("Mounts", "Dragonling", "Who brought this thing from zao?.", 10, 468, 1500)
-	addMount("Mounts", "Gnarlhound", "Guys come on this is an orc job?.", 11, 475, 1500)
-	addMount("Mounts", "Red Mantis", "Someone must have been fishing huh?.", 12, 476, 1500)
-	addMount("Mounts", "Buffalo", "Been to a swamp or two.", 13, 479, 1500)
+	addMount("Mounts", "Crystal Wolf", "from the deep ice caves", 1, 388, 600)
+	addMount("Mounts", "Reindeer", "Must have fallen off the sleigh.", 2, 397, 600)
+	addMount("Mounts", "Panda", "From the depts of the jungle.", 3, 398, 600)
+	addMount("Mounts", "Dromedary", "Perfect for the northern heatwaves.", 4, 401, 600)
+	addMount("Mounts", "Scorpion", "A hard golden armour on this creature.", 5, 402, 600)
+	addMount("Mounts", "Horse", "A perfect friend for an adventurer.", 6, 415, 600)
+	addMount("Mounts", "War Horse", "Not for an average joe.", 7, 419, 600)
+	addMount("Mounts", "Ladybug", "Not for an average joe.", 8, 434, 600)
+	addMount("Mounts", "Mantis", "At first glance it seems harmless.", 9, 497, 600)
+	addMount("Mounts", "Dragonling", "Who brought this thing from zao?.", 10, 468, 600)
+	addMount("Mounts", "Gnarlhound", "Guys come on this is an orc job?.", 11, 475, 600)
+	addMount("Mounts", "Red Mantis", "Someone must have been fishing huh?.", 12, 476, 600)
+	addMount("Mounts", "Buffalo", "Been to a swamp or two.", 13, 479, 600)
+
+	addCategory("Items", "Utility items and account extras.", "item", 7962)
+	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 100)
+	addItem("Items", "Ring of Light", "A handy source of light.", 7963, 1, 2)
+
+	addCategory("Training", "Exercise weapons for offline training.", "item", 6876)
+	addItem("Training", "Exercise Wand", "Training weapon.", 6876, 1, 50)
+	addItem("Training", "Exercise Rod", "Training weapon.", 6877, 1, 50)
+	addItem("Training", "Exercise Bow", "Training weapon.", 6878, 1, 50)
+	addItem("Training", "Exercise Axe", "Training weapon.", 6879, 1, 50)
+	addItem("Training", "Exercise Sword", "Training weapon.", 6880, 1, 50)
+	addItem("Training", "Exercise Club", "Training weapon.", 6881, 1, 50)
 
 end
 
