@@ -11,6 +11,23 @@ local US_ITEM_TIER_CUSTOM_ATTRIBUTE = "item_tier"
 local US_CRITICAL_EFFECT = 173
 local us_GetItemTier
 
+local function us_IsItemActiveInSlot(item, slot)
+    if not item then
+        return false
+    end
+
+    local itemType = item:getType()
+    if not itemType then
+        return false
+    end
+
+    if slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
+        return itemType:usesSlot(CONST_SLOT_LEFT) or itemType:usesSlot(CONST_SLOT_RIGHT)
+    end
+
+    return itemType:usesSlot(slot)
+end
+
 local function us_CountTable(data)
     local count = 0
     for _ in pairs(data) do
@@ -539,6 +556,10 @@ function us_onEquip(cid, iuid, slot)
     end
     local item = Item(iuid)
     if player and item then
+        if not us_IsItemActiveInSlot(item, slot) then
+            return
+        end
+
         local maxHP = player:getMaxHealth()
         local maxMP = player:getMaxMana()
         local newBonuses = item:getBonusAttributes()
@@ -732,7 +753,7 @@ function us_onLogin(player)
     local maxMP = player:getMaxMana()
     for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
         local item = player:getSlotItem(slot)
-        if item then
+        if item and us_IsItemActiveInSlot(item, slot) then
             local newBonuses = item:getBonusAttributes()
             if newBonuses then
                 local itemId = item:getId()
@@ -845,8 +866,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
             local secondaryTotal = 0
             for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
                 local item = attacker:getSlotItem(slot)
-                if item then
-                    if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
+                if item and us_IsItemActiveInSlot(item, slot) then
                         local values = item:getBonusAttributes()
                         if values then
                             for key, value in pairs(values) do
@@ -863,7 +883,6 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                                 end
                             end
                         end
-                    end
                 end
             end
             if primaryType == COMBAT_HEALING then
@@ -878,8 +897,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
             local secondaryTotal = 0
             for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
                 local item = creature:getSlotItem(slot)
-                if item then
-                    if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
+                if item and us_IsItemActiveInSlot(item, slot) then
                         local values = item:getBonusAttributes()
                         if values then
                             for key, value in pairs(values) do
@@ -896,7 +914,6 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                                 end
                             end
                         end
-                    end
                 end
             end
 
@@ -929,8 +946,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         local manaStealTotal = 0
         for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
             local item = attacker:getSlotItem(slot)
-            if item then
-                if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
+            if item and us_IsItemActiveInSlot(item, slot) then
                     local values = item:getBonusAttributes()
                     if values then
                         for key, value in pairs(values) do
@@ -969,7 +985,6 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                             end
                         end
                     end
-                end
             end
         end
 
@@ -1024,8 +1039,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         local reflectTotal = 0
         for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
             local item = creature:getSlotItem(slot)
-            if item then
-                if item:getType():usesSlot(slot) or slot == CONST_SLOT_LEFT or slot == CONST_SLOT_RIGHT then
+            if item and us_IsItemActiveInSlot(item, slot) then
                     local values = item:getBonusAttributes()
                     if values then
                         for key, value in pairs(values) do
@@ -1058,7 +1072,6 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
                             end
                         end
                     end
-                end
             end
         end
 
@@ -1123,7 +1136,7 @@ function KillEvent.onKill(player, target, lastHit)
     local center = target:getPosition()
     for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
         local item = player:getSlotItem(slot)
-        if item then
+        if item and us_IsItemActiveInSlot(item, slot) then
             local values = item:getBonusAttributes()
             if values then
                 for key, value in pairs(values) do
@@ -1143,7 +1156,7 @@ function PrepareDeathEvent.onPrepareDeath(creature, killer)
     if creature:isPlayer() then
         for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
             local item = creature:getSlotItem(slot)
-            if item then
+            if item and us_IsItemActiveInSlot(item, slot) then
                 local values = item:getBonusAttributes()
                 if values then
                     for key, value in pairs(values) do
@@ -1171,7 +1184,7 @@ local GainExperienceEvent = EventCallback
 GainExperienceEvent.onGainExperience = function(player, source, exp, rawExp)
     for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
         local item = player:getSlotItem(slot)
-        if item then
+        if item and us_IsItemActiveInSlot(item, slot) then
             local values = item:getBonusAttributes()
             if values then
                 for key, value in pairs(values) do
@@ -1257,7 +1270,7 @@ function us_CheckCorpse(monsterType, corpsePosition, killerId)
     if killer and killer:isPlayer() and corpse and corpse:isContainer() then
         for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
             local item = killer:getSlotItem(slot)
-            if item then
+            if item and us_IsItemActiveInSlot(item, slot) then
                 local values = item:getBonusAttributes()
                 if values then
                     for key, value in pairs(values) do

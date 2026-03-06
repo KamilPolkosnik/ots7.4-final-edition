@@ -647,6 +647,9 @@ local LoginEvent = CreatureEvent("TooltipsLogin")
 
 function LoginEvent.onLogin(player)
   player:registerEvent("TooltipsExtended")
+  if player.sendExtraStatsSnapshot then
+    player:sendExtraStatsSnapshot()
+  end
   addEvent(function(playerId)
     local onlinePlayer = Player(playerId)
     if onlinePlayer and onlinePlayer.sendExtraStatsSnapshot then

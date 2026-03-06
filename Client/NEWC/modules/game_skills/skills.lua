@@ -179,6 +179,22 @@ local function clearServerExtraStatsSnapshot()
   lastServerExtraStatsRequestAt = 0
 end
 
+local function isBonusStatsWindowOpen()
+  if not bonusStatsWindow then
+    return false
+  end
+
+  if bonusStatsWindow.isVisible and bonusStatsWindow:isVisible() then
+    return true
+  end
+
+  if bonusStatsWindow.isOn and bonusStatsWindow:isOn() then
+    return true
+  end
+
+  return false
+end
+
 local function requestServerExtraStats(force)
   if not g_game.isOnline() then
     return
@@ -453,7 +469,7 @@ refreshBonusStatsWindow = function(force, suppressServerRequest)
     return
   end
 
-  if not force and not bonusStatsButton:isOn() then
+  if not force and not bonusStatsButton:isOn() and not isBonusStatsWindowOpen() then
     return
   end
 
@@ -922,7 +938,7 @@ local function startBonusStatsPolling()
   end
 
   bonusStatsPollEvent = cycleEvent(function()
-    if not bonusStatsWindow or not bonusStatsButton or not bonusStatsButton:isOn() then
+    if not bonusStatsWindow or not bonusStatsButton or (not bonusStatsButton:isOn() and not isBonusStatsWindowOpen()) then
       return
     end
 
@@ -1032,6 +1048,13 @@ function init()
   refresh()
   skillsWindow:setup()
   bonusStatsWindow:setup()
+
+  if isBonusStatsWindowOpen() then
+    bonusStatsButton:setOn(true)
+    requestServerExtraStats(true)
+    refreshBonusStatsWindow(true)
+    startBonusStatsPolling()
+  end
 end
 
 function terminate()
@@ -1293,6 +1316,16 @@ function refresh()
 
   requestServerExtraStats(true)
   refreshBonusStatsWindow(true)
+
+  if isBonusStatsWindowOpen() then
+    bonusStatsButton:setOn(true)
+    requestServerExtraStats(true)
+    refreshBonusStatsWindow(true)
+    startBonusStatsPolling()
+  else
+    bonusStatsButton:setOn(false)
+    stopBonusStatsPolling()
+  end
 end
 
 function offline()
