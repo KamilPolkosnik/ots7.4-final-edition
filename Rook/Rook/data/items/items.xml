@@ -17149,9 +17149,13 @@
 		<attribute key="weight" value="10"/>
 		<attribute key="stackable" value="1"/>
 	</item>
-		<item id="7966" article="a" name="gold converter">
+	<item id="7966" article="a" name="gold converter">
 		<attribute key="description" value="Each use converts 100 gold into 1 platinum, or 100 platinum into 1 crystal coin."/>
 		<attribute key="weight" value="100"/>
 		<attribute key="charges" value="500"/>
+	</item>
+	<item id="7967" article="a" name="Gold Punch">
+		<attribute key="description" value="A fancy drink with a rich golden color."/>
+		<attribute key="weight" value="120"/>
 	</item>
 </items>

@@ -28,6 +28,43 @@
 extern Game g_game;
 extern Vocations g_vocations;
 
+namespace {
+bool isItemAbilitySlotCompatible(const Item* item, slots_t slot)
+{
+	if (!item) {
+		return false;
+	}
+
+	const uint32_t slotPosition = item->getSlotPosition();
+	switch (slot) {
+		case CONST_SLOT_HEAD:
+			return (slotPosition & SLOTP_HEAD) != 0;
+		case CONST_SLOT_NECKLACE:
+			return (slotPosition & SLOTP_NECKLACE) != 0;
+		case CONST_SLOT_BACKPACK:
+		case CONST_SLOT_BACKPACK_1:
+		case CONST_SLOT_BACKPACK_2:
+		case CONST_SLOT_BACKPACK_3:
+			return (slotPosition & SLOTP_BACKPACK) != 0;
+		case CONST_SLOT_ARMOR:
+			return (slotPosition & SLOTP_ARMOR) != 0;
+		case CONST_SLOT_RIGHT:
+		case CONST_SLOT_LEFT:
+			return (slotPosition & (SLOTP_HAND | SLOTP_TWO_HAND | SLOTP_QUIVER)) != 0;
+		case CONST_SLOT_LEGS:
+			return (slotPosition & SLOTP_LEGS) != 0;
+		case CONST_SLOT_FEET:
+			return (slotPosition & SLOTP_FEET) != 0;
+		case CONST_SLOT_RING:
+			return (slotPosition & SLOTP_RING) != 0;
+		case CONST_SLOT_AMMO:
+			return (slotPosition & SLOTP_AMMO) != 0;
+		default:
+			return false;
+	}
+}
+}
+
 MoveEvents::MoveEvents() :
 	scriptInterface("MoveEvents Interface")
 {
@@ -357,6 +394,9 @@ MoveEvent* MoveEvents::getEvent(Item* item, MoveEvent_t eventType, slots_t slot)
 		case CONST_SLOT_HEAD: slotp = SLOTP_HEAD; break;
 		case CONST_SLOT_NECKLACE: slotp = SLOTP_NECKLACE; break;
 		case CONST_SLOT_BACKPACK: slotp = SLOTP_BACKPACK; break;
+		case CONST_SLOT_BACKPACK_1:
+		case CONST_SLOT_BACKPACK_2:
+		case CONST_SLOT_BACKPACK_3: slotp = SLOTP_BACKPACK; break;
 		case CONST_SLOT_ARMOR: slotp = SLOTP_ARMOR; break;
 		case CONST_SLOT_RIGHT: slotp = (SLOTP_RIGHT | SLOTP_QUIVER); break;
 		case CONST_SLOT_LEFT: slotp = (SLOTP_LEFT | SLOTP_QUIVER); break;
@@ -708,6 +748,11 @@ uint32_t MoveEvent::RemoveItemField(Item*, Item*, const Position&)
 
 ReturnValue MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, slots_t slot, bool isCheck)
 {
+	// Do not grant item abilities when the item sits in an incompatible slot.
+	if (!isItemAbilitySlotCompatible(item, slot)) {
+		return RETURNVALUE_NOERROR;
+	}
+
 	if (!player->hasFlag(PlayerFlag_IgnoreWeaponCheck) && moveEvent->getWieldInfo() != 0) {
 		const VocEquipMap& vocEquipMap = moveEvent->getVocEquipMap();
 		if (!vocEquipMap.empty() && vocEquipMap.find(player->getVocationId()) == vocEquipMap.end()) {
