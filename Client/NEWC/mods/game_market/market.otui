@@ -538,15 +538,37 @@ MarketHistoryWindow < MainWindow
     step: 20
     pixels-scroll: true
 
-  Label
-    id: historyCountLabel
-    anchors.left: parent.left
+  Button
+    id: historyPrevButton
+    text: <
+    anchors.right: historyPageLabel.left
     anchors.bottom: parent.bottom
-    margin-left: 8
+    margin-right: 4
+    margin-bottom: 8
+    width: 24
+    enabled: false
+
+  Label
+    id: historyPageLabel
+    anchors.right: historyNextButton.left
+    anchors.bottom: parent.bottom
+    margin-right: 4
     margin-bottom: 10
-    text: Entries: 0
+    width: 70
+    text: Page 1/1
+    text-align: center
     color: #d0d0d0
     font: verdana-11px-rounded
+
+  Button
+    id: historyNextButton
+    text: >
+    anchors.right: historyCloseButton.left
+    anchors.bottom: parent.bottom
+    margin-right: 4
+    margin-bottom: 8
+    width: 24
+    enabled: false
 
   Button
     id: historyCloseButton

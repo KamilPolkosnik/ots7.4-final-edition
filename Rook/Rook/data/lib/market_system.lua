@@ -64,6 +64,10 @@ local function sendResult(player, ok, message)
 	})
 end
 
+-- Forward declarations used before concrete definitions.
+local getActiveStallPosition
+local canPlayerUseStall
+
 local function dbN(row, col)
 	return tonumber(result.getNumber(row, col)) or 0
 end
@@ -788,6 +792,11 @@ function MarketSystem.openStall(player, stallId)
 		sendResult(player, false, "Shop is no longer active.")
 		return
 	end
+	local canUse, reason = canPlayerUseStall(player, stall)
+	if not canUse then
+		sendResult(player, false, reason or "You cannot access this shop.")
+		return
+	end
 	sendPayload(player, {
 		action = "open",
 		data = {
@@ -1212,6 +1221,57 @@ local function hasDepotZoneAround(centerPos)
 	return false
 end
 
+getActiveStallPosition = function(stall)
+	if not stall then
+		return nil
+	end
+
+	local cid = MarketSystem.byStallCreature[stall.id] or toNum(stall.creatureId, 0)
+	if cid > 0 then
+		local cr = Creature(cid)
+		if cr then
+			local pos = cr:getPosition()
+			if pos then
+				return pos
+			end
+		end
+	end
+
+	if stall.x and stall.y and stall.z then
+		return Position(stall.x, stall.y, stall.z)
+	end
+	return nil
+end
+
+canPlayerUseStall = function(player, stall)
+	if not player or not stall then
+		return false, "Shop is unavailable."
+	end
+
+	local playerPos = player:getPosition()
+	local playerTile = Tile(playerPos)
+	if not playerTile or not playerTile:hasFlag(TILESTATE_PROTECTIONZONE) then
+		return false, "You must stand in a protection zone to use market stalls."
+	end
+
+	local stallPos = getActiveStallPosition(stall)
+	if not stallPos then
+		return false, "Shop is unavailable."
+	end
+
+	if playerPos.z ~= stallPos.z then
+		return false, "You must stand next to the market stall."
+	end
+
+	local dx = math.abs(playerPos.x - stallPos.x)
+	local dy = math.abs(playerPos.y - stallPos.y)
+	if dx > 1 or dy > 1 then
+		return false, "You must stand next to the market stall."
+	end
+
+	return true
+end
+
 function MarketSystem.startShop(player)
 	local active = activeStallForOwner(player:getGuid())
 	if active then
@@ -1404,6 +1464,11 @@ function MarketSystem.buy(player, stallId, offerId, amount)
 	end
 	if stall.ownerGuid == player:getGuid() then
 		sendResult(player, false, "You cannot buy your own offer.")
+		return
+	end
+	local canUse, reason = canPlayerUseStall(player, stall)
+	if not canUse then
+		sendResult(player, false, reason or "You cannot buy from this shop.")
 		return
 	end
 
