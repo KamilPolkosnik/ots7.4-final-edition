@@ -494,6 +494,8 @@ local function getItemSubType(item)
   return tonumber(safeCall(item.getSubType, item)) or 0
 end
 
+local getItemNameFromItem
+
 local function makeSupplySlotSnapshot(item)
   if not item then
     return nil
@@ -506,7 +508,7 @@ local function makeSupplySlotSnapshot(item)
 
   return {
     id = id,
-    name = getItemNameFromItem(item),
+    name = (getItemNameFromItem and getItemNameFromItem(item)) or nil,
     subType = getItemSubType(item),
     count = getItemCount(item)
   }
@@ -529,7 +531,7 @@ local function refreshSupplySlotSnapshots()
   end
 end
 
-local function getItemNameFromItem(item)
+getItemNameFromItem = function(item)
   if not item then
     return nil
   end

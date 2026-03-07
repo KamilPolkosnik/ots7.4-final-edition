@@ -11,7 +11,7 @@ removeChargesFromPotions = true
 removeWeaponAmmunition = true
 removeWeaponCharges = true
 timeToDecreaseFrags = 3 * 24 * 60 * 60
-whiteSkullTime = 30 * 60
+whiteSkullTime = 15 * 60
 stairJumpExhaustion = 0
 experienceByKillingPlayers = true
 expFromPlayersLevelRange = 200
@@ -42,21 +42,21 @@ maxPacketsPerSecond = 120
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
 -- death penalty formula. For the old formula, set it to 10. For
 -- no skill/experience loss, set it to 0.
-deathLosePercent = -1
+deathLosePercent = 10
 
 -- Houses
 -- NOTE: set housePriceEachSQM to -1 to disable the ingame buy house functionality
 -- NOTE: valid values for houseRentPeriod are: "daily", "weekly", "monthly", "yearly"
 -- use any other value to disable the rent system
 housePriceEachSQM = 300
-houseRentPeriod = "never"
+houseRentPeriod = "weekly"
 houseOwnedByAccount = false
 houseDoorShowPrice = true
 onlyInvitedCanMoveHouseItems = true
 
 -- Item Usage
-timeBetweenActions = 200
-timeBetweenExActions = 1000
+timeBetweenActions = 100
+timeBetweenExActions = 500
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
@@ -94,7 +94,7 @@ showScriptsLogInConsole = false
 showOnlineStatusInCharlist = false
 yellMinimumLevel = 2
 yellAlwaysAllowPremium = false
-minimumLevelToSendPrivate = 1
+minimumLevelToSendPrivate = 2
 premiumToSendPrivate = false
 forceMonsterTypesOnLoad = true
 cleanProtectionZones = false
@@ -116,7 +116,7 @@ defaultWorldLight = true
 
 -- Server Save
 -- NOTE: serverSaveNotifyDuration in minutes
-serverSaveNotifyMessage = true
+serverSaveNotifyMessage = false
 serverSaveNotifyDuration = 5
 serverSaveCleanMap = false
 serverSaveClose = false

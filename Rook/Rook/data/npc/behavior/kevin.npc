@@ -126,7 +126,7 @@ Topic=11           -> "Too bad, perhaps another time then."
 Topic=9,"yes"     -> "For your noble deeds I grant you the title Assistant Postofficer. All Postofficers will charge you less money from now on. After every second mission ask me for an ADVANCEMENT. Your next task will be a bit more challenging. Do you feel ready for it?",SetQuestValue(250,1),SetQuestValue(249,1),Topic=10
 Topic=9           -> "Too bad, perhaps another time then."
 
-Topic=10,"yes"     -> "I need you to deliver a bill to the stage magician David Brassacres. He's hiding from his creditors somewhere in Venore. It's likely you will have to trick him somehow to reveal his identity. Report back when you delivered this bill.",Amount=1,Create(2329),SetQuestValue(229,1)
+Topic=10,"yes"     -> "I need you to deliver a bill to the stage magician David Brassacres. He's hiding from his creditors somewhere in Venore. It's likely you will have to trick him somehow to reveal his identity. Report back when you delivered this bill.",Amount=1,Create(1952),SetQuestValue(229,1)
 Topic=10           -> "Too bad, perhaps another time then."
 
 # Topic=8,"yes"     -> "I am glad to hear that. One of our mailboxes was reported to be jammed. It is located on the so called 'mountain' on the isle Folda. Get a crowbar and fix the mailbox. Report about your mission when you have done so.",Topic=9,SetQuestValue(228,1)

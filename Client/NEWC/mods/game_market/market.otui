@@ -1,0 +1,558 @@
+MarketOfferRow < Panel
+  height: 24
+  margin-bottom: 2
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #4f4f4f
+
+  UIItem
+    id: icon
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 2
+    size: 20 20
+    virtual: true
+    phantom: true
+
+  Label
+    id: name
+    anchors.left: icon.right
+    anchors.right: price.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 6
+    margin-right: 4
+    text-align: left
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  Label
+    id: price
+    anchors.right: buyButton.left
+    anchors.verticalCenter: parent.verticalCenter
+    width: 80
+    margin-right: 4
+    text-align: right
+    color: #f0d080
+    font: verdana-11px-rounded
+
+  Button
+    id: removeButton
+    text: X
+    width: 20
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    visible: false
+
+  Button
+    id: buyButton
+    text: Buy
+    width: 40
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    visible: false
+
+MarketDraftSlotRow < Panel
+  height: 36
+  margin-bottom: 2
+  phantom: true
+  layout:
+    type: horizontalBox
+    spacing: 2
+
+MarketDraftSlot < Item
+  size: 34 34
+  selectable: true
+  editable: false
+  draggable: true
+  border-width: 0
+  border-color: #1a1a1a
+
+MarketBrowseSlotRow < Panel
+  height: 36
+  margin-bottom: 2
+  phantom: true
+  layout:
+    type: horizontalBox
+    spacing: 2
+
+MarketBrowseSlot < Item
+  size: 34 34
+  selectable: true
+  editable: false
+  draggable: false
+  border-width: 0
+  border-color: #1a1a1a
+
+MarketContainerSlotRow < Panel
+  height: 36
+  margin-bottom: 2
+  phantom: true
+  layout:
+    type: horizontalBox
+    spacing: 2
+
+MarketContainerSlot < Item
+  size: 34 34
+  selectable: false
+  editable: false
+  draggable: false
+  border-width: 0
+  border-color: #1a1a1a
+
+MarketHistoryRow < Panel
+  height: 22
+  margin-bottom: 2
+  image-source: /images/ui/panel_flat
+  image-border: 1
+  image-color: #4f4f4f
+
+  Label
+    id: date
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 3
+    width: 95
+    text-align: left
+    color: #d9d9d9
+    font: verdana-11px-rounded
+
+  Label
+    id: buyer
+    anchors.left: date.right
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 4
+    width: 110
+    text-align: left
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  Label
+    id: desc
+    anchors.left: buyer.right
+    anchors.right: price.left
+    anchors.verticalCenter: parent.verticalCenter
+    margin-left: 4
+    margin-right: 4
+    text-align: left
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  Label
+    id: price
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+    margin-right: 14
+    width: 90
+    text-align: right
+    color: #f0d080
+    font: verdana-11px-rounded
+
+MainWindow
+  id: marketWindow
+  !text: tr('Market')
+  width: 760
+  height: 500
+  icon: /images/topbuttons/particles
+  @onEscape: self:hide()
+
+  Button
+    id: editDescriptionButton
+    text: Edit Description
+    width: 120
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 8
+    margin-right: 8
+
+  Label
+    id: ticketLabel
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: editDescriptionButton.left
+    margin-top: 10
+    margin-left: 8
+    margin-right: 8
+    text: ""
+    color: #62e15f
+    font: verdana-11px-rounded
+
+  Label
+    id: shopModeLabel
+    anchors.top: ticketLabel.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    text: Manage your own shop.
+    text-align: center
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  ScrollablePanel
+    id: offersList
+    anchors.top: shopModeLabel.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 6
+    margin-left: 8
+    margin-right: 8
+    height: 260
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    image-color: #3f3f3f
+    padding: 3
+    vertical-scrollbar: offersScroll
+    layout:
+      type: verticalBox
+
+  VerticalScrollBar
+    id: offersScroll
+    anchors.top: offersList.top
+    anchors.bottom: offersList.bottom
+    anchors.right: offersList.right
+    step: 20
+    pixels-scroll: true
+
+  Panel
+    id: dropPanel
+    anchors.top: offersList.bottom
+    anchors.left: parent.left
+    margin-top: 8
+    margin-left: 8
+    width: 270
+    height: 112
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    image-color: #464646
+
+  Label
+    id: dropHint
+    anchors.top: dropPanel.top
+    anchors.left: dropPanel.left
+    anchors.right: dropPanel.right
+    margin-top: 4
+    height: 30
+    text: Drop item into slot, then click Set Price.
+    text-wrap: true
+    text-align: center
+    color: #f0d080
+    font: verdana-11px-rounded
+
+  Label
+    id: priceLabel
+    anchors.top: dropHint.bottom
+    anchors.left: dropPanel.left
+    margin-top: 8
+    margin-left: 8
+    text: Price:
+    color: #d0d0d0
+    font: verdana-11px-rounded
+
+  TextEdit
+    id: priceInput
+    anchors.top: dropHint.bottom
+    anchors.left: dropPanel.left
+    margin-top: 6
+    margin-left: 52
+    width: 70
+    height: 20
+    text: 1
+
+  Button
+    id: addButton
+    text: Set Price
+    anchors.top: priceInput.bottom
+    anchors.left: dropPanel.left
+    margin-top: 6
+    margin-left: 8
+    width: 110
+    height: 20
+
+  Label
+    id: unitPriceHintLabel
+    anchors.top: addButton.top
+    anchors.left: addButton.right
+    anchors.right: dropPanel.right
+    margin-left: 6
+    margin-top: 3
+    text: Set Price = price for 1
+    text-wrap: true
+    color: #d0d0d0
+    font: verdana-11px-rounded
+    
+  UIItem
+    id: selectedIcon
+    anchors.top: offersList.bottom
+    anchors.left: dropPanel.right
+    margin-top: 10
+    margin-left: 10
+    size: 42 42
+    virtual: true
+    phantom: true
+
+  Label
+    id: selectedName
+    anchors.top: offersList.bottom
+    anchors.left: selectedIcon.right
+    anchors.right: parent.right
+    margin-top: 10
+    margin-left: 8
+    margin-right: 8
+    text: None selected
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  Label
+    id: selectedDesc
+    anchors.top: selectedName.bottom
+    anchors.left: selectedName.left
+    anchors.right: selectedName.right
+    margin-top: 4
+    text-wrap: true
+    text: Drag item from backpack into drop area.
+    color: #d0d0d0
+    font: verdana-11px-rounded
+
+  Button
+    id: buyButton
+    text: Buy
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    margin-left: 8
+    margin-bottom: 8
+    width: 70
+    visible: false
+
+  Button
+    id: historyButton
+    text: History
+    anchors.bottom: parent.bottom
+    anchors.right: closeButton.left
+    margin-right: 4
+    margin-bottom: 8
+    width: 70
+
+  Button
+    id: startShopButton
+    text: Start Shop
+    anchors.bottom: parent.bottom
+    anchors.right: historyButton.left
+    margin-right: 4
+    margin-bottom: 8
+    width: 90
+
+  Button
+    id: closeButton
+    text: Close
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    margin-right: 8
+    margin-bottom: 8
+    width: 70
+
+MarketContainerWindow < MainWindow
+  id: marketContainerWindow
+  !text: tr('Container Contents')
+  width: 430
+  height: 350
+  icon: /images/topbuttons/particles
+  @onEscape: self:hide()
+
+  Label
+    id: containerPreviewTitle
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 8
+    margin-left: 8
+    margin-right: 8
+    text: Click container item to open its contents.
+    text-wrap: true
+    text-align: center
+    color: #f0d080
+    font: verdana-11px-rounded
+
+  ScrollablePanel
+    id: containerPreviewList
+    anchors.top: containerPreviewTitle.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: containerPreviewBackButton.top
+    margin-top: 6
+    margin-left: 8
+    margin-right: 8
+    margin-bottom: 8
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    image-color: #3f3f3f
+    padding: 3
+    vertical-scrollbar: containerPreviewScroll
+    layout:
+      type: verticalBox
+
+  VerticalScrollBar
+    id: containerPreviewScroll
+    anchors.top: containerPreviewList.top
+    anchors.bottom: containerPreviewList.bottom
+    anchors.right: containerPreviewList.right
+    step: 20
+    pixels-scroll: true
+
+  Button
+    id: containerPreviewBackButton
+    text: Back
+    anchors.bottom: parent.bottom
+    anchors.right: containerPreviewCloseButton.left
+    margin-right: 4
+    margin-bottom: 8
+    width: 70
+    enabled: false
+
+  Button
+    id: containerPreviewCloseButton
+    text: Close
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    margin-right: 8
+    margin-bottom: 8
+    width: 70
+
+MarketDescWindow < MainWindow
+  id: marketDescWindow
+  !text: tr('Edit your Shop Description')
+  width: 360
+  height: 320
+  icon: /images/topbuttons/particles
+  @onEscape: self:hide()
+
+  Label
+    id: descriptionLimitLabel
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 10
+    margin-left: 10
+    margin-right: 10
+    text: Max 30 characters. Counter: 0/30
+    text-wrap: true
+    text-align: center
+    color: #f0d080
+    font: verdana-11px-rounded
+
+  TextEdit
+    id: descriptionInput
+    anchors.top: descriptionLimitLabel.bottom
+    anchors.bottom: descriptionSaveButton.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 8
+    margin-bottom: 8
+    margin-left: 10
+    margin-right: 10
+    multiline: true
+
+  Button
+    id: descriptionSaveButton
+    text: Save
+    anchors.right: descriptionCloseButton.left
+    anchors.bottom: parent.bottom
+    margin-bottom: 8
+    margin-right: 4
+    width: 70
+
+  Button
+    id: descriptionCloseButton
+    text: Close
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-right: 8
+    margin-bottom: 8
+    width: 70
+
+MarketHistoryWindow < MainWindow
+  id: marketHistoryWindow
+  !text: tr('Shop History')
+  width: 760
+  height: 430
+  icon: /images/topbuttons/particles
+  @onEscape: self:hide()
+
+  Label
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-top: 8
+    margin-left: 12
+    text: Date
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  Label
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-top: 8
+    margin-left: 118
+    text: Buyer
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  Label
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-top: 8
+    margin-left: 232
+    text: Description
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  Label
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 8
+    margin-right: 22
+    text: Price
+    color: #f0f0f0
+    font: verdana-11px-rounded
+
+  ScrollablePanel
+    id: historyList
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: historyCloseButton.top
+    margin-top: 26
+    margin-left: 8
+    margin-right: 8
+    margin-bottom: 8
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    image-color: #3f3f3f
+    padding: 3
+    vertical-scrollbar: historyScroll
+    layout:
+      type: verticalBox
+
+  VerticalScrollBar
+    id: historyScroll
+    anchors.top: historyList.top
+    anchors.bottom: historyList.bottom
+    anchors.right: historyList.right
+    step: 20
+    pixels-scroll: true
+
+  Label
+    id: historyCountLabel
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-left: 8
+    margin-bottom: 10
+    text: Entries: 0
+    color: #d0d0d0
+    font: verdana-11px-rounded
+
+  Button
+    id: historyCloseButton
+    text: Close
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-right: 8
+    margin-bottom: 8
+    width: 70

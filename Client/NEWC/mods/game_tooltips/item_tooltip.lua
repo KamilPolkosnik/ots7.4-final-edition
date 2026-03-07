@@ -17,6 +17,7 @@ local tooltipWidth = 0
 local tooltipWidthBase = BASE_WIDTH
 local tooltipHeight = BASE_HEIGHT
 local longestString = 0
+local tooltipRightReservedWidth = 0
 
 local cachedItems = {}
 
@@ -334,10 +335,24 @@ function buildItemTooltip(item)
   local third = item.third
   local weight = item.weight
   local tier = item.tier or 0
+  local hideSprite = item.hideSprite == true
+
+  if hideSprite then
+    itemWeightLabel:setVisible(false)
+    itemSprite:setVisible(false)
+    tooltipRightReservedWidth = 0
+  else
+    itemWeightLabel:setVisible(true)
+    itemSprite:setVisible(true)
+    tooltipRightReservedWidth = itemWeightLabel:getWidth()
+  end
 
   itemWeightLabel:setText(formatWeight(weight))
-
-  itemSprite:setItem(Item.create(id, count))
+  if not hideSprite then
+    itemSprite:setItem(Item.create(id, count))
+  else
+    itemSprite:setItem(nil)
+  end
 
   local itemNameColor
   if unidentified then
@@ -469,11 +484,17 @@ function buildItemTooltip(item)
     end
   end
 
-  if item.rarity ~= 0 then
+  if (maxAttributes and maxAttributes > 0) or (type(attributes) == "table" and #attributes > 0) then
     addSeparator()
     addEmpty(5)
-    for i = 1, maxAttributes do
-      addString(attributes[i], Colors.Attribute)
+    local attrsCount = math.max(0, tonumber(maxAttributes) or 0)
+    if attrsCount <= 0 and type(attributes) == "table" then
+      attrsCount = #attributes
+    end
+    for i = 1, attrsCount do
+      if attributes[i] and tostring(attributes[i]) ~= "" then
+        addString(attributes[i], Colors.Attribute)
+      end
     end
   end
 
@@ -505,7 +526,7 @@ function addString(text, color, resize)
     label:setText(text)
     local textSize = label:getTextSize()
     if longestString == 0 then
-      longestString = textSize.width + itemWeightLabel:getWidth()
+      longestString = textSize.width + tooltipRightReservedWidth
       tooltipWidth = tooltipWidthBase + longestString
       label:addAnchor(AnchorTop, "parent", AnchorTop)
     elseif textSize.width > longestString then

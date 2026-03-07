@@ -19,7 +19,7 @@ QuestValue(229)>1,"brassacres" -> *
 "david"            -> "I never heard that name and now get lost."
 "brassacres"     -> *
 
-QuestValue(229)=2,"bill"    -> Type=2329, Amount=1,"A bill? Oh boy so you are delivering another bill to poor me?",Topic=5
+QuestValue(229)=2,"bill"    -> Type=1952, Amount=1,"A bill? Oh boy so you are delivering another bill to poor me?",Topic=5
 
 Topic=5,"yes",Count(Type)>=Amount     -> "Ok, ok, I'll take it. I guess I have no other choice anyways. And now leave me alone in my misery please.",Delete(Type),SetQuestValue(229,3)
 Topic=5,"yes",Count(Type)<Amount     -> "Ha Ha! You have none!! Naanaanaanaaanaaaa!",Idle

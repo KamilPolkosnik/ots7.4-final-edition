@@ -7,6 +7,7 @@ local LoginEvent = CreatureEvent("GameStoreLogin")
 local PREMIUM_SCROLL_ACTION_15 = 60015
 local PREMIUM_SCROLL_ACTION_60 = 60060
 local PREMIUM_SCROLL_ACTION_120 = 60120
+local MARKET_TICKET_ACTION = 65048
 
 local function premiumScrollStoreCallback(days, actionId)
 	return function(player, offer)
@@ -35,6 +36,36 @@ local function premiumScrollStoreCallback(days, actionId)
 			item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Premium account for " .. days .. " days.")
 		end
 
+		return true
+	end
+end
+
+local function marketTicketStoreCallback()
+	return function(player, offer)
+		local itemType = ItemType(offer.itemId)
+		local weight = itemType and itemType:getWeight(offer.count) or 0
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local item = player:addItem(offer.itemId, offer.count, false)
+		if not item then
+			return "Something went wrong, item couldn't be added."
+		end
+
+		item:setActionId(MARKET_TICKET_ACTION)
+		item:setAttribute(ITEM_ATTRIBUTE_NAME, "market ticket")
+		item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Use to open the Market window. First use starts 48h access time.")
 		return true
 	end
 end
@@ -505,6 +536,7 @@ addOutfit(
 	addCategory("Items", "Utility items and account extras.", "item", 7962)
 	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 100)
 	addItem("Items", "Ring of Light", "A handy source of light.", 7963, 1, 2)
+	addItem("Items", "Market Ticket (48h)", "First use starts 48h market access.", 2329, 1, 100, marketTicketStoreCallback())
 
 	addCategory("Training", "Exercise weapons for offline training.", "item", 6876)
 	addItem("Training", "Exercise Wand", "Training weapon.", 6876, 1, 50)
