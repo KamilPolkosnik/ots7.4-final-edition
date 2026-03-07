@@ -21,6 +21,7 @@ local draftOffers = {}
 local viewedStall = nil
 local viewedOffers = {}
 local historyEntries = {}
+local historyPage = 1
 local ownDescription = ""
 local selectedDraftId = nil
 local selectedOfferId = nil
@@ -28,7 +29,9 @@ local pendingDropTarget = nil
 local marketCountWindow = nil
 local containerPreviewStack = {}
 local knownStallCreatureIds = {}
+local pendingBrowseOpen = false
 local DRAFT_SLOT_MIN = 40
+local HISTORY_PAGE_SIZE = 20
 local onDropItem
 local renderOffers
 local closeContainerPreview
@@ -285,7 +288,7 @@ local function requestStackAmount(itemId, maxCount, callback, unitPrice)
   scrollbar:setMaximum(maximum)
   scrollbar:setValue(maximum)
 
-  spinbox:setMinimum(0)
+  spinbox:setMinimum(1)
   spinbox:setMaximum(maximum)
   spinbox:setValue(0)
   spinbox:hideButtons()
@@ -347,6 +350,8 @@ local function requestStackAmount(itemId, maxCount, callback, unitPrice)
     local val = math.max(1, math.min(maximum, math.floor(toNumber(value, maximum))))
     itemWidget:setItemCount(val)
     updateTotalLabel(val)
+    -- Mark as user-edited so confirm does not force maximum amount.
+    spinbox.firstEdit = false
     spinbox.onValueChange = nil
     spinbox:setValue(val)
     spinbox.onValueChange = spinBoxValueChange
@@ -563,7 +568,11 @@ renderOffers = function()
 
   if #list == 0 then
     local empty = g_ui.createWidget("Label", refs.offersList)
-    empty:setText("This shop has no offers.")
+    if pendingBrowseOpen then
+      empty:setText("Loading shop offers...")
+    else
+      empty:setText("This shop has no offers.")
+    end
     empty:setColor("#b0b0b0")
     closeContainerPreview()
     renderSelection()
@@ -581,6 +590,9 @@ end
 
 local function setMode(mode)
   currentMode = mode == "browse" and "browse" or "own"
+  if currentMode ~= "browse" then
+    pendingBrowseOpen = false
+  end
   refs.editDescriptionButton:setVisible(currentMode == "own")
   refs.startShopButton:setVisible(currentMode == "own")
   refs.historyButton:setVisible(currentMode == "own")
@@ -605,17 +617,43 @@ local function setMode(mode)
   renderOffers()
 end
 
+local function getHistoryPageCount()
+  local total = #historyEntries
+  return math.max(1, math.ceil(total / HISTORY_PAGE_SIZE))
+end
+
+local function clampHistoryPage()
+  local maxPage = getHistoryPageCount()
+  historyPage = math.max(1, math.min(maxPage, math.floor(toNumber(historyPage, 1))))
+end
+
 local function renderHistory()
   if not historyRefs.list then return end
   destroyChildren(historyRefs.list)
-  for _, e in ipairs(historyEntries) do
+
+  clampHistoryPage()
+  local total = #historyEntries
+  local maxPage = getHistoryPageCount()
+  local firstIndex = ((historyPage - 1) * HISTORY_PAGE_SIZE) + 1
+  local lastIndex = math.min(total, firstIndex + HISTORY_PAGE_SIZE - 1)
+
+  for i = firstIndex, lastIndex do
+    local e = historyEntries[i]
     local row = g_ui.createWidget("MarketHistoryRow", historyRefs.list)
     row.date:setText(formatDate(e.createdAt))
     row.buyer:setText(tostring(e.buyerName or "-"))
     row.desc:setText(string.format("%s x%d", tostring(e.itemName or "item"), math.max(1, tonumber(e.count) or 1)))
     row.price:setText(string.format("%s gp", formatNumber(e.totalPrice)))
   end
-  historyRefs.countLabel:setText("Entries: " .. tostring(#historyEntries))
+  if historyRefs.pageLabel then
+    historyRefs.pageLabel:setText(string.format("Page %d/%d", historyPage, maxPage))
+  end
+  if historyRefs.prevButton then
+    historyRefs.prevButton:setEnabled(historyPage > 1)
+  end
+  if historyRefs.nextButton then
+    historyRefs.nextButton:setEnabled(historyPage < maxPage)
+  end
 end
 
 closeContainerPreview = function()
@@ -826,6 +864,7 @@ end
 
 local function applyStall(data)
   data = type(data) == "table" and data or {}
+  pendingBrowseOpen = false
   viewedStall = type(data.stall) == "table" and data.stall or nil
   viewedOffers = type(data.offers) == "table" and data.offers or {}
   if viewedStall then
@@ -877,7 +916,9 @@ local function ensureWindows()
   refs.closeButton = marketWindow:recursiveGetChildById("closeButton")
 
   historyRefs.list = historyWindow:recursiveGetChildById("historyList")
-  historyRefs.countLabel = historyWindow:recursiveGetChildById("historyCountLabel")
+  historyRefs.prevButton = historyWindow:recursiveGetChildById("historyPrevButton")
+  historyRefs.nextButton = historyWindow:recursiveGetChildById("historyNextButton")
+  historyRefs.pageLabel = historyWindow:recursiveGetChildById("historyPageLabel")
   historyRefs.closeButton = historyWindow:recursiveGetChildById("historyCloseButton")
 
   containerRefs.list = containerPreviewWindow:recursiveGetChildById("containerPreviewList")
@@ -959,7 +1000,13 @@ local function ensureWindows()
   end
 
   refs.startShopButton.onClick = function() sendAction("startShop", {}) end
-  refs.historyButton.onClick = function() historyWindow:show(); historyWindow:raise(); sendAction("history", {}) end
+  refs.historyButton.onClick = function()
+    historyPage = 1
+    renderHistory()
+    historyWindow:show()
+    historyWindow:raise()
+    sendAction("history", {})
+  end
   refs.editDescriptionButton.onClick = function()
     descRefs.input:setText(ownDescription or "")
     updateDescriptionCounter()
@@ -972,6 +1019,18 @@ local function ensureWindows()
     marketWindow:hide()
   end
   historyRefs.closeButton.onClick = function() historyWindow:hide() end
+  if historyRefs.prevButton then
+    historyRefs.prevButton.onClick = function()
+      historyPage = historyPage - 1
+      renderHistory()
+    end
+  end
+  if historyRefs.nextButton then
+    historyRefs.nextButton.onClick = function()
+      historyPage = historyPage + 1
+      renderHistory()
+    end
+  end
   containerRefs.closeButton.onClick = function() closeContainerPreview() end
   containerRefs.backButton.onClick = function()
     if #containerPreviewStack > 1 then
@@ -1017,6 +1076,9 @@ end
 local function onResult(data)
   local ok = type(data) == "table" and data.ok == true
   local message = type(data) == "table" and tostring(data.message or "") or ""
+  if pendingBrowseOpen and not ok then
+    pendingBrowseOpen = false
+  end
   if ok then showStatus(message) else showFailure(message) end
 end
 
@@ -1034,6 +1096,9 @@ local function onExtendedOpcode(protocol, opcode, buffer)
   local action = payload.action
   local data = payload.data
   if action == "open" then
+    if type(data) == "table" and data.mode == "browse" then
+      pendingBrowseOpen = false
+    end
     openWindow(type(data) == "table" and data.mode or "own", type(data) == "table" and data.title or "Market")
     if type(data) == "table" and data.ticketRemaining then
       ticketRemaining = math.max(0, math.floor(toNumber(data.ticketRemaining, 0)))
@@ -1073,7 +1138,10 @@ function openFromSelfMenu()
 end
 
 local function openStallByCreature(creatureId)
-  openWindow("browse", "Market")
+  pendingBrowseOpen = true
+  viewedStall = nil
+  viewedOffers = {}
+  selectedOfferId = nil
   sendAction("openByCreature", {creatureId = creatureId})
 end
 
@@ -1149,4 +1217,5 @@ function terminate()
   jsonBuffer = ""
   containerPreviewStack = {}
   knownStallCreatureIds = {}
+  pendingBrowseOpen = false
 end
