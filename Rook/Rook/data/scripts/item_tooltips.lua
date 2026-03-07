@@ -285,6 +285,10 @@ local function isItemActiveInSlotForStats(item, slot)
     return itemType:usesSlot(CONST_SLOT_AMMO) and itemType:getWeaponType() == WEAPON_AMMO
   end
 
+  if slot == CONST_SLOT_TOTEM1 or slot == CONST_SLOT_TOTEM2 or slot == CONST_SLOT_TOTEM3 then
+    return itemType:usesSlot(slot)
+  end
+
   return itemType:usesSlot(slot)
 end
 
@@ -496,7 +500,7 @@ local function collectExtraStatsBonuses(player)
     end
   end
 
-  for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+  for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
     local item = player:getSlotItem(slot)
     if item and isItemActiveInSlotForStats(item, slot) then
       collectItemSlotBonuses(item)
@@ -596,7 +600,7 @@ local function collectEffectiveRegenPerSecond(player)
     manaPerSecond = manaPerSecond + gainPerSecond(vocation:getManaGainAmount(), vocation:getManaGainTicks() * 1000)
   end
 
-  for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+  for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
     local item = player:getSlotItem(slot)
     local itemType = item and item:getType() or nil
     if itemType and isItemActiveInSlotForStats(item, slot) then
@@ -671,7 +675,7 @@ local function isEquipmentPosition(pos)
     return false
   end
 
-  return pos.y <= CONST_SLOT_AMMO and pos.y ~= CONST_SLOT_BACKPACK
+  return pos.y <= CONST_SLOT_LAST and pos.y ~= CONST_SLOT_BACKPACK
 end
 
 local LoginEvent = CreatureEvent("TooltipsLogin")

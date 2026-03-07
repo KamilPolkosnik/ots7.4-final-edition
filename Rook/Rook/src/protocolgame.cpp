@@ -2854,8 +2854,8 @@ void ProtocolGame::sendItems()
 	msg.addByte(0xF5);
 
 	const std::vector<uint16_t>& inventory = Item::items.getInventory();
-	msg.add<uint16_t>(inventory.size() + 11);
-	for (uint16_t i = 1; i <= 11; i++) {
+	msg.add<uint16_t>(inventory.size() + CONST_SLOT_TOTEM3);
+	for (uint16_t i = 1; i <= CONST_SLOT_TOTEM3; i++) {
 		msg.add<uint16_t>(i);
 		msg.addByte(0); //always 0
 		msg.add<uint16_t>(1); // always 1

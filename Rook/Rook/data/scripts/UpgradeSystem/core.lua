@@ -11,6 +11,10 @@ local US_ITEM_TIER_CUSTOM_ATTRIBUTE = "item_tier"
 local US_CRITICAL_EFFECT = 173
 local us_GetItemTier
 
+local function us_IsTotemSlot(slot)
+    return slot == CONST_SLOT_TOTEM1 or slot == CONST_SLOT_TOTEM2 or slot == CONST_SLOT_TOTEM3
+end
+
 local function us_IsItemActiveInSlot(item, slot)
     if not item then
         return false
@@ -37,6 +41,10 @@ local function us_IsItemActiveInSlot(item, slot)
 
     if slot == CONST_SLOT_AMMO then
         return itemType:usesSlot(CONST_SLOT_AMMO) and itemType:getWeaponType() == WEAPON_AMMO
+    end
+
+    if us_IsTotemSlot(slot) then
+        return itemType:usesSlot(slot)
     end
 
     return itemType:usesSlot(slot)
@@ -649,14 +657,14 @@ MoveItemEvent.onMoveItem = function(player, item, count, fromPosition, toPositio
 
     if US_CONFIG.REQUIRE_LEVEL == true then
         if player:getLevel() < item:getItemLevel() and not item:isLimitless() then
-            if toPosition.y <= CONST_SLOT_AMMO and toPosition.y ~= CONST_SLOT_BACKPACK then
+            if toPosition.y <= CONST_SLOT_LAST and toPosition.y ~= CONST_SLOT_BACKPACK then
                 player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need higher level to equip that item.")
                 return false
             end
         end
     end
 
-    if toPosition.y <= CONST_SLOT_AMMO then
+    if toPosition.y <= CONST_SLOT_LAST then
         if toPosition.y ~= CONST_SLOT_BACKPACK then
             -- remove old
             local oldItem = player:getSlotItem(toPosition.y)
@@ -717,7 +725,7 @@ ItemMovedEvent.onItemMoved = function(player, item, count, fromPosition, toPosit
     if not itemType:isUpgradable() then
         return
     end
-    if toPosition.y <= CONST_SLOT_AMMO and toPosition.y ~= CONST_SLOT_BACKPACK then
+    if toPosition.y <= CONST_SLOT_LAST and toPosition.y ~= CONST_SLOT_BACKPACK then
         if us_IsItemActiveInSlot(item, toPosition.y) then
             return
         end
@@ -765,7 +773,7 @@ function us_onLogin(player)
 
     local maxHP = player:getMaxHealth()
     local maxMP = player:getMaxMana()
-    for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+    for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
         local item = player:getSlotItem(slot)
         if item and us_IsItemActiveInSlot(item, slot) then
             local newBonuses = item:getBonusAttributes()
@@ -878,7 +886,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         if attacker:isPlayer() then
             local primaryTotal = 0
             local secondaryTotal = 0
-            for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+            for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
                 local item = attacker:getSlotItem(slot)
                 if item and us_IsItemActiveInSlot(item, slot) then
                         local values = item:getBonusAttributes()
@@ -909,7 +917,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         if creature:isPlayer() then
             local primaryTotal = 0
             local secondaryTotal = 0
-            for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+            for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
                 local item = creature:getSlotItem(slot)
                 if item and us_IsItemActiveInSlot(item, slot) then
                         local values = item:getBonusAttributes()
@@ -958,7 +966,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         local secondaryDamageTotal = 0
         local lifeStealTotal = 0
         local manaStealTotal = 0
-        for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+        for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
             local item = attacker:getSlotItem(slot)
             if item and us_IsItemActiveInSlot(item, slot) then
                     local values = item:getBonusAttributes()
@@ -1051,7 +1059,7 @@ function us_onDamaged(creature, attacker, primaryDamage, primaryType, secondaryD
         local secondaryDamageTotal = 0
         local dodgeTotal = 0
         local reflectTotal = 0
-        for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+        for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
             local item = creature:getSlotItem(slot)
             if item and us_IsItemActiveInSlot(item, slot) then
                     local values = item:getBonusAttributes()
@@ -1148,7 +1156,7 @@ function KillEvent.onKill(player, target, lastHit)
         return
     end
     local center = target:getPosition()
-    for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+    for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
         local item = player:getSlotItem(slot)
         if item and us_IsItemActiveInSlot(item, slot) then
             local values = item:getBonusAttributes()
@@ -1168,7 +1176,7 @@ end
 
 function PrepareDeathEvent.onPrepareDeath(creature, killer)
     if creature:isPlayer() then
-        for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+        for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
             local item = creature:getSlotItem(slot)
             if item and us_IsItemActiveInSlot(item, slot) then
                 local values = item:getBonusAttributes()
@@ -1196,7 +1204,7 @@ end
 
 local GainExperienceEvent = EventCallback
 GainExperienceEvent.onGainExperience = function(player, source, exp, rawExp)
-    for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+    for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
         local item = player:getSlotItem(slot)
         if item and us_IsItemActiveInSlot(item, slot) then
             local values = item:getBonusAttributes()
@@ -1225,6 +1233,9 @@ local function isEquipmentItem(item)
         return true
     end
     if it:isHelmet() or it:isArmor() or it:isLegs() or it:isBoots() then
+        return true
+    end
+    if it:usesSlot(CONST_SLOT_TOTEM1) then
         return true
     end
     if it:isNecklace() or it:isRing() or it:isAmmo() or it:isTrinket() then
@@ -1282,7 +1293,7 @@ function us_CheckCorpse(monsterType, corpsePosition, killerId)
     local killer = Player(killerId)
     local corpse = Tile(corpsePosition):getTopDownItem()
     if killer and killer:isPlayer() and corpse and corpse:isContainer() then
-        for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+        for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
             local item = killer:getSlotItem(slot)
             if item and us_IsItemActiveInSlot(item, slot) then
                 local values = item:getBonusAttributes()
@@ -1492,7 +1503,7 @@ LookEvent.onLook = function(player, thing, position, distance, description)
         end
     elseif thing:isPlayer() then
         local iLvl = 0
-        for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+        for slot = CONST_SLOT_HEAD, CONST_SLOT_LAST do
             local item = thing:getSlotItem(slot)
             if item then
                 iLvl = iLvl + item:getItemLevel()

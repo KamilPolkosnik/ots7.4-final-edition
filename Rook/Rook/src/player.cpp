@@ -48,6 +48,13 @@ MuteCountMap Player::muteCountMap;
 
 uint32_t Player::playerAutoID = 0x10000000;
 
+namespace {
+bool isTotemSlot(const int32_t index)
+{
+	return index == CONST_SLOT_TOTEM1 || index == CONST_SLOT_TOTEM2 || index == CONST_SLOT_TOTEM3;
+}
+}
+
 Player::Player(ProtocolGame_ptr p) :
 	Creature(), lastPing(OTSYS_TIME()), lastPong(lastPing), /*inbox(new Inbox(ITEM_INBOX)), storeInbox(new StoreInbox(ITEM_STORE_INBOX)),*/ client(std::move(p))
 {
@@ -2027,7 +2034,7 @@ BlockType_t Player::blockHit(Creature* attacker, CombatType_t combatType, int32_
 	}
 
 	if (!ignoreResistances) {
-		for (int32_t slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_AMMO; ++slot) {
+		for (int32_t slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; ++slot) {
 			if (!isItemAbilityEnabled(static_cast<slots_t>(slot))) {
 				continue;
 			}
@@ -2453,7 +2460,7 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 	ReturnValue ret = RETURNVALUE_NOERROR;
 
 	const int32_t& slotPosition = item->getSlotPosition();
-	if (index != CONST_SLOT_AMMO) {
+	if (index != CONST_SLOT_AMMO && !isTotemSlot(index)) {
 		if ((slotPosition & SLOTP_HEAD) || (slotPosition & SLOTP_NECKLACE) ||
 		        (slotPosition & SLOTP_BACKPACK) || (slotPosition & SLOTP_ARMOR) ||
 		        (slotPosition & SLOTP_LEGS) || (slotPosition & SLOTP_FEET) ||
@@ -2615,6 +2622,13 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 
 		case CONST_SLOT_AMMO: {
 			ret = RETURNVALUE_NOERROR;
+			break;
+		}
+
+		case CONST_SLOT_TOTEM1:
+		case CONST_SLOT_TOTEM2:
+		case CONST_SLOT_TOTEM3: {
+			ret = (slotPosition & SLOTP_TOTEM) ? RETURNVALUE_NOERROR : RETURNVALUE_CANNOTBEDRESSED;
 			break;
 		}
 

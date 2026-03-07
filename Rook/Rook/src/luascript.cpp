@@ -1444,6 +1444,11 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_SLOT_FEET)
 	registerEnum(CONST_SLOT_RING)
 	registerEnum(CONST_SLOT_AMMO)
+	registerEnum(CONST_SLOT_TOTEM1)
+	registerEnum(CONST_SLOT_TOTEM2)
+	registerEnum(CONST_SLOT_TOTEM3)
+	registerEnum(CONST_SLOT_FIRST)
+	registerEnum(CONST_SLOT_LAST)
 
 	registerEnum(CREATURE_EVENT_NONE)
 	registerEnum(CREATURE_EVENT_LOGIN)
@@ -1830,6 +1835,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(SLOTP_DEPOT)
 	registerEnum(SLOTP_TWO_HAND)
 	registerEnum(SLOTP_QUIVER)
+	registerEnum(SLOTP_TOTEM)
 
 	// Use with combat functions
 	registerEnum(ORIGIN_NONE)
@@ -17039,6 +17045,8 @@ int LuaScriptInterface::luaMoveEventSlot(lua_State* L)
 			moveevent->setSlot(SLOTP_RING);
 		} else if (slotName == "ammo") {
 			moveevent->setSlot(SLOTP_AMMO);
+		} else if (slotName == "totem") {
+			moveevent->setSlot(SLOTP_TOTEM);
 		} else if (slotName == "quiver") {
 			moveevent->setSlot(SLOTP_QUIVER);
 		} else {

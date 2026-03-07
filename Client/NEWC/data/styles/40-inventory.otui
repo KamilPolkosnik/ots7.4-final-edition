@@ -58,9 +58,26 @@ BackSlot < InventoryItem
   $on:
     image-source: /images/game/slots/back-blessed
 
-ExtraBackSlot < InventoryItem
+TotemSlot1 < InventoryItem
+  id: slot12
   image-source: /images/game/slots/totem
-  phantom: true
+  &position: {x=65535, y=12, z=0}
+  $on:
+    image-source: /images/game/slots/totem
+
+TotemSlot2 < InventoryItem
+  id: slot13
+  image-source: /images/game/slots/totem
+  &position: {x=65535, y=13, z=0}
+  $on:
+    image-source: /images/game/slots/totem
+
+TotemSlot3 < InventoryItem
+  id: slot14
+  image-source: /images/game/slots/totem
+  &position: {x=65535, y=14, z=0}
+  $on:
+    image-source: /images/game/slots/totem
 
 RightSlot < InventoryItem
   id: slot5
@@ -243,23 +260,20 @@ InventoryWindow < MiniWindow
         border-color: #00000077
         background-color: #ffffff22
 
-      ExtraBackSlot
-        id: extraBackSlot2
+      TotemSlot2
         anchors.top: conditionPanel.bottom
         anchors.horizontalCenter: conditionPanel.horizontalCenter
         margin-top: 6
 
-      ExtraBackSlot
-        id: extraBackSlot1
+      TotemSlot1
         anchors.top: conditionPanel.bottom
-        anchors.right: extraBackSlot2.left
+        anchors.right: slot13.left
         margin-top: 6
         margin-right: 3
 
-      ExtraBackSlot
-        id: extraBackSlot3
+      TotemSlot3
         anchors.top: conditionPanel.bottom
-        anchors.left: extraBackSlot2.right
+        anchors.left: slot13.right
         margin-top: 6
         margin-left: 3
         

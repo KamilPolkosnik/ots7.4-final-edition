@@ -555,6 +555,7 @@ void Items::buildInventoryList()
 			type.slotPosition & SLOTP_RING ||
 			type.slotPosition & SLOTP_AMMO ||
 			type.slotPosition & SLOTP_QUIVER ||
+			type.slotPosition & SLOTP_TOTEM ||
 			type.slotPosition & SLOTP_FEET ||
 			type.slotPosition & SLOTP_HEAD ||
 			type.slotPosition & SLOTP_ARMOR ||
@@ -805,6 +806,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 						it.slotPosition |= SLOTP_AMMO;
 					} else if (tmpStrValue == "quiver") {
 						it.slotPosition = SLOTP_QUIVER;
+					} else if (tmpStrValue == "totem") {
+						it.slotPosition |= SLOTP_TOTEM;
 					} else if (tmpStrValue == "hand") {
 						it.slotPosition |= SLOTP_HAND;
 					} else {

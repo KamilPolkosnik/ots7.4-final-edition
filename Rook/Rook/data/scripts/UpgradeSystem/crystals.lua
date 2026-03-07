@@ -73,7 +73,7 @@ function CrystalsAction.onUse(player, item, fromPosition, target, toPosition, is
     if not isRarityCrystal and not isTierCrystal and (not targetType or not targetType:isUpgradable()) then
         return false
     end
-    if toPosition.y <= CONST_SLOT_AMMO then
+    if toPosition.y <= CONST_SLOT_LAST then
         player:sendTextMessage(MESSAGE_STATUS_WARNING, "You can't use that on equipped item!")
         player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
         return true

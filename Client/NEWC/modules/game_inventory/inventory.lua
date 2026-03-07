@@ -32,7 +32,10 @@ InventorySlotStyles = {
   [InventorySlotLeg] = "LegSlot",
   [InventorySlotFeet] = "FeetSlot",
   [InventorySlotFinger] = "FingerSlot",
-  [InventorySlotAmmo] = "AmmoSlot"
+  [InventorySlotAmmo] = "AmmoSlot",
+  [InventorySlotTotem1] = "TotemSlot1",
+  [InventorySlotTotem2] = "TotemSlot2",
+  [InventorySlotTotem3] = "TotemSlot3"
 }
 
 inventoryWindow = nil
@@ -215,9 +218,9 @@ function init()
     totemButton = g_ui.getRootWidget():recursiveGetChildById('totemButton')
   end
   totemSlots = {
-    inventoryWindow:recursiveGetChildById('extraBackSlot1'),
-    inventoryWindow:recursiveGetChildById('extraBackSlot2'),
-    inventoryWindow:recursiveGetChildById('extraBackSlot3')
+    inventoryWindow:recursiveGetChildById('slot12'),
+    inventoryWindow:recursiveGetChildById('slot13'),
+    inventoryWindow:recursiveGetChildById('slot14')
   }
   inventoryExpandedHeight = inventoryWindow:getHeight()
   inventoryCollapsedHeight = inventoryExpandedHeight - INVENTORY_TOTEM_ROW_HEIGHT
@@ -345,7 +348,7 @@ end
 
 function refresh()
   local player = g_game.getLocalPlayer()
-  for i = InventorySlotFirst, InventorySlotPurse do
+  for i = InventorySlotFirst, InventorySlotLast do
     if g_game.isOnline() then
       onInventoryChange(player, i, player:getInventoryItem(i))
     else
@@ -386,8 +389,6 @@ end
 
 -- hooked events
 function onInventoryChange(player, slot, item, oldItem)
-  if slot > InventorySlotPurse then return end
-
   if slot == InventorySlotPurse then
     if g_game.getFeature(GamePurseSlot) then
       --purseButton:setEnabled(item and true or false)
@@ -395,7 +396,12 @@ function onInventoryChange(player, slot, item, oldItem)
     return
   end
 
+  if slot > InventorySlotLast then return end
+
   local itemWidget = inventoryPanel:getChildById('slot' .. slot)
+  if not itemWidget then
+    return
+  end
   if item then
     itemWidget:setStyle('InventoryItem')
     itemWidget:setItem(item)

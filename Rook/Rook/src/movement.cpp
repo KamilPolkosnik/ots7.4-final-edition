@@ -29,6 +29,11 @@ extern Game g_game;
 extern Vocations g_vocations;
 
 namespace {
+bool isTotemSlot(const slots_t slot)
+{
+	return slot == CONST_SLOT_TOTEM1 || slot == CONST_SLOT_TOTEM2 || slot == CONST_SLOT_TOTEM3;
+}
+
 bool isItemAbilitySlotCompatible(const Item* item, slots_t slot)
 {
 	if (!item) {
@@ -57,7 +62,7 @@ bool isItemAbilitySlotCompatible(const Item* item, slots_t slot)
 		case CONST_SLOT_AMMO:
 			return (slotPosition & SLOTP_AMMO) != 0 && item->getWeaponType() == WEAPON_AMMO;
 		default:
-			return false;
+			return isTotemSlot(slot) && (slotPosition & SLOTP_TOTEM) != 0;
 	}
 }
 }
@@ -398,6 +403,11 @@ MoveEvent* MoveEvents::getEvent(Item* item, MoveEvent_t eventType, slots_t slot)
 		case CONST_SLOT_FEET: slotp = SLOTP_FEET; break;
 		case CONST_SLOT_AMMO: slotp = SLOTP_AMMO; break;
 		case CONST_SLOT_RING: slotp = SLOTP_RING; break;
+		case CONST_SLOT_TOTEM1:
+		case CONST_SLOT_TOTEM2:
+		case CONST_SLOT_TOTEM3:
+			slotp = SLOTP_TOTEM;
+			break;
 		default: slotp = 0; break;
 	}
 
@@ -634,6 +644,8 @@ bool MoveEvent::configureEvent(const pugi::xml_node& node)
 				slot = SLOTP_RING;
 			} else if (tmpStr == "ammo") {
 				slot = SLOTP_AMMO;
+			} else if (tmpStr == "totem") {
+				slot = SLOTP_TOTEM;
 			} else if (tmpStr == "quiver") {
 				slot = SLOTP_QUIVER;
 			} else {

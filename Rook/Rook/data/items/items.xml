@@ -17156,6 +17156,7 @@
 	</item>
 	<item id="7967" article="a" name="Gold Punch">
 		<attribute key="description" value="A fancy drink with a rich golden color."/>
+		<attribute key="slotType" value="totem"/>
 		<attribute key="weight" value="120"/>
 	</item>
 </items>
