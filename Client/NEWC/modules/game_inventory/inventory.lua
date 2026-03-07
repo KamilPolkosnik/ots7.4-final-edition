@@ -39,6 +39,8 @@ inventoryWindow = nil
 inventoryPanel = nil
 inventoryButton = nil
 purseButton = nil
+totemButton = nil
+totemSlots = nil
 
 combatControlsWindow = nil
 fightOffensiveBox = nil
@@ -54,6 +56,11 @@ soulLabel = nil
 capLabel = nil
 conditionPanel = nil
 foodStatusIcon = nil
+
+local totemSlotsVisible = false
+local inventoryExpandedHeight = 0
+local inventoryCollapsedHeight = 0
+local INVENTORY_TOTEM_ROW_HEIGHT = 40
 
 local foodStatusExpiresAt = 0
 local foodStatusUpdateEvent = nil
@@ -135,6 +142,32 @@ local function requestFoodStatus()
   protocolGame:sendExtendedOpcode(FOOD_STATUS_OPCODE, json.encode({ action = 'request' }))
 end
 
+local function applyTotemSlotsState()
+  if not inventoryWindow or not totemSlots then
+    return
+  end
+
+  for _, widget in ipairs(totemSlots) do
+    if widget then
+      widget:setVisible(totemSlotsVisible)
+    end
+  end
+
+  if inventoryExpandedHeight > 0 then
+    inventoryWindow:setHeight(totemSlotsVisible and inventoryExpandedHeight or inventoryCollapsedHeight)
+  end
+
+  if totemButton then
+    totemButton:setOn(totemSlotsVisible)
+    totemButton:setTooltip(totemSlotsVisible and 'Hide totem slots' or 'Show totem slots')
+  end
+end
+
+local function toggleTotemSlots()
+  totemSlotsVisible = not totemSlotsVisible
+  applyTotemSlotsState()
+end
+
 local function onFoodStatusOpcode(protocol, code, buffer)
   local status, payload = pcall(function()
     return json.decode(buffer)
@@ -176,6 +209,22 @@ function init()
       g_game.use(purse)
     end
   end
+
+  totemButton = inventoryWindow:recursiveGetChildById('totemButton')
+  if not totemButton then
+    totemButton = g_ui.getRootWidget():recursiveGetChildById('totemButton')
+  end
+  totemSlots = {
+    inventoryWindow:recursiveGetChildById('extraBackSlot1'),
+    inventoryWindow:recursiveGetChildById('extraBackSlot2'),
+    inventoryWindow:recursiveGetChildById('extraBackSlot3')
+  }
+  inventoryExpandedHeight = inventoryWindow:getHeight()
+  inventoryCollapsedHeight = inventoryExpandedHeight - INVENTORY_TOTEM_ROW_HEIGHT
+  if totemButton then
+    totemButton.onClick = toggleTotemSlots
+  end
+  applyTotemSlotsState()
   
   -- controls
   fightOffensiveBox = inventoryWindow:recursiveGetChildById('fightOffensiveBox')

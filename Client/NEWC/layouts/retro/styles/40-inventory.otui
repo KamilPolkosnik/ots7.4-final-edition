@@ -58,6 +58,10 @@ BackSlot < InventoryItem
   $on:
     image-source: /images/game/slots/back-blessed
 
+ExtraBackSlot < InventoryItem
+  image-source: /images/game/slots/totem
+  phantom: true
+
 RightSlot < InventoryItem
   id: slot5
   image-source: /images/game/slots/right-hand
@@ -84,6 +88,18 @@ PurseButton < UIButton
 
   $pressed:
     icon-clip: 0 12 34 12
+
+TotemButton < Button
+  id: totemButton
+  size: 34 14
+  !tooltip: tr('Show totem slots')
+  text: Totem
+  font: cipsoftFont
+  text-align: center
+  text-offset: 0 1
+  padding: 0
+  border-width: 1
+  border-color: #c9a23a
 
 CombatBox < UICheckBox
   size: 20 20
@@ -129,7 +145,7 @@ MountButton < CombatBox
 
 InventoryWindow < HeadlessMiniWindow
   icon: /images/topbuttons/inventory
-  height: 178
+  height: 218
   id: inventoryWindow
   @onClose: modules.game_inventory.onMiniWindowClose()
   &save: true
@@ -240,7 +256,12 @@ InventoryWindow < HeadlessMiniWindow
         anchors.left: slot3.left
         anchors.bottom: slot3.top        
         margin-bottom: 3
-  
+
+      TotemButton
+        anchors.horizontalCenter: slot3.horizontalCenter
+        anchors.bottom: slot3.top
+        margin-bottom: 0
+
       Panel
         id: conditionPanel
         layout:
@@ -254,6 +275,26 @@ InventoryWindow < HeadlessMiniWindow
         border-width: 1
         border-color: #00000077
         background-color: #ffffff22
+
+      ExtraBackSlot
+        id: extraBackSlot2
+        anchors.top: conditionPanel.bottom
+        anchors.horizontalCenter: conditionPanel.horizontalCenter
+        margin-top: 6
+
+      ExtraBackSlot
+        id: extraBackSlot1
+        anchors.top: conditionPanel.bottom
+        anchors.right: extraBackSlot2.left
+        margin-top: 6
+        margin-right: 3
+
+      ExtraBackSlot
+        id: extraBackSlot3
+        anchors.top: conditionPanel.bottom
+        anchors.left: extraBackSlot2.right
+        margin-top: 6
+        margin-left: 3
 
     Panel
       margin-top: 5
