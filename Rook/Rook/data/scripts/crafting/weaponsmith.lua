@@ -1743,4 +1743,17 @@ Crafting.weaponsmith = {
             {id = 2151, count = 2},
         }
     },
+    {
+        id = 7968,
+        name = "Trowning glowe",
+        weaponType = "distance",
+        level = 1,
+        cost = 600,
+        count = 1,
+        materials = {
+            {id = 2456, count = 10},
+            {id = 2455, count = 10},
+            {id = 2410, count = 10},
+        }
+    },
 }

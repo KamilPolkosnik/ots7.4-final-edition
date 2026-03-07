@@ -359,8 +359,8 @@ US_ENCHANTMENTS = {
       return "Distance Fighting +" .. value
     end,
     itemType = US_ITEM_TYPES.WEAPON_DISTANCE + US_ITEM_TYPES.RING + US_ITEM_TYPES.NECKLACE + US_ITEM_TYPES.ARMOR + US_ITEM_TYPES.HELMET + US_ITEM_TYPES.LEGS + US_ITEM_TYPES.BOOTS,
-    allowedWeaponTypes = {WEAPON_DISTANCE},
-    allowedAmmoTypes = {AMMO_ARROW, AMMO_BOLT}
+    allowedWeaponTypes = {WEAPON_DISTANCE, WEAPON_CLAW},
+    allowedAmmoTypes = {AMMO_ARROW, AMMO_BOLT, AMMO_CLAW}
   },
   [10] = {
     name = "Shielding",

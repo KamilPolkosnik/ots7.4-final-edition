@@ -1957,7 +1957,7 @@ function Item.getItemType(self)
         if weaponType == WEAPON_SHIELD then
             return US_ITEM_TYPES.SHIELD
         end
-        if weaponType == WEAPON_DISTANCE then
+        if weaponType == WEAPON_DISTANCE or weaponType == WEAPON_CLAW then
             return US_ITEM_TYPES.WEAPON_DISTANCE
         end
         if weaponType == WEAPON_WAND then
@@ -2161,7 +2161,7 @@ function ItemType.isUpgradable(self)
             return false
         end
         if
-            weaponType == WEAPON_SHIELD or weaponType == WEAPON_DISTANCE or weaponType == WEAPON_WAND or
+            weaponType == WEAPON_SHIELD or weaponType == WEAPON_DISTANCE or weaponType == WEAPON_CLAW or weaponType == WEAPON_WAND or
                 isInArray({WEAPON_SWORD, WEAPON_CLUB, WEAPON_AXE}, weaponType)
          then
             return true
@@ -2186,7 +2186,7 @@ function ItemType.canHaveItemLevel(self)
             return false
         end
         if
-            weaponType == WEAPON_SHIELD or weaponType == WEAPON_DISTANCE or weaponType == WEAPON_WAND or
+            weaponType == WEAPON_SHIELD or weaponType == WEAPON_DISTANCE or weaponType == WEAPON_CLAW or weaponType == WEAPON_WAND or
                 isInArray({WEAPON_SWORD, WEAPON_CLUB, WEAPON_AXE}, weaponType)
          then
             return true

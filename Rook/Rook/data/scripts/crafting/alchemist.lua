@@ -54,10 +54,32 @@ Crafting.alchemist = {
         name = "poison arrow",
         alchemyType = "ammunition",
         level = 20,
-        cost = 0,
+        cost = 10,
         count = 1,
         materials = {
             {id = 2544, count = 2} -- arrow
+        }
+    },
+    {
+        id = 2410,
+        name = "throwing knife",
+        alchemyType = "ammunition",
+        level = 1,
+        cost = 50,
+        count = 10,
+        materials = {
+            {id = 2403, count = 1} -- knife
+        }
+    },
+    {
+        id = 2399,
+        name = "throwing star",
+        alchemyType = "ammunition",
+        level = 1,
+        cost = 100,
+        count = 1,
+        materials = {
+            {id = 2410, count = 5} -- throwing knife
         }
     },
     {
@@ -65,7 +87,7 @@ Crafting.alchemist = {
         name = "burst arrow",
         alchemyType = "ammunition",
         level = 35,
-        cost = 0,
+        cost = 200,
         count = 10,
         materials = {
             {id = 2544, count = 10}, -- arrow
@@ -77,7 +99,7 @@ Crafting.alchemist = {
         name = "power bolt",
         alchemyType = "ammunition",
         level = 45,
-        cost = 0,
+        cost = 30,
         count = 1,
         materials = {
             {id = 2543, count = 28} -- bolt
@@ -88,10 +110,22 @@ Crafting.alchemist = {
         name = "infernal bolt",
         alchemyType = "ammunition",
         level = 70,
-        cost = 0,
+        cost = 500,
         count = 1,
         materials = {
             {id = 2547, count = 10} -- power bolt
+        }
+    },
+    {
+        id = 5836,
+        name = "assassin star",
+        alchemyType = "ammunition",
+        level = 100,
+        cost = 500,
+        count = 1,
+        materials = {
+            {id = 5971, count = 10}, -- infernal bolt
+            {id = 2399, count = 10} -- throwing star
         }
     }
 }

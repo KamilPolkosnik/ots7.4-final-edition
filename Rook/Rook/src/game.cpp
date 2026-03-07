@@ -75,12 +75,13 @@ bool isQuiverCompatibleDistanceWeapon(const Item* item)
 	}
 
 	const ItemType& it = Item::items[item->getID()];
-	return it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT;
+	return it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT || it.ammoType == AMMO_CLAW;
 }
 
 bool isQuiverCompatibleDistanceWeapon(const ItemType& it)
 {
-	return it.weaponType == WEAPON_DISTANCE && (it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT);
+	return it.weaponType == WEAPON_DISTANCE &&
+	       (it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT || it.ammoType == AMMO_CLAW);
 }
 } // namespace
 

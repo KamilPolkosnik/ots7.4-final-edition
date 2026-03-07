@@ -423,6 +423,7 @@ enum WeaponType_t : uint8_t {
 	WEAPON_DISTANCE,
 	WEAPON_WAND,
 	WEAPON_AMMO,
+	WEAPON_CLAW,
 };
 
 enum Ammo_t : uint8_t {
@@ -434,6 +435,7 @@ enum Ammo_t : uint8_t {
 	AMMO_THROWINGKNIFE,
 	AMMO_STONE,
 	AMMO_SNOWBALL,
+	AMMO_CLAW,
 };
 
 enum WeaponAction_t : uint8_t {

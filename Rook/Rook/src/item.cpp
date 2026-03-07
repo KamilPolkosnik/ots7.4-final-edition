@@ -957,7 +957,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 	} else if (it.weaponType != WEAPON_NONE) {
 		bool begin = true;
-		if (it.weaponType == WEAPON_DISTANCE) {
+		if (it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_CLAW) {
 			int32_t attack, defense;
 			int8_t hitChance;
 			if (item) {

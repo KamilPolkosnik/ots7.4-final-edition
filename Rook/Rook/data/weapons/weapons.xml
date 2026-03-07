@@ -48,10 +48,10 @@
 	<distance id="1294" breakchance="7" action="move"/> <!-- small stone -->
 	<distance id="2111" action="removecount" /> <!-- snowball -->
 	<distance id="2389" action="move"/> <!-- spear -->
-	<distance id="2399" breakchance="4" action="move" /> <!-- throwing star -->
-	<distance id="2410" breakchance="3" action="move" /> <!-- throwing knife -->
+	<distance id="2399" level="40" breakchance="60" action="move" /> <!-- throwing star -->
+	<distance id="2410" breakchance="40" action="move" /> <!-- throwing knife -->
 	<distance id="2543" action="removecount" /> <!-- bolt -->
-		<distance id="5836" breakchance="33" /> <!-- assassin star: 33% chance to consume, never drops on map -->
+		<distance id="5836" level="100" breakchance="85" /> <!-- assassin star: 85% chance to consume, never drops on map -->
 	<distance id="2544" action="removecount" /> <!-- arrow -->
 	<distance id="2545" action="removecount" script="poison_arrow.lua" />
 	<distance id="2546" action="removecount" script="burst_arrow.lua" />

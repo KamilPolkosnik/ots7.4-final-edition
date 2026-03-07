@@ -1159,6 +1159,8 @@ function formatItemType(itemType)
       return "Axe"
     elseif weaponType == WEAPON_DISTANCE then
       return "Distance"
+    elseif weaponType == WEAPON_CLAW then
+      return "Claw"
     elseif weaponType == WEAPON_WAND then
       return "Wand"
     elseif slotPosition == SLOTP_HEAD then

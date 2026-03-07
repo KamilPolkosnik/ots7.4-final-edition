@@ -139,7 +139,8 @@ local axeOverrides = {
             {id = 2193, count = 10} -- ankh
         }
     }, -- royal axe
-    [5923] = {disabled = true} -- thornfang axe (variant)
+    [5923] = {disabled = true}, -- thornfang axe (variant)
+    [6879] = {disabled = true} -- exercise axe
 }
 
 -- Manual sword filters/recipes.
@@ -285,7 +286,8 @@ local swordOverrides = {
             {id = 2231, count = 5}, -- big bone
             {id = 2349, count = 5} -- blue note
         }
-    } -- blacksteel sword
+    }, -- blacksteel sword
+    [6880] = {disabled = true} -- exercise sword
 }
 
 -- Manual club filters/recipes.
@@ -445,7 +447,8 @@ local clubOverrides = {
             {id = 2220, count = 50}, -- dirty fur
             {id = 2110, count = 200} -- doll
         }
-    } -- golden war hammer
+    }, -- golden war hammer
+    [6881] = {disabled = true} -- exercise club
 }
 
 -- Manual distance filters/recipes.
@@ -461,6 +464,7 @@ local distanceOverrides = {
     [2410] = {disabled = true}, -- throwing knife (loot)
     [2455] = {disabled = true}, -- crossbow (loot/quest)
     [2456] = {disabled = true}, -- bow (loot/quest)
+    [6878] = {disabled = true}, -- exercise bow
     [5754] = {
         cost = 100000,
         materials = {

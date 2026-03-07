@@ -53,7 +53,7 @@ bool npcCanHaveItemLevel(const ItemType& it)
 			return false;
 		}
 
-		return it.weaponType == WEAPON_SHIELD || it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_WAND ||
+		return it.weaponType == WEAPON_SHIELD || it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_CLAW || it.weaponType == WEAPON_WAND ||
 			it.weaponType == WEAPON_SWORD || it.weaponType == WEAPON_CLUB || it.weaponType == WEAPON_AXE;
 	}
 

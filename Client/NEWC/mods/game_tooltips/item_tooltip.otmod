@@ -4,7 +4,7 @@ Module
   author: Oen
   website: None
   sandboxed: true
-  autoload: true
+  autoload: false
   scripts: [ item_tooltip ]
   @onLoad: init()
   @onUnload: terminate()

@@ -53,6 +53,22 @@ bool isTotemSlot(const int32_t index)
 {
 	return index == CONST_SLOT_TOTEM1 || index == CONST_SLOT_TOTEM2 || index == CONST_SLOT_TOTEM3;
 }
+
+bool isClawAmmoItem(const Item* item)
+{
+	if (!item) {
+		return false;
+	}
+
+	switch (item->getID()) {
+		case 2399: // throwing star
+		case 2410: // throwing knife
+		case 5836: // assassin star
+			return true;
+		default:
+			return false;
+	}
+}
 }
 
 Player::Player(ProtocolGame_ptr p) :
@@ -231,6 +247,12 @@ Item* Player::getAmmunitionItem(Ammo_t ammoType) const
 	return nullptr;
 }
 
+Item* Player::getClawAmmunitionItem() const
+{
+	Item* ammoItem = inventory[CONST_SLOT_AMMO];
+	return isClawAmmoItem(ammoItem) ? ammoItem : nullptr;
+}
+
 bool Player::isQuiverItem(const Item* item) const
 {
 	if (!item) {
@@ -253,7 +275,7 @@ bool Player::isQuiverCompatibleWeapon(const Item* item) const
 	}
 
 	const ItemType& it = Item::items[item->getID()];
-	if (it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT) {
+	if (it.ammoType == AMMO_ARROW || it.ammoType == AMMO_BOLT || it.ammoType == AMMO_CLAW) {
 		return true;
 	}
 
@@ -293,6 +315,12 @@ Item* Player::getWeapon(slots_t slot, bool ignoreAmmo) const
 			}
 			item = ammoItem;
 		}
+	} else if (!ignoreAmmo && weaponType == WEAPON_CLAW) {
+		Item* ammoItem = getClawAmmunitionItem();
+		if (!ammoItem) {
+			return nullptr;
+		}
+		item = ammoItem;
 	}
 	return item;
 }
@@ -345,7 +373,8 @@ int32_t Player::getWeaponSkill(const Item* item) const
 			break;
 		}
 
-		case WEAPON_DISTANCE: {
+		case WEAPON_DISTANCE:
+		case WEAPON_CLAW: {
 			attackSkill = getSkillLevel(SKILL_DISTANCE);
 			break;
 		}

@@ -684,6 +684,7 @@ AmmoTypeNames ammoTypeNames = {
 	{"flammingarrow",	AMMO_ARROW},
 	{"shiverarrow",		AMMO_ARROW},
 	{"eartharrow",		AMMO_ARROW},
+	{"claw",		AMMO_CLAW},
 };
 
 WeaponActionNames weaponActionNames = {
@@ -890,6 +891,7 @@ std::string getWeaponName(WeaponType_t weaponType)
 		case WEAPON_DISTANCE: return "distance";
 		case WEAPON_WAND: return "wand";
 		case WEAPON_AMMO: return "ammunition";
+		case WEAPON_CLAW: return "claw";
 		default: return std::string();
 	}
 }

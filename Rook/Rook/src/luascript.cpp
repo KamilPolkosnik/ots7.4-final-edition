@@ -1131,6 +1131,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(AMMO_THROWINGKNIFE)
 	registerEnum(AMMO_STONE)
 	registerEnum(AMMO_SNOWBALL)
+	registerEnum(AMMO_CLAW)
 
 	registerEnum(BUG_CATEGORY_MAP)
 	registerEnum(BUG_CATEGORY_TYPO)
@@ -1805,6 +1806,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(WEAPON_DISTANCE)
 	registerEnum(WEAPON_WAND)
 	registerEnum(WEAPON_AMMO)
+	registerEnum(WEAPON_CLAW)
 
 	registerEnum(WORLD_TYPE_NO_PVP)
 	registerEnum(WORLD_TYPE_PVP)
@@ -17418,6 +17420,7 @@ int LuaScriptInterface::luaCreateWeapon(lua_State* L)
 			break;
 		}
 		case WEAPON_DISTANCE:
+		case WEAPON_CLAW:
 		case WEAPON_AMMO: {
 			WeaponDistance* weapon = new WeaponDistance(getScriptEnv()->getScriptInterface());
 			if (weapon) {
@@ -17484,7 +17487,7 @@ int LuaScriptInterface::luaWeaponRegister(lua_State* L)
 	}
 
 	if (auto* weapon = *weaponPtr) {
-		if (weapon->weaponType == WEAPON_DISTANCE || weapon->weaponType == WEAPON_AMMO) {
+		if (weapon->weaponType == WEAPON_DISTANCE || weapon->weaponType == WEAPON_AMMO || weapon->weaponType == WEAPON_CLAW) {
 			weapon = getUserdata<WeaponDistance>(L, 1);
 		} else if (weapon->weaponType == WEAPON_WAND) {
 			weapon = getUserdata<WeaponWand>(L, 1);

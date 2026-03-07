@@ -48,6 +48,10 @@ function ItemType:isBow()
 	return self:getWeaponType() == WEAPON_DISTANCE and (ammoType == AMMO_ARROW or ammoType == AMMO_BOLT)
 end
 
+function ItemType:isClaw()
+	return self:getWeaponType() == WEAPON_CLAW
+end
+
 function ItemType:isMissile()
 	local ammoType = self:getAmmoType()
 	return self:getWeaponType() == WEAPON_DISTANCE and ammoType ~= AMMO_ARROW and ammoType ~= AMMO_BOLT

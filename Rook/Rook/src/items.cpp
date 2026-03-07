@@ -34,6 +34,7 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
 	{"description", ITEM_PARSE_DESCRIPTION},
 	{"runespellname", ITEM_PARSE_RUNESPELLNAME},
 	{"weight", ITEM_PARSE_WEIGHT},
+	{"stackable", ITEM_PARSE_STACKABLE},
 	{"showcount", ITEM_PARSE_SHOWCOUNT},
 	{"armor", ITEM_PARSE_ARMOR},
 	{"defense", ITEM_PARSE_DEFENSE},
@@ -193,6 +194,7 @@ const std::unordered_map<std::string, WeaponType_t> WeaponTypesMap = {
 	{"distance", WEAPON_DISTANCE},
 	{"wand", WEAPON_WAND},
 	{"ammunition", WEAPON_AMMO},
+	{"claw", WEAPON_CLAW},
 };
 
 const std::unordered_map<std::string, FluidTypes_t> FluidTypesMap = {
@@ -648,6 +650,11 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 
 				case ITEM_PARSE_WEIGHT: {
 					it.weight = pugi::cast<uint32_t>(valueAttribute.value());
+					break;
+				}
+
+				case ITEM_PARSE_STACKABLE: {
+					it.stackable = valueAttribute.as_bool();
 					break;
 				}
 

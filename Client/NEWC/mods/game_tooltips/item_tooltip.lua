@@ -329,7 +329,7 @@ function buildItemTooltip(item)
   local maxAttributes = item.maxAttributes
   local attributes = item.attributes
   local count = item.count or 1
-  local type = item.type
+  local itemTypeName = item.type
   local first = item.first
   local second = item.second
   local third = item.third
@@ -398,27 +398,27 @@ function buildItemTooltip(item)
   end
 
   local firstText, secondText, thirdText
-  if (type == "Armor" or type == "Helmet" or type == "Legs" or type == "Ring" or type == "Necklace" or type == "Boots") and first ~= 0 then
+  if (itemTypeName == "Armor" or itemTypeName == "Helmet" or itemTypeName == "Legs" or itemTypeName == "Ring" or itemTypeName == "Necklace" or itemTypeName == "Boots") and first ~= 0 then
     firstText = "Armor: " .. first
   elseif
-    type == "Two-Handed Sword" or type == "Two-Handed Club" or type == "Two-Handed Axe" or type == "Sword" or type == "Club" or type == "Axe" or type == "Fist" or
-      type == "Distance" or
-      type == "Ammunition"
+    itemTypeName == "Two-Handed Sword" or itemTypeName == "Two-Handed Club" or itemTypeName == "Two-Handed Axe" or itemTypeName == "Sword" or itemTypeName == "Club" or itemTypeName == "Axe" or itemTypeName == "Fist" or
+      itemTypeName == "Distance" or
+      itemTypeName == "Ammunition"
    then
     firstText = "Attack: " .. first
-  elseif type == "Shield" or type == "Quiver" then
+  elseif itemTypeName == "Shield" or itemTypeName == "Quiver" then
     firstText = "Defense: " .. second
   end
 
-  if type == "Two-Handed Sword" or type == "Two-Handed Club" or type == "Two-Handed Axe" or type == "Sword" or type == "Club" or type == "Axe" or type == "Fist" then
+  if itemTypeName == "Two-Handed Sword" or itemTypeName == "Two-Handed Club" or itemTypeName == "Two-Handed Axe" or itemTypeName == "Sword" or itemTypeName == "Club" or itemTypeName == "Axe" or itemTypeName == "Fist" then
     secondText = "Defense: " .. second
-  elseif type == "Distance" then
+  elseif itemTypeName == "Distance" then
     secondText = "Hit Chance: +" .. second .. "%"
   end
 
-  if type == "Two-Handed Sword" or type == "Two-Handed Club" or type == "Two-Handed Axe" or type == "Sword" or type == "Club" or type == "Axe" or type == "Fist" then
+  if itemTypeName == "Two-Handed Sword" or itemTypeName == "Two-Handed Club" or itemTypeName == "Two-Handed Axe" or itemTypeName == "Sword" or itemTypeName == "Club" or itemTypeName == "Axe" or itemTypeName == "Fist" then
     thirdText = "Extra-Defense: " .. third
-  elseif type == "Distance" then
+  elseif itemTypeName == "Distance" then
     thirdText = "Shoot Range: " .. third
   end
 
@@ -426,7 +426,7 @@ function buildItemTooltip(item)
       addString("Required Level " .. reqLvl, Colors.ItemLevel)
   end
 
-  if (firstText and (type == "Shield" or type == "Quiver" or type == "Ring" or type == "Necklace")) or (first ~= 0 and second == 0 and third == 0) then
+  if (firstText and (itemTypeName == "Shield" or itemTypeName == "Quiver" or itemTypeName == "Ring" or itemTypeName == "Necklace")) or (first ~= 0 and second == 0 and third == 0) then
     addSeparator()
     addEmpty(5)
     addString(firstText, Colors.Default)
@@ -435,7 +435,7 @@ function buildItemTooltip(item)
     addEmpty(5)
     addString(firstText, Colors.Default)
     addString(secondText, Colors.Default)
-  elseif first ~= 0 and second ~= 0 and third ~= 0 or type == "Distance" then
+  elseif first ~= 0 and second ~= 0 and third ~= 0 or itemTypeName == "Distance" then
     addSeparator()
     addEmpty(5)
     addString(firstText, Colors.Default)

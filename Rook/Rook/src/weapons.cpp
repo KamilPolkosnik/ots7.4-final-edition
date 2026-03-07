@@ -30,6 +30,22 @@ extern Vocations g_vocations;
 extern ConfigManager g_config;
 extern Weapons* g_weapons;
 
+namespace {
+Item* getClawLauncher(const Player* player, const Item* item)
+{
+	if (!player || !item) {
+		return nullptr;
+	}
+
+	Item* launcher = player->getWeapon(true);
+	if (!launcher || launcher->getWeaponType() != WEAPON_CLAW) {
+		return nullptr;
+	}
+
+	return player->getClawAmmunitionItem() == item ? launcher : nullptr;
+}
+}
+
 Weapons::Weapons()
 {
 	scriptInterface.initState();
@@ -95,8 +111,9 @@ void Weapons::loadDefaults()
 			}
 
 			case WEAPON_AMMO:
-			case WEAPON_DISTANCE: {
-				if (it.weaponType == WEAPON_DISTANCE && it.ammoType != AMMO_NONE) {
+			case WEAPON_DISTANCE:
+			case WEAPON_CLAW: {
+				if ((it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_CLAW) && it.ammoType != AMMO_NONE) {
 					continue;
 				}
 
@@ -383,7 +400,7 @@ void Weapon::internalUseWeapon(Player* player, Item* item, Creature* target, int
 	} else {
 		CombatDamage damage;
 		WeaponType_t weaponType = item->getWeaponType();
-		if (weaponType == WEAPON_AMMO || weaponType == WEAPON_DISTANCE) {
+		if (weaponType == WEAPON_AMMO || weaponType == WEAPON_DISTANCE || weaponType == WEAPON_CLAW) {
 			damage.origin = ORIGIN_RANGED;
 		} else if (weaponType == WEAPON_WAND) {
 			damage.origin = ORIGIN_WAND;
@@ -652,6 +669,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 {
 	int32_t damageModifier = 0;
 	const ItemType& it = Item::items[id];
+	Item* clawLauncher = getClawLauncher(player, item);
 	if (it.weaponType == WEAPON_AMMO) {
 		Item* mainWeaponItem = player->getWeapon(true);
 		const Weapon* mainWeapon = g_weapons->getWeapon(mainWeaponItem);
@@ -660,6 +678,8 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 		} else if (mainWeaponItem) {
 			damageModifier = playerWeaponCheck(player, target, mainWeaponItem->getShootRange());
 		}
+	} else if (clawLauncher) {
+		damageModifier = playerWeaponCheck(player, target, clawLauncher->getShootRange());
 	} else {
 		damageModifier = playerWeaponCheck(player, target, item->getShootRange());
 	}
@@ -679,7 +699,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 		uint32_t maxHitChance;
 		if (it.maxHitChance != -1) {
 			maxHitChance = it.maxHitChance;
-		} else if (it.ammoType != AMMO_NONE) {
+		} else if (it.ammoType != AMMO_NONE || clawLauncher) {
 			//hit chance on two-handed weapons is limited to 90%
 			maxHitChance = 90;
 		} else {
@@ -774,6 +794,8 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 		if (bow && bow->getHitChance() != 0) {
 			chance += bow->getHitChance();
 		}
+	} else if (clawLauncher && clawLauncher->getHitChance() != 0) {
+		chance += clawLauncher->getHitChance();
 	}
 
 	if (chance >= uniform_random(1, 100)) {
@@ -819,6 +841,8 @@ int32_t WeaponDistance::getElementDamage(const Player* player, const Creature* t
 		if (weapon) {
 			attackValue += weapon->getAttack();
 		}
+	} else if (Item* clawWeapon = getClawLauncher(player, item)) {
+		attackValue += clawWeapon->getAttack();
 	}
 
 	int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);
@@ -846,6 +870,8 @@ int32_t WeaponDistance::getWeaponDamage(const Player* player, const Creature* ta
 		if (weapon) {
 			attackValue += weapon->getAttack();
 		}
+	} else if (Item* clawWeapon = getClawLauncher(player, item)) {
+		attackValue += clawWeapon->getAttack();
 	}
 
 	int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);

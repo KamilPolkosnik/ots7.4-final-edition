@@ -663,6 +663,7 @@ class Player final : public Creature, public Cylinder
 		Item* getWeapon(bool ignoreAmmo = false) const;
 		WeaponType_t getWeaponType() const;
 		int32_t getWeaponSkill(const Item* item) const;
+		Item* getClawAmmunitionItem() const;
 		void getShieldAndWeapon(const Item*& shield, const Item*& weapon) const;
 
 		void drainHealth(Creature* attacker, int32_t damage) override;
