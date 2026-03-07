@@ -4,6 +4,7 @@ local OPCODE_TASKS_V2 = 110
 local OPCODE_EXP_STATS = 111
 local OPCODE_BESTIARY = 112
 local OPCODE_HEADHUNTER = 115
+local OPCODE_MARKET = 116
 local OPCODE_FOOD_STATUS = 109
 local function logTasks(msg)
 	print("[TasksV2] " .. msg)
@@ -166,6 +167,22 @@ function onExtendedOpcode(player, opcode, buffer)
 		elseif action == "withdraw" and type(payload) == "table" then
 			HeadhunterSystem.withdrawBounty(player, payload.id)
 		end
+	elseif opcode == OPCODE_MARKET then
+		if not MarketSystem then
+			print("[Market] MarketSystem is not loaded.")
+			return true
+		end
+
+		local status, data = pcall(function()
+			return json.decode(buffer)
+		end)
+		if not status or type(data) ~= "table" then
+			return true
+		end
+
+		local action = data.action
+		local payload = data.data
+		MarketSystem.handleOpcode(player, action, payload)
 	elseif opcode == OPCODE_FOOD_STATUS then
 		player:sendFoodStatus()
 	else

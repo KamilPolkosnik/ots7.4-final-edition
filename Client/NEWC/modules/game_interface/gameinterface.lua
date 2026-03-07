@@ -498,6 +498,13 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
     menu:addSeparator()
 
     if creatureThing:isLocalPlayer() then
+      if modules.game_stall_market and modules.game_stall_market.shouldShowSelfMenu and modules.game_stall_market.openFromSelfMenu then
+        local ok, visible = pcall(function() return modules.game_stall_market.shouldShowSelfMenu() end)
+        if ok and visible then
+          menu:addOption(tr('Open Shop'), function() modules.game_stall_market.openFromSelfMenu() end)
+        end
+      end
+
       menu:addOption(tr('Set Outfit'), function() g_game.requestOutfit() end)
 
       if g_game.getFeature(GamePlayerMounts) then

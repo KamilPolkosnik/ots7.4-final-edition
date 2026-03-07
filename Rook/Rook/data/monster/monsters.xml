@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <monsters>
   <monster name="Trainer" file="trainer.xml"/>
+  <monster name="Market Stall" file="market stall.xml"/>
   <monster name="Nomad" file="nomad.xml"/>
   <monster name="Krulak the Savage" file="task/Krulak the Savage.xml"/>
   <monster name="Amazon" file="amazon.xml"/>

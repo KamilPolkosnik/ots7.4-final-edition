@@ -142,6 +142,29 @@ namespace {
 		return currentSlot;
 	}
 
+	std::string getActiveMarketOwnerOnAccount(uint32_t accountId, uint32_t excludeGuid)
+	{
+		if (accountId == 0) {
+			return "";
+		}
+
+		const int64_t now = std::time(nullptr);
+		std::string where = fmt::format("p.`account_id` = {:d} AND ms.`active` = 1 AND ms.`expires_at` > {:d}", accountId, now);
+		if (excludeGuid > 0) {
+			where += fmt::format(" AND ms.`owner_guid` <> {:d}", excludeGuid);
+		}
+
+		DBResult_ptr result = Database::getInstance().storeQuery(
+			"SELECT ms.`owner_name` FROM `market_stalls` ms "
+			"JOIN `players` p ON p.`id` = ms.`owner_guid` "
+			"WHERE " + where + " ORDER BY ms.`id` DESC LIMIT 1");
+		if (!result) {
+			return "";
+		}
+
+		return result->getString("owner_name");
+	}
+
 }
 
 void ProtocolGame::release()
@@ -196,6 +219,14 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 
 		if (g_config.getBoolean(ConfigManager::ONE_PLAYER_ON_ACCOUNT) && player->getAccountType() < ACCOUNT_TYPE_GAMEMASTER && g_game.getPlayerByAccount(player->getAccount())) {
 			disconnectClient("You may only login with one character\nof your account at the same time.");
+			return;
+		}
+
+		std::string marketOwner = getActiveMarketOwnerOnAccount(player->getAccount(), player->getGUID());
+		if (!marketOwner.empty()) {
+			disconnectClient(fmt::format(
+				"You have opened market on this account ({:s}).\nYou can't log in another character from the same account.",
+				marketOwner));
 			return;
 		}
 

@@ -192,10 +192,10 @@ MainWindow
     TextEdit
       id: descriptionInput
       anchors.left: parent.left
-      anchors.right: createButton.left
+      anchors.right: parent.right
       anchors.top: prev.bottom
       margin-top: 2
-      margin-right: 8
+      margin-right: 130
       placeholder: Why this bounty was placed
 
     Button

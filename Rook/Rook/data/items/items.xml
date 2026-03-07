@@ -5998,8 +5998,11 @@
 	<item id="2328" article="a" name="phoenix egg" plural="phoenix eggs">
 		<attribute key="weight" value="30"/>
 	</item>
-	<item id="2329" article="a" name="document">
+	<item id="2329" article="a" name="market ticket">
+		<attribute key="description" value="Use it to open the Market window. First use activates 48 hours of market access."/>
 		<attribute key="weight" value="105"/>
+		<attribute key="writeable" value="0"/>
+		<attribute key="readable" value="0"/>
 	</item>
 	<item id="2330" article="a" name="bag">
 		<attribute key="weight" value="800"/>
