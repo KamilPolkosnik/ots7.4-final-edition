@@ -13,5 +13,23 @@
 	<wing id ="8" clientid="607" name="Night" speed="20" />
 	<wing id ="9" clientid="609" name="Royal" speed="20" />
 	<wing id ="10" clientid="610" name="Anubis" speed="20" />
+	<wing id ="14" clientid="604" name="Fire Wings" speed="20" />
+	<wing id ="15" clientid="600" name="Storm Wings" speed="20" />
+	<wing id ="16" clientid="598" name="Mystic Wings" speed="20" />
+	<wing id ="17" clientid="596" name="Blood Wings" speed="20" />
+	<wing id ="18" clientid="595" name="Bloody Wings" speed="20" />
+	<wing id ="19" clientid="594" name="Obsidian Wings" speed="20" />
+	<wing id ="20" clientid="593" name="Celestial Wings" speed="20" />
+	<wing id ="21" clientid="592" name="Toxic Wings" speed="20" />
+	<wing id ="22" clientid="591" name="Thunder Wings" speed="20" />
+	<wing id ="23" clientid="590" name="Emerald Wings" speed="20" />
+	<wing id ="24" clientid="589" name="Void Wings" speed="20" />
+	<wing id ="26" clientid="587" name="Infernal Wings" speed="20" />
+	<wing id ="27" clientid="586" name="Ancient Wings" speed="20" />
+	<wing id ="28" clientid="584" name="Sunflare Wings" speed="20" />
+	<wing id ="29" clientid="583" name="Moonlight Wings" speed="20" />
+	<wing id ="30" clientid="582" name="Spirit Wings" speed="20" />
+	<wing id ="31" clientid="581" name="Venom Wings" speed="20" />
+	<wing id ="32" clientid="580" name="Arcane Wings" speed="20" />
 	
 </wings>
