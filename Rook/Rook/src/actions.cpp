@@ -317,6 +317,10 @@ Action* Actions::getAction(const Item* item)
 
 ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_t index, Item* item, bool isHotkey)
 {
+	if (item->getID() == 7967) {
+		return RETURNVALUE_CANNOTUSETHISOBJECT;
+	}
+
 	if (Door* door = item->getDoor()) {
 		if (!door->canUse(player)) {
 			return RETURNVALUE_NOTPOSSIBLE;

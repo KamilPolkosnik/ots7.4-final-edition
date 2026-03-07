@@ -1,5 +1,13 @@
 local ec = EventCallback
 
+local GOLD_BANK_TOTEM_ID = 7967
+
+local COIN_VALUES = {
+    [2148] = 1,
+    [2152] = 100,
+    [2160] = 10000
+}
+
 local function getVariantLootRolls(monster)
     if not MonsterVariants then
         return 1
@@ -19,6 +27,37 @@ local function getVariantLootRolls(monster)
         return tiers[3].lootRolls
     end
     return 1
+end
+
+local function hasGoldBankTotem(player)
+    for slot = CONST_SLOT_TOTEM1, CONST_SLOT_TOTEM3 do
+        local item = player:getSlotItem(slot)
+        if item and item:getId() == GOLD_BANK_TOTEM_ID then
+            return true
+        end
+    end
+    return false
+end
+
+local function depositCorpseCoinsToBank(player, corpse)
+    local items = corpse:getItems(true)
+    if not items then
+        return 0
+    end
+
+    local totalGold = 0
+    for _, item in ipairs(items) do
+        local value = COIN_VALUES[item:getId()]
+        if value then
+            totalGold = totalGold + (item:getCount() * value)
+            item:remove()
+        end
+    end
+
+    if totalGold > 0 then
+        player:setBankBalance(player:getBankBalance() + totalGold)
+    end
+    return totalGold
 end
 
 local function isEquipmentItem(item)
@@ -105,7 +144,15 @@ ec.onDropLoot = function(self, corpse)
         -- Bagging moved to UpgradeSystem us_CheckCorpse so rarity rolls happen first.
 
         if player then
+            local bankedGold = 0
+            if hasGoldBankTotem(player) then
+                bankedGold = depositCorpseCoinsToBank(player, corpse)
+            end
+
             local text = ("Loot of %s: %s"):format(mType:getNameDescription(), corpse:getContentDescription())
+            if bankedGold > 0 then
+                text = ("%s (deposited %d gold to bank)"):format(text, bankedGold)
+            end
             local party = player:getParty()
             if party then
                 party:broadcastPartyLoot(text)
