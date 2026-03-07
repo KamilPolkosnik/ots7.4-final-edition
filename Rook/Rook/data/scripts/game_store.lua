@@ -4,10 +4,203 @@ local CODE_GAMESTORE = 102
 local GAME_STORE = nil
 
 local LoginEvent = CreatureEvent("GameStoreLogin")
+local PREMIUM_SCROLL_ACTION_7 = 60007
 local PREMIUM_SCROLL_ACTION_15 = 60015
 local PREMIUM_SCROLL_ACTION_60 = 60060
 local PREMIUM_SCROLL_ACTION_120 = 60120
 local MARKET_TICKET_ACTION = 65048
+local EXPERIENCE_BOOSTER_ITEM_ID = 5540
+local EXPERIENCE_BOOSTER_COOLDOWN = 24 * 60 * 60
+local SHOP_HISTORY_TABLE = "shop_history"
+local SHOP_HISTORY_COLUMN_CACHE = {}
+local SHOP_HISTORY_ID_EXPLICIT = nil
+
+local function shopHistoryHasColumn(columnName)
+	local cacheKey = tostring(columnName)
+	local cached = SHOP_HISTORY_COLUMN_CACHE[cacheKey]
+	if cached ~= nil then
+		return cached
+	end
+
+	local q = "SHOW COLUMNS FROM `" .. SHOP_HISTORY_TABLE .. "` LIKE " .. db.escapeString(cacheKey)
+	local resultId = db.storeQuery(q)
+	local exists = resultId ~= false
+	if exists then
+		result.free(resultId)
+	end
+	SHOP_HISTORY_COLUMN_CACHE[cacheKey] = exists
+	return exists
+end
+
+local function shopHistoryShowField(columnName, fieldName)
+	local q = "SHOW COLUMNS FROM `" .. SHOP_HISTORY_TABLE .. "` LIKE " .. db.escapeString(columnName)
+	local resultId = db.storeQuery(q)
+	if resultId == false then
+		return ""
+	end
+	local value = tostring(result.getDataString(resultId, fieldName) or "")
+	result.free(resultId)
+	return value
+end
+
+local function shopHistoryNeedsExplicitId()
+	if SHOP_HISTORY_ID_EXPLICIT ~= nil then
+		return SHOP_HISTORY_ID_EXPLICIT
+	end
+
+	if not shopHistoryHasColumn("id") then
+		SHOP_HISTORY_ID_EXPLICIT = false
+		return false
+	end
+
+	local extra = string.lower(shopHistoryShowField("id", "Extra"))
+	SHOP_HISTORY_ID_EXPLICIT = extra:find("auto_increment", 1, true) == nil
+	return SHOP_HISTORY_ID_EXPLICIT
+end
+
+local function ensureShopHistoryAutoIncrement()
+	if not shopHistoryHasColumn("id") then
+		return
+	end
+
+	if not shopHistoryNeedsExplicitId() then
+		return
+	end
+
+	local keyType = string.upper(shopHistoryShowField("id", "Key"))
+	if keyType == "" then
+		db.query("ALTER TABLE `" .. SHOP_HISTORY_TABLE .. "` ADD PRIMARY KEY (`id`)")
+	end
+
+	db.query("ALTER TABLE `" .. SHOP_HISTORY_TABLE .. "` MODIFY COLUMN `id` INT NOT NULL AUTO_INCREMENT")
+
+	-- Refresh cached id mode after migration attempt.
+	SHOP_HISTORY_ID_EXPLICIT = nil
+	shopHistoryNeedsExplicitId()
+end
+
+local function nextShopHistoryId()
+	local resultId = db.storeQuery("SELECT COALESCE(MAX(`id`), 0) + 1 AS `next_id` FROM `" .. SHOP_HISTORY_TABLE .. "`")
+	if resultId == false then
+		return 1
+	end
+	local nextId = result.getDataInt(resultId, "next_id")
+	result.free(resultId)
+	nextId = tonumber(nextId) or 1
+	return math.max(1, nextId)
+end
+
+local function getShopHistoryPriceColumn()
+	if shopHistoryHasColumn("price") then
+		return "price"
+	end
+	if shopHistoryHasColumn("cost") then
+		return "cost"
+	end
+	return nil
+end
+
+local function insertShopHistory(accountId, playerGuid, title, price, count, targetName)
+	local safeAccountId = math.floor(tonumber(accountId) or 0)
+	local safePlayerGuid = math.floor(tonumber(playerGuid) or 0)
+	local safeTitle = tostring(title or "")
+	local safePrice = math.max(0, math.floor(tonumber(price) or 0))
+	local safeCount = math.max(0, math.floor(tonumber(count) or 0))
+	local safeTarget = tostring(targetName or "")
+
+	local columns = {"`account`", "`player`", "`date`", "`title`"}
+	local values = {
+		tostring(safeAccountId),
+		tostring(safePlayerGuid),
+		"NOW()",
+		db.escapeString(safeTitle)
+	}
+
+	local priceColumn = getShopHistoryPriceColumn()
+	if priceColumn then
+		columns[#columns + 1] = "`" .. priceColumn .. "`"
+		values[#values + 1] = tostring(safePrice)
+	end
+
+	if shopHistoryHasColumn("count") then
+		columns[#columns + 1] = "`count`"
+		values[#values + 1] = tostring(safeCount)
+	end
+
+	if shopHistoryHasColumn("target") then
+		columns[#columns + 1] = "`target`"
+		if safeTarget ~= "" then
+			values[#values + 1] = db.escapeString(safeTarget)
+		else
+			values[#values + 1] = "NULL"
+		end
+	elseif shopHistoryHasColumn("details") then
+		columns[#columns + 1] = "`details`"
+		if safeTarget ~= "" then
+			values[#values + 1] = db.escapeString("gift:" .. safeTarget)
+		else
+			values[#values + 1] = db.escapeString("")
+		end
+	end
+
+	local columnsSql = table.concat(columns, ",")
+	local valuesSql = table.concat(values, ",")
+	local baseInsert = "INSERT INTO `" .. SHOP_HISTORY_TABLE .. "` (" .. columnsSql .. ") VALUES (" .. valuesSql .. ")"
+	if db.query(baseInsert) then
+		return true
+	end
+
+	-- Legacy fallback for schemas where id is not AUTO_INCREMENT.
+	if shopHistoryHasColumn("id") then
+		local fallbackId = nextShopHistoryId()
+		local fallbackInsert =
+			"INSERT INTO `" ..
+			SHOP_HISTORY_TABLE ..
+			"` (`id`," .. columnsSql .. ") VALUES (" .. fallbackId .. "," .. valuesSql .. ")"
+		if db.query(fallbackInsert) then
+			return true
+		end
+	end
+
+	return false
+end
+
+local function formatCooldown(seconds)
+	seconds = math.max(0, math.floor(tonumber(seconds) or 0))
+	local hours = math.floor(seconds / 3600)
+	local minutes = math.floor((seconds % 3600) / 60)
+	return string.format("%02dh %02dm", hours, minutes)
+end
+
+local function experienceBoosterCooldownRemaining(accountId)
+	accountId = math.floor(tonumber(accountId) or 0)
+	if accountId <= 0 then
+		return 0
+	end
+
+	local q = string.format(
+		"SELECT UNIX_TIMESTAMP(`date`) AS `ts` FROM `%s` WHERE `account` = %d AND LOWER(`title`) = %s ORDER BY `date` DESC LIMIT 1",
+		SHOP_HISTORY_TABLE,
+		accountId,
+		db.escapeString("experience booster")
+	)
+	local resultId = db.storeQuery(q)
+	if resultId == false then
+		return 0
+	end
+
+	local ts = tonumber(result.getDataInt(resultId, "ts")) or 0
+	result.free(resultId)
+	if ts <= 0 then
+		return 0
+	end
+
+	local elapsed = os.time() - ts
+	if elapsed >= EXPERIENCE_BOOSTER_COOLDOWN then
+		return 0
+	end
+	return EXPERIENCE_BOOSTER_COOLDOWN - elapsed
+end
 
 local function premiumScrollStoreCallback(days, actionId)
 	return function(player, offer)
@@ -33,6 +226,7 @@ local function premiumScrollStoreCallback(days, actionId)
 
 		if actionId then
 			item:setActionId(actionId)
+			item:setAttribute(ITEM_ATTRIBUTE_NAME, days .. " days premium account scroll")
 			item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Premium account for " .. days .. " days.")
 		end
 
@@ -64,8 +258,69 @@ local function marketTicketStoreCallback()
 		end
 
 		item:setActionId(MARKET_TICKET_ACTION)
-		item:setAttribute(ITEM_ATTRIBUTE_NAME, "market ticket")
+		item:setAttribute(ITEM_ATTRIBUTE_NAME, "market scroll")
 		item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Use to open the Market window. First use starts 48h access time.")
+		return true
+	end
+end
+
+local function trainingWeaponStoreCallback()
+	return function(player, offer)
+		local itemType = ItemType(offer.itemId)
+		local defaultCharges = tonumber(itemType and itemType:getCharges()) or 1500
+		if defaultCharges <= 0 then
+			defaultCharges = 1500
+		end
+
+		local weight = itemType and itemType:getWeight(1) or 0
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local item = player:addItem(offer.itemId, defaultCharges, false)
+		if not item then
+			return "Something went wrong, item couldn't be added."
+		end
+
+		return true
+	end
+end
+
+local function chargedItemStoreCallback(charges)
+	return function(player, offer)
+		local itemType = ItemType(offer.itemId)
+		local useCharges = math.max(1, math.floor(tonumber(charges) or 1))
+
+		local weight = itemType and itemType:getWeight(1) or 0
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local item = player:addItem(offer.itemId, useCharges, false)
+		if not item then
+			return "Something went wrong, item couldn't be added."
+		end
+
 		return true
 	end
 end
@@ -76,6 +331,8 @@ function LoginEvent.onLogin(player)
 end
 
 function gameStoreInitialize()
+	ensureShopHistoryAutoIncrement()
+
 	GAME_STORE = {
 		categories = {},
 		offers = {}
@@ -86,11 +343,18 @@ function gameStoreInitialize()
 		"Premium",
 		"7 days premium account scroll",
 		"Premium account for 7 days.",
-		5545,
+		5546,
 		1,
 		150,
-		premiumScrollStoreCallback(7)
+		premiumScrollStoreCallback(7, PREMIUM_SCROLL_ACTION_7)
 	)
+	-- Keep 7-day behavior (item id 5545) but use same icon as other premium scrolls.
+	if GAME_STORE.offers.Premium and GAME_STORE.offers.Premium[#GAME_STORE.offers.Premium] then
+		local sharedPremiumClientId = ItemType(5546):getClientId()
+		if sharedPremiumClientId and sharedPremiumClientId > 0 then
+			GAME_STORE.offers.Premium[#GAME_STORE.offers.Premium].clientId = sharedPremiumClientId
+		end
+	end
 	addItem(
 		"Premium",
 		"15 days premium account scroll",
@@ -518,7 +782,7 @@ addOutfit(
 )
 	
 
-	addCategory("Mounts", "Here you can find a fine selection of unique mounts.", "mount", 397)
+	addCategory("Mounts", "Fine selection of unique mounts.", "mount", 397)
 	addMount("Mounts", "Crystal Wolf", "from the deep ice caves", 1, 388, 600)
 	addMount("Mounts", "Reindeer", "Must have fallen off the sleigh.", 2, 397, 600)
 	addMount("Mounts", "Panda", "From the depts of the jungle.", 3, 398, 600)
@@ -533,18 +797,27 @@ addOutfit(
 	addMount("Mounts", "Red Mantis", "Someone must have been fishing huh?.", 12, 476, 600)
 	addMount("Mounts", "Buffalo", "Been to a swamp or two.", 13, 479, 600)
 
-	addCategory("Items", "Utility items and account extras.", "item", 7962)
+	addCategory("Items", "Utility items.", "item", 7962)
 	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 100)
 	addItem("Items", "Ring of Light", "A handy source of light.", 7963, 1, 2)
-	addItem("Items", "Market Ticket (48h)", "First use starts 48h market access.", 2329, 1, 100, marketTicketStoreCallback())
+	addItem("Items", "Gold Converter", "100 uses. Converts 100 gold -> 1 platinum or 100 platinum -> 1 crystal.", 7966, 1, 10, chargedItemStoreCallback(100))
+	addItem("Items", "Gold Pouch", "Automatically collects dropped gold to your bank when equipped in a totem slot.", 7967, 1, 499)
 
-	addCategory("Training", "Exercise weapons for offline training.", "item", 6876)
-	addItem("Training", "Exercise Wand", "Training weapon.", 6876, 1, 50)
-	addItem("Training", "Exercise Rod", "Training weapon.", 6877, 1, 50)
-	addItem("Training", "Exercise Bow", "Training weapon.", 6878, 1, 50)
-	addItem("Training", "Exercise Axe", "Training weapon.", 6879, 1, 50)
-	addItem("Training", "Exercise Sword", "Training weapon.", 6880, 1, 50)
-	addItem("Training", "Exercise Club", "Training weapon.", 6881, 1, 50)
+	addCategory("Scrolls", "Utility and special account scrolls.", "item", 5546)
+	addItem("Scrolls", "market scroll", "First use starts 48h market access.", 2329, 1, 5, marketTicketStoreCallback())
+	addItem("Scrolls", "blessing scroll", "Grants all blessings.", 5542, 1, 55)
+	addItem("Scrolls", "experience booster", "Grants +30% exp for 1 hour. Limit: once per 24h.", 5540, 1, 99)
+	addItem("Scrolls", "rashid scroll", "Unlocks Rashid trade access.", 5543, 1, 499)
+	addItem("Scrolls", "sex change scroll", "Changes your character sex.", 5544, 1, 99)
+	addItem("Scrolls", "postman scroll", "Unlocks postman quest access.", 5746, 1, 399)
+
+	addCategory("Training", "Exercise weapons.", "item", 6876)
+	addItem("Training", "Exercise Wand", "1500 uses. Does not consume mana.", 6876, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Rod", "1500 uses. Does not consume mana.", 6877, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Bow", "1500 uses. Attack speed is 10% faster.", 6878, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Axe", "1500 uses. Attack speed is 10% faster.", 6879, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Sword", "1500 uses. Attack speed is 10% faster.", 6880, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Club", "1500 uses. Attack speed is 10% faster.", 6881, 1, 50, trainingWeaponStoreCallback())
 
 end
 
@@ -679,21 +952,27 @@ function gameStorePurchase(player, offer)
 				return errorMsg(player, "You don't have enough points!")
 			end
 
+			if offers[i].itemId == EXPERIENCE_BOOSTER_ITEM_ID then
+				local remaining = experienceBoosterCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Experience booster can be bought once every 24 hours. Remaining: " .. formatCooldown(remaining) .. "."
+					)
+				end
+			end
+
 			local status = callback(player, offers[i])
 			if status ~= true then
 				return errorMsg(player, status)
 			end
 
 			local aid = player:getAccountId()
-			local escapeTitle = db.escapeString(offers[i].title)
-			local escapePrice = db.escapeString(offers[i].price)
-			local escapeCount = offers[i].count and db.escapeString(offers[i].count) or 0
+			local price = offers[i].price
+			local count = offers[i].count or 0
 
 			db.query("UPDATE `accounts` set `premium_points` = `premium_points` - " .. offers[i].price .. " WHERE `id` = " .. aid)
-			db.asyncQuery(
-				"INSERT INTO `shop_history` VALUES (NULL, '" ..
-					aid .. "', '" .. player:getGuid() .. "', NOW(), " .. escapeTitle .. ", " .. escapePrice .. ", " .. escapeCount .. ", NULL)"
-			)
+			insertShopHistory(aid, player:getGuid(), offers[i].title, price, count, nil)
 			addEvent(gameStoreUpdateHistory, 1000, player:getId())
 			addEvent(gameStoreUpdatePoints, 1000, player:getId())
 			return infoMsg(player, "You've bought " .. offers[i].title .. "!", true)
@@ -722,6 +1001,16 @@ function gameStorePurchaseGift(player, offer)
 				return errorMsg(player, "You don't have enough points!")
 			end
 
+			if offers[i].itemId == EXPERIENCE_BOOSTER_ITEM_ID then
+				local remaining = experienceBoosterCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Experience booster can be bought once every 24 hours. Remaining: " .. formatCooldown(remaining) .. "."
+					)
+				end
+			end
+
 			local targetPlayer = Player(offer.target)
 			if not targetPlayer then
 				return errorMsg(player, "Target player not found!")
@@ -733,15 +1022,10 @@ function gameStorePurchaseGift(player, offer)
 			end
 
 			local aid = player:getAccountId()
-			local escapeTitle = db.escapeString(offers[i].title)
-			local escapePrice = db.escapeString(offers[i].price)
-			local escapeCount = offers[i].count and db.escapeString(offers[i].count) or 0
-			local escapeTarget = db.escapeString(targetPlayer:getName())
+			local price = offers[i].price
+			local count = offers[i].count or 0
 			db.query("UPDATE `accounts` set `premium_points` = `premium_points` - " .. offers[i].price .. " WHERE `id` = " .. aid)
-			db.asyncQuery(
-				"INSERT INTO `shop_history` VALUES (NULL, '" ..
-					aid .. "', '" .. player:getGuid() .. "', NOW(), " .. escapeTitle .. ", " .. escapePrice .. ", " .. escapeCount .. ", " .. escapeTarget .. ")"
-			)
+			insertShopHistory(aid, player:getGuid(), offers[i].title, price, count, targetPlayer:getName())
 			addEvent(gameStoreUpdateHistory, 1000, player:getId())
 			addEvent(gameStoreUpdatePoints, 1000, player:getId())
 			return infoMsg(player, "You've bought " .. offers[i].title .. " for " .. targetPlayer:getName() .. "!", true)

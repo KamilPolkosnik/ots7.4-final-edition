@@ -16234,7 +16234,7 @@
 		<attribute key="attack" value="1" />
 		<attribute key="hitChance" value="100" />
 		<attribute key="attackSpeed" value="1700" />
-		<attribute key="description" value="Magic training weapon"/>
+		<attribute key="description" value="Magic training weapon. 1500 uses. Does not consume mana."/>
 	</item>
 	<item id="6877" article="a" name="exercise rod">
 		<attribute key="charges" value="1500" />
@@ -16243,7 +16243,7 @@
 		<attribute key="attack" value="1" />
 		<attribute key="hitChance" value="100" />
 		<attribute key="attackSpeed" value="1700" />
-		<attribute key="description" value="Druid training weapon"/>
+		<attribute key="description" value="Druid training weapon. 1500 uses. Does not consume mana."/>
 	</item>
 		
 	<item id="6878" article="a" name="exercise bow">
@@ -16252,8 +16252,8 @@
 		<attribute key="weaponType" value="distance" />
 		<attribute key="attack" value="1" />
 		<attribute key="hitChance" value="100" />
-		<attribute key="attackSpeed" value="1700" />
-		<attribute key="description" value="Palladin Training weapon"/>
+		<attribute key="attackSpeed" value="1800" />
+		<attribute key="description" value="Paladin training weapon. 1500 uses. Attack speed is 10% faster."/>
 	</item>
 	<item id="6879" article="a" name="exercise axe">
 		<attribute key="charges" value="1500" />
@@ -16261,8 +16261,8 @@
 		<attribute key="weaponType" value="axe" />
 		<attribute key="attack" value="1" />
 		<attribute key="hitChance" value="100" />
-		<attribute key="attackSpeed" value="1700" />
-		<attribute key="description" value="Knight training weapon"/>
+		<attribute key="attackSpeed" value="1800" />
+		<attribute key="description" value="Knight training weapon. 1500 uses. Attack speed is 10% faster."/>
 	</item>
 	<item id="6880" article="a" name="exercise sword">
 		<attribute key="charges" value="1500" />
@@ -16270,8 +16270,8 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="attack" value="1" />
 		<attribute key="hitChance" value="100" />
-		<attribute key="attackSpeed" value="1700" />
-		<attribute key="description" value="Knight training weapon"/>
+		<attribute key="attackSpeed" value="1800" />
+		<attribute key="description" value="Knight training weapon. 1500 uses. Attack speed is 10% faster."/>
 	</item>
 		
 	<item id="6881" article="a" name="exercise club">
@@ -16280,8 +16280,8 @@
 		<attribute key="weaponType" value="club" />
 		<attribute key="attack" value="1" />
 		<attribute key="hitChance" value="100" />
-		<attribute key="attackSpeed" value="1700" />
-		<attribute key="description" value="Knight training weapon"/>
+		<attribute key="attackSpeed" value="1800" />
+		<attribute key="description" value="Knight training weapon. 1500 uses. Attack speed is 10% faster."/>
 	</item>
 
 
@@ -17161,12 +17161,13 @@
 		<attribute key="stackable" value="1"/>
 	</item>
 	<item id="7966" article="a" name="gold converter">
-		<attribute key="description" value="Each use converts 100 gold into 1 platinum, or 100 platinum into 1 crystal coin."/>
+		<attribute key="description" value="Each use converts 100 gold into 1 platinum, or 100 platinum into 1 crystal coin. Uses left: 100."/>
 		<attribute key="weight" value="100"/>
-		<attribute key="charges" value="500"/>
+		<attribute key="charges" value="100"/>
+		<attribute key="showcharges" value="1"/>
 	</item>
-	<item id="7967" article="a" name="Gold Punch">
-		<attribute key="description" value="Your gold drop fly to your bank :)."/>
+	<item id="7967" article="a" name="gold pouch">
+		<attribute key="description" value="Automatically collects dropped gold to your bank. Must be equipped in a totem slot."/>
 		<attribute key="slotType" value="totem"/>
 		<attribute key="weight" value="120"/>
 	</item>

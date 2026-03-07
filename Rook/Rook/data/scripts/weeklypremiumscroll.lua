@@ -12,7 +12,7 @@ function premiumScroll.onUse(player, item, fromPosition, target, toPosition, isH
 	player:setPremiumEndsAt(currentTime + (currentPremiumTime + secondsToAdd))
     -- Inform the player about the premium upgrade
     player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You have been upgraded to premium account for 7 days!")
-	player:getPosition():sendMagicEffect(84)
+	player:getPosition():sendMagicEffect(29)
     -- Remove the premium scroll from the player's inventory
     item:remove(1)
 

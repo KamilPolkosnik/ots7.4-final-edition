@@ -13,6 +13,37 @@ local offers = {}
 
 local selectedOffer = nil
 
+local function getFocusedCategoryId()
+  if not gameStoreWindow then
+    return nil
+  end
+  local categoriesPanel = gameStoreWindow:getChildById("categories")
+  if not categoriesPanel then
+    return nil
+  end
+  local focused = categoriesPanel:getFocusedChild()
+  if not focused then
+    return nil
+  end
+  return focused:getId()
+end
+
+local function refreshFocusedOffers()
+  if not offersGrid then
+    return
+  end
+  local focusedCategoryId = getFocusedCategoryId()
+  if not focusedCategoryId then
+    return
+  end
+  local focusedOffers = offers[focusedCategoryId]
+  if type(focusedOffers) ~= "table" then
+    return
+  end
+  offersGrid:destroyChildren()
+  addOffers(focusedOffers)
+end
+
 local function createStoreButtonWindow()
   local rightPanel = modules.game_interface.getRightPanel()
   if not rightPanel then
@@ -171,10 +202,25 @@ end
 
 function onGameStoreFetchOffers(data)
   offers[data.category] = data.offers
-  if data.category == "Items" then
-    offersGrid = gameStoreWindow:recursiveGetChildById("offers")
-    addOffers(offers)
-    gameStoreWindow:getChildById("categories"):getChildByIndex(1):focus()
+
+  if not offersGrid then
+    offersGrid = gameStoreWindow and gameStoreWindow:recursiveGetChildById("offers") or nil
+  end
+  if not gameStoreWindow or not offersGrid then
+    return
+  end
+
+  local categoriesPanel = gameStoreWindow:getChildById("categories")
+  if categoriesPanel and not categoriesPanel:getFocusedChild() and categoriesPanel:getChildCount() > 0 then
+    categoriesPanel:getChildByIndex(1):focus()
+  end
+
+  local focusedCategoryId = getFocusedCategoryId()
+  if focusedCategoryId == data.category then
+    offersGrid:destroyChildren()
+    addOffers(data.offers)
+  elseif offersGrid:getChildCount() == 0 then
+    refreshFocusedOffers()
   end
 end
 
@@ -514,7 +560,14 @@ function show()
   if not gameStoreWindow or not gameStoreButton then
     return
   end
-  gameStoreWindow:getChildById("categories"):getChildByIndex(1):focus()
+  local categoriesPanel = gameStoreWindow:getChildById("categories")
+  if categoriesPanel then
+    local firstCategory = categoriesPanel:getChildByIndex(1)
+    if firstCategory then
+      firstCategory:focus()
+    end
+  end
+  refreshFocusedOffers()
   hideHistory()
   gameStoreWindow:show()
   gameStoreWindow:raise()
