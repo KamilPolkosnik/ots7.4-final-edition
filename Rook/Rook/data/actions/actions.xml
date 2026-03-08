@@ -218,6 +218,8 @@
 	<action itemid="5542" script="shop/instantbless.lua"/>
 	<action itemid="5540" script="shop/expscroll.lua"/>
 	<action itemid="5543" script="shop/scrollrashid.lua"/>
+	<action itemid="5747" script="shop/name_change_scroll.lua"/>
+	<action itemid="7965" script="shop/premium_coin.lua"/>
 	<action itemid="5746" script="shop/postvip.lua"/>
 	<action itemid="7966" script="shop/gold_converter.lua"/>
 	<action actionid="65150" script="shop/decor_parcel.lua"/>

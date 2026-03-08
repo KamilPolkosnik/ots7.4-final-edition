@@ -529,7 +529,15 @@ local distanceOverrides = {
             {id = 1976, count = 5}, -- gemmed book
             {id = 2760, count = 5} -- goat grass
         }
-    } -- ice bow
+    }, -- ice bow
+    [7968] = {
+        cost = 600,
+        materials = {
+            {id = 2456, count = 10}, -- bow
+            {id = 2455, count = 10}, -- crossbow
+            {id = 2410, count = 10} -- throwing knife
+        }
+    } -- throwing glove
 }
 
 local materialSets = {

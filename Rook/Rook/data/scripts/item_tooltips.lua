@@ -772,6 +772,7 @@ local premiumScrollActionDays = {
   [60120] = 120
 }
 
+
 local function getFluidTooltipName(item, itemType)
   if not item or not itemType or not itemType:isFluidContainer() then
     return nil
@@ -819,6 +820,7 @@ function Item:buildTooltip()
   local uid = self:getRealUID()
   local itemType = self:getType()
   local itemName = itemType:getName()
+  local actionId = tonumber(self:getActionId()) or 0
   local fluidName = getFluidTooltipName(self, itemType)
   if fluidName then
     itemName = fluidName
@@ -826,6 +828,12 @@ function Item:buildTooltip()
   local premiumName, premiumDesc = getPremiumScrollTooltip(self, itemType)
   if premiumName then
     itemName = premiumName
+  end
+  local actionDesc = nil
+  local itemId = tonumber(itemType:getId()) or 0
+  if itemId == 5747 then
+    itemName = "name change scroll"
+    actionDesc = "Use it to change your character name. The new name must be unique and cannot contain numbers."
   end
 
   local item_data = {
@@ -838,7 +846,9 @@ function Item:buildTooltip()
     item_data.tier = itemTier
   end
 
-  if premiumDesc then
+  if actionDesc then
+    item_data.desc = actionDesc
+  elseif premiumDesc then
     item_data.desc = premiumDesc
   elseif itemType:getDescription():len() > 0 then
     item_data.desc = itemType:getDescription()

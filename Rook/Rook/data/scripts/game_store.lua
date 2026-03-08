@@ -409,9 +409,9 @@ function gameStoreInitialize()
 		offers = {}
 	}
 
-	addCategory("Premium", "Premium account scrolls.", "item", 5546)
+	addCategory("Premium Scrolls", "Premium account scrolls.", "item", 5546)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"7 days premium account scroll",
 		"Premium account for 7 days.",
 		5546,
@@ -420,14 +420,14 @@ function gameStoreInitialize()
 		premiumScrollStoreCallback(7, PREMIUM_SCROLL_ACTION_7)
 	)
 	-- Keep 7-day behavior (item id 5545) but use same icon as other premium scrolls.
-	if GAME_STORE.offers.Premium and GAME_STORE.offers.Premium[#GAME_STORE.offers.Premium] then
+	if GAME_STORE.offers["Premium Scrolls"] and GAME_STORE.offers["Premium Scrolls"][#GAME_STORE.offers["Premium Scrolls"]] then
 		local sharedPremiumClientId = ItemType(5546):getClientId()
 		if sharedPremiumClientId and sharedPremiumClientId > 0 then
-			GAME_STORE.offers.Premium[#GAME_STORE.offers.Premium].clientId = sharedPremiumClientId
+			GAME_STORE.offers["Premium Scrolls"][#GAME_STORE.offers["Premium Scrolls"]].clientId = sharedPremiumClientId
 		end
 	end
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"15 days premium account scroll",
 		"Premium account for 15 days.",
 		5546,
@@ -436,7 +436,7 @@ function gameStoreInitialize()
 		premiumScrollStoreCallback(15, PREMIUM_SCROLL_ACTION_15)
 	)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"30 days premium account scroll",
 		"Premium account for 30 days.",
 		5546,
@@ -445,7 +445,7 @@ function gameStoreInitialize()
 		premiumScrollStoreCallback(30)
 	)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"60 days premium account scroll",
 		"Premium account for 60 days.",
 		5546,
@@ -454,13 +454,47 @@ function gameStoreInitialize()
 		premiumScrollStoreCallback(60, PREMIUM_SCROLL_ACTION_60)
 	)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"120 days premium account scroll",
 		"Premium account for 120 days.",
 		5546,
 		1,
 		950,
 		premiumScrollStoreCallback(120, PREMIUM_SCROLL_ACTION_120)
+	)
+
+	addCategory("Premium Coins", "Titania premium coin packs.", "item", 7965)
+	addItem(
+		"Premium Coins",
+		"1 premium coin",
+		"Get 1 Titania premium coin.",
+		7965,
+		1,
+		2
+	)
+	addItem(
+		"Premium Coins",
+		"10 premium coins",
+		"Get 10 Titania premium coins.",
+		7965,
+		10,
+		13
+	)
+	addItem(
+		"Premium Coins",
+		"50 premium coins",
+		"Get 50 Titania premium coins.",
+		7965,
+		50,
+		55
+	)
+	addItem(
+		"Premium Coins",
+		"100 premium coins",
+		"Get 100 Titania premium coins.",
+		7965,
+		100,
+		105
 	)
 
 	addCategory(
@@ -931,6 +965,7 @@ addOutfit(
 	addItem("Scrolls", "experience booster", "Grants +30% exp for 1 hour. Limit: once per 24h.", 5540, 1, 99)
 	addItem("Scrolls", "rashid scroll", "Unlocks Rashid trade access.", 5543, 1, 499)
 	addItem("Scrolls", "sex change scroll", "Changes your character sex.", 5544, 1, 99)
+	addItem("Scrolls", "name change scroll", "Lets you change your character name (unique, no numbers).", 5747, 1, 199)
 	addItem("Scrolls", "postman scroll", "Unlocks postman quest access.", 5746, 1, 399)
 
 	addCategory("Training", "Exercise weapons.", "item", 6876)

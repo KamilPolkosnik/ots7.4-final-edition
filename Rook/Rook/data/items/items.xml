@@ -15411,9 +15411,11 @@
 		<attribute key="description" value="Complete full Green Djinn Quest with one click."/>
 		<attribute key="weight" value="2500"/>
 	</item>
-	<item id="5747" article="a" name="House Scroll">
-		<attribute key="description" value="Allows you to redeem for a house."/>
+	<item id="5747" article="a" name="name change scroll">
+		<attribute key="description" value="Use it to change your character name. The new name must be unique and cannot contain numbers."/>
 		<attribute key="weight" value="2500"/>
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="25"/>
 	</item>
 	
 	<item id="5758" article="a" name="Promotion Box">
@@ -17155,13 +17157,13 @@
 		<attribute key="description" value="A compact tool that can be used as rope, shovel, pick and scythe."/>
 		<attribute key="weight" value="3500"/>
 	</item>
-	<item id="7965" article="a" name="premium coin" plural="premium coins">
-		<attribute key="description" value="A special premium currency coin."/>
+	<item id="7965" article="a" name="Titania premium coin" plural="Titania premium coins">
+		<attribute key="description" value="A special titania premium currency coin."/>
 		<attribute key="weight" value="10"/>
 		<attribute key="stackable" value="1"/>
 	</item>
 	<item id="7966" article="a" name="gold converter">
-		<attribute key="description" value="Each use converts 100 gold into 1 platinum, or 100 platinum into 1 crystal coin. Uses left: 100."/>
+		<attribute key="description" value="Each use converts 100 gold into 1 platinum, or 100 platinum into 1 crystal coin."/>
 		<attribute key="weight" value="100"/>
 		<attribute key="charges" value="100"/>
 		<attribute key="showcharges" value="1"/>
@@ -17171,7 +17173,8 @@
 		<attribute key="slotType" value="totem"/>
 		<attribute key="weight" value="120"/>
 	</item>
-	<item id="7968" article="a" name="Trowning glowe">
+	<item id="7968" article="a" name="Throwing glove">
+		<attribute key="description" value="Used to throw throwable items."/>
 		<attribute key="tier" value="1"/>
 		<attribute key="weight" value="3100"/>
 		<attribute key="weaponType" value="distance"/>
