@@ -118,10 +118,11 @@ function onLogin(player)
 	player:registerEvent("PlayerDeath")
 	player:registerEvent("DropLoot")
 	player:registerEvent("ExtendedOpcode")
-	player:registerEvent("GameStore")
 	player:registerEvent("Discoveries")
 	player:registerEvent("AdvanceSave")
 	player:registerEvent("task")
+	player:registerEvent("PremiumCoinModal")
+	player:registerEvent("NameChangeScrollTextEdit")
 
 	local expBoostRemaining = normalizeRemainingSeconds(player:getStorageValue(EXP_BOOST_STORAGE))
 	if expBoostRemaining > 0 then

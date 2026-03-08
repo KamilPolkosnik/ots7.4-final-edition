@@ -1745,7 +1745,7 @@ Crafting.weaponsmith = {
     },
     {
         id = 7968,
-        name = "Trowning glowe",
+        name = "Throwing glove",
         weaponType = "distance",
         level = 1,
         cost = 600,

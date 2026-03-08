@@ -765,6 +765,14 @@ local fluidTooltipNames = {
   [11] = "Life Fluid"
 }
 
+local premiumScrollActionDays = {
+  [60007] = 7,
+  [60015] = 15,
+  [60060] = 60,
+  [60120] = 120
+}
+
+
 local function getFluidTooltipName(item, itemType)
   if not item or not itemType or not itemType:isFluidContainer() then
     return nil
@@ -778,13 +786,54 @@ local function getFluidTooltipName(item, itemType)
   return fluidTooltipNames[fluidType]
 end
 
+local function getPremiumScrollTooltip(item, itemType)
+  if not item or not itemType then
+    return nil, nil
+  end
+
+  local itemId = tonumber(itemType:getId()) or 0
+  if itemId ~= 5545 and itemId ~= 5546 then
+    return nil, nil
+  end
+
+  local days = nil
+  if itemId == 5545 then
+    days = 7
+  end
+
+  local actionId = tonumber(item:getActionId()) or 0
+  local daysFromAction = premiumScrollActionDays[actionId]
+  if daysFromAction then
+    days = daysFromAction
+  end
+
+  if not days then
+    days = (itemId == 5546) and 30 or 7
+  end
+
+  local itemName = string.format("%d days premium account scroll", days)
+  local itemDesc = string.format("This scroll will give you %d days premium.", days)
+  return itemName, itemDesc
+end
+
 function Item:buildTooltip()
   local uid = self:getRealUID()
   local itemType = self:getType()
   local itemName = itemType:getName()
+  local actionId = tonumber(self:getActionId()) or 0
   local fluidName = getFluidTooltipName(self, itemType)
   if fluidName then
     itemName = fluidName
+  end
+  local premiumName, premiumDesc = getPremiumScrollTooltip(self, itemType)
+  if premiumName then
+    itemName = premiumName
+  end
+  local actionDesc = nil
+  local itemId = tonumber(itemType:getId()) or 0
+  if itemId == 5747 then
+    itemName = "name change scroll"
+    actionDesc = "Use it to change your character name. The new name must be unique and cannot contain numbers."
   end
 
   local item_data = {
@@ -797,7 +846,11 @@ function Item:buildTooltip()
     item_data.tier = itemTier
   end
 
-  if itemType:getDescription():len() > 0 then
+  if actionDesc then
+    item_data.desc = actionDesc
+  elseif premiumDesc then
+    item_data.desc = premiumDesc
+  elseif itemType:getDescription():len() > 0 then
     item_data.desc = itemType:getDescription()
   end
 

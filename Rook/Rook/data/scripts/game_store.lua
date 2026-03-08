@@ -4,10 +4,238 @@ local CODE_GAMESTORE = 102
 local GAME_STORE = nil
 
 local LoginEvent = CreatureEvent("GameStoreLogin")
+local PREMIUM_SCROLL_ACTION_7 = 60007
 local PREMIUM_SCROLL_ACTION_15 = 60015
 local PREMIUM_SCROLL_ACTION_60 = 60060
 local PREMIUM_SCROLL_ACTION_120 = 60120
 local MARKET_TICKET_ACTION = 65048
+local DECOR_PARCEL_ITEM_ID = 2595
+local DECOR_PARCEL_ACTION_ID = 65150
+local EXPERIENCE_BOOSTER_ITEM_ID = 5540
+local EXPERIENCE_BOOSTER_COOLDOWN = 24 * 60 * 60
+local FRAG_REMOVER_ITEM_ID = 5541
+local FRAG_REMOVER_COOLDOWN = 30 * 24 * 60 * 60
+local SHOP_HISTORY_TABLE = "shop_history"
+local SHOP_HISTORY_COLUMN_CACHE = {}
+local SHOP_HISTORY_ID_EXPLICIT = nil
+local GAME_STORE_OFFERS_CHUNK_SIZE = 20
+local GAME_STORE_HISTORY_CHUNK_SIZE = 40
+
+local function shopHistoryHasColumn(columnName)
+	local cacheKey = tostring(columnName)
+	local cached = SHOP_HISTORY_COLUMN_CACHE[cacheKey]
+	if cached ~= nil then
+		return cached
+	end
+
+	local q = "SHOW COLUMNS FROM `" .. SHOP_HISTORY_TABLE .. "` LIKE " .. db.escapeString(cacheKey)
+	local resultId = db.storeQuery(q)
+	local exists = resultId ~= false
+	if exists then
+		result.free(resultId)
+	end
+	SHOP_HISTORY_COLUMN_CACHE[cacheKey] = exists
+	return exists
+end
+
+local function shopHistoryShowField(columnName, fieldName)
+	local q = "SHOW COLUMNS FROM `" .. SHOP_HISTORY_TABLE .. "` LIKE " .. db.escapeString(columnName)
+	local resultId = db.storeQuery(q)
+	if resultId == false then
+		return ""
+	end
+	local value = tostring(result.getDataString(resultId, fieldName) or "")
+	result.free(resultId)
+	return value
+end
+
+local function shopHistoryNeedsExplicitId()
+	if SHOP_HISTORY_ID_EXPLICIT ~= nil then
+		return SHOP_HISTORY_ID_EXPLICIT
+	end
+
+	if not shopHistoryHasColumn("id") then
+		SHOP_HISTORY_ID_EXPLICIT = false
+		return false
+	end
+
+	local extra = string.lower(shopHistoryShowField("id", "Extra"))
+	SHOP_HISTORY_ID_EXPLICIT = extra:find("auto_increment", 1, true) == nil
+	return SHOP_HISTORY_ID_EXPLICIT
+end
+
+local function ensureShopHistoryAutoIncrement()
+	if not shopHistoryHasColumn("id") then
+		return
+	end
+
+	if not shopHistoryNeedsExplicitId() then
+		return
+	end
+
+	local keyType = string.upper(shopHistoryShowField("id", "Key"))
+	if keyType == "" then
+		db.query("ALTER TABLE `" .. SHOP_HISTORY_TABLE .. "` ADD PRIMARY KEY (`id`)")
+	end
+
+	db.query("ALTER TABLE `" .. SHOP_HISTORY_TABLE .. "` MODIFY COLUMN `id` INT NOT NULL AUTO_INCREMENT")
+
+	-- Refresh cached id mode after migration attempt.
+	SHOP_HISTORY_ID_EXPLICIT = nil
+	shopHistoryNeedsExplicitId()
+end
+
+local function nextShopHistoryId()
+	local resultId = db.storeQuery("SELECT COALESCE(MAX(`id`), 0) + 1 AS `next_id` FROM `" .. SHOP_HISTORY_TABLE .. "`")
+	if resultId == false then
+		return 1
+	end
+	local nextId = result.getDataInt(resultId, "next_id")
+	result.free(resultId)
+	nextId = tonumber(nextId) or 1
+	return math.max(1, nextId)
+end
+
+local function getShopHistoryPriceColumn()
+	if shopHistoryHasColumn("price") then
+		return "price"
+	end
+	if shopHistoryHasColumn("cost") then
+		return "cost"
+	end
+	return nil
+end
+
+local function insertShopHistory(accountId, playerGuid, title, price, count, targetName)
+	local safeAccountId = math.floor(tonumber(accountId) or 0)
+	local safePlayerGuid = math.floor(tonumber(playerGuid) or 0)
+	local safeTitle = tostring(title or "")
+	local safePrice = math.max(0, math.floor(tonumber(price) or 0))
+	local safeCount = math.max(0, math.floor(tonumber(count) or 0))
+	local safeTarget = tostring(targetName or "")
+
+	local columns = {"`account`", "`player`", "`date`", "`title`"}
+	local values = {
+		tostring(safeAccountId),
+		tostring(safePlayerGuid),
+		"NOW()",
+		db.escapeString(safeTitle)
+	}
+
+	local priceColumn = getShopHistoryPriceColumn()
+	if priceColumn then
+		columns[#columns + 1] = "`" .. priceColumn .. "`"
+		values[#values + 1] = tostring(safePrice)
+	end
+
+	if shopHistoryHasColumn("count") then
+		columns[#columns + 1] = "`count`"
+		values[#values + 1] = tostring(safeCount)
+	end
+
+	if shopHistoryHasColumn("target") then
+		columns[#columns + 1] = "`target`"
+		if safeTarget ~= "" then
+			values[#values + 1] = db.escapeString(safeTarget)
+		else
+			values[#values + 1] = "NULL"
+		end
+	elseif shopHistoryHasColumn("details") then
+		columns[#columns + 1] = "`details`"
+		if safeTarget ~= "" then
+			values[#values + 1] = db.escapeString("gift:" .. safeTarget)
+		else
+			values[#values + 1] = db.escapeString("")
+		end
+	end
+
+	local columnsSql = table.concat(columns, ",")
+	local valuesSql = table.concat(values, ",")
+	local baseInsert = "INSERT INTO `" .. SHOP_HISTORY_TABLE .. "` (" .. columnsSql .. ") VALUES (" .. valuesSql .. ")"
+	if db.query(baseInsert) then
+		return true
+	end
+
+	-- Legacy fallback for schemas where id is not AUTO_INCREMENT.
+	if shopHistoryHasColumn("id") then
+		local fallbackId = nextShopHistoryId()
+		local fallbackInsert =
+			"INSERT INTO `" ..
+			SHOP_HISTORY_TABLE ..
+			"` (`id`," .. columnsSql .. ") VALUES (" .. fallbackId .. "," .. valuesSql .. ")"
+		if db.query(fallbackInsert) then
+			return true
+		end
+	end
+
+	return false
+end
+
+local function formatCooldown(seconds)
+	seconds = math.max(0, math.floor(tonumber(seconds) or 0))
+	local hours = math.floor(seconds / 3600)
+	local minutes = math.floor((seconds % 3600) / 60)
+	return string.format("%02dh %02dm", hours, minutes)
+end
+
+local function formatCooldownWithDays(seconds)
+	seconds = math.max(0, math.floor(tonumber(seconds) or 0))
+	local days = math.floor(seconds / (24 * 60 * 60))
+	local hours = math.floor((seconds % (24 * 60 * 60)) / 3600)
+	local minutes = math.floor((seconds % 3600) / 60)
+	if days > 0 then
+		return string.format("%dd %02dh %02dm", days, hours, minutes)
+	end
+	return string.format("%02dh %02dm", hours, minutes)
+end
+
+local function storePurchaseCooldownRemaining(accountId, title, cooldownSeconds)
+	accountId = math.floor(tonumber(accountId) or 0)
+	if accountId <= 0 then
+		return 0
+	end
+
+	local lowerTitle = string.lower(tostring(title or ""))
+	if lowerTitle == "" then
+		return 0
+	end
+
+	local q = string.format(
+		"SELECT UNIX_TIMESTAMP(`date`) AS `ts` FROM `%s` WHERE `account` = %d AND LOWER(`title`) = %s ORDER BY `date` DESC LIMIT 1",
+		SHOP_HISTORY_TABLE,
+		accountId,
+		db.escapeString(lowerTitle)
+	)
+	local resultId = db.storeQuery(q)
+	if resultId == false then
+		return 0
+	end
+
+	local ts = tonumber(result.getDataInt(resultId, "ts")) or 0
+	result.free(resultId)
+	if ts <= 0 then
+		return 0
+	end
+
+	local cooldown = math.max(0, math.floor(tonumber(cooldownSeconds) or 0))
+	if cooldown <= 0 then
+		return 0
+	end
+
+	local elapsed = os.time() - ts
+	if elapsed >= cooldown then
+		return 0
+	end
+	return cooldown - elapsed
+end
+
+local function experienceBoosterCooldownRemaining(accountId)
+	return storePurchaseCooldownRemaining(accountId, "experience booster", EXPERIENCE_BOOSTER_COOLDOWN)
+end
+
+local function fragRemoverCooldownRemaining(accountId)
+	return storePurchaseCooldownRemaining(accountId, "frag remover", FRAG_REMOVER_COOLDOWN)
+end
 
 local function premiumScrollStoreCallback(days, actionId)
 	return function(player, offer)
@@ -33,6 +261,7 @@ local function premiumScrollStoreCallback(days, actionId)
 
 		if actionId then
 			item:setActionId(actionId)
+			item:setAttribute(ITEM_ATTRIBUTE_NAME, days .. " days premium account scroll")
 			item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Premium account for " .. days .. " days.")
 		end
 
@@ -64,9 +293,137 @@ local function marketTicketStoreCallback()
 		end
 
 		item:setActionId(MARKET_TICKET_ACTION)
-		item:setAttribute(ITEM_ATTRIBUTE_NAME, "market ticket")
+		item:setAttribute(ITEM_ATTRIBUTE_NAME, "market scroll")
 		item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Use to open the Market window. First use starts 48h access time.")
 		return true
+	end
+end
+
+local function trainingWeaponStoreCallback()
+	return function(player, offer)
+		local itemType = ItemType(offer.itemId)
+		local defaultCharges = tonumber(itemType and itemType:getCharges()) or 1500
+		if defaultCharges <= 0 then
+			defaultCharges = 1500
+		end
+
+		local weight = itemType and itemType:getWeight(1) or 0
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local item = player:addItem(offer.itemId, defaultCharges, false)
+		if not item then
+			return "Something went wrong, item couldn't be added."
+		end
+
+		return true
+	end
+end
+
+local function chargedItemStoreCallback(charges)
+	return function(player, offer)
+		local itemType = ItemType(offer.itemId)
+		local useCharges = math.max(1, math.floor(tonumber(charges) or 1))
+
+		local weight = itemType and itemType:getWeight(1) or 0
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local item = player:addItem(offer.itemId, useCharges, false)
+		if not item then
+			return "Something went wrong, item couldn't be added."
+		end
+
+		return true
+	end
+end
+
+local function decorParcelStoreCallback()
+	return function(player, offer)
+		local parcelType = ItemType(DECOR_PARCEL_ITEM_ID)
+		local weight = parcelType and parcelType:getWeight(1) or 0
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local unpackId = math.max(1, math.floor(tonumber(offer.itemId) or 0))
+		local unpackCount = math.max(1, math.floor(tonumber(offer.count) or 1))
+		local unpackType = ItemType(unpackId)
+		if not unpackType or unpackType:getId() == 0 then
+			return "This decorative item is invalid."
+		end
+
+		local unpackName = unpackType:getName()
+		if unpackName == "" then
+			unpackName = offer.title or ("item " .. unpackId)
+		end
+
+		local parcel = player:addItem(DECOR_PARCEL_ITEM_ID, 1, false)
+		if not parcel then
+			return "Something went wrong, item couldn't be added."
+		end
+
+		parcel:setActionId(DECOR_PARCEL_ACTION_ID)
+		parcel:setAttribute(ITEM_ATTRIBUTE_NAME, "decor parcel")
+		parcel:setAttribute(
+			ITEM_ATTRIBUTE_DESCRIPTION,
+			"Contains " .. unpackName .. " x" .. unpackCount .. ". Can be unpacked only inside a house."
+		)
+		parcel:setAttribute(ITEM_ATTRIBUTE_TEXT, "decor:" .. unpackId .. ":" .. unpackCount)
+		return true
+	end
+end
+
+local function addDecorStoreSection(categoryTitle, description, iconItemId, entries, callback)
+	addCategory(categoryTitle, description, "item", iconItemId)
+	for i = 1, #entries do
+		local entry = entries[i]
+		local itemId = entry[1]
+		local price = entry[2]
+		local itemType = ItemType(itemId)
+		if itemType and itemType:getId() > 0 and itemType:getName() ~= "" then
+			addItem(
+				categoryTitle,
+				itemType:getName(),
+				"Packed in decor parcel. Unpack only inside a house.",
+				itemId,
+				1,
+				price,
+				callback
+			)
+		end
 	end
 end
 
@@ -76,23 +433,32 @@ function LoginEvent.onLogin(player)
 end
 
 function gameStoreInitialize()
+	ensureShopHistoryAutoIncrement()
+
 	GAME_STORE = {
 		categories = {},
 		offers = {}
 	}
 
-	addCategory("Premium", "Premium account scrolls.", "item", 5546)
+	addCategory("Premium Scrolls", "Premium account scrolls.", "item", 5546)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"7 days premium account scroll",
 		"Premium account for 7 days.",
-		5545,
+		5546,
 		1,
 		150,
-		premiumScrollStoreCallback(7)
+		premiumScrollStoreCallback(7, PREMIUM_SCROLL_ACTION_7)
 	)
+	-- Keep 7-day behavior (item id 5545) but use same icon as other premium scrolls.
+	if GAME_STORE.offers["Premium Scrolls"] and GAME_STORE.offers["Premium Scrolls"][#GAME_STORE.offers["Premium Scrolls"]] then
+		local sharedPremiumClientId = ItemType(5546):getClientId()
+		if sharedPremiumClientId and sharedPremiumClientId > 0 then
+			GAME_STORE.offers["Premium Scrolls"][#GAME_STORE.offers["Premium Scrolls"]].clientId = sharedPremiumClientId
+		end
+	end
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"15 days premium account scroll",
 		"Premium account for 15 days.",
 		5546,
@@ -101,7 +467,7 @@ function gameStoreInitialize()
 		premiumScrollStoreCallback(15, PREMIUM_SCROLL_ACTION_15)
 	)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"30 days premium account scroll",
 		"Premium account for 30 days.",
 		5546,
@@ -110,7 +476,7 @@ function gameStoreInitialize()
 		premiumScrollStoreCallback(30)
 	)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"60 days premium account scroll",
 		"Premium account for 60 days.",
 		5546,
@@ -119,13 +485,47 @@ function gameStoreInitialize()
 		premiumScrollStoreCallback(60, PREMIUM_SCROLL_ACTION_60)
 	)
 	addItem(
-		"Premium",
+		"Premium Scrolls",
 		"120 days premium account scroll",
 		"Premium account for 120 days.",
 		5546,
 		1,
 		950,
 		premiumScrollStoreCallback(120, PREMIUM_SCROLL_ACTION_120)
+	)
+
+	addCategory("Premium Coins", "Titania premium coin packs.", "item", 7965)
+	addItem(
+		"Premium Coins",
+		"1 premium coin",
+		"Get 1 Titania premium coin.",
+		7965,
+		1,
+		2
+	)
+	addItem(
+		"Premium Coins",
+		"10 premium coins",
+		"Get 10 Titania premium coins.",
+		7965,
+		10,
+		13
+	)
+	addItem(
+		"Premium Coins",
+		"50 premium coins",
+		"Get 50 Titania premium coins.",
+		7965,
+		50,
+		55
+	)
+	addItem(
+		"Premium Coins",
+		"100 premium coins",
+		"Get 100 Titania premium coins.",
+		7965,
+		100,
+		105
 	)
 
 	addCategory(
@@ -518,7 +918,7 @@ addOutfit(
 )
 	
 
-	addCategory("Mounts", "Here you can find a fine selection of unique mounts.", "mount", 397)
+	addCategory("Mounts", "Fine selection of unique mounts.", "mount", 397)
 	addMount("Mounts", "Crystal Wolf", "from the deep ice caves", 1, 388, 600)
 	addMount("Mounts", "Reindeer", "Must have fallen off the sleigh.", 2, 397, 600)
 	addMount("Mounts", "Panda", "From the depts of the jungle.", 3, 398, 600)
@@ -533,18 +933,98 @@ addOutfit(
 	addMount("Mounts", "Red Mantis", "Someone must have been fishing huh?.", 12, 476, 600)
 	addMount("Mounts", "Buffalo", "Been to a swamp or two.", 13, 479, 600)
 
-	addCategory("Items", "Utility items and account extras.", "item", 7962)
+	addCategory("Items", "Utility items.", "item", 7962)
 	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 100)
 	addItem("Items", "Ring of Light", "A handy source of light.", 7963, 1, 2)
-	addItem("Items", "Market Ticket (48h)", "First use starts 48h market access.", 2329, 1, 100, marketTicketStoreCallback())
+	addItem("Items", "Gold Converter", "100 uses. Converts 100 gold -> 1 platinum or 100 platinum -> 1 crystal.", 7966, 1, 10, chargedItemStoreCallback(100))
+	addItem("Items", "Gold Pouch", "Automatically collects dropped gold to your bank when equipped in a totem slot.", 7967, 1, 499)
+	addItem("Items", "frags checker", "Shows your current frags, red skull progress and frag reset timers.", 5953, 1, 49)
+	addItem("Items", "blessing checker", "Use to check which blessings you currently have.", 6340, 1, 39)
 
-	addCategory("Training", "Exercise weapons for offline training.", "item", 6876)
-	addItem("Training", "Exercise Wand", "Training weapon.", 6876, 1, 50)
-	addItem("Training", "Exercise Rod", "Training weapon.", 6877, 1, 50)
-	addItem("Training", "Exercise Bow", "Training weapon.", 6878, 1, 50)
-	addItem("Training", "Exercise Axe", "Training weapon.", 6879, 1, 50)
-	addItem("Training", "Exercise Sword", "Training weapon.", 6880, 1, 50)
-	addItem("Training", "Exercise Club", "Training weapon.", 6881, 1, 50)
+	addCategory("Containers", "Backpacks and special containers.", "item", 5842)
+	addItem("Containers", "Frosty backpack", "A frosty themed backpack. Capacity: 24 slots.", 5842, 1, 10)
+	addItem("Containers", "Energy backpack", "An energy themed backpack. Capacity: 24 slots.", 5843, 1, 10)
+	addItem("Containers", "Backpack of holding", "A special backpack of holding. Capacity: 24 slots.", 6338, 1, 10)
+	addItem("Containers", "War backpack", "A war themed backpack. Capacity: 30 slots.", 5954, 1, 15)
+	addItem("Containers", "Goldenruby backpack", "A goldenruby backpack. Capacity: 40 slots.", 5859, 1, 25)
+
+	addItem("Containers", "explo backpack", "Backpack for explosion runes. Capacity: 20 slots.", 5776, 1, 5)
+	addItem("Containers", "gfb backpack", "Backpack for great fireball runes. Capacity: 20 slots.", 5777, 1, 5)
+	addItem("Containers", "hmm backpack", "Backpack for heavy magic missile runes. Capacity: 20 slots.", 5778, 1, 5)
+	addItem("Containers", "ih backpack", "Backpack for intense healing runes. Capacity: 20 slots.", 5779, 1, 5)
+	addItem("Containers", "lmm backpack", "Backpack for light magic missile runes. Capacity: 20 slots.", 5780, 1, 5)
+	addItem("Containers", "mw backpack", "Backpack for magic wall runes. Capacity: 20 slots.", 5781, 1, 5)
+	addItem("Containers", "sd backpack", "Backpack for sudden death runes. Capacity: 20 slots.", 5782, 1, 5)
+	addItem("Containers", "uh backpack", "Backpack for ultimate healing runes. Capacity: 20 slots.", 5783, 1, 5)
+
+	local decorCallback = decorParcelStoreCallback()
+
+	addCategory("House decor", "Decor items are delivered as decor parcel. Unpack only inside a house.", "item", 1650)
+	addItem("House decor", "small round table", "Packed in decor parcel. Unpack only inside a house.", 1616, 1, 1, decorCallback)
+	addItem("House decor", "small table", "Packed in decor parcel. Unpack only inside a house.", 1619, 1, 1, decorCallback)
+	addItem("House decor", "throne", "Packed in decor parcel. Unpack only inside a house.", 1646, 1, 1, decorCallback)
+	addItem("House decor", "wooden chair", "Packed in decor parcel. Unpack only inside a house.", 1650, 1, 1, decorCallback)
+	addItem("House decor", "sofa chair", "Packed in decor parcel. Unpack only inside a house.", 1658, 1, 1, decorCallback)
+	addItem("House decor", "red cushioned chair", "Packed in decor parcel. Unpack only inside a house.", 1666, 1, 1, decorCallback)
+	addItem("House decor", "green cushioned chair", "Packed in decor parcel. Unpack only inside a house.", 1670, 1, 1, decorCallback)
+	addItem("House decor", "rocking chair", "Packed in decor parcel. Unpack only inside a house.", 1674, 1, 1, decorCallback)
+	addItem("House decor", "chest of drawers", "Packed in decor parcel. Unpack only inside a house.", 1714, 1, 1, decorCallback)
+	addItem("House decor", "pendulum clock", "Packed in decor parcel. Unpack only inside a house.", 1728, 1, 1, decorCallback)
+	addItem("House decor", "standing mirror", "Packed in decor parcel. Unpack only inside a house.", 1736, 1, 1, decorCallback)
+	addItem("House decor", "purple tapestry", "Packed in decor parcel. Unpack only inside a house.", 1855, 1, 1, decorCallback)
+	addItem("House decor", "green tapestry", "Packed in decor parcel. Unpack only inside a house.", 1858, 1, 1, decorCallback)
+	addItem("House decor", "yellow tapestry", "Packed in decor parcel. Unpack only inside a house.", 1861, 1, 1, decorCallback)
+	addItem("House decor", "orange tapestry", "Packed in decor parcel. Unpack only inside a house.", 1864, 1, 1, decorCallback)
+	addItem("House decor", "red tapestry", "Packed in decor parcel. Unpack only inside a house.", 1867, 1, 1, decorCallback)
+	addItem("House decor", "blue tapestry", "Packed in decor parcel. Unpack only inside a house.", 1870, 1, 1, decorCallback)
+	addItem("House decor", "white tapestry", "Packed in decor parcel. Unpack only inside a house.", 1878, 1, 1, decorCallback)
+	addItem("House decor", "candelabrum", "Packed in decor parcel. Unpack only inside a house.", 2041, 1, 1, decorCallback)
+	addItem("House decor", "candlestick", "Packed in decor parcel. Unpack only inside a house.", 2047, 1, 1, decorCallback)
+	addItem("House decor", "small oil lamp", "Packed in decor parcel. Unpack only inside a house.", 2062, 1, 1, decorCallback)
+	addItem("House decor", "piano", "Packed in decor parcel. Unpack only inside a house.", 2080, 1, 1, decorCallback)
+	addItem("House decor", "harp", "Packed in decor parcel. Unpack only inside a house.", 2084, 1, 1, decorCallback)
+	addItem("House decor", "god flowers", "Packed in decor parcel. Unpack only inside a house.", 2100, 1, 1, decorCallback)
+	addItem("House decor", "indoor plant", "Packed in decor parcel. Unpack only inside a house.", 2101, 1, 1, decorCallback)
+	addItem("House decor", "flower bowl", "Packed in decor parcel. Unpack only inside a house.", 2102, 1, 1, decorCallback)
+	addItem("House decor", "honey flower", "Packed in decor parcel. Unpack only inside a house.", 2103, 1, 1, decorCallback)
+	addItem("House decor", "potted flower", "Packed in decor parcel. Unpack only inside a house.", 2104, 1, 1, decorCallback)
+	addItem("House decor", "big flowerpot", "Packed in decor parcel. Unpack only inside a house.", 2106, 1, 1, decorCallback)
+	addItem("House decor", "exotic flower", "Packed in decor parcel. Unpack only inside a house.", 2107, 1, 1, decorCallback)
+	addItem("House decor", "crate", "Packed in decor parcel. Unpack only inside a house.", 1739, 1, 1, decorCallback)
+	addItem("House decor", "barrel", "Packed in decor parcel. Unpack only inside a house.", 1770, 1, 1, decorCallback)
+	addItem("House decor", "vase", "Packed in decor parcel. Unpack only inside a house.", 2008, 1, 1, decorCallback)
+	addItem("House decor", "pot", "Packed in decor parcel. Unpack only inside a house.", 2562, 1, 1, decorCallback)
+	addItem("House decor", "white vase", "Packed in decor parcel. Unpack only inside a house.", 2574, 1, 1, decorCallback)
+	addItem("House decor", "yellow vase", "Packed in decor parcel. Unpack only inside a house.", 2575, 1, 1, decorCallback)
+	addItem("House decor", "blue vase", "Packed in decor parcel. Unpack only inside a house.", 2576, 1, 1, decorCallback)
+	addItem("House decor", "green vase", "Packed in decor parcel. Unpack only inside a house.", 2577, 1, 1, decorCallback)
+	addItem("House decor", "statue", "Packed in decor parcel. Unpack only inside a house.", 1442, 1, 1, decorCallback)
+	addItem("House decor", "minotaur statue", "Packed in decor parcel. Unpack only inside a house.", 1446, 1, 1, decorCallback)
+	addItem("House decor", "goblin statue", "Packed in decor parcel. Unpack only inside a house.", 1447, 1, 1, decorCallback)
+	addItem("House decor", "carved stone table", "Packed in decor parcel. Unpack only inside a house.", 3805, 1, 1, decorCallback)
+	addItem("House decor", "tusk table", "Packed in decor parcel. Unpack only inside a house.", 3807, 1, 1, decorCallback)
+	addItem("House decor", "bamboo table", "Packed in decor parcel. Unpack only inside a house.", 3809, 1, 1, decorCallback)
+	addItem("House decor", "tusk chair", "Packed in decor parcel. Unpack only inside a house.", 3813, 1, 1, decorCallback)
+	addItem("House decor", "ivory chair", "Packed in decor parcel. Unpack only inside a house.", 3817, 1, 1, decorCallback)
+	addItem("House decor", "bamboo drawer", "Packed in decor parcel. Unpack only inside a house.", 3832, 1, 1, decorCallback)
+
+	addCategory("Scrolls", "Utility and special account scrolls.", "item", 5546)
+	addItem("Scrolls", "market scroll", "First use starts 48h market access.", 2329, 1, 5, marketTicketStoreCallback())
+	addItem("Scrolls", "blessing scroll", "Grants all blessings.", 5542, 1, 55)
+	addItem("Scrolls", "experience booster", "Grants +30% exp for 1 hour. Limit: once per 24h.", 5540, 1, 99)
+	addItem("Scrolls", "frag remover", "Removes all unjustified kills and skull. Limit: once per 30 days.", 5541, 1, 99)
+	addItem("Scrolls", "rashid scroll", "Unlocks Rashid trade access.", 5543, 1, 499)
+	addItem("Scrolls", "sex change scroll", "Changes your character sex.", 5544, 1, 99)
+	addItem("Scrolls", "name change scroll", "Lets you change your character name (unique, no numbers).", 5747, 1, 199)
+	addItem("Scrolls", "postman scroll", "Unlocks postman quest access.", 5746, 1, 399)
+
+	addCategory("Training", "Exercise weapons.", "item", 6876)
+	addItem("Training", "Exercise Wand", "1500 uses. Does not consume mana.", 6876, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Rod", "1500 uses. Does not consume mana.", 6877, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Bow", "1500 uses. Attack speed is 10% faster.", 6878, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Axe", "1500 uses. Attack speed is 10% faster.", 6879, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Sword", "1500 uses. Attack speed is 10% faster.", 6880, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Club", "1500 uses. Attack speed is 10% faster.", 6881, 1, 50, trainingWeaponStoreCallback())
 
 end
 
@@ -621,7 +1101,31 @@ function gameStoreFetch(player)
 			end
 			table.insert(offers, data)
 		end
-		player:sendExtendedOpcode(CODE_GAMESTORE, json.encode({action = "fetchOffers", data = {category = category, offers = offers}}))
+
+		local total = math.max(1, math.ceil(#offers / GAME_STORE_OFFERS_CHUNK_SIZE))
+		for chunk = 1, total do
+			local first = ((chunk - 1) * GAME_STORE_OFFERS_CHUNK_SIZE) + 1
+			local last = math.min(first + GAME_STORE_OFFERS_CHUNK_SIZE - 1, #offers)
+			local part = {}
+			for i = first, last do
+				part[#part + 1] = offers[i]
+			end
+
+			player:sendExtendedOpcode(
+				CODE_GAMESTORE,
+				json.encode(
+					{
+						action = "fetchOffers",
+						data = {
+							category = category,
+							offers = part,
+							chunk = chunk,
+							total = total
+						}
+					}
+				)
+			)
+		end
 	end
 
 	gameStoreUpdatePoints(player)
@@ -640,26 +1144,78 @@ function gameStoreUpdateHistory(player)
 		player = Player(player)
 	end
 	local history = {}
+	local priceColumn = getShopHistoryPriceColumn()
+	local hasCountColumn = shopHistoryHasColumn("count")
+	local hasTargetColumn = shopHistoryHasColumn("target")
+	local hasDetailsColumn = shopHistoryHasColumn("details")
 	local resultId = db.storeQuery("SELECT * FROM `shop_history` WHERE `account` = " .. player:getAccountId() .. " order by `id` DESC")
 
 	if resultId ~= false then
 		repeat
-			local desc = "Bought " .. result.getDataString(resultId, "title")
-			local count = result.getDataInt(resultId, "count")
+			local title = result.getDataString(resultId, "title")
+			if title == "" then
+				title = "unknown item"
+			end
+
+			local desc = "Bought " .. title
+			local count = 0
+			if hasCountColumn then
+				count = tonumber(result.getDataInt(resultId, "count")) or 0
+			end
 			if count > 0 then
 				desc = desc .. " (x" .. count .. ")"
 			end
-			local target = result.getDataString(resultId, "target")
+
+			local points = 0
+			if priceColumn then
+				points = tonumber(result.getDataInt(resultId, priceColumn)) or 0
+			end
+
+			local target = ""
+			if hasTargetColumn then
+				target = result.getDataString(resultId, "target")
+			end
+
+			if target == "" and hasDetailsColumn then
+				local details = result.getDataString(resultId, "details")
+				if details and details:sub(1, 5) == "gift:" then
+					target = details:sub(6)
+				end
+			end
+
 			if target ~= "" then
-				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. target .. " for " .. result.getDataInt(resultId, "price") .. " points."
+				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. target .. " for " .. points .. " points."
 			else
-				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. result.getDataInt(resultId, "price") .. " points."
+				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. points .. " points."
 			end
 			table.insert(history, desc)
 		until not result.next(resultId)
 		result.free(resultId)
 	end
-	player:sendExtendedOpcode(CODE_GAMESTORE, json.encode({action = "history", data = history}))
+
+	local total = math.max(1, math.ceil(#history / GAME_STORE_HISTORY_CHUNK_SIZE))
+	for chunk = 1, total do
+		local first = ((chunk - 1) * GAME_STORE_HISTORY_CHUNK_SIZE) + 1
+		local last = math.min(first + GAME_STORE_HISTORY_CHUNK_SIZE - 1, #history)
+		local part = {}
+		for i = first, last do
+			part[#part + 1] = history[i]
+		end
+
+		player:sendExtendedOpcode(
+			CODE_GAMESTORE,
+			json.encode(
+				{
+					action = "history",
+					data = {
+						entries = part,
+						chunk = chunk,
+						total = total
+					}
+				}
+			)
+		)
+	end
 end
 
 function gameStorePurchase(player, offer)
@@ -679,21 +1235,37 @@ function gameStorePurchase(player, offer)
 				return errorMsg(player, "You don't have enough points!")
 			end
 
+			if offers[i].itemId == EXPERIENCE_BOOSTER_ITEM_ID then
+				local remaining = experienceBoosterCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Experience booster can be bought once every 24 hours. Remaining: " .. formatCooldown(remaining) .. "."
+					)
+				end
+			end
+
+			if offers[i].itemId == FRAG_REMOVER_ITEM_ID then
+				local remaining = fragRemoverCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Frag remover can be bought once every 30 days. Remaining: " .. formatCooldownWithDays(remaining) .. "."
+					)
+				end
+			end
+
 			local status = callback(player, offers[i])
 			if status ~= true then
 				return errorMsg(player, status)
 			end
 
 			local aid = player:getAccountId()
-			local escapeTitle = db.escapeString(offers[i].title)
-			local escapePrice = db.escapeString(offers[i].price)
-			local escapeCount = offers[i].count and db.escapeString(offers[i].count) or 0
+			local price = offers[i].price
+			local count = offers[i].count or 0
 
 			db.query("UPDATE `accounts` set `premium_points` = `premium_points` - " .. offers[i].price .. " WHERE `id` = " .. aid)
-			db.asyncQuery(
-				"INSERT INTO `shop_history` VALUES (NULL, '" ..
-					aid .. "', '" .. player:getGuid() .. "', NOW(), " .. escapeTitle .. ", " .. escapePrice .. ", " .. escapeCount .. ", NULL)"
-			)
+			insertShopHistory(aid, player:getGuid(), offers[i].title, price, count, nil)
 			addEvent(gameStoreUpdateHistory, 1000, player:getId())
 			addEvent(gameStoreUpdatePoints, 1000, player:getId())
 			return infoMsg(player, "You've bought " .. offers[i].title .. "!", true)
@@ -722,6 +1294,26 @@ function gameStorePurchaseGift(player, offer)
 				return errorMsg(player, "You don't have enough points!")
 			end
 
+			if offers[i].itemId == EXPERIENCE_BOOSTER_ITEM_ID then
+				local remaining = experienceBoosterCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Experience booster can be bought once every 24 hours. Remaining: " .. formatCooldown(remaining) .. "."
+					)
+				end
+			end
+
+			if offers[i].itemId == FRAG_REMOVER_ITEM_ID then
+				local remaining = fragRemoverCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Frag remover can be bought once every 30 days. Remaining: " .. formatCooldownWithDays(remaining) .. "."
+					)
+				end
+			end
+
 			local targetPlayer = Player(offer.target)
 			if not targetPlayer then
 				return errorMsg(player, "Target player not found!")
@@ -733,15 +1325,10 @@ function gameStorePurchaseGift(player, offer)
 			end
 
 			local aid = player:getAccountId()
-			local escapeTitle = db.escapeString(offers[i].title)
-			local escapePrice = db.escapeString(offers[i].price)
-			local escapeCount = offers[i].count and db.escapeString(offers[i].count) or 0
-			local escapeTarget = db.escapeString(targetPlayer:getName())
+			local price = offers[i].price
+			local count = offers[i].count or 0
 			db.query("UPDATE `accounts` set `premium_points` = `premium_points` - " .. offers[i].price .. " WHERE `id` = " .. aid)
-			db.asyncQuery(
-				"INSERT INTO `shop_history` VALUES (NULL, '" ..
-					aid .. "', '" .. player:getGuid() .. "', NOW(), " .. escapeTitle .. ", " .. escapePrice .. ", " .. escapeCount .. ", " .. escapeTarget .. ")"
-			)
+			insertShopHistory(aid, player:getGuid(), offers[i].title, price, count, targetPlayer:getName())
 			addEvent(gameStoreUpdateHistory, 1000, player:getId())
 			addEvent(gameStoreUpdatePoints, 1000, player:getId())
 			return infoMsg(player, "You've bought " .. offers[i].title .. " for " .. targetPlayer:getName() .. "!", true)

@@ -645,8 +645,8 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xF5: parseMarketBrowse(msg); break;
 		case 0xF6: parseMarketCreateOffer(msg); break;
 		case 0xF7: parseMarketCancelOffer(msg); break;
-		case 0xF8: parseMarketAcceptOffer(msg); break;
-		case 0xF9: parseModalWindowAnswer(msg); break;*/
+		case 0xF8: parseMarketAcceptOffer(msg); break;*/
+		case 0xF9: parseModalWindowAnswer(msg); break;
 
 	default:
 		// std::cout << "Player: " << player->getName() << " sent an unknown packet header: 0x" << std::hex << static_cast<uint16_t>(recvbyte) << std::dec << "!" << std::endl;
@@ -1333,6 +1333,14 @@ void ProtocolGame::parseSeekInContainer(NetworkMessage& msg)
 	uint8_t containerId = msg.getByte();
 	uint16_t index = msg.get<uint16_t>();
 	addGameTask(&Game::playerSeekInContainer, player->getID(), containerId, index);
+}
+
+void ProtocolGame::parseModalWindowAnswer(NetworkMessage& msg)
+{
+	uint32_t id = msg.get<uint32_t>();
+	uint8_t button = msg.getByte();
+	uint8_t choice = msg.getByte();
+	addGameTask(&Game::playerAnswerModalWindow, player->getID(), id, button, choice);
 }
 
 // Send methods

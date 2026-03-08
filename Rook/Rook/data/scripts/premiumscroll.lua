@@ -1,6 +1,7 @@
 -- Register premium scroll action
 local premiumScroll = Action()
 premiumScroll:id(5546)
+local PREMIUM_SCROLL_ACTION_7 = 60007
 local PREMIUM_SCROLL_ACTION_15 = 60015
 local PREMIUM_SCROLL_ACTION_60 = 60060
 local PREMIUM_SCROLL_ACTION_120 = 60120
@@ -11,7 +12,9 @@ function premiumScroll.onUse(player, item, fromPosition, target, toPosition, isH
 
 	local days = 30
 	local actionId = item:getActionId()
-	if actionId == PREMIUM_SCROLL_ACTION_15 then
+	if actionId == PREMIUM_SCROLL_ACTION_7 then
+		days = 7
+	elseif actionId == PREMIUM_SCROLL_ACTION_15 then
 		days = 15
 	elseif actionId == PREMIUM_SCROLL_ACTION_60 then
 		days = 60

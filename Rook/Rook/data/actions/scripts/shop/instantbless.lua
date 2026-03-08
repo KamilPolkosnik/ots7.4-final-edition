@@ -26,7 +26,7 @@ end
 
 function onUse(cid, item, frompos, item2, topos)
 	if hasAllBlessings(cid) then
-		doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You already have all 5 blessings. Use !bless to check your blessings.")
+		doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You already have all 5 blessings. Use blessing checker to review your blessings.")
 		return true
 	end
 
@@ -37,6 +37,6 @@ function onUse(cid, item, frompos, item2, topos)
 
 	grantAllBlessings(cid)
 	doSendMagicEffect(getThingPos(cid), 13)
-	doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You received all 5 blessings. You can check them with !bless.")
+	doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_RED, "You received all 5 blessings. You can check them with blessing checker.")
 	return true
 end

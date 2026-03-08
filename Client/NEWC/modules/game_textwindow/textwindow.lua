@@ -1,4 +1,5 @@
 windows = {}
+local NAME_CHANGE_SCROLL_ITEM_ID = 5747
 
 function init()
   g_ui.importStyle('textwindow')
@@ -58,7 +59,11 @@ function onGameEditText(id, itemId, maxLength, text, writer, time)
   if #text == 0 and not writeable then
     desc = tr("It is empty.")
   elseif writeable then
-    desc = desc .. tr('You can enter new text.')
+    if itemId == NAME_CHANGE_SCROLL_ITEM_ID or maxLength == 25 then
+      desc = desc .. tr('Enter your new character name (letters/spaces only, no numbers).')
+    else
+      desc = desc .. tr('You can enter new text.')
+    end
   end
 
   local lines = #{string.find(desc, '\n')}

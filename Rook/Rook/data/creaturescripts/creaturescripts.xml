@@ -8,7 +8,8 @@
 	<event type="death" name="PlayerDeath" script="playerdeath.lua" />
 	<event type="death" name="DropLoot" script="droploot.lua" />
 	<event type="extendedopcode" name="ExtendedOpcode" script="extendedopcode.lua" />
-	<event type="extendedopcode" name="GameStore" script="game_store.lua" />
 	<event type="kill" name="task" script="task.lua" />
+	<event type="modalwindow" name="PremiumCoinModal" script="premium_coin_modal.lua" />
+	<event type="textedit" name="NameChangeScrollTextEdit" script="name_change_scroll_textedit.lua" />
 	
 </creaturescripts>
