@@ -34,11 +34,6 @@ OptionPanel
     id: antialiasing
     !text: tr('Antialiasing')
 
-  OptionCheckBox
-    id: renderEnhancement
-    !text: tr('Render')
-    !tooltip: tr('Applies improved post-processing without changing sprites')
-
   Label
     margin-top: 12
     id: optimizationLevelLabel

@@ -4,7 +4,6 @@ function init()
 
   -- map shaders
   g_shaders.createShader("map_default", "/shaders/map_default_vertex", "/shaders/map_default_fragment")  
-  g_shaders.createShader("map_render", "/shaders/map_default_vertex", "/shaders/map_render_fragment")
 
   g_shaders.createShader("map_rainbow", "/shaders/map_rainbow_vertex", "/shaders/map_rainbow_fragment")
   g_shaders.addTexture("map_rainbow", "/images/shaders/rainbow.png")

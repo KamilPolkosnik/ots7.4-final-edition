@@ -3007,8 +3007,8 @@ void ProtocolGame::sendHouseWindow(uint32_t windowTextId, const std::string& tex
 
 void ProtocolGame::sendOutfitWindow()
 {
-	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
-	if (outfits.size() == 0) {
+	const auto& currentSexOutfits = Outfits::getInstance().getOutfits(player->getSex());
+	if (currentSexOutfits.size() == 0) {
 		return;
 	}
 
@@ -3018,7 +3018,7 @@ void ProtocolGame::sendOutfitWindow()
 	Outfit_t currentOutfit = player->getDefaultOutfit();
 	if (currentOutfit.lookType == 0) {
 		Outfit_t newOutfit;
-		newOutfit.lookType = outfits.front().lookType;
+		newOutfit.lookType = currentSexOutfits.front().lookType;
 		currentOutfit = newOutfit;
 	}
 
@@ -3035,15 +3035,36 @@ void ProtocolGame::sendOutfitWindow()
 		protocolOutfits.emplace_back(gamemasterOutfitName, 75, 0);
 	}
 
-	protocolOutfits.reserve(outfits.size());
-	for (const Outfit& outfit : outfits) {
+	std::vector<const Outfit*> availableOutfits;
+	availableOutfits.reserve(currentSexOutfits.size());
+	for (const Outfit& outfit : currentSexOutfits) {
+		availableOutfits.push_back(&outfit);
+	}
+
+	if (player->isAccessPlayer()) {
+		const PlayerSex_t oppositeSex = player->getSex() == PLAYERSEX_FEMALE ? PLAYERSEX_MALE : PLAYERSEX_FEMALE;
+		const auto& oppositeSexOutfits = Outfits::getInstance().getOutfits(oppositeSex);
+		availableOutfits.reserve(availableOutfits.size() + oppositeSexOutfits.size());
+		for (const Outfit& outfit : oppositeSexOutfits) {
+			const bool alreadyAdded = std::any_of(availableOutfits.begin(), availableOutfits.end(), [&outfit](const Outfit* existingOutfit) {
+				return existingOutfit->lookType == outfit.lookType;
+			});
+			if (!alreadyAdded) {
+				availableOutfits.push_back(&outfit);
+			}
+		}
+	}
+
+	const size_t maxOutfits = player->isAccessPlayer() ? std::numeric_limits<uint8_t>::max() : 50;
+	protocolOutfits.reserve(availableOutfits.size() + protocolOutfits.size());
+	for (const Outfit* outfit : availableOutfits) {
 		uint8_t addons;
-		if (!player->getOutfitAddons(outfit, addons)) {
+		if (!player->getOutfitAddons(*outfit, addons)) {
 			continue;
 		}
 
-		protocolOutfits.emplace_back(outfit.name, outfit.lookType, addons);
-		if (protocolOutfits.size() == 50) { // Game client currently doesn't allow more than 50 outfits
+		protocolOutfits.emplace_back(outfit->name, outfit->lookType, addons);
+		if (protocolOutfits.size() == maxOutfits) {
 			break;
 		}
 	}

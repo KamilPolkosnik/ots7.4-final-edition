@@ -430,7 +430,7 @@ function init()
   headhunterButton = modules.client_topmenu.addRightGameToggleButton(
     "headhunterButton",
     tr("Headhunter"),
-    "/images/topbuttons/battle",
+    "/images/topbuttons/headhunter",
     toggle,
     false,
     27

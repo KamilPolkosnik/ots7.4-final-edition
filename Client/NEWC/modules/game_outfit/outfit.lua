@@ -227,16 +227,8 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
 
   updateAppearanceTexts(currentOutfit)
 
-  if g_game.getFeature(GamePlayerMounts) then
-    local isMount = g_game.getLocalPlayer():isMounted()
-    if isMount then
-      window.configure.mount.check:setEnabled(true)
-      window.configure.mount.check:setChecked(true)
-    else
-      window.configure.mount.check:setEnabled(currentOutfit.mount > 0)
-      window.configure.mount.check:setChecked(isMount and currentOutfit.mount > 0)
-    end
-  end
+  window.configure.mount.check:setEnabled(false)
+  window.configure.mount.check:setChecked(false)
 
   if currentOutfit.addons == 3 then
     window.configure.addon1.check:setChecked(true)
@@ -307,7 +299,6 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
   appearanceGroup = UIRadioGroup.create()
   appearanceGroup:addWidget(window.appearance.settings.preset.check)
   appearanceGroup:addWidget(window.appearance.settings.outfit.check)
-  appearanceGroup:addWidget(window.appearance.settings.mount.check)
   appearanceGroup:addWidget(window.appearance.settings.aura.check)
   appearanceGroup:addWidget(window.appearance.settings.wings.check)
   appearanceGroup:addWidget(window.appearance.settings.shader.check)
@@ -326,19 +317,19 @@ function create(currentOutfit, outfitList, mountList, wingList, auraList, shader
   colorModeGroup.onSelectionChange = onColorModeChange
   colorModeGroup:selectWidget(window.appearance.colorMode.head)
 
-  window.preview.options.showMount:setVisible(g_game.getFeature(GamePlayerMounts))
+  window.preview.options.showMount:setVisible(false)
   window.preview.options.showWings:setVisible(g_game.getFeature(GameWingsAndAura))
   window.preview.options.showAura:setVisible(g_game.getFeature(GameWingsAndAura))
   window.preview.options.showShader:setVisible(g_game.getFeature(GameOutfitShaders))
 
-  window.appearance.settings.mount:setVisible(g_game.getFeature(GamePlayerMounts))
+  window.appearance.settings.mount:setVisible(false)
   window.appearance.settings.wings:setVisible(g_game.getFeature(GameWingsAndAura))
   window.appearance.settings.aura:setVisible(g_game.getFeature(GameWingsAndAura))
   window.appearance.settings.shader:setVisible(g_game.getFeature(GameOutfitShaders))
   window.appearance.settings.healthBar:setVisible(g_game.getFeature(GameHealthInfoBackground))
   window.appearance.settings.manaBar:setVisible(g_game.getFeature(GameHealthInfoBackground))
 
-  window.configure.mount:setVisible(g_game.getFeature(GamePlayerMounts))
+  window.configure.mount:setVisible(false)
 
   window.listSearch.search.onKeyPress = onFilterSearch
 end
@@ -1305,17 +1296,8 @@ function loadDefaultSettings()
 end
 
 function accept()
-  if g_game.getFeature(GamePlayerMounts) then
-    local player = g_game.getLocalPlayer()
-    local isMountedChecked = window.configure.mount.check:isChecked()
-    if not player:isMounted() and isMountedChecked then
-      player:mount()
-    elseif player:isMounted() and not isMountedChecked then
-      player:dismount()
-    end
-    if settings.currentPreset > 0 then
-      settings.presets[settings.currentPreset].mounted = isMountedChecked
-    end
+  if settings.currentPreset > 0 then
+    settings.presets[settings.currentPreset].mounted = false
   end
 
   g_game.changeOutfit(tempOutfit)

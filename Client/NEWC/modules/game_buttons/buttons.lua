@@ -37,6 +37,7 @@ function updateOrder()
     return (a.index or 1000) < (b.index or 1000)
    end)
    contentsPanel.buttons:reorderChildren(children)
+
    local visibleCount = 0
    for _, child in ipairs(children) do
     if child:isVisible() then

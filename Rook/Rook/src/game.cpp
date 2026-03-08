@@ -3470,7 +3470,12 @@ void Game::playerChangeOutfit(uint32_t playerId, Outfit_t outfit)
 		return;
 	}
 
-	const Outfit* playerOutfit = Outfits::getInstance().getOutfitByLookType(player->getSex(), outfit.lookType);
+	const Outfits& outfitManager = Outfits::getInstance();
+	const Outfit* playerOutfit = outfitManager.getOutfitByLookType(player->getSex(), outfit.lookType);
+	if (!playerOutfit && player->isAccessPlayer()) {
+		// GMs can browse both sex variants in the outfit window, so accept either mapping when applying.
+		playerOutfit = outfitManager.getOutfitByLookType(outfit.lookType);
+	}
 	if (!playerOutfit) {
 		outfit.lookMount = 0;
 		outfit.lookWings = 0;

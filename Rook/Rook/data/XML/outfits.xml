@@ -16,6 +16,9 @@
 	<outfit type="0" looktype="156" name="Assassin" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="157" name="Beggar" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="158" name="Shaman" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="162" name="Nightmare" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="164" name="Jester" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="166" name="Brotherhood" premium="no" unlocked="no" enabled="yes" />
 
 	
 
@@ -36,6 +39,31 @@
 	<outfit type="1" looktype="152" name="Assassin" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="153" name="Beggar" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="154" name="Shaman" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="159" name="Norseman" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="161" name="Nightmare" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="163" name="Jester" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="165" name="Brotherhood" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="254" name="Custom Outfit 254" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="255" name="Custom Outfit 255" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="256" name="Custom Outfit 256" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="257" name="Custom Outfit 257" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="258" name="Custom Outfit 258" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="260" name="Custom Outfit 260" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="264" name="Custom Outfit 264" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="546" name="Custom Outfit 546" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="547" name="Custom Outfit 547" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="548" name="Custom Outfit 548" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="549" name="Custom Outfit 549" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="551" name="Custom Outfit 551" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="556" name="Custom Outfit 556" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="557" name="Custom Outfit 557" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="558" name="Custom Outfit 558" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="559" name="Custom Outfit 559" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="560" name="Custom Outfit 560" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="561" name="Custom Outfit 561" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="562" name="Custom Outfit 562" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="573" name="Custom Outfit 573" premium="no" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="574" name="Custom Outfit 574" premium="no" unlocked="no" enabled="yes" />
 
 	
 

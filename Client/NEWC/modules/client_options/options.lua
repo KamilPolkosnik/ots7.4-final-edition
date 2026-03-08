@@ -4,7 +4,6 @@ local defaultOptions = {
   showFps = true,
   showPing = true,
   fullscreen = false,
-  renderEnhancement = false,
   classicView = true,
   cacheMap = g_app.isMobile(),
   classicControl = not g_app.isMobile(),
@@ -272,8 +271,6 @@ function setOption(key, value, force)
     end
   elseif key == 'fullscreen' then
     g_window.setFullscreen(value)
-  elseif key == 'renderEnhancement' then
-    gameMapPanel:setShader(value and 'map_render' or '')
   elseif key == 'enableAudio' then
     if g_sounds ~= nil then
       g_sounds.setAudioEnabled(value)
@@ -428,9 +425,6 @@ end
 function online()
   setLightOptionsVisibility(not g_game.getFeature(GameForceLight))
   g_app.setSmooth(g_settings.getBoolean("antialiasing"))
-  if modules.game_interface and modules.game_interface.getMapPanel then
-    modules.game_interface.getMapPanel():setShader(getOption('renderEnhancement') and 'map_render' or '')
-  end
 end
 
 function offline()

@@ -3,7 +3,7 @@ MiniWindow
   !text: tr('Extra Stats')
   width: 280
   height: 340
-  icon: /images/topbuttons/skills_red
+  icon: /images/topbuttons/extra_stats
   @onClose: modules.game_skills.onBonusMiniWindowClose()
   &save: true
   &autoOpen: false

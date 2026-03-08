@@ -7,6 +7,22 @@ msgWindow = nil
 local gameStoreButton = nil
 local gameStoreButtonWindow = nil
 local giftWindow = nil
+local storePulseEvent = nil
+local storePulseStep = 1
+
+local STORE_BG_COLORS = {
+  "#285b9fcc",
+  "#4a6fa8d6",
+  "#8a6a1dcc",
+  "#4a6fa8d6"
+}
+
+local STORE_BORDER_COLORS = {
+  "#79b6ff",
+  "#a8d0ff",
+  "#d5a03a",
+  "#a8d0ff"
+}
 
 local categories = nil
 local offers = {}
@@ -66,6 +82,15 @@ local function getFocusedCategoryId()
   return resolveCategoryKey(focused)
 end
 
+local function isHiddenCategory(categoryData)
+  if type(categoryData) ~= "table" then
+    return false
+  end
+
+  local title = type(categoryData.title) == "string" and categoryData.title:lower() or ""
+  return title == "mounts" or categoryData.iconType == "mount"
+end
+
 local function refreshFocusedOffers()
   if not offersGrid then
     return
@@ -110,13 +135,38 @@ local function createStoreButtonWindow()
     return false
   end
 
-  gameStoreButton:setText("STORE")
+  gameStoreButton:setText("Store")
   gameStoreButton:setTooltip(tr("Store"))
   gameStoreButton.onClick = toggle
+
   return true
 end
 
+local function placeStoreButtonWindow()
+  if not gameStoreButtonWindow or not modules.game_buttons or not modules.game_buttons.buttonsWindow then
+    return
+  end
+
+  local buttonsWindow = modules.game_buttons.buttonsWindow
+  local pos = buttonsWindow:getPosition()
+  local width = math.max(124, buttonsWindow:getWidth())
+
+  gameStoreButtonWindow:removeAnchors()
+  gameStoreButtonWindow:setWidth(width)
+  gameStoreButtonWindow:setHeight(22)
+  if gameStoreButton then
+    gameStoreButton:setWidth(width)
+    gameStoreButton:setHeight(22)
+  end
+  gameStoreButtonWindow:setPosition({
+    x = pos.x,
+    y = pos.y + buttonsWindow:getHeight() + 3
+  })
+end
+
 local function destroyStoreButtonWindow()
+  removeEvent(storePulseEvent)
+  storePulseEvent = nil
   if gameStoreButtonWindow then
     gameStoreButtonWindow:destroy()
     gameStoreButtonWindow = nil
@@ -124,7 +174,33 @@ local function destroyStoreButtonWindow()
   gameStoreButton = nil
 end
 
+local function updateStorePulse()
+  if not gameStoreButton then
+    storePulseEvent = nil
+    return
+  end
+
+  gameStoreButton:setBackgroundColor(STORE_BG_COLORS[storePulseStep])
+  gameStoreButton:setBorderColor(STORE_BORDER_COLORS[storePulseStep])
+
+  storePulseStep = storePulseStep + 1
+  if storePulseStep > #STORE_BG_COLORS then
+    storePulseStep = 1
+  end
+
+  storePulseEvent = scheduleEvent(updateStorePulse, 420)
+end
+
+local function startStorePulse()
+  removeEvent(storePulseEvent)
+  storePulseEvent = nil
+  storePulseStep = 1
+  updateStorePulse()
+end
+
 function init()
+  g_ui.importStyle("store_button")
+
   connect(
     g_game,
     {
@@ -193,7 +269,12 @@ function create()
   gameStoreWindow:hide()
 
   if not createStoreButtonWindow() then
-    gameStoreButton = modules.client_topmenu.addRightGameToggleButton("gameStoreButton", tr("Store"), "/images/topbuttons/particles", toggle, true)
+    gameStoreButton = modules.client_topmenu.addRightGameToggleButton("gameStoreButton", tr("Store"), "/images/topbuttons/shop", toggle, true)
+  else
+    addEvent(placeStoreButtonWindow)
+    scheduleEvent(placeStoreButtonWindow, 50)
+    scheduleEvent(placeStoreButtonWindow, 150)
+    startStorePulse()
   end
 
   connect(gameStoreWindow:getChildById("categories"), {onChildFocusChange = changeCategory})
@@ -231,7 +312,12 @@ function destroy()
 end
 
 function onGameStoreFetchBase(data)
-  categories = data.categories or {}
+  categories = {}
+  for _, categoryData in ipairs(data.categories or {}) do
+    if not isHiddenCategory(categoryData) then
+      table.insert(categories, categoryData)
+    end
+  end
   offers = {}
   historyEntries = {}
   selectedOffer = nil
@@ -670,6 +756,7 @@ function show()
   gameStoreWindow:show()
   gameStoreWindow:raise()
   gameStoreWindow:focus()
+  gameStoreButton:setOn(true)
 end
 
 function hide()
@@ -677,6 +764,9 @@ function hide()
     return
   end
   gameStoreWindow:hide()
+  if gameStoreButton then
+    gameStoreButton:setOn(false)
+  end
 end
 
 function comma_value(n)

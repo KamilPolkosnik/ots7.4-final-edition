@@ -1041,7 +1041,7 @@ function init()
   skillsButton = modules.client_topmenu.addRightGameToggleButton('skillsButton', tr('Skills'), '/images/topbuttons/skills', toggle, false, 1)
   skillsButton:setOn(true)
   skillsWindow = g_ui.loadUI('skills', modules.game_interface.getRightPanel())
-  bonusStatsButton = modules.client_topmenu.addRightGameToggleButton('bonusStatsButton', tr('Extra Stats'), '/images/topbuttons/skills_red', toggleBonusStats, false, 2)
+  bonusStatsButton = modules.client_topmenu.addRightGameToggleButton('bonusStatsButton', tr('Extra Stats'), '/images/topbuttons/extra_stats', toggleBonusStats, false, 2)
   bonusStatsButton:setOn(false)
   bonusStatsWindow = g_ui.loadUI('bonus_stats', modules.game_interface.getRightPanel())
   

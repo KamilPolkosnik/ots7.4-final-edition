@@ -711,7 +711,7 @@ function create()
     return
   end
 
-  trackerButton = modules.client_topmenu.addRightGameToggleButton("trackerButton", tr("Tasks Tracker"), "/images/topbuttons/battle", toggleTracker)
+  trackerButton = modules.client_topmenu.addRightGameToggleButton("trackerButton", tr("Tasks Tracker"), "/images/topbuttons/tasks_tracker", toggleTracker, false, 28)
   trackerButton:setOn(true)
   trackerWindow = g_ui.loadUI("tasks_tracker", modules.game_interface.getRightPanel())
   trackerWindow.miniwindowScrollBar:mergeStyle({["$!on"] = {}})
@@ -727,7 +727,7 @@ function create()
   setupGameSubcategories()
   updateRewardCategoryHeader()
 
-  tasksButton = modules.client_topmenu.addRightGameToggleButton("tasksButton", tr("Tasks"), "/images/topbuttons/questlog", toggle, true)
+  tasksButton = modules.client_topmenu.addRightGameToggleButton("tasksButton", tr("Tasks"), "/images/topbuttons/tasks", toggle, true, 29)
   placeTasksButton()
   addEvent(placeTasksButton)
 
