@@ -2,7 +2,10 @@ local useWorms = false
 local debugFishing = false
 local fishItemId = 2667
 local wormItemId = 3976
-local PROFESSIONAL_ROD_ID = 5852
+local PROFESSIONAL_ROD_IDS = {
+	[7969] = true, -- new professional fishing rod look
+	[5852] = true  -- legacy support
+}
 local PROFESSIONAL_ROD_RADIUS = 1
 local FISHING_BAG_ID = 3939
 local FISH_WEIGHT_REDUCTION_PERCENT = 30
@@ -82,7 +85,7 @@ local function getFishingChance(cid)
 end
 
 local function consumeProfessionalRodUse(item)
-	if item.itemid ~= PROFESSIONAL_ROD_ID then
+	if not PROFESSIONAL_ROD_IDS[item.itemid] then
 		return true
 	end
 
@@ -207,7 +210,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 		return false
 	end
 
-	if item.itemid == PROFESSIONAL_ROD_ID then
+	if PROFESSIONAL_ROD_IDS[item.itemid] then
 		if not consumeProfessionalRodUse(item) then
 			return false
 		end

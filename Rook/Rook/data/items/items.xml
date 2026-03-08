@@ -15593,7 +15593,7 @@
   <attribute key="weaponType" value="shield"/> 
 	</item>
 <item id="5811" name="outfit doll">
-    <attribute key="description" value="bring it to John Addon in Thais library to unlock outfits." />
+    <attribute key="description" value="Use to receive one random outfit from the Store Outfits pool that you do not own." />
     <attribute key="weight" value="850" />
     <attribute key="slotType" value="ring" />
     </item>
@@ -16202,6 +16202,12 @@
 		</item>
 	
 	<item id="5852" article="a" name="professional fishing rod">
+		<attribute key="description" value="Professional fishing rod. Fishes in a 3x3 area. 100 uses."/>
+		<attribute key="weight" value="850"/>
+		<attribute key="charges" value="100"/>
+		<attribute key="showcharges" value="1"/>
+	</item>
+	<item id="7969" article="a" name="professional fishing rod">
 		<attribute key="description" value="Professional fishing rod. Fishes in a 3x3 area. 100 uses."/>
 		<attribute key="weight" value="850"/>
 		<attribute key="charges" value="100"/>
