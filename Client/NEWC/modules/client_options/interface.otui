@@ -178,3 +178,92 @@ OptionPanel
     id: floorFadingLabel2
     margin-top: 6
     !text: (tr('Floor fading doesn\'t work with enabled light'))
+
+  Label
+    margin-top: 10
+    !text: tr('Status')
+
+  Label
+    margin-top: 3
+    !text: tr('Show selected statuses vertically next to the health arc')
+
+  Panel
+    margin-top: 4
+    layout:
+      type: grid
+      num-columns: 2
+      cell-size: 170 18
+      spacing: 2
+    height: 164
+
+    OptionCheckBox
+      id: statusArcHaste
+      !text: tr('Haste')
+
+    OptionCheckBox
+      id: statusArcFood
+      !text: tr('Food Status')
+
+    OptionCheckBox
+      id: statusArcManaShield
+      !text: tr('Mana Shield')
+
+    OptionCheckBox
+      id: statusArcParalyze
+      !text: tr('Paralyze')
+
+    OptionCheckBox
+      id: statusArcPoison
+      !text: tr('Poison')
+
+    OptionCheckBox
+      id: statusArcBurn
+      !text: tr('Burning')
+
+    OptionCheckBox
+      id: statusArcEnergy
+      !text: tr('Electrified')
+
+    OptionCheckBox
+      id: statusArcBleeding
+      !text: tr('Bleeding')
+
+    OptionCheckBox
+      id: statusArcCursed
+      !text: tr('Cursed')
+
+    OptionCheckBox
+      id: statusArcFreezing
+      !text: tr('Freezing')
+
+    OptionCheckBox
+      id: statusArcDazzled
+      !text: tr('Dazzled')
+
+    OptionCheckBox
+      id: statusArcDrowning
+      !text: tr('Drowning')
+
+    OptionCheckBox
+      id: statusArcPartyBuff
+      !text: tr('Strengthened')
+
+    OptionCheckBox
+      id: statusArcSwords
+      !text: tr('Fight Lock')
+
+    OptionCheckBox
+      id: statusArcPzBlock
+      !text: tr('PZ Block')
+
+    OptionCheckBox
+      id: statusArcPz
+      !text: tr('Protection Zone')
+
+    OptionCheckBox
+      id: statusArcDrunk
+      !text: tr('Drunk')
+
+    OptionCheckBox
+      id: statusArcHungry
+      !text: tr('Hungry')
