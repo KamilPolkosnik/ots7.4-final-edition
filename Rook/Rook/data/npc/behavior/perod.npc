@@ -51,8 +51,8 @@ VANISH,!           -> "Good bye."
 "book"       -> "I offer different kind of books: brown, black and small books. Which book do you want?"
 
 "torch"         -> Type=2050, Amount=1,  Price=2,    "Do you want to buy a torch for %P gold?", Topic=1
-"bag"           -> Type=3939, Amount=1,  Price=5,    "Do you want to buy a bag for %P gold?", Topic=1
-"backpack"      -> Type=3940, Amount=1,  Price=20,   "Do you want to buy a backpack for %P gold?", Topic=1
+"bag"           -> Type=1987, Amount=1,  Price=5,    "Do you want to buy a bag for %P gold?", Topic=1
+"backpack"      -> Type=1988, Amount=1,  Price=20,   "Do you want to buy a backpack for %P gold?", Topic=1
 "present"       -> Type=1990, Amount=1,  Price=10,   "Do you want to buy a present for %P gold?", Topic=1
 "scroll"        -> Type=1949, Amount=1,  Price=5,    "Do you want to buy a scroll for %P gold?", Topic=1
 "document"      -> Type=1968, Amount=1,  Price=12,   "Do you want to buy a document for %P gold?", Topic=1
@@ -76,8 +76,8 @@ VANISH,!           -> "Good bye."
 "rod"           -> Type=2580, Amount=1,  Price=150,  "Do you want to buy a fishing rod for %P gold?", Topic=1
 
 %1,1<%1,"torch"         -> Type=2050, Amount=%1,  Price=2*%1,    "Do you want to buy %A torches for %P gold?", Topic=1
-%1,1<%1,"bag"           -> Type=3939, Amount=%1,  Price=5*%1,    "Do you want to buy %A bags for %P gold?", Topic=1
-%1,1<%1,"backpack"      -> Type=3940, Amount=%1,  Price=20*%1,   "Do you want to buy %A backpacks for %P gold?", Topic=1
+%1,1<%1,"bag"           -> Type=1987, Amount=%1,  Price=5*%1,    "Do you want to buy %A bags for %P gold?", Topic=1
+%1,1<%1,"backpack"      -> Type=1988, Amount=%1,  Price=20*%1,   "Do you want to buy %A backpacks for %P gold?", Topic=1
 %1,1<%1,"present"       -> Type=1990, Amount=%1,  Price=10*%1,   "Do you want to buy %A presents for %P gold?", Topic=1
 %1,1<%1,"scroll"        -> Type=1949, Amount=%1,  Price=5*%1,    "Do you want to buy %A scrolls for %P gold?", Topic=1
 %1,1<%1,"document"      -> Type=1968, Amount=%1,  Price=12*%1,   "Do you want to buy %A documents for %P gold?", Topic=1

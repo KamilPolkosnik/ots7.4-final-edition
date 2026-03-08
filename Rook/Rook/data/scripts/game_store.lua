@@ -934,12 +934,14 @@ addOutfit(
 	addMount("Mounts", "Buffalo", "Been to a swamp or two.", 13, 479, 600)
 
 	addCategory("Items", "Utility items.", "item", 7962)
-	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 100)
+	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 79)
 	addItem("Items", "Ring of Light", "A handy source of light.", 7963, 1, 2)
-	addItem("Items", "Gold Converter", "100 uses. Converts 100 gold -> 1 platinum or 100 platinum -> 1 crystal.", 7966, 1, 10, chargedItemStoreCallback(100))
+	addItem("Items", "Gold Converter", "100 uses. Converts 100 gold -> 1 platinum or 100 platinum -> 1 crystal.", 7966, 1, 15, chargedItemStoreCallback(100))
 	addItem("Items", "Gold Pouch", "Automatically collects dropped gold to your bank when equipped in a totem slot.", 7967, 1, 499)
-	addItem("Items", "frags checker", "Shows your current frags, red skull progress and frag reset timers.", 5953, 1, 49)
-	addItem("Items", "blessing checker", "Use to check which blessings you currently have.", 6340, 1, 39)
+	addItem("Items", "Fishing bag", "Equip in a totem slot to auto-store caught fish. Fish inside weigh 30% less.", 3939, 1, 299)
+	addItem("Items", "professional fishing rod", "Fishes in a 3x3 area. 100 uses.", 5852, 1, 19, chargedItemStoreCallback(100))
+	addItem("Items", "frags checker", "Shows your current frags, red skull progress and frag reset timers.", 5953, 1, 99)
+	addItem("Items", "blessing checker", "Use to check which blessings you currently have.", 6340, 1, 89)
 
 	addCategory("Containers", "Backpacks and special containers.", "item", 5842)
 	addItem("Containers", "Frosty backpack", "A frosty themed backpack. Capacity: 24 slots.", 5842, 1, 10)
@@ -1019,12 +1021,12 @@ addOutfit(
 	addItem("Scrolls", "postman scroll", "Unlocks postman quest access.", 5746, 1, 399)
 
 	addCategory("Training", "Exercise weapons.", "item", 6876)
-	addItem("Training", "Exercise Wand", "1500 uses. Does not consume mana.", 6876, 1, 50, trainingWeaponStoreCallback())
-	addItem("Training", "Exercise Rod", "1500 uses. Does not consume mana.", 6877, 1, 50, trainingWeaponStoreCallback())
-	addItem("Training", "Exercise Bow", "1500 uses. Attack speed is 10% faster.", 6878, 1, 50, trainingWeaponStoreCallback())
-	addItem("Training", "Exercise Axe", "1500 uses. Attack speed is 10% faster.", 6879, 1, 50, trainingWeaponStoreCallback())
-	addItem("Training", "Exercise Sword", "1500 uses. Attack speed is 10% faster.", 6880, 1, 50, trainingWeaponStoreCallback())
-	addItem("Training", "Exercise Club", "1500 uses. Attack speed is 10% faster.", 6881, 1, 50, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Wand", "1500 uses. Does not consume mana.", 6876, 1, 109, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Rod", "1500 uses. Does not consume mana.", 6877, 1, 109, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Bow", "1500 uses. Attack speed is 10% faster.", 6878, 1, 109, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Axe", "1500 uses. Attack speed is 10% faster.", 6879, 1, 109, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Sword", "1500 uses. Attack speed is 10% faster.", 6880, 1, 109, trainingWeaponStoreCallback())
+	addItem("Training", "Exercise Club", "1500 uses. Attack speed is 10% faster.", 6881, 1, 109, trainingWeaponStoreCallback())
 
 end
 

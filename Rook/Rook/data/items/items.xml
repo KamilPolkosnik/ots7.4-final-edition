@@ -7905,6 +7905,7 @@
 		<attribute key="showcount" value="0"/>
 	</item>
 	<item id="2667" article="a" name="fish" plural="fish">
+		<attribute key="stackable" value="1"/>
 		<attribute key="weight" value="520"/>
 	</item>
 	<item id="2668" article="a" name="salmon" plural="salmon">
@@ -12026,10 +12027,11 @@
 		<attribute key="description" value="It is a kit for a large trunk."/>
 		<attribute key="weight" value="2500"/>
 	</item>
-	<item id="3939" article="a" name="camouflage bag">
+	<item id="3939" article="a" name="fishing bag">
+		<attribute key="description" value="If equipped in a totem slot, caught fish are stored here. Fish inside weigh 30% less."/>
 		<attribute key="weight" value="800"/>
 		<attribute key="containerSize" value="8"/>
-		<attribute key="slotType" value="backpack"/>
+		<attribute key="slotType" value="totem"/>
 	</item>
 	<item id="3940" article="a" name="camouflage backpack">
 		<attribute key="weight" value="1800"/>
@@ -16199,10 +16201,12 @@
 		<attribute key="description" value="This is the training dummy"/>
 		</item>
 	
-	<item id="5852" article="a" name="test">
-		<attribute key="description" value="Sorcerer training weapon"/>
-
-		</item>
+	<item id="5852" article="a" name="professional fishing rod">
+		<attribute key="description" value="Professional fishing rod. Fishes in a 3x3 area. 100 uses."/>
+		<attribute key="weight" value="850"/>
+		<attribute key="charges" value="100"/>
+		<attribute key="showcharges" value="1"/>
+	</item>
 	<item id="5850" article="a" name="ttest">
 	<attribute key="charges" value="200" />
 

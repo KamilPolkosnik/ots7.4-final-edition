@@ -71,7 +71,6 @@ TaskSystem.shop = {
     {name = "grey backpack", id = 2003, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
     {name = "golden backpack", id = 2004, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
     {name = "backpack of holding", id = 2365, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
-    {name = "camouflage backpack", id = 3940, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
     {name = "old and used backpack", id = 3960, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
     {name = "explo backpack", id = 5776, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
     {name = "gfb backpack", id = 5777, count = 1, cost = 1, category = "game", description = "Container reward that increases inventory capacity."},
