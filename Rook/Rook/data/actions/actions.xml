@@ -221,6 +221,7 @@
 	<action itemid="5540" script="shop/expscroll.lua"/>
 	<action itemid="5543" script="shop/scrollrashid.lua"/>
 	<action itemid="5747" script="shop/name_change_scroll.lua"/>
+	<action itemid="5811" script="shop/outfit_doll.lua"/>
 	<action itemid="7965" script="shop/premium_coin.lua"/>
 	<action itemid="5746" script="shop/postvip.lua"/>
 	<action itemid="7966" script="shop/gold_converter.lua"/>
@@ -240,6 +241,7 @@
 	<action itemid="4842" script="tools/lottery ticket.lua" />
 	<action itemid="2580" script="tools/fishing.lua" allowfaruse="1"/>
 	<action itemid="5852" script="tools/fishing.lua" allowfaruse="1"/>
+	<action itemid="7969" script="tools/fishing.lua" allowfaruse="1"/>
 	<action itemid="7962" script="tools/multitool.lua"/>
 	<action itemid="2120" script="tools/rope.lua"/>
 	<action itemid="5710" script="tools/shovel.lua"/>
