@@ -220,6 +220,7 @@
 	<action itemid="5543" script="shop/scrollrashid.lua"/>
 	<action itemid="5746" script="shop/postvip.lua"/>
 	<action itemid="7966" script="shop/gold_converter.lua"/>
+	<action actionid="65150" script="shop/decor_parcel.lua"/>
 	<action itemid="5722" script="shop/dice.lua"/>
 	<action itemid="5723" script="shop/dice.lua"/>
 	<action itemid="5724" script="shop/dice.lua"/>

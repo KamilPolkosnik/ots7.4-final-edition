@@ -9,11 +9,15 @@ local PREMIUM_SCROLL_ACTION_15 = 60015
 local PREMIUM_SCROLL_ACTION_60 = 60060
 local PREMIUM_SCROLL_ACTION_120 = 60120
 local MARKET_TICKET_ACTION = 65048
+local DECOR_PARCEL_ITEM_ID = 2595
+local DECOR_PARCEL_ACTION_ID = 65150
 local EXPERIENCE_BOOSTER_ITEM_ID = 5540
 local EXPERIENCE_BOOSTER_COOLDOWN = 24 * 60 * 60
 local SHOP_HISTORY_TABLE = "shop_history"
 local SHOP_HISTORY_COLUMN_CACHE = {}
 local SHOP_HISTORY_ID_EXPLICIT = nil
+local GAME_STORE_OFFERS_CHUNK_SIZE = 20
+local GAME_STORE_HISTORY_CHUNK_SIZE = 40
 
 local function shopHistoryHasColumn(columnName)
 	local cacheKey = tostring(columnName)
@@ -322,6 +326,73 @@ local function chargedItemStoreCallback(charges)
 		end
 
 		return true
+	end
+end
+
+local function decorParcelStoreCallback()
+	return function(player, offer)
+		local parcelType = ItemType(DECOR_PARCEL_ITEM_ID)
+		local weight = parcelType and parcelType:getWeight(1) or 0
+		if player:getFreeCapacity() < weight then
+			return "This item is too heavy for you!"
+		end
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack then
+			return "You don't have enough space in backpack."
+		end
+
+		local slots = backpack:getEmptySlots(true)
+		if slots <= 0 then
+			return "You don't have enough space in backpack."
+		end
+
+		local unpackId = math.max(1, math.floor(tonumber(offer.itemId) or 0))
+		local unpackCount = math.max(1, math.floor(tonumber(offer.count) or 1))
+		local unpackType = ItemType(unpackId)
+		if not unpackType or unpackType:getId() == 0 then
+			return "This decorative item is invalid."
+		end
+
+		local unpackName = unpackType:getName()
+		if unpackName == "" then
+			unpackName = offer.title or ("item " .. unpackId)
+		end
+
+		local parcel = player:addItem(DECOR_PARCEL_ITEM_ID, 1, false)
+		if not parcel then
+			return "Something went wrong, item couldn't be added."
+		end
+
+		parcel:setActionId(DECOR_PARCEL_ACTION_ID)
+		parcel:setAttribute(ITEM_ATTRIBUTE_NAME, "decor parcel")
+		parcel:setAttribute(
+			ITEM_ATTRIBUTE_DESCRIPTION,
+			"Contains " .. unpackName .. " x" .. unpackCount .. ". Can be unpacked only inside a house."
+		)
+		parcel:setAttribute(ITEM_ATTRIBUTE_TEXT, "decor:" .. unpackId .. ":" .. unpackCount)
+		return true
+	end
+end
+
+local function addDecorStoreSection(categoryTitle, description, iconItemId, entries, callback)
+	addCategory(categoryTitle, description, "item", iconItemId)
+	for i = 1, #entries do
+		local entry = entries[i]
+		local itemId = entry[1]
+		local price = entry[2]
+		local itemType = ItemType(itemId)
+		if itemType and itemType:getId() > 0 and itemType:getName() ~= "" then
+			addItem(
+				categoryTitle,
+				itemType:getName(),
+				"Packed in decor parcel. Unpack only inside a house.",
+				itemId,
+				1,
+				price,
+				callback
+			)
+		end
 	end
 end
 
@@ -803,6 +874,57 @@ addOutfit(
 	addItem("Items", "Gold Converter", "100 uses. Converts 100 gold -> 1 platinum or 100 platinum -> 1 crystal.", 7966, 1, 10, chargedItemStoreCallback(100))
 	addItem("Items", "Gold Pouch", "Automatically collects dropped gold to your bank when equipped in a totem slot.", 7967, 1, 499)
 
+	local decorCallback = decorParcelStoreCallback()
+
+	addCategory("House decor", "Decor items are delivered as decor parcel. Unpack only inside a house.", "item", 1650)
+	addItem("House decor", "small round table", "Packed in decor parcel. Unpack only inside a house.", 1616, 1, 1, decorCallback)
+	addItem("House decor", "small table", "Packed in decor parcel. Unpack only inside a house.", 1619, 1, 1, decorCallback)
+	addItem("House decor", "throne", "Packed in decor parcel. Unpack only inside a house.", 1646, 1, 1, decorCallback)
+	addItem("House decor", "wooden chair", "Packed in decor parcel. Unpack only inside a house.", 1650, 1, 1, decorCallback)
+	addItem("House decor", "sofa chair", "Packed in decor parcel. Unpack only inside a house.", 1658, 1, 1, decorCallback)
+	addItem("House decor", "red cushioned chair", "Packed in decor parcel. Unpack only inside a house.", 1666, 1, 1, decorCallback)
+	addItem("House decor", "green cushioned chair", "Packed in decor parcel. Unpack only inside a house.", 1670, 1, 1, decorCallback)
+	addItem("House decor", "rocking chair", "Packed in decor parcel. Unpack only inside a house.", 1674, 1, 1, decorCallback)
+	addItem("House decor", "chest of drawers", "Packed in decor parcel. Unpack only inside a house.", 1714, 1, 1, decorCallback)
+	addItem("House decor", "pendulum clock", "Packed in decor parcel. Unpack only inside a house.", 1728, 1, 1, decorCallback)
+	addItem("House decor", "standing mirror", "Packed in decor parcel. Unpack only inside a house.", 1736, 1, 1, decorCallback)
+	addItem("House decor", "purple tapestry", "Packed in decor parcel. Unpack only inside a house.", 1855, 1, 1, decorCallback)
+	addItem("House decor", "green tapestry", "Packed in decor parcel. Unpack only inside a house.", 1858, 1, 1, decorCallback)
+	addItem("House decor", "yellow tapestry", "Packed in decor parcel. Unpack only inside a house.", 1861, 1, 1, decorCallback)
+	addItem("House decor", "orange tapestry", "Packed in decor parcel. Unpack only inside a house.", 1864, 1, 1, decorCallback)
+	addItem("House decor", "red tapestry", "Packed in decor parcel. Unpack only inside a house.", 1867, 1, 1, decorCallback)
+	addItem("House decor", "blue tapestry", "Packed in decor parcel. Unpack only inside a house.", 1870, 1, 1, decorCallback)
+	addItem("House decor", "white tapestry", "Packed in decor parcel. Unpack only inside a house.", 1878, 1, 1, decorCallback)
+	addItem("House decor", "candelabrum", "Packed in decor parcel. Unpack only inside a house.", 2041, 1, 1, decorCallback)
+	addItem("House decor", "candlestick", "Packed in decor parcel. Unpack only inside a house.", 2047, 1, 1, decorCallback)
+	addItem("House decor", "small oil lamp", "Packed in decor parcel. Unpack only inside a house.", 2062, 1, 1, decorCallback)
+	addItem("House decor", "piano", "Packed in decor parcel. Unpack only inside a house.", 2080, 1, 1, decorCallback)
+	addItem("House decor", "harp", "Packed in decor parcel. Unpack only inside a house.", 2084, 1, 1, decorCallback)
+	addItem("House decor", "god flowers", "Packed in decor parcel. Unpack only inside a house.", 2100, 1, 1, decorCallback)
+	addItem("House decor", "indoor plant", "Packed in decor parcel. Unpack only inside a house.", 2101, 1, 1, decorCallback)
+	addItem("House decor", "flower bowl", "Packed in decor parcel. Unpack only inside a house.", 2102, 1, 1, decorCallback)
+	addItem("House decor", "honey flower", "Packed in decor parcel. Unpack only inside a house.", 2103, 1, 1, decorCallback)
+	addItem("House decor", "potted flower", "Packed in decor parcel. Unpack only inside a house.", 2104, 1, 1, decorCallback)
+	addItem("House decor", "big flowerpot", "Packed in decor parcel. Unpack only inside a house.", 2106, 1, 1, decorCallback)
+	addItem("House decor", "exotic flower", "Packed in decor parcel. Unpack only inside a house.", 2107, 1, 1, decorCallback)
+	addItem("House decor", "crate", "Packed in decor parcel. Unpack only inside a house.", 1739, 1, 1, decorCallback)
+	addItem("House decor", "barrel", "Packed in decor parcel. Unpack only inside a house.", 1770, 1, 1, decorCallback)
+	addItem("House decor", "vase", "Packed in decor parcel. Unpack only inside a house.", 2008, 1, 1, decorCallback)
+	addItem("House decor", "pot", "Packed in decor parcel. Unpack only inside a house.", 2562, 1, 1, decorCallback)
+	addItem("House decor", "white vase", "Packed in decor parcel. Unpack only inside a house.", 2574, 1, 1, decorCallback)
+	addItem("House decor", "yellow vase", "Packed in decor parcel. Unpack only inside a house.", 2575, 1, 1, decorCallback)
+	addItem("House decor", "blue vase", "Packed in decor parcel. Unpack only inside a house.", 2576, 1, 1, decorCallback)
+	addItem("House decor", "green vase", "Packed in decor parcel. Unpack only inside a house.", 2577, 1, 1, decorCallback)
+	addItem("House decor", "statue", "Packed in decor parcel. Unpack only inside a house.", 1442, 1, 1, decorCallback)
+	addItem("House decor", "minotaur statue", "Packed in decor parcel. Unpack only inside a house.", 1446, 1, 1, decorCallback)
+	addItem("House decor", "goblin statue", "Packed in decor parcel. Unpack only inside a house.", 1447, 1, 1, decorCallback)
+	addItem("House decor", "carved stone table", "Packed in decor parcel. Unpack only inside a house.", 3805, 1, 1, decorCallback)
+	addItem("House decor", "tusk table", "Packed in decor parcel. Unpack only inside a house.", 3807, 1, 1, decorCallback)
+	addItem("House decor", "bamboo table", "Packed in decor parcel. Unpack only inside a house.", 3809, 1, 1, decorCallback)
+	addItem("House decor", "tusk chair", "Packed in decor parcel. Unpack only inside a house.", 3813, 1, 1, decorCallback)
+	addItem("House decor", "ivory chair", "Packed in decor parcel. Unpack only inside a house.", 3817, 1, 1, decorCallback)
+	addItem("House decor", "bamboo drawer", "Packed in decor parcel. Unpack only inside a house.", 3832, 1, 1, decorCallback)
+
 	addCategory("Scrolls", "Utility and special account scrolls.", "item", 5546)
 	addItem("Scrolls", "market scroll", "First use starts 48h market access.", 2329, 1, 5, marketTicketStoreCallback())
 	addItem("Scrolls", "blessing scroll", "Grants all blessings.", 5542, 1, 55)
@@ -894,7 +1016,31 @@ function gameStoreFetch(player)
 			end
 			table.insert(offers, data)
 		end
-		player:sendExtendedOpcode(CODE_GAMESTORE, json.encode({action = "fetchOffers", data = {category = category, offers = offers}}))
+
+		local total = math.max(1, math.ceil(#offers / GAME_STORE_OFFERS_CHUNK_SIZE))
+		for chunk = 1, total do
+			local first = ((chunk - 1) * GAME_STORE_OFFERS_CHUNK_SIZE) + 1
+			local last = math.min(first + GAME_STORE_OFFERS_CHUNK_SIZE - 1, #offers)
+			local part = {}
+			for i = first, last do
+				part[#part + 1] = offers[i]
+			end
+
+			player:sendExtendedOpcode(
+				CODE_GAMESTORE,
+				json.encode(
+					{
+						action = "fetchOffers",
+						data = {
+							category = category,
+							offers = part,
+							chunk = chunk,
+							total = total
+						}
+					}
+				)
+			)
+		end
 	end
 
 	gameStoreUpdatePoints(player)
@@ -913,26 +1059,78 @@ function gameStoreUpdateHistory(player)
 		player = Player(player)
 	end
 	local history = {}
+	local priceColumn = getShopHistoryPriceColumn()
+	local hasCountColumn = shopHistoryHasColumn("count")
+	local hasTargetColumn = shopHistoryHasColumn("target")
+	local hasDetailsColumn = shopHistoryHasColumn("details")
 	local resultId = db.storeQuery("SELECT * FROM `shop_history` WHERE `account` = " .. player:getAccountId() .. " order by `id` DESC")
 
 	if resultId ~= false then
 		repeat
-			local desc = "Bought " .. result.getDataString(resultId, "title")
-			local count = result.getDataInt(resultId, "count")
+			local title = result.getDataString(resultId, "title")
+			if title == "" then
+				title = "unknown item"
+			end
+
+			local desc = "Bought " .. title
+			local count = 0
+			if hasCountColumn then
+				count = tonumber(result.getDataInt(resultId, "count")) or 0
+			end
 			if count > 0 then
 				desc = desc .. " (x" .. count .. ")"
 			end
-			local target = result.getDataString(resultId, "target")
+
+			local points = 0
+			if priceColumn then
+				points = tonumber(result.getDataInt(resultId, priceColumn)) or 0
+			end
+
+			local target = ""
+			if hasTargetColumn then
+				target = result.getDataString(resultId, "target")
+			end
+
+			if target == "" and hasDetailsColumn then
+				local details = result.getDataString(resultId, "details")
+				if details and details:sub(1, 5) == "gift:" then
+					target = details:sub(6)
+				end
+			end
+
 			if target ~= "" then
-				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. target .. " for " .. result.getDataInt(resultId, "price") .. " points."
+				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. target .. " for " .. points .. " points."
 			else
-				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. result.getDataInt(resultId, "price") .. " points."
+				desc = desc .. " on " .. result.getDataString(resultId, "date") .. " for " .. points .. " points."
 			end
 			table.insert(history, desc)
 		until not result.next(resultId)
 		result.free(resultId)
 	end
-	player:sendExtendedOpcode(CODE_GAMESTORE, json.encode({action = "history", data = history}))
+
+	local total = math.max(1, math.ceil(#history / GAME_STORE_HISTORY_CHUNK_SIZE))
+	for chunk = 1, total do
+		local first = ((chunk - 1) * GAME_STORE_HISTORY_CHUNK_SIZE) + 1
+		local last = math.min(first + GAME_STORE_HISTORY_CHUNK_SIZE - 1, #history)
+		local part = {}
+		for i = first, last do
+			part[#part + 1] = history[i]
+		end
+
+		player:sendExtendedOpcode(
+			CODE_GAMESTORE,
+			json.encode(
+				{
+					action = "history",
+					data = {
+						entries = part,
+						chunk = chunk,
+						total = total
+					}
+				}
+			)
+		)
+	end
 end
 
 function gameStorePurchase(player, offer)
