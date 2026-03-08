@@ -42,22 +42,17 @@
 	<talkaction words="/raid" separator=" " script="force_raid.lua" />
 		<talkaction words="/storage" separator=" " script="storage.lua" />
 	<talkaction words="/looktype" separator=" " script="looktype.lua" />
+	<talkaction words="!online;/online" script="online.lua" />
 
 	<!-- player talkactions -->
-	<talkaction words="!buypremium" script="buyprem.lua" />
 	<talkaction words="!buyhouse" script="buyhouse.lua" />
 	<talkaction words="!sellhouse" separator=" " script="sellhouse.lua" />
 	<talkaction words="!leavehouse" script="leavehouse.lua" />
-	<talkaction words="!changesex" script="changesex.lua" />
 	<talkaction words="!uptime" script="uptime.lua" />
 	<talkaction words="!deathlist" separator=" " script="deathlist.lua" />
-	<talkaction words="!kills" script="kills.lua" />
-	<talkaction words="!online;/online" script="online.lua" />
 	<talkaction words="!serverinfo" script="serverinfo.lua" />
 	<talkaction words="!cast" separator=" " script="castcomxp.lua" />
 	<talkaction words="!spectators" script="spectators.lua" />
-	<talkaction words="!expboost" script="expboost.lua" />
-	<talkaction words="!bless" script="bless.lua" />
 
 	<!-- test talkactions -->
 	<talkaction words="!z" separator=" " script="magiceffect.lua" />

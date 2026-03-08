@@ -15213,7 +15213,7 @@
 	</item>
 	
 	<item id="5541" article="a" name="frag remover">
-		<attribute key="description" value="This book will remove all your frags!"/>
+		<attribute key="description" value="This scroll removes all your unjustified kills and skull immediately."/>
 		<attribute key="weight" value="2500"/>
 	</item>
 	<item id="5542" article="a" name="blessing scroll">
@@ -16183,7 +16183,8 @@
 	</item>
 	
 	
-	<item id="5953" article="a" name="black knight doll">
+	<item id="5953" article="a" name="frags checker">
+		<attribute key="description" value="Use to check your unjustified kills, red skull progress and frag reset timers."/>
 		<attribute key="weight" value="860"/>
 	</item>
 
@@ -16801,8 +16802,8 @@
 		<attribute key="slotType" value="head"/>
 	</item>
 	
-	<item id="6340" name="Founders box">
-		<attribute key="description" value="It contains the shop items at reduced price as package."/>
+	<item id="6340" article="a" name="blessing checker">
+		<attribute key="description" value="Use it to check your current blessings status."/>
 		<attribute key="weight" value="850"/>
 	</item>
 	

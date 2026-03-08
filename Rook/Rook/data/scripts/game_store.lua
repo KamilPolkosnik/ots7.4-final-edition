@@ -13,6 +13,8 @@ local DECOR_PARCEL_ITEM_ID = 2595
 local DECOR_PARCEL_ACTION_ID = 65150
 local EXPERIENCE_BOOSTER_ITEM_ID = 5540
 local EXPERIENCE_BOOSTER_COOLDOWN = 24 * 60 * 60
+local FRAG_REMOVER_ITEM_ID = 5541
+local FRAG_REMOVER_COOLDOWN = 30 * 24 * 60 * 60
 local SHOP_HISTORY_TABLE = "shop_history"
 local SHOP_HISTORY_COLUMN_CACHE = {}
 local SHOP_HISTORY_ID_EXPLICIT = nil
@@ -176,9 +178,25 @@ local function formatCooldown(seconds)
 	return string.format("%02dh %02dm", hours, minutes)
 end
 
-local function experienceBoosterCooldownRemaining(accountId)
+local function formatCooldownWithDays(seconds)
+	seconds = math.max(0, math.floor(tonumber(seconds) or 0))
+	local days = math.floor(seconds / (24 * 60 * 60))
+	local hours = math.floor((seconds % (24 * 60 * 60)) / 3600)
+	local minutes = math.floor((seconds % 3600) / 60)
+	if days > 0 then
+		return string.format("%dd %02dh %02dm", days, hours, minutes)
+	end
+	return string.format("%02dh %02dm", hours, minutes)
+end
+
+local function storePurchaseCooldownRemaining(accountId, title, cooldownSeconds)
 	accountId = math.floor(tonumber(accountId) or 0)
 	if accountId <= 0 then
+		return 0
+	end
+
+	local lowerTitle = string.lower(tostring(title or ""))
+	if lowerTitle == "" then
 		return 0
 	end
 
@@ -186,7 +204,7 @@ local function experienceBoosterCooldownRemaining(accountId)
 		"SELECT UNIX_TIMESTAMP(`date`) AS `ts` FROM `%s` WHERE `account` = %d AND LOWER(`title`) = %s ORDER BY `date` DESC LIMIT 1",
 		SHOP_HISTORY_TABLE,
 		accountId,
-		db.escapeString("experience booster")
+		db.escapeString(lowerTitle)
 	)
 	local resultId = db.storeQuery(q)
 	if resultId == false then
@@ -199,11 +217,24 @@ local function experienceBoosterCooldownRemaining(accountId)
 		return 0
 	end
 
-	local elapsed = os.time() - ts
-	if elapsed >= EXPERIENCE_BOOSTER_COOLDOWN then
+	local cooldown = math.max(0, math.floor(tonumber(cooldownSeconds) or 0))
+	if cooldown <= 0 then
 		return 0
 	end
-	return EXPERIENCE_BOOSTER_COOLDOWN - elapsed
+
+	local elapsed = os.time() - ts
+	if elapsed >= cooldown then
+		return 0
+	end
+	return cooldown - elapsed
+end
+
+local function experienceBoosterCooldownRemaining(accountId)
+	return storePurchaseCooldownRemaining(accountId, "experience booster", EXPERIENCE_BOOSTER_COOLDOWN)
+end
+
+local function fragRemoverCooldownRemaining(accountId)
+	return storePurchaseCooldownRemaining(accountId, "frag remover", FRAG_REMOVER_COOLDOWN)
 end
 
 local function premiumScrollStoreCallback(days, actionId)
@@ -907,6 +938,24 @@ addOutfit(
 	addItem("Items", "Ring of Light", "A handy source of light.", 7963, 1, 2)
 	addItem("Items", "Gold Converter", "100 uses. Converts 100 gold -> 1 platinum or 100 platinum -> 1 crystal.", 7966, 1, 10, chargedItemStoreCallback(100))
 	addItem("Items", "Gold Pouch", "Automatically collects dropped gold to your bank when equipped in a totem slot.", 7967, 1, 499)
+	addItem("Items", "frags checker", "Shows your current frags, red skull progress and frag reset timers.", 5953, 1, 49)
+	addItem("Items", "blessing checker", "Use to check which blessings you currently have.", 6340, 1, 39)
+
+	addCategory("Containers", "Backpacks and special containers.", "item", 5842)
+	addItem("Containers", "Frosty backpack", "A frosty themed backpack. Capacity: 24 slots.", 5842, 1, 10)
+	addItem("Containers", "Energy backpack", "An energy themed backpack. Capacity: 24 slots.", 5843, 1, 10)
+	addItem("Containers", "Backpack of holding", "A special backpack of holding. Capacity: 24 slots.", 6338, 1, 10)
+	addItem("Containers", "War backpack", "A war themed backpack. Capacity: 30 slots.", 5954, 1, 15)
+	addItem("Containers", "Goldenruby backpack", "A goldenruby backpack. Capacity: 40 slots.", 5859, 1, 25)
+
+	addItem("Containers", "explo backpack", "Backpack for explosion runes. Capacity: 20 slots.", 5776, 1, 5)
+	addItem("Containers", "gfb backpack", "Backpack for great fireball runes. Capacity: 20 slots.", 5777, 1, 5)
+	addItem("Containers", "hmm backpack", "Backpack for heavy magic missile runes. Capacity: 20 slots.", 5778, 1, 5)
+	addItem("Containers", "ih backpack", "Backpack for intense healing runes. Capacity: 20 slots.", 5779, 1, 5)
+	addItem("Containers", "lmm backpack", "Backpack for light magic missile runes. Capacity: 20 slots.", 5780, 1, 5)
+	addItem("Containers", "mw backpack", "Backpack for magic wall runes. Capacity: 20 slots.", 5781, 1, 5)
+	addItem("Containers", "sd backpack", "Backpack for sudden death runes. Capacity: 20 slots.", 5782, 1, 5)
+	addItem("Containers", "uh backpack", "Backpack for ultimate healing runes. Capacity: 20 slots.", 5783, 1, 5)
 
 	local decorCallback = decorParcelStoreCallback()
 
@@ -963,6 +1012,7 @@ addOutfit(
 	addItem("Scrolls", "market scroll", "First use starts 48h market access.", 2329, 1, 5, marketTicketStoreCallback())
 	addItem("Scrolls", "blessing scroll", "Grants all blessings.", 5542, 1, 55)
 	addItem("Scrolls", "experience booster", "Grants +30% exp for 1 hour. Limit: once per 24h.", 5540, 1, 99)
+	addItem("Scrolls", "frag remover", "Removes all unjustified kills and skull. Limit: once per 30 days.", 5541, 1, 99)
 	addItem("Scrolls", "rashid scroll", "Unlocks Rashid trade access.", 5543, 1, 499)
 	addItem("Scrolls", "sex change scroll", "Changes your character sex.", 5544, 1, 99)
 	addItem("Scrolls", "name change scroll", "Lets you change your character name (unique, no numbers).", 5747, 1, 199)
@@ -1195,6 +1245,16 @@ function gameStorePurchase(player, offer)
 				end
 			end
 
+			if offers[i].itemId == FRAG_REMOVER_ITEM_ID then
+				local remaining = fragRemoverCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Frag remover can be bought once every 30 days. Remaining: " .. formatCooldownWithDays(remaining) .. "."
+					)
+				end
+			end
+
 			local status = callback(player, offers[i])
 			if status ~= true then
 				return errorMsg(player, status)
@@ -1240,6 +1300,16 @@ function gameStorePurchaseGift(player, offer)
 					return errorMsg(
 						player,
 						"Experience booster can be bought once every 24 hours. Remaining: " .. formatCooldown(remaining) .. "."
+					)
+				end
+			end
+
+			if offers[i].itemId == FRAG_REMOVER_ITEM_ID then
+				local remaining = fragRemoverCooldownRemaining(player:getAccountId())
+				if remaining > 0 then
+					return errorMsg(
+						player,
+						"Frag remover can be bought once every 30 days. Remaining: " .. formatCooldownWithDays(remaining) .. "."
 					)
 				end
 			end

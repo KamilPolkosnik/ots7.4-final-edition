@@ -63,6 +63,7 @@
     <item id="2498" chance="200"/>
     <item id="2392" chance="300"/>
     <item id="2528" chance="300"/>
+    <item id="5875" chance="2000"/>
     <item id="2167" chance="5000"/>
     <item id="6512" chance="250"/>
   </loot>
