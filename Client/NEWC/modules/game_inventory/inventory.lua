@@ -82,6 +82,12 @@ local function stopFoodStatusTicker()
   end
 end
 
+local function notifyFoodStatusChanged()
+  if modules.game_healthinfo and modules.game_healthinfo.refreshArcConditionIcons then
+    modules.game_healthinfo.refreshArcConditionIcons()
+  end
+end
+
 local function ensureFoodStatusIcon()
   if not conditionPanel then
     return nil
@@ -111,6 +117,7 @@ local function updateFoodStatusIcon()
     icon:setImageSource(FOOD_STATUS_ICON_HUNGRY_PATH)
     icon:setTooltip('You are hungry (no food regeneration).')
   end
+  notifyFoodStatusChanged()
   return remaining
 end
 
@@ -134,6 +141,23 @@ local function applyFoodStatus(remainingSeconds)
   else
     stopFoodStatusTicker()
   end
+end
+
+function getFoodStatusData()
+  local remaining = math.max(0, foodStatusExpiresAt - g_clock.seconds())
+  if remaining > 0 then
+    return {
+      remainingSeconds = remaining,
+      iconPath = FOOD_STATUS_ICON_FED_PATH,
+      tooltip = 'You are fed. Food regeneration active: ' .. formatFoodDuration(remaining)
+    }
+  end
+
+  return {
+    remainingSeconds = 0,
+    iconPath = FOOD_STATUS_ICON_HUNGRY_PATH,
+    tooltip = 'You are hungry (no food regeneration).'
+  }
 end
 
 local function requestFoodStatus()
@@ -497,6 +521,7 @@ function offline()
   foodStatusIcon = nil
   foodStatusExpiresAt = 0
   stopFoodStatusTicker()
+  notifyFoodStatusChanged()
 
   local player = g_game.getLocalPlayer()
   if player then

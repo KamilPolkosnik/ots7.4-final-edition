@@ -51,6 +51,24 @@ local defaultOptions = {
   walkCtrlTurnDelay = 150,
 
   topBar = false,
+  statusArcPoison = true,
+  statusArcBurn = true,
+  statusArcEnergy = true,
+  statusArcDrunk = true,
+  statusArcManaShield = true,
+  statusArcParalyze = true,
+  statusArcHaste = true,
+  statusArcSwords = true,
+  statusArcDrowning = true,
+  statusArcFreezing = true,
+  statusArcDazzled = true,
+  statusArcCursed = true,
+  statusArcPartyBuff = true,
+  statusArcPzBlock = true,
+  statusArcPz = true,
+  statusArcBleeding = true,
+  statusArcHungry = true,
+  statusArcFood = true,
 
   actionbar1 = false,
   actionbar2 = false,
@@ -385,6 +403,8 @@ function setOption(key, value, force)
 
   if key == 'topBar' then
     --modules.game_topbar.show()
+  elseif key:find('^statusArc') and modules.game_healthinfo and modules.game_healthinfo.refreshArcConditionIcons then
+    modules.game_healthinfo.refreshArcConditionIcons()
   end
 end
 

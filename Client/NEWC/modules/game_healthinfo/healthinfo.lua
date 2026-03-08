@@ -17,6 +17,28 @@ Icons[PlayerStates.Pz] = { tooltip = tr('You are within a protection zone'), pat
 Icons[PlayerStates.Bleeding] = { tooltip = tr('You are bleeding'), path = '/images/game/states/bleeding', id = 'condition_bleeding' }
 Icons[PlayerStates.Hungry] = { tooltip = tr('You are hungry'), path = '/images/game/states/hungry', id = 'condition_hungry' }
 
+StatusOptions = {
+  { state = PlayerStates.Poison, key = 'statusArcPoison', label = tr('Poison') },
+  { state = PlayerStates.Burn, key = 'statusArcBurn', label = tr('Burning') },
+  { state = PlayerStates.Energy, key = 'statusArcEnergy', label = tr('Electrified') },
+  { state = PlayerStates.Drunk, key = 'statusArcDrunk', label = tr('Drunk') },
+  { state = PlayerStates.ManaShield, key = 'statusArcManaShield', label = tr('Mana Shield') },
+  { state = PlayerStates.Paralyze, key = 'statusArcParalyze', label = tr('Paralyze') },
+  { state = PlayerStates.Haste, key = 'statusArcHaste', label = tr('Haste') },
+  { state = PlayerStates.Swords, key = 'statusArcSwords', label = tr('Fight Lock') },
+  { state = PlayerStates.Drowning, key = 'statusArcDrowning', label = tr('Drowning') },
+  { state = PlayerStates.Freezing, key = 'statusArcFreezing', label = tr('Freezing') },
+  { state = PlayerStates.Dazzled, key = 'statusArcDazzled', label = tr('Dazzled') },
+  { state = PlayerStates.Cursed, key = 'statusArcCursed', label = tr('Cursed') },
+  { state = PlayerStates.PartyBuff, key = 'statusArcPartyBuff', label = tr('Strengthened') },
+  { state = PlayerStates.PzBlock, key = 'statusArcPzBlock', label = tr('PZ Block') },
+  { state = PlayerStates.Pz, key = 'statusArcPz', label = tr('Protection Zone') },
+  { state = PlayerStates.Bleeding, key = 'statusArcBleeding', label = tr('Bleeding') },
+  { state = PlayerStates.Hungry, key = 'statusArcHungry', label = tr('Hungry') }
+}
+
+local ARC_FOOD_STATUS_ICON_ID = 'condition_food_status_arc'
+
 healthInfoWindow = nil
 healthBar = nil
 manaBar = nil
@@ -34,6 +56,7 @@ healthCircle = nil
 manaCircle = nil
 topHealthBar = nil
 topManaBar = nil
+arcConditionPanel = nil
 
 function init()
   connect(LocalPlayer, { onHealthChange = onHealthChange,
@@ -70,12 +93,14 @@ function init()
   manaCircle = overlay:getChildById('manaCircle')
   topHealthBar = overlay:getChildById('topHealthBar')
   topManaBar = overlay:getChildById('topManaBar')
+  arcConditionPanel = overlay:getChildById('arcConditionPanel')
   -- game_topbar already renders player hp/mp bars; keep healthinfo overlay bars hidden
   -- to avoid duplicated life/mana bars on screen.
   topHealthBar:setVisible(false)
   topManaBar:setVisible(false)
   
   connect(overlay, { onGeometryChange = onOverlayGeometryChange })
+  onOverlayGeometryChange()
   
   -- load condition icons
   for k,v in pairs(Icons) do
@@ -88,6 +113,7 @@ function init()
     onManaChange(localPlayer, localPlayer:getMana(), localPlayer:getMaxMana())
     onLevelChange(localPlayer, localPlayer:getLevel(), localPlayer:getLevelPercent())
     onStatesChange(localPlayer, localPlayer:getStates(), 0)
+    refreshArcConditionIcons()
     onSoulChange(localPlayer, localPlayer:getSoul())
     onFreeCapacityChange(localPlayer, localPlayer:getFreeCapacity())
   end
@@ -135,26 +161,93 @@ end
 
 function toggleIcon(bitChanged)
   local content = healthInfoWindow:recursiveGetChildById('conditionPanel')
+  local iconData = Icons[bitChanged]
+  if not iconData then
+    return
+  end
 
-  local icon = content:getChildById(Icons[bitChanged].id)
+  local icon = content:getChildById(iconData.id)
   if icon then
     icon:destroy()
   else
-    icon = loadIcon(bitChanged)
+    icon = createConditionIcon(bitChanged, content)
     icon:setParent(content)
   end
 end
 
-function loadIcon(bitChanged)
-  local icon = g_ui.createWidget('ConditionWidget', content)
-  icon:setId(Icons[bitChanged].id)
-  icon:setImageSource(Icons[bitChanged].path)
-  icon:setTooltip(Icons[bitChanged].tooltip)
+function createConditionIcon(bitChanged, parent)
+  local iconData = Icons[bitChanged]
+  if not iconData then
+    return nil
+  end
+
+  local widgetStyle = parent == arcConditionPanel and 'ArcConditionWidget' or 'ConditionWidget'
+  local icon = g_ui.createWidget(widgetStyle, parent)
+  icon:setId(iconData.id)
+  icon:setImageSource(iconData.path)
+  icon:setTooltip(iconData.tooltip)
   return icon
+end
+
+function isArcStatusEnabled(bitChanged)
+  for _, option in ipairs(StatusOptions) do
+    if option.state == bitChanged then
+      if modules.client_options and modules.client_options.getOption then
+        local value = modules.client_options.getOption(option.key)
+        if value ~= nil then
+          return value
+        end
+      end
+
+      return true
+    end
+  end
+
+  return true
+end
+
+function refreshArcConditionIcons()
+  if not arcConditionPanel then
+    return
+  end
+
+  arcConditionPanel:destroyChildren()
+
+  local localPlayer = g_game.getLocalPlayer()
+  if not localPlayer then
+    return
+  end
+
+  if modules.client_options and modules.client_options.getOption and modules.client_options.getOption('statusArcFood') then
+    local foodData = modules.game_inventory and modules.game_inventory.getFoodStatusData and modules.game_inventory.getFoodStatusData() or nil
+    if foodData then
+      local foodIcon = g_ui.createWidget('ArcConditionWidget', arcConditionPanel)
+      foodIcon:setId(ARC_FOOD_STATUS_ICON_ID)
+      foodIcon:setImageSource(foodData.iconPath)
+      foodIcon:setTooltip(foodData.tooltip)
+    end
+  end
+
+  local states = localPlayer:getStates()
+  for _, option in ipairs(StatusOptions) do
+    if isArcStatusEnabled(option.state) and bit32.band(states, option.state) ~= 0 then
+      createConditionIcon(option.state, arcConditionPanel)
+    end
+  end
+
+  local hasIcons = arcConditionPanel:getChildCount() > 0
+  arcConditionPanel:setVisible(hasIcons)
+  if hasIcons then
+    arcConditionPanel:raise()
+  end
 end
 
 function offline()
   healthInfoWindow:recursiveGetChildById('conditionPanel'):destroyChildren()
+  if arcConditionPanel then
+    arcConditionPanel:destroyChildren()
+    arcConditionPanel:setVisible(false)
+  end
 end
 
 -- hooked events
@@ -247,6 +340,8 @@ function onStatesChange(localPlayer, now, old)
       toggleIcon(bitChanged)
     end
   end
+
+  refreshArcConditionIcons()
 end
 
 -- personalization functions
