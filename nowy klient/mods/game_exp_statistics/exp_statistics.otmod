@@ -1,0 +1,14 @@
+Module
+  name: game_exp_statistics
+  description: EXP statistics window
+  author: Codex
+  version: 1.0.0
+
+  autoload: true
+  sandboxed: true
+  dependencies:
+    - game_interface
+    - client_topmenu
+  scripts: [ loot_items_generated, exp_statistics ]
+  @onLoad: init()
+  @onUnload: terminate()

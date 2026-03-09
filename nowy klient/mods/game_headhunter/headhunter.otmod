@@ -1,0 +1,14 @@
+Module
+  name: game_headhunter
+  description: Headhunter window
+  author: Codex
+  version: 1.0.0
+
+  autoload: true
+  sandboxed: true
+  dependencies:
+    - game_interface
+    - client_topmenu
+  scripts: [ headhunter ]
+  @onLoad: init()
+  @onUnload: terminate()

@@ -1,0 +1,13 @@
+Module
+  name: game_stall_market
+  description: Player market stalls
+  author: OTCv8
+  website: otclient.net
+
+  autoload: true
+  sandboxed: true
+  dependencies:
+    - game_interface
+  scripts: [ market ]
+  @onLoad: init()
+  @onUnload: terminate()

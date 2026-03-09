@@ -1,0 +1,53 @@
+StoreMenuWideButton < Button
+  width: 124
+  height: 22
+  margin-top: 2
+  text-align: center
+  font: cipsoftFont
+  color: #eef7ff
+  text-offset: 2 2
+  border-width: 1
+  border-color: #79b6ff
+  background-color: #285b9fcc
+  padding: 0
+
+  $hover !disabled:
+    background-color: #3b78c7dd
+    color: #ffffff
+
+  $pressed:
+    background-color: #1e4579dd
+    text-offset: 2 3
+
+StoreButtonWindow < HeadlessMiniWindow
+  width: 124
+  height: 22
+  &save: true
+  &forceOpen: true
+  &autoOpen: 4
+
+  UIButton
+    id: minimizeButton
+    visible: false
+    enabled: false
+    size: 0 0
+
+  UIButton
+    id: closeButton
+    visible: false
+    enabled: false
+    size: 0 0
+
+  MiniWindowContents
+    margin-top: 0
+    margin-left: 0
+    margin-right: 0
+    margin-bottom: 0
+
+    StoreMenuWideButton
+      id: gameStoreWideButton
+      anchors.fill: parent
+      text: STORE
+
+StoreButtonWindow
+  id: storeButtonWindow

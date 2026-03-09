@@ -25,10 +25,7 @@ otcv8-dev-master/*.lib
 # Ignore entire client trees
 Client/
 otcv8-dev-master/
-nowy klient/Rookie.log
-nowy klient/Rookie.log
 
 # Local server artifacts
 Rook/Rook/Artefakty/
 otcv8-dev-master.rar
-nowy klient/
