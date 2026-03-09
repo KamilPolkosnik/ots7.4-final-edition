@@ -1,0 +1,11 @@
+Module
+  name: game_itemtooltip
+  description: Item tooltip via extended opcode
+  author: Codex
+  autoload: true
+  sandboxed: true
+  scripts: [itemtooltip]
+  @onLoad: init()
+  @onUnload: terminate()
+  dependencies:
+    - game_interface

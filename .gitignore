@@ -10,3 +10,14 @@ Rook/Rook/**/*.iobj
 
 # Local backup files created during manual binary swaps
 Rook/Rook/*.bak_*
+
+# OTClient build artifacts and local archives
+otcv8-dev-master/vc16/otclient/OpenGL/
+otcv8-dev-master/tests.7z
+otcv8-dev-master/*.iobj
+otcv8-dev-master/*.ipdb
+otcv8-dev-master/*.obj
+otcv8-dev-master/*.ilk
+otcv8-dev-master/*.pdb
+otcv8-dev-master/*.exp
+otcv8-dev-master/*.lib

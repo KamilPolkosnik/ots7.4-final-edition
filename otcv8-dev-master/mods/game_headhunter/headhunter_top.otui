@@ -1,0 +1,47 @@
+MainWindow
+  id: headhunterTopWindow
+  !text: tr('Top Headhunters')
+  size: 500 460
+  @onEscape: modules.game_headhunter.toggleTopWindow()
+  @onClose: modules.game_headhunter.onTopWindowClose()
+
+  Label
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    text: Best bounty hunters by successful target kills.
+    text-align: center
+    color: #f0f0f0
+
+  ScrollablePanel
+    id: leaderboardList
+    anchors.top: prev.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: closeTopButton.top
+    margin-top: 6
+    margin-bottom: 8
+    image-source: /images/ui/panel_flat
+    image-border: 1
+    image-color: #3f3f3f
+    padding: 3
+    vertical-scrollbar: leaderboardScroll
+    auto-focus: first
+    layout:
+      type: verticalBox
+
+  VerticalScrollBar
+    id: leaderboardScroll
+    anchors.top: leaderboardList.top
+    anchors.bottom: leaderboardList.bottom
+    anchors.right: leaderboardList.right
+    step: 20
+    pixels-scroll: true
+
+  Button
+    id: closeTopButton
+    !text: tr('Close')
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    width: 64
+    @onClick: modules.game_headhunter.toggleTopWindow()

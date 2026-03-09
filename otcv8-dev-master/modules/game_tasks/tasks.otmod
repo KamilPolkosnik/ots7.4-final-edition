@@ -1,0 +1,8 @@
+Module
+  name: game_tasks
+  description: Task list panel
+  author: local
+  sandboxed: true
+  scripts: [ tasks ]
+  @onLoad: init()
+  @onUnload: terminate()

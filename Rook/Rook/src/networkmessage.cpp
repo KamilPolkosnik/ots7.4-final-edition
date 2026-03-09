@@ -103,11 +103,14 @@ void NetworkMessage::addItem(uint16_t id, uint8_t count)
 
 	//addByte(0xFF); // MARK_UNMARKED
 
-	if (it.stackable || it.isSplash() || it.isFluidContainer()) {
+	if (it.stackable || it.isSplash() || it.isFluidContainer() || it.charges != 0) {
 		addByte(count);
 	}
 
 	addByte(ITEM_RARITY_NONE);
+	if (it.showDuration) {
+		add<uint32_t>(0);
+	}
 
 	/*if (it.stackable) {
 		addByte(count);
@@ -139,11 +142,14 @@ void NetworkMessage::addItem(const Item* item)
 
 	if (it.stackable) {
 		addByte(std::min<uint16_t>(0xFF, item->getItemCount()));
-	} else if (it.isSplash() || it.isFluidContainer()) {
+	} else if (it.isSplash() || it.isFluidContainer() || it.charges != 0) {
 		addByte(item->getSubType());
 	}
 
 	addByte(const_cast<Item*>(item)->getRarityId());
+	if (it.showDuration) {
+		add<uint32_t>(item->getDuration());
+	}
 }
 
 void NetworkMessage::addItemId(uint16_t itemId)
