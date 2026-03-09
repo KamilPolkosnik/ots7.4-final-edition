@@ -17,7 +17,6 @@ Makefile
 *.recipe*
 *.gz
 *.7z
-!tests.7z
 !android_libs.7z
 *.spr
 *.dat
