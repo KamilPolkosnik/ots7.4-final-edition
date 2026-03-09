@@ -1,3 +1,0 @@
-Weapons from report not matched to weaponType items in items.xml (name-based):
-- name="broadsword" tier=1
-- name="light mace" tier=4
