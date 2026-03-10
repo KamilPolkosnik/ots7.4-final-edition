@@ -9,9 +9,9 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found dwarven ring, small diamond and a small sapphire.")
-   item_uid = doPlayerAddItem(cid,2213,1)
-   item_uid = doPlayerAddItem(cid,2145,1)
-   item_uid = doPlayerAddItem(cid,2146,1)
+   item_uid = us_AddQuestReward(cid,2213,1)
+   item_uid = us_AddQuestReward(cid,2145,1)
+   item_uid = us_AddQuestReward(cid,2146,1)
    setPlayerStorageValue(cid,15098,1)
 
   else

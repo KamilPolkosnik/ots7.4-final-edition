@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a tower shield.")
-   item_uid = doPlayerAddItem(cid,2528,1)
+   item_uid = us_AddQuestReward(cid,2528,1)
    setPlayerStorageValue(cid,2528,1)
 
   else

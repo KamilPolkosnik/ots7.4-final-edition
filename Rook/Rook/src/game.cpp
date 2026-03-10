@@ -2225,14 +2225,6 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 		return;
 	}
 
-	if (!player->canDoAction()) {
-		uint32_t delay = player->getNextActionTime();
-		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerUseItemEx, this,
-		                      playerId, fromPos, fromStackPos, fromSpriteId, toPos, toStackPos, toSpriteId));
-		player->setNextActionTask(task);
-		return;
-	}
-
 	player->resetIdleTime();
 	player->setNextActionTask(nullptr);
 
@@ -2285,14 +2277,6 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		}
 
 		player->sendCancelMessage(ret);
-		return;
-	}
-
-	if (!player->canDoAction()) {
-		uint32_t delay = player->getNextActionTime();
-		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerUseItem, this,
-		                      playerId, pos, stackPos, index, spriteId));
-		player->setNextActionTask(task);
 		return;
 	}
 
@@ -2398,14 +2382,6 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 		}
 
 		player->sendCancelMessage(ret);
-		return;
-	}
-
-	if (!player->canDoAction()) {
-		uint32_t delay = player->getNextActionTime();
-		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerUseWithCreature, this,
-		                      playerId, fromPos, fromStackPos, creatureId, spriteId));
-		player->setNextActionTask(task);
 		return;
 	}
 

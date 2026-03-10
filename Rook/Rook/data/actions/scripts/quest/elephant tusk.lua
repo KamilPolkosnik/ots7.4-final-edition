@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found two elephant tusk.")
-   item_uid = doPlayerAddItem(cid,3956,2)
+   item_uid = us_AddQuestReward(cid,3956,2)
    setPlayerStorageValue(cid,16208,1)
 
   else

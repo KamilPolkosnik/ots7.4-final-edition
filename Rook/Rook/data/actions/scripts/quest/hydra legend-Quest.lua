@@ -144,7 +144,7 @@ if item.uid == 8611 then
  queststatus = getPlayerStorageValue(cid,8610)
  if queststatus == -1 then
   doPlayerSendTextMessage(cid,22,"You have found a Enchanted Club.")
-  doPlayerAddItem(cid,2183,1)
+  us_AddQuestReward(cid,2183,1)
   setPlayerStorageValue(cid,8610,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -154,7 +154,7 @@ if item.uid == 8612 then
  queststatus = getPlayerStorageValue(cid,8610)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a boots of haste.")
-  doPlayerAddItem(cid,2195,1)
+  us_AddQuestReward(cid,2195,1)
   setPlayerStorageValue(cid,8610,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -164,7 +164,7 @@ if item.uid == 8613 then
  queststatus = getPlayerStorageValue(cid,8610)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a Demon Shield.")
-  doPlayerAddItem(cid,2520,1)
+  us_AddQuestReward(cid,2520,1)
   setPlayerStorageValue(cid,8610,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -174,7 +174,7 @@ if item.uid == 8614 then
  queststatus = getPlayerStorageValue(cid,8610)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a Dragon Scale Mail.")
-  doPlayerAddItem(cid,2492,1)
+  us_AddQuestReward(cid,2492,1)
   setPlayerStorageValue(cid,8610,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")

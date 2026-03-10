@@ -7,8 +7,8 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a panpipes.")
-   item_uid = doPlayerAddItem(cid,2373,1)
-   item_uid = doPlayerAddItem(cid,2150,2)
+   item_uid = us_AddQuestReward(cid,2373,1)
+   item_uid = us_AddQuestReward(cid,2150,2)
    setPlayerStorageValue(cid,25288,1)
 
   else

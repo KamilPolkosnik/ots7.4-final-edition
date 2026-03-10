@@ -3,10 +3,10 @@ if item.uid == 25018 then
   queststatus = getPlayerStorageValue(cid,25018)
   if queststatus == -1 or queststatus == 0 then
    doPlayerSendTextMessage(cid,22,"You have found a bag.")
-container = doPlayerAddItem(cid, 1987, 1)
-doAddContainerItem(container, 4851, 1)
-doAddContainerItem(container, 2168, 1)
-doAddContainerItem(container, 2006, 7)
+container = us_AddQuestReward(cid, 1987, 1)
+us_AddQuestContainerReward(container, cid, 4851, 1)
+us_AddQuestContainerReward(container, cid, 2168, 1)
+us_AddQuestContainerReward(container, cid, 2006, 7)
 
    setPlayerStorageValue(cid,25018,1)
 

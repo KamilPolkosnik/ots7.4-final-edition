@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"MWAHAHAHAHA!")
-   item_uid = doPlayerAddItem(cid,2646,1)
+   item_uid = us_AddQuestReward(cid,2646,1)
    setPlayerStorageValue(cid,25101,1)
 			demon1pos = {x=33067, y=31621, z=15}
 			demon2pos = {x=33069, y=31627, z=15}

@@ -7,8 +7,8 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found some reward! go back to Mr Crackher if you want more missions!")
-   item_uid = doPlayerAddItem(cid,2189,1)
-   item_uid = doPlayerAddItem(cid,2491,1)
+   item_uid = us_AddQuestReward(cid,2189,1)
+   item_uid = us_AddQuestReward(cid,2491,1)
    
    setPlayerStorageValue(cid,25082,1)
    setPlayerStorageValue(cid,26004,1001)

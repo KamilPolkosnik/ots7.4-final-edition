@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a elven amulet.")
-   item_uid = doPlayerAddItem(cid,2198,200)
+   item_uid = us_AddQuestReward(cid,2198,200)
    setPlayerStorageValue(cid,2198,1)
 
   else

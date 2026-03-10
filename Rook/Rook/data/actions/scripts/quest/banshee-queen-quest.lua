@@ -9,12 +9,12 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found loot of Banshee Quest.")
-   item_uid = doPlayerAddItem(cid,2195,1)
-   item_uid = doPlayerAddItem(cid,2393,1)
-   item_uid = doPlayerAddItem(cid,2528,1)
-   item_uid = doPlayerAddItem(cid,2165,1)
-   item_uid = doPlayerAddItem(cid,2197,10)
-   item_uid = doPlayerAddItem(cid,2152,100)
+   item_uid = us_AddQuestReward(cid,2195,1)
+   item_uid = us_AddQuestReward(cid,2393,1)
+   item_uid = us_AddQuestReward(cid,2528,1)
+   item_uid = us_AddQuestReward(cid,2165,1)
+   item_uid = us_AddQuestReward(cid,2197,10)
+   item_uid = us_AddQuestReward(cid,2152,100)
    setPlayerStorageValue(cid,15043,1)
 
 

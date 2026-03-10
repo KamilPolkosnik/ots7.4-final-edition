@@ -9,9 +9,9 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a blessed shield.")
-   item_uid = doPlayerAddItem(cid,2523,1)
-   item_uid = doPlayerAddItem(cid,2273,50)
-   item_uid = doPlayerAddItem(cid,2268,10)
+   item_uid = us_AddQuestReward(cid,2523,1)
+   item_uid = us_AddQuestReward(cid,2273,50)
+   item_uid = us_AddQuestReward(cid,2268,10)
    setPlayerStorageValue(cid,15064,1)
 
   else

@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a barbarian axe.")
-   item_uid = doPlayerAddItem(cid,2429,1)
+   item_uid = us_AddQuestReward(cid,2429,1)
    setPlayerStorageValue(cid,2429,1)
 
   else

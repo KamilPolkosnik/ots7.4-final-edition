@@ -9,10 +9,10 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a Brass armor.")
-   item_uid = doPlayerAddItem(cid,2465,1)
-   item_uid = doPlayerAddItem(cid,2460,1)
-   item_uid = doPlayerAddItem(cid,2388,1)
-   item_uid = doPlayerAddItem(cid,2399,13)
+   item_uid = us_AddQuestReward(cid,2465,1)
+   item_uid = us_AddQuestReward(cid,2460,1)
+   item_uid = us_AddQuestReward(cid,2388,1)
+   item_uid = us_AddQuestReward(cid,2399,13)
    setPlayerStorageValue(cid,15081,1)
 
   else

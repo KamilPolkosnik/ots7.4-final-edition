@@ -7,10 +7,10 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have completed behemoth quest!")
-   item_uid = doPlayerAddItem(cid,2427,1) 
-   item_uid = doPlayerAddItem(cid,2466,1) 
-   item_uid = doPlayerAddItem(cid,2520,1) 
-   item_uid = doPlayerAddItem(cid,2171,1) 
+   item_uid = us_AddQuestReward(cid,2427,1) 
+   item_uid = us_AddQuestReward(cid,2466,1) 
+   item_uid = us_AddQuestReward(cid,2520,1) 
+   item_uid = us_AddQuestReward(cid,2171,1) 
    
    setPlayerStorageValue(cid,25278,1)
 

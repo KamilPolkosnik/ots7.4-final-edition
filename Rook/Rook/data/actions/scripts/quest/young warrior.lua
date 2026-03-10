@@ -148,7 +148,7 @@ if item.uid == 25009 then
  queststatus = getPlayerStorageValue(cid,25008)
  if queststatus == -1 then
   doPlayerSendTextMessage(cid,22,"You have found a fire axe.")
-  doPlayerAddItem(cid,2432,1)
+  us_AddQuestReward(cid,2432,1)
   setPlayerStorageValue(cid,25008,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -158,7 +158,7 @@ if item.uid == 25010 then
  queststatus = getPlayerStorageValue(cid,25008)
  if queststatus == -1 then
   doPlayerSendTextMessage(cid,22,"You have found a skull staff.")
-  doPlayerAddItem(cid,2436,1)
+  us_AddQuestReward(cid,2436,1)
   setPlayerStorageValue(cid,25008,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -168,7 +168,7 @@ if item.uid == 25011 then
  queststatus = getPlayerStorageValue(cid,25008)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a fire sword.")
-  doPlayerAddItem(cid,2392,1)
+  us_AddQuestReward(cid,2392,1)
   setPlayerStorageValue(cid,25008,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -178,7 +178,7 @@ if item.uid == 25012 then
  queststatus = getPlayerStorageValue(cid,25008)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a knight armor.")
-  doPlayerAddItem(cid,2476,1)
+  us_AddQuestReward(cid,2476,1)
   setPlayerStorageValue(cid,25008,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -188,7 +188,7 @@ if item.uid == 25013 then
  queststatus = getPlayerStorageValue(cid,25008)
  if queststatus == -1 then
   doPlayerSendTextMessage(cid,22,"You have found a crusader helmet.")
-  doPlayerAddItem(cid,2497,1)
+  us_AddQuestReward(cid,2497,1)
   setPlayerStorageValue(cid,25008,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -198,7 +198,7 @@ if item.uid == 25014 then
  queststatus = getPlayerStorageValue(cid,25008)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a tower shield.")
-  doPlayerAddItem(cid,2528,1)
+  us_AddQuestReward(cid,2528,1)
   setPlayerStorageValue(cid,25008,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")

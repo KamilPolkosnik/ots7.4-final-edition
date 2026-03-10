@@ -9,7 +9,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a scale armor.")
-   item_uid = doPlayerAddItem(cid,2483,1)
+   item_uid = us_AddQuestReward(cid,2483,1)
    setPlayerStorageValue(cid,25255,1)
 
   else

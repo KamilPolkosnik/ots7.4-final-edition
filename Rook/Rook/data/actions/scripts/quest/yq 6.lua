@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found 50 platinum coins.")
-   item_uid = doPlayerAddItem(cid,2152,50)  
+   item_uid = us_AddQuestReward(cid,2152,50)  
    setPlayerStorageValue(cid,25268,1)
 
   else

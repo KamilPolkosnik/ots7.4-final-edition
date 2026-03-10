@@ -157,7 +157,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a hellfire blade.")
-  doPlayerAddItem(cid,2446,1)
+  us_AddQuestReward(cid,2446,1)
   setPlayerStorageValue(cid,6000,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -171,7 +171,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a hellfire hammer.")
-  doPlayerAddItem(cid,2444,1)
+  us_AddQuestReward(cid,2444,1)
   setPlayerStorageValue(cid,6000,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -185,7 +185,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a hellfire axe.")
-  doPlayerAddItem(cid,2443,1)
+  us_AddQuestReward(cid,2443,1)
   setPlayerStorageValue(cid,6000,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -199,7 +199,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a golden helmet.")
-  doPlayerAddItem(cid,2471,1)
+  us_AddQuestReward(cid,2471,1)
   setPlayerStorageValue(cid,6000,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")

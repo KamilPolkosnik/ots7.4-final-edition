@@ -9,11 +9,11 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found the lost loot of Thony Deriver.")
-   item_uid = doPlayerAddItem(cid,1988,1)
-   item_uid = doPlayerAddItem(cid,2492,1)
-   item_uid = doPlayerAddItem(cid,2392,1)
-   item_uid = doPlayerAddItem(cid,2414,7)
-   item_uid = doPlayerAddItem(cid,2528,7)
+   item_uid = us_AddQuestReward(cid,1988,1)
+   item_uid = us_AddQuestReward(cid,2492,1)
+   item_uid = us_AddQuestReward(cid,2392,1)
+   item_uid = us_AddQuestReward(cid,2414,7)
+   item_uid = us_AddQuestReward(cid,2528,7)
    setPlayerStorageValue(cid,15151,1)
 
   else

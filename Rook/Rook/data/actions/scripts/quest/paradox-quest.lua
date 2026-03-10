@@ -9,9 +9,9 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found Paradox Quest Loot.")
-   item_uid = doPlayerAddItem(cid,2152,100)
-   item_uid = doPlayerAddItem(cid,2189,1)
-   item_uid = doPlayerAddItem(cid,2151,32)
+   item_uid = us_AddQuestReward(cid,2152,100)
+   item_uid = us_AddQuestReward(cid,2189,1)
+   item_uid = us_AddQuestReward(cid,2151,32)
    setPlayerStorageValue(cid,15044,1)
 
   else

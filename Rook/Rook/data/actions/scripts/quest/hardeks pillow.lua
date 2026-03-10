@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a key, bring it back to Hardek!")
-   item_uid = doPlayerAddItem(cid,2092,1)  
+   item_uid = us_AddQuestReward(cid,2092,1)  
    setPlayerStorageValue(cid,25068,1)
       setPlayerStorageValue(cid,25065,4)
 

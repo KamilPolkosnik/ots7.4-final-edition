@@ -139,7 +139,7 @@ if item.uid == 999999 then
  queststatus = getPlayerStorageValue(cid,100)
  if queststatus == -1 then
   doPlayerSendTextMessage(cid,22,"You have found a demon armor.")
-  doPlayerAddItem(cid,2494,1)
+  us_AddQuestReward(cid,2494,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -149,7 +149,7 @@ if item.uid == 999999 then
  queststatus = getPlayerStorageValue(cid,100)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a magic sword.")
-  doPlayerAddItem(cid,2400,1)
+  us_AddQuestReward(cid,2400,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -159,7 +159,7 @@ if item.uid == 999999 then
  queststatus = getPlayerStorageValue(cid,100)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a stonecutter axe.")
-  doPlayerAddItem(cid,2431,1)
+  us_AddQuestReward(cid,2431,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -169,7 +169,7 @@ if item.uid == 999999 then
  queststatus = getPlayerStorageValue(cid,100)
  if queststatus ~= 1 then
   doPlayerSendTextMessage(cid,22,"You have found a present.")
-  doPlayerAddItem(cid,2326,1)
+  us_AddQuestReward(cid,2326,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")

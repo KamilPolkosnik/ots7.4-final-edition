@@ -9,8 +9,8 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a white pearl and two black pearls.")
-   item_uid = doPlayerAddItem(cid,2143,1)
-   item_uid = doPlayerAddItem(cid,2144,2)
+   item_uid = us_AddQuestReward(cid,2143,1)
+   item_uid = us_AddQuestReward(cid,2144,2)
    setPlayerStorageValue(cid,15050,1)
 
   else

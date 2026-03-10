@@ -9,9 +9,9 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found some great stuffs.")
-   item_uid = doPlayerAddItem(cid,2534,1)
-   item_uid = doPlayerAddItem(cid,2414,1)
-   item_uid = doPlayerAddItem(cid,2144,3)
+   item_uid = us_AddQuestReward(cid,2534,1)
+   item_uid = us_AddQuestReward(cid,2414,1)
+   item_uid = us_AddQuestReward(cid,2144,3)
    setPlayerStorageValue(cid,15041,1)
 
   else

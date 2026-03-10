@@ -3,7 +3,7 @@ if item.uid == 26000 then
   queststatus = getPlayerStorageValue(cid,26000)
   if queststatus == -1 or queststatus == 0 then
    doPlayerSendTextMessage(cid,22,"You have found a lost message.")
-   item_uid = doPlayerAddItem(cid,5802,1)
+   item_uid = us_AddQuestReward(cid,5802,1)
    setPlayerStorageValue(cid,26000,1)
 
   else

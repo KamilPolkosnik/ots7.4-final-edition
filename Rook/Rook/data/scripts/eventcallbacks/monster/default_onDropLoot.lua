@@ -151,7 +151,7 @@ ec.onDropLoot = function(self, corpse)
 
             local text = ("Loot of %s: %s"):format(mType:getNameDescription(), corpse:getContentDescription())
             if bankedGold > 0 then
-                text = ("%s (deposited %d gold to bank)"):format(text, bankedGold)
+                text = ("%s (deposited %d gold to bank [%s])"):format(text, bankedGold, player:getName())
             end
             local party = player:getParty()
             if party then

@@ -10,10 +10,10 @@ end
    		newpos = {x=915, y=992, z=6}
 		doTeleportThing(cid,newpos)
 		doSendMagicEffect(newpos,12)
-container = doPlayerAddItem(cid, 1987, 1)
-doAddContainerItem(container, 2466, 1)
-doAddContainerItem(container, 2393, 1)
-doAddContainerItem(container, 2171, 1)
+container = us_AddQuestReward(cid, 1987, 1)
+us_AddQuestContainerReward(container, cid, 2466, 1)
+us_AddQuestContainerReward(container, cid, 2393, 1)
+us_AddQuestContainerReward(container, cid, 2171, 1)
    setPlayerStorageValue(cid,25028,1)
 
   else

@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a wand of cosmic energy.")
-   item_uid = doPlayerAddItem(cid,2189,1)  
+   item_uid = us_AddQuestReward(cid,2189,1)  
    setPlayerStorageValue(cid,25268,1)
 
   else

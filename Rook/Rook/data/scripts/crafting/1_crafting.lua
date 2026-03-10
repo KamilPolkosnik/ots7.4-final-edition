@@ -88,6 +88,43 @@ local function getPlayerTotalMoney(player)
   return (player:getMoney() or 0) + (player:getBankBalance() or 0)
 end
 
+local function addCraftResultToBackpack(player, itemId, count)
+  local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+  if not backpack or not backpack:isContainer() then
+    return nil, "You need a backpack."
+  end
+
+  local itemType = ItemType(itemId)
+  local addedItems = {}
+  local remaining = math.max(1, tonumber(count) or 1)
+
+  while remaining > 0 do
+    local addCount = 1
+    if itemType:isStackable() then
+      addCount = math.min(100, remaining)
+    end
+
+    local addedItem = backpack:addItem(itemId, addCount)
+    if not addedItem then
+      for i = 1, #addedItems do
+        if addedItems[i] and addedItems[i].remove then
+          addedItems[i]:remove()
+        end
+      end
+      return nil, "Not enough capacity or backpack space."
+    end
+
+    addedItems[#addedItems + 1] = addedItem
+    remaining = remaining - addCount
+  end
+
+  if #addedItems == 1 then
+    return addedItems[1]
+  end
+
+  return addedItems
+end
+
 local function clonePos(pos)
   if not pos then
     return nil
@@ -1051,7 +1088,7 @@ function Crafting:craft(player, data)
   end
 
   local resultCount = math.max(1, tonumber(recipe.count) or tonumber(craft.count) or 1)
-  local craftedResult = player:addItem(craft.id, resultCount, false)
+  local craftedResult, addError = addCraftResultToBackpack(player, craft.id, resultCount)
   if craftedResult then
     applyCraftPresetBonuses(craftedResult, craft.id)
     player:removeTotalMoney(recipe.cost)
@@ -1065,7 +1102,7 @@ function Crafting:craft(player, data)
     Crafting:sendMaterials(player, category)
     player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "crafted"}))
   else
-    player:sendCancelMessage("Not enough capacity or space.")
+    player:sendCancelMessage(addError or "Not enough capacity or backpack space.")
   end
 end
 

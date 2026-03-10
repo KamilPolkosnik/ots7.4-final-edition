@@ -263,7 +263,10 @@ function init()
   buttonPvp = inventoryWindow:recursiveGetChildById('buttonPvp')
 
   mountButton = inventoryWindow:recursiveGetChildById('mountButton')
-  mountButton.onClick = onMountButtonClick
+  if mountButton then
+    mountButton:setVisible(false)
+    mountButton:setEnabled(false)
+  end
 
   whiteDoveBox = inventoryWindow:recursiveGetChildById('whiteDoveBox')
   whiteHandBox = inventoryWindow:recursiveGetChildById('whiteHandBox')
@@ -500,11 +503,9 @@ function online()
       end
     end
 
-    if g_game.getFeature(GamePlayerMounts) then
-      mountButton:setVisible(true)
-      mountButton:setChecked(player:isMounted())
-    else
+    if mountButton then
       mountButton:setVisible(false)
+      mountButton:setEnabled(false)
     end
   end
 
@@ -601,6 +602,9 @@ function onSetPVPMode(self, selectedPVPButton)
 end
 
 function onMountButtonClick(self, mousePos)
+  if not mountButton or not mountButton:isVisible() then
+    return
+  end
   local player = g_game.getLocalPlayer()
   if player then
     player:toggleMount()
@@ -608,6 +612,9 @@ function onMountButtonClick(self, mousePos)
 end
 
 function onOutfitChange(localPlayer, outfit, oldOutfit)
+  if not mountButton then
+    return
+  end
   if outfit.mount == oldOutfit.mount then
     return
   end

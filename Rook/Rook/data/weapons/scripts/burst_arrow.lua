@@ -21,8 +21,7 @@ function onGetFormulaValues(player, level, magicLevel)
 	local mlvFactor = 3
 
 	if isMageVocation(player:getVocation():getId()) then
-		mlvFactor = 6
-		formulaDivisor = 80
+		mlvFactor = 4
 	end
 
 	local formula = (mlvFactor * magicLevel) + (2 * level)

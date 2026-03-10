@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a dwarven armor.")
-   item_uid = doPlayerAddItem(cid,2260,3)
+   item_uid = us_AddQuestReward(cid,2260,3)
    setPlayerStorageValue(cid,25290,1)
 
   else

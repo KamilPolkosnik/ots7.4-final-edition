@@ -470,6 +470,52 @@ local function us_ApplyInitialTierLevelToResult(result)
     us_ApplyInitialTierLevel(result, false)
 end
 
+local function us_GetQuestRewardLevel(player)
+    if not player or not player.getLevel then
+        return 1
+    end
+
+    local playerLevel = math.max(1, player:getLevel())
+    local minLevel = math.max(1, math.floor(playerLevel * 0.8))
+    local maxLevel = math.max(minLevel, math.floor(playerLevel * 2))
+    return math.random(minLevel, maxLevel)
+end
+
+function us_PrepareQuestReward(player, item)
+    if not player or not item or not item.isItem or not item:isItem() then
+        return item
+    end
+
+    local itemType = item:getType()
+    if not itemType or not itemType:canHaveItemLevel() then
+        return item
+    end
+
+    item:setItemLevel(us_GetQuestRewardLevel(player), true)
+    item:unidentify()
+    return item
+end
+
+function us_AddQuestReward(cid, itemId, count)
+    local itemUid = doPlayerAddItem(cid, itemId, count)
+    local player = Player(cid)
+    local item = Item(itemUid)
+    if player and item then
+        us_PrepareQuestReward(player, item)
+    end
+    return itemUid
+end
+
+function us_AddQuestContainerReward(containerUid, cid, itemId, count)
+    local itemUid = doAddContainerItem(containerUid, itemId, count)
+    local player = Player(cid)
+    local item = Item(itemUid)
+    if player and item then
+        us_PrepareQuestReward(player, item)
+    end
+    return itemUid
+end
+
 local function us_InstallItemLevelWrappers()
     if rawget(_G, "US_ITEMLEVEL_WRAPPERS_INSTALLED") then
         return

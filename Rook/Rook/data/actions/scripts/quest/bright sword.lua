@@ -9,7 +9,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a Bright sword.")
-   item_uid = doPlayerAddItem(cid,2407,1)
+   item_uid = us_AddQuestReward(cid,2407,1)
    setPlayerStorageValue(cid,2407,1)
 
   else

@@ -9,7 +9,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a Naginata.")
-   item_uid = doPlayerAddItem(cid,2426,1)
+   item_uid = us_AddQuestReward(cid,2426,1)
    setPlayerStorageValue(cid,15082,1)
 
   else

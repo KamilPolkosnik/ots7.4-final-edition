@@ -9,12 +9,12 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a Wedding ring.")
-   item_uid = doPlayerAddItem(cid,2121,1)
-   item_uid = doPlayerAddItem(cid,2397,1)
-   item_uid = doPlayerAddItem(cid,2560,1)
-   item_uid = doPlayerAddItem(cid,2260,3)
-   item_uid = doPlayerAddItem(cid,2108,1)
-   item_uid = doPlayerAddItem(cid,2148,76)
+   item_uid = us_AddQuestReward(cid,2121,1)
+   item_uid = us_AddQuestReward(cid,2397,1)
+   item_uid = us_AddQuestReward(cid,2560,1)
+   item_uid = us_AddQuestReward(cid,2260,3)
+   item_uid = us_AddQuestReward(cid,2108,1)
+   item_uid = us_AddQuestReward(cid,2148,76)
    setPlayerStorageValue(cid,15087,1)
 
   else

@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a bag.")
-   item_uid = doPlayerAddItem(cid,1987,1) 
+   item_uid = us_AddQuestReward(cid,1987,1) 
 
   else
    doPlayerSendTextMessage(cid,22,"it\'s empty.")

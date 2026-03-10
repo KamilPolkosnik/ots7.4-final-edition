@@ -13,12 +13,6 @@ function onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 		return true
 	end
 
-	local exhaustStorage = 9999
-	if player:getStorageValue(exhaustStorage) > os.time() then
-		player:sendCancelMessage("You must wait a while before using this again.")
-		return true
-	end
-
 	local tile = Tile(toPosition)
 	if not tile then
 		return false
@@ -64,7 +58,6 @@ function onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 				if Tile(toPosition:moveUpstairs()):hasFlag(TILESTATE_PROTECTIONZONE) and thing:isPzLocked() then
 					return false
 				end
-				player:setStorageValue(exhaustStorage, os.time() + 60)
 				player:setStorageValue(5565633, player:getStorageValue(5565633) + 1)
 				return thing:teleportTo(toPosition, false)
 			end

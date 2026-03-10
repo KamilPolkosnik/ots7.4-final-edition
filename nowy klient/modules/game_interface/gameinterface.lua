@@ -506,14 +506,6 @@ function createThingMenu(menuPosition, lookThing, useThing, creatureThing)
       end
 
       menu:addOption(tr('Set Outfit'), function() g_game.requestOutfit() end)
-
-      if g_game.getFeature(GamePlayerMounts) then
-        if not localPlayer:isMounted() then
-          menu:addOption(tr('Mount'), function() localPlayer:mount() end)
-        else
-          menu:addOption(tr('Dismount'), function() localPlayer:dismount() end)
-        end
-      end
       
       if g_game.getFeature(GamePrey) and modules.game_prey then
         menu:addOption(tr('Open Prey Dialog'), function() modules.game_prey.show() end)

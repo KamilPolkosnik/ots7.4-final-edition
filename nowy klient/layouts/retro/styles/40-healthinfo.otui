@@ -49,6 +49,7 @@ ConditionWidget < UIWidget
 ArcConditionWidget < ConditionWidget
   size: 24 24
   opacity: 0.85
+  phantom: true
 
   $!first:
     margin-left: 0

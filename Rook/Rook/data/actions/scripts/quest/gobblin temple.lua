@@ -7,12 +7,12 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a bag.")
-container = doPlayerAddItem(cid, 1987, 1)
+container = us_AddQuestReward(cid, 1987, 1)
 
-doAddContainerItem(container, 2148, 50)
-doAddContainerItem(container, 1294, 5)
-doAddContainerItem(container, 2642, 1)
-doAddContainerItem(container, 2563, 1)
+us_AddQuestContainerReward(container, cid, 2148, 50)
+us_AddQuestContainerReward(container, cid, 1294, 5)
+us_AddQuestContainerReward(container, cid, 2642, 1)
+us_AddQuestContainerReward(container, cid, 2563, 1)
 
    setPlayerStorageValue(cid,25098,1)
 

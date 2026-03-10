@@ -9,7 +9,7 @@ doPlayerSendTextMessage(cid,22,"You need 50 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a hydra egg.")
-   item_uid = doPlayerAddItem(cid,4850,1)
+   item_uid = us_AddQuestReward(cid,4850,1)
    setPlayerStorageValue(cid,15089,1)
 
   else

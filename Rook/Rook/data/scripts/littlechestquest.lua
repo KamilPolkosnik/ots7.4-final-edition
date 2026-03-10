@@ -103,7 +103,9 @@ function action.onUse(player, chest, fromPos, target, toPos, isHotkey)
     player:setStorageValue(questId, 1)
     player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("You have found %s.", chest:getContentDescription()))
     for _, item in pairs(items) do
-        player:addItemEx(item:clone(), true)
+        local reward = item:clone()
+        us_PrepareQuestReward(player, reward)
+        player:addItemEx(reward, true)
     end
     return true
 end

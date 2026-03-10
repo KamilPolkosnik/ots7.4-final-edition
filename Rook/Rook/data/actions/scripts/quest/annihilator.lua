@@ -100,14 +100,14 @@ local function giveQuestReward(cid, item, quest)
 	end
 
 	if quest.content then
-		local containerUid = doPlayerAddItem(cid, quest.item.id, quest.item.count or 1)
+		local containerUid = us_AddQuestReward(cid, quest.item.id, quest.item.count or 1)
 		if containerUid and containerUid > 0 then
 			for _, nextReward in ipairs(quest.content) do
-				doAddContainerItem(containerUid, nextReward.id, nextReward.count or 1)
+				us_AddQuestContainerReward(containerUid, cid, nextReward.id, nextReward.count or 1)
 			end
 		end
 	else
-		doPlayerAddItem(cid, quest.item.id, quest.item.count or 1)
+		us_AddQuestReward(cid, quest.item.id, quest.item.count or 1)
 	end
 
 	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, quest.message or "You have found an item.")
@@ -236,7 +236,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a demon armor.")
-  doPlayerAddItem(cid,2494,1)
+  us_AddQuestReward(cid,2494,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -250,7 +250,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a magic sword.")
-  doPlayerAddItem(cid,2400,1)
+  us_AddQuestReward(cid,2400,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -264,7 +264,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a stonecutter axe.")
-  doPlayerAddItem(cid,2431,1)
+  us_AddQuestReward(cid,2431,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")
@@ -278,7 +278,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
   doPlayerSendTextMessage(cid,22,"You have found a present.")
-  doPlayerAddItem(cid,2326,1)
+  us_AddQuestReward(cid,2326,1)
   setPlayerStorageValue(cid,100,1)
  else
   doPlayerSendTextMessage(cid,22,"It is empty.")

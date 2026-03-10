@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found Bezaros Old backpack.")
-   item_uid = doPlayerAddItem(cid,3960,1)
+   item_uid = us_AddQuestReward(cid,3960,1)
    setPlayerStorageValue(cid,8509,1)
 
   else

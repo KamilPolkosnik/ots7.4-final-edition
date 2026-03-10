@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a doublet.")
-   item_uid = doPlayerAddItem(cid,2485,2)
+   item_uid = us_AddQuestReward(cid,2485,2)
    setPlayerStorageValue(cid,16209,1)
 
   else

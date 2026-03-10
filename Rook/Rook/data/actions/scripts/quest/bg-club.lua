@@ -7,7 +7,7 @@ doPlayerSendTextMessage(cid,22,"You need 100 cap or more to loot this!")
 return TRUE
 end
    doPlayerSendTextMessage(cid,22,"You have found a Battle hammer.")
-   item_uid = doPlayerAddItem(cid,2417,1)
+   item_uid = us_AddQuestReward(cid,2417,1)
    setPlayerStorageValue(cid,25259,1)
 
   else
