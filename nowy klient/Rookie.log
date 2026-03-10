@@ -1130,3 +1130,692 @@ ERROR: no creature found to move
 at:
 	[C++]: ?parseCreatureMove@ProtocolGame@@AAEXABV?$shared_object_ptr@VInputMessage@@@stdext@@@Z
 Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:10:18
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar  9 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (3943 bytes, 819 unread, last opcode is 0x20 (32), prev opcode is 0x78 (120)): unhandled opcode 32
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:10:54
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar  9 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (3940 bytes, 819 unread, last opcode is 0x10 (16), prev opcode is 0x78 (120)): unhandled opcode 16
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+ERROR: ProtocolGame parse message exception (42 bytes, 23 unread, last opcode is 0x70 (112), prev opcode is 0x6a (106)): unable to create item with invalid id 9226
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:11:22
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar  9 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+ERROR: ProtocolGame parse message exception (43 bytes, 31 unread, last opcode is 0x00 (0), prev opcode is 0x78 (120)): InputMessage eof reached
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+ERROR: ProtocolGame parse message exception (61 bytes, 49 unread, last opcode is 0x60 (96), prev opcode is 0x78 (120)): unhandled opcode 96
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:11:47
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar  9 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (3936 bytes, 816 unread, last opcode is 0x78 (120), prev opcode is 0x78 (120)): unable to create item with invalid id 9228
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (3936 bytes, 817 unread, last opcode is 0x00 (0), prev opcode is 0x78 (120)): InputMessage eof reached
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+ERROR: ProtocolGame parse message exception (42 bytes, 0 unread, last opcode is 0xc0 (192), prev opcode is 0x6a (106)): InputMessage eof reached
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+ERROR: ProtocolGame parse message exception (43 bytes, 31 unread, last opcode is 0x00 (0), prev opcode is 0x78 (120)): InputMessage eof reached
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+ERROR: ProtocolGame parse message exception (64 bytes, 52 unread, last opcode is 0x30 (48), prev opcode is 0x78 (120)): unhandled opcode 48
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (7060 bytes, 819 unread, last opcode is 0x48 (72), prev opcode is 0x78 (120)): unhandled opcode 72
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (7060 bytes, 816 unread, last opcode is 0x70 (112), prev opcode is 0x78 (120)): unable to create item with invalid id 9226
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (7060 bytes, 794 unread, last opcode is 0x00 (0), prev opcode is 0xa0 (160)): InputMessage eof reached
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=66
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+ERROR: ProtocolGame parse message exception (7060 bytes, 819 unread, last opcode is 0x48 (72), prev opcode is 0x78 (120)): unhandled opcode 72
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+ERROR: could not get creature
+at:
+	[C++]: ?parseCreatureSkulls@ProtocolGame@@AAEXABV?$shared_object_ptr@VInputMessage@@@stdext@@@Z
+ERROR: ProtocolGame parse message exception (61 bytes, 43 unread, last opcode is 0x01 (1), prev opcode is 0x90 (144)): unhandled opcode 1
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+ERROR: ProtocolGame parse message exception (66 bytes, 16 unread, last opcode is 0x5c (92), prev opcode is 0xc0 (192)): unhandled opcode 92
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+ERROR: ProtocolGame parse message exception (42 bytes, 20 unread, last opcode is 0xf0 (240), prev opcode is 0x6a (106)): InputMessage eof reached
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+ERROR: invalid outfit looktype 2629
+at:
+	[C++]: ?getOutfit@ProtocolGame@@QAE?AVOutfit@@ABV?$shared_object_ptr@VInputMessage@@@stdext@@_N@Z
+ERROR: ProtocolGame parse message exception (43 bytes, 11 unread, last opcode is 0xc8 (200), prev opcode is 0x78 (120)): InputMessage eof reached
+Packet has been saved to packet.log, you can use it to find what was wrong. (Protocol: 772)
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:20:47
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar  9 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:27:27
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar  9 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:39:32
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar  9 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:41:33
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:48:16
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 10 2026 13:54:43
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..

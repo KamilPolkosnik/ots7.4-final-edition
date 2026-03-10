@@ -7,6 +7,31 @@ local holeId = {
 
 local DEBUG_ROPE = false
 
+local function isBlockedRopeDestination(tile)
+	if not tile then
+		return true
+	end
+
+	local creatures = tile:getCreatures()
+	if creatures and #creatures > 0 then
+		return true
+	end
+
+	if tile:getItemByType(ITEM_TYPE_MAGICFIELD) then
+		return true
+	end
+
+	local ground = tile:getGround()
+	for i = 0, tile:getThingCount() - 1 do
+		local thing = tile:getThing(i)
+		if thing and thing:isItem() and thing ~= ground then
+			return true
+		end
+	end
+
+	return false
+end
+
 function onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 	local player = Player(cid)
 	if not player then
@@ -43,8 +68,13 @@ function onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 	end
 
 	if (groundId and table.contains(ropeSpots, groundId)) or (targetId and table.contains(ropeSpots, targetId)) or tile:getItemById(14435) then
-		if Tile(toPosition:moveUpstairs()):hasFlag(TILESTATE_PROTECTIONZONE) and player:isPzLocked() then
+		local upstairsTile = Tile(toPosition:moveUpstairs())
+		if upstairsTile:hasFlag(TILESTATE_PROTECTIONZONE) and player:isPzLocked() then
 			player:sendCancelMessage(RETURNVALUE_PLAYERISPZLOCKED)
+			return true
+		end
+		if isBlockedRopeDestination(upstairsTile) then
+			player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 			return true
 		end
 		player:teleportTo(toPosition, false)

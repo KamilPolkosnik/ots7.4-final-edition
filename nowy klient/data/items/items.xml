@@ -17183,6 +17183,9 @@
 		<attribute key="description" value="Automatically collects dropped gold to your bank. Must be equipped in a totem slot."/>
 		<attribute key="slotType" value="totem"/>
 		<attribute key="weight" value="120"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="duration" value="604800"/>
+		<attribute key="showduration" value="1"/>
 	</item>
 	<item id="7968" article="a" name="Throwing glove">
 		<attribute key="description" value="Used to throw throwable items."/>

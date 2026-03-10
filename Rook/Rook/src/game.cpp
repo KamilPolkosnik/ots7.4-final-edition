@@ -43,6 +43,7 @@
 #include "script.h"
 
 #include <cstdint>
+#include <array>
 #include <fmt/format.h>
 
 extern ConfigManager g_config;
@@ -58,6 +59,72 @@ extern Monsters g_monsters;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern Scripts* g_scripts;
+
+namespace {
+	bool isRopeTool(uint16_t itemId)
+	{
+		return itemId == 2120 || itemId == 7962;
+	}
+
+	bool isRopeSpotId(uint16_t itemId)
+	{
+		static constexpr std::array<uint16_t, 15> ropeSpotIds = {
+			384, 418, 8278, 8592, 13189, 14435, 14436, 14857, 15635, 19518, 24621, 24622, 24623, 24624, 26019,
+		};
+		return std::find(ropeSpotIds.begin(), ropeSpotIds.end(), itemId) != ropeSpotIds.end();
+	}
+
+	bool isBlockedRopeSpotTile(const Tile* tile)
+	{
+		if (!tile) {
+			return false;
+		}
+
+		if (tile->getCreatureCount() > 0) {
+			return true;
+		}
+
+		if (const TileItemVector* items = tile->getItemList()) {
+			for (Item* item : *items) {
+				if (!item) {
+					continue;
+				}
+
+				if (item->isMagicField()) {
+					return true;
+				}
+
+				if (!isRopeSpotId(item->getID())) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	bool shouldBlockRopeUseOnTile(const Item* tool, const Tile* tile)
+	{
+		if (!tool || !isRopeTool(tool->getID()) || !tile) {
+			return false;
+		}
+
+		const Item* ground = tile->getGround();
+		if (ground && isRopeSpotId(ground->getID())) {
+			return isBlockedRopeSpotTile(tile);
+		}
+
+		if (const TileItemVector* items = tile->getItemList()) {
+			for (const Item* item : *items) {
+				if (item && isRopeSpotId(item->getID())) {
+					return isBlockedRopeSpotTile(tile);
+				}
+			}
+		}
+
+		return false;
+	}
+}
 
 namespace {
 constexpr uint8_t CORPSE_PULSE_EFFECT_ID = 32;
@@ -2160,6 +2227,11 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 	Item* item = thing->getItem();
 	if (!item || !item->isUseable() || item->getClientID() != fromSpriteId) {
 		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
+		return;
+	}
+
+	if (shouldBlockRopeUseOnTile(item, map.getTile(toPos))) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
 

@@ -12,6 +12,31 @@ local function copyPosition(pos)
 	return Position(pos.x, pos.y, pos.z)
 end
 
+local function isBlockedRopeDestination(tile)
+	if not tile then
+		return true
+	end
+
+	local creatures = tile:getCreatures()
+	if creatures and #creatures > 0 then
+		return true
+	end
+
+	if tile:getItemByType(ITEM_TYPE_MAGICFIELD) then
+		return true
+	end
+
+	local ground = tile:getGround()
+	for i = 0, tile:getThingCount() - 1 do
+		local thing = tile:getThing(i)
+		if thing and thing:isItem() and thing ~= ground then
+			return true
+		end
+	end
+
+	return false
+end
+
 local function useAsRope(player, itemEx, toPosition)
 	if not itemEx then
 		return false
@@ -32,15 +57,14 @@ local function useAsRope(player, itemEx, toPosition)
 		return false
 	end
 
-	local exhaustStorage = 9999
-	if player:getStorageValue(exhaustStorage) > os.time() then
-		player:sendCancelMessage("You must wait a while before using this again.")
-		return true
-	end
-
 	if isRopeSpot then
-		if Tile(toPosition:moveUpstairs()):hasFlag(TILESTATE_PROTECTIONZONE) and player:isPzLocked() then
+		local upstairsTile = Tile(toPosition:moveUpstairs())
+		if upstairsTile:hasFlag(TILESTATE_PROTECTIONZONE) and player:isPzLocked() then
 			player:sendCancelMessage(RETURNVALUE_PLAYERISPZLOCKED)
+			return true
+		end
+		if isBlockedRopeDestination(upstairsTile) then
+			player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 			return true
 		end
 
@@ -57,7 +81,6 @@ local function useAsRope(player, itemEx, toPosition)
 				return true
 			end
 
-			player:setStorageValue(exhaustStorage, os.time() + 60)
 			player:setStorageValue(5565633, player:getStorageValue(5565633) + 1)
 			thing:teleportTo(toPosition, false)
 			return true
