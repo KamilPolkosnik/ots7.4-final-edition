@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<!--announce delay="0" type="event" message="Star of Fafnar drop on world."/-->
+	<areaspawn delay="0" radius="1800" centerx="32763" centery="32125" centerz="7">
+		<monster name="star" minamount="1" maxamount="1"/>	
+	</areaspawn>
+</raid>

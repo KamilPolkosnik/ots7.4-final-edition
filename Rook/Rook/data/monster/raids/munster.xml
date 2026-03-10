@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF - 8"?>
+<monster name="Munster" nameDescription="a munster" race="blood" experience="35" speed="45" manacost="0">
+	<health now="58" max="58" />
+	<look type="56" head="0" body="0" legs="0" feet="0" corpse="3994" />
+	<targetchange interval="1000" chance="0" />
+	<targetstrategy nearest="100" weakest="0" mostdamage="0" random="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks attack="12" skill="10">
+	</attacks>
+	<defenses armor="5" defense="8">
+	</defenses>
+	<summons maxSummons="2">
+		<summon name="rat" chance="3" max="2" />
+	</summons>
+	<voices>
+		<voice sentence="Meeeeep!" yell="1" />
+		<voice sentence="Meep!" yell="1" />
+	</voices>
+	<loot>
+        <item id="3337" countmax="1" chance="185" /> <!-- bone club Def 8 Atk 12 -->
+		<item id="3598" countmax="9" chance="100" /> <!-- cookie -->
+		<item id="2920" countmax="1" chance="752" /> <!-- torch -->
+		<item id="3607" countmax="1" chance="700" /> <!-- cheese -->
+		<item id="3031" countmax="21" chance="895" /> <!-- gold coin -->
+		<item id="4477" countmax="1" chance="4" /> <!-- change gold scroll 7 days -->
+		<!--item id="5090" countmax="1" chance="10" /> <!-- a box -->
+	</loot>
+</monster>

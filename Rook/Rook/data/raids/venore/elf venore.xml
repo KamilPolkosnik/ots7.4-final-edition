@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<announce delay="1000" type="event" message="Elven scouts from Shadowthorn have been spotted near Venore! Beware!"/>
+	<announce delay="60000" type="event" message="Venore is under attack!"/>
+	<areaspawn delay="60000" radius="10" centerx="32857" centery="32031" centerz="7">
+		<monster name="elf" minamount="5" maxamount="10"/>
+		<monster name="elf scout" minamount="3" maxamount="8"/>
+		<monster name="elf arcanist" minamount="2" maxamount="5"/>
+	</areaspawn>
+	<areaspawn delay="60000" radius="10" centerx="32853" centery="32126" centerz="7">
+		<monster name="elf" minamount="5" maxamount="10"/>
+		<monster name="elf scout" minamount="3" maxamount="8"/>
+		<monster name="elf arcanist" minamount="2" maxamount="5"/>
+	</areaspawn>
+	<areaspawn delay="60000" radius="10" centerx="32941" centery="32165" centerz="7">
+		<monster name="elf" minamount="5" maxamount="10"/>
+		<monster name="elf scout" minamount="3" maxamount="8"/>
+		<monster name="elf arcanist" minamount="2" maxamount="5"/>
+	</areaspawn>
+</raid>

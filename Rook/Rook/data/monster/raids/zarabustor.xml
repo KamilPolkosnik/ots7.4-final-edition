@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF - 8"?>
+<monster name="Zarabustor" nameDescription="a zarabustor" race="blood" experience="8000" speed="125" manacost="0">
+	<health now="5100" max="5100" />
+	<look type="130" head="0" body="91" legs="77" feet="115" corpse="4240" />
+	<targetchange interval="1000" chance="50" />
+	<targetstrategy nearest="99" weakest="10" mostdamage="10" random="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag runonhealth="1300" />
+	</flags>
+		<attacks attack="36" skill="90"> <!-- skull staff -->
+		<attack name="physical" min="-98" max="-195" variation="0" range="7" chance="3">
+		<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="manadrain" min="-90" max="-155" range="7" chance="6">
+		<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="speed" speedchange="-80" variation="10" duration="100000" range="7" chance="8">
+		<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="fire" min="-130" max="-200" range="7" radius="3"  target="1" chance="3">
+		<attribute key="shootEffect" value="fire" />
+		<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="firefield" range="7" target="1" radius="2" chance="6">
+		<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="energy" min="-230" max="-380" length="8" spread="0" chance="8">
+		<attribute key="areaEffect" value="energy" />
+		</attack>	
+	</attacks>
+	<defenses armor="14" defense="37">	<!-- golden armor, griffen shield, Dagger -->
+		<defense name="healing" min="380" max="430" chance="4">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" duration="10000" chance="5">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	
+	<immunities>
+		<immunity fire="1" />
+		<immunity energy="1" />
+		<immunity outfit="1" />
+		<immunity paralyze="1" />
+		<immunity poison="1" />
+		<immunity invisible="1" />
+	</immunities>
+	
+	<summons maxSummons="5">
+		<summon name="warlock" chance="20" max="2" />
+		<summon name="green djinn" chance="18" max="3" />
+	</summons>
+	
+	<voices>
+		<voice sentence="Killing is such a splendid diversion from my studies." />
+		<voice sentence="Time to test my newest spells!." />
+	</voices>
+	<loot>
+		<item id="3567" countmax="1" chance="500" /> <!-- a blue robe -->
+		<item id="2850" countmax="1" chance="4" /> <!-- a blue tome -->
+		<item id="3051" countmax="1" chance="600" /> <!-- an energy ring -->
+		<item id="3450" countmax="3" chance="500" /> <!-- power bolt -->
+		<item id="3031" countmax="90" chance="600" /> <!-- a gold coin -->
+		<!--item id="5090" countmax="2" chance="350" /> <!-- a box -->
+		<item id="3299" countmax="1" chance="500" /> <!-- a poison dagger -->
+		<item id="3006" countmax="1" chance="500" /> <!-- a ring of the sky -->
+		<item id="3324" countmax="1" chance="700" /> <!-- a skull staff -->
+		<item id="3029" countmax="8" chance="900" /> <!-- a small sapphire -->
+		<item id="3360" countmax="1" chance="500" /> <!-- a golden armor -->
+	</loot>
+</monster>

@@ -1,7 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <raids>
-	<!--
-		<raid name="Testraid" file="testraid.xml" interval2="30" margin="0" />
-		executed on average once every 30 minutes
-	-->
+	<!--margin="195" é configuração padrão-->
+	<!--Rookgaard-->
+	<raid name="rat rookgaard" repeat="false" margin="" interval2="500" file="rookgaard/rat rookgaard.xml"/>
+	<raid name="munster" repeat="false" margin="195" interval2="600" file="rookgaard/munster.xml"/>
+	
+	<!--Ab'dendriel-->
+	<raid name="badger abdendriel" repeat="false" margin="195" interval2="500" file="abdendriel/badger abdendriel.xml"/>
+	<raid name="wolf abdendriel" repeat="false" margin="195" interval2="500" file="abdendriel/wolf abdendriel.xml"/>
+	<raid name="dragon draconia" repeat="false" margin="195" interval2="500" file="abdendriel/dragon draconia.xml"/>
+	<raid name="the evil eye" repeat="false" margin="195" interval2="600" file="abdendriel/the evil eye.xml"/>
+	<raid name="zarabustor" repeat="false" margin="195" interval2="1300" file="abdendriel/zarabustor.xml"/>
+	
+	<!--Ankrahmunl-->
+	<raid name="ancient scarab" repeat="false" margin="195" interval2="700" file="ankrahmun/ancient scarab.xml"/>
+	
+	<!--Carlin-->
+	<raid name="orc femor hills" repeat="false" margin="195" interval2="600" file="carlin/orc femor hills.xml"/>
+	<raid name="yeti" repeat="false" margin="195" interval2="400" file="carlin/yeti.xml"/>
+	
+	<!--Darashia-->
+	<raid name="necropharus" repeat="false" margin="195" interval2="850" file="darashia/necropharus.xml"/>
+	<raid name="wasp darashia" repeat="false" margin="195" interval2="500" file="darashia/wasp darashia.xml"/>
+	<raid name="undead darashia" repeat="false" margin="195" interval2="800" file="darashia/undead darashia.xml"/>
+	
+	<!--Edron-->
+	<raid name="orshabaal" repeat="false" margin="195" interval2="1400" file="edron/orshabaal.xml"/>
+	<raid name="skunk edron" repeat="false" margin="195" interval2="500" file="edron/skunk edron.xml"/>
+	<raid name="ghoul edron" repeat="false" margin="195" interval2="550" file="edron/ghoul edron.xml"/>
+	<raid name="dwarf cormaya" repeat="false" margin="195" interval2="600" file="edron/dwarf cormaya.xml"/>
+	<raid name="demonraid" repeat="false" margin="195" interval2="600" file="edron/demon.xml"/>
+	<raid name="cyclopsraid" repeat="false" margin="195" interval2="300" file="edron/cyclops.xml"/>
+	
+	<!--Events-->
+	<!--raid name="star" repeat="false" margin="195" interval2="500" file="events/star.xml"/-->
+	<!--raid name="the halloween hare" repeat="false" margin="195" interval2="100" file="events/the halloween hare.xml"/-->
+	
+	<!--Kazordoon-->
+	<raid name="the horned fox" repeat="false" margin="195" interval2="900" file="kazordoon/the horned fox.xml"/>
+	<raid name="spider kazordoon" repeat="false" margin="195" interval2="500" file="kazordoon/spider kazordoon.xml"/>
+	<raid name="outlaw femor hills" repeat="false" margin="195" interval2="600" file="kazordoon/outlaw femor hills.xml"/>
+	<raid name="dwarfguardraid" repeat="false" margin="195" interval2="600" file="kazordoon/dwarf guard.xml"/>
+	
+	<!--Thais-->
+	<raid name="general murius" repeat="false" margin="195" interval2="800" file="thais/general murius.xml"/>
+	<raid name="orc thais" repeat="false" margin="195" interval2="800" file="thais/orc thais.xml"/>
+	<raid name="orc thais lighthouse" repeat="false" margin="195" interval2="700" file="thais/orc thais lighthouse.xml"/>
+	<raid name="cave rat thais" repeat="false" margin="195" interval2="600" file="thais/cave rat thais.xml"/>
+	
+	<raid name="grorlam" repeat="false" margin="195" interval2="700" file="thais/grorlam.xml"/>
+	
+	<raid name="grorlam1" repeat="false" margin="195" interval2="1000" file="thais/grorlam1.xml"/>
+	<raid name="grorlam2" repeat="false" margin="195" interval2="1000" file="thais/grorlam2.xml"/>
+	<raid name="grorlam3" repeat="false" margin="195" interval2="1000" file="thais/grorlam3.xml"/>
+	<raid name="grorlam4" repeat="false" margin="195" interval2="1000" file="thais/grorlam4.xml"/>
+	<raid name="grorlam5" repeat="false" margin="195" interval2="1000" file="thais/grorlam5.xml"/>
+	
+	<!--Venore-->
+	<!--raid name="ferumbras" repeat="false" margin="195" interval2="2400" file="venore/ferumbras.xml"/-->
+	<raid name="demodras" repeat="false" margin="195" interval2="800" file="venore/demodras.xml"/>
+	<raid name="orc sam" repeat="false" margin="195" interval2="900" file="venore/orc.xml"/>
+	<raid name="dharalion" repeat="false" margin="195" interval2="700" file="venore/dharalion.xml"/>
+	<raid name="fernfang" repeat="false" margin="195" interval2="700" file="venore/fernfang.xml"/>
+	<raid name="old widow" repeat="false" margin="195" interval2="900" file="venore/old widow.xml"/>
+	<raid name="undead minions" repeat="false" margin="195" interval2="700" file="venore/undead.xml"/>
+	<raid name="elf venore" repeat="false" margin="195" interval2="700" file="venore/elf venore.xml"/>
+	<raid name="elf swamp" repeat="false" margin="195" interval2="600" file="venore/elf swamp.xml"/>
+	<raid name="cyclopsraidpoh" repeat="false" margin="195" interval2="300" file="venore/cyclops.xml"/>
 </raids>

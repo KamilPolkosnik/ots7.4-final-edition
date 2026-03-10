@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<areaspawn delay="1000" radius="2" centerx="32975" centery="31743" centerz="7">
+		<monster name="orc raid" minamount="1" maxamount="1"/>
+	</areaspawn>
+</raid>

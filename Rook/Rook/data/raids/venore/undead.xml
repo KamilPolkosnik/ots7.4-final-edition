@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+	<announce delay="1000" type="event" message="The dead of the plains of havoc are becoming restless!" />
+	<announce delay="120000" type="event" message="A veritable army of undead is amassing in the plains of havoc, beware!" />
+	<announce delay="300000" type="event" message="The dreaded banshee lead their undead minions to claim the plains of havoc!" />
+	<areaspawn delay="300000" fromx="32789" fromy="32277" fromz="7" tox="32836" toy="32299" toz="7">
+		<monster name="Skeleton" minamount="10" maxamount="20" />
+		<monster name="banshee raid" minamount="4" maxamount="8" />
+		<monster name="ghoul" minamount="10" maxamount="20" />
+		<monster name="demon skeleton" minamount="6" maxamount="12" />
+		<monster name="Vampire" minamount="4" maxamount="8" />
+	</areaspawn>
+</raid>

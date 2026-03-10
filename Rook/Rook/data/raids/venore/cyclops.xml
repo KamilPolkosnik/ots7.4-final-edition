@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<areaspawn delay="1000" radius="2" centerx="32774" centery="32248" centerz="8">
+		<monster name="cyclopsraid" minamount="1" maxamount="1"/>
+	</areaspawn>
+</raid>

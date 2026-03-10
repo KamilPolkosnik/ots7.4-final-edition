@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<areaspawn delay="4000" radius="7" centerx="32019" centery="31601" centerz="7">
+		<monster name="yeti" minamount="1" maxamount="3"/>
+	</areaspawn>
+</raid>

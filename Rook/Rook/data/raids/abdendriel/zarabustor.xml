@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<!--announce delay="1000" type="event" message="The animals are agitated, and people from Northport village are scared!"/-->
+	<!--announce delay="120000" type="event" message="They believe that something is happening in Demona."/-->
+	<!--announce delay="240000" type="event" message="Ho no... mystical creature shouts praising Zarabustor!"/-->
+	<areaspawn delay="240000" radius="2" centerx="32510" centery="31580" centerz="14">
+		<monster name="zarabustor" minamount="1" maxamount="1"/>
+	</areaspawn>
+</raid>

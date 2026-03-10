@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF - 8"?>
+<monster name="Ferumbras" nameDescription="ferumbras" race="venom" experience="12000" speed="155" manacost="0">
+	<health now="50000" max="50000" />
+	<look type="254" head="57" body="113" legs="95" feet="113" corpse="4240" />
+	<targetchange interval="1000" chance="20" />
+	<targetstrategy nearest="60" weakest="5" mostdamage="30" random="5" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag runonhealth="2500" />
+	</flags>
+	<attacks attack="200" skill="100">
+		<attack name="manadrain" min="-350" max="-650" range="7" chance="14">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="poisoncondition" count="400" radius="6" target="0" chance="6">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="energycondition" count="650" radius="6" target="0" chance="6">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="manadrain" min="-125" max="-375" radius="6" target="0" chance="10">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="lifedrain" min="-200" max="-600" radius="6" target="0" chance="6">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="firecondition" count="500" range="7" radius="7" target="1" chance="6">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="lifedrain" min="0" max="-850" length="8" spread="0" chance="8">
+			<attribute key="areaEffect" value="greenspark" />
+		</attack>
+	</attacks>
+	<defenses armor="38" defense="38">
+		<defense name="healing" min="800" max="1200" chance="4">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="speed" speedchange="65" variation="15" duration="7000" chance="3">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity fire="1" />
+		<immunity energy="1" />
+		<immunity outfit="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity poison="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<summons maxSummons="4">
+		<summon name="demon" chance="5" max="4" />
+	</summons>
+	<voices>
+		<voice sentence="NOONE WILL STOP ME THIS TIME!" yell="1" />
+		<voice sentence="THE POWER IS MINE!" yell="1" />
+		<voice sentence="I returned from death and you dream about defeating me?" />
+		<voice sentence="Witness the first seconds of my eternal world domination!" />
+		<voice sentence="The powers of darkness are with me!" />
+		<voice sentence="Even in my weakened state I will crush you all!" />
+	</voices>
+	<loot>
+		<item id="3303" countmax="1" chance="40" /> <!-- an great axe -->
+		<item id="3027" countmax="83" chance="175" /> <!-- a black pearl -->
+		<item id="3041" countmax="1" chance="215" /> <!-- a blue gem -->
+		<item id="3079" countmax="1" chance="220" /> <!-- boots of haste -->
+		<item id="3420" countmax="1" chance="555" /> <!-- a demon shield -->
+		<item id="3275" countmax="1" chance="400" /> <!-- a double axe -->
+		<item id="3031" countmax="180" chance="999" /> <!-- a gold coin -->
+		<item id="3364" countmax="1" chance="250" /> <!-- golden legs -->
+		<item id="3360" countmax="1" chance="210" /> <!-- a golden armor -->
+		<item id="3038" countmax="1" chance="250" /> <!-- a green gem -->
+		<item id="3007" countmax="1" chance="500" /> <!-- a crystal ring -->
+		<item id="3046" countmax="1" chance="715" /> <!-- a magic light wand -->
+		<item id="3366" countmax="1" chance="180" /> <!-- a magic plate armor -->
+		<item id="3414" countmax="1" chance="250" /> <!-- a mastermind shield -->
+		<item id="3062" countmax="1" chance="400" /> <!-- a mind stone -->
+		<item id="3035" countmax="58" chance="777" /> <!-- a platinum coins -->
+		<item id="2848" countmax="1" chance="222" /> <!-- a purple tome -->
+		<item id="3422" countmax="1" chance="35" /> <!-- a great shield -->
+		<item id="3290" countmax="1" chance="155" /> <!-- a silver dagger -->
+		<item id="3033" countmax="54" chance="205" /> <!-- a small amethyst -->
+		<item id="3028" countmax="90" chance="175" /> <!-- a small diamond -->
+		<item id="3029" countmax="92" chance="195" /> <!-- a small sapphire -->
+		<item id="3030" countmax="49" chance="195" /> <!-- a small ruby -->
+		<item id="3442" countmax="1" chance="85" /> <!-- a tempest shield -->
+		<item id="3032" countmax="100" chance="190" /> <!-- a small emerald -->
+		<item id="2993" countmax="1" chance="100" /> <!-- a teddy bear -->
+		<item id="3439" countmax="1" chance="99" /> <!-- a phoenix shield -->
+		<!--item id="5090" countmax="3" chance="250" /> <!-- box -->
+		<item id="3002" countmax="1" chance="65" /> <!-- a voodoo doll -->
+		<item id="3026" countmax="99" chance="225" /> <!-- a white pearl -->
+	</loot>
+</monster>

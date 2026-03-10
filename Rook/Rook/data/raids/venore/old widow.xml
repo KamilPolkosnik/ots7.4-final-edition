@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<!--Announcements-->
+	<announce delay="1000" type="Event" message="The mating season of the giant spiders is at hand. Leave the plains of havoc as fast as you can" />
+	
+	<announce delay="300000" type="Event" message="Giant spiders have gathered on the plains of havoc for their mating season. Beware!" />
+
+	<areaspawn delay="300000" radius="1" centerx="32778" centery="32297" centerz="7">
+		<monster name="Old Widow" minamount="1" maxamount="1"/>
+	</areaspawn>
+	<areaspawn delay="0" radius="15" centerx="32778" centery="32297" centerz="7">
+		<monster name="giant spider" minamount="3" maxamount="6"/>
+	</areaspawn>
+</raid>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<areaspawn delay="0" radius="3" centerx="33199" centery="31642" centerz="15">
+		<monster name="demonraid" minamount="1" maxamount="1"/>
+	</areaspawn>
+</raid>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<announce delay="1000" type="event" message="Orc activity near Thais reported! Beware!"/>
+	<areaspawn delay="5000" lifetime="7200000" radius="10" centerx="32365" centery="32159" centerz="7">
+		<monster name="orc" minamount="4" maxamount="7"/>
+		<monster name="orc spearman" minamount="4" maxamount="7"/>
+		<monster name="orc warrior" minamount="4" maxamount="7"/>
+		<monster name="orc rider" minamount="3" maxamount="6"/>
+		<monster name="orc shaman" minamount="3" maxamount="6"/>
+		<monster name="orc berserker" minamount="3" maxamount="6"/>
+		<monster name="orc leader" minamount="3" maxamount="6"/>
+		<monster name="orc warlord raid2" minamount="1" maxamount="5"/>
+	</areaspawn>
+	<areaspawn delay="7000" lifetime="7200000" radius="10" centerx="32449" centery="32226" centerz="7">
+		<monster name="orc" minamount="4" maxamount="7"/>
+		<monster name="orc spearman" minamount="4" maxamount="7"/>
+		<monster name="orc warrior" minamount="4" maxamount="7"/>
+		<monster name="orc rider" minamount="3" maxamount="6"/>
+		<monster name="orc shaman" minamount="3" maxamount="6"/>
+		<monster name="orc berserker" minamount="3" maxamount="6"/>
+		<monster name="orc leader" minamount="3" maxamount="6"/>
+		<monster name="orc warlord raid2" minamount="1" maxamount="5"/>
+	</areaspawn>
+	<areaspawn delay="9000" lifetime="7200000" radius="10" centerx="32337" centery="32297" centerz="7">
+		<monster name="orc" minamount="4" maxamount="7"/>
+		<monster name="orc spearman" minamount="4" maxamount="7"/>
+		<monster name="orc warrior" minamount="4" maxamount="7"/>
+		<monster name="orc rider" minamount="3" maxamount="6"/>
+		<monster name="orc shaman" minamount="3" maxamount="6"/>
+		<monster name="orc berserker" minamount="3" maxamount="6"/>
+		<monster name="orc leader" minamount="3" maxamount="6"/>
+		<monster name="orc warlord raid2" minamount="1" maxamount="5"/>
+	</areaspawn>
+	<areaspawn delay="12000" lifetime="7200000" radius="10" centerx="32265" centery="32286" centerz="7">
+		<monster name="orc" minamount="4" maxamount="7"/>
+		<monster name="orc spearman" minamount="4" maxamount="7"/>
+		<monster name="orc warrior" minamount="4" maxamount="7"/>
+		<monster name="orc rider" minamount="3" maxamount="6"/>
+		<monster name="orc shaman" minamount="3" maxamount="6"/>
+		<monster name="orc berserker" minamount="3" maxamount="6"/>
+		<monster name="orc leader" minamount="3" maxamount="6"/>
+		<monster name="orc warlord raid2" minamount="1" maxamount="5"/>
+	</areaspawn>
+</raid>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<announce delay="1000" type="event" message="The magicians of Edron's Academy, fear something negative in the Tibian continent."/>
+	<announce delay="120000" type="event" message="Oldrak heard magic words and lights southwest of temple."/>
+	<announce delay="240000" type="event" message="Ferumbras is seen in the Plains of Havoc cemetery, invoking magic at his daughter's grave!"/>
+	<areaspawn delay="240000" radius="5" centerx="32785" centery="32345" centerz="7">
+		<monster name="ferumbras" minamount="1" maxamount="1"/>
+	</areaspawn>
+</raid>

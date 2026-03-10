@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>/>
+	<areaspawn delay="0" radius="1" centerx="32596" centery="31929" centerz="15">
+		<monster name="dwarfguardraid" minamount="1" maxamount="1"/>
+	</areaspawn>
+</raid>

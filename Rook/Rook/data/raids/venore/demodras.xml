@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raid>
+	<announce delay="1000" type="event" message="Demodras, the evil dragon boss, has returned to its lair!"/>
+	<areaspawn delay="0" radius="1" centerx="32774" centery="32292" centerz="10">
+		<monster name="Demodras" minamount="1" maxamount="1"/>
+	
+	</areaspawn>
+	<areaspawn delay="0" radius="3" centerx="32774" centery="32292" centerz="10">
+		<monster name="dragon lord" minamount="2" maxamount="2"/>
+	</areaspawn>
+</raid>
