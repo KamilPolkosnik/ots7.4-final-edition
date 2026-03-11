@@ -169,6 +169,11 @@ local function isLootableCorpse(thing)
     return false
   end
 
+  local itemName = safeCall(thing.getName, thing)
+  if type(itemName) == "string" and itemName:lower():find("bag", 1, true) then
+    return false
+  end
+
   return LOOTABLE_CORPSE_IDS[itemId] == true
 end
 

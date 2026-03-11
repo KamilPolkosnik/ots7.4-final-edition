@@ -93,6 +93,8 @@ local PENDING_MOVE_TTL_MS = 1600
 local SUPPLY_PENDING_TTL_MS = 800
 PENDING_LOOT_MESSAGE_TTL_MS = 10 * 60 * 1000
 RECENT_CORPSE_INTERACTION_MS = 10 * 1000
+local ANALYZER_RATE_WINDOW_SECONDS = 120
+local analyzerRateSamples = {}
 
 local SUPPLY_CATALOG = {
   {name = "mana fluid", id = 2006, subType = 2},
@@ -1947,6 +1949,54 @@ onAnalyzerLootItem = function(itemId, count, itemName)
   end
 end
 
+local function pushAnalyzerRateSample(elapsedSeconds, gainedExp, totalLoot, totalSupply, dealtDamage, receivedDamage)
+  local elapsed = math.max(0, math.floor(tonumber(elapsedSeconds) or 0))
+  local sample = {
+    time = elapsed,
+    exp = math.max(0, math.floor(tonumber(gainedExp) or 0)),
+    loot = math.max(0, math.floor(tonumber(totalLoot) or 0)),
+    supply = math.max(0, math.floor(tonumber(totalSupply) or 0)),
+    dealt = math.max(0, math.floor(tonumber(dealtDamage) or 0)),
+    received = math.max(0, math.floor(tonumber(receivedDamage) or 0))
+  }
+
+  local lastSample = analyzerRateSamples[#analyzerRateSamples]
+  if lastSample and lastSample.time == sample.time then
+    analyzerRateSamples[#analyzerRateSamples] = sample
+  else
+    table.insert(analyzerRateSamples, sample)
+  end
+
+  local minTime = math.max(0, elapsed - ANALYZER_RATE_WINDOW_SECONDS - 2)
+  while #analyzerRateSamples > 1 and analyzerRateSamples[1].time < minTime do
+    table.remove(analyzerRateSamples, 1)
+  end
+end
+
+local function getAnalyzerRatePerHour(metricKey, currentValue)
+  local current = math.max(0, math.floor(tonumber(currentValue) or 0))
+  if #analyzerRateSamples <= 0 then
+    return 0
+  end
+
+  local baseline = analyzerRateSamples[1]
+  for i = #analyzerRateSamples, 1, -1 do
+    local sample = analyzerRateSamples[i]
+    if sample.time <= math.max(0, analyzerRateSamples[#analyzerRateSamples].time - ANALYZER_RATE_WINDOW_SECONDS) then
+      baseline = sample
+      break
+    end
+  end
+
+  local previous = math.max(0, math.floor(tonumber(baseline[metricKey]) or 0))
+  local delta = current - previous
+  if delta <= 0 then
+    return 0
+  end
+
+  return math.floor((delta * 3600) / ANALYZER_RATE_WINDOW_SECONDS)
+end
+
 local function updateStats()
   cleanupPendingMoves()
   local supplyChanged = cleanupPendingSupplyRemovals(true)
@@ -2008,12 +2058,9 @@ local function updateStats()
 
   local elapsedSeconds = math.max(1, math.floor(tonumber(g_game.getAnalyzerSessionSeconds and g_game.getAnalyzerSessionSeconds() or 0) or 0))
   local gainedExp = math.max(0, math.floor(tonumber(g_game.getAnalyzerSessionGainedExperience and g_game.getAnalyzerSessionGainedExperience() or 0) or 0))
-  local expPerHour = math.max(0, math.floor(tonumber(g_game.getAnalyzerExperiencePerHour and g_game.getAnalyzerExperiencePerHour() or 0) or 0))
   local expToLevel = math.max(0, math.floor(tonumber(g_game.getAnalyzerExperienceToNextLevel and g_game.getAnalyzerExperienceToNextLevel() or 0) or 0))
   local dealtDamage = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageDealt and g_game.getAnalyzerDamageDealt() or 0) or 0))
-  local dealtPerHour = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageDealtPerHour and g_game.getAnalyzerDamageDealtPerHour() or 0) or 0))
   local receivedDamage = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageReceived and g_game.getAnalyzerDamageReceived() or 0) or 0))
-  local receivedPerHour = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageReceivedPerHour and g_game.getAnalyzerDamageReceivedPerHour() or 0) or 0))
   local timeToLevelText = "--"
   local timeToLevelSeconds = math.max(0, math.floor(tonumber(g_game.getAnalyzerTimeToNextLevelSeconds and g_game.getAnalyzerTimeToNextLevelSeconds() or 0) or 0))
   if expToLevel <= 0 then
@@ -2022,8 +2069,13 @@ local function updateStats()
     timeToLevelText = formatDurationHMS(timeToLevelSeconds)
   end
 
-  local goldPerHour = math.floor((totalLootValue * 3600) / elapsedSeconds)
-  local supplyPerHour = math.floor((totalSupplyValue * 3600) / elapsedSeconds)
+  pushAnalyzerRateSample(elapsedSeconds, gainedExp, totalLootValue, totalSupplyValue, dealtDamage, receivedDamage)
+
+  local expPerHour = getAnalyzerRatePerHour("exp", gainedExp)
+  local goldPerHour = getAnalyzerRatePerHour("loot", totalLootValue)
+  local supplyPerHour = getAnalyzerRatePerHour("supply", totalSupplyValue)
+  local dealtPerHour = getAnalyzerRatePerHour("dealt", dealtDamage)
+  local receivedPerHour = getAnalyzerRatePerHour("received", receivedDamage)
   local netProfit = totalLootValue - totalSupplyValue
 
   if expPerHourLabel then
@@ -2126,6 +2178,7 @@ local function resetSession()
   corpseContainerIds = {}
   pendingLootMessageEntries = {}
   lastCorpseInteractionMs = 0
+  analyzerRateSamples = {}
   lastLocalHealth = nil
   if player then
     lastLocalHealth = tonumber(safeCall(player.getHealth, player))
