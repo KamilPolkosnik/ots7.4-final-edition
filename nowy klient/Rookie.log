@@ -1916,3 +1916,5 @@ Login to 100.104.149.16:7172
 [Tasks] action=active
 [Tasks] recv opcode=110 size=31
 [Tasks] action=points
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
