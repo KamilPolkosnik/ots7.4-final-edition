@@ -123,6 +123,83 @@ local function logTasks(msg)
   end
 end
 
+local function getTaskKindWeight(task)
+  local kind = task and task.kind or "normal"
+  if kind == "daily" then
+    return 2
+  elseif kind == "weekly" then
+    return 3
+  end
+  return 1
+end
+
+local function getTaskPrefix(task)
+  local kind = task and task.kind or "normal"
+  if kind == "daily" then
+    return "[Daily] "
+  elseif kind == "weekly" then
+    return "[Weekly] "
+  end
+  return ""
+end
+
+local function isFixedTask(task)
+  return task and task.fixedKills == true
+end
+
+local function formatTaskReset(task)
+  local resetAt = tonumber(task and task.resetAt or 0) or 0
+  if resetAt <= 0 then
+    return nil
+  end
+
+  local seconds = math.max(0, resetAt - os.time())
+  local hours = math.floor(seconds / 3600)
+  local minutes = math.floor((seconds % 3600) / 60)
+  if hours > 0 then
+    return string.format("%dh %02dm", hours, minutes)
+  end
+  return string.format("%dm", minutes)
+end
+
+local function refreshSelectedTaskControls(task)
+  if not tasksWindow or not task then
+    return
+  end
+
+  local fixedTask = isFixedTask(task)
+  local scroll = tasksWindow.info.kills.bar.scroll
+  local valueLabel = tasksWindow.info.kills.bar.value
+  local minLabel = tasksWindow.info.kills.bar.min
+  local maxLabel = tasksWindow.info.kills.bar.max
+  local rewardsCaption = tasksWindow.info.rewards.rewardsCaption
+
+  if fixedTask then
+    local required = tonumber(task.required) or config.kills.Min
+    scroll:setRange(required, required)
+    scroll:setStep(1)
+    scroll:setValue(required)
+    scroll:setEnabled(false)
+    minLabel:setText(required)
+    maxLabel:setText(required)
+    valueLabel:setText(required)
+
+    local resetText = formatTaskReset(task)
+    if resetText then
+      rewardsCaption:setText(string.format("Reward preview - resets in %s", resetText))
+    else
+      rewardsCaption:setText("Reward preview")
+    end
+  else
+    scroll:setEnabled(true)
+    minLabel:setText(config.kills.Min)
+    maxLabel:setText(config.kills.Max)
+    scroll:setRange(config.kills.Min, config.kills.Max)
+    scroll:setStep(math.max(1, tonumber(config.bonus) or 100))
+    rewardsCaption:setText("Reward preview")
+  end
+end
+
 local function normalizeOutfit(outfit)
   if not outfit then
     return nil
@@ -975,6 +1052,11 @@ function onTasksList(data)
   table.sort(
     entries,
     function(a, b)
+      local kindA = getTaskKindWeight(a.task)
+      local kindB = getTaskKindWeight(b.task)
+      if kindA ~= kindB then
+        return kindA < kindB
+      end
       local alvl = a.task.lvl or 0
       local blvl = b.task.lvl or 0
       if alvl == blvl then
@@ -992,10 +1074,19 @@ function onTasksList(data)
     local outfit = ensureOutfit(task.outfits[1])
     widget.preview:setOutfit(outfit)
     widget.preview:setCenter(true)
-    widget.info.title:setText(task.name)
+    widget.info.title:setText(getTaskPrefix(task) .. task.name)
     widget.info.level:setText("Level " .. task.lvl)
-    if not (task.lvl >= level - config.range and task.lvl <= level + config.range) then
+    if task.kind == "daily" then
+      widget.info.bonus:setText("Daily random task")
+      widget.info.bonus:show()
+    elseif task.kind == "weekly" then
+      widget.info.bonus:setText("Weekly random task")
+      widget.info.bonus:show()
+    elseif not (task.lvl >= level - config.range and task.lvl <= level + config.range) then
       widget.info.bonus:hide()
+    else
+      widget.info.bonus:setText("Recommended range")
+      widget.info.bonus:show()
     end
   end
 
@@ -1025,10 +1116,11 @@ function onTasksActive(data)
         local outfit = ensureOutfit(task.outfits[1])
         widget.creature:setOutfit(outfit)
         widget.creature:setCenter(true)
-        if task.name:len() > 12 then
-          widget.label:setText(task.name:sub(1, 9) .. "...")
+        local trackerName = getTaskPrefix(task) .. task.name
+        if trackerName:len() > 12 then
+          widget.label:setText(trackerName:sub(1, 9) .. "...")
         else
-          widget.label:setText(task.name)
+          widget.label:setText(trackerName)
         end
         widget.kills:setText(active.kills .. "/" .. active.required)
         local percent = active.kills * 100 / active.required
@@ -1058,10 +1150,11 @@ function onTaskUpdate(data)
       local outfit = ensureOutfit(task.outfits[1])
       widget.creature:setOutfit(outfit)
       widget.creature:setCenter(true)
-      if task.name:len() > 12 then
-        widget.label:setText(task.name:sub(1, 9) .. "...")
+      local trackerName = getTaskPrefix(task) .. task.name
+      if trackerName:len() > 12 then
+        widget.label:setText(trackerName:sub(1, 9) .. "...")
       else
-        widget.label:setText(task.name)
+        widget.label:setText(trackerName)
       end
       widget.onMouseRelease = onTrackerClick
       activeTasks[data.taskId] = true
@@ -1151,6 +1244,8 @@ function onTaskSelected(parent, child, reason)
     return
   end
 
+  refreshSelectedTaskControls(task)
+
   local rewardsContainer = tasksWindow.info.rewards
   local rewardsList = rewardsContainer.rewardsList or rewardsContainer
   rewardsList:destroyChildren()
@@ -1179,6 +1274,9 @@ function onTaskSelected(parent, child, reason)
   if activeTasks[taskId] then
     tasksWindow.start:hide()
     tasksWindow.cancel:show()
+  elseif task.completed then
+    tasksWindow.start:hide()
+    tasksWindow.cancel:hide()
   else
     tasksWindow.start:show()
     tasksWindow.cancel:hide()
@@ -1205,6 +1303,20 @@ function onKillsValueChange(widget, value, delta)
   local taskId = tonumber(focused:getId())
   local task = tasksById[taskId] or tasks[taskId]
   if not task then
+    return
+  end
+
+  if isFixedTask(task) then
+    local required = tonumber(task.required) or snappedValue
+    tasksWindow.info.kills.bar.value:setText(required)
+    local rewardsContainer = tasksWindow.info.rewards
+    local rewardsList = rewardsContainer and (rewardsContainer.rewardsList or rewardsContainer)
+    if rewardsList then
+      local rewardPointsWidget = rewardsList:getChildById("reward_points")
+      if rewardPointsWidget and rewardPointsWidget.rewardText then
+        rewardPointsWidget.rewardText:setText(string.format("Total task value: %d", tonumber(task.rewards and task.rewards[1] and task.rewards[1].value) or 0))
+      end
+    end
     return
   end
 
@@ -1236,7 +1348,7 @@ function onSearch()
         local children = tasksWindow.tasksList:getChildren()
         for _, child in ipairs(children) do
           local taskId = tonumber(child:getId())
-          local task = tasks[taskId]
+          local task = tasksById[taskId] or tasks[taskId]
           local found = false
           for _, mob in ipairs(task.mobs) do
             if mob:lower():find(text) then
@@ -1265,7 +1377,11 @@ end
 function start()
   local focused = tasksWindow.tasksList:getFocusedChild()
   local taskId = tonumber(focused:getId())
+  local task = tasksById[taskId] or tasks[taskId]
   local kills = tasksWindow.info.kills.bar.scroll:getValue()
+  if isFixedTask(task) then
+    kills = tonumber(task.required) or kills
+  end
 
   local protocolGame = g_game.getProtocolGame()
   if protocolGame then
@@ -1355,8 +1471,14 @@ function show()
     local children = tasksWindow.tasksList:getChildren()
     for _, child in ipairs(children) do
       local taskId = tonumber(child:getId())
-      local task = tasks[taskId]
-      if task.lvl >= level - config.range and task.lvl <= level + config.range then
+      local task = tasksById[taskId] or tasks[taskId]
+      if task.kind == "daily" then
+        child.info.bonus:setText("Daily random task")
+        child.info.bonus:show()
+      elseif task.kind == "weekly" then
+        child.info.bonus:setText("Weekly random task")
+        child.info.bonus:show()
+      elseif task.lvl >= level - config.range and task.lvl <= level + config.range then
         child.info.bonus:show()
       else
         child.info.bonus:hide()
@@ -1368,9 +1490,13 @@ function show()
   local focused = tasksWindow.tasksList:getFocusedChild()
   if focused then
     local taskId = tonumber(focused:getId())
+    local task = tasksById[taskId] or tasks[taskId]
     if activeTasks[taskId] then
       tasksWindow.start:hide()
       tasksWindow.cancel:show()
+    elseif task and task.completed then
+      tasksWindow.start:hide()
+      tasksWindow.cancel:hide()
     else
       tasksWindow.start:show()
       tasksWindow.cancel:hide()

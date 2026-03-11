@@ -3220,3 +3220,29 @@ Login to 100.104.149.16:7172
 [Tasks] action=active
 [Tasks] recv opcode=110 size=31
 [Tasks] action=points
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..

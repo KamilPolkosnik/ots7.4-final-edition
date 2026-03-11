@@ -48,33 +48,52 @@ function onExtendedOpcode(player, opcode, buffer)
 		elseif action == "start" and type(payload) == "table" then
 			local displayTaskId = tonumber(payload.taskId)
 			local required = tonumber(payload.kills)
-			if not displayTaskId or displayTaskId < 1 or displayTaskId > #TaskSystem.monsters then
+			local taskKind, taskRef = TaskSystem.decodeTaskId(displayTaskId)
+			if not taskKind or not taskRef then
 				return true
 			end
-			local taskId = TaskSystem.toRealTaskId(displayTaskId)
-			if not taskId then
-				return true
-			end
-			required = math.max(TaskSystem.config.kills.Min, math.min(TaskSystem.config.kills.Max, required or TaskSystem.config.kills.Min))
+			if taskKind == TaskSystem.taskKinds.normal then
+				required = math.max(TaskSystem.config.kills.Min, math.min(TaskSystem.config.kills.Max, required or TaskSystem.config.kills.Min))
 
-			local activeCount = TaskSystem.countActiveTasks(player)
-			if activeCount >= TaskSystem.config.maxActive then
-				player:sendTextMessage(
-					MESSAGE_STATUS_CONSOLE_ORANGE,
-					string.format(
-						"You can only have %d active tasks. To start this one, abandon one of your active tasks first.",
-						TaskSystem.config.maxActive
+				local activeCount = TaskSystem.countActiveTasks(player)
+				if activeCount >= TaskSystem.config.maxActive then
+					player:sendTextMessage(
+						MESSAGE_STATUS_CONSOLE_ORANGE,
+						string.format(
+							"You can only have %d active tasks. To start this one, abandon one of your active tasks first.",
+							TaskSystem.config.maxActive
+						)
 					)
-				)
-				return true
-			end
+					return true
+				end
 
-			if player:getStorageValue(TaskSystem.getActiveStorageKey(taskId)) > 0 then
-				player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "This task is already active.")
-				return true
-			end
+				if player:getStorageValue(TaskSystem.getActiveStorageKey(taskRef)) > 0 then
+					player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "This task is already active.")
+					return true
+				end
 
-			TaskSystem.startTask(player, taskId, required)
+				TaskSystem.startTask(player, taskRef, required)
+			else
+				local kindConfig = TaskSystem.getRotatingConfig(taskKind)
+				if not kindConfig then
+					return true
+				end
+
+				local activeCount = TaskSystem.countActiveTasksByKind(player, taskKind)
+				if activeCount >= kindConfig.maxActive then
+					player:sendTextMessage(
+						MESSAGE_STATUS_CONSOLE_ORANGE,
+						string.format(
+							"You can only have %d active %s task(s).",
+							kindConfig.maxActive,
+							taskKind
+						)
+					)
+					return true
+				end
+
+				TaskSystem.startRotatingTask(player, taskKind, taskRef)
+			end
 		elseif action == "buy" and type(payload) == "table" then
 			local shopId = tonumber(payload.id)
 			local amount = tonumber(payload.amount) or 1
@@ -83,11 +102,11 @@ function onExtendedOpcode(player, opcode, buffer)
 			end
 		elseif action == "cancel" then
 			local displayTaskId = tonumber(payload)
-			if displayTaskId and displayTaskId >= 1 and displayTaskId <= #TaskSystem.monsters then
-				local taskId = TaskSystem.toRealTaskId(displayTaskId)
-				if taskId then
-					TaskSystem.cancelTask(player, taskId)
-				end
+			local taskKind, taskRef = TaskSystem.decodeTaskId(displayTaskId)
+			if taskKind == TaskSystem.taskKinds.normal and taskRef then
+				TaskSystem.cancelTask(player, taskRef)
+			elseif (taskKind == TaskSystem.taskKinds.daily or taskKind == TaskSystem.taskKinds.weekly) and taskRef then
+				TaskSystem.cancelRotatingTask(player, taskKind, taskRef)
 			end
 		end
 	elseif opcode == OPCODE_EXP_STATS then
