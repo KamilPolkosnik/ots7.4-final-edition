@@ -71,6 +71,29 @@ local function formatDuration(seconds)
   return string.format("%02d:%02d:%02d", h, m, s)
 end
 
+local function formatTooltipDuration(milliseconds)
+  local totalSeconds = math.max(0, math.floor(toNumber(milliseconds, 0) / 1000))
+  if totalSeconds <= 0 then
+    return nil
+  end
+  local days = math.floor(totalSeconds / 86400)
+  local hours = math.floor((totalSeconds % 86400) / 3600)
+  local minutes = math.floor((totalSeconds % 3600) / 60)
+  local seconds = totalSeconds % 60
+  if days > 0 then
+    return string.format("%dd %02d:%02d:%02d", days, hours, minutes, seconds)
+  end
+  return string.format("%02d:%02d:%02d", hours, minutes, seconds)
+end
+
+local function appendDescLine(desc, line)
+  local base = trim(desc or "")
+  if base == "" then
+    return tostring(line or "")
+  end
+  return base .. "\n" .. tostring(line or "")
+end
+
 local function formatDate(ts)
   local t = os.date("*t", tonumber(ts) or 0)
   if not t then
@@ -183,6 +206,34 @@ local function buildTooltipFromData(data, fallbackName, fallbackId, fallbackCoun
   t.second = tonumber(t.second or t.hitChance or t.defense) or 0
   t.third = tonumber(t.third or t.shootRange or t.extraDefense) or 0
   t.weight = tonumber(t.weight) or 0
+
+  local descLower = string.lower(t.desc or "")
+  local rawCharges = math.max(0, math.floor(toNumber(source.charges or sourceRoot.charges, 0)))
+  local rawDuration = math.max(0, math.floor(toNumber(source.duration or sourceRoot.duration, 0)))
+  local rawSubType = math.max(0, math.floor(toNumber(source.subType or sourceRoot.subType, 0)))
+  local lowerName = string.lower(t.itemName or "")
+  local isRune = lowerName:find("rune", 1, true) ~= nil
+  local typeLower = string.lower(t.type or "")
+  if typeLower == "rune" then
+    isRune = true
+  end
+
+  local effectiveCharges = rawCharges
+  if effectiveCharges <= 0 and isRune then
+    effectiveCharges = rawSubType
+  end
+
+  if effectiveCharges > 0 and not descLower:find("uses left:", 1, true) and not descLower:find("charges left:", 1, true) then
+    local chargeLabel = isRune and "Uses left: " or "Charges left: "
+    t.desc = appendDescLine(t.desc, chargeLabel .. tostring(effectiveCharges))
+    descLower = string.lower(t.desc or "")
+  end
+
+  local durationText = formatTooltipDuration(rawDuration)
+  if durationText and not descLower:find("time left:", 1, true) and not descLower:find("expire", 1, true) then
+    t.desc = appendDescLine(t.desc, "Time left: " .. durationText)
+  end
+
   -- Market buyer tooltip should not display right-side sprite block.
   t.hideSprite = true
 

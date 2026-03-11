@@ -28,7 +28,49 @@ TaskSystem.config = {
     gold = 5,
     range = 20,
     maxActive = 2,
-    rewardPoints = 1
+    rewardPoints = 1,
+    daily = {
+        count = 3,
+        maxActive = 1,
+        kills = {Min = 50, Max = 150, Step = 25},
+        rewardMultiplier = 2
+    },
+    weekly = {
+        count = 2,
+        maxActive = 1,
+        kills = {Min = 300, Max = 700, Step = 50},
+        rewardMultiplier = 5
+    }
+}
+
+TaskSystem.taskKinds = {
+    normal = "normal",
+    daily = "daily",
+    weekly = "weekly"
+}
+
+TaskSystem.virtualTaskBase = {
+    daily = 100000,
+    weekly = 200000
+}
+
+TaskSystem.rotating = {
+    daily = {
+        assignmentBase = 1020000,
+        progressBase = 1020100,
+        requiredBase = 1020200,
+        activeBase = 1020300,
+        completedBase = 1020400,
+        resetStorage = 1020500
+    },
+    weekly = {
+        assignmentBase = 1021000,
+        progressBase = 1021100,
+        requiredBase = 1021200,
+        activeBase = 1021300,
+        completedBase = 1021400,
+        resetStorage = 1021500
+    }
 }
 
 TaskSystem.shop = {
@@ -251,6 +293,118 @@ end
 
 function TaskSystem.getActiveStorageKey(index)
     return TaskSystem.activeStorageBase + index
+end
+
+function TaskSystem.encodeTaskId(kind, reference)
+    if kind == TaskSystem.taskKinds.daily or kind == TaskSystem.taskKinds.weekly then
+        return (TaskSystem.virtualTaskBase[kind] or 0) + reference
+    end
+    return TaskSystem.toDisplayTaskId(reference) or reference
+end
+
+function TaskSystem.decodeTaskId(taskId)
+    taskId = tonumber(taskId)
+    if not taskId then
+        return nil
+    end
+
+    if taskId >= TaskSystem.virtualTaskBase.weekly then
+        return TaskSystem.taskKinds.weekly, taskId - TaskSystem.virtualTaskBase.weekly
+    end
+
+    if taskId >= TaskSystem.virtualTaskBase.daily then
+        return TaskSystem.taskKinds.daily, taskId - TaskSystem.virtualTaskBase.daily
+    end
+
+    return TaskSystem.taskKinds.normal, TaskSystem.toRealTaskId(taskId)
+end
+
+function TaskSystem.getRotatingStorageKey(kind, storageName, slot)
+    local cfg = TaskSystem.rotating[kind]
+    if not cfg or not cfg[storageName] then
+        return nil
+    end
+    if storageName == "resetStorage" then
+        return cfg.resetStorage
+    end
+    return cfg[storageName] + slot
+end
+
+function TaskSystem.getRotatingValue(player, kind, storageName, slot)
+    local key = TaskSystem.getRotatingStorageKey(kind, storageName, slot)
+    if not key then
+        return -1
+    end
+    local value = player:getStorageValue(key)
+    if value < 0 then
+        return -1
+    end
+    return value
+end
+
+function TaskSystem.setRotatingValue(player, kind, storageName, slot, value)
+    local key = TaskSystem.getRotatingStorageKey(kind, storageName, slot)
+    if key then
+        player:setStorageValue(key, value)
+    end
+end
+
+function TaskSystem.getPeriodWindow(kind, now)
+    local date = os.date("*t", now or os.time())
+    date.hour = 0
+    date.min = 0
+    date.sec = 0
+
+    if kind == TaskSystem.taskKinds.weekly then
+        local daysSinceMonday = (date.wday + 5) % 7
+        date.day = date.day - daysSinceMonday
+        local startAt = os.time(date)
+        return startAt, startAt + (7 * 24 * 60 * 60)
+    end
+
+    local startAt = os.time(date)
+    return startAt, startAt + (24 * 60 * 60)
+end
+
+function TaskSystem.getRotatingConfig(kind)
+    return TaskSystem.config[kind]
+end
+
+local function roundToStep(value, minimum, maximum, step)
+    step = math.max(1, tonumber(step) or 1)
+    minimum = tonumber(minimum) or step
+    maximum = tonumber(maximum) or minimum
+    value = tonumber(value) or minimum
+    value = minimum + math.floor(((value - minimum) / step) + 0.5) * step
+    if value < minimum then
+        value = minimum
+    elseif value > maximum then
+        value = maximum
+    end
+    return value
+end
+
+local function buildTaskPayload(taskId, name, rewardPoints, kind, extra)
+    local task = {
+        taskId = taskId,
+        kind = kind or TaskSystem.taskKinds.normal,
+        name = name,
+        lvl = TaskSystem.getTaskLevel(name),
+        hp = TaskSystem.getTaskHp(name),
+        mobs = {name},
+        outfits = {TaskSystem.getTaskOutfit(name)},
+        rewards = {
+            {type = 1, value = rewardPoints}
+        }
+    }
+
+    if extra then
+        for key, value in pairs(extra) do
+            task[key] = value
+        end
+    end
+
+    return task
 end
 
 function TaskSystem.getPoints(player)
@@ -561,23 +715,149 @@ function TaskSystem.getTaskPoints(taskId, required)
     return TaskSystem.calculateTaskPointsByValues(TaskSystem.getTaskLevel(name), required)
 end
 
+function TaskSystem.getRotatingTaskReward(kind, taskId, required)
+    local multiplier = 1
+    local kindConfig = TaskSystem.getRotatingConfig(kind)
+    if kindConfig and kindConfig.rewardMultiplier then
+        multiplier = kindConfig.rewardMultiplier
+    end
+
+    local total = TaskSystem.getTaskPoints(taskId, required)
+    total = math.floor((tonumber(total) or 1) * multiplier + 0.5)
+    if total < 1 then
+        total = 1
+    end
+    return total
+end
+
+local function buildRandomTaskCandidates(player, exclude)
+    local candidates = {}
+    local playerLevel = player:getLevel()
+    local allowedRange = math.max(10, (TaskSystem.config.range or 20) * 2)
+
+    for realTaskId = 1, #TaskSystem.monsters do
+        if not exclude[realTaskId] then
+            local monsterName = TaskSystem.monsters[realTaskId]
+            local taskLevel = TaskSystem.getTaskLevel(monsterName)
+            if math.abs(taskLevel - playerLevel) <= allowedRange then
+                table.insert(candidates, realTaskId)
+            end
+        end
+    end
+
+    if #candidates == 0 then
+        for realTaskId = 1, #TaskSystem.monsters do
+            if not exclude[realTaskId] then
+                table.insert(candidates, realTaskId)
+            end
+        end
+    end
+
+    return candidates
+end
+
+function TaskSystem.generateRotatingAssignments(player, kind)
+    local kindConfig = TaskSystem.getRotatingConfig(kind)
+    if not kindConfig then
+        return
+    end
+
+    local periodStart = TaskSystem.getPeriodWindow(kind)
+    TaskSystem.setRotatingValue(player, kind, "resetStorage", nil, periodStart)
+
+    local exclude = {}
+    local otherKind = kind == TaskSystem.taskKinds.daily and TaskSystem.taskKinds.weekly or TaskSystem.taskKinds.daily
+    local otherConfig = TaskSystem.getRotatingConfig(otherKind)
+    if otherConfig then
+        for slot = 1, otherConfig.count do
+            local otherTaskId = TaskSystem.getRotatingValue(player, otherKind, "assignmentBase", slot)
+            if otherTaskId and otherTaskId > 0 then
+                exclude[otherTaskId] = true
+            end
+        end
+    end
+
+    local candidates = buildRandomTaskCandidates(player, exclude)
+    for i = #candidates, 2, -1 do
+        local j = math.random(i)
+        candidates[i], candidates[j] = candidates[j], candidates[i]
+    end
+
+    for slot = 1, kindConfig.count do
+        local realTaskId = candidates[slot] or -1
+        TaskSystem.setRotatingValue(player, kind, "assignmentBase", slot, realTaskId)
+        TaskSystem.setRotatingValue(player, kind, "progressBase", slot, 0)
+        TaskSystem.setRotatingValue(player, kind, "activeBase", slot, -1)
+        TaskSystem.setRotatingValue(player, kind, "completedBase", slot, -1)
+
+        if realTaskId > 0 then
+            local required = roundToStep(
+                math.random(kindConfig.kills.Min, kindConfig.kills.Max),
+                kindConfig.kills.Min,
+                kindConfig.kills.Max,
+                kindConfig.kills.Step
+            )
+            TaskSystem.setRotatingValue(player, kind, "requiredBase", slot, required)
+        else
+            TaskSystem.setRotatingValue(player, kind, "requiredBase", slot, -1)
+        end
+    end
+end
+
+function TaskSystem.ensureRotatingTasks(player, kind)
+    local kindConfig = TaskSystem.getRotatingConfig(kind)
+    if not kindConfig then
+        return
+    end
+
+    local currentPeriodStart = TaskSystem.getPeriodWindow(kind)
+    local storedPeriodStart = TaskSystem.getRotatingValue(player, kind, "resetStorage")
+    if storedPeriodStart ~= currentPeriodStart then
+        TaskSystem.generateRotatingAssignments(player, kind)
+    end
+end
+
+function TaskSystem.buildRotatingTasks(player, kind)
+    TaskSystem.ensureRotatingTasks(player, kind)
+
+    local kindConfig = TaskSystem.getRotatingConfig(kind)
+    if not kindConfig then
+        return {}
+    end
+
+    local _, resetAt = TaskSystem.getPeriodWindow(kind)
+    local tasks = {}
+
+    for slot = 1, kindConfig.count do
+        local realTaskId = TaskSystem.getRotatingValue(player, kind, "assignmentBase", slot)
+        if realTaskId and realTaskId > 0 then
+            local required = math.max(1, TaskSystem.getRotatingValue(player, kind, "requiredBase", slot))
+            local progress = math.max(0, TaskSystem.getRotatingValue(player, kind, "progressBase", slot))
+            local active = TaskSystem.getRotatingValue(player, kind, "activeBase", slot) > 0
+            local completed = TaskSystem.getRotatingValue(player, kind, "completedBase", slot) > 0
+            local name = TaskSystem.monsters[realTaskId]
+            local rewardPoints = TaskSystem.getRotatingTaskReward(kind, realTaskId, required)
+
+            table.insert(tasks, buildTaskPayload(TaskSystem.encodeTaskId(kind, slot), name, rewardPoints, kind, {
+                fixedKills = true,
+                required = required,
+                progress = progress,
+                active = active,
+                completed = completed,
+                resetAt = resetAt
+            }))
+        end
+    end
+
+    return tasks
+end
+
 function TaskSystem.buildTasksCache()
     local tasks = {}
     for displayTaskId, realTaskId in ipairs(TaskSystem.displayOrder) do
         local name = TaskSystem.monsters[realTaskId]
         local rewardPoints = TaskSystem.getTaskPoints(realTaskId, TaskSystem.config.kills.Min)
-        local task = {
-            taskId = displayTaskId,
-            name = name,
-            lvl = TaskSystem.getTaskLevel(name),
-            hp = TaskSystem.getTaskHp(name),
-            mobs = {name},
-            outfits = {TaskSystem.getTaskOutfit(name)},
-            rewards = {
-                {type = 1, value = rewardPoints}
-            }
-        }
-        table.insert(tasks, task)
+        table.insert(tasks, buildTaskPayload(displayTaskId, name, rewardPoints, TaskSystem.taskKinds.normal))
     end
     return tasks
 end
@@ -592,7 +872,25 @@ function TaskSystem.getActiveTasks(player)
                 kills = 0
             end
             local displayTaskId = TaskSystem.toDisplayTaskId(i) or i
-            table.insert(active, {taskId = displayTaskId, kills = kills, required = required})
+            table.insert(active, {taskId = displayTaskId, kills = kills, required = required, kind = TaskSystem.taskKinds.normal})
+        end
+    end
+
+    for _, kind in ipairs({TaskSystem.taskKinds.daily, TaskSystem.taskKinds.weekly}) do
+        TaskSystem.ensureRotatingTasks(player, kind)
+        local kindConfig = TaskSystem.getRotatingConfig(kind)
+        for slot = 1, kindConfig.count do
+            local activeFlag = TaskSystem.getRotatingValue(player, kind, "activeBase", slot)
+            if activeFlag > 0 then
+                local required = math.max(1, TaskSystem.getRotatingValue(player, kind, "requiredBase", slot))
+                local kills = math.max(0, TaskSystem.getRotatingValue(player, kind, "progressBase", slot))
+                table.insert(active, {
+                    taskId = TaskSystem.encodeTaskId(kind, slot),
+                    kills = kills,
+                    required = required,
+                    kind = kind
+                })
+            end
         end
     end
     return active
@@ -608,6 +906,22 @@ function TaskSystem.countActiveTasks(player)
     return count
 end
 
+function TaskSystem.countActiveTasksByKind(player, kind)
+    if kind == TaskSystem.taskKinds.normal then
+        return TaskSystem.countActiveTasks(player)
+    end
+
+    TaskSystem.ensureRotatingTasks(player, kind)
+    local kindConfig = TaskSystem.getRotatingConfig(kind)
+    local count = 0
+    for slot = 1, kindConfig.count do
+        if TaskSystem.getRotatingValue(player, kind, "activeBase", slot) > 0 then
+            count = count + 1
+        end
+    end
+    return count
+end
+
 function TaskSystem.sendTaskConfig(player)
     print("[TasksV2] sendTaskConfig to " .. player:getName())
     player:sendExtendedOpcode(TaskSystem.OPCODE_V2, json.encode({action = "config", data = TaskSystem.config}))
@@ -615,6 +929,14 @@ end
 
 function TaskSystem.sendTaskList(player)
     local list = TaskSystem.buildTasksCache()
+    local daily = TaskSystem.buildRotatingTasks(player, TaskSystem.taskKinds.daily)
+    local weekly = TaskSystem.buildRotatingTasks(player, TaskSystem.taskKinds.weekly)
+    for _, entry in ipairs(daily) do
+        table.insert(list, entry)
+    end
+    for _, entry in ipairs(weekly) do
+        table.insert(list, entry)
+    end
     local ok, payload = pcall(function()
         return json.encode({action = "tasks", data = list})
     end)
@@ -673,10 +995,17 @@ function TaskSystem.sendAll(player)
 end
 
 function TaskSystem.sendTaskUpdate(player, taskId, kills, required, status)
-    local displayTaskId = TaskSystem.toDisplayTaskId(taskId) or taskId
+    local encodedTaskId = taskId
+    local kind = TaskSystem.taskKinds.normal
+    if type(taskId) == "table" then
+        kind = taskId.kind or TaskSystem.taskKinds.normal
+        encodedTaskId = taskId.taskId
+    elseif type(taskId) == "number" then
+        encodedTaskId = TaskSystem.toDisplayTaskId(taskId) or taskId
+    end
     player:sendExtendedOpcode(
         TaskSystem.OPCODE_V2,
-        json.encode({action = "update", data = {taskId = displayTaskId, kills = kills, required = required, status = status}})
+        json.encode({action = "update", data = {taskId = encodedTaskId, kills = kills, required = required, status = status, kind = kind}})
     )
 end
 
@@ -693,10 +1022,42 @@ function TaskSystem.startTask(player, taskId, required)
     TaskSystem.sendTaskUpdate(player, taskId, 0, required, 1)
 end
 
+function TaskSystem.startRotatingTask(player, kind, slot)
+    TaskSystem.ensureRotatingTasks(player, kind)
+
+    local realTaskId = TaskSystem.getRotatingValue(player, kind, "assignmentBase", slot)
+    local required = TaskSystem.getRotatingValue(player, kind, "requiredBase", slot)
+    if realTaskId < 1 or required < 1 then
+        return false
+    end
+
+    if TaskSystem.getRotatingValue(player, kind, "completedBase", slot) > 0 then
+        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "This task has already been completed for the current period.")
+        return false
+    end
+
+    if TaskSystem.getRotatingValue(player, kind, "activeBase", slot) > 0 then
+        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "This task is already active.")
+        return false
+    end
+
+    TaskSystem.setRotatingValue(player, kind, "activeBase", slot, 1)
+    TaskSystem.setRotatingValue(player, kind, "progressBase", slot, 0)
+    TaskSystem.sendTaskUpdate(player, {taskId = TaskSystem.encodeTaskId(kind, slot), kind = kind}, 0, required, 1)
+    return true
+end
+
 function TaskSystem.cancelTask(player, taskId)
     player:setStorageValue(TaskSystem.getActiveStorageKey(taskId), -1)
     player:setStorageValue(TaskSystem.getStorageKey(taskId), 0)
     TaskSystem.sendTaskUpdate(player, taskId, 0, 0, 2)
+end
+
+function TaskSystem.cancelRotatingTask(player, kind, slot)
+    TaskSystem.ensureRotatingTasks(player, kind)
+    TaskSystem.setRotatingValue(player, kind, "activeBase", slot, -1)
+    TaskSystem.setRotatingValue(player, kind, "progressBase", slot, 0)
+    TaskSystem.sendTaskUpdate(player, {taskId = TaskSystem.encodeTaskId(kind, slot), kind = kind}, 0, 0, 2)
 end
 
 function TaskSystem.finishTask(player, taskId, required)
@@ -717,6 +1078,64 @@ function TaskSystem.finishTask(player, taskId, required)
             lengthBonusPercent
         )
     )
+end
+
+function TaskSystem.finishRotatingTask(player, kind, slot, realTaskId, required)
+    local gained = TaskSystem.getRotatingTaskReward(kind, realTaskId, required)
+    TaskSystem.addPoints(player, gained)
+    TaskSystem.setRotatingValue(player, kind, "activeBase", slot, -1)
+    TaskSystem.setRotatingValue(player, kind, "completedBase", slot, 1)
+    TaskSystem.setRotatingValue(player, kind, "progressBase", slot, required)
+    TaskSystem.sendTaskUpdate(player, {taskId = TaskSystem.encodeTaskId(kind, slot), kind = kind}, required, required, 2)
+    TaskSystem.sendTaskList(player)
+    TaskSystem.sendTaskPoints(player)
+    player:sendTextMessage(
+        MESSAGE_STATUS_CONSOLE_ORANGE,
+        string.format("[%s Tasks] Reward: %d points.", kind:gsub("^%l", string.upper), gained)
+    )
+end
+
+function TaskSystem.handleKill(player, targetName)
+    local monsterIndex = TaskSystem.getIndexByName(targetName)
+    if not monsterIndex then
+        return
+    end
+
+    local required = player:getStorageValue(TaskSystem.getActiveStorageKey(monsterIndex))
+    if required and required > 0 then
+        local key = TaskSystem.getStorageKey(monsterIndex)
+        local killCount = player:getStorageValue(key)
+        if killCount < 0 then
+            killCount = 0
+        end
+
+        killCount = killCount + 1
+        player:setStorageValue(key, killCount)
+        TaskSystem.sendTaskUpdate(player, monsterIndex, killCount, required, 1)
+
+        if killCount >= required then
+            TaskSystem.finishTask(player, monsterIndex, required)
+        end
+    end
+
+    for _, kind in ipairs({TaskSystem.taskKinds.daily, TaskSystem.taskKinds.weekly}) do
+        TaskSystem.ensureRotatingTasks(player, kind)
+        local kindConfig = TaskSystem.getRotatingConfig(kind)
+        for slot = 1, kindConfig.count do
+            if TaskSystem.getRotatingValue(player, kind, "activeBase", slot) > 0 then
+                local realTaskId = TaskSystem.getRotatingValue(player, kind, "assignmentBase", slot)
+                if realTaskId == monsterIndex then
+                    local progress = math.max(0, TaskSystem.getRotatingValue(player, kind, "progressBase", slot)) + 1
+                    local rotatingRequired = math.max(1, TaskSystem.getRotatingValue(player, kind, "requiredBase", slot))
+                    TaskSystem.setRotatingValue(player, kind, "progressBase", slot, progress)
+                    TaskSystem.sendTaskUpdate(player, {taskId = TaskSystem.encodeTaskId(kind, slot), kind = kind}, progress, rotatingRequired, 1)
+                    if progress >= rotatingRequired then
+                        TaskSystem.finishRotatingTask(player, kind, slot, realTaskId, rotatingRequired)
+                    end
+                end
+            end
+        end
+    end
 end
 
 function TaskSystem.buyShopItem(player, shopId, amount)

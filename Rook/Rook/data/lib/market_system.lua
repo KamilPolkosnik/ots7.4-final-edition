@@ -449,6 +449,19 @@ local function getStallById(stallId)
 	return row
 end
 
+local function safeGetItemNumber(item, methodName, fallback)
+	if not item or type(item[methodName]) ~= "function" then
+		return fallback
+	end
+	local ok, value = pcall(function()
+		return item[methodName](item)
+	end)
+	if not ok then
+		return fallback
+	end
+	return tonumber(value) or fallback
+end
+
 local function serializeItem(item, forcedCount)
 	if not item or not item:isItem() then
 		return nil
@@ -467,6 +480,17 @@ local function serializeItem(item, forcedCount)
 		isContainer = item:isContainer() and true or false,
 		children = {}
 	}
+	local charges = math.max(0, math.floor(toNum(safeGetItemNumber(item, "getCharges", 0), 0)))
+	local duration = math.max(0, math.floor(toNum(safeGetItemNumber(item, "getDuration", 0), 0)))
+	if charges <= 0 and it and it:isRune() then
+		charges = math.max(0, math.floor(toNum(data.subType, 0)))
+	end
+	if charges > 0 then
+		data.charges = charges
+	end
+	if duration > 0 then
+		data.duration = duration
+	end
 
 	if item.buildTooltip then
 		local ok, tooltip = pcall(function()
@@ -476,6 +500,13 @@ local function serializeItem(item, forcedCount)
 			tooltip.id = itemId
 			tooltip.clientId = toNum(tooltip.clientId, data.clientId)
 			tooltip.count = data.count
+			tooltip.subType = data.subType
+			if data.charges then
+				tooltip.charges = data.charges
+			end
+			if data.duration then
+				tooltip.duration = data.duration
+			end
 			tooltip.itemName = tostring(tooltip.itemName or data.name or ("item " .. tostring(itemId)))
 			data.tooltip = tooltip
 		end
@@ -513,6 +544,14 @@ local function createFromData(parent, data)
 	end
 	if not created then
 		return nil
+	end
+	local charges = math.max(0, math.floor(toNum(data.charges, 0)))
+	local duration = math.max(0, math.floor(toNum(data.duration, 0)))
+	if charges > 0 then
+		created:setAttribute(ITEM_ATTRIBUTE_CHARGES, charges)
+	end
+	if duration > 0 then
+		created:setAttribute(ITEM_ATTRIBUTE_DURATION, duration)
 	end
 	if created:isContainer() and type(data.children) == "table" then
 		for _, child in ipairs(data.children) do
