@@ -18,6 +18,8 @@ local receivedDamageTotal = 0
 
 local pendingCorpseMoves = {}
 local pendingInventoryAdds = {}
+recentLootTransfers = {}
+pendingLootMessageEntries = {}
 local lootCountsById = {}
 local totalLootValue = 0
 local pendingSupplyRemovals = {}
@@ -77,6 +79,8 @@ local dealtFromTextSeen = false
 local lastLocalHealth = nil
 local lootTrackedViaContainers = false
 local containerStates = {}
+corpseContainerIds = {}
+lastCorpseInteractionMs = 0
 local rebuildLootValueRows
 local rebuildSupplyValueRows
 local onSupplyValueSearchChange
@@ -87,6 +91,8 @@ local SUPPLY_VALUES_NODE = "expStatisticsSupplyValuesByAccount"
 local SUPPLY_VALUES_LEGACY_NODE = "expStatisticsSupplyValues"
 local PENDING_MOVE_TTL_MS = 1600
 local SUPPLY_PENDING_TTL_MS = 800
+PENDING_LOOT_MESSAGE_TTL_MS = 10 * 60 * 1000
+RECENT_CORPSE_INTERACTION_MS = 10 * 1000
 
 local SUPPLY_CATALOG = {
   {name = "mana fluid", id = 2006, subType = 2},
@@ -549,9 +555,21 @@ getItemNameFromItem = function(item)
   return nil
 end
 
-local function isCorpseContainer(container)
+local function isCorpseContainer(container, visited)
   if not container then
     return false
+  end
+
+  visited = visited or {}
+  local containerId = tonumber(safeCall(container.getId, container))
+  if containerId and corpseContainerIds[containerId] then
+    return true
+  end
+  if containerId and visited[containerId] then
+    return false
+  end
+  if containerId then
+    visited[containerId] = true
   end
 
   local name = safeCall(container.getName, container) or ""
@@ -582,6 +600,11 @@ local function isCorpseContainer(container)
 
   local itemName = safeCall(containerItem.getName, containerItem) or ""
   if looksLikeCorpseName(itemName) then
+    return true
+  end
+
+  local parentContainer = safeCall(containerItem.getParentContainer, containerItem)
+  if parentContainer and isCorpseContainer(parentContainer, visited) then
     return true
   end
 
@@ -621,6 +644,9 @@ local function getLootItemName(itemId)
   return lootItemRuntimeNameByClientId[itemId] or lootDisplayNameByClientId[itemId] or lootItemNameById[itemId] or ("Item #" .. tostring(itemId))
 end
 
+registerLootToSessionByName = nil
+resolveLootValueKeyForItem = nil
+
 local function getLootValueKeyFromName(name)
   local key = normalizeName(name)
   if key == "" then
@@ -657,6 +683,91 @@ local function resolveLootValueKey(name)
   end
 
   return key
+end
+
+CURRENCY_GOLD_VALUE_BY_KEY = {
+  ["gold coin"] = 1,
+  ["platinum coin"] = 100,
+  ["crystal coin"] = 10000,
+}
+
+function getCurrencyGoldValue(name)
+  local key = resolveLootValueKey(name)
+  if not key then
+    return 0, nil
+  end
+
+  local value = CURRENCY_GOLD_VALUE_BY_KEY[key]
+  if value then
+    return value, key
+  end
+
+  return 0, nil
+end
+
+function registerGoldLootAmount(totalGold)
+  local remaining = math.max(0, math.floor(tonumber(totalGold) or 0))
+  if remaining <= 0 then
+    return false
+  end
+
+  local changed = false
+  local crystal = math.floor(remaining / 10000)
+  if crystal > 0 then
+    if registerLootToSessionByName("crystal coin", crystal) then
+      changed = true
+    end
+    remaining = remaining - (crystal * 10000)
+  end
+
+  local platinum = math.floor(remaining / 100)
+  if platinum > 0 then
+    if registerLootToSessionByName("platinum coin", platinum) then
+      changed = true
+    end
+    remaining = remaining - (platinum * 100)
+  end
+
+  if remaining > 0 then
+    if registerLootToSessionByName("gold coin", remaining) then
+      changed = true
+    end
+  end
+
+  return changed
+end
+
+function registerCurrencyLootFromMessage(message)
+  if type(message) ~= "string" or message == "" then
+    return false
+  end
+
+  message = message:gsub("^%d%d:%d%d%s+", "")
+
+  local changed = false
+  local depositedGold = tonumber(message:match("%(deposited%s+(%d+)%s+gold%s+to%s+bank"))
+  if depositedGold and depositedGold > 0 then
+    if registerGoldLootAmount(depositedGold) then
+      changed = true
+    end
+  end
+
+  local sanitized = message:gsub("%s*%b()", "")
+  local entries = parseLootEntriesFromMessage(sanitized)
+  if not entries then
+    return changed
+  end
+
+  for _, entry in ipairs(entries) do
+    local goldValuePerUnit, currencyKey = getCurrencyGoldValue(entry.name)
+    if goldValuePerUnit > 0 and currencyKey then
+      pushPendingLootMessageEntry(entry.name, entry.count)
+    else
+      pushPendingLootMessageEntry(entry.name, entry.count)
+    end
+  end
+
+  return changed
 end
 
 local function getMonsterMaxHealth(monsterName)
@@ -1035,7 +1146,10 @@ local function getLootValueByKey(valueKey)
   if not valueKey or valueKey == "" then
     return 0
   end
-  local value = tonumber(lootValues[valueKey]) or 0
+  local value = tonumber(lootValues[valueKey])
+  if value == nil then
+    value = CURRENCY_GOLD_VALUE_BY_KEY[valueKey] or 0
+  end
   if value < 0 then
     value = 0
   end
@@ -1198,7 +1312,7 @@ local function setLootValue(valueKey, value)
   refreshLootSessionList()
 end
 
-local function resolveLootValueKeyForItem(itemId, itemName)
+resolveLootValueKeyForItem = function(itemId, itemName)
   local key = resolveLootValueKey(itemName or "")
   if key and key ~= "" then
     return key
@@ -1380,19 +1494,22 @@ local function registerLootTransfer(valueKey, count, itemName, itemId)
   return true
 end
 
-local function cleanupPendingList(list)
+local function cleanupPendingList(list, ttlMs)
   local now = g_clock.millis()
+  local ttl = tonumber(ttlMs) or PENDING_MOVE_TTL_MS
   for i = #list, 1, -1 do
     local entry = list[i]
-    if not entry or entry.count <= 0 or (now - entry.time) > PENDING_MOVE_TTL_MS then
+    if not entry or entry.count <= 0 or (now - entry.time) > ttl then
       table.remove(list, i)
     end
   end
 end
 
 local function cleanupPendingMoves()
-  cleanupPendingList(pendingCorpseMoves)
-  cleanupPendingList(pendingInventoryAdds)
+  cleanupPendingList(pendingCorpseMoves, PENDING_MOVE_TTL_MS)
+  cleanupPendingList(pendingInventoryAdds, PENDING_MOVE_TTL_MS)
+  cleanupPendingList(recentLootTransfers, PENDING_MOVE_TTL_MS)
+  cleanupPendingList(pendingLootMessageEntries, PENDING_LOOT_MESSAGE_TTL_MS)
 end
 
 local function cleanupPendingSupplyRemovals(flushExpired)
@@ -1469,6 +1586,93 @@ local function consumePendingFromList(list, valueKey, count)
   end
 
   cleanupPendingMoves()
+  return matched
+end
+
+function consumePendingFromListByItemId(list, itemId, count)
+  local targetItemId = tonumber(itemId) or 0
+  local amount = math.floor(tonumber(count) or 0)
+  if targetItemId <= 0 or amount <= 0 then
+    return 0
+  end
+
+  cleanupPendingMoves()
+
+  local matched = 0
+  local remaining = amount
+
+  for _, entry in ipairs(list) do
+    if remaining <= 0 then
+      break
+    end
+    if tonumber(entry.itemId) == targetItemId and entry.count > 0 then
+      local take = math.min(remaining, entry.count)
+      if take > 0 then
+        entry.count = entry.count - take
+        remaining = remaining - take
+        matched = matched + take
+      end
+    end
+  end
+
+  cleanupPendingMoves()
+  return matched
+end
+
+function pushRecentLootTransfer(valueKey, count, itemName, itemId)
+  pushPendingEntry(recentLootTransfers, valueKey, count, itemName, itemId)
+end
+
+function pushPendingLootMessageEntry(itemName, count)
+  local key = resolveLootValueKey(itemName)
+  local amount = math.floor(tonumber(count) or 0)
+  if not key or key == "" or amount <= 0 then
+    return
+  end
+
+  table.insert(pendingLootMessageEntries, {
+    key = key,
+    itemId = 0,
+    count = amount,
+    name = itemName,
+    time = g_clock.millis()
+  })
+  cleanupPendingMoves()
+end
+
+function consumePendingLootMessage(itemId, count, itemName)
+  local amount = math.floor(tonumber(count) or 0)
+  if amount <= 0 then
+    return 0
+  end
+
+  local key = resolveLootValueKeyForItem(itemId, itemName)
+  if not key then
+    return 0
+  end
+
+  return consumePendingFromList(pendingLootMessageEntries, key, amount)
+end
+
+function hasRecentCorpseInteraction()
+  return (g_clock.millis() - lastCorpseInteractionMs) <= RECENT_CORPSE_INTERACTION_MS
+end
+
+function consumeRecentLootTransfer(itemId, count, itemName)
+  local id = tonumber(itemId) or 0
+  local amount = math.floor(tonumber(count) or 0)
+  if id <= 0 or amount <= 0 then
+    return 0
+  end
+
+  local key = resolveLootValueKeyForItem(id, itemName)
+  local matched = 0
+  if key then
+    matched = consumePendingFromList(recentLootTransfers, key, amount)
+  end
+  if matched <= 0 then
+    matched = consumePendingFromListByItemId(recentLootTransfers, id, amount)
+  end
   return matched
 end
 
@@ -1622,7 +1826,21 @@ local function handleInventoryLootAdd(itemId, count, itemName)
     return 0
   end
 
+  local ignored = consumeRecentLootTransfer(id, amount, itemName)
+  if ignored >= amount then
+    return 0
+  end
+  if ignored > 0 then
+    amount = amount - ignored
+  end
+
   local matched = consumePendingFromList(pendingCorpseMoves, key, amount)
+  if matched <= 0 then
+    matched = consumePendingFromListByItemId(pendingCorpseMoves, id, amount)
+  end
+  if matched <= 0 and hasRecentCorpseInteraction() then
+    matched = consumePendingLootMessage(id, amount, itemName)
+  end
   if matched > 0 then
     registerLootTransfer(key, matched, itemName, id)
   end
@@ -1646,7 +1864,16 @@ local function handleCorpseLootRemove(itemId, count, itemName)
     return 0
   end
 
+  consumePendingLootMessage(id, amount, itemName)
+
   local matched, chunks = consumePendingInventoryAdd(id, amount, itemName)
+  if matched <= 0 then
+    local fallbackMatched = consumePendingFromListByItemId(pendingInventoryAdds, id, amount)
+    if fallbackMatched > 0 then
+      matched = fallbackMatched
+      table.insert(chunks, { count = fallbackMatched, name = itemName, key = key, itemId = id })
+    end
+  end
   if matched > 0 then
     for _, chunk in ipairs(chunks) do
       registerLootTransfer(chunk.key or key, chunk.count, chunk.name or itemName, chunk.itemId or id)
@@ -1655,7 +1882,9 @@ local function handleCorpseLootRemove(itemId, count, itemName)
 
   local remaining = amount - matched
   if remaining > 0 then
-    pushPendingEntry(pendingCorpseMoves, key, remaining, itemName, id)
+    registerLootTransfer(key, remaining, itemName, id)
+    pushRecentLootTransfer(key, remaining, itemName, id)
+    matched = matched + remaining
   end
 
   return matched
@@ -1675,7 +1904,7 @@ local function registerLootToSession(itemId, count, itemName)
   refreshLootSessionList()
 end
 
-local function registerLootToSessionByName(itemName, count)
+registerLootToSessionByName = function(itemName, count)
   local amount = math.floor(tonumber(count) or 0)
   if type(itemName) ~= "string" or itemName == "" or amount <= 0 then
     return false
@@ -1697,6 +1926,25 @@ local function registerLootToSessionByName(itemName, count)
 
   totalLootValue = totalLootValue + (getLootValueByKey(valueKey) * amount)
   return true
+end
+
+onAnalyzerLootItem = function(itemId, count, itemName)
+  local id = tonumber(itemId)
+  local amount = math.floor(tonumber(count) or 0)
+  if not id or id <= 0 or amount <= 0 then
+    return
+  end
+
+  local key = resolveLootValueKeyForItem(id, itemName)
+  if not key then
+    return
+  end
+
+  if registerLootTransfer(key, amount, itemName, id) then
+    pushRecentLootTransfer(key, amount, itemName, id)
+    lootTrackedViaContainers = true
+    updateStats()
+  end
 end
 
 local function updateStats()
@@ -1758,42 +2006,25 @@ local function updateStats()
     return
   end
 
-  local currentExp, hasAbsolute = getAbsoluteExp(player)
-
-  if hasAbsolute and not baselineReady then
-    sessionStartExp = currentExp
-    sessionStartMs = g_clock.millis()
-    baselineReady = true
-  end
-
-  local gainedExp = 0
-  if hasAbsolute then
-    gainedExp = math.max(0, currentExp - sessionStartExp)
-  else
-    gainedExp = math.max(0, fallbackGainedExp)
-  end
-
-  local elapsedSeconds = math.max(1, math.floor((g_clock.millis() - sessionStartMs) / 1000))
-  local expPerHour = math.floor((gainedExp * 3600) / elapsedSeconds)
-  local expToLevel = 0
+  local elapsedSeconds = math.max(1, math.floor(tonumber(g_game.getAnalyzerSessionSeconds and g_game.getAnalyzerSessionSeconds() or 0) or 0))
+  local gainedExp = math.max(0, math.floor(tonumber(g_game.getAnalyzerSessionGainedExperience and g_game.getAnalyzerSessionGainedExperience() or 0) or 0))
+  local expPerHour = math.max(0, math.floor(tonumber(g_game.getAnalyzerExperiencePerHour and g_game.getAnalyzerExperiencePerHour() or 0) or 0))
+  local expToLevel = math.max(0, math.floor(tonumber(g_game.getAnalyzerExperienceToNextLevel and g_game.getAnalyzerExperienceToNextLevel() or 0) or 0))
+  local dealtDamage = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageDealt and g_game.getAnalyzerDamageDealt() or 0) or 0))
+  local dealtPerHour = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageDealtPerHour and g_game.getAnalyzerDamageDealtPerHour() or 0) or 0))
+  local receivedDamage = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageReceived and g_game.getAnalyzerDamageReceived() or 0) or 0))
+  local receivedPerHour = math.max(0, math.floor(tonumber(g_game.getAnalyzerDamageReceivedPerHour and g_game.getAnalyzerDamageReceivedPerHour() or 0) or 0))
   local timeToLevelText = "--"
-  local currentLevel = math.max(1, math.floor(tonumber(player:getLevel()) or 1))
-  if hasAbsolute then
-    local nextLevelExp = expForLevel(currentLevel + 1)
-    expToLevel = math.max(0, nextLevelExp - currentExp)
-    if expToLevel <= 0 then
-      timeToLevelText = "00:00:00"
-    elseif expPerHour > 0 then
-      local secondsToLevel = math.max(0, math.floor((expToLevel * 3600) / expPerHour))
-      timeToLevelText = formatDurationHMS(secondsToLevel)
-    end
+  local timeToLevelSeconds = math.max(0, math.floor(tonumber(g_game.getAnalyzerTimeToNextLevelSeconds and g_game.getAnalyzerTimeToNextLevelSeconds() or 0) or 0))
+  if expToLevel <= 0 then
+    timeToLevelText = "00:00:00"
+  elseif timeToLevelSeconds > 0 then
+    timeToLevelText = formatDurationHMS(timeToLevelSeconds)
   end
 
   local goldPerHour = math.floor((totalLootValue * 3600) / elapsedSeconds)
   local supplyPerHour = math.floor((totalSupplyValue * 3600) / elapsedSeconds)
   local netProfit = totalLootValue - totalSupplyValue
-  local dealtPerHour = math.floor((dealtDamageTotal * 3600) / elapsedSeconds)
-  local receivedPerHour = math.floor((receivedDamageTotal * 3600) / elapsedSeconds)
 
   if expPerHourLabel then
     expPerHourLabel:setText("Exp/h: " .. commaValue(expPerHour))
@@ -1832,13 +2063,13 @@ local function updateStats()
     sessionTimeLabel:setText("Session: " .. formatDurationHMS(elapsedSeconds))
   end
   if dealtDamageLabel then
-    dealtDamageLabel:setText("Dealt Damage: " .. commaValue(dealtDamageTotal))
+    dealtDamageLabel:setText("Dealt Damage: " .. commaValue(dealtDamage))
   end
   if dealtDamageHourLabel then
     dealtDamageHourLabel:setText("Dealt Damage/h: " .. commaValue(dealtPerHour))
   end
   if receivedDamageLabel then
-    receivedDamageLabel:setText("Received Damage: " .. commaValue(receivedDamageTotal))
+    receivedDamageLabel:setText("Received Damage: " .. commaValue(receivedDamage))
   end
   if receivedDamageHourLabel then
     receivedDamageHourLabel:setText("Received Damage/h: " .. commaValue(receivedPerHour))
@@ -1865,6 +2096,10 @@ local function stopRefresh()
 end
 
 local function resetSession()
+  if g_game.resetAnalyzerSession then
+    g_game.resetAnalyzerSession()
+  end
+
   local player = getLocalPlayer()
   local currentExp, hasAbsolute = getAbsoluteExp(player)
   sessionStartExp = currentExp
@@ -1888,6 +2123,9 @@ local function resetSession()
   totalSupplyValue = 0
   lootTrackedViaContainers = false
   containerStates = {}
+  corpseContainerIds = {}
+  pendingLootMessageEntries = {}
+  lastCorpseInteractionMs = 0
   lastLocalHealth = nil
   if player then
     lastLocalHealth = tonumber(safeCall(player.getHealth, player))
@@ -2441,6 +2679,18 @@ local function onContainerOpen(container, previousContainer)
   if not containerId then
     return
   end
+  local corpseRooted = false
+  if previousContainer and isCorpseContainer(previousContainer) then
+    corpseRooted = true
+  elseif isCorpseContainer(container) then
+    corpseRooted = true
+  end
+  if corpseRooted then
+    corpseContainerIds[containerId] = true
+    lastCorpseInteractionMs = g_clock.millis()
+  else
+    corpseContainerIds[containerId] = nil
+  end
   containerStates[containerId] = getContainerState(container)
 end
 
@@ -2451,6 +2701,7 @@ local function onContainerClose(container)
   local containerId = tonumber(safeCall(container.getId, container))
   if containerId then
     containerStates[containerId] = nil
+    corpseContainerIds[containerId] = nil
   end
 end
 
@@ -2626,7 +2877,11 @@ local function onTextMessage(mode, text)
     end
   end
 
-  -- Intentionally disabled: loot is counted only on actual corpse -> backpack transfer.
+  if lower:find("loot of ", 1, true) or lower:find("deposited ", 1, true) then
+    if registerCurrencyLootFromMessage(text) then
+      updateStats()
+    end
+  end
 end
 
 local function onPlayerInventoryChange(localPlayer, slot, item, oldItem)
@@ -2750,6 +3005,7 @@ function init()
   connect(g_game, {
     onGameStart = onGameStart,
     onGameEnd = onGameEnd,
+    onAnalyzerLootItem = onAnalyzerLootItem,
     onTextMessage = onTextMessage,
     onAttackingCreatureChange = onAttackingCreatureChange
   })
@@ -2799,6 +3055,7 @@ function terminate()
   disconnect(g_game, {
     onGameStart = onGameStart,
     onGameEnd = onGameEnd,
+    onAnalyzerLootItem = onAnalyzerLootItem,
     onTextMessage = onTextMessage,
     onAttackingCreatureChange = onAttackingCreatureChange
   })
@@ -2854,6 +3111,9 @@ function terminate()
   lootValueRows = {}
   supplyValueRows = {}
   containerStates = {}
+  corpseContainerIds = {}
+  pendingLootMessageEntries = {}
+  lastCorpseInteractionMs = 0
 
   if expStatsButton then
     expStatsButton:destroy()
