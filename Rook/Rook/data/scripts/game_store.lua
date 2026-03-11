@@ -969,7 +969,7 @@ addOutfit(
 	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 79)
 	addItem("Items", "Ring of Light", "A handy source of light.", 7963, 1, 2)
 	addItem("Items", "Gold Converter", "100 uses. Converts 100 gold -> 1 platinum or 100 platinum -> 1 crystal.", 7966, 1, 15, chargedItemStoreCallback(100))
-	addItem("Items", "Gold Pouch", "Automatically collects dropped gold to your bank when equipped in a totem slot.", 7967, 1, 499)
+	addItem("Items", "Gold Pouch", "Automatically collects dropped gold to your bank when equipped in a totem slot.", 7967, 1, 49)
 	addItem("Items", "Fishing bag", "Equip in a totem slot to auto-store caught fish. Fish inside weigh 30% less.", 3939, 1, 299)
 	addItem("Items", "professional fishing rod", "Fishes in a 3x3 area. 100 uses.", 7969, 1, 19, chargedItemStoreCallback(100))
 	addItem("Items", "frags checker", "Shows your current frags, red skull progress and frag reset timers.", 5953, 1, 99)
