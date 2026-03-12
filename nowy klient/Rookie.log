@@ -3371,3 +3371,156 @@ stack traceback:
 	[C]: in function 'updateStats'
 	/mods/game_exp_statistics/exp_statistics.lua:1948: in function </mods/game_exp_statistics/exp_statistics.lua:1933>
 Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 11 2026 22:43:21
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 11 2026 22:50:25
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=141
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=3962
+[Tasks] action=tasks
+[Tasks] tasks list count=117
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 13:36:22
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 100.104.149.16:7172
+Login to 100.104.149.16:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
