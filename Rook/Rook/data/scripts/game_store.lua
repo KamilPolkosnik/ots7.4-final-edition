@@ -917,6 +917,231 @@ addOutfit(
 	450
 )
 
+addOutfit(
+	"Outfits",
+	"Nightmare",
+	"Nightmare",
+	{
+		mount = 0,
+		type = 161,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 162,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Jester",
+	"Jester",
+	{
+		mount = 0,
+		type = 163,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 164,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Brotherhood",
+	"Brotherhood",
+	{
+		mount = 0,
+		type = 165,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 166,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Custom Outfit 254",
+	"Custom Outfit 254",
+	{
+		mount = 0,
+		type = 254,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 254,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Custom Outfit 255",
+	"Custom Outfit 255",
+	{
+		mount = 0,
+		type = 255,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 255,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Custom Outfit 256",
+	"Custom Outfit 256",
+	{
+		mount = 0,
+		type = 256,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 256,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Custom Outfit 571",
+	"Custom Outfit 571",
+	{
+		mount = 0,
+		type = 571,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 571,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Custom Outfit 573",
+	"Custom Outfit 573",
+	{
+		mount = 0,
+		type = 573,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 573,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
+addOutfit(
+	"Outfits",
+	"Custom Outfit 578",
+	"Custom Outfit 578",
+	{
+		mount = 0,
+		type = 578,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 578,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	450
+)
+
 	addItem("Outfits", "Outfit doll", "Use to receive one random outfit from Store Outfits that you don't own yet.", 5811, 1, 299)
 	
 
