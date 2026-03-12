@@ -12033,6 +12033,9 @@
 		<attribute key="weight" value="800"/>
 		<attribute key="containerSize" value="8"/>
 		<attribute key="slotType" value="totem"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="duration" value="604800"/>
+		<attribute key="showduration" value="1"/>
 	</item>
 	<item id="3940" article="a" name="camouflage backpack">
 		<attribute key="weight" value="1800"/>
