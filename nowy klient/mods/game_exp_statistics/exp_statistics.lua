@@ -63,13 +63,17 @@ local lootClientIconIdByServerId = {}
 local lootValueKeyByClientId = {}
 local lootValueKeyByServerId = {}
 local lootDisplayNameByClientId = {}
+lootServerIdByClientId = lootServerIdByClientId or {}
 local supplyKeyByServerId = {}
+supplyServerIdByKey = supplyServerIdByKey or {}
 local supplyIconIdByKey = {}
 local supplyNameByKey = {}
 local supplyDisplaySubTypeByKey = {}
 local corpseIdSet = {}
 local monsterMaxHealthByName = {}
 local lootValueKeySet = {}
+ExpStatisticsLootDefaultValueByKey = ExpStatisticsLootDefaultValueByKey or {}
+ExpStatisticsSupplyDefaultValueByKey = ExpStatisticsSupplyDefaultValueByKey or {}
 local isRefreshingLootEditor = false
 
 local attackedCreatureId = nil
@@ -85,6 +89,7 @@ local rebuildLootValueRows
 local rebuildSupplyValueRows
 local onSupplyValueSearchChange
 local refreshSupplySessionList
+local updateStats
 
 local LOOT_VALUES_NODE = "expStatisticsLootValuesByAccount"
 local SUPPLY_VALUES_NODE = "expStatisticsSupplyValuesByAccount"
@@ -95,6 +100,13 @@ PENDING_LOOT_MESSAGE_TTL_MS = 10 * 60 * 1000
 RECENT_CORPSE_INTERACTION_MS = 10 * 1000
 local ANALYZER_RATE_WINDOW_SECONDS = 120
 local analyzerRateSamples = {}
+ExpStatisticsNpcPricesData = (type(ExpStatisticsNpcPrices) == "table" and ExpStatisticsNpcPrices)
+  or (type(rawget(_G, "ExpStatisticsNpcPrices")) == "table" and rawget(_G, "ExpStatisticsNpcPrices"))
+  or {}
+ExpStatisticsNpcLootSellById = (type(ExpStatisticsNpcPricesData.lootSellById) == "table" and ExpStatisticsNpcPricesData.lootSellById) or {}
+ExpStatisticsNpcLootSellByKey = (type(ExpStatisticsNpcPricesData.lootSellByKey) == "table" and ExpStatisticsNpcPricesData.lootSellByKey) or {}
+ExpStatisticsNpcSupplyBuyById = (type(ExpStatisticsNpcPricesData.supplyBuyById) == "table" and ExpStatisticsNpcPricesData.supplyBuyById) or {}
+ExpStatisticsNpcSupplyBuyByKey = (type(ExpStatisticsNpcPricesData.supplyBuyByKey) == "table" and ExpStatisticsNpcPricesData.supplyBuyByKey) or {}
 
 local SUPPLY_CATALOG = {
   {name = "mana fluid", id = 2006, subType = 2},
@@ -120,6 +132,7 @@ local SUPPLY_CATALOG = {
   {name = "sudden death rune", id = 2268},
   {name = "torch", id = 2050},
   {name = "magic light wand", id = 2162},
+  {name = "brown mushroom", id = 2789},
   {name = "bolt", id = 2543},
   {name = "arrow", id = 2544},
   {name = "poison arrow", id = 2545},
@@ -267,6 +280,39 @@ local function commaValue(value)
   local n = tonumber(value) or 0
   local left, num, right = tostring(math.floor(n)):match("^([^%d]*%d)(%d*)(.-)$")
   return left .. (num:reverse():gsub("(%d%d%d)", "%1,"):reverse()) .. right
+end
+
+local function buildAnalyzerSessionTooltip(itemId, itemCount, itemName, totalGold, categoryLabel, iconSubType)
+  local displayName = tostring(itemName or ("Item #" .. tostring(itemId or 0)))
+  local count = math.max(1, math.floor(tonumber(itemCount) or 1))
+  local total = math.max(0, math.floor(tonumber(totalGold) or 0))
+  local category = tostring(categoryLabel or "Value")
+  local spriteSubType = math.max(1, math.floor(tonumber(iconSubType) or 1))
+
+  return {
+    id = tonumber(itemId) or 0,
+    clientId = tonumber(itemId) or 0,
+    count = spriteSubType,
+    itemName = displayName,
+    name = displayName,
+    subType = spriteSubType,
+    desc = string.format("Amount: %s\n%s: %s gold", commaValue(count), category, commaValue(total)),
+    iLvl = 0,
+    reqLvl = 0,
+    unidentified = false,
+    mirrored = false,
+    uLvl = 0,
+    uniqueName = nil,
+    rarity = 0,
+    tier = 0,
+    attributes = {},
+    maxAttributes = 0,
+    type = "",
+    first = 0,
+    second = 0,
+    third = 0,
+    weight = 0
+  }
 end
 
 local function formatDurationHMS(totalSeconds)
@@ -823,6 +869,7 @@ local function buildGeneratedLootCache()
   lootValueKeyByClientId = {}
   lootValueKeyByServerId = {}
   lootDisplayNameByClientId = {}
+  lootServerIdByClientId = {}
   corpseIdSet = {}
   monsterMaxHealthByName = {}
   lootValueKeySet = {}
@@ -912,6 +959,9 @@ local function buildGeneratedLootCache()
           if mappedIconId and mappedIconId > 0 then
             lootValueKeyByClientId[mappedIconId] = valueKey
             lootDisplayNameByClientId[mappedIconId] = name
+            if not lootServerIdByClientId[mappedIconId] then
+              lootServerIdByClientId[mappedIconId] = itemId
+            end
           end
           local entry = {
             id = itemId,
@@ -937,6 +987,7 @@ end
 local function buildSupplyCache()
   allSupplyItems = {}
   supplyKeyByServerId = {}
+  supplyServerIdByKey = {}
   supplyIconIdByKey = {}
   supplyNameByKey = {}
   supplyDisplaySubTypeByKey = {}
@@ -947,6 +998,7 @@ local function buildSupplyCache()
     local key = normalizeSupplyName(displayName)
     if key ~= "" and serverId > 0 and not supplyNameByKey[key] then
       supplyNameByKey[key] = displayName
+      supplyServerIdByKey[key] = serverId
       if entry.subType == nil then
         supplyKeyByServerId[serverId] = key
       end
@@ -979,6 +1031,46 @@ local function buildSupplyCache()
   end)
 end
 
+local function rebuildDefaultValueCache()
+  ExpStatisticsLootDefaultValueByKey = {}
+  ExpStatisticsSupplyDefaultValueByKey = {}
+
+  for _, entry in ipairs(allLootItems) do
+    local valueKey = tostring(entry.valueKey or "")
+    if valueKey ~= "" then
+      local byId = tonumber(ExpStatisticsNpcLootSellById[tonumber(entry.id) or 0]) or 0
+      local byKey = tonumber(ExpStatisticsNpcLootSellByKey[valueKey]) or 0
+      local candidate = math.max(byId, byKey)
+      if candidate > 0 then
+        local current = tonumber(ExpStatisticsLootDefaultValueByKey[valueKey]) or 0
+        if candidate > current then
+          ExpStatisticsLootDefaultValueByKey[valueKey] = math.floor(candidate)
+        end
+      end
+    end
+  end
+
+  for _, entry in ipairs(allSupplyItems) do
+    local supplyKey = tostring(entry.key or "")
+    if supplyKey ~= "" then
+      local byKey = tonumber(ExpStatisticsNpcSupplyBuyByKey[supplyKey]) or 0
+      local byId = tonumber(ExpStatisticsNpcSupplyBuyById[tonumber(entry.id) or 0]) or 0
+      local candidate = byKey
+      if candidate <= 0 and entry.subType == nil then
+        candidate = byId
+      end
+      if candidate > 0 then
+        local current = tonumber(ExpStatisticsSupplyDefaultValueByKey[supplyKey]) or 0
+        if current <= 0 then
+          ExpStatisticsSupplyDefaultValueByKey[supplyKey] = math.floor(candidate)
+        else
+          ExpStatisticsSupplyDefaultValueByKey[supplyKey] = math.min(current, math.floor(candidate))
+        end
+      end
+    end
+  end
+end
+
 local function applyLootClientIdsMap(idMap)
   if type(idMap) ~= "table" then
     return
@@ -993,6 +1085,7 @@ local function applyLootClientIdsMap(idMap)
       lootClientIconIdByValueKey[entry.valueKey] = clientId
       lootValueKeyByClientId[clientId] = entry.valueKey
       lootDisplayNameByClientId[clientId] = entry.name
+      lootServerIdByClientId[clientId] = serverId
     end
   end
 
@@ -1144,14 +1237,57 @@ local function activateAccountSupplyValues()
   supplyValues = node
 end
 
+local function applyLootDefaultsToAccountValues()
+  local changed = false
+  for valueKey, defaultValue in pairs(ExpStatisticsLootDefaultValueByKey) do
+    local fallback = math.max(0, math.floor(tonumber(defaultValue) or 0))
+    if fallback > 0 then
+      local current = tonumber(lootValues[valueKey])
+      if current == nil or current <= 0 then
+        lootValues[valueKey] = fallback
+        changed = true
+      end
+    end
+  end
+  if changed then
+    saveLootValuesStorage()
+  end
+  return changed
+end
+
+local function applySupplyDefaultsToAccountValues()
+  local changed = false
+  for supplyKey, defaultValue in pairs(ExpStatisticsSupplyDefaultValueByKey) do
+    local fallback = math.max(0, math.floor(tonumber(defaultValue) or 0))
+    if fallback > 0 then
+      local current = tonumber(supplyValues[supplyKey])
+      if current == nil or current <= 0 then
+        supplyValues[supplyKey] = fallback
+        changed = true
+      end
+    end
+  end
+  if changed then
+    saveSupplyValuesStorage()
+  end
+  return changed
+end
+
 local function getLootValueByKey(valueKey)
   if not valueKey or valueKey == "" then
     return 0
   end
-  local value = tonumber(lootValues[valueKey])
-  if value == nil then
-    value = CURRENCY_GOLD_VALUE_BY_KEY[valueKey] or 0
+  local saved = tonumber(lootValues[valueKey])
+  local fallback = tonumber(ExpStatisticsLootDefaultValueByKey[valueKey])
+  if fallback == nil then
+    fallback = CURRENCY_GOLD_VALUE_BY_KEY[valueKey]
   end
+
+  local value = saved
+  if value == nil or value <= 0 then
+    value = fallback or 0
+  end
+
   if value < 0 then
     value = 0
   end
@@ -1159,11 +1295,29 @@ local function getLootValueByKey(valueKey)
 end
 
 local function getLootValueForItem(itemId)
-  local clientKey = lootValueKeyByClientId[itemId]
+  local numericId = tonumber(itemId) or 0
+  local clientKey = lootValueKeyByClientId[numericId]
   if clientKey and clientKey ~= "" then
     return getLootValueByKey(clientKey)
   end
-  local name = getLootItemName(itemId)
+  local serverId = tonumber(lootServerIdByClientId[numericId]) or 0
+  if serverId > 0 then
+    local serverKey = lootValueKeyByServerId[serverId]
+    if serverKey and serverKey ~= "" then
+      return getLootValueByKey(serverKey)
+    end
+    local byServerId = tonumber(ExpStatisticsNpcLootSellById[serverId]) or 0
+    if byServerId > 0 then
+      return math.floor(byServerId)
+    end
+  end
+  if numericId > 0 then
+    local byRawId = tonumber(ExpStatisticsNpcLootSellById[numericId]) or 0
+    if byRawId > 0 then
+      return math.floor(byRawId)
+    end
+  end
+  local name = getLootItemName(numericId)
   local key = resolveLootValueKey(name)
   return getLootValueByKey(key)
 end
@@ -1210,13 +1364,24 @@ local function refreshLootSessionList()
 
   for _, entry in ipairs(entries) do
     local row = g_ui.createWidget("LootSessionRow", lootSessionList)
-    row.icon:setItemId(entry.id)
+    if tonumber(entry.id) and tonumber(entry.id) > 0 then
+      row.icon:setItem(Item.create(tonumber(entry.id), 1))
+    else
+      row.icon:setItemId(0)
+    end
+    local totalGold = entry.count * getLootValueForItem(entry.id)
+    row.icon.getItemTooltip = function()
+      return buildAnalyzerSessionTooltip(entry.id, entry.count, entry.name, totalGold, "Loot Value", 1)
+    end
     if row.name then
       row.name:setText("")
       row.name:setVisible(false)
     end
-    row.count:setText("x" .. commaValue(entry.count))
-    row.value:setText(commaValue(entry.count * getLootValueForItem(entry.id)) .. " gold")
+    if row.count then
+      row.count:setText("")
+      row.count:setVisible(false)
+    end
+    row.value:setText(commaValue(totalGold) .. " gold")
   end
 end
 
@@ -1224,7 +1389,14 @@ local function getSupplyValueByKey(supplyKey)
   if not supplyKey or supplyKey == "" then
     return 0
   end
-  local value = tonumber(supplyValues[supplyKey]) or 0
+  local saved = tonumber(supplyValues[supplyKey])
+  local fallback = tonumber(ExpStatisticsSupplyDefaultValueByKey[supplyKey]) or 0
+
+  local value = saved
+  if value == nil or value <= 0 then
+    value = fallback
+  end
+
   if value < 0 then
     value = 0
   end
@@ -1253,7 +1425,8 @@ refreshSupplySessionList = function()
         key = supplyKey,
         count = count,
         name = supplyNameByKey[supplyKey] or supplyKey,
-        iconId = tonumber(supplyUsedIconByKey[supplyKey]) or tonumber(supplyIconIdByKey[supplyKey]) or 0
+        iconId = tonumber(supplyUsedIconByKey[supplyKey]) or tonumber(supplyIconIdByKey[supplyKey]) or 0,
+        serverId = tonumber(supplyServerIdByKey[supplyKey]) or 0
       })
     end
   end
@@ -1277,18 +1450,29 @@ refreshSupplySessionList = function()
   for _, entry in ipairs(entries) do
     local row = g_ui.createWidget("LootSessionRow", supplySessionList)
     local iconId = tonumber(entry.iconId) or 0
+    local iconSubType = tonumber(supplyDisplaySubTypeByKey[entry.key]) or 1
     if iconId > 0 then
-      local subType = tonumber(supplyDisplaySubTypeByKey[entry.key]) or 1
-      row.icon:setItem(Item.create(iconId, subType))
+      row.icon:setItem(Item.create(iconId, iconSubType))
     else
       row.icon:setItemId(0)
+    end
+    local totalGold = entry.count * getSupplyValueByKey(entry.key)
+    row.icon.getItemTooltip = function()
+      local tooltipId = iconId
+      if tooltipId <= 0 then
+        tooltipId = tonumber(entry.serverId) or 0
+      end
+      return buildAnalyzerSessionTooltip(tooltipId, entry.count, entry.name, totalGold, "Supply Value", iconSubType)
     end
     if row.name then
       row.name:setText("")
       row.name:setVisible(false)
     end
-    row.count:setText("x" .. commaValue(entry.count))
-    row.value:setText(commaValue(entry.count * getSupplyValueByKey(entry.key)) .. " gold")
+    if row.count then
+      row.count:setText("")
+      row.count:setVisible(false)
+    end
+    row.value:setText(commaValue(totalGold) .. " gold")
   end
 end
 
@@ -1997,7 +2181,7 @@ local function getAnalyzerRatePerHour(metricKey, currentValue)
   return math.floor((delta * 3600) / ANALYZER_RATE_WINDOW_SECONDS)
 end
 
-local function updateStats()
+updateStats = function()
   cleanupPendingMoves()
   local supplyChanged = cleanupPendingSupplyRemovals(true)
 
@@ -2539,9 +2723,12 @@ end
 local function onGameStart()
   buildGeneratedLootCache()
   buildSupplyCache()
+  rebuildDefaultValueCache()
   requestLootClientIds()
   activateAccountLootValues()
   activateAccountSupplyValues()
+  applyLootDefaultsToAccountValues()
+  applySupplyDefaultsToAccountValues()
   if lootValueWindow and lootValueWindow:isVisible() then
     rebuildLootValueRows()
     onLootValueSearchChange()
@@ -3033,10 +3220,13 @@ end
 function init()
   buildGeneratedLootCache()
   buildSupplyCache()
+  rebuildDefaultValueCache()
   loadLootValuesStorage()
   loadSupplyValuesStorage()
   activateAccountLootValues()
   activateAccountSupplyValues()
+  applyLootDefaultsToAccountValues()
+  applySupplyDefaultsToAccountValues()
   ProtocolGame.registerExtendedOpcode(OPCODE_EXP_STATS, onExpStatsExtendedOpcode)
 
   connect(LocalPlayer, {

@@ -9,6 +9,6 @@ Module
   dependencies:
     - game_interface
     - client_topmenu
-  scripts: [ loot_items_generated, exp_statistics ]
+  scripts: [ loot_items_generated, npc_prices_generated, exp_statistics ]
   @onLoad: init()
   @onUnload: terminate()

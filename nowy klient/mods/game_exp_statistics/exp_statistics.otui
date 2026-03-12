@@ -13,7 +13,7 @@ LootSessionRow < Panel
     anchors.verticalCenter: parent.verticalCenter
     size: 20 20
     virtual: true
-    phantom: true
+    phantom: false
 
   Label
     id: name
@@ -240,7 +240,7 @@ MiniWindow
       anchors.left: parent.left
       anchors.right: parent.right
       margin-top: 4
-      height: 34
+      height: 65
       text: Loot counts only when moved from corpse to backpack. Supply counts when removed from player containers.
       color: #a9a9a9
       font: verdana-11px-rounded
