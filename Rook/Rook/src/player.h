@@ -190,8 +190,10 @@ class Player final : public Creature, public Cylinder
 		void setCurrentAura(uint8_t auraId);
 		bool hasAura(const Aura* aura) const;
 		uint8_t getCurrentWing() const;
+		uint8_t getCurrentShader() const;
 		bool addAura(uint8_t auraId);
 		void setCurrentWing(uint8_t wingId);
+		void setCurrentShader(uint8_t shaderId);
 		bool hasShader(const Shader* shader) const;
 		bool addShader(uint8_t shaderId);
 

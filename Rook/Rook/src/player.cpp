@@ -4621,6 +4621,20 @@ void Player::setCurrentAura(uint8_t auraId)
 	addStorageValue(PSTRG_AURAS_CURRENTAURA, auraId);
 }
 
+uint8_t Player::getCurrentShader() const
+{
+	int32_t value;
+	if (getStorageValue(PSTRG_SHADERS_CURRENTSHADER, value)) {
+		return value;
+	}
+	return 0;
+}
+
+void Player::setCurrentShader(uint8_t shaderId)
+{
+	addStorageValue(PSTRG_SHADERS_CURRENTSHADER, shaderId);
+}
+
 bool Player::addShader(uint8_t shaderId)
 {
 	if (!g_game.shaders.getShaderByID(shaderId)) {

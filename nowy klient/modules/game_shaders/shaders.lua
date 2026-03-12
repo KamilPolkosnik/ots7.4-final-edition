@@ -30,7 +30,7 @@ function init()
   
   g_shaders.createOutfitShader("Rainbow Nebula", "/shaders/done/outfit_starsRainbowNebula_vertex", "/shaders/done/outfit_starsRainbowNebula_fragment")
  
-  g_shaders.createOutfitShader("Redglow", "/shaders/done/outfit_redGlow_vertex", "/shaders/done/outfit_redGlow_fragment")
+  g_shaders.createOutfitShader("RedGlow", "/shaders/done/outfit_redGlow_vertex", "/shaders/done/outfit_redGlow_fragment")
 
  g_shaders.createOutfitShader("outlinerainbow", "/shaders/outline/outline_rainbow_vertex", "/shaders/outline/outline_rainbow_fragment")
 

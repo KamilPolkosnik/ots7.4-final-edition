@@ -45,6 +45,58 @@ local AppearanceData = {
   "manaBar"
 }
 
+local function formatShaderName(name)
+  if not name or name == "" then
+    return "None"
+  end
+
+  local mapped = {
+    outlinerainbow = "Outline Rainbow",
+    outlinegreen = "Outline Green",
+    RedGlow = "Red Glow",
+    outfit_default = "None"
+  }
+  if mapped[name] then
+    return mapped[name]
+  end
+
+  local text = tostring(name)
+  text = text:gsub("_", " ")
+  text = text:gsub("(%l)(%u)", "%1 %2")
+  text = text:gsub("%s+", " "):gsub("^%s+", ""):gsub("%s+$", "")
+  text = text:gsub("(%a)([%w']*)", function(a, b)
+    return string.upper(a) .. string.lower(b or "")
+  end)
+  return text
+end
+
+local function ensureEffectPreviewVisible(modeId)
+  if not showOutfitCheck then
+    return
+  end
+
+  if modeId ~= "wings" and modeId ~= "aura" and modeId ~= "shader" then
+    return
+  end
+
+  if not settings.showOutfit then
+    showOutfitCheck:setChecked(true)
+  end
+
+  if modeId == "wings" and not settings.showWings and showWingsCheck then
+    showWingsCheck:setChecked(true)
+  elseif modeId == "aura" and not settings.showAura and showAuraCheck then
+    showAuraCheck:setChecked(true)
+  elseif modeId == "shader" and not settings.showShader and showShaderCheck then
+    showShaderCheck:setChecked(true)
+  end
+
+  -- Make sure the main preview is animated when browsing visual effects.
+  if movementCheck and not settings.movement then
+    movementCheck:setChecked(true)
+  end
+end
+
 function init()
   connect(
     g_game,
@@ -509,6 +561,7 @@ end
 
 function onAppearanceChange(widget, selectedWidget)
   local id = selectedWidget:getParent():getId()
+  ensureEffectPreviewVisible(id)
   if id == "preset" then
     showPresets()
   elseif id == "outfit" then
@@ -756,7 +809,8 @@ function showShaders()
 
     button.outfit:setOutfit({type = tempOutfit.type, addons = tempOutfit.addons, shader = shaderData[2]})
     button.outfit:setCenter(true)
-    button.name:setText(shaderData[2])
+    button.outfit:setAnimate(true)
+    button.name:setText(formatShaderName(shaderData[2]))
     if tempOutfit.shader == shaderData[2] then
       focused = shaderData[2]
     end
@@ -1016,7 +1070,11 @@ function updateAppearanceTexts(outfit)
     if dataTable then
       for _, data in ipairs(dataTable) do
         if outfit[key] == data[1] or outfit[key] == data[2] then
-          updateAppearanceText(appKey, data[2])
+          if appKey == "shader" then
+            updateAppearanceText(appKey, formatShaderName(data[2]))
+          else
+            updateAppearanceText(appKey, data[2])
+          end
         end
       end
     end

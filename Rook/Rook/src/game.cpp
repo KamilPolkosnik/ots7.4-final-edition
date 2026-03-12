@@ -3496,15 +3496,121 @@ void Game::playerRequestOutfit(uint32_t playerId)
 	player->sendOutfitWindow();
 }
 
-void Game::playerToggleOutfitExtension(uint32_t playerId, int mount, int , int , int )
+void Game::playerToggleOutfitExtension(uint32_t playerId, int mount, int wings, int aura, int shader)
 {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
 		return;
 	}
 
-	if (mount != -1)
+	if (mount != -1) {
 		player->toggleMount(mount == 1);
+	}
+
+	bool outfitChanged = false;
+	Outfit_t newOutfit = player->defaultOutfit;
+
+	if (wings != -1) {
+		uint16_t lookWings = 0;
+		if (wings == 1) {
+			Wing* selectedWing = nullptr;
+			uint8_t currentWingId = player->getCurrentWing();
+			if (currentWingId > 0) {
+				selectedWing = this->wings.getWingByID(currentWingId);
+			}
+
+			if (!selectedWing && newOutfit.lookWings != 0) {
+				selectedWing = this->wings.getWingByClientID(newOutfit.lookWings);
+			}
+
+			if (selectedWing && player->hasWings(selectedWing)) {
+				lookWings = selectedWing->clientId;
+			}
+		} else {
+			if (newOutfit.lookWings != 0) {
+				if (Wing* current = this->wings.getWingByClientID(newOutfit.lookWings)) {
+					player->setCurrentWing(current->id);
+				}
+			}
+			lookWings = 0;
+		}
+
+		if (newOutfit.lookWings != lookWings) {
+			newOutfit.lookWings = lookWings;
+			outfitChanged = true;
+		}
+	}
+
+	if (aura != -1) {
+		uint16_t lookAura = 0;
+		if (aura == 1) {
+			Aura* selectedAura = nullptr;
+			uint8_t currentAuraId = player->getCurrentAura();
+			if (currentAuraId > 0) {
+				selectedAura = this->auras.getAuraByID(currentAuraId);
+			}
+
+			if (!selectedAura && newOutfit.lookAura != 0) {
+				selectedAura = this->auras.getAuraByClientID(newOutfit.lookAura);
+			}
+
+			if (selectedAura && player->hasAura(selectedAura)) {
+				lookAura = selectedAura->clientId;
+			}
+		}
+		else {
+			if (newOutfit.lookAura != 0) {
+				if (Aura* current = this->auras.getAuraByClientID(newOutfit.lookAura)) {
+					player->setCurrentAura(current->id);
+				}
+			}
+			lookAura = 0;
+		}
+
+		if (newOutfit.lookAura != lookAura) {
+			newOutfit.lookAura = lookAura;
+			outfitChanged = true;
+		}
+	}
+
+	if (shader != -1) {
+		uint16_t lookShader = 0;
+		if (shader == 1) {
+			Shader* selectedShader = nullptr;
+			uint8_t currentShaderId = player->getCurrentShader();
+			if (currentShaderId > 0) {
+				selectedShader = this->shaders.getShaderByID(currentShaderId);
+			}
+
+			if (!selectedShader && newOutfit.lookShader != 0) {
+				selectedShader = this->shaders.getShaderByID(newOutfit.lookShader);
+			}
+
+			if (selectedShader && player->hasShader(selectedShader)) {
+				lookShader = selectedShader->id;
+			}
+		}
+		else {
+			if (newOutfit.lookShader != 0) {
+				if (Shader* current = this->shaders.getShaderByID(newOutfit.lookShader)) {
+					player->setCurrentShader(current->id);
+				}
+			}
+			lookShader = 0;
+		}
+
+		if (newOutfit.lookShader != lookShader) {
+			newOutfit.lookShader = lookShader;
+			outfitChanged = true;
+		}
+	}
+
+	if (outfitChanged) {
+		player->defaultOutfit = newOutfit;
+		if (!player->hasCondition(CONDITION_OUTFIT)) {
+			internalCreatureChangeOutfit(player, newOutfit);
+		}
+	}
 }
 
 void Game::playerChangeOutfit(uint32_t playerId, Outfit_t outfit)
@@ -3566,6 +3672,8 @@ void Game::playerChangeOutfit(uint32_t playerId, Outfit_t outfit)
 		if (!player->hasWings(wing)) {
 			return;
 		}
+
+		player->setCurrentWing(wing->id);
 	}
 
 	if (outfit.lookAura != 0) {
@@ -3577,6 +3685,8 @@ void Game::playerChangeOutfit(uint32_t playerId, Outfit_t outfit)
 		if (!player->hasAura(aura)) {
 			return;
 		}
+
+		player->setCurrentAura(aura->id);
 	}
 
 	if (outfit.lookShader) {
@@ -3588,6 +3698,8 @@ void Game::playerChangeOutfit(uint32_t playerId, Outfit_t outfit)
 		if (!player->hasShader(shader)) {
 			return;
 		}
+
+		player->setCurrentShader(shader->id);
 	}
 
 	if (player->canWear(outfit.lookType, outfit.lookAddons)) {

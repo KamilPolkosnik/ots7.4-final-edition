@@ -1009,6 +1009,14 @@ local function onSkillsInventoryChange(localPlayer, slot, item, oldItem)
   scheduleBonusDisplayRefresh(75)
 end
 
+local function onSkillsOutfitChange(localPlayer, outfit, oldOutfit)
+  inventorySignalDeadline = g_clock.millis() + 1200
+  requestServerExtraStats(true)
+  onSpeedChange(localPlayer, localPlayer:getSpeed())
+  refreshBonusStatsWindow(false)
+  scheduleBonusDisplayRefresh(125)
+end
+
 function init()
   clearServerExtraStatsSnapshot()
 
@@ -1029,7 +1037,8 @@ function init()
     onBaseMagicLevelChange = onBaseMagicLevelChange,
     onSkillChange = onSkillChange,
     onBaseSkillChange = onBaseSkillChange,
-    onInventoryChange = onSkillsInventoryChange
+    onInventoryChange = onSkillsInventoryChange,
+    onOutfitChange = onSkillsOutfitChange
   })
   connect(g_game, {
     onGameStart = refresh,
@@ -1082,7 +1091,8 @@ function terminate()
     onBaseMagicLevelChange = onBaseMagicLevelChange,
     onSkillChange = onSkillChange,
     onBaseSkillChange = onBaseSkillChange,
-    onInventoryChange = onSkillsInventoryChange
+    onInventoryChange = onSkillsInventoryChange,
+    onOutfitChange = onSkillsOutfitChange
   })
   disconnect(g_game, {
     onGameStart = refresh,

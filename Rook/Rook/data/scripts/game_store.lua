@@ -935,7 +935,7 @@ addOutfit(
 	addMount("Mounts", "Red Mantis", "Someone must have been fishing huh?.", 12, 476, 600)
 	addMount("Mounts", "Buffalo", "Been to a swamp or two.", 13, 479, 600)
 
-	addCategory("Wings", "Unlock cosmetic wings for your character.", "wings", 611)
+	addCategory("Wings", "Unlock wings (+5 speed while worn).", "wings", 611)
 	addWings("Wings", "Golden Butterfly", "Golden butterfly style wings.", 1, 611, 499)
 	addWings("Wings", "Magical Butterfly", "Magical butterfly style wings.", 2, 597, 499)
 	addWings("Wings", "Cave", "Dark cave themed wings.", 3, 608, 499)
@@ -964,6 +964,22 @@ addOutfit(
 	addWings("Wings", "Spirit Wings", "Spirit infused wings.", 30, 582, 499)
 	addWings("Wings", "Venom Wings", "Venomous wings.", 31, 581, 499)
 	addWings("Wings", "Arcane Wings", "Arcane magic wings.", 32, 580, 499)
+
+	addCategory("Auras", "Unlock auras (+3 speed while worn).", "aura", 612)
+	addAura("Auras", "Flame Aura", "A fiery aura effect.", 1, 612, 499)
+	addAura("Auras", "Thunder Aura", "A lightning aura effect.", 2, 613, 499)
+	addAura("Auras", "Manarune Aura", "A mystical manarune aura.", 3, 615, 499)
+
+	addCategory("Shaders", "Unlock shaders (+2 speed while worn).", "shader", 128)
+	addShader("Shaders", "Colorizing Dots", "Animated colorizing dots shader.", 1, 128, 399)
+	addShader("Shaders", "Holographic", "Holographic shine shader.", 2, 128, 399)
+	addShader("Shaders", "Rainbow Wave", "Rainbow wave shader.", 3, 128, 399)
+	addShader("Shaders", "Shine", "Shiny highlight shader.", 4, 128, 399)
+	addShader("Shaders", "Darken Starslink", "Dark starslink shader.", 5, 128, 399)
+	addShader("Shaders", "Matrix Fall", "Matrix-style falling lines shader.", 6, 128, 399)
+	addShader("Shaders", "Outline Green", "Green outline shader.", 7, 128, 399)
+	addShader("Shaders", "Red Glow", "Red glow shader.", 8, 128, 399)
+	addShader("Shaders", "Outline Rainbow", "Rainbow outline shader.", 9, 128, 399)
 
 	addCategory("Items", "Utility items.", "item", 7962)
 	addItem("Items", "Multitool", "Useful tool for adventuring.", 7962, 1, 79)
@@ -1119,6 +1135,18 @@ function gameStoreFetch(player)
 			end
 			if offer.clientId then
 				data.clientId = offer.clientId
+			end
+			if offer.shaderName then
+				data.shaderName = offer.shaderName
+			end
+			if offer.shader then
+				data.shader = offer.shader
+			end
+			if offer.wings then
+				data.wings = offer.wings
+			end
+			if offer.aura then
+				data.aura = offer.aura
 			end
 		
 			if sex == PLAYERSEX_MALE then
@@ -1485,6 +1513,23 @@ function addWings(category, title, description, wingsId, clientId, price, callba
         GAME_STORE.offers[category] = {}
     end
 
+    if category == "Wings" then
+        price = 699
+        if type(description) ~= "string" then
+            description = ""
+        end
+        if not description:find("Grants +5 speed while worn.", 1, true) then
+            description = description:gsub("%s+$", "")
+            if description ~= "" and not description:find("%.$") then
+                description = description .. "."
+            end
+            if description ~= "" then
+                description = description .. " "
+            end
+            description = description .. "Grants +5 speed while worn."
+        end
+    end
+
     if not callback then
         callback = defaultWingsCallback
     end
@@ -1506,6 +1551,23 @@ end
 function addAura(category, title, description, auraId, clientId, price, callback)
     if not GAME_STORE.offers[category] then
         GAME_STORE.offers[category] = {}
+    end
+
+    if category == "Auras" then
+        price = 499
+        if type(description) ~= "string" then
+            description = ""
+        end
+        if not description:find("Grants +3 speed while worn.", 1, true) then
+            description = description:gsub("%s+$", "")
+            if description ~= "" and not description:find("%.$") then
+                description = description .. "."
+            end
+            if description ~= "" then
+                description = description .. " "
+            end
+            description = description .. "Grants +3 speed while worn."
+        end
     end
 
     if not callback then
@@ -1547,10 +1609,39 @@ end
 
 
 
-function addShader(category, title, description, ShaderId, clientId, price, callback)
+function addShader(category, title, description, shaderId, clientId, price, callback)
 	if not GAME_STORE.offers[category] then
 		GAME_STORE.offers[category] = {}
 	end
+
+	if category == "Shaders" then
+		price = 399
+		if type(description) ~= "string" then
+			description = ""
+		end
+		if not description:find("Grants +2 speed while worn.", 1, true) then
+			description = description:gsub("%s+$", "")
+			if description ~= "" and not description:find("%.$") then
+				description = description .. "."
+			end
+			if description ~= "" then
+				description = description .. " "
+			end
+			description = description .. "Grants +2 speed while worn."
+		end
+	end
+
+	local shaderNameById = {
+		[1] = "Colorizing Dots",
+		[2] = "Holographic",
+		[3] = "Rainbow Wave",
+		[4] = "Shine",
+		[5] = "Darken Starslink",
+		[6] = "Matrix Fall",
+		[7] = "outlinegreen",
+		[8] = "RedGlow",
+		[9] = "outlinerainbow"
+	}
 
 	if not callback then
 		callback = defaultShaderCallback
@@ -1559,11 +1650,12 @@ function addShader(category, title, description, ShaderId, clientId, price, call
 	table.insert(
 		GAME_STORE.offers[category],
 		{
-			type = "Shader",
+			type = "shader",
 			title = title,
 			description = description,
-			Shader = ShaderId,
-			clientId = 131,
+			shader = shaderId,
+			shaderName = shaderNameById[shaderId] or title,
+			clientId = clientId,
 			price = price,
 			callback = callback
 		}
@@ -1571,11 +1663,11 @@ function addShader(category, title, description, ShaderId, clientId, price, call
 end
 
 function defaultShaderCallback(player, offer)
-	if player:hasShader(offer.Shader) then
-		return "You already have this Shader."
+	if player:hasShader(offer.shader) then
+		return "You already have this shader."
 	end
 
-	player:addShader(offer.Shader)
+	player:addShader(offer.shader)
 	return true
 end
 

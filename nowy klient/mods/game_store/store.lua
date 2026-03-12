@@ -30,6 +30,45 @@ local historyEntries = {}
 
 local selectedOffer = nil
 
+local shaderNameById = {
+  [1] = "Colorizing Dots",
+  [2] = "Holographic",
+  [3] = "Rainbow Wave",
+  [4] = "Shine",
+  [5] = "Darken Starslink",
+  [6] = "Matrix Fall",
+  [7] = "outlinegreen",
+  [8] = "RedGlow",
+  [9] = "outlinerainbow"
+}
+
+local function buildEffectPreviewOutfit(effectType, effectValue)
+  local outfit = {
+    type = 128,
+    head = 0,
+    body = 0,
+    legs = 0,
+    feet = 0,
+    addons = 0,
+    mount = 0,
+    wings = 0,
+    aura = 0,
+    shader = "outfit_default"
+  }
+
+  if effectType == "wings" then
+    outfit.wings = tonumber(effectValue) or 0
+    outfit.aura = 0
+  elseif effectType == "aura" then
+    outfit.aura = tonumber(effectValue) or 0
+    outfit.wings = 0
+  elseif effectType == "shader" then
+    outfit.shader = effectValue or "outfit_default"
+  end
+
+  return outfit
+end
+
 local function resolveCategoryKey(widget)
   if not widget then
     return nil
@@ -654,13 +693,20 @@ function addOffers(offerData)
       offerIcon:setOutfit({type = offer.clientId})
 	elseif offer.type == "wings" then
       local offerIcon = g_ui.createWidget("OfferIconCreature", offerTypePanel)
-      offerIcon:setOutfit({type = offer.clientId})
+      offerIcon:setOutfit(buildEffectPreviewOutfit("wings", offer.clientId))
+      offerIcon:setAnimate(true)
+      offerIcon:setCenter(true)
 	elseif offer.type == "aura" then
       local offerIcon = g_ui.createWidget("OfferIconCreature", offerTypePanel)
-      offerIcon:setOutfit({type = offer.clientId})
+      offerIcon:setOutfit(buildEffectPreviewOutfit("aura", offer.clientId))
+      offerIcon:setAnimate(true)
+      offerIcon:setCenter(true)
 	elseif offer.type == "shader" then
       local offerIcon = g_ui.createWidget("OfferIconCreature", offerTypePanel)
-      offerIcon:setOutfit({type = offer.clientId})
+      local shaderName = offer.shaderName or shaderNameById[tonumber(offer.shader) or 0] or "outfit_default"
+      offerIcon:setOutfit(buildEffectPreviewOutfit("shader", shaderName))
+      offerIcon:setAnimate(true)
+      offerIcon:setCenter(true)
 	
 	
     end
@@ -689,6 +735,9 @@ function updateTopPanel(data)
     local spriteIcon = g_ui.createWidget("CategoryIconCreature", categoryItemBg)
     spriteIcon:setOutfit({type = data.iconData})
 	elseif data.iconType == "aura" then
+    local spriteIcon = g_ui.createWidget("CategoryIconCreature", categoryItemBg)
+    spriteIcon:setOutfit({type = data.iconData})
+	elseif data.iconType == "shader" then
     local spriteIcon = g_ui.createWidget("CategoryIconCreature", categoryItemBg)
     spriteIcon:setOutfit({type = data.iconData})
 	
