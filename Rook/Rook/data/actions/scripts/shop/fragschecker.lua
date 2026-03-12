@@ -19,6 +19,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 
 	local fragTime = math.max(1, configManager.getNumber(configKeys.FRAG_TIME))
 	local killsToRed = math.max(0, configManager.getNumber(configKeys.KILLS_TO_RED))
+	local killsToBlack = math.max(0, configManager.getNumber(configKeys.KILLS_TO_BLACK))
 	local skullTime = math.max(0, tonumber(player:getSkullTime()) or 0)
 
 	local frags = 0
@@ -29,6 +30,11 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 	local toRed = 0
 	if killsToRed > 0 then
 		toRed = math.max(0, killsToRed - frags)
+	end
+
+	local toBlack = 0
+	if killsToBlack > 0 then
+		toBlack = math.max(0, killsToBlack - frags)
 	end
 
 	local nextDecrease = 0
@@ -46,6 +52,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 		"Frags: " ..
 		frags ..
 		(killsToRed > 0 and (" | To red skull: " .. toRed .. " (red at " .. killsToRed .. ")") or "") ..
+		(killsToBlack > 0 and (" | To black skull: " .. toBlack .. " (black at " .. killsToBlack .. ")") or "") ..
 		" | Next frag decrease: " ..
 		nextInfo ..
 		" | Full frag reset: " ..
