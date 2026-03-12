@@ -23,7 +23,7 @@ enableLiveCasting = true
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
 -- NOTE: allowWalkthrough is only applicable to players 100.104.149.16
-ip = "100.104.149.16"
+ip = "127.0.0.1"
 bindOnlyGlobalAddress = false
 loginProtocolPort = 7171
 gameProtocolPort = 7172
