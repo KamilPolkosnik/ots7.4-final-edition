@@ -994,8 +994,8 @@ addOutfit(
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 254",
-	"Custom Outfit 254",
+	"Moon Vanguard",
+	"Moon Vanguard",
 	{
 		mount = 0,
 		type = 254,
@@ -1019,8 +1019,8 @@ addOutfit(
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 255",
-	"Custom Outfit 255",
+	"Dusk Reaper",
+	"Dusk Reaper",
 	{
 		mount = 0,
 		type = 255,
@@ -1044,8 +1044,8 @@ addOutfit(
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 256",
-	"Custom Outfit 256",
+	"Arcane Sentinel",
+	"Arcane Sentinel",
 	{
 		mount = 0,
 		type = 256,
@@ -1069,8 +1069,8 @@ addOutfit(
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 571",
-	"Custom Outfit 571",
+	"Feral Warden",
+	"Feral Warden",
 	{
 		mount = 0,
 		type = 571,
@@ -1094,8 +1094,8 @@ addOutfit(
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 573",
-	"Custom Outfit 573",
+	"Abyss Knight",
+	"Abyss Knight",
 	{
 		mount = 0,
 		type = 573,
@@ -1119,8 +1119,8 @@ addOutfit(
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 578",
-	"Custom Outfit 578",
+	"Solar Templar",
+	"Solar Templar",
 	{
 		mount = 0,
 		type = 578,
@@ -1141,6 +1141,51 @@ addOutfit(
 	},
 	450
 )
+
+addOutfitForSex(
+	"Outfits",
+	"Norseman",
+	"Norseman (male only)",
+	{
+		mount = 0,
+		type = 159,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	PLAYERSEX_MALE,
+	450
+)
+
+addOutfitForSex("Outfits", "Ruby Huntress", "Ruby Huntress (female only)", {mount = 0, type = 257, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Iron Warlord", "Iron Warlord (male only)", {mount = 0, type = 258, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Desert Phantom", "Desert Phantom (female only)", {mount = 0, type = 260, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Sun Marshal", "Sun Marshal (male only)", {mount = 0, type = 263, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Frost Maiden", "Frost Maiden (female only)", {mount = 0, type = 264, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Crystal Empress", "Crystal Empress (female only)", {mount = 0, type = 546, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Shadow Duchess", "Shadow Duchess (female only)", {mount = 0, type = 547, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Blood Empress", "Blood Empress (female only)", {mount = 0, type = 548, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Ivory Queen", "Ivory Queen (female only)", {mount = 0, type = 549, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Astral Oracle", "Astral Oracle (female only)", {mount = 0, type = 551, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Void General", "Void General (male only)", {mount = 0, type = 556, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Night Siren", "Night Siren (female only)", {mount = 0, type = 557, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Storm Tyrant", "Storm Tyrant (male only)", {mount = 0, type = 558, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Obsidian Witch", "Obsidian Witch (female only)", {mount = 0, type = 559, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Titan Champion", "Titan Champion (male only)", {mount = 0, type = 560, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Eclipse Huntress", "Eclipse Huntress (female only)", {mount = 0, type = 561, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Runic Vanguard", "Runic Vanguard (male only)", {mount = 0, type = 562, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Nightblade Prime", "Nightblade Prime (male only)", {mount = 0, type = 574, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Wild Valkyrie", "Wild Valkyrie (female only)", {mount = 0, type = 577, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Aether Praetor", "Aether Praetor (male only)", {mount = 0, type = 632, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Dread Inquisitor", "Dread Inquisitor (male only)", {mount = 0, type = 633, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Mythic Valkyrie", "Mythic Valkyrie (female only)", {mount = 0, type = 634, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Phantom Legate", "Phantom Legate (male only)", {mount = 0, type = 635, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Ancient Seer", "Ancient Seer (female only)", {mount = 0, type = 636, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Spirit Warden", "Spirit Warden (female only)", {mount = 0, type = 637, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
+addOutfitForSex("Outfits", "Runeborn Judge", "Runeborn Judge (male only)", {mount = 0, type = 638, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_MALE, 550)
+addOutfitForSex("Outfits", "Inferno Queen", "Inferno Queen (female only)", {mount = 0, type = 639, addons = 3, head = 114, body = 114, legs = 114, feet = 114}, PLAYERSEX_FEMALE, 550)
 
 	addItem("Outfits", "Outfit doll", "Use to receive one random outfit from Store Outfits that you don't own yet.", 5811, 1, 299)
 	
@@ -1374,19 +1419,35 @@ function gameStoreFetch(player)
 				data.aura = offer.aura
 			end
 		
-			if sex == PLAYERSEX_MALE then
-				if offer.outfitMale then
+			local includeOffer = true
+			if offer.type == "outfit" then
+				if sex == PLAYERSEX_MALE then
 					data.outfit = offer.outfitMale
-				end
-			else
-				if offer.outfitFemale then
+				else
 					data.outfit = offer.outfitFemale
 				end
+
+				-- Hide sex-locked outfit offers that do not have a variant for current player sex.
+				if not data.outfit then
+					includeOffer = false
+				end
+			else
+				if sex == PLAYERSEX_MALE then
+					if offer.outfitMale then
+						data.outfit = offer.outfitMale
+					end
+				else
+					if offer.outfitFemale then
+						data.outfit = offer.outfitFemale
+					end
+				end
 			end
-			if offer.data then
-				data.data = offer.data
+			if includeOffer then
+				if offer.data then
+					data.data = offer.data
+				end
+				table.insert(offers, data)
 			end
-			table.insert(offers, data)
 		end
 
 		local total = math.max(1, math.ceil(#offers / GAME_STORE_OFFERS_CHUNK_SIZE))
@@ -1708,6 +1769,13 @@ function addOutfit(category, title, description, outfitMale, outfitFemale, price
 	)
 end
 
+function addOutfitForSex(category, title, description, outfitData, sex, price, callback)
+	if sex == PLAYERSEX_MALE then
+		return addOutfit(category, title, description, outfitData, nil, price, callback)
+	end
+	return addOutfit(category, title, description, nil, outfitData, price, callback)
+end
+
 function addMount(category, title, description, mountId, clientId, price, callback)
 	if not GAME_STORE.offers[category] then
 		GAME_STORE.offers[category] = {}
@@ -1943,23 +2011,23 @@ function defaultItemCallback(player, offer)
 end
 
 function defaultOutfitCallback(player, offer)
-	if offer.outfitMale.addons > 0 then
-		if player:hasOutfit(offer.outfitMale.type, offer.outfitMale.addons) then
+	local selected = player:getSex() == PLAYERSEX_MALE and offer.outfitMale or offer.outfitFemale
+	if not selected then
+		return "This outfit is not available for your character sex."
+	end
+
+	if selected.addons > 0 then
+		if player:hasOutfit(selected.type, selected.addons) then
 			return "You already have this outfit with addons."
 		end
 
-		player:addOutfitAddon(offer.outfitMale.type, offer.outfitMale.addons)
+		player:addOutfitAddon(selected.type, selected.addons)
 	else
-		if player:hasOutfit(offer.outfitMale.type) then
+		if player:hasOutfit(selected.type) then
 			return "You already have this outfit."
 		end
 
-		player:addOutfit(offer.outfitMale.type)
-	end
-	if offer.outfitFemale.addons > 0 then
-		player:addOutfitAddon(offer.outfitFemale.type, offer.outfitFemale.addons)
-	else
-		player:addOutfit(offer.outfitFemale.type)
+		player:addOutfit(selected.type)
 	end
 	return true
 end
