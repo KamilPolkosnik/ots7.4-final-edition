@@ -29,6 +29,7 @@ otcv8-dev-master/
 # Local server artifacts
 Rook/Rook/Artefakty/
 otcv8-dev-master.rar
-nowy klient/Rookie.log
-Rookie.log
-rookie.log
+
+# Generated client logs
+**/Rookie.log
+**/rookie.log
