@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <monster name="Demodras" nameDescription="Demodras" race="blood" experience="3100" speed="230" manacost="0">
   <health now="2200" max="2200"/>
-  <look type="204" corpse="2881"/>
+  <look type="39" corpse="2881"/>
   <targetchange interval="1000" chance="5"/>
   <targetstrategies nearest="70" health="10" damage="10" random="10"/>
   <flags>
@@ -65,11 +65,12 @@
     <item id="2033" chance="6000"/>
     <item id="1976" chance="10000"/>
     <item id="2177" chance="1200"/>
-    <item id="2498" chance="400"/>
+    <item id="2498" chance="3500"/>
     <item id="2479" chance="800"/>
-    <item id="2492" chance="300"/>
-    <item id="2392" chance="600"/>
-    <item id="2528" chance="600"/>
+    <item id="2492" chance="3200"/>
+    <item id="2470" chance="3200"/>
+    <item id="2392" chance="4500"/>
+    <item id="2528" chance="4000"/>
     <item id="2167" chance="10000"/>
     <item id="6512" chance="250"/>
   </loot>

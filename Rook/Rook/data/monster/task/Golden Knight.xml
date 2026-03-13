@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<monster name="Golden Knight" nameDescription="a Golden Knight" race="blood" experience="2000" speed="250" manacost="0">
-  <health now="1750" max="1750"/>
+<monster name="Golden Knight" nameDescription="a Golden Knight" race="blood" experience="3500" speed="390" manacost="0">
+  <health now="5400" max="5400"/>
   <look type="131" head="79" body="117" legs="117" feet="117" corpse="3128"/>
   <targetchange interval="1000" chance="0"/>
   <targetstrategies nearest="100" health="0" damage="0" random="0"/>
@@ -14,15 +14,15 @@
     <flag targetdistance="1"/>
   </flags>
   <attacks>
-    <attack name="melee" skill="76" attack="24"/>
-    <attack name="physical" checkshield="1" chance="30" range="2" min="-30" max="-70">
+    <attack name="melee" skill="115" attack="95"/>
+    <attack name="physical" checkshield="1" chance="30" range="2" min="-205" max="-285">
       <attribute key="shootEffect" value="spear"/>
     </attack>
-    <attack name="physical" checkshield="1" chance="30" range="3" min="-40" max="-80">
+    <attack name="physical" checkshield="1" chance="30" range="3" min="-205" max="-285">
       <attribute key="shootEffect" value="spear"/>
     </attack>
   </attacks>
-  <defenses armor="32" defense="50">
+  <defenses armor="75" defense="480">
     <defense name="speed" interval="2000" chance="20" speedchange="300" duration="5000">
       <attribute key="areaEffect" value="redshimmer"/>
     </defense>
@@ -50,13 +50,14 @@
     <item id="2152" chance="15000" countmax="10"/>
     <item id="5818" chance="500"/>
     <item id="2491" chance="5000"/>
+    <item id="2466" chance="2500"/>
     <item id="2497" chance="500"/>
     <item id="2486" chance="2500"/>
+    <item id="2470" chance="2200"/>
     <item id="2477" chance="15000"/>
     <item id="2386" chance="30000"/>
     <item id="2398" chance="10000"/>
     <item id="2391" chance="2500"/>
-    <item id="7916" chance="500"/>
     <item id="2515" chance="17000"/>
     <item id="2517" chance="1000"/>
     <item id="2195" chance="2000"/>
