@@ -24,11 +24,55 @@ local selectedWeaponCategory = "axe"
 local selectedWeaponHandFilter = "all"
 local selectedArmorCategory = "helmet"
 local selectedAlchemistCategory = "rings"
-local Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {}, jeweller = {}}
+local Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {}, jeweller = {}, extractor = {}}
 local money = 0
 local selectedEnchantTarget = nil
 local selectedEnchantTargetSlot = nil
 local allowedEnchanterCraftIds = {}
+local getCraftWidget = nil
+local craftPreviewAnimationEvents = {}
+local extractorCraftIds = {
+  [7882] = true,
+  [7883] = true
+}
+local CRAFT_PREVIEW_BASE_BORDER_COLOR = "#4e5968"
+local CRAFT_PREVIEW_PULSE_STEPS = {
+  {delay = 0, opacity = 0.88, marginTop = 4, borderColor = "#9c7640", active = true},
+  {delay = 70, opacity = 1.00, marginTop = 1, borderColor = "#f0ce86", active = true},
+  {delay = 155, opacity = 0.84, marginTop = 3, borderColor = "#c89246", active = true},
+  {delay = 270, opacity = 1.00, marginTop = 4, borderColor = CRAFT_PREVIEW_BASE_BORDER_COLOR, active = false}
+}
+
+local function isExtractorCraft(craft)
+  if not craft then
+    return false
+  end
+
+  local craftId = tonumber(craft.id or craft.serverId or craft.itemId)
+  if craftId and extractorCraftIds[craftId] then
+    return true
+  end
+
+  local name = tostring(craft.name or ""):lower()
+  return name:find("extractor", 1, true) ~= nil or name:find("fossil", 1, true) ~= nil
+end
+
+local function rebuildExtractorCrafts()
+  Crafts.extractor = {}
+
+  for i = 1, #(Crafts.jeweller or {}) do
+    local craft = Crafts.jeweller[i]
+    if isExtractorCraft(craft) then
+      local copy = {}
+      for key, value in pairs(craft) do
+        copy[key] = value
+      end
+      copy.sourceCategory = "jeweller"
+      copy.sourceCraftId = i
+      table.insert(Crafts.extractor, copy)
+    end
+  end
+end
 
 local function clampRecipeIndex(craft, index)
   local total = craft and craft.recipes and #craft.recipes or 0
@@ -74,9 +118,9 @@ local function updateRecipeControls(recipeIndex, recipeCount)
     return
   end
 
-  local recipeLabel = craftPanel:getChildById("recipeLabel")
-  local recipePrev = craftPanel:getChildById("recipePrev")
-  local recipeNext = craftPanel:getChildById("recipeNext")
+  local recipeLabel = getCraftWidget("recipeLabel")
+  local recipePrev = getCraftWidget("recipePrev")
+  local recipeNext = getCraftWidget("recipeNext")
   -- Recipe controls were moved to the craftable item row list.
   if recipeLabel then
     recipeLabel:setText("")
@@ -89,6 +133,84 @@ local function updateRecipeControls(recipeIndex, recipeCount)
 
   if recipeNext then
     recipeNext:setVisible(false)
+  end
+end
+
+getCraftWidget = function(id)
+  if not window then
+    return nil
+  end
+  return window:recursiveGetChildById(id)
+end
+
+local function resetCraftPreviewAnimationState()
+  local outcome = getCraftWidget("craftOutcome")
+  if outcome then
+    outcome:setOpacity(1.0)
+    outcome:setMarginTop(4)
+    if outcome.setOn then
+      outcome:setOn(false)
+    end
+    if outcome.setBorderColor then
+      outcome:setBorderColor("#00000000")
+    end
+  end
+
+  local previewPanel = getCraftWidget("previewPanel")
+  if previewPanel and previewPanel.setBorderColor then
+    previewPanel:setBorderColor(CRAFT_PREVIEW_BASE_BORDER_COLOR)
+  end
+end
+
+local function stopCraftPreviewAnimation()
+  for i = 1, #craftPreviewAnimationEvents do
+    removeEvent(craftPreviewAnimationEvents[i])
+  end
+  craftPreviewAnimationEvents = {}
+  resetCraftPreviewAnimationState()
+end
+
+local function playCraftPreviewAnimation()
+  local outcome = getCraftWidget("craftOutcome")
+  local previewPanel = getCraftWidget("previewPanel")
+  if not outcome or not previewPanel then
+    return
+  end
+
+  stopCraftPreviewAnimation()
+
+  for i = 1, #CRAFT_PREVIEW_PULSE_STEPS do
+    local step = CRAFT_PREVIEW_PULSE_STEPS[i]
+    local isLastStep = i == #CRAFT_PREVIEW_PULSE_STEPS
+    craftPreviewAnimationEvents[#craftPreviewAnimationEvents + 1] =
+      scheduleEvent(
+      function()
+        local currentOutcome = getCraftWidget("craftOutcome")
+        local currentPreviewPanel = getCraftWidget("previewPanel")
+        if not currentOutcome or not currentPreviewPanel then
+          craftPreviewAnimationEvents = {}
+          return
+        end
+
+        currentOutcome:setOpacity(step.opacity)
+        currentOutcome:setMarginTop(step.marginTop)
+        if currentOutcome.setOn then
+          currentOutcome:setOn(step.active)
+        end
+        if currentOutcome.setBorderColor then
+          currentOutcome:setBorderColor(step.active and step.borderColor or "#00000000")
+        end
+        if currentPreviewPanel.setBorderColor then
+          currentPreviewPanel:setBorderColor(step.borderColor)
+        end
+
+        if isLastStep then
+          craftPreviewAnimationEvents = {}
+          resetCraftPreviewAnimationState()
+        end
+      end,
+      step.delay
+    )
   end
 end
 
@@ -131,7 +253,27 @@ local function refreshEnchantTargetSlotButtons()
     if button and button.slotValue then
       local text = "Slot[" .. tostring(button.slotValue) .. "]"
       button:setText(text)
+      button:setOn(tonumber(selectedEnchantTargetSlot) == tonumber(button.slotValue))
     end
+  end
+end
+
+local function updateCostColors(totalCost)
+  if not craftPanel then
+    return
+  end
+
+  local totalCostLabel = getCraftWidget("totalCost")
+  local playerMoneyLabel = getCraftWidget("playerMoney")
+  local required = tonumber(totalCost) or 0
+  local hasEnough = money >= required
+
+  if totalCostLabel then
+    totalCostLabel:setColor(hasEnough and "#f3d598" or "#e48f8f")
+  end
+
+  if playerMoneyLabel then
+    playerMoneyLabel:setColor(hasEnough and "#e8f2fb" or "#f0c7c7")
   end
 end
 
@@ -178,6 +320,7 @@ local function updateEnchantTargetSlots(emptySlots)
         end
       else
         button.slotValue = nil
+        button:setOn(false)
         button:setVisible(false)
         button.onClick = nil
       end
@@ -361,6 +504,7 @@ end
 
 function destroy()
   if window then
+    stopCraftPreviewAnimation()
     categories = nil
     craftPanel = nil
     itemsList = nil
@@ -383,7 +527,7 @@ function destroy()
     selectedWeaponHandFilter = "all"
     selectedArmorCategory = "helmet"
     selectedAlchemistCategory = "rings"
-    Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {}, jeweller = {}}
+    Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {}, jeweller = {}, extractor = {}}
     selectedEnchantTarget = nil
     selectedEnchantTargetSlot = nil
     allowedEnchanterCraftIds = {}
@@ -411,6 +555,9 @@ function onExtendedOpcode(protocol, code, buffer)
   if action == "fetch" then
     for i = 1, #data.crafts do
       table.insert(Crafts[data.category], data.crafts[i])
+    end
+    if data.category == "jeweller" then
+      rebuildExtractorCrafts()
     end
     if data.category == "weaponsmith" then
       selectCategory("weaponsmith")
@@ -443,12 +590,25 @@ function onExtendedOpcode(protocol, code, buffer)
         end
       end
     end
+    if data.category == "jeweller" then
+      rebuildExtractorCrafts()
+    end
     if data.from == 1 and window:isVisible() and selectedCategory == data.category and selectedCraftId then
       selectItem(selectedCraftId)
+    elseif data.category == "jeweller" and window:isVisible() and selectedCategory == "extractor" then
+      refreshItemsList()
     end
   elseif action == "money" then
     money = data
-    craftPanel:recursiveGetChildById("playerMoney"):setText(comma_value(money))
+    local playerMoneyLabel = getCraftWidget("playerMoney")
+    if playerMoneyLabel then
+      playerMoneyLabel:setText(comma_value(money))
+    end
+    if selectedCategory and selectedCraftId then
+      selectItem(selectedCraftId)
+    else
+      updateCostColors(0)
+    end
   elseif action == "show" then
     if selectedCraftId then
       selectItem(selectedCraftId)
@@ -488,21 +648,10 @@ function onItemCrafted()
   if selectedCategory and selectedCraftId then
     local craft = Crafts[selectedCategory][selectedCraftId]
     if craft then
-      local recipe = getActiveRecipe(craft)
-      local recipeMaterials = recipe.materials or {}
-      for i = 1, math.min(6, #recipeMaterials) do
-        local materialWidget = craftPanel:getChildById("craftLine" .. i)
-        if materialWidget then
-          materialWidget:setImageSource("/images/crafting/craft_line" .. i .. "on")
-          scheduleEvent(
-            function()
-              materialWidget:setImageSource("/images/crafting/craft_line" .. (i == 2 and 5 or i))
-            end,
-            850
-          )
-        end
+      local button = getCraftWidget("craftButton")
+      if not button then
+        return
       end
-      local button = craftPanel:getChildById("craftButton")
       button:disable()
       scheduleEvent(
         function()
@@ -737,22 +886,64 @@ local function updateAlchemistCategoryButtons()
 end
 
 local function resetCraftDetails()
+  stopCraftPreviewAnimation()
   selectedCraftId = nil
-  for i = 1, 6 do
-    local materialWidget = craftPanel:getChildById("material" .. i)
-    materialWidget:setItem(nil)
-    materialWidget:setTooltip("")
-    craftPanel:getChildById("count" .. i):setText("")
+  local materialsList = getCraftWidget("materialsList")
+  if materialsList then
+    materialsList:destroyChildren()
   end
 
-  craftPanel:getChildById("craftOutcome"):setItem(nil)
-  craftPanel:getChildById("craftOutcome"):setTooltip("")
-  local outcomeCount = craftPanel:getChildById("outcomeCount")
+  local outcomeWidget = getCraftWidget("craftOutcome")
+  if outcomeWidget then
+    outcomeWidget:setItem(nil)
+    outcomeWidget:setTooltip("")
+  end
+  local outcomeCount = getCraftWidget("outcomeCount")
   if outcomeCount then
     outcomeCount:setText("")
   end
-  craftPanel:recursiveGetChildById("totalCost"):setText("")
+  local totalCostLabel = getCraftWidget("totalCost")
+  if totalCostLabel then
+    totalCostLabel:setText("")
+  end
+  updateCostColors(0)
   updateRecipeControls(1, 1)
+end
+
+local function rebuildMaterialsList(recipeMaterials)
+  local materialsList = getCraftWidget("materialsList")
+  if not materialsList then
+    return
+  end
+
+  materialsList:destroyChildren()
+
+  for i = 1, #(recipeMaterials or {}) do
+    local material = recipeMaterials[i]
+    local row = g_ui.createWidget("MaterialListRow", materialsList)
+    row:setId("materialRow" .. i)
+
+    local itemWidget = row:getChildById("item")
+    if itemWidget then
+      itemWidget:setItemId(material.id)
+      itemWidget:setTooltip(getMaterialTooltip(material))
+    end
+
+    local nameWidget = row:getChildById("name")
+    if nameWidget then
+      nameWidget:setText(tostring(material.name or ("Item " .. tostring(material.id))))
+    end
+
+    local countWidget = row:getChildById("count")
+    if countWidget then
+      countWidget:setText(string.format("%d / %d", tonumber(material.player) or 0, tonumber(material.count) or 0))
+      if (tonumber(material.player) or 0) >= (tonumber(material.count) or 0) then
+        countWidget:setColor("#dfe8f2")
+      else
+        countWidget:setColor("#e48f8f")
+      end
+    end
+  end
 end
 
 local function updateCategoryLayout()
@@ -767,21 +958,21 @@ local function updateCategoryLayout()
   local hasSubcategory = showWeapon or showArmor or showAlchemist
 
   weaponCategoryPanel:setVisible(showWeapon)
-  weaponHandPanel:setVisible(showWeapon)
+  weaponHandPanel:setVisible(false)
   armorCategoryPanel:setVisible(showArmor)
   alchemistCategoryPanel:setVisible(showAlchemist)
 
   if categorySeparator then
     if showWeapon then
-      categorySeparator:setMarginTop(68)
+      categorySeparator:setMarginTop(60)
     else
-      categorySeparator:setMarginTop(hasSubcategory and 40 or 10)
+      categorySeparator:setMarginTop(hasSubcategory and 60 or 12)
     end
   end
 
   if enchantTargetPanel then
     enchantTargetPanel:setVisible(showEnchanter)
-    enchantTargetPanel:setHeight(showEnchanter and 76 or 0)
+    enchantTargetPanel:setHeight(showEnchanter and 102 or 0)
   end
   if enchantTargetWidget then
     enchantTargetWidget:setVisible(showEnchanter)
@@ -990,7 +1181,7 @@ function selectCategory(category)
       weaponCategoryPanel:setVisible(selectedCategory == "weaponsmith")
     end
     if weaponHandPanel then
-      weaponHandPanel:setVisible(selectedCategory == "weaponsmith")
+      weaponHandPanel:setVisible(false)
     end
     if armorCategoryPanel then
       armorCategoryPanel:setVisible(selectedCategory == "armorsmith")
@@ -1015,6 +1206,7 @@ function selectItem(id)
   if not craftId then
     return
   end
+  stopCraftPreviewAnimation()
   selectedCraftId = craftId
 
   local craft = Crafts[selectedCategory][craftId]
@@ -1027,54 +1219,42 @@ function selectItem(id)
     return
   end
 
-  for i = 1, 6 do
-    local materialWidget = craftPanel:getChildById("material" .. i)
-    materialWidget:setItem(nil)
-    materialWidget:setTooltip("")
-    craftPanel:getChildById("count" .. i):setText("")
-  end
-
   local recipeMaterials = recipe.materials or {}
-  for i = 1, math.min(6, #recipeMaterials) do
-    local material = recipeMaterials[i]
-    local materialWidget = craftPanel:getChildById("material" .. i)
-    if materialWidget then
-      materialWidget:setItemId(material.id)
-      materialWidget:setTooltip(getMaterialTooltip(material))
-      local count = craftPanel:getChildById("count" .. i)
-      count:setText(material.player .. "\n" .. material.count)
-      if material.player >= material.count then
-        count:setColor("#FFFFFF")
-      else
-        count:setColor("#FF0000")
-      end
-    end
-  end
+  rebuildMaterialsList(recipeMaterials)
 
-  local outcome = craftPanel:getChildById("craftOutcome")
+  local outcome = getCraftWidget("craftOutcome")
   local resultCount = tonumber(recipe.count) or tonumber(craft.count) or 1
-  if selectedCategory == "enchanter" and selectedEnchantTarget and selectedEnchantTarget.id then
-    local targetSubType = tonumber(selectedEnchantTarget.subType) or 1
-    outcome:setItem(Item.create(tonumber(selectedEnchantTarget.id), targetSubType))
-    local slotText = selectedEnchantTargetSlot and ("Slot: " .. tostring(selectedEnchantTargetSlot) .. "\n") or ""
-    outcome:setTooltip(slotText .. "Enchant: " .. tostring(craft.name or ""))
-  else
+  if outcome then
     outcome:setItemId(craft.clientId)
     outcome:setItemCount(resultCount)
     outcome:setTooltip(craft.tooltip or "")
   end
-  local outcomeCount = craftPanel:getChildById("outcomeCount")
+  local outcomeCount = getCraftWidget("outcomeCount")
   if outcomeCount then
-    if selectedCategory == "enchanter" then
-      outcomeCount:setText("")
-    elseif resultCount > 1 then
+    if resultCount > 1 then
       outcomeCount:setText("x" .. resultCount)
     else
       outcomeCount:setText("")
     end
   end
-  craftPanel:recursiveGetChildById("totalCost"):setText(comma_value(recipe.cost or craft.cost or 0))
+  local totalCost = recipe.cost or craft.cost or 0
+  local totalCostLabel = getCraftWidget("totalCost")
+  if totalCostLabel then
+    totalCostLabel:setText(comma_value(totalCost))
+  end
+  updateCostColors(totalCost)
   updateRecipeControls(recipeIndex, recipeCount)
+end
+
+function focusSearch()
+  if not window then
+    return
+  end
+
+  local searchInput = window:recursiveGetChildById("searchInput")
+  if searchInput then
+    searchInput:focus()
+  end
 end
 
 function craftItem()
@@ -1082,8 +1262,15 @@ function craftItem()
     local protocolGame = g_game.getProtocolGame()
     if protocolGame then
       local craft = Crafts[selectedCategory][selectedCraftId]
+      if not craft then
+        return
+      end
       local _, recipeIndex = getActiveRecipe(craft)
-      local payload = {category = selectedCategory, craftId = selectedCraftId, recipeId = recipeIndex}
+      local payload = {
+        category = craft.sourceCategory or selectedCategory,
+        craftId = craft.sourceCraftId or selectedCraftId,
+        recipeId = recipeIndex
+      }
       if selectedCategory == "enchanter" then
         if not selectedEnchantTarget then
           modules.game_textmessage.displayFailureMessage("Select target item first.")
@@ -1097,6 +1284,7 @@ function craftItem()
         payload.targetSlot = selectedEnchantTargetSlot
       end
       protocolGame:sendExtendedOpcode(CODE, json.encode({action = "craft", data = payload}))
+      playCraftPreviewAnimation()
     end
   end
 end
@@ -1150,6 +1338,7 @@ function hide()
   if not window then
     return
   end
+  stopCraftPreviewAnimation()
   window:hide()
 end
 

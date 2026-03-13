@@ -6212,3 +6212,1852 @@ Login to 127.0.0.1:7172
 [Tasks] action=active
 [Tasks] recv opcode=110 size=28
 [Tasks] action=points
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 17:03:27
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 19:30:56
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=82
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 19:31:12
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7967
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7975
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7967
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x00f032f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7975
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7967
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=82
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7967
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=82
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7967
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=82
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=82
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7967
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7923
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=82
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7967
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:45:49
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7966
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:55:24
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2061': OTML error in '/mods/game_crafting/crafting.otui:594': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:311: in function </mods/game_crafting/crafting.lua:306>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2065': OTML error in '/mods/game_crafting/crafting.otui:617': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:311: in function </mods/game_crafting/crafting.lua:306>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+[EnchanterDebug] target=2455 | pos=32091,32204,7 | lvl=24 | max=1 | empty=0 | slots= | allowed=0/60 | duplicate_enchant:1 | min_level:8 | no_empty_slots:16 | item_type_mask:35
+[EnchanterDebug] target=2376 | pos=32091,32204,7 | lvl=11 | max=1 | empty=1 | slots=1 | allowed=17/60 | allowed_ids=3,6,12,30,32,34,36,38,40,43 | min_level:8 | item_type_mask:35
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 14:01:10
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2064': OTML error in '/mods/game_crafting/crafting.otui:605': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:346: in function </mods/game_crafting/crafting.lua:341>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2068': OTML error in '/mods/game_crafting/crafting.otui:628': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:346: in function </mods/game_crafting/crafting.lua:341>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 14:03:03
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2064': OTML error in '/mods/game_crafting/crafting.otui:605': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:346: in function </mods/game_crafting/crafting.lua:341>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2068': OTML error in '/mods/game_crafting/crafting.otui:628': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:346: in function </mods/game_crafting/crafting.lua:341>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 14:08:04
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2064': OTML error in '/mods/game_crafting/crafting.otui:616': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:365: in function </mods/game_crafting/crafting.lua:360>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2068': OTML error in '/mods/game_crafting/crafting.otui:639': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:365: in function </mods/game_crafting/crafting.lua:360>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 14:59:55
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2064': OTML error in '/mods/game_crafting/crafting.otui:616': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:365: in function </mods/game_crafting/crafting.lua:360>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2068': OTML error in '/mods/game_crafting/crafting.otui:639': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:365: in function </mods/game_crafting/crafting.lua:360>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 15:09:22
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2064': OTML error in '/mods/game_crafting/crafting.otui:616': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2068': OTML error in '/mods/game_crafting/crafting.otui:639': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 15:11:26
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2061': OTML error in '/mods/game_crafting/crafting.otui:609': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2065': OTML error in '/mods/game_crafting/crafting.otui:632': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+[EnchanterDebug] target=2376 | pos=32091,32204,7 | lvl=11 | max=1 | empty=1 | slots=1 | allowed=17/60 | allowed_ids=3,6,12,30,32,34,36,38,40,43 | min_level:8 | item_type_mask:35
+[EnchanterDebug] target=2376 | pos=32091,32204,7 | lvl=11 | max=1 | empty=1 | slots=1 | allowed=17/60 | allowed_ids=3,6,12,30,32,34,36,38,40,43 | min_level:8 | item_type_mask:35
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 15:19:52
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2061': OTML error in '/mods/game_crafting/crafting.otui:636': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2065': OTML error in '/mods/game_crafting/crafting.otui:659': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 15:26:25
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2061': OTML error in '/mods/game_crafting/crafting.otui:636': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2065': OTML error in '/mods/game_crafting/crafting.otui:659': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+Login to 127.0.0.1:7172
+ERROR: protected lua call failed: /modules/game_topbar/topbar.lua:499: attempt to call global 'onError' (a nil value)
+stack traceback:
+	[C]: in function 'onError'
+	/modules/game_topbar/topbar.lua:499: in function 'load'
+	/modules/game_topbar/topbar.lua:160: in function </modules/game_topbar/topbar.lua:155>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+ERROR: lua function callback failed: C++ call failed: LUA ERROR: attempt to cast a 'nil' lua value to 'class Position'
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+stack traceback:
+	[builtin#142]: at 0x010c32f0
+	[C]: in function 'getSpectatorsInRangeEx'
+	/modules/game_battle/battle.lua:238: in function 'checkCreatures'
+	/modules/game_battle/battle.lua:224: in function </modules/game_battle/battle.lua:221>
+Exiting application..
+ERROR: protected lua call failed: /mods/game_store/store.lua:425: attempt to index global 'gameStoreWindow' (a nil value)
+stack traceback:
+	[C]: in function '__index'
+	/mods/game_store/store.lua:425: in function 'onGameStoreUpdatePoints'
+	/mods/game_store/store.lua:295: in function 'callback'
+	/modules/gamelib/protocolgame.lua:20: in function </modules/gamelib/protocolgame.lua:17>
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget5795': OTML error in '/mods/game_crafting/crafting.otui:636': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget5799': OTML error in '/mods/game_crafting/crafting.otui:659': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:373: in function </mods/game_crafting/crafting.lua:368>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 15:26:54
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2061': OTML error in '/mods/game_crafting/crafting.otui:636': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2065': OTML error in '/mods/game_crafting/crafting.otui:659': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 15:29:40
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2070': OTML error in '/mods/game_crafting/crafting.otui:636': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2074': OTML error in '/mods/game_crafting/crafting.otui:659': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
+GPU AMD Radeon(TM) Graphics (ATI Technologies Inc.)
+OpenGL 4.6.14761 Compatibility Profile Context 21.30.02.19 30.0.13002.19003
+[Atlas] Texture size is: 4096x4096 (max: 16384x16384)
+Found work dir at 'C:/Users/stelm/OneDrive/Pulpit/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 15:31:02
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+ERROR: failed to apply style to widget 'widget2084': OTML error in '/mods/game_crafting/crafting.otui:636': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+ERROR: failed to apply style to widget 'widget2088': OTML error in '/mods/game_crafting/crafting.otui:659': cannot create anchor, the parent widget doesn't use anchor layout!
+stack traceback:
+	[C]: in function 'displayUI'
+	/mods/game_crafting/crafting.lua:452: in function </mods/game_crafting/crafting.lua:447>
+at:
+	[C++]: ?applyStyle@UIWidget@@QAEXABV?$shared_object_ptr@VOTMLNode@@@stdext@@@Z
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=31
+[Tasks] action=points
+Exiting application..
