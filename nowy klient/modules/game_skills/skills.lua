@@ -4,6 +4,9 @@ bonusStatsWindow = nil
 bonusStatsButton = nil
 bonusRefreshEvent = nil
 bonusStatsPollEvent = nil
+speedSyncEvent = nil
+lastObservedSpeedValue = nil
+outfitSpeedBonusDisplay = 0
 inventorySignalDeadline = 0
 lastObservedSkillValues = {}
 syntheticEquipBonusBySkill = {}
@@ -28,6 +31,38 @@ local timedSkillBonusByItem = {
   [2212] = { skillId1 = true }, -- club ring
   [7955] = { skillId4 = true }  -- distance ring
 }
+
+local function computeOutfitSpeedBonus(look)
+  if not look then
+    return 0
+  end
+
+  local wingsValue = tonumber(look.lookWings or look.wings or 0) or 0
+  local auraValue = tonumber(look.lookAura or look.aura or 0) or 0
+  local rawShader = look.lookShader or look.shader or 0
+  local shaderValue = tonumber(rawShader)
+  local shaderActive = false
+  if shaderValue and shaderValue > 0 then
+    shaderActive = true
+  elseif type(rawShader) == 'string' then
+    local shaderName = rawShader:lower()
+    if shaderName ~= '' and shaderName ~= 'none' and shaderName ~= 'outfit_default' then
+      shaderActive = true
+    end
+  end
+
+  local bonus = 0
+  if wingsValue > 0 then
+    bonus = bonus + 5
+  end
+  if auraValue > 0 then
+    bonus = bonus + 3
+  end
+  if shaderActive then
+    bonus = bonus + 2
+  end
+  return bonus
+end
 
 local function trimText(text)
   if not text then
@@ -1010,11 +1045,47 @@ local function onSkillsInventoryChange(localPlayer, slot, item, oldItem)
 end
 
 local function onSkillsOutfitChange(localPlayer, outfit, oldOutfit)
+  outfitSpeedBonusDisplay = computeOutfitSpeedBonus(outfit)
   inventorySignalDeadline = g_clock.millis() + 1200
   requestServerExtraStats(true)
   onSpeedChange(localPlayer, localPlayer:getSpeed())
   refreshBonusStatsWindow(false)
   scheduleBonusDisplayRefresh(125)
+end
+
+local function stopSpeedSyncPolling()
+  if speedSyncEvent then
+    speedSyncEvent:cancel()
+    speedSyncEvent = nil
+  end
+end
+
+local function startSpeedSyncPolling()
+  stopSpeedSyncPolling()
+  speedSyncEvent = cycleEvent(function()
+    if not g_game.isOnline() then
+      return
+    end
+
+    local player = g_game.getLocalPlayer()
+    if not player then
+      return
+    end
+
+    local currentSpeed = tonumber(player:getSpeed()) or 0
+    local currentOutfitBonus = computeOutfitSpeedBonus(player:getOutfit())
+    local hasSpeedChanged = lastObservedSpeedValue ~= currentSpeed
+    local hasOutfitBonusChanged = outfitSpeedBonusDisplay ~= currentOutfitBonus
+
+    if hasOutfitBonusChanged then
+      outfitSpeedBonusDisplay = currentOutfitBonus
+    end
+
+    if hasSpeedChanged or hasOutfitBonusChanged then
+      lastObservedSpeedValue = currentSpeed
+      onSpeedChange(player, currentSpeed)
+    end
+  end, 250)
 end
 
 function init()
@@ -1057,6 +1128,7 @@ function init()
   refresh()
   skillsWindow:setup()
   bonusStatsWindow:setup()
+  startSpeedSyncPolling()
 
   if isBonusStatsWindowOpen() then
     bonusStatsButton:setOn(true)
@@ -1071,6 +1143,7 @@ function terminate()
     bonusRefreshEvent:cancel()
     bonusRefreshEvent = nil
   end
+  stopSpeedSyncPolling()
   stopBonusStatsPolling()
   clearServerExtraStatsSnapshot()
 
@@ -1284,7 +1357,10 @@ function refresh()
   local player = g_game.getLocalPlayer()
   if not player then return end
 
+  startSpeedSyncPolling()
   clearServerExtraStatsSnapshot()
+  lastObservedSpeedValue = nil
+  outfitSpeedBonusDisplay = 0
   inventorySignalDeadline = 0
   lastObservedSkillValues = {}
   syntheticEquipBonusBySkill = {}
@@ -1302,7 +1378,9 @@ function refresh()
   onMagicLevelChange(player, player:getMagicLevel(), player:getMagicLevelPercent())
   onOfflineTrainingChange(player, player:getOfflineTrainingTime())
   onRegenerationChange(player, player:getRegenerationTime())
+  outfitSpeedBonusDisplay = computeOutfitSpeedBonus(player:getOutfit())
   onSpeedChange(player, player:getSpeed())
+  lastObservedSpeedValue = tonumber(player:getSpeed()) or 0
 
   local hasAdditionalSkills = g_game.getFeature(GameAdditionalSkills)
   for i = Skill.Fist, Skill.ManaLeechAmount do
@@ -1340,8 +1418,11 @@ end
 
 function offline()
   if expSpeedEvent then expSpeedEvent:cancel() expSpeedEvent = nil end
+  stopSpeedSyncPolling()
   stopBonusStatsPolling()
   clearServerExtraStatsSnapshot()
+  lastObservedSpeedValue = nil
+  outfitSpeedBonusDisplay = 0
   inventorySignalDeadline = 0
   lastObservedSkillValues = {}
   syntheticEquipBonusBySkill = {}
@@ -1443,6 +1524,7 @@ function onLevelChange(localPlayer, value, percent)
   end
 
   setSkillPercent('level', percent, text)
+  onSpeedChange(localPlayer, localPlayer:getSpeed())
 end
 
 function onHealthChange(localPlayer, health, maxHealth)
@@ -1534,13 +1616,22 @@ function onRegenerationChange(localPlayer, regenerationTime)
 end
 
 function onSpeedChange(localPlayer, speed)
-  setSkillValue('speed', speed)
+  local level = tonumber(localPlayer:getLevel()) or 1
+  local expectedBaseSpeed = 220 + (2 * math.max(0, level - 1))
+  local serverSpeed = tonumber(speed) or 0
+  local outfitBonus = tonumber(outfitSpeedBonusDisplay) or 0
+  local displaySpeed = math.max(serverSpeed + outfitBonus, expectedBaseSpeed + outfitBonus)
+  setSkillValue('speed', displaySpeed)
 
   onBaseSpeedChange(localPlayer, localPlayer:getBaseSpeed())
 end
 
 function onBaseSpeedChange(localPlayer, baseSpeed)
-  setSkillBase('speed', localPlayer:getSpeed(), baseSpeed)
+  local level = tonumber(localPlayer:getLevel()) or 1
+  local expectedBaseSpeed = 220 + (2 * math.max(0, level - 1))
+  local outfitBonus = tonumber(outfitSpeedBonusDisplay) or 0
+  local displaySpeed = math.max((tonumber(localPlayer:getSpeed()) or 0) + outfitBonus, expectedBaseSpeed + outfitBonus)
+  setSkillBase('speed', displaySpeed, expectedBaseSpeed)
 end
 
 function onMagicLevelChange(localPlayer, magiclevel, percent)

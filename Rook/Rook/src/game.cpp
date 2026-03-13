@@ -4100,6 +4100,12 @@ void Game::changeSpeed(Creature* creature, int32_t varSpeedDelta)
 
 	creature->setSpeed(varSpeed);
 
+	// Keep local player's skills/stats panel in sync after any speed source
+	// change (wings, aura, shader, spells, conditions, mounts, etc.).
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
+	}
+
 	//send to clients
 	SpectatorVec spectators;
 	map.getSpectators(spectators, creature->getPosition(), false, true);

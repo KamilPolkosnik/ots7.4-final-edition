@@ -1,0 +1,15 @@
+Lushland Oasis - Version 1.0)
+
+Compiled with Microsoft Visual C++ version 1943
+Compiled on Mar 13 2026 15:34:10 for platform x64
+Linked with LuaJIT 2.1.0-beta3 for Lua support
+
+A server developed by Volearen
+A server downgraded by Nekiro
+Visit our forum for updates, support, and resources: https://otland.net/.
+
+>> Loading config
+>> Establishing database connection...
+MySQL Error Message: TLS/SSL error: no credentials. Error 0x8009030E(SEC_E_NO_CREDENTIALS)
+> ERROR: Failed to connect to database.
+>> No services running. The server is NOT online.

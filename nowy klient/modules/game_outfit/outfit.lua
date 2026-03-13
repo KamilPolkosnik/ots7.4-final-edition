@@ -1409,6 +1409,11 @@ function accept()
   end
 
   g_game.changeOutfit(tempOutfit)
+  scheduleEvent(function()
+    if modules and modules.game_skills and modules.game_skills.refresh then
+      modules.game_skills.refresh()
+    end
+  end, 50)
   destroy()
 end
 

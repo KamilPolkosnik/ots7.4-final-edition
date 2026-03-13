@@ -612,6 +612,12 @@ function onMountButtonClick(self, mousePos)
 end
 
 function onOutfitChange(localPlayer, outfit, oldOutfit)
+  if modules and modules.game_skills and modules.game_skills.refresh then
+    scheduleEvent(function()
+      modules.game_skills.refresh()
+    end, 1)
+  end
+
   if not mountButton then
     return
   end
