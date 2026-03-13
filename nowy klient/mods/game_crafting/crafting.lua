@@ -28,6 +28,7 @@ local Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {
 local money = 0
 local selectedEnchantTarget = nil
 local selectedEnchantTargetSlot = nil
+local selectedExtractorTarget = nil
 local allowedEnchanterCraftIds = {}
 local getCraftWidget = nil
 local craftPreviewAnimationEvents = {}
@@ -35,6 +36,8 @@ local extractorCraftIds = {
   [7882] = true,
   [7883] = true
 }
+local EXTRACTOR_TOOL_ITEM_ID = 7882
+local EXTRACTOR_TARGET_ITEM_ID = 7883
 local CRAFT_PREVIEW_BASE_BORDER_COLOR = "#4e5968"
 local CRAFT_PREVIEW_PULSE_STEPS = {
   {delay = 0, opacity = 0.88, marginTop = 4, borderColor = "#9c7640", active = true},
@@ -62,13 +65,18 @@ local function rebuildExtractorCrafts()
 
   for i = 1, #(Crafts.jeweller or {}) do
     local craft = Crafts.jeweller[i]
-    if isExtractorCraft(craft) then
+    if tonumber(craft.id) == EXTRACTOR_TOOL_ITEM_ID then
       local copy = {}
       for key, value in pairs(craft) do
         copy[key] = value
       end
       copy.sourceCategory = "jeweller"
       copy.sourceCraftId = i
+      copy.serviceType = "extractor"
+      copy.cost = 0
+      copy.materials = {}
+      copy.summary = "Use on crystal fossil"
+      copy.tooltip = "Select crystal fossil from backpack and extract crystals."
       table.insert(Crafts.extractor, copy)
     end
   end
@@ -94,6 +102,154 @@ local function getActiveRecipe(craft)
     return craft.recipes[craft.selectedRecipe], craft.selectedRecipe, #craft.recipes
   end
   return craft, 1, 1
+end
+
+local function getEnchantPreviewText(craft)
+  if selectedCategory ~= "enchanter" or not craft or not selectedEnchantTarget then
+    return ""
+  end
+
+  local effectName = tostring(craft.name or "")
+  local slotText = selectedEnchantTargetSlot and ("Slot " .. tostring(selectedEnchantTargetSlot)) or ""
+  if effectName ~= "" then
+    if slotText ~= "" then
+      return effectName .. "\n" .. slotText
+    end
+    return effectName
+  end
+
+  local summary = tostring(craft.summary or "")
+  if summary ~= "" and slotText ~= "" then
+    return summary .. "\n" .. slotText
+  end
+
+  return summary ~= "" and summary or slotText
+end
+
+local function getEnchantPreviewTooltip(craft)
+  if not craft then
+    return ""
+  end
+
+  local tooltip = tostring(craft.tooltip or "")
+  local summary = tostring(craft.summary or "")
+  if summary ~= "" and not tooltip:find(summary, 1, true) then
+    if tooltip ~= "" then
+      tooltip = tooltip .. "\n" .. summary
+    else
+      tooltip = summary
+    end
+  end
+  return tooltip
+end
+
+local function isExtractorServiceCraft(craft)
+  return craft and tostring(craft.serviceType or "") == "extractor"
+end
+
+local function getCurrentTargetThing()
+  if selectedCategory == "enchanter" then
+    return selectedEnchantTarget
+  elseif selectedCategory == "extractor" then
+    return selectedExtractorTarget
+  end
+  return nil
+end
+
+local function getExtractorPreviewText(craft)
+  if selectedCategory ~= "extractor" or not craft or not selectedExtractorTarget then
+    return ""
+  end
+
+  local label = tostring(craft.name or "Crystal Extractor")
+  if label ~= "" then
+    return label
+  end
+
+  return "Crystal Extraction"
+end
+
+local function getExtractorPreviewTooltip(craft)
+  if not craft then
+    return ""
+  end
+
+  local tooltip = tostring(craft.tooltip or "")
+  if tooltip == "" then
+    tooltip = "Select crystal fossil from backpack and extract crystals."
+  end
+  return tooltip
+end
+
+local function updateCraftActionButton()
+  local button = getCraftWidget("craftButton")
+  if not button then
+    return
+  end
+
+  local text = "Craft"
+  if selectedCategory and selectedCraftId then
+    local craft = Crafts[selectedCategory] and Crafts[selectedCategory][selectedCraftId]
+    if selectedCategory == "extractor" and isExtractorServiceCraft(craft) then
+      text = "Extract"
+    end
+  end
+  button:setText(text)
+end
+
+local function updateCraftPreview(craft, recipe)
+  local outcome = getCraftWidget("craftOutcome")
+  local outcomeCount = getCraftWidget("outcomeCount")
+  if not outcome or not craft then
+    return
+  end
+
+  local resultCount = tonumber(recipe and recipe.count) or tonumber(craft.count) or 1
+  local isEnchantPreview = selectedCategory == "enchanter" and selectedEnchantTarget ~= nil
+  local isExtractorPreview = selectedCategory == "extractor" and selectedExtractorTarget ~= nil and isExtractorServiceCraft(craft)
+
+  if isEnchantPreview then
+    local targetItemId = tonumber(selectedEnchantTarget.id) or 0
+    local targetSubType = tonumber(selectedEnchantTarget.subType) or 1
+    if targetItemId > 0 then
+      outcome:setItem(Item.create(targetItemId, targetSubType))
+    else
+      outcome:setItemId(craft.clientId)
+    end
+    outcome:setTooltip(getEnchantPreviewTooltip(craft))
+
+    if outcomeCount then
+      outcomeCount:setText(getEnchantPreviewText(craft))
+    end
+    return
+  end
+
+  if isExtractorPreview then
+    local targetItemId = tonumber(selectedExtractorTarget.id) or 0
+    local targetSubType = tonumber(selectedExtractorTarget.subType) or 1
+    if targetItemId > 0 then
+      outcome:setItem(Item.create(targetItemId, targetSubType))
+    else
+      outcome:setItemId(craft.clientId)
+    end
+    outcome:setTooltip(getExtractorPreviewTooltip(craft))
+
+    if outcomeCount then
+      outcomeCount:setText(getExtractorPreviewText(craft))
+    end
+    return
+  end
+
+  outcome:setItemId(craft.clientId)
+  outcome:setTooltip(craft.tooltip or "")
+
+  if outcomeCount then
+    if resultCount > 1 then
+      outcomeCount:setText("x" .. resultCount)
+    else
+      outcomeCount:setText("")
+    end
+  end
 end
 
 local function getMaterialTooltip(material)
@@ -251,11 +407,87 @@ local function refreshEnchantTargetSlotButtons()
   for i = 1, #enchantTargetSlotButtons do
     local button = enchantTargetSlotButtons[i]
     if button and button.slotValue then
-      local text = "Slot[" .. tostring(button.slotValue) .. "]"
+      local text = "Slot " .. tostring(button.slotValue)
       button:setText(text)
       button:setOn(tonumber(selectedEnchantTargetSlot) == tonumber(button.slotValue))
     end
   end
+end
+
+local function refreshTargetPanelAppearance()
+  local craft = selectedCategory and selectedCraftId and Crafts[selectedCategory] and Crafts[selectedCategory][selectedCraftId] or nil
+  local showEnchanter = selectedCategory == "enchanter"
+  local showExtractor = selectedCategory == "extractor" and isExtractorServiceCraft(craft)
+  local showTargetPanel = showEnchanter or showExtractor
+
+  if enchantTargetPanel then
+    enchantTargetPanel:setVisible(showTargetPanel)
+    if showEnchanter then
+      enchantTargetPanel:setHeight(120)
+    elseif showExtractor then
+      enchantTargetPanel:setHeight(78)
+    else
+      enchantTargetPanel:setHeight(0)
+    end
+  end
+
+  if enchantTargetLabel then
+    if showEnchanter then
+      enchantTargetLabel:setText("Enchant Target")
+    elseif showExtractor then
+      enchantTargetLabel:setText("Extractor Target")
+    end
+    enchantTargetLabel:setVisible(showTargetPanel)
+  end
+
+  if enchantTargetWidget then
+    enchantTargetWidget:setVisible(showTargetPanel)
+  end
+
+  if enchantTargetSelectButton then
+    enchantTargetSelectButton:setVisible(showTargetPanel)
+  end
+
+  if enchantTargetSlotsPanel then
+    enchantTargetSlotsPanel:setVisible(showEnchanter)
+  end
+
+  if enchantTargetHint then
+    enchantTargetHint:setVisible(showTargetPanel)
+  end
+end
+
+local function refreshEnchantTargetHint(slotCount)
+  if not enchantTargetHint then
+    return
+  end
+
+  if not selectedEnchantTarget then
+    enchantTargetHint:setText("")
+    return
+  end
+
+  slotCount = tonumber(slotCount) or 0
+  if slotCount <= 0 then
+    enchantTargetHint:setText("No empty enchant slots on selected item")
+  elseif slotCount == 1 then
+    enchantTargetHint:setText("Using slot " .. tostring(selectedEnchantTargetSlot or 1))
+  else
+    enchantTargetHint:setText("")
+  end
+end
+
+local function refreshExtractorTargetHint()
+  if not enchantTargetHint then
+    return
+  end
+
+  if not selectedExtractorTarget then
+    enchantTargetHint:setText("")
+    return
+  end
+
+  enchantTargetHint:setText("")
 end
 
 local function updateCostColors(totalCost)
@@ -290,6 +522,7 @@ local function updateEnchantTargetSlots(emptySlots)
     end
   end
   table.sort(normalized)
+  local slotCount = #normalized
 
   local selectedStillValid = false
   for _, slot in ipairs(normalized) do
@@ -313,8 +546,9 @@ local function updateEnchantTargetSlots(emptySlots)
         button.onClick = function()
           selectedEnchantTargetSlot = slot
           refreshEnchantTargetSlotButtons()
-          if enchantTargetHint then
-            enchantTargetHint:setText("slot: " .. tostring(selectedEnchantTargetSlot))
+          refreshEnchantTargetHint(slotCount)
+          if selectedCategory == "enchanter" and selectedCraftId then
+            selectItem(selectedCraftId)
           end
           return true
         end
@@ -328,6 +562,21 @@ local function updateEnchantTargetSlots(emptySlots)
   end
 
   refreshEnchantTargetSlotButtons()
+  refreshEnchantTargetHint(slotCount)
+end
+
+local function clearExtractorTargetSelection(skipRefresh)
+  selectedExtractorTarget = nil
+  if selectedCategory == "extractor" then
+    if enchantTargetWidget then
+      enchantTargetWidget:setItem(nil)
+      enchantTargetWidget:setTooltip("")
+    end
+    refreshExtractorTargetHint()
+    if not skipRefresh and selectedCraftId then
+      selectItem(selectedCraftId)
+    end
+  end
 end
 
 local function requestEnchanterOptions()
@@ -359,11 +608,62 @@ local function clearEnchantTargetSelection()
     enchantTargetWidget:setTooltip("")
   end
   if enchantTargetHint then
-    enchantTargetHint:setText("choose item from backpack and empty slot")
+    enchantTargetHint:setText("")
   end
   if selectedCategory == "enchanter" then
     refreshItemsList()
   end
+end
+
+local function applyExtractorTargetThing(targetThing)
+  if not targetThing or not targetThing:isItem() then
+    modules.game_textmessage.displayFailureMessage("Select an item.")
+    return false
+  end
+
+  local pos = targetThing:getPosition()
+  if not pos then
+    modules.game_textmessage.displayFailureMessage("Invalid target item.")
+    return false
+  end
+
+  if pos.x ~= 65535 then
+    modules.game_textmessage.displayFailureMessage("Select item from backpack/container only.")
+    return false
+  end
+
+  if pos.y <= InventorySlotLast then
+    modules.game_textmessage.displayFailureMessage("Select from backpack/container, not equipped slot.")
+    return false
+  end
+
+  local itemId = targetThing:getId()
+  if itemId ~= EXTRACTOR_TARGET_ITEM_ID then
+    modules.game_textmessage.displayFailureMessage("Select crystal fossil.")
+    return false
+  end
+
+  local stackPos = targetThing.getStackPos and targetThing:getStackPos() or 0
+  local subType = targetThing.getCountOrSubType and targetThing:getCountOrSubType() or 1
+  selectedExtractorTarget = {
+    x = pos.x,
+    y = pos.y,
+    z = pos.z,
+    stackpos = stackPos,
+    id = itemId,
+    subType = subType
+  }
+
+  if enchantTargetWidget then
+    enchantTargetWidget:setItem(Item.create(itemId, subType))
+    enchantTargetWidget:setTooltip("Selected item id: " .. itemId)
+  end
+
+  refreshExtractorTargetHint()
+  if selectedCategory == "extractor" and selectedCraftId then
+    selectItem(selectedCraftId)
+  end
+  return true
 end
 
 local function applyEnchantTargetThing(targetThing)
@@ -404,12 +704,15 @@ local function applyEnchantTargetThing(targetThing)
     enchantTargetWidget:setItem(Item.create(itemId, subType))
     enchantTargetWidget:setTooltip("Selected item id: " .. itemId)
   end
-  if enchantTargetHint then
-    enchantTargetHint:setText("item id: " .. itemId .. " pos: " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " | loading...")
-  end
 
   selectedEnchantTargetSlot = nil
   updateEnchantTargetSlots({})
+  if enchantTargetHint then
+    enchantTargetHint:setText("Loading empty slots...")
+  end
+  if selectedCategory == "enchanter" and selectedCraftId then
+    selectItem(selectedCraftId)
+  end
   requestEnchanterOptions()
   return true
 end
@@ -484,12 +787,26 @@ function create()
       if not draggedItem or not draggedItem:isItem() then
         return false
       end
+      if selectedCategory == "extractor" then
+        return applyExtractorTargetThing(draggedItem)
+      end
       return applyEnchantTargetThing(draggedItem)
     end
 
     enchantTargetWidget.onMouseRelease = function(self, mousePos, mouseButton)
       if mouseButton == MouseRightButton then
-        clearEnchantTargetSelection()
+        if selectedCategory == "extractor" then
+          clearExtractorTargetSelection(true)
+          if enchantTargetWidget then
+            enchantTargetWidget:setItem(nil)
+            enchantTargetWidget:setTooltip("")
+          end
+          if selectedCraftId then
+            selectItem(selectedCraftId)
+          end
+        else
+          clearEnchantTargetSelection()
+        end
         return true
       end
       return false
@@ -530,6 +847,7 @@ function destroy()
     Crafts = {weaponsmith = {}, armorsmith = {}, alchemist = {}, enchanter = {}, jeweller = {}, extractor = {}}
     selectedEnchantTarget = nil
     selectedEnchantTargetSlot = nil
+    selectedExtractorTarget = nil
     allowedEnchanterCraftIds = {}
 
     window:destroy()
@@ -618,25 +936,19 @@ function onExtendedOpcode(protocol, code, buffer)
     onItemCrafted()
     if selectedCategory == "enchanter" and selectedEnchantTarget then
       requestEnchanterOptions()
+    elseif selectedCategory == "extractor" and selectedCraftId then
+      selectItem(selectedCraftId)
     end
   elseif action == "close" then
     clearEnchantTargetSelection()
+    clearExtractorTargetSelection(true)
     hide()
   elseif action == "enchanter_options" then
     local ids = data and data.ids or {}
     setAllowedEnchanterCraftIds(ids)
     updateEnchantTargetSlots(data and data.emptySlots or {})
-    if enchantTargetHint and selectedCategory == "enchanter" and selectedEnchantTarget then
-      local optionsText = "options: " .. tostring(type(ids) == "table" and #ids or 0) .. " | slot: " .. tostring(selectedEnchantTargetSlot or "-")
-      if data and data.debug and data.debug ~= "" then
-        enchantTargetHint:setText(optionsText)
-        g_logger.info("[EnchanterDebug] " .. data.debug)
-        if modules.game_textmessage and modules.game_textmessage.displayStatusMessage then
-          modules.game_textmessage.displayStatusMessage(data.debug)
-        end
-      else
-        enchantTargetHint:setText(optionsText)
-      end
+    if data and data.debug and data.debug ~= "" then
+      g_logger.info("[EnchanterDebug] " .. data.debug)
     end
     if selectedCategory == "enchanter" then
       refreshItemsList()
@@ -656,10 +968,19 @@ function onItemCrafted()
       scheduleEvent(
         function()
           button:enable()
+          updateCraftActionButton()
         end,
         860
       )
     end
+  end
+end
+
+function selectCurrentTargetUseWith()
+  if selectedCategory == "extractor" then
+    selectExtractorTargetUseWith()
+  else
+    selectEnchantTargetUseWith()
   end
 end
 
@@ -908,6 +1229,8 @@ local function resetCraftDetails()
   end
   updateCostColors(0)
   updateRecipeControls(1, 1)
+  updateCraftActionButton()
+  refreshTargetPanelAppearance()
 end
 
 local function rebuildMaterialsList(recipeMaterials)
@@ -954,7 +1277,6 @@ local function updateCategoryLayout()
   local showWeapon = selectedCategory == "weaponsmith"
   local showArmor = selectedCategory == "armorsmith"
   local showAlchemist = selectedCategory == "alchemist"
-  local showEnchanter = selectedCategory == "enchanter"
   local hasSubcategory = showWeapon or showArmor or showAlchemist
 
   weaponCategoryPanel:setVisible(showWeapon)
@@ -970,25 +1292,8 @@ local function updateCategoryLayout()
     end
   end
 
-  if enchantTargetPanel then
-    enchantTargetPanel:setVisible(showEnchanter)
-    enchantTargetPanel:setHeight(showEnchanter and 102 or 0)
-  end
-  if enchantTargetWidget then
-    enchantTargetWidget:setVisible(showEnchanter)
-  end
-  if enchantTargetLabel then
-    enchantTargetLabel:setVisible(showEnchanter)
-  end
-  if enchantTargetHint then
-    enchantTargetHint:setVisible(showEnchanter)
-  end
-  if enchantTargetSelectButton then
-    enchantTargetSelectButton:setVisible(showEnchanter)
-  end
-  if enchantTargetSlotsPanel then
-    enchantTargetSlotsPanel:setVisible(showEnchanter)
-  end
+  refreshTargetPanelAppearance()
+  updateCraftActionButton()
 end
 
 function refreshItemsList()
@@ -1104,7 +1409,7 @@ function selectEnchantTargetUseWith()
 
   clearEnchantTargetSelection()
   if enchantTargetHint then
-    enchantTargetHint:setText("click item in backpack")
+    enchantTargetHint:setText("Click item in backpack")
   end
 
   local selectorItem = Item.create(3031, 1)
@@ -1119,6 +1424,36 @@ function selectEnchantTargetUseWith()
       return
     end
     applyEnchantTargetThing(targetThing)
+  end)
+end
+
+function selectExtractorTargetUseWith()
+  if selectedCategory ~= "extractor" then
+    return
+  end
+
+  if not modules.game_interface or not modules.game_interface.startUseWith then
+    modules.game_textmessage.displayFailureMessage("Use-with selector is unavailable.")
+    return
+  end
+
+  clearExtractorTargetSelection(true)
+  if enchantTargetHint then
+    enchantTargetHint:setText("Click crystal fossil in backpack")
+  end
+
+  local selectorItem = Item.create(EXTRACTOR_TOOL_ITEM_ID, 1)
+  modules.game_interface.startUseWith(selectorItem, 0, function(clickedWidget, mousePos, targetThing)
+    if clickedWidget and clickedWidget.getClassName and clickedWidget:getClassName() == "UIItem" and clickedWidget.isVirtual and clickedWidget:isVirtual() then
+      modules.game_textmessage.displayFailureMessage("Select real item from backpack/container.")
+      return
+    end
+
+    if not targetThing or not targetThing:isItem() then
+      modules.game_textmessage.displayFailureMessage("Select item from backpack/container.")
+      return
+    end
+    applyExtractorTargetThing(targetThing)
   end)
 end
 
@@ -1219,24 +1554,16 @@ function selectItem(id)
     return
   end
 
+  refreshTargetPanelAppearance()
   local recipeMaterials = recipe.materials or {}
   rebuildMaterialsList(recipeMaterials)
 
   local outcome = getCraftWidget("craftOutcome")
   local resultCount = tonumber(recipe.count) or tonumber(craft.count) or 1
-  if outcome then
-    outcome:setItemId(craft.clientId)
+  if outcome and outcome.setItemCount then
     outcome:setItemCount(resultCount)
-    outcome:setTooltip(craft.tooltip or "")
   end
-  local outcomeCount = getCraftWidget("outcomeCount")
-  if outcomeCount then
-    if resultCount > 1 then
-      outcomeCount:setText("x" .. resultCount)
-    else
-      outcomeCount:setText("")
-    end
-  end
+  updateCraftPreview(craft, recipe)
   local totalCost = recipe.cost or craft.cost or 0
   local totalCostLabel = getCraftWidget("totalCost")
   if totalCostLabel then
@@ -1244,6 +1571,7 @@ function selectItem(id)
   end
   updateCostColors(totalCost)
   updateRecipeControls(recipeIndex, recipeCount)
+  updateCraftActionButton()
 end
 
 function focusSearch()
@@ -1269,7 +1597,8 @@ function craftItem()
       local payload = {
         category = craft.sourceCategory or selectedCategory,
         craftId = craft.sourceCraftId or selectedCraftId,
-        recipeId = recipeIndex
+        recipeId = recipeIndex,
+        uiCategory = selectedCategory
       }
       if selectedCategory == "enchanter" then
         if not selectedEnchantTarget then
@@ -1282,6 +1611,12 @@ function craftItem()
         end
         payload.target = selectedEnchantTarget
         payload.targetSlot = selectedEnchantTargetSlot
+      elseif selectedCategory == "extractor" and isExtractorServiceCraft(craft) then
+        if not selectedExtractorTarget then
+          modules.game_textmessage.displayFailureMessage("Select crystal fossil first.")
+          return
+        end
+        payload.target = selectedExtractorTarget
       end
       protocolGame:sendExtendedOpcode(CODE, json.encode({action = "craft", data = payload}))
       playCraftPreviewAnimation()
