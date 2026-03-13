@@ -1,4 +1,4 @@
-local window = nil
+﻿local window = nil
 
 local appearanceGroup = nil
 local colorModeGroup = nil
@@ -67,6 +67,56 @@ local function formatShaderName(name)
   text = text:gsub("(%a)([%w']*)", function(a, b)
     return string.upper(a) .. string.lower(b or "")
   end)
+  return text
+end
+
+local customOutfitNames = {
+  [159] = "Norseman",
+  [254] = "Moon Vanguard",
+  [264] = "Moon Vanguard",
+  [255] = "Void Reaper",
+  [256] = "Arcane Sentinel",
+  [257] = "Night Sovereign",
+  [258] = "Ruby Vanguard",
+  [260] = "Desert Marshal",
+  [263] = "Desert Marshal",
+  [547] = "Astral Judge",
+  [548] = "Death",
+  [549] = "Death",
+  [551] = "Astral Judge",
+  [557] = "Night Sovereign",
+  [558] = "Dragon Slayer",
+  [559] = "Void Hexer",
+  [560] = "Void Hexer",
+  [561] = "Eclipse Vanguard",
+  [562] = "Eclipse Vanguard",
+  [556] = "Void Reaper",
+  [571] = "Ruby Vanguard",
+  [573] = "Abyss Knight",
+  [574] = "Night Sovereign",
+  [577] = "Solar Templar",
+  [578] = "Solar Templar",
+  [632] = "Golden Knight",
+  [633] = "Royal Warrior",
+  [634] = "Golden Assassin",
+  [635] = "Dragon Slayer",
+  [636] = "Golden Knight",
+  [637] = "Royal Warrior",
+  [638] = "Golden Assassin",
+  [639] = "Dragon Slayer"
+}
+
+local function formatOutfitName(lookType, name)
+  local text = tostring(name or "")
+  if customOutfitNames[lookType] then
+    return customOutfitNames[lookType]
+  end
+
+  local lower = string.lower(text)
+  if text == "" or lower:find("custom outfit", 1, true) then
+    return "Outfit " .. tostring(lookType or "?")
+  end
+
   return text
 end
 
@@ -636,7 +686,7 @@ function showOutfits()
     outfit.manaBar = 0
     button.outfit:setOutfit(outfit)
     button.outfit:setCenter(true)
-    button.name:setText(outfitData[2])
+    button.name:setText(formatOutfitName(outfitData[1], outfitData[2]))
     if tempOutfit.type == outfitData[1] then
       focused = outfitData[1]
       configureAddons(outfitData[3])
@@ -1073,7 +1123,7 @@ function updateAppearanceTexts(outfit)
           if appKey == "shader" then
             updateAppearanceText(appKey, formatShaderName(data[2]))
           else
-            updateAppearanceText(appKey, data[2])
+            updateAppearanceText(appKey, formatOutfitName(data[1], data[2]))
           end
         end
       end
@@ -1361,3 +1411,4 @@ function accept()
   g_game.changeOutfit(tempOutfit)
   destroy()
 end
+

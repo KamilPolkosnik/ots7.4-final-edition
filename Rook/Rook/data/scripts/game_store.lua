@@ -20,6 +20,21 @@ local SHOP_HISTORY_COLUMN_CACHE = {}
 local SHOP_HISTORY_ID_EXPLICIT = nil
 local GAME_STORE_OFFERS_CHUNK_SIZE = 20
 local GAME_STORE_HISTORY_CHUNK_SIZE = 40
+GameStoreOutfitMirror = GameStoreOutfitMirror or {}
+
+local STORE_EXPLICIT_OUTFIT_MIRROR_PAIRS = {
+	-- Keep optional explicit pairs here only if an outfit is single-sex in offers.
+}
+
+local function registerOutfitMirrorPair(a, b)
+	a = tonumber(a)
+	b = tonumber(b)
+	if not a or not b or a <= 0 or b <= 0 then
+		return
+	end
+	GameStoreOutfitMirror[a] = b
+	GameStoreOutfitMirror[b] = a
+end
 
 local function shopHistoryHasColumn(columnName)
 	local cacheKey = tostring(columnName)
@@ -440,6 +455,11 @@ function gameStoreInitialize()
 		offers = {}
 	}
 
+	for i = 1, #STORE_EXPLICIT_OUTFIT_MIRROR_PAIRS do
+		local pair = STORE_EXPLICIT_OUTFIT_MIRROR_PAIRS[i]
+		registerOutfitMirrorPair(pair[1], pair[2])
+	end
+
 	addCategory("Premium Scrolls", "Premium account scrolls.", "item", 5546)
 	addItem(
 		"Premium Scrolls",
@@ -644,8 +664,8 @@ addOutfit(
 
 addOutfit(
 	"Outfits",
-	"Noblewoman",
-	"Noblewoman",
+	"Noble",
+	"Noble",
 	{
 		mount = 0,
 		type = 132,
@@ -973,15 +993,6 @@ addOutfit(
 	"Brotherhood",
 	{
 		mount = 0,
-		type = 165,
-		addons = 3,
-		head = 114,
-		body = 114,
-		legs = 114,
-		feet = 114
-	},
-	{
-		mount = 0,
 		type = 166,
 		addons = 3,
 		head = 114,
@@ -989,13 +1000,22 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
+	{
+		mount = 0,
+		type = 165,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
 	450
 )
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 254",
-	"Custom Outfit 254",
+	"Moon Vanguard",
+	"Moon Vanguard",
 	{
 		mount = 0,
 		type = 254,
@@ -1007,20 +1027,129 @@ addOutfit(
 	},
 	{
 		mount = 0,
-		type = 254,
+		type = 264,
 		addons = 3,
 		head = 114,
 		body = 114,
 		legs = 114,
 		feet = 114
 	},
-	450
+	550
 )
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 255",
-	"Custom Outfit 255",
+	"Desert Marshal",
+	"Desert Marshal",
+	{
+		mount = 0,
+		type = 263,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 260,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	550
+)
+
+addOutfit(
+	"Outfits",
+	"Void Hexer",
+	"Void Hexer",
+	{
+		mount = 0,
+		type = 559,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 560,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	550
+)
+
+addOutfit(
+	"Outfits",
+	"Dragon Slayer",
+	"Dragon Slayer",
+	{
+		mount = 0,
+		type = 635,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 639,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	1499
+)
+
+addOutfit(
+	"Outfits",
+	"Eclipse Vanguard",
+	"Eclipse Vanguard",
+	{
+		mount = 0,
+		type = 562,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 561,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	550
+)
+
+addOutfit(
+	"Outfits",
+	"Void Reaper",
+	"Void Reaper",
+	{
+		mount = 0,
+		type = 556,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
 	{
 		mount = 0,
 		type = 255,
@@ -1030,72 +1159,13 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	{
-		mount = 0,
-		type = 255,
-		addons = 3,
-		head = 114,
-		body = 114,
-		legs = 114,
-		feet = 114
-	},
-	450
+	750
 )
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 256",
-	"Custom Outfit 256",
-	{
-		mount = 0,
-		type = 256,
-		addons = 3,
-		head = 114,
-		body = 114,
-		legs = 114,
-		feet = 114
-	},
-	{
-		mount = 0,
-		type = 256,
-		addons = 3,
-		head = 114,
-		body = 114,
-		legs = 114,
-		feet = 114
-	},
-	450
-)
-
-addOutfit(
-	"Outfits",
-	"Custom Outfit 571",
-	"Custom Outfit 571",
-	{
-		mount = 0,
-		type = 571,
-		addons = 3,
-		head = 114,
-		body = 114,
-		legs = 114,
-		feet = 114
-	},
-	{
-		mount = 0,
-		type = 571,
-		addons = 3,
-		head = 114,
-		body = 114,
-		legs = 114,
-		feet = 114
-	},
-	450
-)
-
-addOutfit(
-	"Outfits",
-	"Custom Outfit 573",
-	"Custom Outfit 573",
+	"Abyss Knight",
+	"Abyss Knight",
 	{
 		mount = 0,
 		type = 573,
@@ -1114,16 +1184,16 @@ addOutfit(
 		legs = 114,
 		feet = 114
 	},
-	450
+	1299
 )
 
 addOutfit(
 	"Outfits",
-	"Custom Outfit 578",
-	"Custom Outfit 578",
+	"Night Sovereign",
+	"Night Sovereign",
 	{
 		mount = 0,
-		type = 578,
+		type = 574,
 		addons = 3,
 		head = 114,
 		body = 114,
@@ -1132,18 +1202,167 @@ addOutfit(
 	},
 	{
 		mount = 0,
-		type = 578,
+		type = 257,
 		addons = 3,
 		head = 114,
 		body = 114,
 		legs = 114,
 		feet = 114
 	},
-	450
+	1499
 )
 
-	addItem("Outfits", "Outfit doll", "Use to receive one random outfit from Store Outfits that you don't own yet.", 5811, 1, 299)
-	
+addOutfit(
+	"Outfits",
+	"Solar Templar",
+	"Solar Templar",
+	{
+		mount = 0,
+		type = 578,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 577,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	1799
+)
+
+addOutfit(
+	"Outfits",
+	"Golden Knight",
+	"Golden Knight",
+	{
+		mount = 0,
+		type = 632,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 636,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	1999
+)
+
+addOutfit(
+	"Outfits",
+	"Royal Warrior",
+	"Royal Warrior",
+	{
+		mount = 0,
+		type = 633,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 637,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	1499
+)
+
+addOutfit(
+	"Outfits",
+	"Astral Judge",
+	"Astral Judge",
+	{
+		mount = 0,
+		type = 551,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 547,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	2999
+)
+
+addOutfit(
+	"Outfits",
+	"Death",
+	"Death",
+	{
+		mount = 0,
+		type = 548,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 549,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	2999
+)
+
+addOutfit(
+	"Outfits",
+	"Golden Assassin",
+	"Golden Assassin",
+	{
+		mount = 0,
+		type = 638,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	{
+		mount = 0,
+		type = 634,
+		addons = 3,
+		head = 114,
+		body = 114,
+		legs = 114,
+		feet = 114
+	},
+	1499
+)
+
+	addItem("Outfits", "Outfit doll", "Use to receive one random basic outfit (only outfits priced at 450 points) that you do not own yet.", 5811, 1, 299)
 
 	addCategory("Mounts", "Fine selection of unique mounts.", "mount", 397)
 	addMount("Mounts", "Crystal Wolf", "from the deep ice caves", 1, 388, 600)
@@ -1203,7 +1422,6 @@ addOutfit(
 	addShader("Shaders", "Darken Starslink", "Dark starslink shader.", 5, 128, 399)
 	addShader("Shaders", "Matrix Fall", "Matrix-style falling lines shader.", 6, 128, 399)
 	addShader("Shaders", "Outline Green", "Green outline shader.", 7, 128, 399)
-	addShader("Shaders", "Red Glow", "Red glow shader.", 8, 128, 399)
 	addShader("Shaders", "Outline Rainbow", "Rainbow outline shader.", 9, 128, 399)
 
 	addCategory("Items", "Utility items.", "item", 7962)
@@ -1301,6 +1519,23 @@ addOutfit(
 	addItem("Training", "Exercise Sword", "1500 uses. Attack speed is 10% faster.", 6880, 1, 109, trainingWeaponStoreCallback())
 	addItem("Training", "Exercise Club", "1500 uses. Attack speed is 10% faster.", 6881, 1, 109, trainingWeaponStoreCallback())
 
+	-- Keep all store offers ordered by price (cheap -> expensive), then by title.
+	for _, offersTable in pairs(GAME_STORE.offers) do
+		if type(offersTable) == "table" then
+			table.sort(
+				offersTable,
+				function(a, b)
+					local pa = tonumber(a.price) or 0
+					local pb = tonumber(b.price) or 0
+					if pa ~= pb then
+						return pa < pb
+					end
+					return tostring(a.title or "") < tostring(b.title or "")
+				end
+			)
+		end
+	end
+
 end
 
 local ExtendedEvent = CreatureEvent("GameStoreExtended")
@@ -1374,19 +1609,35 @@ function gameStoreFetch(player)
 				data.aura = offer.aura
 			end
 		
-			if sex == PLAYERSEX_MALE then
-				if offer.outfitMale then
+			local includeOffer = true
+			if offer.type == "outfit" then
+				if sex == PLAYERSEX_MALE then
 					data.outfit = offer.outfitMale
-				end
-			else
-				if offer.outfitFemale then
+				else
 					data.outfit = offer.outfitFemale
 				end
+
+				-- Hide sex-locked outfit offers that do not have a variant for current player sex.
+				if not data.outfit then
+					includeOffer = false
+				end
+			else
+				if sex == PLAYERSEX_MALE then
+					if offer.outfitMale then
+						data.outfit = offer.outfitMale
+					end
+				else
+					if offer.outfitFemale then
+						data.outfit = offer.outfitFemale
+					end
+				end
 			end
-			if offer.data then
-				data.data = offer.data
+			if includeOffer then
+				if offer.data then
+					data.data = offer.data
+				end
+				table.insert(offers, data)
 			end
-			table.insert(offers, data)
 		end
 
 		local total = math.max(1, math.ceil(#offers / GAME_STORE_OFFERS_CHUNK_SIZE))
@@ -1706,6 +1957,18 @@ function addOutfit(category, title, description, outfitMale, outfitFemale, price
 			callback = callback
 		}
 	)
+
+	-- Keep male/female mirror mapping globally so sex-change can preserve outfits with counterparts.
+	if outfitMale and outfitFemale and outfitMale.type and outfitFemale.type then
+		registerOutfitMirrorPair(outfitMale.type, outfitFemale.type)
+	end
+end
+
+function addOutfitForSex(category, title, description, outfitData, sex, price, callback)
+	if sex == PLAYERSEX_MALE then
+		return addOutfit(category, title, description, outfitData, nil, price, callback)
+	end
+	return addOutfit(category, title, description, nil, outfitData, price, callback)
 end
 
 function addMount(category, title, description, mountId, clientId, price, callback)
@@ -1943,24 +2206,43 @@ function defaultItemCallback(player, offer)
 end
 
 function defaultOutfitCallback(player, offer)
-	if offer.outfitMale.addons > 0 then
-		if player:hasOutfit(offer.outfitMale.type, offer.outfitMale.addons) then
+	local selected = player:getSex() == PLAYERSEX_MALE and offer.outfitMale or offer.outfitFemale
+	if not selected then
+		return "This outfit is not available for your character sex."
+	end
+
+	local opposite = player:getSex() == PLAYERSEX_MALE and offer.outfitFemale or offer.outfitMale
+	local checkAddons = selected.addons or 0
+	local hasSelected = checkAddons > 0 and player:hasOutfit(selected.type, checkAddons) or player:hasOutfit(selected.type)
+	local hasOpposite = false
+	if opposite then
+		local oppositeAddons = opposite.addons or 0
+		hasOpposite = oppositeAddons > 0 and player:hasOutfit(opposite.type, oppositeAddons) or player:hasOutfit(opposite.type)
+	end
+
+	if hasSelected and (not opposite or hasOpposite) then
+		if checkAddons > 0 then
 			return "You already have this outfit with addons."
 		end
+		return "You already have this outfit."
+	end
 
-		player:addOutfitAddon(offer.outfitMale.type, offer.outfitMale.addons)
+	if checkAddons > 0 then
+		player:addOutfitAddon(selected.type, checkAddons)
 	else
-		if player:hasOutfit(offer.outfitMale.type) then
-			return "You already have this outfit."
+		player:addOutfit(selected.type)
+	end
+
+	-- If this outfit has a male/female counterpart, grant it too to survive sex changes.
+	if opposite then
+		local oppositeAddons = opposite.addons or 0
+		if oppositeAddons > 0 then
+			player:addOutfitAddon(opposite.type, oppositeAddons)
+		else
+			player:addOutfit(opposite.type)
 		end
+	end
 
-		player:addOutfit(offer.outfitMale.type)
-	end
-	if offer.outfitFemale.addons > 0 then
-		player:addOutfitAddon(offer.outfitFemale.type, offer.outfitFemale.addons)
-	else
-		player:addOutfit(offer.outfitFemale.type)
-	end
 	return true
 end
 

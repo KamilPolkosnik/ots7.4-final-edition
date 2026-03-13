@@ -186,10 +186,10 @@
 	<house name="Magician's Alley 1c" houseid="193" entryx="32311" entryy="31795" entryz="6" rent="500" townid="5" size="7" />
 	<house name="Magician's Alley 1a" houseid="194" entryx="32311" entryy="31798" entryz="6" rent="700" townid="5" size="7" />
 	<house name="Magician's Alley 1d" houseid="195" entryx="32311" entryy="31798" entryz="6" rent="450" townid="5" size="6" />
-	<house name="Carlin Clanhall" houseid="197" entryx="32307" entryy="31818" entryz="7" rent="11450" guildhall="true" townid="5" size="164" />
+	<house name="Carlin Clanhall" houseid="197" entryx="32307" entryy="31818" entryz="7" rent="11450" guildhall="true" townid="5" size="165" />
 	<house name="Magician's Alley 4" houseid="198" entryx="32317" entryy="31820" entryz="7" rent="2750" townid="5" size="39" />
 	<house name="Magician's Alley 8" houseid="199" entryx="32331" entryy="31819" entryz="7" rent="1400" townid="5" size="20" />
-	<house name="Lonely Sea Side Hostel" houseid="201" entryx="32319" entryy="31835" entryz="7" rent="12180" guildhall="true" townid="5" size="236" />
+	<house name="Lonely Sea Side Hostel" houseid="201" entryx="32319" entryy="31835" entryz="7" rent="12180" guildhall="true" townid="5" size="239" />
 	<house name="Suntower" houseid="202" entryx="32341" entryy="31847" entryz="7" rent="10080" guildhall="true" townid="5" size="192" />
 	<house name="Harbour Lane 3" houseid="203" entryx="32362" entryy="31823" entryz="7" rent="3560" townid="5" size="76" />
 	<house name="Harbour Flats, Flat 11" houseid="204" entryx="32378" entryy="31836" entryz="6" rent="520" townid="5" size="10" />
@@ -213,7 +213,7 @@
 	<house name="Theater Avenue 6b" houseid="222" entryx="32376" entryy="31794" entryz="6" rent="820" townid="5" size="10" />
 	<house name="East Lane 1a" houseid="223" entryx="32393" entryy="31796" entryz="7" rent="2260" townid="5" size="47" />
 	<house name="East Lane 1b" houseid="224" entryx="32396" entryy="31801" entryz="6" rent="1700" townid="5" size="34" />
-	<house name="East Lane 2" houseid="225" entryx="32399" entryy="31798" entryz="7" rent="4500" townid="5" size="89" />
+	<house name="East Lane 2" houseid="225" entryx="32399" entryy="31798" entryz="7" rent="4500" townid="5" size="92" />
 	<house name="Moonkeep" houseid="226" entryx="32432" entryy="31762" entryz="7" rent="13020" guildhall="true" townid="5" size="227" />
 	<house name="Northern Street 7" houseid="227" entryx="32389" entryy="31774" entryz="7" rent="1700" townid="5" size="33" />
 	<house name="Northern Street 5" houseid="228" entryx="32380" entryy="31772" entryz="7" rent="1980" townid="5" size="40" />

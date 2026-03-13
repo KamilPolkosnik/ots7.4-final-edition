@@ -45,10 +45,10 @@ local shaderNameById = {
 local function buildEffectPreviewOutfit(effectType, effectValue)
   local outfit = {
     type = 128,
-    head = 0,
-    body = 0,
-    legs = 0,
-    feet = 0,
+    head = 114,
+    body = 114,
+    legs = 114,
+    feet = 114,
     addons = 0,
     mount = 0,
     wings = 0,
@@ -56,17 +56,76 @@ local function buildEffectPreviewOutfit(effectType, effectValue)
     shader = "outfit_default"
   }
 
+  if g_game and g_game.isOnline and g_game:isOnline() then
+    local player = g_game.getLocalPlayer and g_game:getLocalPlayer() or nil
+    if player and player.getOutfit then
+      local current = player:getOutfit()
+      if current then
+        outfit.type = tonumber(current.type or current.lookType) or outfit.type
+        outfit.head = tonumber(current.head or current.lookHead) or outfit.head
+        outfit.body = tonumber(current.body or current.lookBody) or outfit.body
+        outfit.legs = tonumber(current.legs or current.lookLegs) or outfit.legs
+        outfit.feet = tonumber(current.feet or current.lookFeet) or outfit.feet
+        outfit.addons = tonumber(current.addons or current.lookAddons) or outfit.addons
+        outfit.mount = tonumber(current.mount or current.lookMount) or 0
+        outfit.wings = tonumber(current.wings or current.lookWings) or 0
+        outfit.aura = tonumber(current.aura or current.lookAura) or 0
+        outfit.shader = current.shader or current.lookShader or outfit.shader
+      end
+    end
+  end
+
   if effectType == "wings" then
     outfit.wings = tonumber(effectValue) or 0
-    outfit.aura = 0
   elseif effectType == "aura" then
     outfit.aura = tonumber(effectValue) or 0
-    outfit.wings = 0
   elseif effectType == "shader" then
     outfit.shader = effectValue or "outfit_default"
   end
 
   return outfit
+end
+
+local function getLocalPreviewColors()
+  local defaultColors = {head = 114, body = 114, legs = 114, feet = 114}
+  if not g_game or not g_game.isOnline or not g_game:isOnline() then
+    return defaultColors
+  end
+
+  local player = g_game.getLocalPlayer and g_game:getLocalPlayer() or nil
+  if not player then
+    return defaultColors
+  end
+
+  local outfit = player.getOutfit and player:getOutfit() or nil
+  if not outfit then
+    return defaultColors
+  end
+
+  local function pick(a, b)
+    local v = tonumber(a or b)
+    if not v then
+      return nil
+    end
+    return v
+  end
+
+  return {
+    head = pick(outfit.head, outfit.lookHead) or defaultColors.head,
+    body = pick(outfit.body, outfit.lookBody) or defaultColors.body,
+    legs = pick(outfit.legs, outfit.lookLegs) or defaultColors.legs,
+    feet = pick(outfit.feet, outfit.lookFeet) or defaultColors.feet
+  }
+end
+
+local function buildStoreOutfitPreview(offerOutfit)
+  local preview = offerOutfit and table.copy(offerOutfit) or {}
+  local colors = getLocalPreviewColors()
+  preview.head = colors.head
+  preview.body = colors.body
+  preview.legs = colors.legs
+  preview.feet = colors.feet
+  return preview
 end
 
 local function resolveCategoryKey(widget)
@@ -687,7 +746,7 @@ function addOffers(offerData)
       offerIcon:setItemCount(offer.count)
     elseif offer.type == "outfit" then
       local offerIcon = g_ui.createWidget("OfferIconCreature", offerTypePanel)
-      offerIcon:setOutfit(offer.outfit)
+      offerIcon:setOutfit(buildStoreOutfitPreview(offer.outfit))
     elseif offer.type == "mount" then
       local offerIcon = g_ui.createWidget("OfferIconCreature", offerTypePanel)
       offerIcon:setOutfit({type = offer.clientId})
@@ -727,7 +786,7 @@ function updateTopPanel(data)
     spriteIcon:setItemId(data.iconData)
   elseif data.iconType == "outfit" then
     local spriteIcon = g_ui.createWidget("CategoryIconCreature", categoryItemBg)
-    spriteIcon:setOutfit(data.iconData)
+    spriteIcon:setOutfit(buildStoreOutfitPreview(data.iconData))
   elseif data.iconType == "mount" then
     local spriteIcon = g_ui.createWidget("CategoryIconCreature", categoryItemBg)
     spriteIcon:setOutfit({type = data.iconData})

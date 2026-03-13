@@ -15597,7 +15597,7 @@
   <attribute key="weaponType" value="shield"/> 
 	</item>
 <item id="5811" name="outfit doll">
-    <attribute key="description" value="Use to receive one random outfit from the Store Outfits pool that you do not own." />
+    <attribute key="description" value="Use to receive one random basic store outfit (only outfits priced at 450 points) that you do not own." />
     <attribute key="weight" value="850" />
     <attribute key="slotType" value="ring" />
     </item>

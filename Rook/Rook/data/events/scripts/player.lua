@@ -169,6 +169,14 @@ function Player:onGainExperience(source, exp, rawExp)
 		end
 	end
 
+	-- Daily boosted creature bonus experience
+	if source:isMonster() and BoostedCreatureDaily and BoostedCreatureDaily.getExpBonusForMonster then
+		local dailyExpBonus = tonumber(BoostedCreatureDaily.getExpBonusForMonster(source)) or 0
+		if dailyExpBonus > 0 then
+			exp = math.ceil(exp * (1 + (dailyExpBonus / 100)))
+		end
+	end
+
 	-- Apply experience stage multiplier
 	exp = exp * Game.getExperienceStage(self:getLevel())
 
