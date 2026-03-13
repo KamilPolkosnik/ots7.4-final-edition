@@ -3,7 +3,7 @@ local STORE_OUTFITS = {
 	{name = "Hunter", male = {type = 129, addons = 3}, female = {type = 137, addons = 3}},
 	{name = "Mage", male = {type = 130, addons = 3}, female = {type = 138, addons = 3}},
 	{name = "Knight", male = {type = 131, addons = 3}, female = {type = 139, addons = 3}},
-	{name = "Noblewoman", male = {type = 132, addons = 3}, female = {type = 140, addons = 3}},
+	{name = "Noble", male = {type = 132, addons = 3}, female = {type = 140, addons = 3}},
 	{name = "Summoner", male = {type = 133, addons = 3}, female = {type = 141, addons = 3}},
 	{name = "Warrior", male = {type = 134, addons = 3}, female = {type = 142, addons = 3}},
 	{name = "Barbarian", male = {type = 143, addons = 3}, female = {type = 147, addons = 3}},
@@ -61,7 +61,7 @@ function onUse(cid, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	if #available == 0 then
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_RED, "You already have all outfits from the store.")
+		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_RED, "You already have all basic store outfits (450 points category).")
 		return true
 	end
 

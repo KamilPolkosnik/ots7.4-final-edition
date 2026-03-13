@@ -6212,3 +6212,1651 @@ Login to 127.0.0.1:7172
 [Tasks] action=active
 [Tasks] recv opcode=110 size=28
 [Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 15:54:14
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 16:25:13
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7944
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7956
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7972
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=29
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 16:27:03
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 16:31:02
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+Exiting application..
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Exiting application..
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 16:56:39
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 16:56:47
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Exiting application..
+Login to 127.0.0.1:7172
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 17:30:27
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 17:30:47
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 18:03:20
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 18:04:11
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 12 2026 18:06:24
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7940
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7980
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 12:54:43
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 12:54:48
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Exiting application..
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:14:41
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:14:44
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Exiting application..
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:22:51
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:22:54
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Exiting application..
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:37:06
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:37:10
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Exiting application..
+Login to 127.0.0.1:7172
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:44:31
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:46:03
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+ERROR: failed to save OTMM minimap: rename: Proces nie mo¿e uzyskaæ dostêpu do pliku, poniewa¿ jest on u¿ywany przez inny proces.: "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm.tmp", "C:\Users\kamil\AppData\Roaming\OTClientV8\Rookie\/minimap772.otmm"
+Exiting application..
+Login to 127.0.0.1:7172
+Login to 127.0.0.1:7172
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:53:01
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 13:55:44
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7962
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=139
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
+Login to 127.0.0.1:7172
+Exiting application..
+GPU NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2 (NVIDIA Corporation)
+OpenGL 4.6.0 NVIDIA 566.07
+[Atlas] Texture size is: 4096x4096 (max: 32768x32768)
+Found work dir at 'C:/Users/kamil/Desktop/otsfinal/otsfinal/ots-final-edition/nowy klient/'
+== application started at Mar 13 2026 14:03:44
+OTCv8 3.2 rev 0 (dev) made by otclient.net built on Mar 10 2026 for arch x86
+ERROR: Failed to import UI styles from 'store_button.otui': OTML error in '/mods/game_store/store_button.otui:52': not a valid style declaration
+ERROR: invalid thing type, server id: 1
+ERROR: invalid thing type, server id: 2
+ERROR: invalid thing type, server id: 3
+ERROR: invalid thing type, server id: 4
+ERROR: invalid thing type, server id: 5
+ERROR: invalid thing type, server id: 6
+ERROR: invalid thing type, server id: 7
+ERROR: invalid thing type, server id: 10
+ERROR: invalid thing type, server id: 11
+ERROR: invalid thing type, server id: 12
+ERROR: invalid thing type, server id: 13
+ERROR: invalid thing type, server id: 14
+ERROR: invalid thing type, server id: 15
+ERROR: invalid thing type, server id: 19
+ERROR: invalid thing type, server id: 21
+ERROR: invalid thing type, server id: 26
+ERROR: invalid thing type, server id: 27
+ERROR: invalid thing type, server id: 28
+ERROR: invalid thing type, server id: 35
+ERROR: invalid thing type, server id: 43
+Connecting to: 127.0.0.1:7171
+Login to 127.0.0.1:7172
+[Tasks] send fetch opcode=110
+[Bestiary] snapshot received, entries=117
+[Tasks] recv opcode=110 size=331
+[Tasks] action=config
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=7970
+[Tasks] action=tasks
+[Tasks] tasks list count=122
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=8001
+[Tasks] recv opcode=110 size=4151
+[Tasks] action=shop
+[Tasks] recv opcode=110 size=136
+[Tasks] action=active
+[Tasks] recv opcode=110 size=28
+[Tasks] action=points
