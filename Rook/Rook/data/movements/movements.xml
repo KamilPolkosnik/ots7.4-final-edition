@@ -41,8 +41,8 @@
 	<movevent event="StepIn" itemid="4208" script="trap.lua" />
 	<movevent event="StepIn" itemid="25331" script="trap.lua" />
 
-	<!-- Citizen teleport -->
-	<movevent event="StepIn" itemid="1387" script="citizen.lua" />
+	<!-- Citizen teleport (supports multiple magic teleport variants) -->
+	<movevent event="StepIn" fromid="1387" toid="1390" script="citizen.lua" />
 
 	<!-- Map teleports (dynamic forcefields) -->
 	<movevent event="StepIn" actionid="3091" script="map/edron/demon_helmet_exit.lua" />
