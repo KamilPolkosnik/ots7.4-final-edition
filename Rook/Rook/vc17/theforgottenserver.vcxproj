@@ -349,10 +349,23 @@
   </ImportGroup>
   <Target Name="AfterBuild">
     <ItemGroup>
-      <RuntimeDependencies Include="$(TargetDir)*.dll" />
+      <BuiltArtifacts Include="$(TargetPath)" />
+      <BuiltArtifacts Include="$(TargetDir)$(TargetName).pdb" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\boost_filesystem-vc143-mt-x64-*.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\boost_iostreams-vc143-mt-x64-*.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\bz2.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\fmt.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\liblzma.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\libmariadb.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\lua51.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\pugixml.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\zlib1.dll" />
+      <RuntimeDependencies Include="$(VcpkgRoot)\installed\x64-windows\bin\zstd.dll" />
+      <RuntimeDependencies Include="$(VCToolsRedistDir)x64\Microsoft.VC143.CRT\MSVCP140.dll" Condition="Exists('$(VCToolsRedistDir)x64\Microsoft.VC143.CRT\MSVCP140.dll')" />
+      <RuntimeDependencies Include="$(VCToolsRedistDir)x64\Microsoft.VC143.CRT\VCRUNTIME140.dll" Condition="Exists('$(VCToolsRedistDir)x64\Microsoft.VC143.CRT\VCRUNTIME140.dll')" />
+      <RuntimeDependencies Include="$(VCToolsRedistDir)x64\Microsoft.VC143.CRT\VCRUNTIME140_1.dll" Condition="Exists('$(VCToolsRedistDir)x64\Microsoft.VC143.CRT\VCRUNTIME140_1.dll')" />
     </ItemGroup>
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)..\" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ProjectDir)..\" SkipUnchangedFiles="true" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+    <Copy SourceFiles="@(BuiltArtifacts)" DestinationFolder="$(ProjectDir)..\" SkipUnchangedFiles="true" />
     <Copy SourceFiles="@(RuntimeDependencies)" DestinationFolder="$(ProjectDir)..\" SkipUnchangedFiles="true" />
   </Target>
 </Project>
