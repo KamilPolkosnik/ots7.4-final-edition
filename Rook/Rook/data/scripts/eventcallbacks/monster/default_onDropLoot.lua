@@ -141,6 +141,24 @@ ec.onDropLoot = function(self, corpse)
             end
         end
 
+        -- Daily boosted creature: add extra loot attempts (+1..5%).
+        if BoostedCreatureDaily and BoostedCreatureDaily.getLootBonusPercent then
+            local dailyLootBonus = tonumber(BoostedCreatureDaily.getLootBonusPercent(self)) or 0
+            if dailyLootBonus > 0 then
+                local extraChance = dailyLootBonus / 100
+                for _ = 1, rolls do
+                    for i = 1, #monsterLoot do
+                        if math.random() <= extraChance then
+                            local extraItem = corpse:createLootItem(monsterLoot[i])
+                            if not extraItem then
+                                print('[Warning] DropLoot:', 'Could not add boosted loot item to corpse.')
+                            end
+                        end
+                    end
+                end
+            end
+        end
+
         -- Bagging moved to UpgradeSystem us_CheckCorpse so rarity rolls happen first.
 
         if player then
