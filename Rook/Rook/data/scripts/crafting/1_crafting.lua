@@ -503,6 +503,57 @@ local function getEnchanterRollValue(target, attr)
   return 1
 end
 
+local function performExtractorService(player, target)
+  if not target or not target.isItem or not target:isItem() then
+    return false, "Select crystal fossil first."
+  end
+
+  if target:getId() ~= US_CONFIG.CRYSTAL_FOSSIL then
+    return false, "Select crystal fossil."
+  end
+
+  if player:getItemCount(US_CONFIG.CRYSTAL_EXTRACTOR) < 1 then
+    return false, "You need crystal extractor."
+  end
+
+  local amount = math.max(1, tonumber(target:getCount()) or 1)
+  local broken = 0
+  local gained = 0
+
+  for _ = 1, amount do
+    if math.random(US_CONFIG.CRYSTAL_BREAK_CHANCE) == 1 then
+      broken = broken + 1
+    else
+      local rand = math.random(100)
+      local crystals = 1
+      if rand <= 20 then
+        crystals = 3
+      elseif rand <= 50 then
+        crystals = 2
+      end
+
+      for _ = 1, crystals do
+        local crystal = math.random(1, #US_CONFIG[1])
+        player:addItem(US_CONFIG[1][crystal])
+        gained = gained + 1
+      end
+    end
+  end
+
+  target:remove(amount)
+
+  if gained > 0 and broken > 0 then
+    player:sendTextMessage(MESSAGE_INFO_DESCR, "Extraction complete: received " .. gained .. " crystal(s), " .. broken .. " fossil(s) broke.")
+  elseif gained > 0 then
+    player:sendTextMessage(MESSAGE_INFO_DESCR, "Extraction complete: received " .. gained .. " crystal(s).")
+  else
+    player:sendTextMessage(MESSAGE_STATUS_WARNING, "Crystal inside broke!")
+  end
+
+  player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+  return true, nil
+end
+
 local function shortenText(text, maxLen)
   if not text or text:len() <= maxLen then
     return text
@@ -970,7 +1021,7 @@ function Crafting:sendCrafts(player, category)
       local attr = US_ENCHANTMENTS[craft.enchantId]
       if attr then
         craft.summary = "Min item lvl: " .. (attr.minLevel or 1)
-        craft.tooltip = (attr.description or attr.name) .. "\nCost: 1 enchant crystal"
+        craft.tooltip = (attr.description or attr.name) .. "\nCost: " .. tostring(craft.cost or 0) .. " gold + 1 enchant crystal"
       end
     end
     table.insert(data, craft)
@@ -998,6 +1049,7 @@ function Crafting:craft(player, data)
   local category = data and data.category
   local craftId = data and data.craftId
   local recipeId = data and data.recipeId
+  local uiCategory = data and data.uiCategory or category
   if not category or not craftId or not Crafting[category] then
     return
   end
@@ -1008,6 +1060,7 @@ function Crafting:craft(player, data)
 
   local recipe = resolveCraftRecipe(craft, recipeId)
   local isEnchantService = category == "enchanter" and craft.enchantId ~= nil
+  local isExtractorService = uiCategory == "extractor" and craft.id == US_CONFIG.CRYSTAL_EXTRACTOR
 
   if isEnchantService then
     if not ensureCraftingInRange(player, true) then
@@ -1066,6 +1119,26 @@ function Crafting:craft(player, data)
 
     Crafting:sendMoney(player)
     Crafting:sendMaterials(player, category)
+    player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "crafted"}))
+    return
+  end
+
+  if isExtractorService then
+    if not ensureCraftingInRange(player, true) then
+      return
+    end
+
+    if player:getLevel() < craft.level then
+      return
+    end
+
+    local target = parseTargetItem(player, data.target)
+    local ok, errorMessage = performExtractorService(player, target)
+    if not ok then
+      player:sendCancelMessage(errorMessage or "Unable to extract crystals.")
+      return
+    end
+
     player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "crafted"}))
     return
   end

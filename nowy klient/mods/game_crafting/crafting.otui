@@ -311,13 +311,13 @@ MainWindow
     margin-top: 8
     height: 42
     layout: horizontalBox
-    padding-left: 6
-    padding-right: 6
-    spacing: 3
+    padding-left: 3
+    padding-right: 13
+    spacing: 2
 
     CategoryButton
       id: weaponsmithCat
-      width: 104
+      width: 103
       @onClick: modules.game_crafting.selectCategory("weaponsmith")
 
       CategoryItem
@@ -328,7 +328,7 @@ MainWindow
 
     CategoryButton
       id: armorsmithCat
-      width: 104
+      width: 103
       @onClick: modules.game_crafting.selectCategory("armorsmith")
 
       CategoryItem
@@ -339,7 +339,7 @@ MainWindow
 
     CategoryButton
       id: alchemistCat
-      width: 104
+      width: 103
       @onClick: modules.game_crafting.selectCategory("alchemist")
 
       CategoryItem
@@ -350,7 +350,7 @@ MainWindow
 
     CategoryButton
       id: jewellerCat
-      width: 104
+      width: 103
       @onClick: modules.game_crafting.selectCategory("jeweller")
 
       CategoryItem
@@ -361,7 +361,7 @@ MainWindow
 
     CategoryButton
       id: enchanterCat
-      width: 104
+      width: 103
       @onClick: modules.game_crafting.selectCategory("enchanter")
 
       CategoryItem
@@ -372,7 +372,7 @@ MainWindow
 
     CategoryButton
       id: extractorCat
-      width: 104
+      width: 103
       @onClick: modules.game_crafting.selectCategory("extractor")
 
       CategoryItem
@@ -383,7 +383,7 @@ MainWindow
 
     CategoryButton
       id: searchButton
-      width: 104
+      width: 103
       @onClick: modules.game_crafting.focusSearch()
 
       CategoryItem
@@ -585,7 +585,7 @@ MainWindow
     anchors.top: categorySeparator.bottom
     anchors.left: parent.left
     width: 248
-    height: 96
+    height: 120
     margin-top: 8
     visible: false
     padding-left: 10
@@ -603,7 +603,7 @@ MainWindow
       id: enchantTargetLeft
       anchors.left: parent.left
       anchors.top: enchantTargetLabelLeft.bottom
-      margin-top: 10
+      margin-top: 6
       size: 38 38
       padding: 1
       virtual: true
@@ -616,66 +616,74 @@ MainWindow
     CraftSmallButton
       id: enchantTargetSelectButton
       anchors.left: enchantTargetLeft.right
-      anchors.top: enchantTargetLeft.top
+      anchors.verticalCenter: enchantTargetLeft.verticalCenter
       margin-left: 10
       width: 90
       text: Choose
-      @onClick: modules.game_crafting.selectEnchantTargetUseWith()
+      @onClick: modules.game_crafting.selectCurrentTargetUseWith()
 
     Panel
       id: enchantTargetSlotsPanel
-      anchors.left: parent.left
+      anchors.left: enchantTargetLeft.left
       anchors.top: enchantTargetLeft.bottom
-      anchors.right: parent.right
-      margin-top: 6
-      height: 38
+      margin-top: 2
+      width: 204
+      height: 42
       layout: verticalBox
       spacing: 2
 
       Panel
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: 18
+        width: 204
+        height: 20
         layout: horizontalBox
-        spacing: 3
+        spacing: 6
 
         CraftSmallButton
           id: enchantTargetSlot1
-          width: 66
-          text: "Slot[1]"
+          width: 64
+          height: 20
+          text: "Slot 1"
           visible: false
+
         CraftSmallButton
           id: enchantTargetSlot2
-          width: 66
-          text: "Slot[2]"
+          width: 64
+          height: 20
+          text: "Slot 2"
           visible: false
+
         CraftSmallButton
           id: enchantTargetSlot3
-          width: 66
-          text: "Slot[3]"
+          width: 64
+          height: 20
+          text: "Slot 3"
           visible: false
 
       Panel
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: 18
+        width: 204
+        height: 20
         layout: horizontalBox
-        spacing: 3
+        spacing: 6
 
         CraftSmallButton
           id: enchantTargetSlot4
-          width: 66
-          text: "Slot[4]"
+          width: 64
+          height: 20
+          text: "Slot 4"
           visible: false
+
         CraftSmallButton
           id: enchantTargetSlot5
-          width: 66
-          text: "Slot[5]"
+          width: 64
+          height: 20
+          text: "Slot 5"
           visible: false
+
         CraftSmallButton
           id: enchantTargetSlot6
-          width: 66
-          text: "Slot[6]"
+          width: 64
+          height: 20
+          text: "Slot 6"
           visible: false
 
     CraftMutedLabel
@@ -683,8 +691,8 @@ MainWindow
       anchors.left: parent.left
       anchors.top: enchantTargetSlotsPanel.bottom
       anchors.right: parent.right
-      margin-top: 6
-      text: choose item and empty slot
+      margin-top: 3
+      text: ""
       text-align: left
 
   ScrollablePanel
@@ -768,10 +776,16 @@ MainWindow
       Label
         id: outcomeCount
         anchors.top: craftOutcome.bottom
-        anchors.horizontalCenter: craftOutcome.horizontalCenter
-        margin-top: 2
+        anchors.left: parent.left
+        anchors.right: parent.right
+        margin-top: 4
+        margin-left: 8
+        margin-right: 8
         color: #fff5de
         text: ""
+        text-align: center
+        text-wrap: true
+        text-auto-resize: true
         font: verdana-11px-rounded
 
     CraftSectionPanel
