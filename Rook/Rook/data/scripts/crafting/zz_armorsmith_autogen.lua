@@ -12,6 +12,63 @@ local function itemExists(itemId)
     return it and it:getId() ~= 0 and it:getClientId() > 0
 end
 
+local function cloneExtractorCraft(craft)
+    if type(craft) ~= "table" then
+        return nil
+    end
+
+    local copy = {}
+    for key, value in pairs(craft) do
+        if key == "materials" and type(value) == "table" then
+            local mats = {}
+            for i = 1, #value do
+                local material = value[i]
+                mats[i] = {id = material.id, count = material.count}
+            end
+            copy.materials = mats
+        elseif key == "recipes" and type(value) == "table" then
+            local recipes = {}
+            for recipeIndex = 1, #value do
+                local recipe = value[recipeIndex]
+                local recipeCopy = {
+                    cost = recipe.cost,
+                    count = recipe.count,
+                    materials = {}
+                }
+                for materialIndex = 1, #(recipe.materials or {}) do
+                    local material = recipe.materials[materialIndex]
+                    recipeCopy.materials[materialIndex] = {id = material.id, count = material.count}
+                end
+                recipes[recipeIndex] = recipeCopy
+            end
+            copy.recipes = recipes
+        else
+            copy[key] = value
+        end
+    end
+
+    return copy
+end
+
+local function registerExtractorCrafts(category, crafts)
+    local registry = rawget(_G, "CraftingExtractorSourceRegistry")
+    if type(registry) ~= "table" then
+        registry = {}
+        _G.CraftingExtractorSourceRegistry = registry
+    end
+    if type(registry[category]) ~= "table" then
+        registry[category] = {}
+    end
+
+    for i = 1, #crafts do
+        local craft = crafts[i]
+        local itemId = tonumber(craft and craft.id)
+        if itemId and itemId > 0 then
+            registry[category][itemId] = cloneExtractorCraft(craft)
+        end
+    end
+end
+
 local materialSets = {
     helmet = {5890, 5880, 2147},
     armor = {5880, 5890, 2146},
@@ -1099,7 +1156,9 @@ local function applyManualOverrides(crafts)
 end
 
 local generated = generateArmorsmithCrafts()
+registerExtractorCrafts("armorsmith", generated)
 generated = applyManualOverrides(generated)
+registerExtractorCrafts("armorsmith", generated)
 if #generated > 0 then
     Crafting.armorsmith = generated
     print(string.format("[CraftingArmorsmithAuto] generated=%d", #generated))

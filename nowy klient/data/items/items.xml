@@ -5553,6 +5553,7 @@
 	</item>
 	<item id="2216" article="a" name="ring of healing">
 		<attribute key="weight" value="100"/>
+		<attribute key="slotType" value="ring"/>
 		<attribute key="decayTo" value="0"/>
 		<attribute key="transformDeEquipTo" value="2214"/>
 		<attribute key="decayTo" value="0"/>
@@ -15596,7 +15597,7 @@
   <attribute key="weaponType" value="shield"/> 
 	</item>
 <item id="5811" name="outfit doll">
-    <attribute key="description" value="Use to receive one random outfit from the Store Outfits pool that you do not own." />
+    <attribute key="description" value="Use to receive one random basic store outfit (only outfits priced at 450 points) that you do not own." />
     <attribute key="weight" value="850" />
     <attribute key="slotType" value="ring" />
     </item>
@@ -17200,5 +17201,114 @@
 		<attribute key="range" value="3"/>
 		<attribute key="attack" value="1"/>
 		<attribute key="hitChance" value="5"/>
+	</item>
+	<item id="7970" name="unidentified armor">
+		<attribute key="description" value="Its true properties are hidden until identified."/>
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7971" name="unidentified shield">
+		<attribute key="description" value="Its true properties are hidden until identified."/>
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7972" name="unidentified helmet">
+		<attribute key="description" value="Its true properties are hidden until identified."/>
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7973" name="unidentified boots">
+		<attribute key="description" value="Its true properties are hidden until identified."/>
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7974" name="unidentified legs">
+		<attribute key="description" value="Its true properties are hidden until identified."/>
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7975" name="unidentified weapon">
+		<attribute key="description" value="Its true properties are hidden until identified."/>
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7976" name="wool">
+		<attribute key="weight" value="20"/>
+	</item>
+	<item id="7977" name="steel">
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7978" article="a" name="piece of steel" plural="pieces of steel">
+		<attribute key="weight" value="50"/>
+	</item>
+	<item id="7979" article="a" name="flaming robe">
+		<attribute key="tier" value="2"/>
+		<attribute key="weight" value="2600"/>
+		<attribute key="armor" value="11"/>
+		<attribute key="slotType" value="body"/>
+		<attribute key="magiclevelpoints" value="1"/>
+		<attribute key="absorbPercentFire" value="15"/>
+	</item>
+	<item id="7980" article="a" name="thorn ring">
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+	</item>
+	<item id="7981" article="a" name="horn ring">
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+	</item>
+	<item id="7982" article="a" name="treegrass ring">
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+	</item>
+	<item id="7983" article="an" name="arcomancer ring">
+		<attribute key="weight" value="80"/>
+		<attribute key="slotType" value="ring"/>
+	</item>
+	<item id="7984" article="a" name="golden magic longsword">
+		<attribute key="description" value="A gilded counterpart of the magic longsword."/>
+		<attribute key="weight" value="4200"/>
+		<attribute key="defense" value="49"/>
+		<attribute key="attack" value="59"/>
+		<attribute key="skillSword" value="4"/>
+		<attribute key="weaponType" value="sword"/>
+		<attribute key="slotType" value="two-handed"/>
+		<attribute key="tier" value="5"/>
+	</item>
+	<item id="7985" article="a" name="boss token" plural="boss tokens">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7987" article="an" name="iron rude">
+		<attribute key="weight" value="100"/>
+	</item>
+	<item id="7988" article="a" name="red skull remover">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7989" article="a" name="potential scroll" plural="potential scrolls">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7990" article="an" name="epic crystal" plural="epic crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7991" article="a" name="rare crystal" plural="rare crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7992" article="a" name="legendary crystal" plural="legendary crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7993" article="a" name="small legendary crystal" plural="small legendary crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7994" article="a" name="polished rare crystal" plural="polished rare crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7995" article="a" name="polished epic crystal" plural="polished epic crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7996" article="a" name="perfect rare crystal" plural="perfect rare crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7997" article="a" name="perfect epic crystal" plural="perfect epic crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7998" article="a" name="perfect legendary crystal" plural="perfect legendary crystals">
+		<attribute key="weight" value="10"/>
+	</item>
+	<item id="7999" article="a" name="black skull remover">
+		<attribute key="weight" value="10"/>
 	</item>
 </items>
