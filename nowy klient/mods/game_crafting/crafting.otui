@@ -732,6 +732,7 @@ MainWindow
     pixels-scroll: true
 
   VerticalSeparator
+    id: itemsListSeparator
     anchors.top: itemsList.top
     anchors.bottom: itemsList.bottom
     anchors.left: itemsList.right
@@ -741,9 +742,9 @@ MainWindow
     id: craftPanel
     anchors.top: categorySeparator.bottom
     anchors.bottom: separator.top
-    anchors.left: prev.right
+    anchors.left: parent.left
     anchors.right: parent.right
-    margin-left: 12
+    margin-left: 272
     margin-top: 16
 
     CraftSectionPanel

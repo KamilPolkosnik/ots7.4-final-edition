@@ -1317,7 +1317,7 @@ class Player final : public Creature, public Cylinder
 		Guild* guild = nullptr;
 		GuildRank_ptr guildRank = nullptr;
 		Group* group = nullptr;
-		Inbox* inbox;
+		Inbox* inbox = nullptr;
 		Item* tradeItem = nullptr;
  		Item* inventory[CONST_SLOT_LAST + 1] = {};
 		Item* writeItem = nullptr;

@@ -13,6 +13,9 @@ local MAX_CONTAINER_RECURSION = 8
 local REVIVE_SPELLBOOK_ITEM_ID = 7961
 local REVIVE_SPELLBOOK_DODGE_VALUE = 5
 local REVIVE_SPELLBOOK_DODGE_FALLBACK_ENCHANT_ID = 58
+local EXTRACTOR_BONUS_ITEM_ID = 7978
+local EXTRACTOR_SOURCE_CATEGORIES = {"weaponsmith", "armorsmith", "alchemist", "jeweller"}
+local INVENTORY_ADD_FLAGS = rawget(_G, "FLAG_NOLIMIT") or 0
 
 local function resolveEnchantIdBySpecial(specialName, fallbackId)
   if type(US_ENCHANTMENTS) ~= "table" then
@@ -123,6 +126,252 @@ local function addCraftResultToBackpack(player, itemId, count)
   end
 
   return addedItems
+end
+
+local function removeAddedCraftResults(results)
+  if not results then
+    return
+  end
+
+  for i = 1, #results do
+    local entry = results[i]
+    if type(entry) == "table" then
+      removeAddedCraftResults(entry)
+    elseif entry and entry.remove then
+      entry:remove()
+    end
+  end
+end
+
+local function addCraftMaterialsToBackpack(player, materials)
+  local addedResults = {}
+
+  for i = 1, #(materials or {}) do
+    local material = materials[i]
+    local added, err = addCraftResultToBackpack(player, material.id, material.count)
+    if not added then
+      removeAddedCraftResults(addedResults)
+      return nil, err
+    end
+    addedResults[#addedResults + 1] = added
+  end
+
+  return addedResults
+end
+
+local function addCraftResultToInventory(player, itemId, count)
+  local itemType = ItemType(itemId)
+  local addedItems = {}
+  local remaining = math.max(1, tonumber(count) or 1)
+
+  while remaining > 0 do
+    local addCount = 1
+    if itemType:isStackable() then
+      addCount = math.min(100, remaining)
+    end
+
+    local createdItem = Game.createItem(itemId, addCount)
+    if not createdItem then
+      removeAddedCraftResults(addedItems)
+      return nil, "Unable to create extracted item."
+    end
+
+    local ret = player:addItemEx(createdItem, false, INDEX_WHEREEVER, INVENTORY_ADD_FLAGS)
+    if ret ~= RETURNVALUE_NOERROR then
+      if createdItem and createdItem.remove then
+        createdItem:remove()
+      end
+      removeAddedCraftResults(addedItems)
+      return nil, "Not enough capacity or backpack space."
+    end
+
+    addedItems[#addedItems + 1] = createdItem
+    remaining = remaining - addCount
+  end
+
+  if #addedItems == 1 then
+    return addedItems[1]
+  end
+
+  return addedItems
+end
+
+local function addCraftMaterialsToInventory(player, materials)
+  local addedResults = {}
+
+  for i = 1, #(materials or {}) do
+    local material = materials[i]
+    local added, err = addCraftResultToInventory(player, material.id, material.count)
+    if not added then
+      removeAddedCraftResults(addedResults)
+      return nil, err
+    end
+    addedResults[#addedResults + 1] = added
+  end
+
+  return addedResults
+end
+
+local function getExtractorTargetContainer(player, target)
+  if not player or not target or not target.getPosition then
+    return nil, nil
+  end
+
+  local pos = target:getPosition()
+  if not pos or pos.x ~= CONTAINER_POS or pos.y < 64 then
+    return nil, nil
+  end
+
+  local containerId = pos.y - 64
+  return player:getContainerById(containerId), pos.z
+end
+
+local function addCraftResultToContainer(container, itemId, count, index)
+  if not container or not container.addItem then
+    return nil, "You need enough space in the container."
+  end
+
+  local itemType = ItemType(itemId)
+  local addedItems = {}
+  local remaining = math.max(1, tonumber(count) or 1)
+  local insertIndex = tonumber(index)
+
+  while remaining > 0 do
+    local addCount = 1
+    if itemType:isStackable() then
+      addCount = math.min(100, remaining)
+    end
+
+    local addedItem = container:addItem(itemId, addCount, insertIndex)
+    if not addedItem then
+      for i = 1, #addedItems do
+        if addedItems[i] and addedItems[i].remove then
+          addedItems[i]:remove()
+        end
+      end
+      return nil, "Not enough space in the container."
+    end
+
+    addedItems[#addedItems + 1] = addedItem
+    remaining = remaining - addCount
+    if insertIndex then
+      insertIndex = insertIndex + 1
+    end
+  end
+
+  if #addedItems == 1 then
+    return addedItems[1]
+  end
+
+  return addedItems
+end
+
+local function addCraftMaterialsToContainer(container, materials, startIndex)
+  local addedResults = {}
+  local insertIndex = tonumber(startIndex)
+
+  for i = 1, #(materials or {}) do
+    local material = materials[i]
+    local added, err = addCraftResultToContainer(container, material.id, material.count, insertIndex)
+    if not added then
+      removeAddedCraftResults(addedResults)
+      return nil, err
+    end
+    addedResults[#addedResults + 1] = added
+    if insertIndex then
+      insertIndex = insertIndex + 1
+    end
+  end
+
+  return addedResults
+end
+
+local function restoreRemovedTargetItem(player, backupItem, container, index)
+  if not backupItem then
+    return false
+  end
+
+  if container and container.addItemEx then
+    local ret = container:addItemEx(backupItem, tonumber(index) or INDEX_WHEREEVER)
+    if ret == RETURNVALUE_NOERROR then
+      return true
+    end
+  end
+
+  return player:addItemEx(backupItem, true) == RETURNVALUE_NOERROR
+end
+
+local function getDefaultCraftRecipe(craft)
+  if craft and craft.recipes and #craft.recipes > 0 then
+    local recipe = craft.recipes[1]
+    return {
+      cost = recipe.cost or craft.cost or 0,
+      count = recipe.count or craft.count or 1,
+      materials = recipe.materials or {}
+    }
+  end
+
+  return {
+    cost = craft and craft.cost or 0,
+    count = craft and craft.count or 1,
+    materials = craft and craft.materials or {}
+  }
+end
+
+local function getExtractorSourceRegistry()
+  local registry = rawget(_G, "CraftingExtractorSourceRegistry")
+  if type(registry) == "table" then
+    return registry
+  end
+  return nil
+end
+
+local function findExtractorSourceCraft(itemId)
+  itemId = tonumber(itemId) or 0
+  if itemId <= 0 then
+    return nil, nil, nil
+  end
+
+  local registry = getExtractorSourceRegistry()
+  if registry then
+    for i = 1, #EXTRACTOR_SOURCE_CATEGORIES do
+      local category = EXTRACTOR_SOURCE_CATEGORIES[i]
+      local craft = registry[category] and registry[category][itemId]
+      if craft then
+        local recipe = getDefaultCraftRecipe(craft)
+        if recipe and recipe.materials and #recipe.materials > 0 then
+          return craft, recipe, category
+        end
+      end
+    end
+  end
+
+  for i = 1, #EXTRACTOR_SOURCE_CATEGORIES do
+    local category = EXTRACTOR_SOURCE_CATEGORIES[i]
+    local list = Crafting[category] or {}
+    for craftIndex = 1, #list do
+      local craft = list[craftIndex]
+      if tonumber(craft and craft.id) == itemId then
+        local recipe = getDefaultCraftRecipe(craft)
+        if recipe and recipe.materials and #recipe.materials > 0 then
+          return craft, recipe, category
+        end
+      end
+    end
+  end
+
+  return nil, nil, nil
+end
+
+local function getExtractorBonusCount(itemLevel)
+  local brackets = math.floor(math.max(0, tonumber(itemLevel) or 0) / 10)
+  local count = 0
+
+  for _ = 1, brackets do
+    count = count + math.random(0, 2)
+  end
+
+  return count
 end
 
 local function clonePos(pos)
@@ -505,51 +754,53 @@ end
 
 local function performExtractorService(player, target)
   if not target or not target.isItem or not target:isItem() then
-    return false, "Select crystal fossil first."
+    return false, "Select item first."
   end
 
-  if target:getId() ~= US_CONFIG.CRYSTAL_FOSSIL then
-    return false, "Select crystal fossil."
+  local sourceCraft, recipe = findExtractorSourceCraft(target:getId())
+  if not sourceCraft or not recipe or not recipe.materials or #recipe.materials == 0 then
+    return false, "This item cannot be extracted."
   end
 
-  if player:getItemCount(US_CONFIG.CRYSTAL_EXTRACTOR) < 1 then
-    return false, "You need crystal extractor."
+  local extractionMaterials = {}
+  for i = 1, #recipe.materials do
+    extractionMaterials[i] = {
+      id = recipe.materials[i].id,
+      count = recipe.materials[i].count
+    }
   end
 
-  local amount = math.max(1, tonumber(target:getCount()) or 1)
-  local broken = 0
-  local gained = 0
-
-  for _ = 1, amount do
-    if math.random(US_CONFIG.CRYSTAL_BREAK_CHANCE) == 1 then
-      broken = broken + 1
-    else
-      local rand = math.random(100)
-      local crystals = 1
-      if rand <= 20 then
-        crystals = 3
-      elseif rand <= 50 then
-        crystals = 2
-      end
-
-      for _ = 1, crystals do
-        local crystal = math.random(1, #US_CONFIG[1])
-        player:addItem(US_CONFIG[1][crystal])
-        gained = gained + 1
-      end
-    end
+  local itemLevel = target:getItemLevel()
+  local bonusCount = getExtractorBonusCount(itemLevel)
+  if bonusCount > 0 then
+    extractionMaterials[#extractionMaterials + 1] = {id = EXTRACTOR_BONUS_ITEM_ID, count = bonusCount}
   end
 
-  target:remove(amount)
+  local container, slotIndex = getExtractorTargetContainer(player, target)
+  local backupItem = target.clone and target:clone() or nil
+  if not target:remove(1) then
+    return false, "Unable to extract selected item."
+  end
 
-  if gained > 0 and broken > 0 then
-    player:sendTextMessage(MESSAGE_INFO_DESCR, "Extraction complete: received " .. gained .. " crystal(s), " .. broken .. " fossil(s) broke.")
-  elseif gained > 0 then
-    player:sendTextMessage(MESSAGE_INFO_DESCR, "Extraction complete: received " .. gained .. " crystal(s).")
+  local addedResults, err
+  if container then
+    addedResults, err = addCraftMaterialsToContainer(container, extractionMaterials, slotIndex)
+  end
+
+  if not addedResults then
+    addedResults, err = addCraftMaterialsToInventory(player, extractionMaterials)
+  end
+
+  if not addedResults then
+    restoreRemovedTargetItem(player, backupItem, container, slotIndex)
+    return false, err or "Not enough capacity or backpack space."
+  end
+
+  if bonusCount > 0 then
+    player:sendTextMessage(MESSAGE_INFO_DESCR, "Extraction complete: item was broken into materials and yielded " .. bonusCount .. " piece(s) of steel.")
   else
-    player:sendTextMessage(MESSAGE_STATUS_WARNING, "Crystal inside broke!")
+    player:sendTextMessage(MESSAGE_INFO_DESCR, "Extraction complete: item was broken into materials.")
   end
-
   player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
   return true, nil
 end
@@ -927,6 +1178,11 @@ function ExtendedEvent.onExtendedOpcode(player, opcode, buffer)
         return true
       end
       Crafting:sendEnchanterOptions(player, data and data.target or nil)
+    elseif action == "extractor_target" then
+      if not ensureCraftingInRange(player, true) then
+        return true
+      end
+      Crafting:sendExtractorPreview(player, data and data.target or nil)
     elseif action == "craft" then
       if not ensureCraftingInRange(player, true) then
         return true
@@ -1128,17 +1384,17 @@ function Crafting:craft(player, data)
       return
     end
 
-    if player:getLevel() < craft.level then
-      return
-    end
-
     local target = parseTargetItem(player, data.target)
     local ok, errorMessage = performExtractorService(player, target)
     if not ok then
-      player:sendCancelMessage(errorMessage or "Unable to extract crystals.")
+      player:sendCancelMessage(errorMessage or "Unable to extract item.")
       return
     end
 
+    for _, sourceCategory in ipairs(categories) do
+      Crafting:sendMaterials(player, sourceCategory)
+    end
+    Crafting:sendMoney(player)
     player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "crafted"}))
     return
   end
@@ -1278,6 +1534,58 @@ function Crafting:sendEnchanterOptions(player, targetData)
   end
 
   player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "enchanter_options", data = {ids = allowed, emptySlots = emptySlots, debug = table.concat(debug, " | ")}}))
+end
+
+local function buildExtractorPreviewData(target)
+  local payload = {
+    canExtract = false,
+    reason = "",
+    materials = {}
+  }
+
+  if not target or not target.isItem or not target:isItem() then
+    payload.reason = "Select item first."
+    return payload
+  end
+
+  local _, recipe = findExtractorSourceCraft(target:getId())
+  if not recipe or not recipe.materials or #recipe.materials == 0 then
+    payload.reason = "This item cannot be extracted."
+    return payload
+  end
+
+  payload.canExtract = true
+  payload.reason = "Extracts the selected item into its crafting materials."
+
+  for i = 1, #recipe.materials do
+    local material = recipe.materials[i]
+    local itemType = ItemType(material.id)
+    payload.materials[#payload.materials + 1] = {
+      id = itemType:getClientId(),
+      serverId = material.id,
+      name = itemType:getName(),
+      count = material.count
+    }
+  end
+
+  local bonusMax = math.floor(math.max(0, tonumber(target:getItemLevel() or 0) or 0) / 10) * 2
+  if bonusMax > 0 then
+    local bonusType = ItemType(EXTRACTOR_BONUS_ITEM_ID)
+    payload.materials[#payload.materials + 1] = {
+      id = bonusType:getClientId(),
+      serverId = EXTRACTOR_BONUS_ITEM_ID,
+      name = bonusType:getName(),
+      count = bonusMax,
+      countText = "0-" .. tostring(bonusMax)
+    }
+  end
+
+  return payload
+end
+
+function Crafting:sendExtractorPreview(player, targetData)
+  local target = parseTargetItem(player, targetData)
+  player:sendExtendedOpcode(CODE_CRAFTING, json.encode({action = "extractor_preview", data = buildExtractorPreviewData(target)}))
 end
 
 function Crafting:sendMaterials(player, category)
