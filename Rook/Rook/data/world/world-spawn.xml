@@ -28295,8 +28295,20 @@
 		<monster name="troll" x="0" y="1" z="13" spawntime="60" />
 		<monster name="troll" x="1" y="1" z="13" spawntime="60" />
 	</spawn>
-	<spawn centerx="31953" centery="32200" centerz="13" radius="1">
-		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" />
+	<spawn centerx="31958" centery="32195" centerz="13" radius="1">
+		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="31952" centery="32196" centerz="13" radius="1">
+		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="31942" centery="32198" centerz="13" radius="1">
+		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="31964" centery="32199" centerz="13" radius="1">
+		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="31954" centery="32200" centerz="13" radius="1">
+		<monster name="rotworm" x="-1" y="0" z="13" spawntime="60" />
 	</spawn>
 	<spawn centerx="32586" centery="32203" centerz="13" radius="1">
 		<monster name="minotaur" x="0" y="0" z="13" spawntime="60" />
@@ -28305,6 +28317,9 @@
 	<spawn centerx="32588" centery="32204" centerz="13" radius="1">
 		<monster name="minotaur guard" x="0" y="0" z="13" spawntime="60" />
 		<monster name="minotaur guard" x="1" y="0" z="13" spawntime="60" />
+	</spawn>
+	<spawn centerx="31967" centery="32205" centerz="13" radius="1">
+		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" direction="2" />
 	</spawn>
 	<spawn centerx="32592" centery="32207" centerz="13" radius="1">
 		<monster name="minotaur" x="0" y="0" z="13" spawntime="60" />
@@ -28318,6 +28333,12 @@
 	<spawn centerx="32586" centery="32210" centerz="13" radius="1">
 		<monster name="minotaur" x="0" y="0" z="13" spawntime="60" />
 		<monster name="minotaur" x="1" y="0" z="13" spawntime="60" />
+	</spawn>
+	<spawn centerx="31964" centery="32212" centerz="13" radius="1">
+		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="31947" centery="32214" centerz="13" radius="1">
+		<monster name="rotworm" x="0" y="0" z="13" spawntime="60" direction="2" />
 	</spawn>
 	<spawn centerx="32519" centery="32218" centerz="13" radius="1">
 		<monster name="minotaur" x="0" y="0" z="13" spawntime="60" />

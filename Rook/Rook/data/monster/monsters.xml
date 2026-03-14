@@ -173,5 +173,5 @@
   <monster name="Orc Warlord Raid2" file="raids/orc warlord2.xml"/>
   <monster name="Zarabustor" file="raids/zarabustor.xml"/>
   <monster name="Vashresamun" file="bosses/vashresamun.xml"/>
-  <monsster name="Golden Knight" file="task/Golden Knight.xml"/>
+  <monsster name="Aurelius the Golden Sovereign" file="task/Aurelius the Golden Sovereign.xml"/>
 </monsters>

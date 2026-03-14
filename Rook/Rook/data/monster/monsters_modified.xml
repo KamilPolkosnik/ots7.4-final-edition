@@ -156,5 +156,5 @@
   <monster name="The horned fox" file="bosses/the horned fox.xml"/>
   <monster name="The old widow" file="bosses/the old widow.xml"/>
   <monster name="Vashresamun" file="bosses/vashresamun.xml"/>
-  <monsster name="Golden Knight" file="task/Golden Knight.xml"/>
+  <monsster name="Aurelius the Golden Sovereign" file="task/Aurelius the Golden Sovereign.xml"/>
 </monsters>
