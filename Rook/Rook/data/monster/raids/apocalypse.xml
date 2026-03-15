@@ -109,5 +109,9 @@
 		<item id="3368" countmax="1" chance="50" /> <!-- an winged helmet -->
 		<item id="3278" countmax="1" chance="25" /> <!-- an mls -->
 		<item id="3269" countmax="1" chance="30" /> <!-- an warlordsword -->
+		<item id="2033" chance="75" countmax="1"/> <!-- golden mug -->
+		<item id="2174" chance="125" countmax="1"/> <!-- strange symbol -->
+		<item id="2151" chance="140" countmax="70"/> <!-- talon -->
+		<item id="3955" chance="100" countmax="1"/> <!-- voodoo doll -->
 	</loot>
 </monster>

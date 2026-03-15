@@ -59,5 +59,6 @@
     <item id="2150" chance="1000"/>
     <item id="2168" chance="200"/>
     <item id="6512" chance="250"/>
+    <item id="2237" chance="199" countmax="1"/> <!-- dirty cape -->
   </loot>
 </monster>

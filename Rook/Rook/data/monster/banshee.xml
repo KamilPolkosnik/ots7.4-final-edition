@@ -66,5 +66,8 @@
     <item id="2214" chance="800"/>
     <item id="2175" chance="500"/>
     <item id="6512" chance="250"/>
+    <item id="2237" chance="300" countmax="1"/> <!-- dirty cape -->
+    <item id="2560" chance="70" countmax="1"/> <!-- mirror -->
+    <item id="2134" chance="25" countmax="1"/> <!-- silver brooch -->
   </loot>
 </monster>

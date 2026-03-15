@@ -59,5 +59,8 @@
 <item id="2663" chance="100"/>
     <item id="1980" chance="2500"/>
     <item id="6512" chance="250"/>
+    <item id="1977" chance="25" countmax="1"/> <!-- book -->
+    <item id="2747" chance="100" countmax="1"/> <!-- grave flower -->
+    <item id="2359" chance="75" countmax="1"/> <!-- small oil lamp -->
   </loot>
 </monster>

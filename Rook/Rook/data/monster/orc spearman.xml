@@ -41,5 +41,6 @@
     <item id="2389" chance="23000"/>
     <item id="2420" chance="10000"/>
     <item id="6512" chance="250"/>
+    <item id="2220" chance="77" countmax="1"/> <!-- dirty fur -->
   </loot>
 </monster>

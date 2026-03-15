@@ -40,5 +40,6 @@
     <item id="2382" chance="9000"/>
     <item id="2512" chance="15000"/>
     <item id="6512" chance="250"/>
+    <item id="2245" chance="80" countmax="1"/> <!-- twigs -->
   </loot>
 </monster>

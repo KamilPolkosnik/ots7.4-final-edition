@@ -99,5 +99,10 @@
 		<item id="3002" countmax="1" chance="200" /> <!-- a voodoo doll -->
 		<item id="4464" countmax="1" chance="200" /> <!-- a demon boots -->
 		<item id="3389" countmax="1" chance="300" /> <!-- a demon legs -->
+		<item id="2231" chance="90" countmax="1"/> <!-- big bone -->
+		<item id="2176" chance="120" countmax="1"/> <!-- orb -->
+		<item id="2174" chance="225" countmax="1"/> <!-- strange symbol -->
+		<item id="2151" chance="240" countmax="17"/> <!-- talon -->
+		<item id="3955" chance="200" countmax="1"/> <!-- voodoo doll -->
 	</loot>
 </monster>

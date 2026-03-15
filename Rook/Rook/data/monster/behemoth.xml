@@ -56,5 +56,7 @@
     <item id="2387" chance="10000"/>
     <item id="2416" chance="15000"/>
 <item id="6512" chance="250"/>
+<item id="2231" chance="70" countmax="1"/> <!-- big bone -->
+<item id="2174" chance="10" countmax="1"/> <!-- strange symbol -->
   </loot>
 </monster>

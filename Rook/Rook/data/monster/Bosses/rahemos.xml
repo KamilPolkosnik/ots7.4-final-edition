@@ -79,5 +79,7 @@
     <item id="2214" chance="5000"/>
     <item id="2447" chance="100"/>
     <item id="6512" chance="250"/>
+    <item id="2348" chance="1000" countmax="1"/> <!-- ancient rune -->
+    <item id="2176" chance="5" countmax="1"/> <!-- orb -->
   </loot>
 </monster>

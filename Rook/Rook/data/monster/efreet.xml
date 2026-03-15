@@ -75,5 +75,6 @@
     <item id="2442" chance="20000"/>
     <item id="2147" chance="500"/>
     <item id="6512" chance="250"/>
+    <item id="2359" chance="200" countmax="1"/> <!-- small oil lamp -->
   </loot>
 </monster>

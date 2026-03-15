@@ -59,5 +59,6 @@
     <item id="2188" chance="1000"/>
     <item id="1973" chance="4500"/>
     <item id="6512" chance="250"/>
+    <item id="1977" chance="45" countmax="1"/> <!-- book -->
   </loot>
 </monster>

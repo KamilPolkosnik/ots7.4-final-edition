@@ -1,0 +1,207 @@
+Craft Loot Restore Report
+Generated: 2026-03-15
+
+Source used for comparison:
+- C:\Users\stelm\OneDrive\Pulpit\TibiaCore
+
+Scope:
+- Rewards tab "Craft" in client maps to server category "creature" (creature loot and crafting materials).
+- Missing creature-material loot entries were restored to current monster XML files by matching TibiaCore loot comments/names to current item IDs from task_system.lua.
+
+Summary:
+- Modified monster XML files: 46
+- Added loot entries: 99
+- No target file found for: TibiaCore\data\monster\event\illusion.xml
+
+Added loot by file:
+
+Rook/Rook/data/monster/Bosses/ashmunrah.xml
+- silver brooch (id 2134), chance 40, countmax 1
+
+Rook/Rook/data/monster/Bosses/dipthrah.xml
+- ankh (id 2193), chance 5, countmax 1
+
+Rook/Rook/data/monster/Bosses/rahemos.xml
+- ancient rune (id 2348), chance 1000, countmax 1
+- orb (id 2176), chance 5, countmax 1
+
+Rook/Rook/data/monster/Bosses/vashresamun.xml
+- blue note (id 2349), chance 1000, countmax 1
+- panpipes (id 2074), chance 2, countmax 1
+
+Rook/Rook/data/monster/amazon.xml
+- skull (id 2229), chance 800, countmax 2
+
+Rook/Rook/data/monster/banshee.xml
+- dirty cape (id 2237), chance 300, countmax 1
+- mirror (id 2560), chance 70, countmax 1
+- silver brooch (id 2134), chance 25, countmax 1
+
+Rook/Rook/data/monster/behemoth.xml
+- big bone (id 2231), chance 70, countmax 1
+- strange symbol (id 2174), chance 10, countmax 1
+
+Rook/Rook/data/monster/blue djinn.xml
+- blue rose (id 2745), chance 5, countmax 1
+- book (id 1977), chance 25, countmax 1
+- small oil lamp (id 2359), chance 75, countmax 1
+
+Rook/Rook/data/monster/bonebeast.xml
+- big bone (id 2231), chance 100, countmax 1
+- bone (id 2230), chance 500, countmax 1
+- skull (id 2229), chance 200, countmax 1
+
+Rook/Rook/data/monster/crypt shambler.xml
+- bone (id 2230), chance 500, countmax 1
+
+Rook/Rook/data/monster/demon skeleton.xml
+- mysterious fetish (id 2194), chance 5, countmax 1
+
+Rook/Rook/data/monster/demon.xml
+- coconut (id 2678), chance 100, countmax 3
+- orb (id 2176), chance 30, countmax 1
+- purple tome (id 1982), chance 13, countmax 1
+- talon (id 2151), chance 45, countmax 1
+
+Rook/Rook/data/monster/dragon lord.xml
+- book (id 1977), chance 80, countmax 1
+- golden mug (id 2033), chance 50, countmax 1
+
+Rook/Rook/data/monster/efreet.xml
+- small oil lamp (id 2359), chance 200, countmax 1
+
+Rook/Rook/data/monster/elf arcanist.xml
+- grave flower (id 2747), chance 70, countmax 1
+- sling herb (id 2802), chance 50, countmax 1
+
+Rook/Rook/data/monster/frost troll.xml
+- twigs (id 2245), chance 80, countmax 1
+
+Rook/Rook/data/monster/ghost.xml
+- book (id 1977), chance 15, countmax 1
+- shadow herb (id 2804), chance 450, countmax 1
+
+Rook/Rook/data/monster/ghoul.xml
+- skull (id 2229), chance 120, countmax 1
+
+Rook/Rook/data/monster/goblin.xml
+- bone (id 2230), chance 120, countmax 1
+
+Rook/Rook/data/monster/green djinn.xml
+- book (id 1977), chance 25, countmax 1
+- grave flower (id 2747), chance 100, countmax 1
+- small oil lamp (id 2359), chance 75, countmax 1
+
+Rook/Rook/data/monster/lich.xml
+- dirty cape (id 2237), chance 200, countmax 1
+
+Rook/Rook/data/monster/lizard snakecharmer.xml
+- dirty cape (id 2237), chance 199, countmax 1
+
+Rook/Rook/data/monster/marid.xml
+- small oil lamp (id 2359), chance 200, countmax 1
+
+Rook/Rook/data/monster/monk.xml
+- ankh (id 2193), chance 5, countmax 1
+
+Rook/Rook/data/monster/mummy.xml
+- silver brooch (id 2134), chance 40, countmax 1
+
+Rook/Rook/data/monster/orc shaman.xml
+- book (id 1977), chance 45, countmax 1
+
+Rook/Rook/data/monster/orc spearman.xml
+- dirty fur (id 2220), chance 77, countmax 1
+
+Rook/Rook/data/monster/priestess.xml
+- book (id 1977), chance 70, countmax 1
+- goat grass (id 2760), chance 120, countmax 1
+- powder herb (id 2803), chance 60, countmax 1
+- sling herb (id 2802), chance 140, countmax 1
+- talon (id 2151), chance 7, countmax 1
+
+Rook/Rook/data/monster/raids/ancientscarab.xml
+- scarab coin (id 2159), chance 20, countmax 2
+- scarab coin (id 2159), chance 8, countmax 1
+
+Rook/Rook/data/monster/raids/apocalypse.xml
+- golden mug (id 2033), chance 75, countmax 1
+- strange symbol (id 2174), chance 125, countmax 1
+- talon (id 2151), chance 140, countmax 70
+- voodoo doll (id 3955), chance 100, countmax 1
+
+Rook/Rook/data/monster/raids/banshee.xml
+- dirty cape (id 2237), chance 199, countmax 1
+- mirror (id 2560), chance 70, countmax 1
+- silver brooch (id 2134), chance 26, countmax 1
+
+Rook/Rook/data/monster/raids/bazir.xml
+- big bone (id 2231), chance 90, countmax 1
+- golden mug (id 2033), chance 75, countmax 1
+- orb (id 2176), chance 120, countmax 1
+- purple tome (id 1982), chance 26, countmax 1
+- strange symbol (id 2174), chance 25, countmax 1
+- talon (id 2151), chance 140, countmax 7
+- voodoo doll (id 3955), chance 1, countmax 1
+
+Rook/Rook/data/monster/raids/demodras.xml
+- book (id 1977), chance 400, countmax 1
+- golden mug (id 2033), chance 550, countmax 1
+
+Rook/Rook/data/monster/raids/demon.xml
+- orb (id 2176), chance 30, countmax 1
+- purple tome (id 1982), chance 13, countmax 1
+- talon (id 2151), chance 35, countmax 1
+
+Rook/Rook/data/monster/raids/dharalion.xml
+- grave flower (id 2747), chance 90, countmax 1
+- sling herb (id 2802), chance 400, countmax 1
+
+Rook/Rook/data/monster/raids/fernfang.xml
+- dirty fur (id 2220), chance 144, countmax 1
+- grave flower (id 2747), chance 360, countmax 1
+- sling herb (id 2802), chance 140, countmax 1
+
+Rook/Rook/data/monster/raids/ferumbras.xml
+- purple tome (id 1982), chance 222, countmax 1
+- voodoo doll (id 3955), chance 65, countmax 1
+
+Rook/Rook/data/monster/raids/infernatil.xml
+- big bone (id 2231), chance 90, countmax 1
+- orb (id 2176), chance 120, countmax 1
+- strange symbol (id 2174), chance 225, countmax 1
+- talon (id 2151), chance 240, countmax 17
+- voodoo doll (id 3955), chance 200, countmax 1
+
+Rook/Rook/data/monster/raids/necropharus.xml
+- big bone (id 2231), chance 60, countmax 1
+- bone (id 2230), chance 300, countmax 1
+- skull (id 2229), chance 160, countmax 1
+
+Rook/Rook/data/monster/raids/orshabaal.xml
+- golden mug (id 2033), chance 75, countmax 1
+- orb (id 2176), chance 120, countmax 1
+- purple tome (id 1982), chance 26, countmax 1
+- strange symbol (id 2174), chance 25, countmax 1
+- talon (id 2151), chance 160, countmax 7
+- voodoo doll (id 3955), chance 190, countmax 1
+
+Rook/Rook/data/monster/sibang.xml
+- coconut (id 2678), chance 25, countmax 3
+
+Rook/Rook/data/monster/skeleton.xml
+- bone (id 2230), chance 500, countmax 1
+
+Rook/Rook/data/monster/valkyrie.xml
+- skull (id 2229), chance 800, countmax 2
+
+Rook/Rook/data/monster/vampire.xml
+- grave flower (id 2747), chance 180, countmax 1
+- skull (id 2229), chance 200, countmax 1
+
+Rook/Rook/data/monster/warlock.xml
+- red tome (id 1986), chance 3, countmax 1
+- talon (id 2151), chance 18, countmax 1
+
+Rook/Rook/data/monster/wild warrior.xml
+- doll (id 2110), chance 5, countmax 1

@@ -52,5 +52,6 @@
     <item id="2401" chance="11000"/>
     <item id="2166" chance="100"/>
     <item id="6512" chance="250"/>
+    <item id="2193" chance="5" countmax="1"/> <!-- ankh -->
   </loot>
 </monster>

@@ -70,5 +70,7 @@
     <!-- a small amethyst -->
     <item id="3032" countmax="3" chance="12" />
     <!-- a small emerald -->
+    <item id="2159" chance="20" countmax="2"/> <!-- scarab coin -->
+    <item id="2159" chance="8" countmax="1"/> <!-- scarab coin -->
   </loot>
 </monster>

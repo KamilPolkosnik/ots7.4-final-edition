@@ -47,5 +47,6 @@
     <item id="2465" chance="1000"/>
     <item id="2478" chance="1000"/>
     <item id="2481" chance="1000"/>
+    <item id="2229" chance="800" countmax="2"/> <!-- skull -->
   </loot>
 </monster>

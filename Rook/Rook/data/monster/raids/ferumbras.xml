@@ -99,5 +99,7 @@
 		<!--item id="5090" countmax="3" chance="250" /> <!-- box -->
 		<item id="3002" countmax="1" chance="65" /> <!-- a voodoo doll -->
 		<item id="3026" countmax="99" chance="225" /> <!-- a white pearl -->
+		<item id="1982" chance="222" countmax="1"/> <!-- purple tome -->
+		<item id="3955" chance="65" countmax="1"/> <!-- voodoo doll -->
 	</loot>
 </monster>

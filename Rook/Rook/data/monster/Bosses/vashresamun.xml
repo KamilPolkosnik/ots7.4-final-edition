@@ -62,5 +62,7 @@
     <item id="2150" chance="100"/>
     <item id="2445" chance="100"/>
     <item id="6512" chance="250"/>
+    <item id="2349" chance="1000" countmax="1"/> <!-- blue note -->
+    <item id="2074" chance="2" countmax="1"/> <!-- panpipes -->
   </loot>
 </monster>

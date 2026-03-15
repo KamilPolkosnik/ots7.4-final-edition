@@ -61,5 +61,8 @@
 		<item id="3114" countmax="1" chance="160" /> <!-- a skull -->
 		<!--item id="5090" countmax="1" chance="250" /> <!-- a box -->
 		<item id="3324" countmax="1" chance="500" /> <!-- a skull staff -->
+		<item id="2231" chance="60" countmax="1"/> <!-- big bone -->
+		<item id="2230" chance="300" countmax="1"/> <!-- bone -->
+		<item id="2229" chance="160" countmax="1"/> <!-- skull -->
 	</loot>
 </monster>

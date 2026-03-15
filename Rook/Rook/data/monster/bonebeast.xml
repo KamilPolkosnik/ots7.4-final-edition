@@ -55,5 +55,8 @@
     <item id="2449" chance="5000"/>
     <item id="2541" chance="2000"/>
     <item id="6512" chance="250"/>
+    <item id="2231" chance="100" countmax="1"/> <!-- big bone -->
+    <item id="2230" chance="500" countmax="1"/> <!-- bone -->
+    <item id="2229" chance="200" countmax="1"/> <!-- skull -->
   </loot>
 </monster>

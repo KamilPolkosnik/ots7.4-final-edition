@@ -68,5 +68,7 @@
 		<item id="3029" countmax="5" chance="500" /> <!-- a small sapphire -->
 		<item id="3373" countmax="1" chance="100" /> <!-- a strange helmet -->
 		<item id="3428" countmax="1" chance="340" /> <!-- a tower shield -->
+		<item id="1977" chance="400" countmax="1"/> <!-- book -->
+		<item id="2033" chance="550" countmax="1"/> <!-- golden mug -->
 	</loot>
 </monster>

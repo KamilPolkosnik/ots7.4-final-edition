@@ -144,5 +144,12 @@
 		<item id="3002" countmax="1" chance="1" /> <!-- a voodoo doll -->
 		<item id="3069" countmax="1" chance="35" /> <!-- a volcanic rod -->
 		<item id="3026" countmax="15" chance="125" /> <!-- a white pearl -->
+		<item id="2231" chance="90" countmax="1"/> <!-- big bone -->
+		<item id="2033" chance="75" countmax="1"/> <!-- golden mug -->
+		<item id="2176" chance="120" countmax="1"/> <!-- orb -->
+		<item id="1982" chance="26" countmax="1"/> <!-- purple tome -->
+		<item id="2174" chance="25" countmax="1"/> <!-- strange symbol -->
+		<item id="2151" chance="140" countmax="7"/> <!-- talon -->
+		<item id="3955" chance="1" countmax="1"/> <!-- voodoo doll -->
 	</loot>
 </monster>

@@ -79,5 +79,9 @@
     <item id="2164" chance="200"/>
     <item id="2165" chance="1400"/>
     <item id="6512" chance="250"/>
+    <item id="2678" chance="100" countmax="3"/> <!-- coconut -->
+    <item id="2176" chance="30" countmax="1"/> <!-- orb -->
+    <item id="1982" chance="13" countmax="1"/> <!-- purple tome -->
+    <item id="2151" chance="45" countmax="1"/> <!-- talon -->
   </loot>
 </monster>

@@ -79,5 +79,8 @@
 		<item id="3049" countmax="1" chance="14" /> <!-- a stealth ring -->
 		<item id="3034" countmax="1" chance="35" /> <!-- a talon -->
 		<item id="4470" countmax="1" chance="500" /> <!-- a Za Kalortith -->
+		<item id="2176" chance="30" countmax="1"/> <!-- orb -->
+		<item id="1982" chance="13" countmax="1"/> <!-- purple tome -->
+		<item id="2151" chance="35" countmax="1"/> <!-- talon -->
 	</loot>
 </monster>

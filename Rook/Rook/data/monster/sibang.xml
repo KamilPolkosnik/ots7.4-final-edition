@@ -47,5 +47,6 @@
     <item id="1294" countmax="3" chance1="30000" chancemax="0"/>
     <item id="2458" chance="4000"/>
     <item id="6512" chance="250"/>
+    <item id="2678" chance="25" countmax="3"/> <!-- coconut -->
   </loot>
 </monster>

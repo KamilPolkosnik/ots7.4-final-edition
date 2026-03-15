@@ -70,5 +70,8 @@
 		<item id="3081" countmax="1" chance="20" /> <!-- a stone skin amulet -->
 		<item id="3004" countmax="1" chance="35" /> <!-- a wedding ring -->
 		<item id="3026" countmax="1" chance="27" /> <!-- a white pearl -->
+		<item id="2237" chance="199" countmax="1"/> <!-- dirty cape -->
+		<item id="2560" chance="70" countmax="1"/> <!-- mirror -->
+		<item id="2134" chance="26" countmax="1"/> <!-- silver brooch -->
 	</loot>
 </monster>

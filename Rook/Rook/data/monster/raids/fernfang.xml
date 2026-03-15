@@ -73,5 +73,8 @@
 		<!--item id="5090" countmax="1" chance="250" /> <!-- a box -->
 		<item id="2849" countmax="1" chance="4" /> <!-- a green tome -->
 		<item id="3102" countmax="1" chance="2" /> <!-- a paw amulet -->
+		<item id="2220" chance="144" countmax="1"/> <!-- dirty fur -->
+		<item id="2747" chance="360" countmax="1"/> <!-- grave flower -->
+		<item id="2802" chance="140" countmax="1"/> <!-- sling herb -->
 	</loot>
 </monster>

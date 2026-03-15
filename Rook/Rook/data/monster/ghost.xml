@@ -46,5 +46,7 @@
     <item id="2532" chance="800"/>
 <item id="2165" chance="200"/>
     <item id="6512" chance="250"/>
+    <item id="1977" chance="15" countmax="1"/> <!-- book -->
+    <item id="2804" chance="450" countmax="1"/> <!-- shadow herb -->
   </loot>
 </monster>

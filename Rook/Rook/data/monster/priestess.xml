@@ -58,5 +58,10 @@
     <item id="2146" chance="1000"/>
     <item id="2529" chance="200"/>
 <item id="6512" chance="250"/>
+<item id="1977" chance="70" countmax="1"/> <!-- book -->
+<item id="2760" chance="120" countmax="1"/> <!-- goat grass -->
+<item id="2803" chance="60" countmax="1"/> <!-- powder herb -->
+<item id="2802" chance="140" countmax="1"/> <!-- sling herb -->
+<item id="2151" chance="7" countmax="1"/> <!-- talon -->
   </loot>
 </monster>
