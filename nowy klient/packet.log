@@ -235,3 +235,13 @@ ProtocolGame parse message exception (44 bytes, 21 unread, last opcode is 0x00 (
 6a 5b 7d cd 7d 07 29 1f 01 
 00 a0 90 01 90 01 28 5c 20 4b eb 03 a0 00 00 00 00 2d 05 2d 05 64 00 00 
 
+ProtocolGame parse message exception (40 bytes, 28 unread, last opcode is 0x00 (0), prev opcode is 0x70 (112), proto: 772): InputMessage eof reached
+28 00 24 00 
+70 00 30 1f 01 
+00 a0 90 01 90 01 28 5c 20 4b eb 03 a0 00 00 00 00 2d 05 2d 05 64 00 00 83 59 7d cc 7d 07 0f 
+
+ProtocolGame parse message exception (47 bytes, 34 unread, last opcode is 0x00 (0), prev opcode is 0x71 (113), proto: 772): InputMessage eof reached
+30 00 2b 00 
+71 00 00 30 1f 64 
+00 70 00 30 1f 01 00 a0 90 01 90 01 28 5c 20 4b eb 03 a0 00 00 00 00 2d 05 2d 05 64 00 00 83 59 7d cc 7d 07 0f 
+
